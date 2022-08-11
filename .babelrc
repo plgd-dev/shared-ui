@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false
+      }
+    ],
+    [
+      "react-app",
+      {
+        "flow": false,
+        "typescript": true,
+        "helpers": false
+      }
+    ]
+  ],
+  "comments": false
+}

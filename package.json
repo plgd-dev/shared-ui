@@ -1,0 +1,77 @@
+{
+  "name": "@plgd/shared",
+  "version": "1.1.0",
+  "private": true,
+  "author": "plgd",
+  "description": "React components that implement plgd's design.",
+  "main": "./src/index.js",
+  "keywords": [
+    "react",
+    "react-component",
+    "plgd"
+  ],
+  "scripts": {
+    "build": "npm-run-all prebuild build:legacy build:modern build:node build:stable build:umd2 build:copy-files",
+    "build:legacy": "node ./scripts/build legacy",
+    "build:modern": "node ./scripts/build modern",
+    "build:node": "node ./scripts/build node",
+    "build:stable": "node ./scripts/build stable",
+    "build:stable:watch": "node ./scripts/build stable --watch",
+    "build:copy-files": "node ./scripts/copy-files.js",
+    "build:umd": "rollup -c ./scripts/rollup.config.js",
+    "build:umd2": "rollup -c ./scripts/rollup.test.js",
+    "prebuild": "rimraf build"
+  },
+  "peerDependencies": {
+    "@types/react": "^17.0.2",
+    "bootstrap": "^5.1.3",
+    "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.4.0",
+    "react-dom": "^17.0.2"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/plugin-proposal-class-properties": "^7.17.12",
+    "@babel/plugin-proposal-object-rest-spread": "^7.18.0",
+    "@babel/plugin-proposal-private-methods": "^7.17.12",
+    "@babel/plugin-proposal-private-property-in-object": "^7.17.12",
+    "@babel/plugin-transform-object-assign": "^7.16.7",
+    "@babel/plugin-transform-react-constant-elements": "^7.17.12",
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-typescript": "^7.17.12",
+    "@rollup/plugin-replace": "^4.0.0",
+    "babel-plugin-istanbul": "^6.1.1",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "babel-plugin-optimize-clsx": "^2.6.2",
+    "babel-preset-react-app": "^10.0.1",
+    "child_process": "^1.0.2",
+    "classnames": "^2.3.1",
+    "cross-env": "^7.0.3",
+    "fast-glob": "^3.2.11",
+    "fs-extra": "^10.1.0",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "postcss-modules": "^4.3.1",
+    "prop-types": "^15.8.1",
+    "rimraf": "^3.0.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "util": "^0.12.4",
+    "yargs": "^17.5.1"
+  },
+  "sideEffects": false
+}
