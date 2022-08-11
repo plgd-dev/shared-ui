@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react'
 
-import { Emitter } from '@/common/services/emitter'
+import { Emitter } from '../services/emitter'
 
 // Returns the last emitted data from a given eventKey.
-export const useEmitterData = eventKey => {
-  const [data, setData] = useState(null)
+export const useEmitterData = (eventKey) => {
+    const [data, setData] = useState(null)
 
-  useEffect(
-    () => {
-      Emitter.on(eventKey, setData)
+    useEffect(() => {
+        Emitter.on(eventKey, setData)
 
-      return () => Emitter.off(eventKey, setData)
-    },
-    [eventKey]
-  )
+        return () => Emitter.off(eventKey, setData)
+    }, [eventKey])
 
-  return data
+    return data
 }

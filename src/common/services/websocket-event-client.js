@@ -1,235 +1,213 @@
-import { getAppMode } from '@/common/utils'
+import { getAppMode } from '../utils'
 import { security } from './security'
 
 class _WebSocketEventClient {
-  constructor(api) {
-    this.ws = null
-    this.api = api
+    constructor(api) {
+        this.ws = null
+        this.api = api
 
-    // Time needed to reconnect to the Websocket after it was disconnected (cause of server or network failure).
-    this.reconnectTimeMs = 2000
+        // Time needed to reconnect to the Websocket after it was disconnected (cause of server or network failure).
+        this.reconnectTimeMs = 2000
 
-    // Maximum number of attempts to try reconnect the Websocket after it was disconnected.
-    this.maxReconnectAttempts = 5
+        // Maximum number of attempts to try reconnect the Websocket after it was disconnected.
+        this.maxReconnectAttempts = 5
 
-    // Current number of attempt to reconnect
-    this.reconnectAttempts = 0
+        // Current number of attempt to reconnect
+        this.reconnectAttempts = 0
 
-    // Event listener list key/value paris of correlationId: { createSubscription, listener }
-    this.events = {}
+        // Event listener list key/value paris of correlationId: { createSubscription, listener }
+        this.events = {}
 
-    // Key/value pairs of correlationId: subscriptionId
-    this.idsMap = {}
+        // Key/value pairs of correlationId: subscriptionId
+        this.idsMap = {}
 
-    // Time needed to retry the subscription, if the WebSocket is not yet connected
-    this.retrySubscribeMs = 300
+        // Time needed to retry the subscription, if the WebSocket is not yet connected
+        this.retrySubscribeMs = 300
 
-    // Time for delaying the event listener apply
-    this.delayListenersMs = 0
-  }
-
-  _connect = async () => {
-    const accessToken = await security.getAccessTokenSilently()({
-      audience: security.getWebOAuthConfig()?.audience,
-    })
-    const { host, protocol } = new URL(
-      security.getGeneralConfig().httpGatewayAddress
-    )
-    const wsProtocol = protocol === 'https:' ? 'wss:' : 'ws:'
-
-    const wsUrl = `${wsProtocol}//${host}${this.api}`
-
-    // WS Instance
-    this.ws = new WebSocket(wsUrl, ['Bearer', accessToken])
-
-    this.ws.addEventListener('open', this._onOpen)
-    this.ws.addEventListener('close', this._onClose)
-    this.ws.addEventListener('error', this._onError)
-  }
-
-  _clear = () => {
-    this.ws.removeEventListener('message', this._onMessage)
-    this.ws.removeEventListener('open', this._onOpen)
-    this.ws.removeEventListener('close', this._onClose)
-    this.ws.removeEventListener('error', this._onError)
-    this.ws = null
-  }
-
-  _onOpen = (...args) => {
-    if (getAppMode() !== 'production') {
-      console.info(
-        `WebSocket connection was opened %c@ ${new Date().toUTCString()}`,
-        'color: #255897;'
-      )
+        // Time for delaying the event listener apply
+        this.delayListenersMs = 0
     }
 
-    // Reset the reconnect attempts
-    this.reconnectAttempts = 0
+    _connect = async () => {
+        const accessToken = await security.getAccessTokenSilently()({
+            audience: security.getWebOAuthConfig()?.audience,
+        })
+        const { host, protocol } = new URL(security.getGeneralConfig().httpGatewayAddress)
+        const wsProtocol = protocol === 'https:' ? 'wss:' : 'ws:'
 
-    this.ws.addEventListener('message', this._onMessage)
+        const wsUrl = `${wsProtocol}//${host}${this.api}`
 
-    // re-send all WS subscriptions from the this.events list
-    this._reSendSubscriptions()
+        // WS Instance
+        this.ws = new WebSocket(wsUrl, ['Bearer', accessToken])
 
-    this.onOpen(...args)
-  }
+        this.ws.addEventListener('open', this._onOpen)
+        this.ws.addEventListener('close', this._onClose)
+        this.ws.addEventListener('error', this._onError)
+    }
 
-  _onClose = (...args) => {
-    console.info(
-      `WebSocket connection  was closed, reconnecting in ${Number(
-        this.reconnectTimeMs / 1000
-      ).toFixed(0)} seconds %c@ ${new Date().toUTCString()}`,
-      'color: #255897;'
-    )
+    _clear = () => {
+        this.ws.removeEventListener('message', this._onMessage)
+        this.ws.removeEventListener('open', this._onOpen)
+        this.ws.removeEventListener('close', this._onClose)
+        this.ws.removeEventListener('error', this._onError)
+        this.ws = null
+    }
 
-    // Clear all event listeners and the WebSocket instance
-    this._clear()
-
-    if (this.reconnectAttempts < this.maxReconnectAttempts) {
-      // After a close event, try to reconnect
-      setTimeout(() => {
-        if (!this.ws) {
-          this._connect()
+    _onOpen = (...args) => {
+        if (getAppMode() !== 'production') {
+            console.info(`WebSocket connection was opened %c@ ${new Date().toUTCString()}`, 'color: #255897;')
         }
-      }, this.reconnectTimeMs)
 
-      // Increment the reconnect attempts
-      this.reconnectAttempts += 1
-    } else {
-      console.error(
-        `Could not reconnect to the WebSocket %c@ ${new Date().toUTCString()}`,
-        'color: #255897;'
-      )
+        // Reset the reconnect attempts
+        this.reconnectAttempts = 0
+
+        this.ws.addEventListener('message', this._onMessage)
+
+        // re-send all WS subscriptions from the this.events list
+        this._reSendSubscriptions()
+
+        this.onOpen(...args)
     }
 
-    this.onClose(...args)
-  }
+    _onClose = (...args) => {
+        console.info(
+            `WebSocket connection  was closed, reconnecting in ${Number(this.reconnectTimeMs / 1000).toFixed(0)} seconds %c@ ${new Date().toUTCString()}`,
+            'color: #255897;'
+        )
 
-  _onError = (...args) => {
-    this.onError(...args)
-  }
+        // Clear all event listeners and the WebSocket instance
+        this._clear()
 
-  _onMessage = message => {
-    try {
-      const { result, code } = JSON.parse(message.data)
+        if (this.reconnectAttempts < this.maxReconnectAttempts) {
+            // After a close event, try to reconnect
+            setTimeout(() => {
+                if (!this.ws) {
+                    this._connect()
+                }
+            }, this.reconnectTimeMs)
 
-      // If there is an error, ignore the message
-      if (code !== undefined && code !== 0) {
-        return
-      }
-
-      const { correlationId, subscriptionId, operationProcessed, ...args } =
-        result || {}
-
-      if (!correlationId) {
-        return
-      }
-
-      // Save the subscriptionId to this.idsMap
-      if (
-        !this.idsMap[correlationId] &&
-        operationProcessed?.errorStatus?.code === 'OK'
-      ) {
-        this.idsMap[correlationId] = subscriptionId
-      }
-
-      // Invoke the event listener attached to this correlation id
-      if (
-        this.events?.[correlationId]?.listenerEnabled &&
-        !operationProcessed
-      ) {
-        this.events[correlationId]?.listener(args)
-      }
-    } catch (e) {
-      if (getAppMode() !== 'production') {
-        console.info('%cWebSocket: Cannot parse JSON', 'color: #eab927;')
-      }
-    }
-  }
-
-  _reSendSubscriptions = () => {
-    Object.keys(this.events).forEach(correlationId => {
-      this.send({
-        createSubscription: this.events[correlationId].createSubscription,
-        correlationId,
-      })
-
-      // Disable the event listener since we are expecting some initial event messages
-      if (this.events[correlationId]) {
-        this.events[correlationId].listenerEnabled = false
-      }
-
-      // Only enable the event listener after a certain time period, to exclude some initial event messages
-      setTimeout(() => {
-        if (this.events[correlationId]) {
-          this.events[correlationId].listenerEnabled = true
+            // Increment the reconnect attempts
+            this.reconnectAttempts += 1
+        } else {
+            console.error(`Could not reconnect to the WebSocket %c@ ${new Date().toUTCString()}`, 'color: #255897;')
         }
-      }, this.delayListenersMs)
-    })
-  }
 
-  send = data => {
-    this.ws.send(JSON.stringify(data))
-  }
-
-  subscribe = (createSubscription, correlationId, listener) => {
-    if (this?.ws?.readyState !== 1) {
-      setTimeout(
-        () => this.subscribe(createSubscription, correlationId, listener),
-        this.retrySubscribeMs
-      )
-      return
+        this.onClose(...args)
     }
 
-    if (!this.events[correlationId]) {
-      // Send a subscription message to the WS
-      this.send({ createSubscription, correlationId })
-      this.events[correlationId] = {
-        createSubscription,
-        listener,
-        listenerEnabled: false,
-      }
+    _onError = (...args) => {
+        this.onError(...args)
+    }
 
-      // Only enable the event listener after a certain time period, to exclude some initial event messages
-      setTimeout(() => {
-        if (this.events[correlationId]) {
-          this.events[correlationId].listenerEnabled = true
+    _onMessage = (message) => {
+        try {
+            const { result, code } = JSON.parse(message.data)
+
+            // If there is an error, ignore the message
+            if (code !== undefined && code !== 0) {
+                return
+            }
+
+            const { correlationId, subscriptionId, operationProcessed, ...args } = result || {}
+
+            if (!correlationId) {
+                return
+            }
+
+            // Save the subscriptionId to this.idsMap
+            if (!this.idsMap[correlationId] && operationProcessed?.errorStatus?.code === 'OK') {
+                this.idsMap[correlationId] = subscriptionId
+            }
+
+            // Invoke the event listener attached to this correlation id
+            if (this.events?.[correlationId]?.listenerEnabled && !operationProcessed) {
+                this.events[correlationId]?.listener(args)
+            }
+        } catch (e) {
+            if (getAppMode() !== 'production') {
+                console.info('%cWebSocket: Cannot parse JSON', 'color: #eab927;')
+            }
         }
-      }, this.delayListenersMs)
-    } else if (getAppMode() !== 'production') {
-      console.info('%cWebSocket: Already subscribed', 'color: #eab927;')
-    }
-  }
-
-  unsubscribe = correlationId => {
-    if (this?.ws?.readyState !== 1) {
-      setTimeout(() => this.unsubscribe(correlationId), this.retrySubscribeMs)
-      return
     }
 
-    if (this.events[correlationId] && this.idsMap[correlationId]) {
-      // Send an unsubscription message to the WS
-      this.send({
-        cancelSubscription: {
-          subscriptionId: this.idsMap[correlationId],
-        },
-      })
+    _reSendSubscriptions = () => {
+        Object.keys(this.events).forEach((correlationId) => {
+            this.send({
+                createSubscription: this.events[correlationId].createSubscription,
+                correlationId,
+            })
 
-      delete this.events[correlationId]
-      delete this.idsMap[correlationId]
+            // Disable the event listener since we are expecting some initial event messages
+            if (this.events[correlationId]) {
+                this.events[correlationId].listenerEnabled = false
+            }
+
+            // Only enable the event listener after a certain time period, to exclude some initial event messages
+            setTimeout(() => {
+                if (this.events[correlationId]) {
+                    this.events[correlationId].listenerEnabled = true
+                }
+            }, this.delayListenersMs)
+        })
     }
-  }
 
-  onOpen = () => {}
+    send = (data) => {
+        this.ws.send(JSON.stringify(data))
+    }
 
-  onClose = () => {}
+    subscribe = (createSubscription, correlationId, listener) => {
+        if (this?.ws?.readyState !== 1) {
+            setTimeout(() => this.subscribe(createSubscription, correlationId, listener), this.retrySubscribeMs)
+            return
+        }
 
-  onError = () => {}
+        if (!this.events[correlationId]) {
+            // Send a subscription message to the WS
+            this.send({ createSubscription, correlationId })
+            this.events[correlationId] = {
+                createSubscription,
+                listener,
+                listenerEnabled: false,
+            }
+
+            // Only enable the event listener after a certain time period, to exclude some initial event messages
+            setTimeout(() => {
+                if (this.events[correlationId]) {
+                    this.events[correlationId].listenerEnabled = true
+                }
+            }, this.delayListenersMs)
+        } else if (getAppMode() !== 'production') {
+            console.info('%cWebSocket: Already subscribed', 'color: #eab927;')
+        }
+    }
+
+    unsubscribe = (correlationId) => {
+        if (this?.ws?.readyState !== 1) {
+            setTimeout(() => this.unsubscribe(correlationId), this.retrySubscribeMs)
+            return
+        }
+
+        if (this.events[correlationId] && this.idsMap[correlationId]) {
+            // Send an unsubscription message to the WS
+            this.send({
+                cancelSubscription: {
+                    subscriptionId: this.idsMap[correlationId],
+                },
+            })
+
+            delete this.events[correlationId]
+            delete this.idsMap[correlationId]
+        }
+    }
+
+    onOpen = () => {}
+
+    onClose = () => {}
+
+    onError = () => {}
 }
 
-export const WebSocketEventClient = new _WebSocketEventClient(
-  '/api/v1/ws/events'
-)
+export const WebSocketEventClient = new _WebSocketEventClient('/api/v1/ws/events')
 
 /*
 // ------------Example usage:-------------- //
