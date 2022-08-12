@@ -1,6 +1,6 @@
 @use 'sass:math';
-@import '@/common/styles/colors.scss';
-@import '@/common/styles/sizes.scss';
+@import '../../../common/styles/colors';
+@import '../../../common/styles/sizes';
 
 $padding: 25px;
 
