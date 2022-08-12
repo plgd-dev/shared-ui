@@ -11,7 +11,7 @@
     "plgd"
   ],
   "scripts": {
-    "build": "npm-run-all prebuild build:legacy build:modern build:node build:stable build:umd2 build:copy-files",
+    "build": "npm-run-all prebuild build:legacy build:modern build:node build:stable build:umd build:copy-files",
     "build:legacy": "node ./scripts/build legacy",
     "build:modern": "node ./scripts/build modern",
     "build:node": "node ./scripts/build node",
@@ -19,7 +19,6 @@
     "build:stable:watch": "node ./scripts/build stable --watch",
     "build:copy-files": "node ./scripts/copy-files.js",
     "build:umd": "rollup -c ./scripts/rollup.config.js",
-    "build:umd2": "rollup -c ./scripts/rollup.test.js",
     "prebuild": "rimraf build"
   },
   "peerDependencies": {
