@@ -8,39 +8,42 @@ import { messages as t } from './menu-i18n'
 import './menu.scss'
 import { useLocation } from 'react-router-dom'
 
-export const Menu = memo(({ collapsed, toggleCollapsed }) => {
-  const { formatMessage: _ } = useIntl()
-  const location = useLocation()
+export const Menu = memo(({ collapsed, toggleCollapsed, menuItems }) => {
+    const { formatMessage: _ } = useIntl()
+    const location = useLocation()
 
-  return (
-    <nav id="menu">
-      <div className="items">
-        <MenuItem
-          to="/"
-          icon="fa-list"
-          tooltip={collapsed && _(t.devices)}
-          className={classNames({
-            active: location.pathname.includes('devices'),
-          })}
-        >
-          {_(t.devices)}
-        </MenuItem>
-      </div>
-      <MenuItem
-        className="collapse-menu-item"
-        icon={classNames({
-          'fa-arrow-left': !collapsed,
-          'fa-arrow-right': collapsed,
-        })}
-        onClick={toggleCollapsed}
-      >
-        {_(t.collapse)}
-      </MenuItem>
-    </nav>
-  )
+    return (
+        <nav id='menu'>
+            <div className='items'>
+                {menuItems.map((item, index) => (
+                    <MenuItem
+                        key={index}
+                        to={item.to}
+                        icon={item.icon}
+                        tooltip={collapsed && _(t[item.nameKey])}
+                        className={classNames({
+                            active: item.className && location.pathname.includes(item.className),
+                        })}
+                    >
+                        {_(t[item.nameKey])}
+                    </MenuItem>
+                ))}
+            </div>
+            <MenuItem
+                className='collapse-menu-item'
+                icon={classNames({
+                    'fa-arrow-left': !collapsed,
+                    'fa-arrow-right': collapsed,
+                })}
+                onClick={toggleCollapsed}
+            >
+                {_(t.collapse)}
+            </MenuItem>
+        </nav>
+    )
 })
 
 Menu.propTypes = {
-  collapsed: PropTypes.bool.isRequired,
-  toggleCollapsed: PropTypes.func.isRequired,
+    collapsed: PropTypes.bool.isRequired,
+    toggleCollapsed: PropTypes.func.isRequired,
 }

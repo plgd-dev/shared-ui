@@ -7,23 +7,26 @@ import './Menu.scss'
 import { useLocation } from 'react-router-dom'
 import { Props } from './Menu.types'
 
-const Menu: FC<Props> = memo(({ collapsed, toggleCollapsed }) => {
+const Menu: FC<Props> = memo(({ collapsed, toggleCollapsed, menuItems }) => {
     const { formatMessage: _ } = useIntl()
     const location = useLocation()
 
     return (
         <nav id='menu'>
             <div className='items'>
-                <MenuItem
-                    to='/'
-                    icon='fa-list'
-                    tooltip={collapsed && _(t.devices)}
-                    className={classNames({
-                        active: location.pathname.includes('devices'),
-                    })}
-                >
-                    {_(t.devices)}
-                </MenuItem>
+                {menuItems.map((item, index) => (
+                    <MenuItem
+                        key={index}
+                        to={item.to}
+                        icon={item.icon}
+                        tooltip={collapsed && _(t[item.nameKey])}
+                        className={classNames({
+                            active: item.className && location.pathname.includes(item.className),
+                        })}
+                    >
+                        {_(t[item.nameKey])}
+                    </MenuItem>
+                ))}
             </div>
             <MenuItem
                 className='collapse-menu-item'
