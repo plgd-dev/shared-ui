@@ -3,7 +3,7 @@ import { useTable, useSortBy, usePagination, useRowSelect } from 'react-table'
 import BTable from 'react-bootstrap/Table'
 import { Props, defaultProps } from './Table.types'
 import classNames from 'classnames'
-import { Pagination } from './Pagination'
+import Pagination  from './Pagination'
 import { compareIgnoreCase } from './Utils'
 
 const Table: FC<Props> = (props) => {
