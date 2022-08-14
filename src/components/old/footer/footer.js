@@ -13,7 +13,7 @@ import { copyToClipboard } from '../../../common/utils'
 import { showSuccessToast } from '../toast'
 import { Display } from '../display'
 
-export const Footer = memo(() => {
+export const Footer = memo((links) => {
     const { formatMessage: _ } = useIntl()
     const { buildInformation } = useAppConfig()
     const [show, setShow] = useState(false)
@@ -97,15 +97,11 @@ export const Footer = memo(() => {
                 <BuildInformation />
             </div>
             <div className='right'>
-                <a href='https://github.com/plgd-dev/client-application/blob/main/pb/service.swagger.json' target='_blank' rel='noopener'>
-                    {_(t.API)}
-                </a>
-                <a href='https://docs.plgd.dev/' target='_blank' rel='noopener'>
-                    {_(t.docs)}
-                </a>
-                <a href='https://discord.gg/Pcusx938kg' target='_blank' rel='noopener'>
-                    {_(t.contribute)}
-                </a>
+                {links.map((item) => (
+                    <a href={item.to} target='_blank' rel='noopener'>
+                        {_(t[item.i18key])}
+                    </a>
+                ))}
             </div>
         </footer>
     )

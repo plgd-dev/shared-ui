@@ -1,4 +1,4 @@
-import { memo, useState } from 'react'
+import { FC, memo, useState } from 'react'
 import { useIntl } from 'react-intl'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
@@ -10,8 +10,9 @@ import { useAppConfig } from '@/containers/app'
 import { copyToClipboard } from '../../../common/utils'
 import { showSuccessToast } from '../../old/toast'
 import Display from '../Display'
+import { FooterLinkType, Props } from './Footer.types'
 
-const Footer = memo(() => {
+const Footer: FC<Props> = memo(({ links }) => {
     const { formatMessage: _ } = useIntl()
     const { buildInformation } = useAppConfig()
     const [show, setShow] = useState(false)
@@ -95,15 +96,11 @@ const Footer = memo(() => {
                 <BuildInformation />
             </div>
             <div className='right'>
-                <a href='https://github.com/plgd-dev/client-application/blob/main/pb/service.swagger.json' target='_blank' rel='noopener'>
-                    {_(t.API)}
-                </a>
-                <a href='https://docs.plgd.dev/' target='_blank' rel='noopener'>
-                    {_(t.docs)}
-                </a>
-                <a href='https://discord.gg/Pcusx938kg' target='_blank' rel='noopener'>
-                    {_(t.contribute)}
-                </a>
+                {links.map((item: FooterLinkType) => (
+                    <a href={item.to} target='_blank' rel='noopener'>
+                        {_(t[item.i18key])}
+                    </a>
+                ))}
             </div>
         </footer>
     )
