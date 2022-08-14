@@ -1,12 +1,14 @@
 import { parseStreamedData } from '../utils'
+import { security } from './security'
 
 export const streamApi = async (url, options = {}) => {
-    const { audience, scopes, body, parseResult, ...fetchOptions } = options
-    // const { audience: defaultAudience } = security.getWebOAuthConfig()
-    // const accessToken = await security.getAccessTokenSilently()({
-    //   audience: audience || defaultAudience,
-    //   scope: scopes?.join?.(','),
-    // })
+    const { audience, scopes, body, parseResult, useSecurity, ...fetchOptions } = options
+    const { audience: defaultAudience } = security.getWebOAuthConfig()
+    const accessToken = await security.getAccessTokenSilently()({
+        audience: audience || defaultAudience,
+        scope: scopes?.join?.(','),
+    })
+
     const oAuthSettings = {
         ...fetchOptions,
         headers: {
@@ -15,7 +17,10 @@ export const streamApi = async (url, options = {}) => {
             // Add the Authorization header to the existing headers
             // Authorization: `Bearer ${accessToken}`,
         },
-        // mode: 'no-cors',
+    }
+
+    if (useSecurity && accessToken) {
+        oAuthSettings.headers.Authorization = `Bearer ${accessToken}`
     }
 
     return fetch(url, {

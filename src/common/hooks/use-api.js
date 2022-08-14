@@ -34,8 +34,9 @@ export const useStreamApi = (url, options = {}) => {
         data: null,
     })
     const [refreshIndex, setRefreshIndex] = useState(0)
-    const { telemetryWebTracer } = useAppConfig()
+    const { telemetryWebTracer, useSecurity } = useAppConfig()
     const apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
+    options.useSecurity = useSecurity
 
     useEffect(
         () => {
@@ -61,10 +62,6 @@ export const useStreamApi = (url, options = {}) => {
                             error,
                             loading: false,
                         })
-
-                        if (telemetryWebTracer) {
-                            trace.getSpan(context.active()).addEvent('fetching-single-span-completed')
-                        }
                     }
                 }
             })()
