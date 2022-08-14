@@ -13,7 +13,7 @@ import { copyToClipboard } from '../../../common/utils'
 import { showSuccessToast } from '../toast'
 import { Display } from '../display'
 
-export const Footer = memo((links) => {
+export const Footer = memo(({ links }) => {
     const { formatMessage: _ } = useIntl()
     const { buildInformation } = useAppConfig()
     const [show, setShow] = useState(false)
