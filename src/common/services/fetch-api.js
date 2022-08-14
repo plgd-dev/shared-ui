@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { time } from 'units-converter'
-// import { security } from './security'
+import { security } from './security'
 
 // Time needed to cancel the request
 const CANCEL_REQUEST_DEADLINE_MS = 5000
@@ -15,22 +15,26 @@ export const errorCodes = {
 }
 
 export const fetchApi = async (url, options = {}) => {
-  const { audience, scopes, body, timeToLive, ...fetchOptions } = options
-  // const { audience: defaultAudience } = security.getWebOAuthConfig()
+  const { audience, scopes, body, timeToLive, useSecurity, ...fetchOptions } = options
+  const { audience: defaultAudience } = security.getWebOAuthConfig()
   // Access token must be gathered and set as a Bearer header in all requests
-  // const accessToken = await security.getAccessTokenSilently()({
-  //   audience: audience || defaultAudience,
-  //   scope: scopes?.join?.(','),
-  // })
+  const accessToken = await security.getAccessTokenSilently()({
+    audience: audience || defaultAudience,
+    scope: scopes?.join?.(','),
+  })
   const oAuthSettings = {
     ...fetchOptions,
     headers: {
       'Content-Type': 'application/json',
       ...fetchOptions.headers,
-      // Add the Authorization header to the existing headers
-      // Authorization: `Bearer ${accessToken}`,
     },
   }
+
+  // Add the Authorization header to the existing headers
+  if (useSecurity && accessToken) {
+    oAuthSettings.headers.Authorization = `Bearer ${accessToken}`
+  }
+
   // Cancel token source needed for cancelling the request
   const cancelTokenSource = axios.CancelToken.source()
 

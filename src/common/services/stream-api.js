@@ -14,11 +14,10 @@ export const streamApi = async (url, options = {}) => {
         headers: {
             'Content-Type': 'application/json',
             ...fetchOptions.headers,
-            // Add the Authorization header to the existing headers
-            // Authorization: `Bearer ${accessToken}`,
         },
     }
 
+    // Add the Authorization header to the existing headers
     if (useSecurity && accessToken) {
         oAuthSettings.headers.Authorization = `Bearer ${accessToken}`
     }

@@ -7,7 +7,6 @@ export const Switch = ({ id, label, ...rest }) => {
       {...rest}
       id={id}
       label={label}
-      bsCustomPrefix="switch-control"
     />
   )
 }
