@@ -96,8 +96,8 @@ const Footer: FC<Props> = memo(({ links }) => {
                 <BuildInformation />
             </div>
             <div className='right'>
-                {links.map((item: FooterLinkType) => (
-                    <a href={item.to} target='_blank' rel='noopener'>
+                {links.map((item: FooterLinkType, index) => (
+                    <a href={item.to} target='_blank' rel='noopener' key={index}>
                         {_(t[item.i18key])}
                     </a>
                 ))}

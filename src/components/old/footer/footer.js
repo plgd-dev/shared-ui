@@ -97,8 +97,8 @@ export const Footer = memo(({ links }) => {
                 <BuildInformation />
             </div>
             <div className='right'>
-                {links.map((item) => (
-                    <a href={item.to} target='_blank' rel='noopener'>
+                {links.map((item, index) => (
+                    <a href={item.to} target='_blank' rel='noopener' key={index}>
                         {_(t[item.i18key])}
                     </a>
                 ))}
