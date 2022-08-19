@@ -1,10 +1,11 @@
-import { MouseEvent } from 'react'
+import { MouseEvent, ReactNode } from 'react'
 import { iconPositions, buttonVariants } from './constants'
 
 export type ButtonIconPositionType = typeof iconPositions[keyof typeof iconPositions]
 export type ButtonVariantsType = typeof buttonVariants[keyof typeof buttonVariants]
 
 export type Props = {
+    children: ReactNode
     className?: string
     disabled?: boolean
     icon?: string
@@ -16,5 +17,5 @@ export type Props = {
 
 export const defaultProps: Partial<Props> = {
     iconPosition: iconPositions.ICON_LEFT,
-    variant: buttonVariants.PRIMARY,
+    variant: buttonVariants.SECONDARY,
 }
