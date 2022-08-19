@@ -1,7 +1,6 @@
 import { ReactNode, SyntheticEvent } from 'react'
 import { dropdownTypes } from './constants'
-import Dropdown from 'react-bootstrap/Dropdown'
-import { AlignType } from 'react-bootstrap/DropdownMenu'
+import { AlignType } from 'react-bootstrap/types'
 
 export type ActionButtonTypeType = typeof dropdownTypes[keyof typeof dropdownTypes]
 
@@ -23,7 +22,7 @@ export type Props = {
     }
     onToggle: () => (
         isOpen: boolean,
-        event: SyntheticEvent<Dropdown>,
+        event: SyntheticEvent<any>,
         metadata: {
             source: 'select' | 'click' | 'rootClose' | 'keydown'
         }
