@@ -28,8 +28,8 @@ export const Modal: FC<Props> = (props) => {
                             </button>
                         )}
                     </RBModal.Header>
-                    <RBModal.Body>{renderBody && renderBody()}</RBModal.Body>
-                    <RBModal.Footer>{renderFooter && renderFooter()}</RBModal.Footer>
+                    {renderBody && <RBModal.Body>{renderBody}</RBModal.Body>}
+                    {renderFooter && <RBModal.Footer>{renderFooter}</RBModal.Footer>}
                 </>
             )}
         </RBModal>

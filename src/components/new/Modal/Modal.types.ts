@@ -6,7 +6,7 @@ export type Props = {
     dialogClassName?: string
     onClose?: () => void
     renderBody?: ReactNode
-    renderFooter?: () => {}
+    renderFooter?: ReactNode
     show: boolean
     title?: ReactNode
 }

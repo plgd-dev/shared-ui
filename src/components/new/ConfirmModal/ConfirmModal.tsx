@@ -9,18 +9,16 @@ const ConfirmModal: FC<Props> = (props) => {
     const { onConfirm, confirmButtonText, cancelButtonText, title, body, loading, show, onClose, data, confirmDisabled, ...rest } = props
     const { formatMessage: _ } = useIntl()
 
-    const renderFooter = () => {
-        return (
-            <div className='w-100 d-flex justify-content-end align-items-center'>
-                <Button variant='secondary' onClick={onClose} disabled={loading}>
-                    {cancelButtonText || _(t.cancel)}
-                </Button>
-                <Button variant='primary' onClick={() => onConfirm(onClose, data)} loading={loading} disabled={loading || confirmDisabled}>
-                    {confirmButtonText || _(t.confirm)}
-                </Button>
-            </div>
-        )
-    }
+    const renderFooter = (
+        <div className='w-100 d-flex justify-content-end align-items-center'>
+            <Button variant='secondary' onClick={onClose} disabled={loading}>
+                {cancelButtonText || _(t.cancel)}
+            </Button>
+            <Button variant='primary' onClick={() => onConfirm(onClose, data)} loading={loading} disabled={loading || confirmDisabled}>
+                {confirmButtonText || _(t.confirm)}
+            </Button>
+        </div>
+    )
 
     return (
         <Modal
