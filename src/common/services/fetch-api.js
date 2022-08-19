@@ -19,10 +19,10 @@ export const fetchApi = async (url, options = {}) => {
     const { useSecurity } = security.getGeneralConfig()
     const { audience: defaultAudience } = security.getWebOAuthConfig()
     // Access token must be gathered and set as a Bearer header in all requests
-    const accessToken = await security.getAccessTokenSilently()({
+    const accessToken = useSecurity ? await security.getAccessTokenSilently()({
         audience: audience || defaultAudience,
         scope: scopes?.join?.(','),
-    })
+    }) : null
     const oAuthSettings = {
         ...fetchOptions,
         headers: {

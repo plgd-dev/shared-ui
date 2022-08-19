@@ -4,10 +4,10 @@ import { security } from './security'
 export const streamApi = async (url, options = {}) => {
     const { audience, scopes, body, parseResult, useSecurity, ...fetchOptions } = options
     const { audience: defaultAudience } = security.getWebOAuthConfig()
-    const accessToken = await security.getAccessTokenSilently()({
+    const accessToken = useSecurity ? await security.getAccessTokenSilently()({
         audience: audience || defaultAudience,
         scope: scopes?.join?.(','),
-    })
+    }) : null
 
     const oAuthSettings = {
         ...fetchOptions,
