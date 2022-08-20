@@ -8,6 +8,7 @@ import appConfig from '@/config'
 import { messages as t } from './LanguageSwitcher.i18n'
 import './LanguageSwitcher.scss'
 
+// @ts-ignore
 const LanguageSwitcher = memo(() => {
     const { formatMessage: _ } = useIntl()
     const [expanded, setExpand] = useState(false)
@@ -35,9 +36,11 @@ const LanguageSwitcher = memo(() => {
             {expanded && (
                 <div className='content'>
                     {appConfig?.supportedLanguages?.map?.((language: string) => {
+                        // @ts-ignore
+                        const lang = t[language]
                         return (
                             <span key={language} onClick={() => changeLanguage(language)}>
-                                {t[language] ? _(t[language]) : language}
+                                {lang || language}
                             </span>
                         )
                     })}

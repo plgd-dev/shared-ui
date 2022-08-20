@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { IntlProvider as ReactIntlProvider } from 'react-intl'
 import { createContext, FC } from 'react'
 import languages from '@/languages/languages.json'
