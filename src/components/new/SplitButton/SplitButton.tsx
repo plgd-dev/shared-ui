@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import RBDropdown from 'react-bootstrap/Dropdown'
 import classNames from 'classnames'
-import Button, { buttonVariants, iconPositions } from '../Button'
+import Button from '../Button'
 import { Props, defaultProps } from './SplitButton.types'
 
 const SplitButton: FC<Props> = (props) => {
