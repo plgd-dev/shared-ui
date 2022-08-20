@@ -1,7 +1,7 @@
 import RBModal from 'react-bootstrap/Modal'
 import classNames from 'classnames'
 
-import { useAppConfig } from '@/containers/app'
+import { useAppConfig } from '@/containers/App'
 import { FC } from 'react'
 import { defaultProps, Props } from './Modal.types'
 

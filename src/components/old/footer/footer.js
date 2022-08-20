@@ -8,7 +8,7 @@ import { format } from 'date-fns'
 
 import { messages as t } from './footer-i18n'
 import './footer.scss'
-import { useAppConfig } from '@/containers/app'
+import { useAppConfig } from '@/containers/App'
 import { copyToClipboard } from '../../../common/utils'
 import { showSuccessToast } from '../toast'
 import { Display } from '../display'
