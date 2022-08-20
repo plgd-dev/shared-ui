@@ -4,7 +4,7 @@ import get from 'lodash/get'
 
 import { useIsMounted } from './use-is-mounted'
 import { fetchApi, streamApi } from '../services'
-import { useAppConfig } from '@/containers/app'
+import { useAppConfig } from '@/containers/App'
 
 const getData = (method, url, options, telemetryWebTracer) => {
     const { telemetrySpan } = options
