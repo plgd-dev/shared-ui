@@ -3,10 +3,11 @@ import { createContext, FC } from 'react'
 import languages from '@/languages/languages.json'
 import { useLocalStorage } from '../../../common/hooks'
 import appConfig from '@/config'
+import { Props } from './IntlProvider.types'
 
-export const LanguageContext = createContext()
+export const LanguageContext = createContext({})
 
-const IntlProvider: FC = (props) => {
+const IntlProvider: FC<Props> = (props) => {
     const { children } = props
     const [language, setLanguage] = useLocalStorage('language', appConfig.defaultLanguage)
     const providerProps = {

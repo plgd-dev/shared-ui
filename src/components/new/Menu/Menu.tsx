@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC } from 'react'
 import classNames from 'classnames'
 import { useIntl } from 'react-intl'
 import MenuItem from './MenuItem'
@@ -7,26 +7,31 @@ import './Menu.scss'
 import { useLocation } from 'react-router-dom'
 import { Props } from './Menu.types'
 
-const Menu: FC<Props> = memo(({ collapsed, toggleCollapsed, menuItems }) => {
+const Menu: FC<Props> = (props) => {
+    const { collapsed, toggleCollapsed, menuItems } = props
     const { formatMessage: _ } = useIntl()
     const location = useLocation()
 
     return (
         <nav id='menu'>
             <div className='items'>
-                {menuItems.map((item, index) => (
-                    <MenuItem
-                        key={index}
-                        to={item.to}
-                        icon={item.icon}
-                        tooltip={collapsed && _(t[item.nameKey])}
-                        className={classNames({
-                            active: item.className && location.pathname.includes(item.className),
-                        })}
-                    >
-                        {_(t[item.nameKey])}
-                    </MenuItem>
-                ))}
+                {menuItems.map((item, index) => {
+                    // @ts-ignore
+                    const trans = _(t[item.nameKey])
+                    return (
+                        <MenuItem
+                            key={index}
+                            to={item.to}
+                            icon={item.icon}
+                            tooltip={collapsed ? trans : undefined}
+                            className={classNames({
+                                active: item.className && location.pathname.includes(item.className),
+                            })}
+                        >
+                            {trans}
+                        </MenuItem>
+                    )
+                })}
             </div>
             <MenuItem
                 className='collapse-menu-item'
@@ -40,7 +45,7 @@ const Menu: FC<Props> = memo(({ collapsed, toggleCollapsed, menuItems }) => {
             </MenuItem>
         </nav>
     )
-})
+}
 
 Menu.displayName = 'Menu'
 

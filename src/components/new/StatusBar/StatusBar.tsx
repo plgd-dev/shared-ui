@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { LanguageSwitcher } from '../LanguageSwitcher'
+import LanguageSwitcher from '../LanguageSwitcher'
 import './StatusBar.scss'
 
 const StatusBar = memo(() => (

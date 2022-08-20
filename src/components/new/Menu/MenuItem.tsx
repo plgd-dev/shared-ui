@@ -9,16 +9,14 @@ const MenuItem: FC<Props> = (props) => {
     const { children, tooltip, onClick, className, icon, to, ...rest } = props
     const menuItemClassName = classNames('menu-item', className)
 
-    const renderMenuItemContent = () => {
-        return (
-            <>
-                <span className='icon'>
-                    <i className={`fas ${icon}`} />
-                </span>
-                <span className='title'>{children}</span>
-            </>
-        )
-    }
+    const renderMenuItemContent = () => (
+        <>
+            <span className='icon'>
+                <i className={`fas ${icon}`} />
+            </span>
+            <span className='title'>{children}</span>
+        </>
+    )
 
     const renderMenuItem = () => {
         if (to) {

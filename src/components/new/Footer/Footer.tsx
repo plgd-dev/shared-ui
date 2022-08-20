@@ -25,11 +25,13 @@ const Footer: FC<Props> = memo(({ links }) => {
     }
 
     const copyVersion = () => {
-        copyToClipboard(buildInformation.version)
-        showSuccessToast({
-            title: _(t.done),
-            message: _(t.copied),
-        })
+        if (buildInformation?.version) {
+            copyToClipboard(buildInformation.version)
+            showSuccessToast({
+                title: _(t.done),
+                message: _(t.copied),
+            })
+        }
     }
 
     const BuildInformation = () => {
