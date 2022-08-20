@@ -9,7 +9,7 @@ import { Props } from './Label.types'
 const Label: FC<Props> = (props) => {
     const labelID = useMemo(uuidv4, [])
     const { children, title, className, id, onClick, htmlFor, style, errorMessage, inline, labelRef, required, dataClassName, ...rest } = props
-    const dataAttributes = pickBy(props, (_, key: number) => startsWith(key, 'data-'))
+    const dataAttributes = pickBy(props, (_, key: number) => startsWith(key.toString(), 'data-'))
     const titleClassName = classNames('label-title', 'no-wrap-text', {
         'has-error': !isEmpty(errorMessage),
     })
