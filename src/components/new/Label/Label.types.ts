@@ -1,15 +1,16 @@
 import { CSSProperties, ReactNode, Ref } from 'react'
 
 export type Props = {
-    style?: CSSProperties
-    onClick?: () => void
-    id?: string
+    children: ReactNode
     className?: string
-    title?: ReactNode
+    dataClassName?: string
     errorMessage?: string
-    required?: boolean
+    htmlFor?: string
+    id?: string
     inline?: boolean
     labelRef?: Ref<any>
-    dataClassName?: string
-    htmlFor?: string
+    onClick?: () => void
+    required?: boolean
+    style?: CSSProperties
+    title?: ReactNode
 }
