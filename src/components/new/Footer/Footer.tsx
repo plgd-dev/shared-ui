@@ -16,6 +16,7 @@ const Footer: FC<Props> = memo(({ links }) => {
     const { formatMessage: _ } = useIntl()
     const { buildInformation } = useAppConfig()
     const [show, setShow] = useState(false)
+
     const handleOnMouseEnter = () => {
         setShow(true)
     }
@@ -53,7 +54,7 @@ const Footer: FC<Props> = memo(({ links }) => {
                 <OverlayTrigger
                     placement='top-start'
                     show={show}
-                    delay={{ hide: 1000 }}
+                    delay={{ show: 0, hide: 1000 }}
                     overlay={
                         <Popover
                             id='popover-positioned-top'
@@ -96,11 +97,15 @@ const Footer: FC<Props> = memo(({ links }) => {
                 <BuildInformation />
             </div>
             <div className='right'>
-                {links.map((item: FooterLinkType, index) => (
-                    <a href={item.to} target='_blank' rel='noopener' key={index}>
-                        {_(t[item.i18key])}
-                    </a>
-                ))}
+                {links.map((item: FooterLinkType, index) => {
+                    // @ts-ignore
+                    const tran = _(t[item.i18key])
+                    return (
+                        <a href={item.to} target='_blank' rel='noopener' key={index}>
+                            {tran}
+                        </a>
+                    )
+                })}
             </div>
         </footer>
     )
