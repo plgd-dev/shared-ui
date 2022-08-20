@@ -5,7 +5,7 @@
  * @param _ - formattedMessage
  * @returns {*}
  */
-export const translateToastString = (data: any, _) => {
+export const translateToastString = (data: any, _:any) => {
     if (!data) return null
 
     // If is component

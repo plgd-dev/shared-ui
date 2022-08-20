@@ -5,12 +5,13 @@ import { layoutTypes } from './constants'
 export type LayoutTypesType = typeof layoutTypes[keyof typeof layoutTypes]
 
 export type Props = {
-    className?: string
     breadcrumbs?: BreadcrumbItem[]
-    loading?: boolean
+    children: ReactNode
+    className?: string
     header?: ReactNode
-    title?: string
+    loading?: boolean
     shimmeringBreadcrumbs?: boolean
+    title?: string
     type?: LayoutTypesType
 }
 

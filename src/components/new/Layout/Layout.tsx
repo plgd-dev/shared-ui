@@ -29,7 +29,7 @@ const Layout: FC<Props> = (props) => {
             <Helmet>
                 <title>{title}</title>
             </Helmet>
-            <PageLoader loading={loading} />
+            <PageLoader loading={!!loading} />
             <div {...rest} className={classNames('layout', { className })}>
                 {(breadcrumbs || header) && (
                     <div className='layout-header'>
