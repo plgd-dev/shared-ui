@@ -20,7 +20,7 @@ const Pagination: FC<Props> = (props) => {
     }, [gotoPage, pageCount, pageLength])
 
     return (
-        <BPagination className={classNames('plgd-pagination', className)} disabled={disabled}>
+        <BPagination className={classNames('plgd-pagination', className)}>
             {/* <BPagination.First onClick={() => gotoPage(0)} disabled={!canPreviousPage} /> */}
             <BPagination.Prev className='step' onClick={() => previousPage()} disabled={!canPreviousPage}>
                 {_(t.prev)}

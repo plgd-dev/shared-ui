@@ -1,8 +1,9 @@
-import { TableColumnType, TableDataType } from './Table.types'
+import { TableDataType } from './Table.types'
+import { Column } from 'react-table'
 
 export type Props = {
     className?: string
-    columns: TableColumnType[]
+    columns: Column[]
     data: TableDataType
     getRowProps?: (data?: any) => {}
 }

@@ -10,7 +10,7 @@ const PaginationItems: FC<Props> = (props) => {
     let endPage
 
     if (maxButtons && maxButtons < pageCount) {
-        startPage = Math.max(Math.min(activePage - Math.floor(maxButtons / 2, 10), pageCount - maxButtons + 1), 1)
+        startPage = Math.max(Math.min(activePage - Math.floor(maxButtons / 2), pageCount - maxButtons + 1), 1)
         endPage = startPage + maxButtons - 1
     } else {
         startPage = 1
