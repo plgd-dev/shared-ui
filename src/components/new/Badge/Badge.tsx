@@ -1,8 +1,7 @@
-import { FC } from 'react'
 import RB_Badge from 'react-bootstrap/Badge'
 import { Props } from './Badge.types'
 
-const Badge: FC<Props> = (props) => {
+const Badge = (props: Props) => {
     const { children, ...rest } = props
     return (
         <RB_Badge pill {...rest} bg='info'>
