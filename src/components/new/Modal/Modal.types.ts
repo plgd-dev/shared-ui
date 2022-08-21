@@ -1,12 +1,14 @@
 import { ReactNode } from 'react'
 
+type RenderType = () => ReactNode
+
 export type Props = {
     backdropClassName?: string
     closeButton?: boolean
     dialogClassName?: string
     onClose?: () => void
-    renderBody?: ReactNode
-    renderFooter?: ReactNode
+    renderBody?: RenderType | ReactNode
+    renderFooter?: RenderType | ReactNode
     show: boolean
     title?: ReactNode
 }

@@ -1,9 +1,10 @@
+import { FC } from 'react'
 import RBModal from 'react-bootstrap/Modal'
 import classNames from 'classnames'
 
 import { useAppConfig } from '@/containers/App'
-import { FC } from 'react'
 import { defaultProps, Props } from './Modal.types'
+import isFunction from 'lodash/isFunction'
 
 export const Modal: FC<Props> = (props) => {
     const { onClose, title, renderBody, renderFooter, backdropClassName, dialogClassName, show, closeButton, ...rest } = props
@@ -28,8 +29,8 @@ export const Modal: FC<Props> = (props) => {
                             </button>
                         )}
                     </RBModal.Header>
-                    {renderBody && <RBModal.Body>{renderBody}</RBModal.Body>}
-                    {renderFooter && <RBModal.Footer>{renderFooter}</RBModal.Footer>}
+                    {renderBody && <RBModal.Body>{isFunction(renderBody) ? renderBody() : renderBody}</RBModal.Body>}
+                    {renderFooter && <RBModal.Footer>{isFunction(renderFooter) ? renderFooter() : renderFooter}</RBModal.Footer>}
                 </>
             )}
         </RBModal>
