@@ -12,12 +12,12 @@ export type Props = {
     iconPosition?: ButtonIconPositionType
     items: ActionButtonItemType[]
     loading?: boolean
-    menuProps: {
+    menuProps?: {
         align?: AlignType
         flip?: boolean
     }
-    onClick?: () => {}
-    variant: ButtonVariantsType
+    onClick?: () => void
+    variant?: ButtonVariantsType
 }
 
 export const defaultProps = {

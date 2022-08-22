@@ -2,9 +2,6 @@ import React, { FC } from 'react'
 import BDropdown from 'react-bootstrap/Dropdown'
 import omit from 'lodash/omit'
 import { ActionButtonItemType, defaultProps, Props } from './ActionButton.types'
-import { dropdownTypes } from './constants'
-
-const { PRIMARY, SECONDARY, EMPTY } = dropdownTypes
 
 const ActionButton: FC<Props> = (props) => {
     const { type, menuProps, items, onToggle, ...rest } = props

@@ -15,19 +15,20 @@ export type ActionButtonItemType = {
 }
 
 export type Props = {
+    children: ReactNode
     items: ActionButtonItemType[]
-    menuProps: {
+    menuProps?: {
         align?: AlignType
         flip?: boolean
     }
-    onToggle: () => (
+    onToggle?: () => (
         isOpen: boolean,
         event: SyntheticEvent<any>,
         metadata: {
             source: 'select' | 'click' | 'rootClose' | 'keydown'
         }
     ) => void
-    type: ActionButtonTypeType
+    type?: ActionButtonTypeType
 }
 
 export const defaultProps = {
