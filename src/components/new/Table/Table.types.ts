@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 export type ColumnsComponentType = string | ReactNode | Function
+
 export type TableColumnType = {
     Cell?: ColumnsComponentType
     Footer?: ColumnsComponentType
@@ -11,7 +12,8 @@ export type TableColumnType = {
     minWidth?: number
     width?: number
 }
-export type TableDataType = object[]
+
+export type TableDataType = any
 
 export type Props = {
     autoFillEmptyRows?: boolean

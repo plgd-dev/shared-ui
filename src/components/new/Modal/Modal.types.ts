@@ -7,6 +7,7 @@ export type Props = {
     closeButton?: boolean
     dialogClassName?: string
     onClose?: () => void
+    onExited?: () => void
     renderBody?: RenderType | ReactNode
     renderFooter?: RenderType | ReactNode
     show: boolean
