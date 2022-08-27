@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 export type Props = {
     body: ReactNode
     cancelButtonText?: string
+    children: ReactNode
     confirmButtonText?: string
     confirmDisabled?: boolean
     data?: {}

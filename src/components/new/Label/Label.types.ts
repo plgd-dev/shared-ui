@@ -9,7 +9,7 @@ export type Props = {
     id?: string
     inline?: boolean
     labelRef?: Ref<any>
-    onClick?: () => void
+    onClick?: (e: any) => void
     required?: boolean
     style?: CSSProperties
     title?: ReactNode

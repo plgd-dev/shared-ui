@@ -1,5 +1,5 @@
 export type BreadcrumbItem = {
-    to: string
+    to?: string
     label: string
     className?: string
 }

@@ -1,9 +1,10 @@
-import { Ref, ChangeEventHandler, KeyboardEventHandler } from 'react'
+import { Ref, ChangeEventHandler } from 'react'
 declare type FormControlElement = HTMLInputElement | HTMLTextAreaElement
 
 export type Props = {
+    className?: string
     disabled?: boolean
-    inputRef: Ref<any>
+    inputRef?: Ref<any>
     onChange?: ChangeEventHandler<FormControlElement>
     onKeyPress?: (e: any) => void
     placeholder?: string
