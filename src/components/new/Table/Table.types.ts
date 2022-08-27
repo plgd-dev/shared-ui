@@ -27,10 +27,10 @@ export type Props = {
         desc?: boolean
     }[]
     enablePagination?: boolean
-    getCellProps?: (data: any) => {}
-    getColumnProps?: (data?: any) => {}
-    getRowProps?: (data?: any) => {}
-    onRowsSelect?: (data?: any) => {}
+    getCellProps?: (data: any) => void
+    getColumnProps?: (data?: any) => void
+    getRowProps?: (data?: any) => void
+    onRowsSelect?: (data?: any) => void
     paginationProps?: object
     primaryAttribute?: string
     unselectRowsToken?: string | number

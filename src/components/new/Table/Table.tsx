@@ -24,7 +24,7 @@ const Table: FC<Props> = (props) => {
         enablePagination,
         bottomControls,
         unselectRowsToken,
-    } = props
+    } = {...defaultProps, ...props}
     const {
         getTableProps,
         getTableBodyProps,
