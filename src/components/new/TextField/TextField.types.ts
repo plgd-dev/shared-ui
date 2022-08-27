@@ -7,6 +7,7 @@ export type Props = {
     inputRef?: Ref<any>
     onChange?: ChangeEventHandler<FormControlElement>
     onKeyPress?: (e: any) => void
+    onBlur?: (e: any) => void
     placeholder?: string
     value: string | number
 }
