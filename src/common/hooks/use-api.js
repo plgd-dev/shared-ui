@@ -6,22 +6,24 @@ import { useIsMounted } from './use-is-mounted'
 import { fetchApi, streamApi } from '../services'
 import { useAppConfig } from '@/containers/App'
 
-const getData = (method, url, options, telemetryWebTracer) => {
-    const { telemetrySpan } = options
+const getData = async (method, url, options, telemetryWebTracer) => {
+    const { telemetrySpan, ...restOptions } = options
 
     if (telemetryWebTracer && telemetrySpan) {
         const singleSpan = telemetryWebTracer.startSpan(telemetrySpan)
 
-        return context.with(trace.setSpan(context.active(), singleSpan), () =>
-            method(url, options).then((result) => {
-                trace.getSpan(context.active()).addEvent('fetching-single-span-completed')
-                singleSpan.end()
+        return context.with(
+            trace.setSpan(context.active(), singleSpan),
+            async () =>
+                await method(url, restOptions).then((result) => {
+                    trace.getSpan(context.active()).addEvent('fetching-single-span-completed')
+                    singleSpan.end()
 
-                return result.data
-            })
+                    return result.data
+                })
         )
     } else {
-        const { data } = method(url, options)
+        const { data } = await method(url, restOptions)
         return data
     }
 }
