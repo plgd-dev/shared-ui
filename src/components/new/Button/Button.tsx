@@ -11,7 +11,7 @@ const Button: FC<Props> = (props) => {
     const renderIcon = (position: ButtonIconPositionType) => {
         if (loading) {
             if (position === ICON_LEFT) {
-                return <i className='m-r-5 fas left fa-spinner' />
+                return <i className='m-r-15 fas left fa-spinner' />
             }
             return null
         }
@@ -23,8 +23,8 @@ const Button: FC<Props> = (props) => {
                         'fas',
                         {
                             [position]: true,
-                            'm-r-5': position === ICON_LEFT,
-                            'm-l-5': position === ICON_RIGHT,
+                            'm-r-15': position === ICON_LEFT,
+                            'm-l-15': position === ICON_RIGHT,
                         },
                         icon
                     )}
