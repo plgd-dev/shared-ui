@@ -1,7 +1,12 @@
 import axios from 'axios'
+import { time } from 'units-converter'
+import { security } from './security'
 
 // Time needed to cancel the request
-const CANCEL_REQUEST_DEADLINE_MS = 30000
+const CANCEL_REQUEST_DEADLINE_MS = 5000
+
+// Added threshold for cancelling the request
+const COMMAND_TIMEOUT_THRESHOLD_MS = 500
 
 export const errorCodes = {
     COMMAND_EXPIRED: 'CommandExpired',
@@ -11,35 +16,39 @@ export const errorCodes = {
 
 export const fetchApi = async (url, options = {}) => {
     const { audience, scopes, body, timeToLive, ...fetchOptions } = options
-    // const { audience: defaultAudience } = security.getWebOAuthConfig()
+    const { useSecurity } = security.getGeneralConfig()
+    const { audience: defaultAudience } = security.getWebOAuthConfig()
     // Access token must be gathered and set as a Bearer header in all requests
-    // const accessToken = await security.getAccessTokenSilently()({
-    //   audience: audience || defaultAudience,
-    //   scope: scopes?.join?.(','),
-    // })
+    const accessToken = useSecurity
+        ? await security.getAccessTokenSilently()({
+            audience: audience || defaultAudience,
+            scope: scopes?.join?.(','),
+        })
+        : null
     const oAuthSettings = {
         ...fetchOptions,
         headers: {
             'Content-Type': 'application/json',
             ...fetchOptions.headers,
-            // Add the Authorization header to the existing headers
-            // Authorization: `Bearer ${accessToken}`,
         },
     }
+
+    // Add the Authorization header to the existing headers
+    if (useSecurity && accessToken) {
+        oAuthSettings.headers.Authorization = `Bearer ${accessToken}`
+    }
+
     // Cancel token source needed for cancelling the request
     const cancelTokenSource = axios.CancelToken.source()
 
     // Time needed to cancel the request
-    const cancelDeadlineMs = timeToLive || 0
+    const cancelDeadlineMs = timeToLive ? time(timeToLive).from('ns').to('ms').value : CANCEL_REQUEST_DEADLINE_MS
 
     // Time needed to cancel the request with added threshold
-    const cancelTimerMs = Math.max(cancelDeadlineMs, CANCEL_REQUEST_DEADLINE_MS)
+    const cancelTimerMs = cancelDeadlineMs <= CANCEL_REQUEST_DEADLINE_MS ? cancelDeadlineMs + COMMAND_TIMEOUT_THRESHOLD_MS : CANCEL_REQUEST_DEADLINE_MS
 
     // Error code thrown with cancel request
-    const cancelError =
-        cancelDeadlineMs <= CANCEL_REQUEST_DEADLINE_MS && timeToLive
-            ? errorCodes.COMMAND_EXPIRED
-            : errorCodes.DEADLINE_EXCEEDED
+    const cancelError = cancelDeadlineMs <= CANCEL_REQUEST_DEADLINE_MS && timeToLive ? errorCodes.COMMAND_EXPIRED : errorCodes.DEADLINE_EXCEEDED
 
     // We are returning a Promise because we want to be able to cancel the request after a certain time
     return new Promise((resolve, reject) => {
@@ -55,11 +64,11 @@ export const fetchApi = async (url, options = {}) => {
             data: body,
             cancelToken: cancelTokenSource.token,
         })
-            .then(response => {
+            .then((response) => {
                 clearTimeout(deadlineTimer)
                 return resolve(response)
             })
-            .catch(error => {
+            .catch((error) => {
                 clearTimeout(deadlineTimer)
 
                 // A middleware for checking if the error was caused by cancellation of the request, if so, throw a DeadlineExceeded error
