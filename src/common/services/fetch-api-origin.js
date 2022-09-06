@@ -14,7 +14,7 @@ export const errorCodes = {
     INVALID_ARGUMENT: 'InvalidArgument',
 }
 
-export const fetchApi = async (url, options = {}) => {
+export const fetchApiOrigin = async (url, options = {}) => {
     const { audience, scopes, body, timeToLive, ...fetchOptions } = options
     const { useSecurity } = security.getGeneralConfig()
     const { audience: defaultAudience } = security.getWebOAuthConfig()
