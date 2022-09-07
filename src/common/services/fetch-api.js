@@ -10,44 +10,24 @@ export const errorCodes = {
 }
 
 export const fetchApi = async (url, options = {}) => {
-    const { audience, scopes, body, timeToLive, ...fetchOptions } = options
-    // const { audience: defaultAudience } = security.getWebOAuthConfig()
-    // Access token must be gathered and set as a Bearer header in all requests
-    // const accessToken = await security.getAccessTokenSilently()({
-    //   audience: audience || defaultAudience,
-    //   scope: scopes?.join?.(','),
-    // })
+    const { audience, scopes, body, ...fetchOptions } = options
     const oAuthSettings = {
         ...fetchOptions,
         headers: {
             'Content-Type': 'application/json',
             ...fetchOptions.headers,
-            // Add the Authorization header to the existing headers
-            // Authorization: `Bearer ${accessToken}`,
         },
     }
     // Cancel token source needed for cancelling the request
     const cancelTokenSource = axios.CancelToken.source()
 
-    // Time needed to cancel the request
-    const cancelDeadlineMs = timeToLive || 0
-
-    // Time needed to cancel the request with added threshold
-    const cancelTimerMs = Math.max(cancelDeadlineMs, CANCEL_REQUEST_DEADLINE_MS)
-
-    // Error code thrown with cancel request
-    const cancelError =
-        cancelDeadlineMs <= CANCEL_REQUEST_DEADLINE_MS && timeToLive
-            ? errorCodes.COMMAND_EXPIRED
-            : errorCodes.DEADLINE_EXCEEDED
-
     // We are returning a Promise because we want to be able to cancel the request after a certain time
     return new Promise((resolve, reject) => {
         // Timer for the request cancellation
         const deadlineTimer = setTimeout(() => {
-            // Cancel the request
+            // Cancel the request over CANCEL_REQUEST_DEADLINE_MS
             cancelTokenSource.cancel()
-        }, cancelTimerMs)
+        }, CANCEL_REQUEST_DEADLINE_MS)
 
         axios({
             ...oAuthSettings,
@@ -55,16 +35,16 @@ export const fetchApi = async (url, options = {}) => {
             data: body,
             cancelToken: cancelTokenSource.token,
         })
-            .then(response => {
+            .then((response) => {
                 clearTimeout(deadlineTimer)
                 return resolve(response)
             })
-            .catch(error => {
+            .catch((error) => {
                 clearTimeout(deadlineTimer)
 
                 // A middleware for checking if the error was caused by cancellation of the request, if so, throw a DeadlineExceeded error
                 if (axios.isCancel(error)) {
-                    return reject(new Error(cancelError))
+                    return reject(new Error(errorCodes.DEADLINE_EXCEEDED))
                 }
 
                 // Rethrow the error
