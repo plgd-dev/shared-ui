@@ -1,3 +1,3 @@
 export type Props = {
-    logout: any
+    logout: () => void
 }

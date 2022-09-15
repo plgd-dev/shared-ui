@@ -5,14 +5,15 @@ import { useClickOutside } from '../../../common/hooks'
 import { messages as t } from './UserWidget.i18n'
 import { Props } from './UserWidget.types'
 import './UserWidget.scss'
+import Avatar from 'react-avatar'
 import { useAuth } from 'oidc-react'
 
-const UserWidget = memo((props: Props) => {
+const UserWidget = (props: Props) => {
     const { logout } = props
     const [expanded, setExpand] = useState(false)
     const { isLoading, userData } = useAuth()
     const { formatMessage: _ } = useIntl()
-    const clickRef = useRef<any>()
+    const clickRef = useRef<HTMLDivElement>(null)
     useClickOutside(clickRef, () => setExpand(false))
 
     if (isLoading || !userData) {
@@ -22,9 +23,9 @@ const UserWidget = memo((props: Props) => {
     return (
         <div id='user-widget' className='status-bar-item' ref={clickRef}>
             <div className='toggle' onClick={() => setExpand(!expanded)}>
-                {/*<div className='user-avatar'>*/}
-                {/*    <img src={userData.picture} alt='User Avatar' />*/}
-                {/*</div>*/}
+                <div className='user-avatar'>
+                    <Avatar name={userData.profile.name} size='30' round='50%' color='#255897' />
+                </div>
                 {userData.profile.name}
                 <i
                     className={classNames('fas', {
@@ -40,7 +41,7 @@ const UserWidget = memo((props: Props) => {
             )}
         </div>
     )
-})
+}
 
 UserWidget.displayName = 'UserWidget'
 

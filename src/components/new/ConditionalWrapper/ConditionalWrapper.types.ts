@@ -1,7 +1,7 @@
-import { ReactElement, ReactNode } from 'react'
+import { ReactElement } from 'react'
 
 export type Props = {
     condition: boolean
-    wrapper: (c: ReactNode) => ReactElement
+    wrapper: (c: ReactElement) => ReactElement
     children: ReactElement
 }
