@@ -5,15 +5,17 @@ import { useClickOutside } from '../../../common/hooks'
 import { messages as t } from './UserWidget.i18n'
 import { Props } from './UserWidget.types'
 import './UserWidget.scss'
+import { useAuth } from 'oidc-react'
 
 const UserWidget = memo((props: Props) => {
-    const {isLoading, userData, logout } = props
+    const { logout } = props
     const [expanded, setExpand] = useState(false)
+    const { isLoading, userData } = useAuth()
     const { formatMessage: _ } = useIntl()
     const clickRef = useRef<any>()
     useClickOutside(clickRef, () => setExpand(false))
 
-    if (!isLoading) {
+    if (isLoading || !userData) {
         return null
     }
 
