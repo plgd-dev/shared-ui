@@ -1,14 +1,15 @@
 import { ReactNode } from 'react'
 
 export type Props = {
+    body: ReactNode
+    cancelButtonText: string
+    children: ReactNode
+    closeOnConfirm?: boolean
+    confirmButtonText: string
+    loading?: boolean
+    modalProps?: object
     onConfirm: (onClose: () => void) => void
     title: string
-    body: ReactNode
-    confirmButtonText: string
-    cancelButtonText: string
-    closeOnConfirm?: boolean
-    loading?: boolean
-    modalProps?: {}
 }
 
 export const defaultProps = {

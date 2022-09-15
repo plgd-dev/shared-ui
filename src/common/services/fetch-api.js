@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { security } from './security'
 
 // Time needed to cancel the request
 const CANCEL_REQUEST_DEADLINE_MS = 30000
@@ -7,10 +8,14 @@ export const errorCodes = {
     COMMAND_EXPIRED: 'CommandExpired',
     DEADLINE_EXCEEDED: 'DeadlineExceeded',
     INVALID_ARGUMENT: 'InvalidArgument',
+    NO_TOKEN: 'EmptyToken',
 }
 
 export const fetchApi = async (url, options = {}) => {
-    const { audience, scopes, body, ...fetchOptions } = options
+    const { scopes, body, useToken: useTokenDefault, ...fetchOptions } = options
+    const useToken = useTokenDefault !== false
+    const accessToken = useToken ? security.getAccessToken() : null
+
     const oAuthSettings = {
         ...fetchOptions,
         headers: {
@@ -18,6 +23,15 @@ export const fetchApi = async (url, options = {}) => {
             ...fetchOptions.headers,
         },
     }
+
+    // Add the Authorization header to the existing headers
+    if (useToken && accessToken) {
+        if (!accessToken) {
+            new Error(errorCodes.NO_TOKEN)
+        }
+        oAuthSettings.headers.Authorization = `Bearer ${accessToken}`
+    }
+
     // Cancel token source needed for cancelling the request
     const cancelTokenSource = axios.CancelToken.source()
 

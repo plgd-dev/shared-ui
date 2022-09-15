@@ -36,9 +36,8 @@ export const useStreamApi = (url, options = {}) => {
         data: null,
     })
     const [refreshIndex, setRefreshIndex] = useState(0)
-    const { telemetryWebTracer, useSecurity } = useAppConfig()
+    const { telemetryWebTracer } = useAppConfig()
     const apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
-    options.useSecurity = useSecurity
 
     useEffect(
         () => {

@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { FC, MutableRefObject, useEffect, useRef } from 'react'
 import classNames from 'classnames'
 import { defaultProps, Props } from './Editor.types'
@@ -76,10 +77,8 @@ const Editor: FC<Props> = (props) => {
             }
 
             if (typeof ResizeObserver === 'function' && container.current) {
-                // @ts-ignore
-                resizeObserver?.current = new ResizeObserver(handleResize)
-                // @ts-ignore
-                resizeObserver?.current.observe(container.current)
+                // resizeObserver?.current = new ResizeObserver(handleResize)
+                // resizeObserver?.current.observe(container.current)
             }
 
             handleEditorRef(jsonEditor)

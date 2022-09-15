@@ -80,6 +80,3 @@ export * from './Toast'
 
 export { default as TreeExpander } from './TreeExpander'
 export * from './TreeExpander'
-
-export { default as UserWidget } from './UserWidget'
-export * from './UserWidget'
