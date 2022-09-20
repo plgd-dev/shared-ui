@@ -2,7 +2,7 @@ import { parseStreamedData } from '../utils'
 import { security } from './security'
 
 export const streamApi = async (url, options = {}) => {
-    const { audience, scopes, body, parseResult, useToken: useTokenDefault, ...fetchOptions } = options
+    const { audience, scopes, body, parseResult, useToken: useTokenDefault, unauthorizedCallback, ...fetchOptions } = options
     const useToken = useTokenDefault !== false
     const accessToken = useToken ? security.getAccessToken() : null
 
@@ -23,6 +23,13 @@ export const streamApi = async (url, options = {}) => {
         ...oAuthSettings,
         body,
     })
+        .then((response) => {
+            if (response.ok) {
+                return response
+            } else {
+                throw new Error(response.statusText);
+            }
+        } )
         .then((response) => response.body)
         .then((rb) => {
             const reader = rb.getReader()
@@ -60,4 +67,8 @@ export const streamApi = async (url, options = {}) => {
             // Parse the result to an array of objects
             return { data: parseStreamedData(result) }
         })
+        .catch((error) => {
+            console.error(error)
+            unauthorizedCallback()
+        });
 }

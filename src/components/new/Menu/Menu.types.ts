@@ -7,6 +7,7 @@ export type MenuItem = {
 
 export type Props = {
     collapsed: boolean
-    toggleCollapsed: () => void
+    initializedByAnother?: boolean
     menuItems: MenuItem[]
+    toggleCollapsed: () => void
 }

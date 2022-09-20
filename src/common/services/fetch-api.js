@@ -9,10 +9,11 @@ export const errorCodes = {
     DEADLINE_EXCEEDED: 'DeadlineExceeded',
     INVALID_ARGUMENT: 'InvalidArgument',
     NO_TOKEN: 'EmptyToken',
+    UNAUTHORIZED: 'Unauthorized',
 }
 
 export const fetchApi = async (url, options = {}) => {
-    const { scopes, body, useToken: useTokenDefault, ...fetchOptions } = options
+    const { scopes, body, useToken: useTokenDefault, unauthorizedCallback, ...fetchOptions } = options
     const useToken = useTokenDefault !== false
     const accessToken = useToken ? security.getAccessToken() : null
 
@@ -51,7 +52,13 @@ export const fetchApi = async (url, options = {}) => {
         })
             .then((response) => {
                 clearTimeout(deadlineTimer)
-                return resolve(response)
+
+                if(response.status === 401){
+                    unauthorizedCallback()
+                    return reject(new Error(errorCodes.UNAUTHORIZED))
+                } else {
+                    return resolve(response)
+                }
             })
             .catch((error) => {
                 clearTimeout(deadlineTimer)

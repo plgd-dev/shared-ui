@@ -1,4 +1,4 @@
-import { useRef, useState, memo } from 'react'
+import { useRef, useState } from 'react'
 import classNames from 'classnames'
 import { useIntl } from 'react-intl'
 import { useClickOutside } from '../../../common/hooks'
@@ -24,7 +24,11 @@ const UserWidget = (props: Props) => {
         <div id='user-widget' className='status-bar-item' ref={clickRef}>
             <div className='toggle' onClick={() => setExpand(!expanded)}>
                 <div className='user-avatar'>
-                    <Avatar name={userData.profile.name} size='30' round='50%' color='#255897' />
+                    {userData.profile.picture ? (
+                        <img src={userData.profile.picture} alt={userData.profile.name} />
+                    ) : (
+                        <Avatar name={userData.profile.name} size='30' round='50%' color='#255897' />
+                    )}
                 </div>
                 {userData.profile.name}
                 <i
