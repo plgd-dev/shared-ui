@@ -19,6 +19,8 @@ export const streamApi = async (url, options = {}) => {
         oAuthSettings.headers.Authorization = `Bearer ${accessToken}`
     }
 
+    let errorCode = null
+
     return fetch(url, {
         ...oAuthSettings,
         body,
@@ -27,9 +29,10 @@ export const streamApi = async (url, options = {}) => {
             if (response.ok) {
                 return response
             } else {
+                errorCode = response.status
                 throw new Error(response.statusText);
             }
-        } )
+        })
         .then((response) => response.body)
         .then((rb) => {
             const reader = rb.getReader()
@@ -69,6 +72,8 @@ export const streamApi = async (url, options = {}) => {
         })
         .catch((error) => {
             console.error(error)
-            unauthorizedCallback()
+            if(errorCode === 401){
+                unauthorizedCallback()
+            }
         });
 }
