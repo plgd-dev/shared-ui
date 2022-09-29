@@ -27,7 +27,7 @@ export type RemoteProvisioningDataType = {
 export type WellKnownConfigType = {
     deviceAuthenticationMode: string
     isInitialized: boolean
-    remoteProvisioning: RemoteProvisioningDataType
+    remoteProvisioning?: RemoteProvisioningDataType
     owner?: string
 } & BuildInformationType
 
