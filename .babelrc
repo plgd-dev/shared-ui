@@ -3,7 +3,15 @@
     [
       "@babel/preset-env",
       {
+        "bugfixes": true,
+        "debug": true,
         "modules": false
+      }
+    ],
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
       }
     ],
     [
@@ -13,7 +21,19 @@
         "typescript": true,
         "helpers": false
       }
-    ]
+    ],
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "autoLabel": "dev-only",
+        "labelFormat": "[local]",
+        "useBuiltIns": false,
+        "throwNamespace": true
+      }
+    ],
+    "@babel/preset-typescript"
   ],
   "comments": false
 }
+
+

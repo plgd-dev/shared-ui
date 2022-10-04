@@ -19,7 +19,7 @@ module.exports = function getBabelConfig(api) {
     [
       "@babel/preset-react",
       {
-        runtime: "automatic",
+        runtime: "automatic"
       },
     ],
     "@babel/preset-typescript",

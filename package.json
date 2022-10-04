@@ -1,5 +1,5 @@
 {
-  "name": "@plgd/shared",
+  "name": "@plgd/shared-ui",
   "version": "1.1.0",
   "private": true,
   "author": "plgd",
@@ -19,7 +19,9 @@
     "build:stable:watch": "node ./scripts/build stable --watch",
     "build:copy-files": "node ./scripts/copy-files.js",
     "build:umd": "rollup -c ./scripts/rollup.config.js",
-    "prebuild": "rimraf build"
+    "prebuild": "rimraf build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "peerDependencies": {
     "@opentelemetry/api": "^1.1.0",
@@ -31,16 +33,16 @@
     "@opentelemetry/sdk-trace-base": "^1.3.1",
     "@opentelemetry/sdk-trace-web": "^1.3.1",
     "@types/lodash": "^4.14.184",
-    "@types/react": "^17.0.2",
+    "@types/react": "^18.0.9",
     "@types/react-helmet": "^6.1.5",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-table": "^7.7.12",
     "@types/uuid": "^8.3.4",
     "bootstrap": "^5.1.3",
     "lodash": "^4.17.21",
-    "react": "^17.0.2",
+    "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
-    "react-dom": "^17.0.2"
+    "react-dom": "^18.1.0"
   },
   "peerDependenciesMeta": {
     "@types/react": {
@@ -61,6 +63,16 @@
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
     "@rollup/plugin-replace": "^4.0.0",
+    "@storybook/addon-actions": "^6.5.12",
+    "@storybook/addon-essentials": "^6.5.12",
+    "@storybook/addon-interactions": "^6.5.12",
+    "@storybook/addon-links": "^6.5.12",
+    "@storybook/builder-webpack4": "^6.5.12",
+    "@storybook/manager-webpack4": "^6.5.12",
+    "@storybook/react": "^6.5.12",
+    "@storybook/testing-library": "^0.0.13",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-istanbul": "^6.1.1",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-optimize-clsx": "^2.6.2",
