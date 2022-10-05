@@ -1,27 +1,15 @@
-import React from 'react'
-import classNames from 'classnames'
+import React, { FC } from 'react'
 import { Props } from './Checkbox.types'
-import { FC } from 'react'
+import * as styles from './Chceckbox.styles'
 
 const Checkbox: FC<Props> = (props) => {
-    const { id, containerClassName, inputRef, label, checked, disabled, ...rest } = props
+    const { id, className, inputRef, label, checked, disabled, ...rest } = props
+    const Check = styles.check
     return (
-        <label
-            className={classNames('plgd-checkbox', {
-                disabled,
-            })}
-            id={id}
-        >
-            <input {...rest} checked={checked} type='checkbox' ref={inputRef} />
-            <span className='checkbox-item'>
-                <i
-                    className={classNames('fas', {
-                        'fa-check': checked,
-                        'fa-minus': !checked,
-                    })}
-                />
-            </span>
-            {label && <div className='checkbox-label'>{label}</div>}
+        <label className={className} css={styles.checkbox} id={id}>
+            <input {...rest} checked={checked} css={styles.input} ref={inputRef} type='checkbox' />
+            <Check />
+            {label && <div css={styles.label}>{label}</div>}
         </label>
     )
 }

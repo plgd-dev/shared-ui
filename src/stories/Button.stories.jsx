@@ -1,10 +1,8 @@
 import React from 'react'
-
 import Button from '../components/new/Button'
 import { ReactComponent as IconPlus } from './assets/icon-plus.svg'
-import './button.css'
+import './global.css'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'Example/Button',
     component: Button,

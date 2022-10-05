@@ -12,5 +12,6 @@ module.exports = {
   babel: async (options) => {
     options.plugins.push('babel-plugin-inline-react-svg');
     return options;
-  }
+  },
+  staticDirs: ['../public']
 }

@@ -1,8 +1,9 @@
 import { ReactNode, Ref } from 'react'
 
 export type Props = {
-    checked: boolean
-    containerClassName?: string
+    checked?: boolean
+    className?: string
+    defaultChecked?: boolean
     disabled?: boolean
     id?: string
     inputRef?: Ref<any>
