@@ -31,7 +31,7 @@ const Template = (args) => (
         <br />
         <Button {...args} variant='tertiary' size='big' children='Tertiary big' />
         <Button {...args} variant='tertiary' size='normal' children='Tertiary big' />
-        <Button {...args} variant='tertiary' size='small' children='Tertiary big!' />
+        <Button {...args} variant='tertiary' size='small' children='Tertiary big' />
     </div>
 )
 
