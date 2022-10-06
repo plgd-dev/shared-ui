@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { colors } from '../../_utils/colors'
 
 export const actions = css`
     padding-top: 20px;
@@ -44,5 +45,24 @@ export const formAltLogins = css`
 
     .formAltLogin {
         margin: 6px;
+    }
+`
+
+export const terms = css`
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #81868c;
+    text-align: center;
+    padding: 24px 20px 0 20px;
+    line-height: 160%;
+
+    a {
+        color: ${colors.primary};
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 `

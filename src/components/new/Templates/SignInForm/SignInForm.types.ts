@@ -9,6 +9,7 @@ export type Props = {
     inputs: ReactNode | ReactNode[]
     method?: string
     onSubmit: (e: FormEvent<HTMLFormElement>) => void
+    terms?: ReactNode
 }
 
 export const defaultProps: Partial<Props> = {
