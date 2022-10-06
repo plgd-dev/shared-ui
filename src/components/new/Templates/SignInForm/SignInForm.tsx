@@ -7,7 +7,7 @@ import { ReactComponent as IconGoogle } from './assets/icon-google.svg'
 import { ReactComponent as IconGithub } from './assets/icon-github.svg'
 
 const SignInForm: FC<Props> = (props) => {
-    const { action, inputs, actions, cta, footerActions } = { ...defaultProps, ...props }
+    const { action, autoComplete, inputs, actions, cta, footerActions, method } = { ...defaultProps, ...props }
 
     const getFooterActions = () =>
         !footerActions ? null : (
@@ -31,7 +31,7 @@ const SignInForm: FC<Props> = (props) => {
         )
 
     return (
-        <form action={action}>
+        <form action={action} autoComplete={autoComplete ? 'autoComplete' : undefined} method={method}>
             <div>{inputs}</div>
             {actions && <div css={styles.actions}>{actions}</div>}
             <div css={styles.cta}>{cta}</div>

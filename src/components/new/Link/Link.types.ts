@@ -7,4 +7,9 @@ export type Props = {
     onClick?: (e: MouseEvent<HTMLElement>) => void
     preventDefault?: boolean
     target?: HTMLAttributeAnchorTarget
+    tabIndex?: number
+}
+
+export const defaultProps = {
+    tabIndex: 1,
 }

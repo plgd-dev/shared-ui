@@ -1,15 +1,16 @@
 import { FC, useState } from 'react'
-import { Props } from './FormInput.types'
+import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.style'
 import { ReactComponent as IconShowPassword } from './assets/icon-show-password.svg'
 import { ReactComponent as IconHidePassword } from './assets/icon-hide-password.svg'
 
 const FormInput: FC<Props> = (props) => {
-    const { value, inputRef, type: defaultType, icon, disabled, error, ...rest } = props
+    const { autoComplete, value, inputRef, type: defaultType, icon, disabled, error, ...rest } = { ...defaultProps, ...props }
     const [type, setType] = useState(defaultType)
     const inputBase = (
         <input
             {...rest}
+            autoComplete={autoComplete}
             css={[styles.input, defaultType === 'password' && styles.inputWithIcon, disabled && styles.disabled, error && styles.error]}
             disabled={disabled || false}
             ref={inputRef}
@@ -17,8 +18,6 @@ const FormInput: FC<Props> = (props) => {
             value={value}
         />
     )
-
-    console.log(error)
 
     if (defaultType === 'password' || icon) {
         return (
@@ -41,5 +40,6 @@ const FormInput: FC<Props> = (props) => {
 }
 
 FormInput.displayName = 'FormInput'
+FormInput.defaultProps = defaultProps
 
 export default FormInput

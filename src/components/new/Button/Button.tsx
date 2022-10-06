@@ -26,8 +26,8 @@ const Button: FC<Props> = (props) => {
     return (
         <button
             {...rest}
-            css={[styles.button(variant, size, disabled), fullWidth && styles.fullWidth]}
             className={className}
+            css={[styles.button(variant, size, disabled), fullWidth && styles.fullWidth]}
             onClick={handleOnClick}
             type={htmlType}
         >

@@ -5,7 +5,9 @@ export type Props = {
     className?: string
     defaultChecked?: boolean
     disabled?: boolean
+    error?: boolean
     id?: string
     inputRef?: Ref<any>
     label?: ReactNode
+    name: string
 }

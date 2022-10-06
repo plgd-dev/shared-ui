@@ -14,8 +14,10 @@ export type Props = {
     icon?: ReactNode
     iconPosition?: ButtonIconPositionType
     loading?: boolean
+    name?: string
     onClick?: (e: MouseEvent<HTMLElement>) => void
     size?: ButtonSizesType
+    tabIndex?: number
     variant?: ButtonVariantsType
 }
 
@@ -23,5 +25,6 @@ export const defaultProps: Partial<Props> = {
     iconPosition: iconPositions.ICON_LEFT,
     variant: buttonVariants.SECONDARY,
     htmlType: 'submit',
+    tabIndex: 1,
     size: buttonSizes.NORMAL,
 }

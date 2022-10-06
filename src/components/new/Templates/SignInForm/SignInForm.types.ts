@@ -1,13 +1,17 @@
-import { ReactNode } from 'react'
+import { FormEvent, ReactNode } from 'react'
 
 export type Props = {
-    inputs: ReactNode | ReactNode[]
-    actions?: ReactNode | ReactNode[]
-    cta: ReactNode
-    footerActions?: boolean
     action?: string
+    actions?: ReactNode | ReactNode[]
+    autoComplete?: boolean
+    cta: ReactNode | ReactNode[]
+    footerActions?: boolean
+    inputs: ReactNode | ReactNode[]
+    method?: string
+    onSubmit: (e: FormEvent<HTMLFormElement>) => void
 }
 
 export const defaultProps: Partial<Props> = {
     footerActions: true,
+    method: 'post',
 }

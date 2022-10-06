@@ -61,3 +61,7 @@ export const label = css`
     font-style: normal;
     font-weight: 400;
 `
+
+export const error = css`
+    border-color: ${colors.error};
+`
