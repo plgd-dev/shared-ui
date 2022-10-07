@@ -14,7 +14,7 @@ export type Props = {
     cta: ReactNode | ReactNode[]
     inputs: ReactNode | ReactNode[]
     method?: string
-    onSubmit: (e: FormEvent<HTMLFormElement>) => void
+    onSubmit?: (e: FormEvent<HTMLFormElement>) => void
     socialProviders?: SocialProviderType[]
     terms?: ReactNode
 }
