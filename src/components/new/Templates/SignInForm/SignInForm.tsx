@@ -7,25 +7,40 @@ import { ReactComponent as IconGoogle } from './assets/icon-google.svg'
 import { ReactComponent as IconGithub } from './assets/icon-github.svg'
 
 const SignInForm: FC<Props> = (props) => {
-    const { action, autoComplete, inputs, actions, cta, footerActions, method, terms } = { ...defaultProps, ...props }
+    const { action, autoComplete, inputs, actions, cta, socialProviders, method, terms } = { ...defaultProps, ...props }
 
-    const getFooterActions = () =>
-        !footerActions ? null : (
+    const getSocialProviderIcon = (providerId: string) => {
+        switch (providerId) {
+            case 'apple':
+                return <IconApple />
+            case 'google':
+                return <IconGoogle />
+            case 'github':
+                return <IconGithub />
+        }
+    }
+
+    const getSocialProviders = () =>
+        !socialProviders ? null : (
             <>
                 <div css={styles.formSeparator}>
                     <div css={styles.formSeparatorLine}></div>
                     <div css={styles.formSeparatorText}>or via</div>
                 </div>
                 <div css={styles.formAltLogins}>
-                    <Button className='formAltLogin' fullWidth={true} icon={<IconApple />} variant='tertiary'>
-                        Apple
-                    </Button>
-                    <Button className='formAltLogin' fullWidth={true} icon={<IconGoogle />} variant='tertiary'>
-                        Google
-                    </Button>
-                    <Button className='formAltLogin' fullWidth={true} icon={<IconGithub />} variant='tertiary'>
-                        Github
-                    </Button>
+                    {socialProviders.map((item) => (
+                        <Button
+                            className='formAltLogin'
+                            fullWidth={true}
+                            icon={getSocialProviderIcon(item.providerId)}
+                            id={`zocial-${item.alias}`}
+                            key={item.providerId}
+                            onClick={() => (window.location.href = item.loginUrl)}
+                            variant='tertiary'
+                        >
+                            {item.displayName}
+                        </Button>
+                    ))}
                 </div>
             </>
         )
@@ -36,7 +51,7 @@ const SignInForm: FC<Props> = (props) => {
             {actions && <div css={styles.actions}>{actions}</div>}
             <div css={styles.cta}>{cta}</div>
             {terms && <div css={styles.terms}>{terms}</div>}
-            {getFooterActions()}
+            {getSocialProviders()}
         </form>
     )
 }

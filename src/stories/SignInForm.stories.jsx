@@ -40,11 +40,11 @@ const Template = (args) => (
                 inputs={[
                     <FormGroup id='email'>
                         <FormLabel text='E-mail' />
-                        <FormInput defaultValue='' />
+                        <FormInput defaultValue='' name='email' />
                     </FormGroup>,
                     <FormGroup id='password' marginBottom={false}>
                         <FormLabel text='Password' />
-                        <FormInput defaultValue='' type='password' />
+                        <FormInput defaultValue='' name='password' type='password' />
                     </FormGroup>,
                 ]}
             />
@@ -54,6 +54,67 @@ const Template = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {}
+
+const TemplateSocial = (args) => (
+    <div id='center'>
+        <div
+            style={{
+                maxWidth: 400,
+                width: '100%',
+                border: '1px dashed #ccc',
+                padding: 40,
+            }}
+        >
+            <SignInForm
+                {...args}
+                actions={[
+                    <FormGroup id='keep-signed-in' marginBottom={false}>
+                        <Checkbox label='Keep me signed in' name='keep-signed-in' />
+                    </FormGroup>,
+                    <Link>Forgot password</Link>,
+                ]}
+                cta={
+                    <Button fullWidth={true} size='big' variant='primary'>
+                        Sign In
+                    </Button>
+                }
+                inputs={[
+                    <FormGroup id='email'>
+                        <FormLabel text='E-mail' />
+                        <FormInput defaultValue='' name='password' />
+                    </FormGroup>,
+                    <FormGroup id='password' marginBottom={false}>
+                        <FormLabel text='Password' />
+                        <FormInput defaultValue='' name='password' type='password' />
+                    </FormGroup>,
+                ]}
+                socialProviders={[
+                    {
+                        providerId: 'apple',
+                        loginUrl: '/',
+                        alias: 'apple',
+                        displayName: 'Apple',
+                    },
+                    {
+                        providerId: 'google',
+                        loginUrl: '/',
+                        alias: 'google',
+                        displayName: 'Google',
+                    },
+                    {
+                        providerId: 'github',
+                        loginUrl: '/',
+                        alias: 'github',
+                        displayName: 'Github',
+                    },
+                ]}
+            />
+        </div>
+    </div>
+)
+
+export const Social = TemplateSocial.bind({})
+Social.args = {}
 
 const RegistrationTemplate1 = (args) => (
     <div id='center'>

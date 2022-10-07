@@ -13,6 +13,7 @@ export type Props = {
     htmlType?: 'submit' | 'button' | 'reset'
     icon?: ReactNode
     iconPosition?: ButtonIconPositionType
+    id?: string
     loading?: boolean
     name?: string
     onClick?: (e: MouseEvent<HTMLElement>) => void
