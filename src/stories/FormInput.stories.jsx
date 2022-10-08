@@ -1,5 +1,6 @@
 import React from 'react'
 import FormInput from '../components/new/FormInput'
+import { ReactComponent as IconSlovakia } from './assets/Slovakia.svg'
 
 export default {
     title: 'Example/FormInput',
@@ -23,6 +24,9 @@ const Template = (args) => (
         <br />
         <h3>Password</h3>
         <FormInput {...args} defaultValue='Text' type='password' />
+        <br />
+        <h3>Phone</h3>
+        <FormInput {...args} defaultValue='Text' icon={<IconSlovakia />} pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}' telPrefix='+421' type='tel' />
     </div>
 )
 

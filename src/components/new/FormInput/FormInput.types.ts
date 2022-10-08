@@ -1,4 +1,4 @@
-import { Ref, ChangeEventHandler } from 'react'
+import { ChangeEventHandler, MutableRefObject } from 'react'
 declare type FormControlElement = HTMLInputElement | HTMLTextAreaElement
 
 export type Props = {
@@ -10,17 +10,20 @@ export type Props = {
     error?: boolean
     icon?: any
     id?: string
-    inputRef?: Ref<any>
+    inputRef?: any
     name: string
     onBlur?: (e: any) => void
     onChange?: ChangeEventHandler<FormControlElement>
     onKeyPress?: (e: any) => void
+    telPattern?: string
+    telPrefix?: string
     placeholder?: string
+    tabIndex?: number
     type?: string
     value?: string | number
-    tabIndex?: number
 }
 
 export const defaultProps = {
     tabIndex: 1,
+    type: 'text',
 }
