@@ -7,7 +7,7 @@ import { ReactComponent as IconGoogle } from './assets/icon-google.svg'
 import { ReactComponent as IconGithub } from './assets/icon-github.svg'
 
 const SignInForm: FC<Props> = (props) => {
-    const { action, autoComplete, inputs, actions, cta, socialProviders, method, terms } = { ...defaultProps, ...props }
+    const { action, autoComplete, inputs, actions, cta, socialProviders, method, terms, onSubmit } = { ...defaultProps, ...props }
 
     const getSocialProviderIcon = (providerId: string) => {
         switch (providerId) {
@@ -46,7 +46,7 @@ const SignInForm: FC<Props> = (props) => {
         )
 
     return (
-        <form action={action} autoComplete={autoComplete ? 'autoComplete' : undefined} method={method}>
+        <form action={action} autoComplete={autoComplete ? 'autoComplete' : undefined} method={method} onSubmit={onSubmit}>
             <div>{inputs}</div>
             {actions && <div css={styles.actions}>{actions}</div>}
             <div css={styles.cta}>{cta}</div>
