@@ -15,7 +15,11 @@ const FormGroup: FC<Props> = (props) => {
     return (
         <div className={className} css={[marginBottom && styles.formGroupMargin]}>
             {childrenWithProps}
-            {error && <div css={styles.errorMessage}>{error}</div>}
+            {error && (
+                <div aria-live='polite' css={styles.errorMessage}>
+                    {error}
+                </div>
+            )}
         </div>
     )
 }

@@ -12,6 +12,7 @@ const FormInput: FC<Props> = (props) => {
     const inputBase = (
         <input
             {...rest}
+            aria-invalid={error ? true : undefined}
             autoComplete={autoComplete}
             css={[
                 styles.input,
