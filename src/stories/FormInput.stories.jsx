@@ -3,7 +3,7 @@ import FormInput from '../components/new/FormInput'
 import { ReactComponent as IconSlovakia } from './assets/Slovakia.svg'
 
 export default {
-    title: 'Example/FormInput',
+    title: 'Form/FormInput',
     component: FormInput,
     argTypes: {},
 }

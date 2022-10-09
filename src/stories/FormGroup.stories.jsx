@@ -4,7 +4,7 @@ import FormInput from '../components/new/FormInput'
 import FormLabel from '../components/new/FormLabel'
 
 export default {
-    title: 'Example/FormGroup',
+    title: 'Form/FormGroup',
     component: FormGroup,
     argTypes: {},
 }

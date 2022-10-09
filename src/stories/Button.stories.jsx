@@ -4,7 +4,7 @@ import { ReactComponent as IconPlus } from './assets/icon-plus.svg'
 import './global.css'
 
 export default {
-    title: 'Example/Button',
+    title: 'Form/Button',
     component: Button,
     argTypes: {
         variant: {

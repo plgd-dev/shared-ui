@@ -1,4 +1,4 @@
-import { ReactNode, Ref } from 'react'
+import { ReactNode, Ref, SyntheticEvent } from 'react'
 
 export type Props = {
     checked?: boolean
@@ -10,4 +10,10 @@ export type Props = {
     inputRef?: Ref<any>
     label?: ReactNode
     name: string
+    onChange: (e: SyntheticEvent) => void
+    type?: 'checkbox' | 'radio'
+}
+
+export const defaultProps: Partial<Props> = {
+    type: 'checkbox',
 }

@@ -94,7 +94,6 @@
     "babel-plugin-optimize-clsx": "^2.6.2",
     "babel-preset-react-app": "^10.0.1",
     "child_process": "^1.0.2",
-    "classnames": "^2.3.1",
     "cross-env": "^7.0.3",
     "fast-glob": "^3.2.11",
     "fs-extra": "^10.1.0",
