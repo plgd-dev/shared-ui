@@ -56,7 +56,7 @@ export const terms = css`
     color: #81868c;
     text-align: center;
     padding: 24px 20px 0 20px;
-    line-height: 160%;
+    line-height: 200%;
 
     a {
         color: ${colors.primary};

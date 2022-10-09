@@ -11,7 +11,9 @@ export type Props = {
     action?: string
     actions?: ReactNode | ReactNode[]
     autoComplete?: boolean
+    className?: string
     cta: ReactNode | ReactNode[]
+    id?: string
     inputs: ReactNode | ReactNode[]
     method?: string
     onSubmit?: (e: FormEvent<HTMLFormElement>) => void

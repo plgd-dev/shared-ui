@@ -10,7 +10,7 @@ export type Props = {
     inputRef?: Ref<any>
     label?: ReactNode
     name: string
-    onChange: (e: SyntheticEvent) => void
+    onChange?: (e: SyntheticEvent) => void
     type?: 'checkbox' | 'radio'
 }
 
