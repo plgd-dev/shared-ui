@@ -48,3 +48,8 @@ export const Icon = Template.bind({})
 Icon.args = {
     icon: <IconPlus />,
 }
+
+export const Loading = Template.bind({})
+Loading.args = {
+    loading: true,
+}

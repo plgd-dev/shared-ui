@@ -2,6 +2,8 @@ import React, { FC, MouseEvent } from 'react'
 import { Props, defaultProps, ButtonIconPositionType } from './Button.types'
 import { iconPositions } from './constants'
 import * as styles from './Button.styles'
+import { ClipLoader } from 'react-spinners'
+import { colorsVariants } from '../_utils/colors'
 
 const { ICON_LEFT, ICON_RIGHT } = iconPositions
 
@@ -10,7 +12,11 @@ const Button: FC<Props> = (props) => {
     const renderIcon = (position: ButtonIconPositionType) => {
         if (loading) {
             if (position === ICON_LEFT) {
-                return <i className='m-r-15 fas left fa-spinner' />
+                return (
+                    <span css={styles.icon(position)}>
+                        <ClipLoader color={colorsVariants[variant!].text} size={20} />
+                    </span>
+                )
             }
             return null
         }

@@ -1,40 +1,41 @@
 import { css } from '@emotion/react'
 import { ButtonIconPositionType, ButtonSizesType, ButtonVariantsType } from './Button.types'
 import { buttonSizes, buttonVariants, iconPositions } from './constants'
+import { colors, colorsVariants } from '../_utils/colors'
 
 const getColors = (variant: ButtonVariantsType | undefined, disabled: boolean | undefined) => {
     switch (variant) {
         case buttonVariants.PRIMARY:
             return css`
-                background: ${disabled ? '#d7d8da' : '#2261ae'};
-                border: 1px solid ${disabled ? '#d7d8da' : '#2261ae'};
-                color: #fff;
+                background: ${disabled ? colors.disabled : colors.primary};
+                border: 1px solid ${disabled ? colors.disabled : colors.primary};
+                color: ${colorsVariants.primary.text};
 
                 &:hover {
-                    background: ${disabled ? '#d7d8da' : '#1d589f'};
-                    border-color: ${disabled ? '#d7d8da' : '#1d589f'};
+                    background: ${disabled ? colors.disabled : colorsVariants.primary.hover};
+                    border-color: ${disabled ? colors.disabled : colorsVariants.primary.hover};
                 }
             `
         case buttonVariants.SECONDARY:
             return css`
-                background: #fff;
-                border: 1px solid ${disabled ? '#D7D8DA' : '#2261ae'};
-                color: ${disabled ? '#D7D8DA' : '#2261ae'};
+                background: ${colorsVariants.secondary.background};
+                border: 1px solid ${disabled ? colors.disabled : colors.primary};
+                color: ${disabled ? colors.disabled : colors.primary};
 
                 &:hover {
-                    border-color: ${disabled ? '#D7D8DA' : '#1D589F'};
-                    color: ${disabled ? '#D7D8DA' : '#1D589F'};
+                    border-color: ${disabled ? colors.disabled : colorsVariants.secondary.hover};
+                    color: ${disabled ? colors.disabled : colorsVariants.secondary.hover};
                 }
             `
         case buttonVariants.TERTIARY:
             return css`
-                background: ${disabled ? '#F6F7F9' : '#f6f7f9'};
-                border: 1px solid #f6f7f9;
-                color: ${disabled ? '#D7D8DA' : '#191a1a'};
+                background: ${colorsVariants.tertiary.background};
+                border: 1px solid ${colors.tertiary};
+                color: ${disabled ? colors.disabled : colorsVariants.tertiary.text};
 
                 &:hover {
-                    background: ${disabled ? '#F6F7F9' : '#E6E9ED'};
-                    border-color: ${disabled ? '#F6F7F9' : '#f6f7f9'};
+                    background: ${disabled ? colors.tertiary : colorsVariants.tertiary.hover};
+                    border-color: ${colors.tertiary};
                 }
             `
     }
