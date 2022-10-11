@@ -5,6 +5,8 @@ import { Pagination, Autoplay } from 'swiper'
 import * as styles from './Swiper.style'
 
 import 'swiper/css'
+import 'swiper/css/autoplay'
+import 'swiper/css/pagination'
 
 const Swiper: FC<Props> = (props: Props) => {
     const { slides } = props

@@ -19,6 +19,8 @@ module.exports = {
   webpackFinal: async (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
+      "swiper/css/autoplay": path.resolve(__dirname, "../../../node_modules/swiper/modules/autoplay/autoplay.min.css"),
+      "swiper/css/pagination": path.resolve(__dirname, "../../../node_modules/swiper/modules/pagination/pagination.min.css"),
       "swiper/css": path.resolve(__dirname, "../../../node_modules/swiper/swiper-bundle.css"),
     };
     config.resolve.extensions.push(".ts", ".tsx");
