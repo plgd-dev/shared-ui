@@ -1,9 +1,12 @@
+const path = require('path')
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
     "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
+    "@storybook/preset-scss",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
@@ -12,6 +15,14 @@ module.exports = {
   babel: async (options) => {
     options.plugins.push('babel-plugin-inline-react-svg');
     return options;
+  },
+  webpackFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "swiper/css": path.resolve(__dirname, "../../../node_modules/swiper/swiper-bundle.css"),
+    };
+    config.resolve.extensions.push(".ts", ".tsx");
+    return config;
   },
   staticDirs: ['../public']
 }
