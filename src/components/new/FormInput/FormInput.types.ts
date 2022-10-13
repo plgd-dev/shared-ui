@@ -1,9 +1,9 @@
-import { ChangeEventHandler, MutableRefObject } from 'react'
-declare type FormControlElement = HTMLInputElement | HTMLTextAreaElement
+import { ChangeEvent } from 'react'
 
 export type Props = {
     autoComplete?: string
     autoFocus?: boolean
+    ariaInvalid?: boolean
     className?: string
     defaultValue?: string | number
     disabled?: boolean
@@ -13,7 +13,7 @@ export type Props = {
     inputRef?: any
     name: string
     onBlur?: (e: any) => void
-    onChange?: ChangeEventHandler<FormControlElement>
+    onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     onKeyPress?: (e: any) => void
     telPattern?: string
     telPrefix?: string

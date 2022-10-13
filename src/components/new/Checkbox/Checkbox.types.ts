@@ -12,6 +12,7 @@ export type Props = {
     name: string
     onChange?: (e: SyntheticEvent) => void
     type?: 'checkbox' | 'radio'
+    value?: string
 }
 
 export const defaultProps: Partial<Props> = {

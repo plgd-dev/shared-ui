@@ -6,13 +6,25 @@ import { ReactComponent as IconShowPassword } from './assets/icon-show-password.
 import { ReactComponent as IconHidePassword } from './assets/icon-hide-password.svg'
 
 const FormInput: FC<Props> = (props) => {
-    const { autoComplete, value, inputRef, type: defaultType, icon, disabled, error, telPattern, telPrefix, ...rest } = { ...defaultProps, ...props }
+    const {
+        autoComplete,
+        ariaInvalid,
+        value,
+        inputRef,
+        type: defaultType,
+        icon,
+        disabled,
+        error,
+        telPattern,
+        telPrefix,
+        ...rest
+    } = { ...defaultProps, ...props }
     const [type, setType] = useState(defaultType)
     const localInputRef = useRef<HTMLInputElement>(null)
     const inputBase = (
         <input
             {...rest}
-            aria-invalid={error ? true : undefined}
+            aria-invalid={error || ariaInvalid ? true : undefined}
             autoComplete={autoComplete}
             css={[
                 styles.input,
