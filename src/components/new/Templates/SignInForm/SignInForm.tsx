@@ -29,30 +29,40 @@ const SignInForm: FC<Props> = (props) => {
                 </div>
                 <div css={styles.formAltLogins}>
                     {socialProviders.map((item) => (
-                        <Button
-                            className='formAltLogin'
-                            fullWidth={true}
-                            icon={getSocialProviderIcon(item.providerId)}
-                            id={`zocial-${item.alias}`}
-                            key={item.providerId}
-                            onClick={() => (window.location.href = item.loginUrl)}
-                            variant='tertiary'
-                        >
-                            {item.displayName}
-                        </Button>
+                        <>
+                            <a href={item.loginUrl} id={`social-${item.alias}-helper`} style={{ display: 'none' }}>
+                                {item.displayName}
+                            </a>
+                            <Button
+                                className='formAltLogin'
+                                fullWidth={true}
+                                icon={getSocialProviderIcon(item.providerId)}
+                                id={`social-${item.alias}`}
+                                key={item.providerId}
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    document.getElementById(`social-${item.alias}-helper`)?.click()
+                                }}
+                                variant='tertiary'
+                            >
+                                {item.displayName}
+                            </Button>
+                        </>
                     ))}
                 </div>
             </>
         )
 
     return (
-        <form action={action} autoComplete={autoComplete ? 'autoComplete' : undefined} className={className} id={id} method={method} onSubmit={onSubmit}>
-            <div>{inputs}</div>
-            {actions && <div css={styles.actions}>{actions}</div>}
-            <div css={styles.cta}>{cta}</div>
-            {terms && <div css={styles.terms}>{terms}</div>}
+        <>
+            <form action={action} autoComplete={autoComplete ? 'autoComplete' : undefined} className={className} id={id} method={method} onSubmit={onSubmit}>
+                <div>{inputs}</div>
+                {actions && <div css={styles.actions}>{actions}</div>}
+                <div css={styles.cta}>{cta}</div>
+                {terms && <div css={styles.terms}>{terms}</div>}
+            </form>
             {getSocialProviders()}
-        </form>
+        </>
     )
 }
 
