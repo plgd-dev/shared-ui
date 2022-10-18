@@ -195,3 +195,38 @@ const RegistrationTemplate2 = (args) => (
 
 export const RegistrationStep2 = RegistrationTemplate2.bind({})
 RegistrationStep2.args = {}
+
+const ResetPasswordTemplate = (args) => (
+    <div id='center'>
+        <div
+            style={{
+                maxWidth: 400,
+                width: '100%',
+                border: '1px dashed #ccc',
+                padding: 40,
+            }}
+        >
+            <SignInForm
+                {...args}
+                cta={[
+                    <Button size='big' variant='tertiary'>
+                        Back
+                    </Button>,
+                    <Button fullWidth={true} size='big' variant='primary'>
+                        Submit
+                    </Button>,
+                ]}
+                footerActions={false}
+                inputs={[
+                    <FormGroup id='username' marginBottom={false}>
+                        <FormLabel text='E-mail' />
+                        <FormInput autoFocus={true} name='username' />
+                    </FormGroup>,
+                ]}
+            />
+        </div>
+    </div>
+)
+
+export const ResetPassword = ResetPasswordTemplate.bind({})
+ResetPassword.args = {}

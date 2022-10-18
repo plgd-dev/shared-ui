@@ -24,6 +24,18 @@ module.exports = {
       "swiper/css": path.resolve(__dirname, "../../../node_modules/swiper/swiper-bundle.css"),
     };
     config.resolve.extensions.push(".ts", ".tsx");
+    // As the SVG loader may conflict with the file loader
+    // We add .svg as a excluded extension for the file loader
+    const filesRule = config.module.rules.find((r) => r.test.test(".svg"));
+    filesRule.exclude = /\.svg$/;
+
+    // We push the new loader, as usual
+    config.module.rules.push(
+        {
+          test: /\.svg$/,
+          use: ["@svgr/webpack"],
+        }
+    );
     return config;
   },
   staticDirs: ['../public']

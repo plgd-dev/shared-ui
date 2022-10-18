@@ -75,6 +75,7 @@ export const button = (variant: ButtonVariantsType | undefined, size: ButtonSize
     text-align: center;
     border-radius: 8px;
     white-space: nowrap;
+    box-sizing: border-box;
     cursor: ${disabled ? 'not-allowed' : 'pointer'};
     ${getColors(variant, disabled)};
     ${getSizes(size)};
@@ -96,5 +97,6 @@ export const icon = (position: ButtonIconPositionType) => css`
 `
 
 export const fullWidth = css`
-    width: 100%;
+    //width: 100%;
+    flex: 1 1 auto;
 `

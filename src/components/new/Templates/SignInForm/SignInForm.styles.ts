@@ -9,7 +9,16 @@ export const actions = css`
 `
 
 export const cta = css`
-    margin-top: 40px;
+    margin: 35px -5px -5px -5px;
+    display: flex;
+
+    @media (max-width: 767px) {
+        flex-direction: column-reverse;
+    }
+
+    button {
+        margin: 5px;
+    }
 `
 
 export const formSeparator = css`
