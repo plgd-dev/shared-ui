@@ -36,6 +36,8 @@ const LeftPanel: FC<Props> = (props) => {
         setNodeRefPool(newNodeRefPool)
     }, [menu])
 
+    const isItemActive = (item: MenuItem) => item.id === active || item?.children?.some((subItem) => subItem.id === active)
+
     return (
         <div css={styles.leftPanel}>
             <div css={styles.logo}>
@@ -48,44 +50,47 @@ const LeftPanel: FC<Props> = (props) => {
                             <li className='menu-list-group' css={styles.group} key={key}>
                                 <div css={styles.groupTitle}>{group.title}</div>
                                 <ul css={styles.menuList} data-t='k'>
-                                    {group.items?.map((item, key) => (
-                                        <li className='menu-list-item' key={key}>
-                                            <a css={[styles.item, item.id === active && styles.activeItem]} href='#' onClick={(e) => handleItemClick(item, e)}>
-                                                <div css={styles.itemTitle}>
-                                                    {item.title}
-                                                    {item.children && (
-                                                        <span css={[styles.arrow, item.id === active && styles.activeArrow]}>
-                                                            <Arrow />
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            </a>
-                                            {item.children && (
-                                                <CSSTransition
-                                                    appear={true}
-                                                    classNames='item'
-                                                    in={item.id === active}
-                                                    key={item.id}
-                                                    nodeRef={nodeRefPool?.find((refItem) => item.id === refItem.id)?.nodeRef}
-                                                    timeout={250}
-                                                >
-                                                    <div css={styles.subItems} ref={nodeRefPool?.find((refItem) => item.id === refItem.id)?.nodeRef}>
-                                                        <ul css={styles.subItemsList}>
-                                                            {item.children.map((item, key) => (
-                                                                <li key={key}>
-                                                                    <a css={styles.subItemLink} href='#'>
-                                                                        <img alt='line' css={styles.line} src={img} />
-                                                                        {item.title}
-                                                                        {item.tag && <span css={styles.tag(item.tag.variant)}>{item.tag.text}</span>}
-                                                                    </a>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
+                                    {group.items?.map((item, key) => {
+                                        const isActive = isItemActive(item)
+                                        return (
+                                            <li className='menu-list-item' key={key}>
+                                                <a css={[styles.item, isActive && styles.activeItem]} href='#' onClick={(e) => handleItemClick(item, e)}>
+                                                    <div css={styles.itemTitle}>
+                                                        {item.title}
+                                                        {item.children && (
+                                                            <span css={[styles.arrow, isActive && styles.activeArrow]}>
+                                                                <Arrow />
+                                                            </span>
+                                                        )}
                                                     </div>
-                                                </CSSTransition>
-                                            )}
-                                        </li>
-                                    ))}
+                                                </a>
+                                                {item.children && (
+                                                    <CSSTransition
+                                                        appear={true}
+                                                        classNames='item'
+                                                        in={isActive}
+                                                        key={item.id}
+                                                        nodeRef={nodeRefPool?.find((refItem) => item.id === refItem.id)?.nodeRef}
+                                                        timeout={250}
+                                                    >
+                                                        <div css={styles.subItems} ref={nodeRefPool?.find((refItem) => item.id === refItem.id)?.nodeRef}>
+                                                            <ul css={styles.subItemsList}>
+                                                                {item.children.map((item, key) => (
+                                                                    <li key={key}>
+                                                                        <a css={styles.subItemLink} href='#'>
+                                                                            <img alt='line' css={styles.line} src={img} />
+                                                                            {item.title}
+                                                                            {item.tag && <span css={styles.tag(item.tag.variant)}>{item.tag.text}</span>}
+                                                                        </a>
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    </CSSTransition>
+                                                )}
+                                            </li>
+                                        )
+                                    })}
                                 </ul>
                             </li>
                         ))}
