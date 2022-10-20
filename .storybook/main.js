@@ -12,6 +12,9 @@ module.exports = {
     "@storybook/addon-interactions"
   ],
   "framework": "@storybook/react",
+  core: {
+    builder: 'webpack5',
+  },
   babel: async (options) => {
     options.plugins.push('babel-plugin-inline-react-svg');
     return options;

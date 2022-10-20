@@ -89,7 +89,9 @@
     "@storybook/addon-interactions": "^6.5.12",
     "@storybook/addon-links": "^6.5.12",
     "@storybook/builder-webpack4": "^6.5.12",
+    "@storybook/builder-webpack5": "^6.5.12",
     "@storybook/manager-webpack4": "^6.5.12",
+    "@storybook/manager-webpack5": "^6.5.12",
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.12",
     "@storybook/storybook-deployer": "^2.8.12",
@@ -123,5 +125,8 @@
     "util": "^0.12.4",
     "yargs": "^17.5.1"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "overrides": {
+    "webpack": "5.67.0"
+  }
 }
