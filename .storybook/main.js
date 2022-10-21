@@ -15,6 +15,10 @@ module.exports = {
   "framework": "@storybook/react",
   core: {
     builder: 'webpack5',
+    options: {
+      lazyCompilation: true,
+      fsCache: true,
+    }
   },
   babel: async (options) => {
     options.plugins.push('babel-plugin-inline-react-svg');
