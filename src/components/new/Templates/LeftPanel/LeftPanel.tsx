@@ -55,7 +55,7 @@ const LeftPanel: FC<Props> = (props) => {
                                         return (
                                             <li className='menu-list-item' key={key}>
                                                 <a css={[styles.item, isActive && styles.activeItem]} href='#' onClick={(e) => handleItemClick(item, e)}>
-                                                    <div css={styles.itemTitle}>
+                                                    <div css={[styles.itemTitle, isActive && styles.itemTitleActive]}>
                                                         {item.title}
                                                         {item.children && (
                                                             <span css={[styles.arrow, isActive && styles.activeArrow]}>
@@ -77,7 +77,7 @@ const LeftPanel: FC<Props> = (props) => {
                                                             <ul css={styles.subItemsList}>
                                                                 {item.children.map((item, key) => (
                                                                     <li key={key}>
-                                                                        <a css={styles.subItemLink} href='#'>
+                                                                        <a css={[styles.subItemLink, item.id === active && styles.subItemLinkActive]} href='#'>
                                                                             <img alt='line' css={styles.line} src={img} />
                                                                             {item.title}
                                                                             {item.tag && <span css={styles.tag(item.tag.variant)}>{item.tag.text}</span>}

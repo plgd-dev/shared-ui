@@ -1,9 +1,9 @@
-body, html, #root{
+body, html, #root {
     width: 100%;
     height: 100%;
 }
 
-#center{
+#center {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,16 @@ body, html, #root{
     height: 100%;
 }
 
-
 svg {
     fill: currentColor;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+table tr td {
+    border: 1px solid #ccc;
+    padding: 4px 8px;
+}
+

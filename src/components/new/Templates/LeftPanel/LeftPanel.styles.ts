@@ -4,18 +4,26 @@ import { tagVariants } from './constants'
 import { colors } from '../../_utils/colors'
 
 export const leftPanel = css`
-    padding: 24px;
     background: #f4f9fb;
     width: 280px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 `
 
 export const logo = css`
+    padding: 24px;
     display: flex;
     justify-content: center;
+    margin-bottom: 24px;
+    box-sizing: border-box;
 `
 
 export const menu = css`
-    padding-top: 48px;
+    flex: 1 1 auto;
+    overflow: auto;
+    padding: 0 24px 24px 24px;
+    box-sizing: border-box;
 
     .menu-list-group {
         & + .menu-list-group {
@@ -97,6 +105,10 @@ export const itemTitle = css`
     position: relative;
 `
 
+export const itemTitleActive = css`
+    font-weight: bold;
+`
+
 export const arrow = css`
     position: absolute;
     right: 0;
@@ -136,15 +148,26 @@ export const subItemLink = css`
     color: #81868c;
     text-decoration: none;
     position: relative;
-    padding: 8px 0 8px 20px;
-    margin: 4px 0;
+    padding: 8px 8px 8px 20px;
+    margin: 4px 0 4px 8px;
+    transition: all 0.25s;
+    border-radius: 8px;
+
+    &:hover {
+        color: #0a2965;
+    }
+`
+
+export const subItemLinkActive = css`
+    color: #0a2965;
+    background: #fff;
 `
 
 export const line = css`
     width: 14px;
     height: 55px;
     position: absolute;
-    left: 0;
+    left: -8px;
     bottom: 50%;
 `
 

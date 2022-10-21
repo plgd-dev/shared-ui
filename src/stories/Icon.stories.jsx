@@ -1,5 +1,6 @@
 import React from 'react'
 import { Icon } from '../components/new/Icon'
+import './global.css'
 
 export default {
     title: 'Assets/Icon',
@@ -7,17 +8,31 @@ export default {
     argTypes: {},
 }
 
+const data = [
+    { name: 'dashboard' },
+    { name: 'devices' },
+    { name: 'integrations' },
+    { name: 'remote-clients' },
+    { name: 'pending-commands' },
+    { name: 'search' },
+]
+
 const Template = (args) => (
-    <div style={{ display: 'flex' }}>
-        <Icon {...args} icon='dashboard' />
-        <Icon {...args} icon='dashboard' size={24} />
-        <Icon {...args} icon='devices' size={24} />
-        <Icon {...args} icon='integrations' size={24} />
-        <Icon {...args} icon='remote-clients' size={24} />
-        <Icon {...args} icon='pending-commands' size={24} />
-        <Icon {...args} icon='pending-commands' size={48} />
-        <Icon {...args} icon='search' size={48} />
-    </div>
+    <>
+        <table>
+            {data.map((icon) => {
+                const { name, ...rest } = icon
+                return (
+                    <tr>
+                        <td>{icon.name}</td>
+                        <td>
+                            <Icon {...args} icon={icon.name} {...rest} />
+                        </td>
+                    </tr>
+                )
+            })}
+        </table>
+    </>
 )
 
 export const Default = Template.bind({})
