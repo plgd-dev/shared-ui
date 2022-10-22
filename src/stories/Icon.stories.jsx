@@ -10,6 +10,7 @@ export default {
 
 const data = [
     { name: 'dashboard' },
+    { name: 'dashboard', size: 48 },
     { name: 'devices' },
     { name: 'integrations' },
     { name: 'remote-clients' },
@@ -24,7 +25,10 @@ const Template = (args) => (
                 const { name, ...rest } = icon
                 return (
                     <tr>
-                        <td>{icon.name}</td>
+                        <td>
+                            {icon.name}
+                            {icon.size ? ` (size: ${icon.size}px)` : ''}
+                        </td>
                         <td>
                             <Icon {...args} icon={icon.name} {...rest} />
                         </td>

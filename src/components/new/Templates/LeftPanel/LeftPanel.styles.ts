@@ -86,7 +86,7 @@ export const item = css`
     transition: all 0.25s;
 
     &:hover {
-        color: #0a2965;
+        color: #252626;
     }
 `
 
@@ -154,7 +154,7 @@ export const subItemLink = css`
     border-radius: 8px;
 
     &:hover {
-        color: #0a2965;
+        color: #252626;
     }
 `
 

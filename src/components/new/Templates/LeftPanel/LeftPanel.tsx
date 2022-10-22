@@ -49,7 +49,7 @@ const LeftPanel: FC<Props> = (props) => {
                         {menu?.map((group, key) => (
                             <li className='menu-list-group' css={styles.group} key={key}>
                                 <div css={styles.groupTitle}>{group.title}</div>
-                                <ul css={styles.menuList} data-t='k'>
+                                <ul css={styles.menuList}>
                                     {group.items?.map((item, key) => {
                                         const isActive = isItemActive(item)
                                         return (
@@ -101,6 +101,6 @@ const LeftPanel: FC<Props> = (props) => {
     )
 }
 
-LeftPanel.displayName = 'LeftPanels'
+LeftPanel.displayName = 'LeftPanel'
 
 export default LeftPanel
