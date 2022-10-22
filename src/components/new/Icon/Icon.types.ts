@@ -6,6 +6,7 @@ export type UseDynamicSVGImportOptions = {
 }
 
 export type Props = {
+    className?: string
     icon: string
     id?: string
     size?: number

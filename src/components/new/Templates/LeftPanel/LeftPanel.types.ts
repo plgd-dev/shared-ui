@@ -1,4 +1,6 @@
 import { tagVariants } from './constants'
+import { SyntheticEvent } from 'react'
+import { Strategy } from '@floating-ui/core/src/types'
 
 export type MenuTagVariantType = typeof tagVariants[keyof typeof tagVariants]
 
@@ -28,4 +30,23 @@ export type Props = {
         onClick: () => void
         onClose: () => void
     }
+}
+
+export type LeftPanelItemType = {
+    item: MenuItem
+    collapsed?: boolean
+    active: string | null
+    handleItemClick: (item: MenuItem, e: SyntheticEvent) => void
+    key: number
+}
+
+export type LeftPanelSubItemsType = {
+    item: MenuItem
+    collapsed?: boolean
+    active: string | null
+    isActive?: boolean
+    floating: any
+    x: number | null
+    y: number | null
+    strategy: Strategy
 }

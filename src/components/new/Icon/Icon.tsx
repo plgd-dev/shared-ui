@@ -1,8 +1,6 @@
 import { FC, SVGProps, useCallback, useEffect, useRef, useState } from 'react'
 import { Props, defaultProps, UseDynamicSVGImportOptions } from './Icon.types'
 
-import { ReactComponent as IconHidePassword } from './assets/dashboard.svg'
-
 function useDynamicSVGImport(name: string, options: UseDynamicSVGImportOptions = {}) {
     const { onCompleted, onError } = options
     const ImportedIconRef = useRef<FC<SVGProps<SVGSVGElement>> | undefined>(undefined)
@@ -32,7 +30,7 @@ function useDynamicSVGImport(name: string, options: UseDynamicSVGImportOptions =
 }
 
 export const Icon: FC<Props> = (props) => {
-    const { icon, id, size } = { ...defaultProps, ...props }
+    const { className, icon, id, size } = { ...defaultProps, ...props }
 
     const handleOnCompleted = useCallback((iconName: string, b: any) => console.log(`${iconName} successfully loaded`, b), [])
     const { error, loading, SvgIcon } = useDynamicSVGImport(icon, { onCompleted: handleOnCompleted })
@@ -45,7 +43,7 @@ export const Icon: FC<Props> = (props) => {
 
     return (
         <div
-            data-label='karol'
+            className={className}
             id={id}
             style={{
                 width: size,
