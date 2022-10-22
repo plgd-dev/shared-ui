@@ -86,7 +86,7 @@ export const item = css`
     transition: all 0.25s;
 
     &:hover {
-        color: #252626;
+        color: ${colors.neutral800};
     }
 `
 
@@ -154,7 +154,7 @@ export const subItemLink = css`
     border-radius: 8px;
 
     &:hover {
-        color: #252626;
+        color: ${colors.neutral800};
     }
 `
 
@@ -198,4 +198,48 @@ export const tag = (variant: MenuTagVariantType) => css`
     line-height: 18px;
     color: #ffffff;
     padding: 0 10px;
+`
+
+export const newFeature = css`
+    background: #ffffff;
+    box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+`
+
+export const header = css`
+    display: flex;
+    justify-content: space-between;
+`
+
+export const headerLeft = css``
+
+export const headline = css`
+    font-family: 'Circular Pro', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: -0.5px;
+    color: #0a2965;
+    margin-bottom: 4px;
+    user-select: none;
+`
+
+export const description = css`
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: ${colors.neutral500};
+    margin-bottom: 16px;
+    user-select: none;
+`
+
+export const headerRight = css``
+
+export const iconClose = css`
+    cursor: pointer;
 `

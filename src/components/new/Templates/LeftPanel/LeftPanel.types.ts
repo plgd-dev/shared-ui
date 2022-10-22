@@ -22,5 +22,10 @@ type MenuGroup = {
 
 export type Props = {
     activeId?: string
+    collapsed?: boolean
     menu?: MenuGroup[]
+    newFeature?: {
+        onClick: () => void
+        onClose: () => void
+    }
 }
