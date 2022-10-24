@@ -7,7 +7,7 @@ import { ReactComponent as IconLogo } from './assets/logo.svg'
 import { ReactComponent as Rectangle } from './assets/rectangle.svg'
 import { ReactComponent as Blur } from './assets/background.svg'
 import { ReactComponent as Man } from './assets/man.svg'
-import Button from '@plgd/shared-ui/src/components/new/Button'
+import Button from '../../Button'
 
 const InitializedByDifferentUser: FC<Props> = (props) => {
     return (
