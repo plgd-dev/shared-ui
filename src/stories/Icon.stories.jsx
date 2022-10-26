@@ -1,7 +1,6 @@
 import React from 'react'
 import { Icon } from '../components/new/Icon'
 import './global.css'
-import Dashboard from '@plgd/shared-ui/src/components/new/Icon/components/Dashboard'
 
 export default {
     title: 'Assets/Icon',
