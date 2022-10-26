@@ -1,4 +1,5 @@
 /// <reference types="@emotion/react/types/css-prop" />
+/// <reference types="react-scripts" />
 declare module '*.css' {
     interface IClassNames {
         [className: string]: string
@@ -8,6 +9,9 @@ declare module '*.css' {
 }
 declare module '*.png'
 declare module '*.jpg'
-declare module '*.svg'
+declare module '*.svg' {
+    const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>
+    export default content
+}
 declare module '*.jpeg'
 declare module '*.gif'

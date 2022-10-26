@@ -1,0 +1,5 @@
+export { default as Dashboard } from './Dashboard'
+export { default as Devices } from './Devices'
+export { default as Integrations } from './Integrations'
+export { default as PendingCommands } from './PendingCommands'
+export { default as RemoteClients } from './RemoteClients'

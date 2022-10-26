@@ -9,7 +9,7 @@ import SignInForm from '../components/new/Templates/SignInForm'
 import './global.css'
 
 export default {
-    title: 'Templates/SignInForm',
+    title: 'Keycloakify/SignInForm',
     component: SignInForm,
     argTypes: {},
 }

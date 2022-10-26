@@ -1,6 +1,7 @@
 import React from 'react'
 import { Icon } from '../components/new/Icon'
 import './global.css'
+import Dashboard from '@plgd/shared-ui/src/components/new/Icon/components/Dashboard'
 
 export default {
     title: 'Assets/Icon',
@@ -10,19 +11,26 @@ export default {
 
 const data = [
     { name: 'dashboard' },
-    { name: 'dashboard', size: 48 },
+    { name: 'dashboard', size: 32 },
     { name: 'devices' },
+    { name: 'devices', size: 32 },
     { name: 'integrations' },
     { name: 'remote-clients' },
     { name: 'pending-commands' },
-    { name: 'search' },
 ]
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+}
 
 const Template = (args) => (
     <>
         <table>
             {data.map((icon) => {
                 const { name, ...rest } = icon
+                console.log(icon.name)
+                const c = capitalizeFirstLetter(icon.name)
+                console.log(c)
                 return (
                     <tr>
                         <td>
