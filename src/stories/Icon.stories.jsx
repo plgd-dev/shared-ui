@@ -18,18 +18,11 @@ const data = [
     { name: 'pending-commands' },
 ]
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
-}
-
 const Template = (args) => (
     <>
         <table>
             {data.map((icon) => {
                 const { name, ...rest } = icon
-                console.log(icon.name)
-                const c = capitalizeFirstLetter(icon.name)
-                console.log(c)
                 return (
                     <tr>
                         <td>
@@ -37,7 +30,7 @@ const Template = (args) => (
                             {icon.size ? ` (size: ${icon.size}px)` : ''}
                         </td>
                         <td>
-                            <Icon {...args} icon={icon.name} {...rest} />
+                            <Icon {...args} {...rest} icon={icon.name} />
                         </td>
                     </tr>
                 )
