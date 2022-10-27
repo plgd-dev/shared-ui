@@ -8,10 +8,10 @@ import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
 
-const Swiper: FC<Props> = (props: Props) => {
-    const { slides } = props
+const Swiper: FC<Props> = (props) => {
+    const { slides, alignItems } = props
     return (
-        <div className={props.className} css={styles.Swiper} style={{ width: '100%' }}>
+        <div className={props.className} css={styles.Swiper(alignItems || 'center')} style={{ width: '100%' }}>
             <SwiperBase
                 autoplay={{
                     delay: 2500,

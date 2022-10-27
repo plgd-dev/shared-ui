@@ -1,8 +1,26 @@
 import { css } from '@emotion/react'
+import { AlignItemsType } from './Swiper.types'
 
-export const Swiper = css`
+const getAlignItems = (alignItems: AlignItemsType) => {
+    switch (alignItems) {
+        case 'top':
+            return css`
+                align-items: flex-start;
+            `
+        case 'bottom':
+            return css`
+                align-items: flex-end;
+            `
+    }
+}
+
+export const Swiper = (alignItems: AlignItemsType) => css`
     .swiper {
         padding-bottom: 40px;
+    }
+
+    .swiper-wrapper {
+        ${getAlignItems(alignItems)};
     }
 
     .swiper-pagination {
