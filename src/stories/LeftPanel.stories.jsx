@@ -21,6 +21,21 @@ const menu = [
                 id: '2',
                 title: 'Devices',
             },
+            {
+                icon: 'integrations',
+                id: '3',
+                title: 'Integrations',
+            },
+            {
+                icon: 'remote-clients',
+                id: '4',
+                title: 'Remote clients',
+            },
+            {
+                icon: 'pending-commands',
+                id: '5',
+                title: 'Pending commands',
+            },
         ],
     },
     {
@@ -28,58 +43,58 @@ const menu = [
         icon: 'search',
         items: [
             {
-                icon: 'search',
-                id: '31',
-                title: 'Dashboard',
+                icon: 'network',
+                id: '10',
+                title: 'Device provisioning',
                 children: [
-                    { icon: 'search', id: '31', title: 'Quickstart', tag: { variant: 'success', text: 'New' } },
-                    { icon: 'search', id: '32', title: 'Manage enrollments' },
-                    { icon: 'search', id: '33', title: 'Linked hubs' },
-                    { icon: 'search', id: '34', title: 'Certificates', tag: { variant: 'info', text: 'Soon!' } },
-                    { icon: 'search', id: '35', title: 'Registration records' },
+                    { icon: 'search', id: '101', title: 'Quickstart', tag: { variant: 'success', text: 'New' } },
+                    { icon: 'search', id: '102', title: 'Manage enrollments' },
+                    { icon: 'search', id: '103', title: 'Linked hubs' },
+                    { icon: 'search', id: '104', title: 'Certificates', tag: { variant: 'info', text: 'Soon!' } },
+                    { icon: 'search', id: '105', title: 'Registration records' },
                 ],
             },
             {
-                icon: 'search',
-                id: '4',
-                title: 'Devices 2',
+                icon: 'device-update',
+                id: '11',
+                title: 'Device firmware update',
                 children: [
-                    { icon: 'search', id: '41', title: 'Quickstart 2', tag: { variant: 'success', text: 'New 2' } },
-                    { icon: 'search', id: '42', title: 'Manage enrollments 2' },
-                    { icon: 'search', id: '43', title: 'Linked hubs 2' },
-                    { icon: 'search', id: '44', title: 'Certificates 2', tag: { variant: 'info', text: 'Soon!' } },
-                    { icon: 'search', id: '45', title: 'Registration records 2' },
+                    { icon: 'search', id: '111', title: 'Quickstart 2', tag: { variant: 'success', text: 'New 2' } },
+                    { icon: 'search', id: '112', title: 'Manage enrollments 2' },
+                    { icon: 'search', id: '113', title: 'Linked hubs 2' },
+                    { icon: 'search', id: '114', title: 'Certificates 2', tag: { variant: 'info', text: 'Soon!' } },
+                    { icon: 'search', id: '115', title: 'Registration records 2' },
                 ],
+            },
+            {
+                icon: 'log',
+                id: '12',
+                title: 'Device logs',
+            },
+            {
+                icon: 'lock',
+                id: '13',
+                title: 'API tokens',
+            },
+            {
+                icon: 'net',
+                id: '14',
+                title: 'Schema hub',
             },
         ],
     },
     {
-        title: 'Other 2',
+        title: 'Support',
         items: [
             {
-                icon: 'search',
-                id: '10',
-                title: 'Dashboard 2',
+                icon: 'docs',
+                id: '20',
+                title: 'Docs',
             },
             {
-                icon: 'search',
-                id: '11',
-                title: 'Devices 2',
-            },
-        ],
-    },
-    {
-        title: 'Other 3',
-        items: [
-            {
-                icon: 'search',
-                id: '10',
-                title: 'Dashboard 3',
-            },
-            {
-                icon: 'search',
-                id: '11',
-                title: 'Devices 3',
+                icon: 'chat',
+                id: '21',
+                title: 'Chat room',
             },
         ],
     },
@@ -133,7 +148,7 @@ const TemplateCollapsed = (args) => (
             <LeftPanel {...args} activeId='1' collapsed={true} menu={menu} />
         </div>
         <div style={{ padding: '10px 120px' }}>
-            <LeftPanel {...args} activeId='41' collapsed={true} menu={menu} />
+            <LeftPanel {...args} activeId='10' collapsed={true} menu={menu} />
         </div>
     </div>
 )

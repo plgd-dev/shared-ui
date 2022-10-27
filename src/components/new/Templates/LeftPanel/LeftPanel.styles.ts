@@ -31,7 +31,7 @@ export const logoCollapsed = css`
 export const menu = css`
     flex: 1 1 auto;
     overflow: auto;
-    padding: 0 24px 24px 24px;
+    padding: 0 24px 50px 24px;
     box-sizing: border-box;
 
     .menu-list-group {
@@ -68,13 +68,12 @@ export const menuList = css`
     list-style: none;
     padding: 0;
     margin: 0;
+    position: relative;
 `
 
 export const menuListItem = css`
     display: flex;
     justify-content: center;
-    //flex-direction: column;
-    //position: relative;
 `
 
 export const group = css`
@@ -276,6 +275,8 @@ export const newFeature = css`
     padding: 16px;
     cursor: pointer;
     margin-top: 8px;
+    position: absolute;
+    bottom: -26px;
 `
 
 export const header = css`
@@ -312,4 +313,10 @@ export const headerRight = css``
 
 export const iconClose = css`
     cursor: pointer;
+    transition: all 0.25s;
+    color: ${colors.neutral500};
+
+    &:hover {
+        color: ${colors.primary};
+    }
 `

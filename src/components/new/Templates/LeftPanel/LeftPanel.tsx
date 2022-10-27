@@ -2,12 +2,9 @@ import { FC, SyntheticEvent, useState } from 'react'
 import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
 import { CSSTransition } from 'react-transition-group'
-import { ReactComponent as Logo } from './assets/logo.svg'
-import { ReactComponent as LogoSmall } from './assets/logoSmall.svg'
-import { ReactComponent as Arrow } from './assets/arrow.svg'
-import { ReactComponent as Close } from './assets/close.svg'
-import { ReactComponent as FeatureImg } from './assets/feature.svg'
 import { useFloating, shift, offset } from '@floating-ui/react-dom'
+
+import { Logo, LogoSmall, Close, Arrow, Feature } from './components'
 
 import img from './assets/line.png'
 import { Icon } from '../../Icon'
@@ -31,12 +28,12 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                 onClick={(e) => handleItemClick(item, e)}
                 ref={reference}
             >
-                <div css={[styles.itemTitle, isActive && styles.itemTitleActive]}>
+                <div css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
                     <Icon css={[!collapsed && styles.itemTitleIcon]} icon={item.icon} />
                     <span css={[collapsed && styles.titleHidden]}>{item.title}</span>
                     {item.children && (
                         <span css={[styles.arrow, isActive && styles.activeArrow, collapsed && styles.arrowCollapsed]}>
-                            <Arrow />
+                            <Arrow height={6} width={10} />
                         </span>
                     )}
                 </div>
@@ -125,7 +122,9 @@ const LeftPanel: FC<Props> = (props) => {
 
     return (
         <div css={[styles.leftPanel, collapsed && styles.collapsedPanel]}>
-            <div css={[styles.logo, collapsed && styles.logoCollapsed]}>{collapsed ? <LogoSmall /> : <Logo />}</div>
+            <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
+                {collapsed ? <LogoSmall height={32} width={50} /> : <Logo height={32} width={147} />}
+            </div>
             <div css={[styles.menu, collapsed && styles.menuCollapsed]}>
                 <ul css={styles.menuList}>
                     {menu?.map((group, key) => (
@@ -148,15 +147,17 @@ const LeftPanel: FC<Props> = (props) => {
                                 <div css={styles.headerRight}>
                                     <Close
                                         css={styles.iconClose}
+                                        height={20}
                                         onClick={(e: SyntheticEvent) => {
                                             e.preventDefault()
                                             e.stopPropagation()
                                             newFeature.onClose()
                                         }}
+                                        width={20}
                                     />
                                 </div>
                             </div>
-                            <FeatureImg />
+                            <Feature height={120} width={200} />
                         </li>
                     )}
                 </ul>
