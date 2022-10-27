@@ -33,9 +33,7 @@ export const Icon: FC<Props> = (props) => {
                 setLoading(false)
             }
         }
-        importIcon().then((r) => {
-            console.log(r)
-        })
+        importIcon().then()
     }, [icon, onCompleted, onError])
 
     if (error) {

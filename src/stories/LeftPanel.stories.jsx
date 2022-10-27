@@ -110,12 +110,12 @@ export const Default = Template.bind({})
 Default.args = {}
 
 const TemplateActive = (args) => (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', margin: -10 }}>
         <div style={{ padding: 10 }}>
             <LeftPanel {...args} activeId='1' menu={menu} />
         </div>
         <div style={{ padding: 10 }}>
-            <LeftPanel {...args} activeId='41' menu={menu} />
+            <LeftPanel {...args} activeId='10' menu={menu} />
         </div>
     </div>
 )
@@ -140,7 +140,7 @@ export const NewFeature = TemplateFeature.bind({})
 Default.args = {}
 
 const TemplateCollapsed = (args) => (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: 'flex', margin: '-10px -120px' }}>
         <div style={{ padding: '10px 120px' }}>
             <LeftPanel {...args} collapsed={true} menu={menu} />
         </div>
