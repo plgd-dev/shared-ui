@@ -10,27 +10,32 @@ export default {
 
 const data = [
     { name: 'dashboard' },
-    { name: 'dashboard', size: 32 },
     { name: 'devices' },
-    { name: 'devices', size: 32 },
     { name: 'integrations' },
     { name: 'remote-clients' },
     { name: 'pending-commands' },
+    { name: 'network' },
+    { name: 'device-update' },
+    { name: 'log' },
+    { name: 'lock' },
+    { name: 'net' },
+    { name: 'docs' },
+    { name: 'chat' },
 ]
 
 const Template = (args) => (
     <>
         <table>
-            {data.map((icon) => {
+            {data.map((icon, key) => {
                 const { name, ...rest } = icon
                 return (
-                    <tr>
+                    <tr key={key}>
                         <td>
                             {icon.name}
                             {icon.size ? ` (size: ${icon.size}px)` : ''}
                         </td>
                         <td>
-                            <Icon {...args} {...rest} icon={icon.name} />
+                            <Icon {...args} {...rest} icon={icon.name} size={icon?.size || 32} />
                         </td>
                     </tr>
                 )
