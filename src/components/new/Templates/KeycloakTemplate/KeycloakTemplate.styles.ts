@@ -24,11 +24,6 @@ export const TemplateLeftCol = css`
     }
 
     @media (max-width: 991px) {
-        flex: 0 0 250px;
-        max-width: 250px;
-    }
-
-    @media (max-width: 767px) {
         display: none;
     }
 `
@@ -84,7 +79,7 @@ export const rightHeader = css`
     min-height: 80px;
     box-sizing: border-box;
 
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
         padding: 20px 15px;
         border-bottom: 1px solid #d7d8da;
     }
@@ -96,7 +91,11 @@ export const headerSteps = css`
     margin: auto;
     box-sizing: border-box;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1199px) {
+        flex: 0 1 380px;
+    }
+
+    @media (max-width: 991px) {
         display: none;
     }
 `
@@ -104,14 +103,14 @@ export const headerSteps = css`
 export const rightMobileLogoLink = css`
     display: none;
 
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
         display: block;
     }
 `
 
 export const close = css`
     position: absolute;
-    right: 50px;
+    right: 30px;
     top: 50%;
     transform: translateY(-50%);
     color: #81868c;
@@ -119,8 +118,10 @@ export const close = css`
     transition: all 0.25s;
     display: flex;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
 
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
         right: 15px;
     }
 
@@ -152,6 +153,14 @@ export const centeredBox = css`
     position: relative;
     z-index: 2;
     box-sizing: border-box;
+
+    @media (max-width: 1199px) {
+        flex: 0 1 380px;
+    }
+
+    @media (max-width: 1199px) {
+        flex: 0 1 490px;
+    }
 `
 
 export const mainHeadline = css`
@@ -167,7 +176,7 @@ export const mainHeadline = css`
 export const contentSteps = css`
     display: none;
 
-    @media (max-width: 767px) {
+    @media (max-width: 991px) {
         display: block;
         padding: 30px 0 50px 0;
         box-sizing: border-box;
@@ -175,6 +184,8 @@ export const contentSteps = css`
 `
 
 export const description = css`
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
     color: #252626;
     font-weight: 400;
     font-size: 16px;
