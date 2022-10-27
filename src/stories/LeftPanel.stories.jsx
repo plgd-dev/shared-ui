@@ -12,12 +12,12 @@ const menu = [
         title: 'Main menu',
         items: [
             {
-                icon: 'search',
+                icon: 'dashboard',
                 id: '1',
                 title: 'Dashboard',
             },
             {
-                icon: 'search',
+                icon: 'devices',
                 id: '2',
                 title: 'Devices',
             },
