@@ -3,23 +3,23 @@ import { Props } from './InitializedByDifferentUser.types'
 import * as styles from './InitializedByDifferentUser.styles'
 
 // assets
-import { ReactComponent as IconLogo } from './assets/logo.svg'
-import { ReactComponent as Rectangle } from './assets/rectangle.svg'
-import { ReactComponent as Blur } from './assets/background.svg'
-import { ReactComponent as Man } from './assets/man.svg'
+import { Background, Header, Logo } from './components'
 import Button from '../../Button'
 
 const InitializedByDifferentUser: FC<Props> = (props) => {
     return (
         <div css={styles.cover}>
-            <Blur css={styles.background} />
+            <div css={styles.background}>
+                <Background height={830} width={1440} />
+            </div>
             <div css={styles.blur} />
-            <Rectangle css={styles.rectangle} />
-            <Man css={styles.man} />
+            <div css={styles.rectangle}>
+                <Header css={styles.responsiveSvg} height={674} width={1440} />
+            </div>
             <main css={styles.main}>
                 <div css={styles.container}>
                     <div>
-                        <IconLogo />
+                        <Logo height={38} width={170} />
                     </div>
                     <div css={styles.content}>
                         <h1 css={styles.headline}>

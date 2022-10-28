@@ -24,6 +24,14 @@ export const rectangle = css`
     left: 0;
     width: 100%;
     z-index: 4;
+    min-height: 450px;
+
+    svg {
+        @media (max-width: 1399px) {
+            width: auto;
+            min-height: 450px;
+        }
+    }
 `
 
 export const background = css`
@@ -53,6 +61,10 @@ export const man = css`
     top: 50px;
     right: 200px;
     z-index: 5;
+
+    @media (max-width: 1399px) {
+        right: 50px;
+    }
 `
 
 export const main = css`
@@ -68,6 +80,10 @@ export const main = css`
 export const content = css`
     padding: 100px 0 0 100px;
     max-width: 500px;
+
+    @media (max-width: 991px) {
+        padding: 80px 0 0 0;
+    }
 `
 
 export const headline = css`
@@ -83,6 +99,12 @@ export const headline = css`
     span {
         color: #007bbf;
     }
+
+    @media (max-width: 991px) {
+        font-size: 36px;
+        line-height: 42px;
+        letter-spacing: -0.5px;
+    }
 `
 
 export const description = css`
@@ -93,4 +115,14 @@ export const description = css`
     line-height: 24px;
     color: ${colors.neutral800};
     margin-bottom: 34px;
+
+    @media (max-width: 991px) {
+        font-size: 16px;
+        line-height: 24px;
+    }
+`
+
+export const responsiveSvg = css`
+    width: 100%;
+    height: auto;
 `
