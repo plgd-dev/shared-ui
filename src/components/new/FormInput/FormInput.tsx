@@ -2,21 +2,22 @@ import { FC, useRef, useState } from 'react'
 import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.style'
 import { mergeRefs } from 'react-merge-refs'
-import { ReactComponent as IconShowPassword } from './assets/icon-show-password.svg'
-import { ReactComponent as IconHidePassword } from './assets/icon-hide-password.svg'
+import Icon from '../Icon'
+import { copyToClipboard } from '../../../common/utils'
 
 const FormInput: FC<Props> = (props) => {
     const {
-        autoComplete,
         ariaInvalid,
-        value,
-        inputRef,
-        type: defaultType,
-        icon,
+        autoComplete,
+        copy,
         disabled,
         error,
+        icon,
+        inputRef,
         telPattern,
         telPrefix,
+        type: defaultType,
+        value,
         ...rest
     } = { ...defaultProps, ...props }
     const [type, setType] = useState(defaultType)
@@ -28,7 +29,7 @@ const FormInput: FC<Props> = (props) => {
             autoComplete={autoComplete}
             css={[
                 styles.input,
-                defaultType === 'password' && styles.inputWithIcon,
+                (defaultType === 'password' || copy) && styles.inputWithIcon,
                 defaultType === 'tel' && styles.inputTel,
                 disabled && styles.disabled,
                 error && styles.error,
@@ -41,7 +42,7 @@ const FormInput: FC<Props> = (props) => {
         />
     )
 
-    if (defaultType === 'password' || defaultType === 'tel' || icon) {
+    if (defaultType === 'password' || defaultType === 'tel' || copy || icon) {
         return (
             <div css={styles.inputWithIconWrapper}>
                 {defaultType === 'tel' && (
@@ -51,12 +52,17 @@ const FormInput: FC<Props> = (props) => {
                     </div>
                 )}
                 {inputBase}
-                {defaultType === 'password' && (
-                    <span css={styles.inputIcon} onClick={() => setType(type === defaultType ? 'text' : defaultType)}>
-                        {type === 'text' ? <IconHidePassword /> : <IconShowPassword />}
+                {copy && (
+                    <span css={styles.inputIcon} onClick={() => copyToClipboard(localInputRef.current?.value || '')}>
+                        <Icon icon='copy' size={24} />
                     </span>
                 )}
-                {defaultType !== 'password' && defaultType !== 'tel' && <span css={styles.inputIcon}>{icon}</span>}
+                {defaultType === 'password' && !copy && (
+                    <span css={styles.inputIcon} onClick={() => setType(type === defaultType ? 'text' : defaultType)}>
+                        {<Icon icon={`icon-${type === 'text' ? 'hide' : 'show'}-password`} size={24} />}
+                    </span>
+                )}
+                {defaultType !== 'password' && defaultType !== 'tel' && !copy && <span css={styles.inputIcon}>{icon}</span>}
             </div>
         )
     }

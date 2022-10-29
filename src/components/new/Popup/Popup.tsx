@@ -1,28 +1,58 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { Props } from './Popup.types'
 import * as styles from './Popup.styles'
-import { ReactComponent as IconPattern } from './assets/Pattern.svg'
-import { ReactComponent as IconLogo } from './assets/Logo.svg'
+import Icon from '../Icon'
+import { CSSTransition } from 'react-transition-group'
+import { Logo, Pattern, RightPattern } from './components'
 
 const Popup: FC<Props> = (props) => {
     const { headline, description, formNode, right } = props
+    const [showMobileBar, setShowMobileBar] = useState(false)
+    const [mobileBar, setMobileBar] = useState(true)
+
     return (
         <div css={styles.popup}>
             <div css={[styles.content, right && styles.doublePanels]}>
                 <div css={styles.top}>
                     <div css={styles.logo}>
-                        <IconLogo />
+                        <CSSTransition appear={true} classNames='item-blur' in={showMobileBar} timeout={0}>
+                            <Logo height={38} width={170} css={styles.logoSvg} />
+                        </CSSTransition>
                     </div>
                     <div css={styles.boxWrapper}>
-                        <div css={styles.form}>
-                            <h1 css={styles.h1}>{headline}</h1>
-                            <div css={styles.description}>{description}</div>
-                            {formNode}
-                        </div>
-                        {right && (
-                            <div css={styles.formRight}>
-                                <h2 css={styles.headlineRight}>{right.headline}</h2>
-                                <div css={styles.textRight}>{right.text}</div>
+                        <CSSTransition appear={true} classNames='item-blur' in={showMobileBar} timeout={0}>
+                            <div css={styles.form}>
+                                <h1 css={styles.h1}>{headline}</h1>
+                                <div css={styles.description}>{description}</div>
+                                {formNode}
+                            </div>
+                        </CSSTransition>
+                        {right && mobileBar && (
+                            <div css={styles.formRight} onClick={() => setShowMobileBar(!showMobileBar)}>
+                                <div css={styles.rightInner}>
+                                    <div css={styles.rightHeader}>
+                                        <h2 css={styles.headlineRight}>{right.headline}</h2>
+                                        <CSSTransition appear={true} classNames='item-icon' in={showMobileBar} timeout={0}>
+                                            <Icon
+                                                css={styles.close}
+                                                icon='close'
+                                                onClick={() => {
+                                                    setShowMobileBar(false)
+                                                    setMobileBar(false)
+                                                }}
+                                                size={32}
+                                            />
+                                        </CSSTransition>
+                                    </div>
+                                    <CSSTransition appear={true} classNames='item' in={showMobileBar} timeout={0}>
+                                        <div css={styles.textRight}>
+                                            <div css={styles.textRightInner}>{right.text}</div>
+                                        </div>
+                                    </CSSTransition>
+                                    <div>
+                                        <RightPattern css={styles.rightPattern} height={231} width={315} />
+                                    </div>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -30,8 +60,13 @@ const Popup: FC<Props> = (props) => {
                 <div css={styles.bottom}>All Rights Reserved © 2020-{new Date().getFullYear()} plgd.dev, s.r.o.</div>
             </div>
             <div css={styles.pattern}>
-                <IconPattern />
+                <Pattern height={745} width={1120} />
             </div>
+            {showMobileBar && mobileBar && (
+                <CSSTransition appear={true} classNames='item-icon' in={showMobileBar} timeout={0}>
+                    <div css={styles.blur}></div>
+                </CSSTransition>
+            )}
         </div>
     )
 }

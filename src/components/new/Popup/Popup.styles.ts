@@ -13,13 +13,44 @@ export const popup = css`
     align-items: center;
     padding: 32px;
     overflow: hidden;
+
+    .item-enter-done {
+        max-height: 300px;
+    }
+
+    .item-exit,
+    .item-exit-active,
+    .item-exit-done {
+        max-height: 0;
+    }
+
+    .item-icon-enter-done,
+    .item-icon-appear-done {
+        opacity: 1;
+    }
+
+    .item-icon-exit,
+    .item-icon-exit-active,
+    .item-icon-exit-done {
+        opacity: 0;
+    }
+
+    .item-blur-enter-done,
+    .item-blur-appear-done {
+        filter: blur(6px);
+    }
+
+    .item-blur-exit,
+    .item-blur-exit-active,
+    .item-blur-exit-done {
+        filter: blur(0);
+    }
 `
 
 export const content = css`
     width: 100%;
     min-height: 100%;
-    position: relative;
-    z-index: 2;
+
     display: flex;
     flex-direction: column;
 `
@@ -39,10 +70,18 @@ export const logo = css`
     margin-bottom: 48px;
 `
 
+export const logoSvg = css`
+    transition: all 0.35s;
+`
+
 export const boxWrapper = css`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 991px) {
+        display: block;
+    }
 `
 
 export const form = css`
@@ -51,6 +90,11 @@ export const form = css`
     border-radius: 16px;
     padding: 32px;
     flex: 0 0 389px;
+
+    @media (max-width: 991px) {
+        max-width: 389px;
+        margin: 0 auto;
+    }
 `
 
 export const h1 = css`
@@ -80,6 +124,41 @@ export const formRight = css`
     border-bottom-right-radius: 16px;
     padding: 32px 32px 128px 32px;
     flex: 0 0 315px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    transition: all 0.35s;
+    overflow: hidden;
+
+    @media (max-width: 991px) {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 32px;
+        border-top-right-radius: 16px;
+        border-top-left-radius: 16px;
+        border-bottom-right-radius: 0;
+        z-index: 6;
+        cursor: pointer;
+    }
+
+    &:before {
+        content: '';
+        display: none;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 48px;
+        height: 5px;
+        background: #fff;
+        border-radius: 4px;
+
+        @media (max-width: 991px) {
+            display: block;
+        }
+    }
 `
 
 export const headlineRight = css`
@@ -90,16 +169,70 @@ export const headlineRight = css`
     line-height: 24px;
     letter-spacing: -0.5px;
     color: ${colors.neutral100};
-    margin: 0 0 16px 0;
+    margin: 0;
 `
 
 export const textRight = css`
+    overflow: hidden;
+    transition: all 0.35s;
+    position: relative;
+    z-index: 2;
+
+    @media (max-width: 991px) {
+        max-height: 0;
+    }
+
+    @media (min-width: 992px) {
+        max-height: 300px !important;
+    }
+`
+
+export const textRightInner = css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 26px;
     color: ${colors.neutral100};
+    padding-top: 16px;
+`
+
+export const rightHeader = css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+`
+
+export const close = css`
+    color: #fff;
+    display: none;
+    opacity: 0;
+    transition: all 0.35s;
+
+    @media (max-width: 991px) {
+        display: block;
+    }
+`
+
+export const rightInner = css`
+    position: relative;
+`
+
+export const rightPattern = css`
+    position: absolute;
+    bottom: -128px;
+    left: -32px;
+
+    @media (max-width: 991px) {
+        top: 0;
+        left: -32px;
+        right: -32px;
+        bottom: unset;
+        width: calc(100% + 64px);
+        height: auto;
+    }
 `
 
 export const bottom = css`
@@ -118,5 +251,17 @@ export const pattern = css`
     bottom: 0;
     right: 0;
     color: #f4f9fb;
-    z-index: 1;
+    z-index: -1;
+`
+
+export const blur = css`
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background: rgba(25, 26, 26, 0.9);
+    opacity: 0;
+    transition: all 0.25s;
 `

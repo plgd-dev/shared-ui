@@ -20,18 +20,20 @@ const Template = (args) => (
                 <form action=''>
                     <FormGroup id='subject_id'>
                         <FormLabel text='Subject ID' />
-                        <FormInput name='subject_id' placeholder='Subject ID' />
+                        <FormInput copy={true} name='subject_id' placeholder='Subject ID' />
                     </FormGroup>
                     <FormGroup id='key'>
                         <FormLabel text='Key' />
-                        <FormInput name='Key' placeholder='Key' />
+                        <FormInput copy={true} name='Key' placeholder='Key' type='password' />
                     </FormGroup>
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 32 }}>
                         <Button variant='tertiary'>Generate random data</Button>
                     </div>
-                    <Button fullWidth={true} size='big' variant='primary'>
-                        Main CTA Action
-                    </Button>
+                    <div style={{ display: 'flex' }}>
+                        <Button fullWidth={true} size='big' variant='primary'>
+                            Main CTA Action
+                        </Button>
+                    </div>
                 </form>
             }
             headline='Headline'
@@ -51,18 +53,20 @@ const TemplateRight = (args) => (
                 <form action=''>
                     <FormGroup id='subject_id'>
                         <FormLabel text='Subject ID' />
-                        <FormInput name='subject_id' placeholder='Subject ID' />
+                        <FormInput copy={true} defaultValue='376ee947-4801-5cfe-3a8f-49103697f11' name='subject_id' placeholder='Subject ID' />
                     </FormGroup>
                     <FormGroup id='key'>
                         <FormLabel text='Key' />
-                        <FormInput name='Key' placeholder='Key' />
+                        <FormInput copy={true} defaultValue='123 bla bla 123' name='Key' placeholder='Key' type='password' />
                     </FormGroup>
                     <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 32 }}>
                         <Button variant='tertiary'>Generate random data</Button>
                     </div>
-                    <Button fullWidth={true} size='big' variant='primary'>
-                        Main CTA Action
-                    </Button>
+                    <div style={{ display: 'flex' }}>
+                        <Button fullWidth={true} size='big' variant='primary'>
+                            Main CTA Action
+                        </Button>
+                    </div>
                 </form>
             }
             headline='Headline'

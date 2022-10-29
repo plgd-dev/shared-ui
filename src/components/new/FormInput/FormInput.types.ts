@@ -5,6 +5,7 @@ export type Props = {
     autoFocus?: boolean
     ariaInvalid?: boolean
     className?: string
+    copy?: boolean
     defaultValue?: string | number
     disabled?: boolean
     error?: boolean
