@@ -9,18 +9,25 @@ export default {
 }
 
 const data = [
-    { name: 'dashboard' },
-    { name: 'devices' },
-    { name: 'integrations' },
-    { name: 'remote-clients' },
-    { name: 'pending-commands' },
-    { name: 'network' },
-    { name: 'device-update' },
-    { name: 'log' },
-    { name: 'lock' },
-    { name: 'net' },
-    { name: 'docs' },
     { name: 'chat' },
+    { name: 'close' },
+    { name: 'cloud-error' },
+    { name: 'cloud-success' },
+    { name: 'cloud-warning' },
+    { name: 'copy' },
+    { name: 'dashboard' },
+    { name: 'device-update' },
+    { name: 'devices' },
+    { name: 'docs' },
+    { name: 'icon-hide-password' },
+    { name: 'icon-show-password' },
+    { name: 'integrations' },
+    { name: 'lock' },
+    { name: 'log' },
+    { name: 'net' },
+    { name: 'network' },
+    { name: 'pending-commands' },
+    { name: 'remote-clients' },
 ]
 
 const Template = (args) => (
