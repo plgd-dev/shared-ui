@@ -8,21 +8,12 @@ export const switchC = css`
     align-items: center;
 `
 
-const getSwitcherSize = (size: SwitcherSizeType) => {
-    if (size === 'small') {
-        return css`
-            width: 24px;
-            height: 15px;
-            border-radius: 20px;
-        `
-    } else {
-        return css`
-            width: 32px;
-            height: 20px;
-            border-radius: 26.6667px;
-        `
-    }
-}
+const getSwitcherSize = (size: SwitcherSizeType) =>
+    css`
+        width: ${size === 'big' ? '32px' : '24px'};
+        height: ${size === 'big' ? '20px' : '15px'};
+        border-radius: ${size === 'big' ? '26.6667px' : '20px'};
+    `
 
 export const switcher = (size: SwitcherSizeType) => css`
     ${getSwitcherSize(size)};
@@ -43,8 +34,6 @@ export const slider = styled.span`
     &:before {
         position: absolute;
         content: '';
-        height: 16px;
-        width: 16px;
         left: 2px;
         bottom: 2px;
         background-color: white;

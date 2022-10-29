@@ -1,5 +1,8 @@
 export { default as Chat } from './Chat'
 export { default as Close } from './Close'
+export { default as CloudError } from './CloudError'
+export { default as CloudSuccess } from './CloudSuccess'
+export { default as CloudWarning } from './CloudWarning'
 export { default as Copy } from './Copy'
 export { default as Dashboard } from './Dashboard'
 export { default as DeviceUpdate } from './DeviceUpdate'
