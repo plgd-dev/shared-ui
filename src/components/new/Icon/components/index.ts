@@ -1,3 +1,5 @@
+export { default as ArrowLeft } from './ArrowLeft'
+export { default as ArrowRight } from './ArrowRight'
 export { default as Chat } from './Chat'
 export { default as Close } from './Close'
 export { default as CloudError } from './CloudError'
