@@ -22,6 +22,7 @@ const data = [
     { name: 'icon-hide-password' },
     { name: 'icon-show-password' },
     { name: 'integrations' },
+    { name: 'link' },
     { name: 'lock' },
     { name: 'log' },
     { name: 'net' },

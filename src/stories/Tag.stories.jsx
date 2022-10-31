@@ -9,22 +9,10 @@ export default {
 
 const Template = (args) => (
     <div>
-        <Tag {...args} variant='success'>
-            status
-        </Tag>
+        <Tag {...args}>status</Tag>
         <br />
         <br />
-        <Tag {...args} variant='warning'>
-            status
-        </Tag>
-        <br />
-        <br />
-        <Tag {...args} variant='error'>
-            status
-        </Tag>
-        <br />
-        <br />
-        <Tag {...args} variant='normal'>
+        <Tag {...args} icon='link'>
             status
         </Tag>
     </div>

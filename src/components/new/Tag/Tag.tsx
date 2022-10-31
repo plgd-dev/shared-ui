@@ -1,13 +1,18 @@
 import { FC } from 'react'
-import { Props, defaultProps } from './Tag.types'
+import { Props } from './Tag.types'
 import * as styles from './Tag.styles'
+import { Icon } from '../Icon'
 
 const Tag: FC<Props> = (props) => {
-    const { children, variant } = { ...defaultProps, ...props }
-    return <div css={styles.tag(variant)}>{children}</div>
+    const { children, icon, onClick } = props
+    return (
+        <div css={styles.tag} onClick={onClick}>
+            {icon && <Icon css={styles.icon} icon={icon} />}
+            {children}
+        </div>
+    )
 }
 
 Tag.displayName = 'Tag'
-Tag.defaultProps = defaultProps
 
 export default Tag
