@@ -1,7 +1,7 @@
 import React from 'react'
-import FormGroup from '../components/new/FormGroup'
-import FormInput from '../components/new/FormInput'
-import FormLabel from '../components/new/FormLabel'
+import FormGroup from '../../components/new/FormGroup'
+import FormInput from '../../components/new/FormInput'
+import FormLabel from '../../components/new/FormLabel'
 
 export default {
     title: 'Form/FormGroup',

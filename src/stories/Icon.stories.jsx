@@ -14,6 +14,7 @@ const data = [
     { name: 'cloud-error' },
     { name: 'cloud-success' },
     { name: 'cloud-warning' },
+    { name: 'collapse' },
     { name: 'copy' },
     { name: 'dashboard' },
     { name: 'device-update' },
@@ -27,8 +28,10 @@ const data = [
     { name: 'log' },
     { name: 'net' },
     { name: 'network' },
+    { name: 'notification' },
     { name: 'pending-commands' },
     { name: 'remote-clients' },
+    { name: 'settings' },
 ]
 
 const Template = (args) => (

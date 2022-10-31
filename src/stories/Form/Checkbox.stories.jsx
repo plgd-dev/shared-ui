@@ -1,6 +1,6 @@
 import React from 'react'
-import Checkbox from '../components/new/Checkbox'
-import FormGroup from '../components/new/FormGroup'
+import Checkbox from '../../components/new/Checkbox'
+import FormGroup from '../../components/new/FormGroup'
 
 export default {
     title: 'Form/Checkbox',

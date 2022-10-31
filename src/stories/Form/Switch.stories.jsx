@@ -1,5 +1,5 @@
 import React from 'react'
-import Switch from '../components/new/Switch'
+import Switch from '../../components/new/Switch'
 
 export default {
     title: 'Form/Switch',

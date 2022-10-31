@@ -1,7 +1,7 @@
 import React from 'react'
-import Button from '../components/new/Button'
-import { ReactComponent as IconPlus } from './assets/icon-plus.svg'
-import './global.css'
+import Button from '../../components/new/Button'
+import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
+import '../global.css'
 
 export default {
     title: 'Form/Button',

@@ -1,6 +1,6 @@
 import { FC, useRef, useState } from 'react'
 import { Props, defaultProps } from './FormInput.types'
-import * as styles from './FormInput.style'
+import * as styles from './FormInput.styles'
 import { mergeRefs } from 'react-merge-refs'
 import Icon from '../Icon'
 import { copyToClipboard } from '../../../common/utils'
