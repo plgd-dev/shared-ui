@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from '../../components/new/Table'
+import Table from '../../components/new/TableNew'
 import Button from '../../components/new/Button'
 
 export default {
@@ -42,7 +42,7 @@ const columns = [
         },
     },
     {
-        Header: _(t.actions),
+        Header: '5',
         accessor: 'actions',
         disableSortBy: true,
         Cell: ({ value }) => {
