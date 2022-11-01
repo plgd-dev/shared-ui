@@ -21,6 +21,10 @@ export const iconCollapse = css`
     color: ${colors.neutral500};
 `
 
+export const breadcrumbs = css`
+    padding-left: 35px;
+`
+
 export const right = css`
     display: flex;
 `

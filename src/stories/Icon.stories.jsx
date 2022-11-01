@@ -30,6 +30,8 @@ const data = [
     { name: 'network' },
     { name: 'notification' },
     { name: 'pending-commands' },
+    { name: 'plus' },
+    { name: 'refresh' },
     { name: 'remote-clients' },
     { name: 'settings' },
 ]

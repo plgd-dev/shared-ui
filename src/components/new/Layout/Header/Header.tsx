@@ -4,13 +4,14 @@ import * as styles from './Header.styles'
 import { Icon } from '../../Icon'
 
 const Header: FC<Props> = (props) => {
-    const { userWidget } = props
+    const { breadcrumbs, userWidget } = props
     return (
         <div css={styles.header}>
             <div css={styles.left}>
                 <a css={styles.iconCollapse} href='#'>
                     <Icon icon='collapse' size={24} />
                 </a>
+                {breadcrumbs && <div css={styles.breadcrumbs}>{breadcrumbs}</div>}
             </div>
             <div css={styles.right}>
                 <ul css={styles.actions}>
