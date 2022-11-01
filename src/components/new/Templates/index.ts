@@ -1,8 +1,8 @@
 export { default as SignInForm } from './SignInForm'
 export * from './SignInForm'
 
-export { default as LeftPanel } from './LeftPanel'
-export * from './LeftPanel'
+export { default as LeftPanel } from '../Layout/LeftPanel'
+export * from '../Layout/LeftPanel'
 
 export { default as Steps } from './Steps'
 export * from './Steps'

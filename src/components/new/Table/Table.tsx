@@ -24,7 +24,7 @@ const Table: FC<Props> = (props) => {
         enablePagination,
         bottomControls,
         unselectRowsToken,
-    } = {...defaultProps, ...props}
+    } = { ...defaultProps, ...props }
     const {
         getTableProps,
         getTableBodyProps,
@@ -84,72 +84,72 @@ const Table: FC<Props> = (props) => {
             <div className={classNames('plgd-table', className)}>
                 <BTable responsive striped {...getTableProps()}>
                     <thead>
-                    {headerGroups.map((headerGroup: any) => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {headerGroup.headers.map((column: any) => (
-                                // Sorting props to control sorting
-                                <th
-                                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                                    style={{
-                                        ...column.getHeaderProps(column.getSortByToggleProps()).style,
-                                        ...column.style,
-                                    }}
-                                    className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
-                                >
-                                    <div className='th-div'>
-                                        {column.render('Header')}
-                                        {column.canSort && (
-                                            <span
-                                                className={classNames('sort-arrows', {
-                                                    desc: column.isSorted && column.isSortedDesc,
-                                                    asc: column.isSorted && !column.isSortedDesc,
-                                                })}
-                                            >
+                        {headerGroups.map((headerGroup: any) => (
+                            <tr {...headerGroup.getHeaderGroupProps()}>
+                                {headerGroup.headers.map((column: any) => (
+                                    // Sorting props to control sorting
+                                    <th
+                                        {...column.getHeaderProps(column.getSortByToggleProps())}
+                                        style={{
+                                            ...column.getHeaderProps(column.getSortByToggleProps()).style,
+                                            ...column.style,
+                                        }}
+                                        className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
+                                    >
+                                        <div className='th-div'>
+                                            {column.render('Header')}
+                                            {column.canSort && (
+                                                <span
+                                                    className={classNames('sort-arrows', {
+                                                        desc: column.isSorted && column.isSortedDesc,
+                                                        asc: column.isSorted && !column.isSortedDesc,
+                                                    })}
+                                                >
                                                     <i className='fas fa-caret-up icon-asc' />
                                                     <i className='fas fa-caret-down icon-desc' />
                                                 </span>
-                                        )}
-                                    </div>
-                                </th>
-                            ))}
-                        </tr>
-                    ))}
+                                            )}
+                                        </div>
+                                    </th>
+                                ))}
+                            </tr>
+                        ))}
                     </thead>
                     <tbody {...getTableBodyProps()}>
-                    {page.map((row) => {
-                        prepareRow(row)
-                        return (
-                            <tr {...row.getRowProps(getRowProps!(row))}>
-                                {row.cells.map((cell: any) => {
+                        {page.map((row) => {
+                            prepareRow(row)
+                            return (
+                                <tr {...row.getRowProps(getRowProps!(row))}>
+                                    {row.cells.map((cell: any) => {
+                                        return (
+                                            <td
+                                                {...cell.getCellProps([
+                                                    {
+                                                        className: cell.column.className,
+                                                        style: cell.column.style,
+                                                    },
+                                                    getColumnProps!(cell.column),
+                                                    getCellProps!(cell),
+                                                ])}
+                                            >
+                                                {cell.render('Cell')}
+                                            </td>
+                                        )
+                                    })}
+                                </tr>
+                            )
+                        })}
+                        {autoFillEmptyRows &&
+                            page.length < pageSize &&
+                            Array(pageSize - page.length)
+                                .fill(0)
+                                .map((emptyRow, i) => {
                                     return (
-                                        <td
-                                            {...cell.getCellProps([
-                                                {
-                                                    className: cell.column.className,
-                                                    style: cell.column.style,
-                                                },
-                                                getColumnProps!(cell.column),
-                                                getCellProps!(cell),
-                                            ])}
-                                        >
-                                            {cell.render('Cell')}
-                                        </td>
+                                        <tr key={`empty-table-row-${i}`}>
+                                            <td colSpan={100} />
+                                        </tr>
                                     )
                                 })}
-                            </tr>
-                        )
-                    })}
-                    {autoFillEmptyRows &&
-                        page.length < pageSize &&
-                        Array(pageSize - page.length)
-                            .fill(0)
-                            .map((emptyRow, i) => {
-                                return (
-                                    <tr key={`empty-table-row-${i}`}>
-                                        <td colSpan={100} />
-                                    </tr>
-                                )
-                            })}
                     </tbody>
                 </BTable>
             </div>

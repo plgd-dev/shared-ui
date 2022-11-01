@@ -37,7 +37,7 @@ export const tag = (variant: TagTypeType) => css`
     ${getColorByVariant(variant)};
     font-family: 'Poppins', sans-serif;
     font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 160%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
 `

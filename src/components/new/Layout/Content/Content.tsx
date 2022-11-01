@@ -4,7 +4,7 @@ import * as styles from './Content.styles'
 import Headline from '../../Headline'
 
 const Content: FC<Props> = (props) => {
-    const { actions, headline } = props
+    const { actions, headline, headlineStatusTag } = props
     return (
         <div css={styles.content}>
             <div css={styles.header}>
@@ -12,6 +12,7 @@ const Content: FC<Props> = (props) => {
                     <Headline css={styles.headline} type='h4'>
                         {headline}
                     </Headline>
+                    {headlineStatusTag && <div css={styles.statusTag}>{headlineStatusTag}</div>}
                 </div>
                 {actions && (
                     <ul css={styles.rightActions}>

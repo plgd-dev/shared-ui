@@ -1,8 +1,8 @@
 import React from 'react'
-import LeftPanel from '../components/new/Templates/LeftPanel'
+import LeftPanel from '../../components/new/Layout/LeftPanel'
 
 export default {
-    title: 'Templates/LeftPanel',
+    title: 'Layout/LeftPanel',
     component: LeftPanel,
     argTypes: {},
 }

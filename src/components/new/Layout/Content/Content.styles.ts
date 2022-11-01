@@ -14,6 +14,7 @@ export const header = css`
 
 export const left = css`
     display: flex;
+    align-items: center;
 `
 
 export const rightActions = css`
@@ -30,4 +31,8 @@ export const rightAction = css`
 
 export const headline = css`
     color: #0a2965;
+`
+
+export const statusTag = css`
+    padding-left: 8px;
 `
