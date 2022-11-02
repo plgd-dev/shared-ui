@@ -5,6 +5,7 @@ export const Icon = forwardRef<any, Props>((props, ref) => {
     const { className, icon, id, size, onError, onCompleted, ...rest } = { ...defaultProps, ...props }
 
     const [loading, setLoading] = useState(false)
+    const [iconLoad, setIconLoad] = useState('')
     const [error, setError] = useState<Error | undefined>(undefined)
     const ImportedIconRef = useRef<FC<SVGProps<SVGSVGElement>> | undefined>(undefined)
 
@@ -33,7 +34,9 @@ export const Icon = forwardRef<any, Props>((props, ref) => {
                 setLoading(false)
             }
         }
-        importIcon().then()
+        importIcon().then(() => {
+            setIconLoad(icon)
+        })
     }, [icon, onCompleted, onError])
 
     if (error) {
@@ -44,6 +47,7 @@ export const Icon = forwardRef<any, Props>((props, ref) => {
     return (
         <div
             className={className}
+            data-icon={iconLoad}
             id={id}
             ref={ref}
             style={{

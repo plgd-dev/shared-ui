@@ -74,19 +74,13 @@ const Table: FC<Props> = (props) => {
                     // The header can use the table's getToggleAllRowsSelectedProps method
                     // to render a checkbox
                     Header: ({ getToggleAllPageRowsSelectedProps }: any) => (
-                        <div>
-                            <Checkbox {...getToggleAllPageRowsSelectedProps()} name='table-header-select-all' />
-                        </div>
+                        <Checkbox {...getToggleAllPageRowsSelectedProps()} name='table-header-select-all' />
                     ),
                     // The cell can use the individual row's getToggleRowSelectedProps method
                     // to the render a checkbox
                     Cell: ({ row }: any) => {
                         const { indeterminate, ...rest } = row.getToggleRowSelectedProps()
-                        return (
-                            <div id={row.id}>
-                                <Checkbox {...rest} name={`row-${row.id}`} />
-                            </div>
-                        )
+                        return <Checkbox {...rest} name={`row-${row.id}`} />
                     },
                 },
                 ...columns,
@@ -108,9 +102,9 @@ const Table: FC<Props> = (props) => {
     }, [unselectRowsToken]) // eslint-disable-line
 
     // When the defaultPageSize is changed, update the pageSize in the table
-    // useEffect(() => {
-    // setPageSize(defaultPageSize)
-    // }, [defaultPageSize]) // eslint-disable-line
+    useEffect(() => {
+        setPageSize(defaultPageSize)
+    }, [defaultPageSize]) // eslint-disable-line
 
     const renderPagination = () => {
         let target = null

@@ -75,7 +75,7 @@ const columns = [
     },
 ]
 
-const data = Array.from(Array(500).keys()).map((item) => ({
+const data = Array.from(Array(100).keys()).map((item) => ({
     col1: randomWords({ exactly: 3 }).join(' '),
     col2: '376ee947-4801-5cfe-3a8f-49103697f7d1',
     col3: {
@@ -127,7 +127,7 @@ const Template = (args) => {
                 primaryAttribute='id'
                 unselectRowsToken={() => console.log('unselectRowsToken')}
             />
-            <div id='paginationPortalTarget' ref={ref} style={{ border: '1px solid red' }}></div>
+            <div id='paginationPortalTarget' ref={ref} style={{ border: '1px solid red', marginTop: '20px' }}></div>
         </div>
     )
 }
