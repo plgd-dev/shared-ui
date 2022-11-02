@@ -12,7 +12,21 @@ export default {
 const Template = (args) => (
     <div style={{ background: '#ccc', height: '100%', paddingTop: '200px', boxSizing: 'border-box' }}>
         <Footer
-            paginationComponent={<Pagination active={5} onItemClick={(item) => console.log(item)} pages={5} />}
+            paginationComponent={
+                <Pagination
+                    canNextPage={true}
+                    canPreviousPage={true}
+                    gotoPage={console.log}
+                    nextPage={console.log}
+                    pageCount={10}
+                    pageIndex={3}
+                    pageLength={10}
+                    pageSize={10}
+                    pages={5}
+                    previousPage={console.log}
+                    setPageSize={console.log}
+                />
+            }
             versionComponent={<VersionMark severity='success' versionText='Version 2.02' />}
         />
     </div>
