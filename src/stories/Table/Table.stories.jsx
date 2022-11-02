@@ -10,49 +10,93 @@ export default {
 
 const columns = [
     {
-        Header: '1',
-        accessor: 'data.content.n',
+        Header: 'Name',
+        accessor: 'col1',
         Cell: ({ value, row }) => {
             return <span className='no-wrap-text'>{value}</span>
         },
         style: { width: '100%' },
     },
     {
-        Header: '2',
-        accessor: 'types',
+        Header: 'ID',
+        accessor: 'col2',
         style: { maxWidth: '350px', width: '100%' },
         Cell: ({ value }) => {
             return <span className='no-wrap-text'>{value}</span>
         },
     },
     {
-        Header: '3',
-        accessor: 'id',
+        Header: 'Status',
+        accessor: 'col3',
         style: { maxWidth: '350px', width: '100%' },
         Cell: ({ value }) => {
             return <span className='no-wrap-text'>{value}</span>
         },
     },
     {
-        Header: '4',
-        accessor: 'ownershipStatus',
+        Header: 'Protocol',
+        accessor: 'col4',
         style: { width: '250px' },
         Cell: ({ value }) => {
             return <span className='no-wrap-text'>{value}</span>
         },
     },
     {
-        Header: '5',
-        accessor: 'actions',
-        disableSortBy: true,
+        Header: 'Shared',
+        accessor: 'col5',
         Cell: ({ value }) => {
             return <span className='no-wrap-text'>{value}</span>
+        },
+    },
+    {
+        Header: 'Actions',
+        accessor: 'col6',
+        disableSortBy: true,
+        Cell: ({ row }) => {
+            console.log(row)
+            return <span className='no-wrap-text'>A</span>
         },
         className: 'actions',
     },
 ]
 
-const data = []
+const data = [
+    {
+        col1: 'Hello',
+        col2: 'World',
+        col3: 'World',
+        col4: 'World',
+        col5: 'World',
+    },
+    {
+        col1: 'Hello',
+        col2: 'World',
+        col3: 'World',
+        col4: 'World',
+        col5: 'World',
+    },
+    {
+        col1: 'Hello',
+        col2: 'World',
+        col3: 'World',
+        col4: 'World',
+        col5: 'World',
+    },
+    {
+        col1: 'Hello',
+        col2: 'World',
+        col3: 'World',
+        col4: 'World',
+        col5: 'World',
+    },
+    {
+        col1: 'Hello',
+        col2: 'World',
+        col3: 'World',
+        col4: 'World',
+        col5: 'World',
+    },
+]
 
 const Template = (args) => (
     <Table

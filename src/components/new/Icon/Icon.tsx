@@ -1,7 +1,7 @@
-import { FC, SVGProps, useEffect, useRef, useState } from 'react'
+import { FC, forwardRef, SVGProps, useEffect, useRef, useState } from 'react'
 import { Props, defaultProps } from './Icon.types'
 
-export const Icon: FC<Props> = (props) => {
+export const Icon = forwardRef<any, Props>((props, ref) => {
     const { className, icon, id, size, onError, onCompleted, ...rest } = { ...defaultProps, ...props }
 
     const [loading, setLoading] = useState(false)
@@ -45,6 +45,7 @@ export const Icon: FC<Props> = (props) => {
         <div
             className={className}
             id={id}
+            ref={ref}
             style={{
                 width: size,
                 height: size,
@@ -53,7 +54,7 @@ export const Icon: FC<Props> = (props) => {
             {loading ? null : <IconComponent {...rest} height={size} width={size} />}
         </div>
     )
-}
+})
 
 Icon.displayName = 'Icon'
 Icon.defaultProps = defaultProps

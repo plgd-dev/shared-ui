@@ -34,11 +34,14 @@ const data = [
     { name: 'refresh' },
     { name: 'remote-clients' },
     { name: 'settings' },
+    { name: 'sort-down' },
+    { name: 'sort-up' },
+    { name: 'trash' },
 ]
 
 const Template = (args) => (
     <>
-        <table>
+        <table className='custom-table'>
             {data.map((icon, key) => {
                 const { name, ...rest } = icon
                 return (

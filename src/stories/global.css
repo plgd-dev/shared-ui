@@ -15,11 +15,11 @@ svg {
 
 }
 
-table {
+table.custom-table {
     border-collapse: collapse;
 }
 
-table tr td {
+table.custom-table tr td {
     border: 1px solid #ccc;
     padding: 4px 8px;
 }
