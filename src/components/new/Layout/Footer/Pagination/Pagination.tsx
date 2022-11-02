@@ -1,43 +1,47 @@
-import { FC, MouseEvent } from 'react'
+import { FC, useEffect } from 'react'
 import { Props } from './Pagination.types'
 import * as styles from './Pagination.styles'
 import Icon from '../../../Icon'
-import isFunction from 'lodash/isFunction'
+import PaginationItems from './PaginationItems'
 
 const Pagination: FC<Props> = (props) => {
-    const { active, onItemClick, pages } = props
+    const { className, disabled, canPreviousPage, canNextPage, pageCount, gotoPage, nextPage, previousPage, pageIndex, pageLength } = props
 
-    const handleClick = (item: number, e: MouseEvent<HTMLAnchorElement>, disabled = false) => {
-        e.preventDefault()
-        e.stopPropagation()
-
-        if (!disabled) {
-            isFunction(onItemClick) && onItemClick(item)
+    // If the last item is removed from the list, and we are on the last page (pageLength === 0), update the last page with (pageCount - 1)
+    // Only do this if there are the least 2 pages available (pageCount > 1)
+    useEffect(() => {
+        if (pageLength === 0 && pageCount >= 1) {
+            const prevPage = pageCount - 1
+            gotoPage(prevPage >= 0 ? prevPage : 0)
         }
-    }
+    }, [gotoPage, pageCount, pageLength])
 
     return (
-        <ul css={styles.pagination}>
+        <ul className={className} css={styles.pagination}>
             <li>
-                <a css={[styles.item, active === 1 && styles.disabled]} href='#' onClick={(e) => handleClick(active - 1, e, active === 1)}>
+                <a
+                    css={[styles.item, !canPreviousPage && styles.disabled]}
+                    href='#'
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        e.preventDefault()
+                        previousPage()
+                    }}
+                >
                     <Icon icon='arrow-left' size={12} />
                 </a>
             </li>
-            {Array.from(Array(pages + 1).keys()).map((item, key) => {
-                if (key === 0) {
-                    // skip 0 index
-                    return null
-                }
-                return (
-                    <li key={key}>
-                        <a css={[styles.item, active === key && styles.active]} href='#' onClick={(e) => handleClick(key, e, active === key)}>
-                            {item}
-                        </a>
-                    </li>
-                )
-            })}
+            <PaginationItems activePage={pageIndex + 1} maxButtons={10} onItemClick={gotoPage} pageCount={pageCount} />
             <li>
-                <a css={[styles.item, active === pages && styles.disabled]} href='#' onClick={(e) => handleClick(active + 1, e, active === pages)}>
+                <a
+                    css={[styles.item, !canNextPage && styles.disabled]}
+                    href='#'
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        e.preventDefault()
+                        nextPage()
+                    }}
+                >
                     <Icon icon='arrow-right' size={12} />
                 </a>
             </li>

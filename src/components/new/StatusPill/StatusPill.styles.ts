@@ -37,4 +37,5 @@ export const pending = css`
     color: ${colors.primary};
     padding-top: 4px;
     cursor: pointer;
+    white-space: nowrap;
 `

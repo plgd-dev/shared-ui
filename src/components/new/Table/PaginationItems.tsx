@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 import BPagination from 'react-bootstrap/Pagination'
 import { Props, defaultProps } from './PaginationItems.types'
 
@@ -49,7 +49,7 @@ const PaginationItems: FC<Props> = (props) => {
         )
     }
 
-    return <>{pageButtons}</>
+    return <Fragment>{pageButtons}</Fragment>
 }
 
 PaginationItems.displayName = 'PaginationItems'

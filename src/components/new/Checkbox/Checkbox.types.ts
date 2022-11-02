@@ -1,4 +1,4 @@
-import { ReactNode, Ref, SyntheticEvent } from 'react'
+import { ReactNode, SyntheticEvent } from 'react'
 
 export type Props = {
     checked?: boolean
@@ -7,7 +7,8 @@ export type Props = {
     disabled?: boolean
     error?: boolean
     id?: string
-    inputRef?: Ref<any>
+    indeterminate?: boolean
+    inputRef?: any
     label?: ReactNode
     name: string
     onChange?: (e: SyntheticEvent) => void

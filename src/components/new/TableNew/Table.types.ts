@@ -32,6 +32,7 @@ export type Props = {
     getRowProps?: (data?: any) => void
     onRowsSelect?: (data?: any) => void
     paginationProps?: object
+    paginationPortalTarget?: any
     primaryAttribute?: string
     unselectRowsToken?: string | number
 }

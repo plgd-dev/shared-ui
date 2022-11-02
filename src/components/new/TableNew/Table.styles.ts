@@ -11,6 +11,12 @@ export const table = css`
     tr {
         padding: 0;
     }
+
+    .actions {
+        & > div {
+            justify-content: flex-end;
+        }
+    }
 `
 
 export const headerTh = css`
@@ -18,31 +24,40 @@ export const headerTh = css`
     height: 62px;
 `
 
-export const headerItem = css`
-    display: flex;
-    align-items: center;
-    background: #f6f7f9;
-    height: 50px;
-    padding: 0 24px;
-`
-
-export const headerItemFirst = css`
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-`
-
-export const headerItemLast = css`
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-`
-
-export const headerTitle = css`
+export const headerTitle = styled.span`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     color: ${colors.neutral500};
+    transition: all 0.25s;
+`
+
+export const headerItem = css`
+    display: flex;
+    align-items: center;
+    background: #f6f7f9;
+    height: 50px;
+    padding: 0 8px;
+
+    &:hover {
+        ${headerTitle} {
+            color: ${colors.neutral800};
+        }
+    }
+`
+
+export const headerItemFirst = css`
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-left: 24px;
+`
+
+export const headerItemLast = css`
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-right: 24px;
 `
 
 export const sortArrows = css`
@@ -63,7 +78,7 @@ export const cell = styled.div`
     display: flex;
     align-items: center;
     position: relative;
-    padding: 0 24px;
+    padding: 0 8px;
     transition: all 0.25s;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -94,6 +109,7 @@ export const firstRowCell = css`
 export const firstCell = css`
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+    padding-left: 24px;
 
     &:before {
         left: 7px;
@@ -104,6 +120,7 @@ export const firstCell = css`
 export const lastCell = css`
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
+    padding-right: 24px;
 
     &:before {
         right: 7px;

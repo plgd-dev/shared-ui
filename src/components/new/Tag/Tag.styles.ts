@@ -16,6 +16,10 @@ export const tag = css`
     padding: 3px 8px;
 `
 
+export const clickable = css`
+    cursor: pointer;
+`
+
 export const icon = css`
     margin-right: 4px;
 `

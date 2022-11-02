@@ -1,22 +1,13 @@
-import { FC, forwardRef, useEffect, useRef } from 'react'
+import { FC, useEffect } from 'react'
 import { Props, defaultProps } from './Table.types'
 import * as styles from './Table.styles'
 import { usePagination, useRowSelect, useSortBy, useTable } from 'react-table'
 import { compareIgnoreCase } from './Utils'
 import classNames from 'classnames'
 import Icon from '../Icon'
-
-const IndeterminateCheckbox = forwardRef(({ indeterminate, ...rest }: any, ref) => {
-    const defaultRef = useRef()
-    const resolvedRef = ref || defaultRef
-
-    useEffect(() => {
-        // @ts-ignore
-        // resolvedRef?.current?.indeterminate = indeterminate
-    }, [resolvedRef, indeterminate])
-
-    return <input ref={resolvedRef} type='checkbox' {...rest} />
-})
+import Checkbox from '../Checkbox'
+import { createPortal } from 'react-dom'
+import Pagination from '../Layout/Footer/Pagination/Pagination'
 
 const Table: FC<Props> = (props) => {
     const {
@@ -35,7 +26,11 @@ const Table: FC<Props> = (props) => {
         enablePagination,
         bottomControls,
         unselectRowsToken,
+        paginationPortalTarget,
     } = { ...defaultProps, ...props }
+
+    const Cell = styles.cell
+    const HeaderTitle = styles.headerTitle
 
     const {
         getTableProps,
@@ -80,16 +75,19 @@ const Table: FC<Props> = (props) => {
                     // to render a checkbox
                     Header: ({ getToggleAllPageRowsSelectedProps }: any) => (
                         <div>
-                            <IndeterminateCheckbox {...getToggleAllPageRowsSelectedProps()} />
+                            <Checkbox {...getToggleAllPageRowsSelectedProps()} name='table-header-select-all' />
                         </div>
                     ),
                     // The cell can use the individual row's getToggleRowSelectedProps method
                     // to the render a checkbox
-                    Cell: ({ row }: any) => (
-                        <div>
-                            <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-                        </div>
-                    ),
+                    Cell: ({ row }: any) => {
+                        const { indeterminate, ...rest } = row.getToggleRowSelectedProps()
+                        return (
+                            <div id={row.id}>
+                                <Checkbox {...rest} name={`row-${row.id}`} />
+                            </div>
+                        )
+                    },
                 },
                 ...columns,
             ])
@@ -114,7 +112,34 @@ const Table: FC<Props> = (props) => {
     // setPageSize(defaultPageSize)
     // }, [defaultPageSize]) // eslint-disable-line
 
-    console.log(page)
+    const renderPagination = () => {
+        let target = null
+        if (paginationPortalTarget.current) {
+            target = paginationPortalTarget.current
+        } else if (paginationPortalTarget && !paginationPortalTarget.hasOwnProperty('current')) {
+            target = paginationPortalTarget
+        }
+
+        return target
+            ? createPortal(
+                  <Pagination
+                      {...paginationProps}
+                      canNextPage={canNextPage}
+                      canPreviousPage={canPreviousPage}
+                      gotoPage={gotoPage}
+                      nextPage={nextPage}
+                      pageCount={pageCount}
+                      pageIndex={pageIndex}
+                      pageLength={page.length}
+                      pageOptions={pageOptions}
+                      pageSize={pageSize}
+                      previousPage={previousPage}
+                      setPageSize={setPageSize}
+                  />,
+                  target
+              )
+            : null
+    }
 
     return (
         <div className={className}>
@@ -139,9 +164,8 @@ const Table: FC<Props> = (props) => {
                                             key === 0 && styles.headerItemFirst,
                                             key === headerGroup.headers.length - 1 && styles.headerItemLast,
                                         ]}
-                                        className='th-div'
                                     >
-                                        <span css={styles.headerTitle}>{column.render('Header')}</span>
+                                        <HeaderTitle>{column.render('Header')}</HeaderTitle>
                                         {column.canSort && (
                                             <span
                                                 className={classNames('sort-arrows', {
@@ -166,7 +190,6 @@ const Table: FC<Props> = (props) => {
                         return (
                             <tr {...row.getRowProps(getRowProps!(row))} css={styles.row}>
                                 {row.cells.map((cell: any, cellKey: number) => {
-                                    const Cell = styles.cell
                                     return (
                                         <td
                                             {...cell.getCellProps([
@@ -206,6 +229,7 @@ const Table: FC<Props> = (props) => {
                     {/*        })}*/}
                 </tbody>
             </table>
+            {renderPagination()}
         </div>
     )
 }
