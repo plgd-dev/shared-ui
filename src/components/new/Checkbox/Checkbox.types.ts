@@ -1,4 +1,4 @@
-import { ReactNode, SyntheticEvent } from 'react'
+import { ChangeEvent, ReactNode } from 'react'
 
 export type Props = {
     checked?: boolean
@@ -11,7 +11,7 @@ export type Props = {
     inputRef?: any
     label?: ReactNode
     name: string
-    onChange?: (e: SyntheticEvent) => void
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void
     type?: 'checkbox' | 'radio'
     value?: string
 }

@@ -1,18 +1,18 @@
 import { css } from '@emotion/react'
 import { MenuTagVariantType } from './LeftPanel.types'
-import { tagVariants } from './constants'
+import { panelSizes, tagVariants } from './constants'
 import { colors } from '../../_utils/colors'
 
 export const leftPanel = css`
     background: #f4f9fb;
-    width: 280px;
+    width: ${panelSizes.FULL}px;
     display: flex;
     flex-direction: column;
     height: 100%;
 `
 
 export const collapsedPanel = css`
-    width: 84px;
+    width: ${panelSizes.COLLAPSED}px;
 `
 
 export const logo = css`

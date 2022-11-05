@@ -1,36 +1,43 @@
-import { FC, useEffect } from 'react'
+import { ChangeEvent, FC, useEffect, useMemo, useState } from 'react'
 import { Props, defaultProps } from './Table.types'
 import * as styles from './Table.styles'
-import { usePagination, useRowSelect, useSortBy, useTable } from 'react-table'
+import { usePagination, useRowSelect, useSortBy, useTable, useGlobalFilter, useAsyncDebounce } from 'react-table'
 import { compareIgnoreCase } from './Utils'
 import classNames from 'classnames'
 import Icon from '../Icon'
 import Checkbox from '../Checkbox'
 import { createPortal } from 'react-dom'
 import Pagination from '../Layout/Footer/Pagination/Pagination'
+import isEqual from 'lodash/isEqual'
+import isEmpty from 'lodash/isEmpty'
+import TableGlobalFilter from './TableGlobalFilter'
 
 const Table: FC<Props> = (props) => {
     const {
+        autoFillEmptyRows,
         className,
         columns,
         data,
-        onRowsSelect,
-        primaryAttribute,
-        defaultSortBy,
         defaultPageSize,
-        autoFillEmptyRows,
-        getRowProps,
-        getColumnProps,
-        getCellProps,
-        paginationProps,
+        defaultSelectedRowIds,
+        defaultSortBy,
         enablePagination,
-        bottomControls,
-        unselectRowsToken,
+        getCellProps,
+        getColumnProps,
+        getRowProps,
+        globalSearch,
+        onRowsSelect,
         paginationPortalTarget,
+        paginationProps,
+        primaryAttribute,
+        unselectRowsToken,
     } = { ...defaultProps, ...props }
 
     const Cell = styles.cell
     const HeaderTitle = styles.headerTitle
+
+    // prevent re-rendering with same selection
+    const [prevSelectedRowIds, setPrevSelectedRowIds] = useState(isEmpty(defaultSelectedRowIds) ? {} : defaultSelectedRowIds)
 
     const {
         getTableProps,
@@ -48,7 +55,10 @@ const Table: FC<Props> = (props) => {
         setPageSize,
         selectedFlatRows,
         toggleAllRowsSelected,
-        state: { pageIndex, pageSize, selectedRowIds },
+        isAllRowsSelected,
+        preGlobalFilteredRows,
+        setGlobalFilter,
+        state: { pageIndex, pageSize, selectedRowIds, globalFilter },
     } = useTable(
         {
             columns,
@@ -56,6 +66,7 @@ const Table: FC<Props> = (props) => {
             initialState: {
                 sortBy: defaultSortBy,
                 pageSize: defaultPageSize,
+                selectedRowIds: isEmpty(defaultSelectedRowIds) ? {} : defaultSelectedRowIds,
             },
             sortTypes: {
                 alphanumeric: (row1: any, row2: any, columnName: string) => compareIgnoreCase(row1.values[columnName], row2.values[columnName]),
@@ -63,21 +74,30 @@ const Table: FC<Props> = (props) => {
             autoResetPage: false,
             autoResetSelectedRows: false,
         },
+        useGlobalFilter,
         useSortBy,
         usePagination,
         useRowSelect,
         (hooks) => {
             hooks.visibleColumns.push((columns) => [
-                // Let's make a column for selection
                 {
                     id: 'selection',
-                    // The header can use the table's getToggleAllRowsSelectedProps method
-                    // to render a checkbox
-                    Header: ({ getToggleAllPageRowsSelectedProps }: any) => (
-                        <Checkbox {...getToggleAllPageRowsSelectedProps()} name='table-header-select-all' />
-                    ),
-                    // The cell can use the individual row's getToggleRowSelectedProps method
-                    // to the render a checkbox
+                    Header: ({ getToggleAllRowsSelectedProps }: any) => {
+                        const headerCheckboxProps = getToggleAllRowsSelectedProps()
+                        return (
+                            <Checkbox
+                                {...headerCheckboxProps}
+                                name='table-header-select-all'
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                    if (headerCheckboxProps.indeterminate) {
+                                        toggleAllRowsSelected(false)
+                                    } else {
+                                        headerCheckboxProps.onChange(e)
+                                    }
+                                }}
+                            />
+                        )
+                    },
                     Cell: ({ row }: any) => {
                         const { indeterminate, ...rest } = row.getToggleRowSelectedProps()
                         return <Checkbox {...rest} name={`row-${row.id}`} />
@@ -87,18 +107,24 @@ const Table: FC<Props> = (props) => {
             ])
         }
     )
-
-    // Calls the onRowsSelect handler after a row was selected/unselected,
     // so that the parent can store the current selection.
     useEffect(() => {
-        if (onRowsSelect && selectedRowIds && primaryAttribute) {
-            onRowsSelect(selectedFlatRows.map((d: any) => d.original[primaryAttribute]))
+        if (onRowsSelect && selectedRowIds && !isEqual(prevSelectedRowIds, selectedRowIds)) {
+            if (primaryAttribute) {
+                onRowsSelect(
+                    isAllRowsSelected,
+                    selectedFlatRows.map((d: any) => d.original[primaryAttribute])
+                )
+            } else {
+                onRowsSelect(isAllRowsSelected, selectedRowIds)
+            }
+            setPrevSelectedRowIds(selectedRowIds)
         }
     }, [selectedRowIds, primaryAttribute]) // eslint-disable-line
 
     // Any time the unselectRowsToken is changed, all rows are gonna be unselected
     useEffect(() => {
-        toggleAllRowsSelected(false)
+        // toggleAllRowsSelected(false)
     }, [unselectRowsToken]) // eslint-disable-line
 
     // When the defaultPageSize is changed, update the pageSize in the table
@@ -125,7 +151,7 @@ const Table: FC<Props> = (props) => {
                       pageCount={pageCount}
                       pageIndex={pageIndex}
                       pageLength={page.length}
-                      pageOptions={pageOptions}
+                      // pageOptions={pageOptions}
                       pageSize={pageSize}
                       previousPage={previousPage}
                       setPageSize={setPageSize}
@@ -137,6 +163,7 @@ const Table: FC<Props> = (props) => {
 
     return (
         <div className={className}>
+            {globalSearch && <TableGlobalFilter globalFilter={globalFilter} preGlobalFilteredRows={preGlobalFilteredRows} setGlobalFilter={setGlobalFilter} />}
             <table {...getTableProps()} css={styles.table}>
                 <thead>
                     {headerGroups.map((headerGroup: any) => (
@@ -182,7 +209,7 @@ const Table: FC<Props> = (props) => {
                     {page.map((row: any, key: number) => {
                         prepareRow(row)
                         return (
-                            <tr {...row.getRowProps(getRowProps!(row))} css={styles.row}>
+                            <tr {...row.getRowProps(getRowProps!(row))} css={[styles.row, row.isSelected && styles.isSelected]}>
                                 {row.cells.map((cell: any, cellKey: number) => {
                                     return (
                                         <td
@@ -194,6 +221,7 @@ const Table: FC<Props> = (props) => {
                                                 getColumnProps!(cell.column),
                                                 getCellProps!(cell),
                                             ])}
+                                            data-row={row.id}
                                         >
                                             <Cell
                                                 css={[
@@ -210,7 +238,7 @@ const Table: FC<Props> = (props) => {
                             </tr>
                         )
                     })}
-                    {/*{autoFillEmptyRows &&*/}
+                    {/* {autoFillEmptyRows &&*/}
                     {/*    page.length < pageSize &&*/}
                     {/*    Array(pageSize - page.length)*/}
                     {/*        .fill(0)*/}
@@ -223,7 +251,7 @@ const Table: FC<Props> = (props) => {
                     {/*        })}*/}
                 </tbody>
             </table>
-            {renderPagination()}
+            {enablePagination && renderPagination()}
         </div>
     )
 }

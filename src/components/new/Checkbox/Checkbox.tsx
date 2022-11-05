@@ -11,6 +11,9 @@ const Checkbox: FC<Props> = (props) => {
     useEffect(() => {
         if (ref.current) {
             ref.current.indeterminate = indeterminate || false
+            if (indeterminate) {
+                ref.current.checked = false
+            }
         }
     }, [indeterminate, ref])
 

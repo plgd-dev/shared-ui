@@ -9,12 +9,21 @@ export default {
 
 const Template = (args) => (
     <div>
-        <StatusPill {...args} label='Online' status='online'>
+        <StatusPill {...args} label='Online' status='online' tooltipText='Connected at: xxxxx'>
             Tag text
         </StatusPill>
         <br />
         <br />
-        <StatusPill {...args} label='Offline' status='offline'>
+        <StatusPill
+            {...args}
+            label='Offline'
+            status='offline'
+            tooltipText={
+                <span>
+                    Last time online: <strong>31.9.2022 - 16:32</strong>
+                </span>
+            }
+        >
             Tag text
         </StatusPill>
         <br />
@@ -27,6 +36,7 @@ const Template = (args) => (
                 text: '3 pending commands',
             }}
             status='online'
+            tooltipText='Connected at: xxxxx'
         >
             Tag text
         </StatusPill>
@@ -40,6 +50,11 @@ const Template = (args) => (
                 text: '3 pending commands',
             }}
             status='offline'
+            tooltipText={
+                <span>
+                    Last time online: <strong>31.9.2022 - 16:32</strong>
+                </span>
+            }
         >
             Tag text
         </StatusPill>

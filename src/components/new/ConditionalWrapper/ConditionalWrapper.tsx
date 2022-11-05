@@ -1,7 +1,6 @@
-import { Props } from './ConditionalWrapper.types';
+import { Props } from './ConditionalWrapper.types'
 
-const ConditionalWrapper  = ({ condition, wrapper, children }: Props) =>
-    condition ? wrapper(children) : children
+const ConditionalWrapper = ({ condition, wrapper, children }: Props) => (condition ? wrapper(children) : children)
 
 ConditionalWrapper.displayName = 'ConditionalWrapper'
 

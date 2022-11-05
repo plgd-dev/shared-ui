@@ -135,3 +135,9 @@ export const row = css`
         }
     }
 `
+
+export const isSelected = css`
+    ${cell} {
+        background-color: ${colors.neutral100};
+    }
+`

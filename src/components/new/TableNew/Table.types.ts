@@ -17,11 +17,11 @@ export type TableDataType = any
 
 export type Props = {
     autoFillEmptyRows?: boolean
-    bottomControls?: ReactNode
     className?: string
     columns: TableColumnType[]
     data: TableDataType
     defaultPageSize?: number
+    defaultSelectedRowIds?: {}
     defaultSortBy?: {
         id?: string
         desc?: boolean
@@ -30,7 +30,8 @@ export type Props = {
     getCellProps?: (data: any) => void
     getColumnProps?: (data?: any) => void
     getRowProps?: (data?: any) => void
-    onRowsSelect?: (data?: any) => void
+    globalSearch?: boolean
+    onRowsSelect?: (isAllRowsSelected: boolean, data?: any) => void
     paginationProps?: object
     paginationPortalTarget?: any
     primaryAttribute?: string
@@ -38,10 +39,11 @@ export type Props = {
 }
 
 export const defaultProps = {
-    defaultSortBy: [],
     defaultPageSize: 10,
+    defaultSortBy: [],
     enablePagination: true,
     getCellProps: () => ({}),
     getColumnProps: () => ({}),
     getRowProps: () => ({}),
+    globalSearch: true,
 }

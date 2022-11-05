@@ -16,6 +16,7 @@ export const statusLine = (status: StatusPillStatusType) => css`
 `
 
 export const label = css`
+    display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;

@@ -33,6 +33,7 @@ const data = [
     { name: 'plus' },
     { name: 'refresh' },
     { name: 'remote-clients' },
+    { name: 'search' },
     { name: 'settings' },
     { name: 'sort-down' },
     { name: 'sort-up' },
