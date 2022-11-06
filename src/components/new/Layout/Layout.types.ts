@@ -1,20 +1,13 @@
-import { BreadcrumbItem } from '../Breadcrumbs/Breadcrumbs.types'
 import { ReactNode } from 'react'
-import { layoutTypes } from './constants'
-
-export type LayoutTypesType = typeof layoutTypes[keyof typeof layoutTypes]
 
 export type Props = {
-    breadcrumbs?: BreadcrumbItem[]
-    children: ReactNode
-    className?: string
-    header?: ReactNode
-    loading?: boolean
-    shimmeringBreadcrumbs?: boolean
-    title?: string
-    type?: LayoutTypesType
+    collapsedMenu?: boolean
+    content: ReactNode
+    footer: ReactNode
+    header: ReactNode
+    leftPanel: ReactNode
 }
 
-export const defaultProps = {
-    type: layoutTypes.FULL_PAGE,
+export const defaultProps: Partial<Props> = {
+    collapsedMenu: false,
 }

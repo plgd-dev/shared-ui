@@ -1,6 +1,6 @@
 export const panelSizes = {
     COLLAPSED: 84,
-    FULL: 200,
+    FULL: 280,
 } as const
 
 export const tagVariants = {

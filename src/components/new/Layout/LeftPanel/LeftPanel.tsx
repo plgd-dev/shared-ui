@@ -24,7 +24,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
             <a
                 css={[styles.item, isActive && styles.activeItem, collapsed && styles.itemCollapsed]}
-                href='@plgd/shared-ui/components/new/Layout/LeftPanel/LeftPanel#'
+                href='#'
                 onClick={(e) => handleItemClick(item, e)}
                 ref={reference}
             >
@@ -71,7 +71,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                             subItem.id === active && styles.subItemLinkActive,
                                             (item.children?.length || 0) - 1 === key && styles.subItemLinkLast,
                                         ]}
-                                        href='@plgd/shared-ui/components/new/Layout/LeftPanel/LeftPanel#'
+                                        href='#'
                                     >
                                         <img alt='line' css={styles.line} src={img} />
                                         {subItem.title}
@@ -93,10 +93,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                     <ul css={[styles.subItemsList]}>
                         {item.children?.map((item, key) => (
                             <li key={key}>
-                                <a
-                                    css={[styles.subItemLink, item.id === active && styles.subItemLinkActive]}
-                                    href='@plgd/shared-ui/components/new/Layout/LeftPanel/LeftPanel#'
-                                >
+                                <a css={[styles.subItemLink, item.id === active && styles.subItemLinkActive]} href='#'>
                                     <img alt='line' css={styles.line} src={img} />
                                     {item.title}
                                     {item.tag && <span css={styles.tag(item.tag.variant)}>{item.tag.text}</span>}

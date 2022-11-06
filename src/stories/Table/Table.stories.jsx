@@ -119,7 +119,6 @@ const Template = (args) => {
                         Button
                     </Button>
                 }
-                className='with-selectable-rows'
                 columns={columns}
                 data={data}
                 defaultPageSize={10}

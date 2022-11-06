@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { Props } from './TableSelectionPanel.types'
 import * as styles from './TableSelectionPanel.styles'
 import { CSSTransition } from 'react-transition-group'
 
-const TableSelectionPanel: FC<Props> = (props) => {
+const TableSelectionPanel: FC<Props> = memo((props) => {
     const { actionPrimary, actionSecondary, leftPanelCollapsed, selectionInfo, show } = props
     return (
         <div css={[styles.selectionPanel, leftPanelCollapsed && styles.isLeftPanelCollapsed]}>
@@ -21,7 +21,7 @@ const TableSelectionPanel: FC<Props> = (props) => {
             </CSSTransition>
         </div>
     )
-}
+})
 
 TableSelectionPanel.displayName = 'TableSelectionPanel'
 

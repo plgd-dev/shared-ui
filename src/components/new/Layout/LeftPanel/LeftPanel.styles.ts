@@ -69,6 +69,7 @@ export const menuList = css`
     padding: 0;
     margin: 0;
     position: relative;
+    min-height: 100%;
 `
 
 export const menuListItem = css`

@@ -15,6 +15,7 @@ export const header = css`
 export const left = css`
     display: flex;
     align-items: center;
+    flex: 1 1 auto;
 `
 
 export const rightActions = css`

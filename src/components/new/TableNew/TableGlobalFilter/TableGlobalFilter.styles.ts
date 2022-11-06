@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { colors } from '../../_utils/colors'
 
 export const globalFilter = css`
-    padding: 16px 0 12px;
+    padding: 0 0 12px 0;
     display: flex;
 `
 
