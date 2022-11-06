@@ -5,9 +5,9 @@ import { Icon } from '../Icon'
 import isFunction from 'lodash/isFunction'
 
 const Tag: FC<Props> = (props) => {
-    const { children, icon, onClick } = props
+    const { children, className, icon, id, onClick } = props
     return (
-        <div css={[styles.tag, isFunction(onClick) && styles.clickable]} onClick={onClick}>
+        <div className={className} css={[styles.tag, isFunction(onClick) && styles.clickable]} id={id} onClick={onClick}>
             {icon && <Icon css={styles.icon} icon={icon} />}
             {children}
         </div>

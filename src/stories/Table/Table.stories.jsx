@@ -114,19 +114,9 @@ const Template = (args) => {
     return (
         <div>
             <Table
-                bottomControls={
-                    <Button disabled={false} icon='fa-trash-alt' variant='secondary'>
-                        Button
-                    </Button>
-                }
                 columns={columns}
                 data={data}
                 defaultPageSize={10}
-                // getRowProps={(row) => ({
-                //     className: classNames({
-                //         'grayed-out': row.original?.status === UNOWNED,
-                //     }),
-                // })}
                 defaultSelectedRowIds={selected}
                 defaultSortBy={[
                     {
@@ -134,13 +124,6 @@ const Template = (args) => {
                         desc: false,
                     },
                 ]}
-                getColumnProps={(column) => {
-                    if (column.id === 'actions') {
-                        return { style: { textAlign: 'center' } }
-                    }
-
-                    return {}
-                }}
                 onRowsSelect={(isAllRowsSelected, selection) => {
                     isAllRowsSelected !== isAllSelected && setIsAllSelected(isAllRowsSelected)
                     setSelected(selection)
@@ -215,11 +198,6 @@ const TemplateSmall = (args) => {
     return (
         <div>
             <Table
-                bottomControls={
-                    <Button disabled={false} icon='fa-trash-alt' variant='secondary'>
-                        Button
-                    </Button>
-                }
                 columns={columns}
                 data={data}
                 defaultPageSize={10}
@@ -229,13 +207,6 @@ const TemplateSmall = (args) => {
                         desc: false,
                     },
                 ]}
-                getColumnProps={(column) => {
-                    if (column.id === 'actions') {
-                        return { style: { textAlign: 'center' } }
-                    }
-
-                    return {}
-                }}
                 globalSearch={false}
                 paginationPortalTarget={ref}
             />
