@@ -20,6 +20,7 @@ const data = [
     { name: 'device-update' },
     { name: 'devices' },
     { name: 'docs' },
+    { name: 'edit' },
     { name: 'icon-hide-password' },
     { name: 'icon-show-password' },
     { name: 'integrations' },

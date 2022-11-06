@@ -79,32 +79,33 @@ const Table: FC<Props> = (props) => {
         usePagination,
         useRowSelect,
         (hooks) => {
-            hooks.visibleColumns.push((columns) => [
-                {
-                    id: 'selection',
-                    Header: ({ getToggleAllRowsSelectedProps }: any) => {
-                        const headerCheckboxProps = getToggleAllRowsSelectedProps()
-                        return (
-                            <Checkbox
-                                {...headerCheckboxProps}
-                                name='table-header-select-all'
-                                onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                    if (headerCheckboxProps.indeterminate) {
-                                        toggleAllRowsSelected(false)
-                                    } else {
-                                        headerCheckboxProps.onChange(e)
-                                    }
-                                }}
-                            />
-                        )
+            onRowsSelect &&
+                hooks.visibleColumns.push((columns) => [
+                    {
+                        id: 'selection',
+                        Header: ({ getToggleAllRowsSelectedProps }: any) => {
+                            const headerCheckboxProps = getToggleAllRowsSelectedProps()
+                            return (
+                                <Checkbox
+                                    {...headerCheckboxProps}
+                                    name='table-header-select-all'
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                        if (headerCheckboxProps.indeterminate) {
+                                            toggleAllRowsSelected(false)
+                                        } else {
+                                            headerCheckboxProps.onChange(e)
+                                        }
+                                    }}
+                                />
+                            )
+                        },
+                        Cell: ({ row }: any) => {
+                            const { indeterminate, ...rest } = row.getToggleRowSelectedProps()
+                            return <Checkbox {...rest} name={`row-${row.id}`} />
+                        },
                     },
-                    Cell: ({ row }: any) => {
-                        const { indeterminate, ...rest } = row.getToggleRowSelectedProps()
-                        return <Checkbox {...rest} name={`row-${row.id}`} />
-                    },
-                },
-                ...columns,
-            ])
+                    ...columns,
+                ])
         }
     )
     // so that the parent can store the current selection.

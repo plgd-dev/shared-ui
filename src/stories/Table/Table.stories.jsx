@@ -164,3 +164,85 @@ const Template = (args) => {
 
 export const Default = Template.bind({})
 Default.args = {}
+
+const TemplateSmall = (args) => {
+    const ref = useRef()
+    const columns = useMemo(
+        () => [
+            {
+                Header: 'Href',
+                accessor: 'col1',
+                style: { width: '300px', minWidth: '200px' },
+                Cell: ({ value, row }) => (
+                    <span className='no-wrap-text' onClick={() => console.log('click')} style={{ color: '#2261AE', cursor: 'pointer' }}>
+                        {value}
+                        {row.id}
+                    </span>
+                ),
+            },
+            {
+                Header: 'Types',
+                accessor: 'col2',
+                Cell: ({ value }) => <span className='no-wrap-text'>{value}</span>,
+                style: { width: '100%' },
+            },
+            {
+                Header: 'Actions',
+                accessor: 'col3',
+                disableSortBy: true,
+                Cell: ({ row }) => (
+                    <TableActions
+                        items={[
+                            { icon: 'trash', onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
+                            { icon: 'edit', onClick: console.log, id: `edit-row-${row.index}`, tooltipText: 'Edit' },
+                        ]}
+                    />
+                ),
+                className: 'actions',
+            },
+        ],
+        []
+    )
+    const data = useMemo(
+        () =>
+            Array.from(Array(100).keys()).map((item) => ({
+                col1: '/light/',
+                col2: 'core.light',
+            })),
+        []
+    )
+
+    return (
+        <div>
+            <Table
+                bottomControls={
+                    <Button disabled={false} icon='fa-trash-alt' variant='secondary'>
+                        Button
+                    </Button>
+                }
+                columns={columns}
+                data={data}
+                defaultPageSize={10}
+                defaultSortBy={[
+                    {
+                        id: 'name',
+                        desc: false,
+                    },
+                ]}
+                getColumnProps={(column) => {
+                    if (column.id === 'actions') {
+                        return { style: { textAlign: 'center' } }
+                    }
+
+                    return {}
+                }}
+                globalSearch={false}
+                paginationPortalTarget={ref}
+            />
+            <div id='paginationPortalTarget' ref={ref} style={{ border: '1px solid red', marginTop: '20px' }}></div>
+        </div>
+    )
+}
+
+export const Small = TemplateSmall.bind({})
+Small.args = {}
