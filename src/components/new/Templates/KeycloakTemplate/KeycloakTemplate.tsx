@@ -39,11 +39,11 @@ const KeycloakTemplate: FC<Props> = (props) => {
                 </div>
                 <div css={styles.rightContent}>
                     <div css={styles.centeredBox}>
-                        {steps && (
-                            <div css={styles.contentSteps}>
-                                <Steps active={activeStep || 0} steps={steps} />
-                            </div>
-                        )}
+                        {/*{steps && (*/}
+                        {/*    <div css={styles.contentSteps}>*/}
+                        {/*        <Steps active={activeStep || 0} steps={steps} />*/}
+                        {/*    </div>*/}
+                        {/*)}*/}
                         <h1 css={styles.mainHeadline}>{headline}</h1>
                         <div css={styles.description}>{description}</div>
                         {displayMessage && message !== undefined && (message.type !== 'warning' || !isAppInitiatedAction) && (
