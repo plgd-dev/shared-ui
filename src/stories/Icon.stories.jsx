@@ -11,6 +11,7 @@ export default {
 const data = [
     { name: 'chat' },
     { name: 'close' },
+    { name: 'close-circle' },
     { name: 'cloud-error' },
     { name: 'cloud-success' },
     { name: 'cloud-warning' },

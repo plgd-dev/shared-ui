@@ -11,8 +11,9 @@ export type Props = {
     error?: boolean
     icon?: any
     id?: string
+    inline?: boolean
     inputRef?: any
-    name: string
+    name?: string
     onBlur?: (e: any) => void
     onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     onKeyPress?: (e: any) => void
@@ -27,4 +28,5 @@ export type Props = {
 export const defaultProps = {
     tabIndex: 1,
     type: 'text',
+    name: '',
 }

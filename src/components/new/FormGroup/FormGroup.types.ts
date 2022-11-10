@@ -5,6 +5,7 @@ export type Props = {
     className?: string
     error?: string
     id: string
+    inline?: boolean
     marginBottom?: boolean
 }
 

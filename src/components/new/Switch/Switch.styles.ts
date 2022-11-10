@@ -8,6 +8,10 @@ export const switchC = css`
     align-items: center;
 `
 
+export const labelBefore = css`
+    flex-direction: row-reverse;
+`
+
 const getSwitcherSize = (size: SwitcherSizeType) =>
     css`
         width: ${size === 'big' ? '32px' : '24px'};
@@ -66,12 +70,17 @@ export const sliderStyle = (size: SwitcherSizeType) => css`
 `
 
 export const label = css`
-    font-size: 12px;
-    color: #81868c;
+    font-size: 14px;
+    color: ${colors.neutral800};
     padding-left: 8px;
     cursor: pointer;
     line-height: 18px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
+`
+
+export const labelBeforeSwitch = css`
+    padding-left: 0;
+    padding-right: 8px;
 `

@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 
 export type Props = {
-    condition: boolean
+    condition?: boolean
     wrapper: (c: ReactElement) => ReactElement
-    children: ReactElement
+    children: ReactElement | ReactElement[]
 }

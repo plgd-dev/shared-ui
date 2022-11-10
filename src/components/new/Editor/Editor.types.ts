@@ -11,11 +11,11 @@ export type Props = {
     editorRef?: (ref: Ref<any> | null) => void
     height?: string
     json: string | [] | object
-    mode: EditorModeType
+    mode?: EditorModeType
     onChange?: (json: any) => void
     onError?: (error: any) => void
     onResize?: (width: number, height: number, callback: () => void) => void
-    schema: [] | object
+    schema?: [] | object
     style?: CSSProperties
     width?: string
 }

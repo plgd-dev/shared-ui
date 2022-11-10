@@ -3,16 +3,11 @@ import { ReactNode } from 'react'
 type RenderType = () => ReactNode
 
 export type Props = {
-    appRoot?: ReactNode | Element | null
-    className?: string
+    backdropClassName?: string
     closeButton?: boolean
-    id?: string
+    dialogClassName?: string
     onClose?: () => void
-    onEnter?: () => void
-    onEntered?: () => void
-    onExit?: () => void
     onExited?: () => void
-    portalTarget?: ReactNode | Element | null
     renderBody?: RenderType | ReactNode
     renderFooter?: RenderType | ReactNode
     show: boolean

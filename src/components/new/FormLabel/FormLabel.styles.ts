@@ -11,3 +11,9 @@ export const label = css`
     color: #81868c;
     cursor: pointer;
 `
+
+export const inline = css`
+    margin-bottom: 0;
+    white-space: nowrap;
+    margin-right: 10px;
+`

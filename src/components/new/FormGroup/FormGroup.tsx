@@ -3,18 +3,18 @@ import { defaultProps, Props } from './FormGroup.types'
 import * as styles from './FormGroup.styles'
 
 const FormGroup: FC<Props> = (props) => {
-    const { children, className, error, id, marginBottom } = { ...defaultProps, ...props }
+    const { children, className, error, id, inline, marginBottom } = { ...defaultProps, ...props }
 
     const childrenWithProps = Children.map(children as ReactElement[], (child, key) => {
         if (isValidElement(child)) {
-            return cloneElement(child as ReactElement, { id, error: !!error, key })
+            return cloneElement(child as ReactElement, { id, error: !!error, key, inline })
         }
         return child
     })
 
     return (
-        <div className={className} css={[marginBottom && styles.formGroupMargin]}>
-            {childrenWithProps}
+        <div className={className} css={[marginBottom && !inline && styles.formGroupMargin]}>
+            <div css={[inline && styles.inline]}>{childrenWithProps}</div>
             {error && (
                 <div aria-live='polite' css={styles.errorMessage}>
                     {error}

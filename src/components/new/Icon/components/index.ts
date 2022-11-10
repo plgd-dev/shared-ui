@@ -1,6 +1,7 @@
 export { default as ArrowLeft } from './ArrowLeft'
 export { default as ArrowRight } from './ArrowRight'
 export { default as Chat } from './Chat'
+export { default as CloseCircle } from './CloseCircle'
 export { default as Close } from './Close'
 export { default as CloudError } from './CloudError'
 export { default as CloudSuccess } from './CloudSuccess'

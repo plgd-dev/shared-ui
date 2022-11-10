@@ -18,6 +18,7 @@ const FormInput: FC<Props> = (props) => {
         telPrefix,
         type: defaultType,
         value,
+        inline,
         ...rest
     } = { ...defaultProps, ...props }
     const [type, setType] = useState(defaultType)
@@ -34,6 +35,7 @@ const FormInput: FC<Props> = (props) => {
                 disabled && styles.disabled,
                 error && styles.error,
             ]}
+            data-inline={inline?.toString()}
             disabled={disabled || false}
             pattern={telPattern}
             ref={inputRef ? (mergeRefs([localInputRef, inputRef]) as any) : localInputRef}
