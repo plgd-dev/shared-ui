@@ -33,6 +33,9 @@ const Template = (args) => (
         <br />
         <h3>Phone</h3>
         <FormInput {...args} defaultValue='Text' icon={<IconSlovakia />} pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}' telPrefix='+421' type='tel' />
+        <br />
+        <h3>Normal size</h3>
+        <FormInput {...args} defaultValue='Normal size' size='normal' />
     </div>
 )
 

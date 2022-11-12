@@ -10,7 +10,6 @@ export const input = css`
     border-radius: 8px;
     display: block;
     width: 100%;
-    height: 48px;
     padding: 0 16px;
     transition: all 0.25s;
     color: #252626;
@@ -33,6 +32,14 @@ export const input = css`
         border-color: ${colors.primary};
         outline: none;
     }
+`
+
+export const big = css`
+    height: 48px;
+`
+
+export const normal = css`
+    height: 40px;
 `
 
 export const inputWithIconWrapper = css`

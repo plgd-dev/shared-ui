@@ -1,4 +1,7 @@
 import { ChangeEvent } from 'react'
+import { inputSizes } from './constants'
+
+export type FormInputSizeType = typeof inputSizes[keyof typeof inputSizes]
 
 export type Props = {
     autoComplete?: string
@@ -20,13 +23,15 @@ export type Props = {
     telPattern?: string
     telPrefix?: string
     placeholder?: string
+    size?: FormInputSizeType
     tabIndex?: number
     type?: string
     value?: string | number
 }
 
 export const defaultProps = {
+    name: '',
+    size: inputSizes.BIG,
     tabIndex: 1,
     type: 'text',
-    name: '',
 }

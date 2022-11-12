@@ -18,19 +18,47 @@ export default {
 
 const Template = (args) => (
     <div>
-        <Button {...args} variant='primary' size='big' children='Primary big' />
-        <Button {...args} variant='primary' size='normal' children='Primary normal' />
-        <Button {...args} variant='primary' size='small' children='Primary small' />
+        <div className='custom-row'>
+            <div className='custom-cell'>
+                <Button {...args} children='Primary big' size='big' variant='primary' />
+            </div>
+            <div className='custom-cell'>
+                <Button {...args} children='Primary normal' size='normal' variant='primary' />
+            </div>
+            <div className='custom-cell'>
+                <Button {...args} children='Primary small' size='small' variant='primary' />
+            </div>
+        </div>
+
         <br />
         <br />
-        <Button {...args} variant='secondary' size='big' children='Secondary big' />
-        <Button {...args} variant='secondary' size='normal' children='Secondary normal' />
-        <Button {...args} variant='secondary' size='small' children='Secondary small' />
+
+        <div className='custom-row'>
+            <div className='custom-cell'>
+                <Button {...args} children='Secondary big' size='big' variant='secondary' />
+            </div>
+            <div className='custom-cell'>
+                <Button {...args} children='Secondary normal' size='normal' variant='secondary' />
+            </div>
+            <div className='custom-cell'>
+                <Button {...args} children='Secondary small' size='small' variant='secondary' />
+            </div>
+        </div>
+
         <br />
         <br />
-        <Button {...args} variant='tertiary' size='big' children='Tertiary big' />
-        <Button {...args} variant='tertiary' size='normal' children='Tertiary normal' />
-        <Button {...args} variant='tertiary' size='small' children='Tertiary small' />
+
+        <div className='custom-row'>
+            <div className='custom-cell'>
+                <Button {...args} children='Tertiary big' size='big' variant='tertiary' />
+            </div>
+            <div className='custom-cell'>
+                <Button {...args} children='Tertiary normal' size='normal' variant='tertiary' />
+            </div>
+            <div className='custom-cell'>
+                <Button {...args} children='Tertiary small' size='small' variant='tertiary' />
+            </div>
+        </div>
     </div>
 )
 

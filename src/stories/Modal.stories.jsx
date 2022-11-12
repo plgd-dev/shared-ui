@@ -17,10 +17,22 @@ const Template = (args) => {
     const [ttl, setTtl] = useState(defaultCommandTimeToLive)
     const [error, setError] = useState(false)
     const [show, setShow] = useState(true)
+    const [notification, setNotification] = useState(true)
 
     const renderBody = () => (
         <div>
-            <ModalStrippedLine component={<Switch defaultChecked={true} label='Label text' labelBefore={true} size='big' />} label='Notifications' />
+            <ModalStrippedLine
+                component={
+                    <Switch
+                        defaultChecked={true}
+                        label={notification ? 'On' : 'Off'}
+                        labelBefore={true}
+                        onChange={(e) => setNotification(e.target.checked)}
+                        size='big'
+                    />
+                }
+                label='Notifications'
+            />
             <ModalStrippedLine component='c486781e-f342-46c9-72fd-b740b7e864af' label='Device ID' />
             <ModalStrippedLine component='core.light' label='Types' />
             <ModalStrippedLine component='core.light, oic.ifbaseline' label='Interfaces' />

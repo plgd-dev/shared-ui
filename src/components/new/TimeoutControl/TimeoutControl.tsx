@@ -8,6 +8,7 @@ import FormSelect from '../FormSelect'
 import { commandTimeoutUnits } from './constants'
 import { findClosestUnit, convertAndNormalizeValueFromTo, convertValueToNs, normalizeToFixedFloatValue, hasCommandTimeoutError } from './utils'
 import isFunction from 'lodash/isFunction'
+import { inputSizes } from '../FormInput/constants'
 
 const { INFINITE, NS } = commandTimeoutUnits
 
@@ -95,6 +96,7 @@ const TimeoutControl: FC<Props> = (props) => {
                     onBlur={handleOnValueBlur}
                     onChange={handleOnValueChange}
                     placeholder='Placeholder text'
+                    size={inputSizes.NORMAL}
                     value={!isDefault ? inputValue : `${closestDefaultTtl.value}${closestDefaultTtl.unit}`}
                 />
             </FormGroup>

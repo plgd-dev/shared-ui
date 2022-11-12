@@ -32,6 +32,7 @@ export const inner = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     background: #fff;
     box-shadow: 0px -30px 20px rgba(28, 52, 99, 0.05);
     transition: all 0.35s;
