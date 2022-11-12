@@ -1,70 +1,9 @@
 import { css } from '@emotion/react'
-import { ButtonIconPositionType, ButtonSizesType, ButtonVariantsType } from './Button.types'
-import { buttonSizes, buttonVariants, iconPositions } from './constants'
-import { colors, colorsVariants } from '../_utils/colors'
+import { ButtonIconPositionType, ButtonVariantsType } from './Button.types'
+import { iconPositions } from './constants'
+import { get, ThemeType } from '../_theme'
 
-const getColors = (variant: ButtonVariantsType | undefined, disabled: boolean | undefined) => {
-    switch (variant) {
-        case buttonVariants.PRIMARY:
-            return css`
-                background: ${disabled ? colors.disabled : colors.primary};
-                border: 1px solid ${disabled ? colors.disabled : colors.primary};
-                color: ${colorsVariants.primary.text};
-
-                &:hover {
-                    background: ${disabled ? colors.disabled : colorsVariants.primary.hover};
-                    border-color: ${disabled ? colors.disabled : colorsVariants.primary.hover};
-                }
-            `
-        case buttonVariants.SECONDARY:
-            return css`
-                background: ${colorsVariants.secondary.background};
-                border: 1px solid ${disabled ? colors.disabled : colors.primary};
-                color: ${disabled ? colors.disabled : colors.primary};
-
-                &:hover {
-                    border-color: ${disabled ? colors.disabled : colorsVariants.secondary.hover};
-                    color: ${disabled ? colors.disabled : colorsVariants.secondary.hover};
-                }
-            `
-        case buttonVariants.TERTIARY:
-            return css`
-                background: ${colorsVariants.tertiary.background};
-                border: 1px solid ${colors.tertiary};
-                color: ${disabled ? colors.disabled : colorsVariants.tertiary.text};
-
-                &:hover {
-                    background: ${disabled ? colors.tertiary : colorsVariants.tertiary.hover};
-                    border-color: ${colors.tertiary};
-                }
-            `
-    }
-}
-
-const getSizes = (size: ButtonSizesType | undefined) => {
-    switch (size) {
-        case buttonSizes.BIG:
-            return css`
-                padding: 16px 32px;
-                font-size: 16px;
-                line-height: 26px;
-            `
-        case buttonSizes.NORMAL:
-            return css`
-                padding: 14px 24px;
-                font-size: 14px;
-                line-height: 16px;
-            `
-        case buttonSizes.SMALL:
-            return css`
-                padding: 8px 12px;
-                font-size: 14px;
-                line-height: 20px;
-            `
-    }
-}
-
-export const button = (variant: ButtonVariantsType | undefined, size: ButtonSizesType | undefined, disabled: boolean | undefined) => css`
+export const button = (variant: ButtonVariantsType | undefined, disabled: boolean | undefined) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -76,9 +15,50 @@ export const button = (variant: ButtonVariantsType | undefined, size: ButtonSize
     border-radius: 8px;
     white-space: nowrap;
     box-sizing: border-box;
-    cursor: ${disabled ? 'not-allowed' : 'pointer'};
-    ${getColors(variant, disabled)};
-    ${getSizes(size)};
+    cursor: pointer;
+`
+
+export const variant = (variant: ButtonVariantsType | undefined, theme: ThemeType) => css`
+    background: ${get(theme, `Button.${variant}.background`)};
+    border: 1px solid ${get(theme, `Button.${variant}.borderColor`)};
+    color: ${get(theme, `Button.${variant}.color`)};
+
+    &:hover {
+        background: ${get(theme, `Button.${variant}.hover.background`)};
+        border-color: ${get(theme, `Button.${variant}.hover.borderColor`)};
+        color: ${get(theme, `Button.${variant}.hover.color`)};
+    }
+`
+
+export const variantDisabled = (variant: ButtonVariantsType | undefined, theme: ThemeType) => css`
+    background: ${get(theme, `Button.${variant}.disabled.background`)};
+    border: 1px solid ${get(theme, `Button.${variant}.disabled.borderColor`)};
+    color: ${get(theme, `Button.${variant}.disabled.color`)};
+    cursor: not-allowed;
+
+    &:hover {
+        background: ${get(theme, `Button.${variant}.disabled.background`)};
+        border-color: ${get(theme, `Button.${variant}.disabled.borderColor`)};
+        color: ${get(theme, `Button.${variant}.disabled.color`)};
+    }
+`
+
+export const big = css`
+    padding: 16px 32px;
+    font-size: 16px;
+    line-height: 26px;
+`
+
+export const normal = css`
+    padding: 14px 24px;
+    font-size: 14px;
+    line-height: 16px;
+`
+
+export const small = css`
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 20px;
 `
 
 const getIconMargin = (position: ButtonIconPositionType) =>
@@ -97,6 +77,5 @@ export const icon = (position: ButtonIconPositionType) => css`
 `
 
 export const fullWidth = css`
-    //width: 100%;
     flex: 1 1 auto;
 `

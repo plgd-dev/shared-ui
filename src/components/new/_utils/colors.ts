@@ -18,6 +18,10 @@ export const colors = {
     neutral0: '#fff',
 }
 
+export const colorsDark = {
+    primary: '#266DC3',
+}
+
 export const colorsVariants = {
     primary: {
         background: colors.primary,
