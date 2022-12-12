@@ -10,16 +10,27 @@ export type BuildInformationType = {
 }
 
 export type RemoteProvisioningDataType = {
-    authorization: {
+    authority: string
+    certificateAuthority: string
+    coapGateway: string
+    httpGatewayAddress: string
+    certificateAuthorities: string
+    currentTime: number
+    deviceOauthClient: {
         audience: string
-        authority: string
         clientId: string
-        ownerClaim: string
-        scopes: string[]
+        providerName: string
+        scopes : string[]
+    }
+    id: string
+    jwtOwnerClaim: string
+    webOauthClient: {
+        audience: string
+        clientId: string
+        scopes : string[]
     }
     mode: string
     userAgent: {
-        certificateAuthorityAddress: string
         csrChallengeStateExpiration: string
     }
 }
