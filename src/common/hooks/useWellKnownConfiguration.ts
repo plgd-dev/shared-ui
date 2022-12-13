@@ -13,7 +13,6 @@ export type RemoteProvisioningDataType = {
     authority: string
     certificateAuthority: string
     coapGateway: string
-    httpGatewayAddress: string
     certificateAuthorities: string
     currentTime: number
     deviceOauthClient: {
