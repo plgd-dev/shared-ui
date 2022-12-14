@@ -15,11 +15,22 @@ export const featureName = css`
 `
 
 export const featureDescription = css`
-    color: rgba(230, 233, 237, 0.8);
-    padding-top: 6px;
+    color: #e6e9ed;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 140%;
+    font-size: 14px;
+    line-height: 22px;
     text-align: center;
     margin-bottom: 10px;
+    padding: 12px 10px 0 10px;
+
+    @media (max-width: 991px) {
+        padding: 12px 0 0 0;
+    }
+`
+
+export const featureImage = css`
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
 `

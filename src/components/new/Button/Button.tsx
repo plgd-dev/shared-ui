@@ -1,11 +1,11 @@
 import React, { FC, MouseEvent } from 'react'
 import { Props, defaultProps, ButtonIconPositionType } from './Button.types'
-import { buttonSizes, buttonVariants, iconPositions } from './constants'
+import { buttonSizes, iconPositions } from './constants'
 import * as styles from './Button.styles'
 import { ClipLoader } from 'react-spinners'
 import { colorsVariants } from '../_utils/colors'
 import { useTheme } from '@emotion/react'
-import { primaryDisabled, variantDisabled } from './Button.styles'
+// import { primaryDisabled, variantDisabled } from './Button.styles'
 
 const { ICON_LEFT, ICON_RIGHT } = iconPositions
 
@@ -34,6 +34,8 @@ const Button: FC<Props> = (props) => {
             onClick(e)
         }
     }
+
+    console.log(variant)
 
     return (
         <button
