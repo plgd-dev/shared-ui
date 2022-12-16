@@ -30,7 +30,14 @@ const KeycloakTemplate: FC<Props> = (props) => {
                     <a css={styles.rightMobileLogoLink} href='#'>
                         <MobileLogo height={32} width={140} />
                     </a>
-                    <a css={styles.close} href='#'>
+                    <a
+                        css={styles.close}
+                        href='#'
+                        onClick={(e) => {
+                            e.preventDefault()
+                            window.history.back()
+                        }}
+                    >
                         Close
                         <span className='icon'>
                             <IconClose height={32} width={32} />
