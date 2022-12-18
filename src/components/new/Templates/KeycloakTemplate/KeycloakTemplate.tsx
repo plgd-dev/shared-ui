@@ -35,7 +35,7 @@ const KeycloakTemplate: FC<Props> = (props) => {
                         href='#'
                         onClick={(e) => {
                             e.preventDefault()
-                            window.history.back()
+                            window.location.replace("https://plgd.dev")
                         }}
                     >
                         Close
