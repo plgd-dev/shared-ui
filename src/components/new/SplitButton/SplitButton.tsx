@@ -16,6 +16,7 @@ const SplitButton: FC<Props> = (props) => {
 
             <RBDropdown.Menu
                 {...menuProps}
+                renderOnMount={true}
                 popperConfig={{
                     strategy: 'fixed',
                     modifiers: [
