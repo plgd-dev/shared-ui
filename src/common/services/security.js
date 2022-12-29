@@ -4,6 +4,7 @@ let deviceOAuthConfig = {}
 let webOAuthConfig = {}
 let getAccessToken = null
 let userManager = null
+let wellKnowConfig = null
 
 // This singleton contains the method getAccessTokenSilently exposed globally, so that we can use this in our interceptors.
 export const security = {
@@ -19,4 +20,6 @@ export const security = {
     setDeviceOAuthConfig: (config) => (deviceOAuthConfig = config),
     getUserManager: () => userManager,
     setUserManager: (data) => (userManager = data),
+    getWellKnowConfig: () => wellKnowConfig,
+    setWellKnowConfig: (config) => (wellKnowConfig = config)
 }
