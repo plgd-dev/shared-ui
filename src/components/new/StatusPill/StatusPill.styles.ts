@@ -16,6 +16,7 @@ export const statusLine = (status: StatusPillStatusType) => css`
 `
 
 export const label = css`
+    display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -37,4 +38,5 @@ export const pending = css`
     color: ${colors.primary};
     padding-top: 4px;
     cursor: pointer;
+    white-space: nowrap;
 `

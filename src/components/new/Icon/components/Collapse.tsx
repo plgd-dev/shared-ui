@@ -4,7 +4,7 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 const SvgCollapse = (props: SVGProps<SVGSVGElement>) => (
-    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' role='img' {...props}>
+    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
         <path d='M21 7H9h12Z' fill='currentcolor' />
         <path d='M21 7H9M21 12H9M21 17H9' stroke='currentcolor' strokeWidth={2} strokeLinecap='round' />
         <path

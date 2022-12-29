@@ -30,7 +30,14 @@ const KeycloakTemplate: FC<Props> = (props) => {
                     <a css={styles.rightMobileLogoLink} href='#'>
                         <MobileLogo height={32} width={140} />
                     </a>
-                    <a css={styles.close} href='#'>
+                    <a
+                        css={styles.close}
+                        href='#'
+                        onClick={(e) => {
+                            e.preventDefault()
+                            window.location.replace("https://plgd.dev")
+                        }}
+                    >
                         Close
                         <span className='icon'>
                             <IconClose height={32} width={32} />
@@ -39,11 +46,11 @@ const KeycloakTemplate: FC<Props> = (props) => {
                 </div>
                 <div css={styles.rightContent}>
                     <div css={styles.centeredBox}>
-                        {steps && (
-                            <div css={styles.contentSteps}>
-                                <Steps active={activeStep || 0} steps={steps} />
-                            </div>
-                        )}
+                        {/*{steps && (*/}
+                        {/*    <div css={styles.contentSteps}>*/}
+                        {/*        <Steps active={activeStep || 0} steps={steps} />*/}
+                        {/*    </div>*/}
+                        {/*)}*/}
                         <h1 css={styles.mainHeadline}>{headline}</h1>
                         <div css={styles.description}>{description}</div>
                         {displayMessage && message !== undefined && (message.type !== 'warning' || !isAppInitiatedAction) && (

@@ -43,6 +43,9 @@ const Template = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {}
+Default.parameters = {
+    layout: 'fullscreen',
+}
 
 const TemplateRight = (args) => (
     <div>
@@ -84,3 +87,6 @@ const TemplateRight = (args) => (
 
 export const Right = TemplateRight.bind({})
 Right.args = {}
+Right.parameters = {
+    layout: 'fullscreen',
+}

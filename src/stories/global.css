@@ -1,6 +1,6 @@
 body, html, #root {
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
 }
 
 #center {
@@ -15,12 +15,25 @@ svg {
 
 }
 
-table {
+table.custom-table {
     border-collapse: collapse;
 }
 
-table tr td {
+table.custom-table tr td {
     border: 1px solid #ccc;
     padding: 4px 8px;
 }
 
+.no-wrap-text{
+    white-space: nowrap;
+}
+
+.custom-row {
+    display: flex;
+    margin: 0 -12px;
+}
+
+.custom-cell {
+    padding-left: 12px;
+    padding-right: 12px;
+}

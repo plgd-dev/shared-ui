@@ -12,7 +12,7 @@ const SwiperFeatureItem: FC<Props> = (props) => {
     const { image, imageAlt, name, description } = props
     return (
         <div css={styles.featureItem}>
-            <img alt={imageAlt || ''} src={image} />
+            <img alt={imageAlt || ''} css={styles.featureImage} src={image} />
             <div css={styles.featureName}>{name}</div>
             <div css={styles.featureDescription}>{description}</div>
         </div>

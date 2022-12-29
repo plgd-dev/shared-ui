@@ -1,14 +1,20 @@
 import React, { FC, MouseEvent } from 'react'
 import { Props, defaultProps, ButtonIconPositionType } from './Button.types'
-import { iconPositions } from './constants'
+import { buttonSizes, iconPositions } from './constants'
 import * as styles from './Button.styles'
 import { ClipLoader } from 'react-spinners'
 import { colorsVariants } from '../_utils/colors'
+import { useTheme } from '@emotion/react'
+// import { primaryDisabled, variantDisabled } from './Button.styles'
 
 const { ICON_LEFT, ICON_RIGHT } = iconPositions
 
 const Button: FC<Props> = (props) => {
     const { onClick, variant, icon, iconPosition, loading, className, children, disabled, htmlType, size, fullWidth, ...rest } = { ...defaultProps, ...props }
+    const theme = useTheme()
+
+    console.log({ theme })
+
     const renderIcon = (position: ButtonIconPositionType) => {
         if (loading) {
             if (position === ICON_LEFT) {
@@ -29,11 +35,21 @@ const Button: FC<Props> = (props) => {
         }
     }
 
+    console.log(variant)
+
     return (
         <button
             {...rest}
             className={className}
-            css={[styles.button(variant, size, disabled), fullWidth && styles.fullWidth]}
+            css={(theme) => [
+                styles.button(variant, disabled),
+                styles.variant(variant, theme),
+                disabled && styles.variantDisabled(variant, theme),
+                size === buttonSizes.BIG && styles.big,
+                size === buttonSizes.NORMAL && styles.normal,
+                size === buttonSizes.SMALL && styles.small,
+                fullWidth && styles.fullWidth,
+            ]}
             onClick={handleOnClick}
             type={htmlType}
         >

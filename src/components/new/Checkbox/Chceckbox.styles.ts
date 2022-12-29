@@ -13,26 +13,34 @@ export const check = styled.span`
     width: 16px;
     height: 16px;
     flex: 0 0 16px;
-    border: 1px solid #e6e9ed;
+    border: 1px solid #d7d8da;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.25s;
     position: relative;
     box-sizing: border-box;
 
+    &:before,
     &:after {
         content: '';
         display: block;
-        transition: all 0.25s;
+        transition: opacity 0.25s;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 10px;
-        height: 10px;
         border-radius: 2px;
         background: ${colors.primary};
         opacity: 0;
+    }
+
+    &:before {
+        height: 2px;
+    }
+
+    &:after {
+        height: 10px;
     }
 `
 
@@ -41,6 +49,14 @@ export const input = css`
     height: 1px;
     position: absolute;
     left: -10px;
+
+    &:indeterminate ~ ${check} {
+        border-color: ${colors.primary};
+
+        &:before {
+            opacity: 1;
+        }
+    }
 
     &:checked ~ ${check} {
         border-color: ${colors.primary};

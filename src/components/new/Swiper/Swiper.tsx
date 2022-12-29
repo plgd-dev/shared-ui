@@ -1,5 +1,5 @@
 import React, { cloneElement, FC } from 'react'
-import { Props } from './Swiper.types'
+import { Props, defaultProps } from './Swiper.types'
 import { Swiper as SwiperBase, SwiperSlide } from 'swiper/react'
 import { Pagination, Autoplay } from 'swiper'
 import * as styles from './Swiper.style'
@@ -9,12 +9,12 @@ import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
 
 const Swiper: FC<Props> = (props) => {
-    const { slides, alignItems } = props
+    const { alignItems, delay, slides } = { ...defaultProps, ...props }
     return (
         <div className={props.className} css={styles.Swiper(alignItems || 'center')} style={{ width: '100%' }}>
             <SwiperBase
                 autoplay={{
-                    delay: 2500,
+                    delay,
                     disableOnInteraction: true,
                 }}
                 modules={[Pagination, Autoplay]}

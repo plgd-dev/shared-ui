@@ -4,6 +4,7 @@ import * as styles from './FormInput.styles'
 import { mergeRefs } from 'react-merge-refs'
 import Icon from '../Icon'
 import { copyToClipboard } from '../../../common/utils'
+import { inputSizes } from './constants'
 
 const FormInput: FC<Props> = (props) => {
     const {
@@ -13,7 +14,9 @@ const FormInput: FC<Props> = (props) => {
         disabled,
         error,
         icon,
+        inline,
         inputRef,
+        size,
         telPattern,
         telPrefix,
         type: defaultType,
@@ -33,7 +36,10 @@ const FormInput: FC<Props> = (props) => {
                 defaultType === 'tel' && styles.inputTel,
                 disabled && styles.disabled,
                 error && styles.error,
+                size === inputSizes.BIG && styles.big,
+                size === inputSizes.NORMAL && styles.normal,
             ]}
+            data-inline={inline?.toString()}
             disabled={disabled || false}
             pattern={telPattern}
             ref={inputRef ? (mergeRefs([localInputRef, inputRef]) as any) : localInputRef}

@@ -3,9 +3,9 @@ import { Props } from './FormLabel.types'
 import * as styles from './FormLabel.styles'
 
 const FormLabel: FC<Props> = (props) => {
-    const { className, id, text } = props
+    const { className, id, inline, text } = props
     return (
-        <label className={className} css={styles.label} htmlFor={id}>
+        <label className={className} css={[styles.label, inline && styles.inline]} htmlFor={id}>
             {text}
         </label>
     )

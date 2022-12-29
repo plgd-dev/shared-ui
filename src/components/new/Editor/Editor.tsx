@@ -1,7 +1,8 @@
 //@ts-nocheck
 import React, { FC, MutableRefObject, useEffect, useRef } from 'react'
-import classNames from 'classnames'
 import { defaultProps, Props } from './Editor.types'
+import * as styles from './Editor.styles'
+import classNames from 'classnames'
 import JSONEditor from 'jsoneditor'
 import 'jsoneditor/dist/jsoneditor.css'
 import isFunction from 'lodash/isFunction'
@@ -76,9 +77,16 @@ const Editor: FC<Props> = (props) => {
                 jsonEditor?.current?.focus()
             }
 
+            // lineHeight
+            jsonEditor.current.aceEditor.setOptions({
+                minLines: 1000,
+                fontSize: 14,
+                // highlightGutterLine: false,
+            })
+
             if (typeof ResizeObserver === 'function' && container.current) {
-                // resizeObserver?.current = new ResizeObserver(handleResize)
-                // resizeObserver?.current.observe(container.current)
+                resizeObserver.current = new ResizeObserver(handleResize)
+                resizeObserver.current.observe(container.current)
             }
 
             handleEditorRef(jsonEditor)
@@ -101,6 +109,7 @@ const Editor: FC<Props> = (props) => {
     return (
         <div
             {...rest}
+            css={styles.editor}
             className={classNames(className, 'editor', {
                 disabled,
                 resize: !!ResizeObserver,

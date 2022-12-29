@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useIntl } from 'react-intl'
 import Button from '../Button'
-import Modal from '../Modal'
+import Modal from '../ModalOld'
 import { messages as t } from './ConfirmModal.i18n'
 import { defaultProps, Props } from './ConfirmModal.types'
 

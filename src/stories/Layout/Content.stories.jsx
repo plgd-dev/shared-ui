@@ -14,10 +14,17 @@ const Template = (args) => (
     <div style={{ background: '#ccc', height: '100%', paddingTop: '200px', boxSizing: 'border-box' }}>
         <Content
             actions={[
-                <Button icon={<Icon icon='refresh' />}>Secondary</Button>,
-                <Button icon={<Icon icon='plus' />} variant='primary'>
-                    Primary
-                </Button>,
+                {
+                    icon: 'refresh',
+                    text: 'Secondary',
+                    onClick: () => console.log('secondary'),
+                },
+                {
+                    icon: 'plus',
+                    text: 'Primary',
+                    variant: 'primary',
+                    onClick: () => console.log('primary'),
+                },
             ]}
             headline='August Doorbell Cam'
         />
@@ -34,10 +41,17 @@ const TemplateStatusTag = (args) => (
     <div style={{ background: '#ccc', height: '100%', paddingTop: '200px', boxSizing: 'border-box' }}>
         <Content
             actions={[
-                <Button icon={<Icon icon='refresh' />}>Secondary</Button>,
-                <Button icon={<Icon icon='plus' />} variant='primary'>
-                    Primary
-                </Button>,
+                {
+                    icon: 'refresh',
+                    text: 'Secondary',
+                    onClick: () => console.log('secondary'),
+                },
+                {
+                    icon: 'plus',
+                    text: 'Primary',
+                    variant: 'primary',
+                    onClick: () => console.log('primary'),
+                },
             ]}
             headline='August Doorbell Cam'
             headlineStatusTag={<StatusTag variant='error'>offline</StatusTag>}

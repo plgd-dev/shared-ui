@@ -11,6 +11,7 @@ export default {
 const data = [
     { name: 'chat' },
     { name: 'close' },
+    { name: 'close-circle' },
     { name: 'cloud-error' },
     { name: 'cloud-success' },
     { name: 'cloud-warning' },
@@ -20,6 +21,7 @@ const data = [
     { name: 'device-update' },
     { name: 'devices' },
     { name: 'docs' },
+    { name: 'edit' },
     { name: 'icon-hide-password' },
     { name: 'icon-show-password' },
     { name: 'integrations' },
@@ -33,12 +35,16 @@ const data = [
     { name: 'plus' },
     { name: 'refresh' },
     { name: 'remote-clients' },
+    { name: 'search' },
     { name: 'settings' },
+    { name: 'sort-down' },
+    { name: 'sort-up' },
+    { name: 'trash' },
 ]
 
 const Template = (args) => (
     <>
-        <table>
+        <table className='custom-table'>
             {data.map((icon, key) => {
                 const { name, ...rest } = icon
                 return (

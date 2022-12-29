@@ -1,10 +1,11 @@
-import { FC, SVGProps, useEffect, useRef, useState } from 'react'
+import { FC, forwardRef, SVGProps, useEffect, useRef, useState } from 'react'
 import { Props, defaultProps } from './Icon.types'
 
-export const Icon: FC<Props> = (props) => {
+export const Icon = forwardRef<any, Props>((props, ref) => {
     const { className, icon, id, size, onError, onCompleted, ...rest } = { ...defaultProps, ...props }
 
     const [loading, setLoading] = useState(false)
+    const [iconLoad, setIconLoad] = useState('')
     const [error, setError] = useState<Error | undefined>(undefined)
     const ImportedIconRef = useRef<FC<SVGProps<SVGSVGElement>> | undefined>(undefined)
 
@@ -33,7 +34,9 @@ export const Icon: FC<Props> = (props) => {
                 setLoading(false)
             }
         }
-        importIcon().then()
+        importIcon().then(() => {
+            setIconLoad(icon)
+        })
     }, [icon, onCompleted, onError])
 
     if (error) {
@@ -44,7 +47,9 @@ export const Icon: FC<Props> = (props) => {
     return (
         <div
             className={className}
+            data-icon={iconLoad}
             id={id}
+            ref={ref}
             style={{
                 width: size,
                 height: size,
@@ -53,7 +58,7 @@ export const Icon: FC<Props> = (props) => {
             {loading ? null : <IconComponent {...rest} height={size} width={size} />}
         </div>
     )
-}
+})
 
 Icon.displayName = 'Icon'
 Icon.defaultProps = defaultProps

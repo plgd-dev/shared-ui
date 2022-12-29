@@ -17,13 +17,16 @@ const Template = (args) => (
             <Checkbox {...args} defaultChecked={true} />
         </FormGroup>
         <FormGroup id='group-3'>
+            <Checkbox {...args} indeterminate={true} />
+        </FormGroup>
+        <FormGroup id='group-4'>
             <Checkbox
                 {...args}
                 defaultChecked={false}
                 label='Sure, send me insightful product news, and occasional offers by email. I know I can unsubscribe at any time.'
             />
         </FormGroup>
-        <FormGroup id='group-4'>
+        <FormGroup id='group-5'>
             <Checkbox
                 {...args}
                 defaultChecked={true}

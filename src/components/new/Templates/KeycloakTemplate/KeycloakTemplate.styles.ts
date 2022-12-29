@@ -19,8 +19,8 @@ export const TemplateLeftCol = css`
     box-sizing: border-box;
 
     @media (max-width: 1199px) {
-        flex: 0 0 350px;
-        max-width: 350px;
+        flex: 0 0 375px;
+        max-width: 375px;
     }
 
     @media (max-width: 991px) {
@@ -51,11 +51,11 @@ export const leftBarBg = css`
     z-index: 1;
 
     @media (max-width: 1199px) {
-        right: -30px;
+        right: -32px;
     }
 
     @media (max-width: 991px) {
-        right: -21px;
+        display: none;
     }
 
     img {
@@ -92,7 +92,7 @@ export const headerSteps = css`
     box-sizing: border-box;
 
     @media (max-width: 1199px) {
-        flex: 0 1 380px;
+        flex: 0 1 375px;
     }
 
     @media (max-width: 991px) {
@@ -155,11 +155,11 @@ export const centeredBox = css`
     box-sizing: border-box;
 
     @media (max-width: 1199px) {
-        flex: 0 1 380px;
+        flex: 0 1 375px;
     }
 
-    @media (max-width: 1199px) {
-        flex: 0 1 490px;
+    @media (max-width: 991px) {
+        flex: 0 1 495px;
     }
 `
 
@@ -171,16 +171,6 @@ export const mainHeadline = css`
     font-size: 36px;
     line-height: 130%;
     letter-spacing: -0.5px;
-`
-
-export const contentSteps = css`
-    display: none;
-
-    @media (max-width: 991px) {
-        display: block;
-        padding: 30px 0 50px 0;
-        box-sizing: border-box;
-    }
 `
 
 export const description = css`
