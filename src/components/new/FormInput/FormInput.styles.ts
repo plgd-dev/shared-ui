@@ -32,6 +32,10 @@ export const input = css`
         border-color: ${colors.primary};
         outline: none;
     }
+
+    &::-ms-reveal {
+        display: none;
+    }
 `
 
 export const big = css`
