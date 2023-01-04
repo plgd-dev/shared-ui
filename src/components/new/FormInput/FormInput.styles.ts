@@ -33,7 +33,8 @@ export const input = css`
         outline: none;
     }
 
-    &::-ms-reveal {
+    &::-ms-reveal,
+    &::-ms-clear {
         display: none;
     }
 `
