@@ -6,6 +6,8 @@ import Icon from '../Icon'
 import { copyToClipboard } from '../../../common/utils'
 import { inputSizes } from './constants'
 
+const { detect } = require('detect-browser')
+
 const FormInput: FC<Props> = (props) => {
     const {
         ariaInvalid,
@@ -24,6 +26,8 @@ const FormInput: FC<Props> = (props) => {
         ...rest
     } = { ...defaultProps, ...props }
     const [type, setType] = useState(defaultType)
+    const browser = detect()
+    const isEdge = browser && browser.name === 'edge'
     const localInputRef = useRef<HTMLInputElement>(null)
     const inputBase = (
         <input
@@ -32,7 +36,7 @@ const FormInput: FC<Props> = (props) => {
             autoComplete={autoComplete}
             css={[
                 styles.input,
-                (defaultType === 'password' || copy) && styles.inputWithIcon,
+                (defaultType === 'password' || copy) && !isEdge && styles.inputWithIcon,
                 defaultType === 'tel' && styles.inputTel,
                 disabled && styles.disabled,
                 error && styles.error,
@@ -45,6 +49,7 @@ const FormInput: FC<Props> = (props) => {
             ref={inputRef ? (mergeRefs([localInputRef, inputRef]) as any) : localInputRef}
             type={type}
             value={value}
+            data-endge-pass={isEdge ? 'true' : undefined}
         />
     )
 
@@ -64,7 +69,10 @@ const FormInput: FC<Props> = (props) => {
                     </span>
                 )}
                 {defaultType === 'password' && !copy && (
-                    <span css={styles.inputIcon} onClick={() => setType(type === defaultType ? 'text' : defaultType)}>
+                    <span
+                        css={[styles.inputIcon, isEdge && defaultType === 'password' && styles.passwordIcon]}
+                        onClick={() => setType(type === defaultType ? 'text' : defaultType)}
+                    >
                         {<Icon icon={`icon-${type === 'text' ? 'hide' : 'show'}-password`} size={24} />}
                     </span>
                 )}

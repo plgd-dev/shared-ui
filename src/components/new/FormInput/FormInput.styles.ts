@@ -83,6 +83,16 @@ export const inputIcon = css`
     }
 `
 
+export const passwordIcon = css`
+    top: 10px;
+    right: 12px;
+    padding: 2px 0 2px 4px;
+    background: #fff;
+    width: 28px;
+    height: 28px;
+    box-sizing: border-box;
+`
+
 export const inputTelData = css`
     position: absolute;
     left: 12px;
