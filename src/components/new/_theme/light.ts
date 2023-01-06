@@ -5,16 +5,16 @@ const theme = {
         primary: {
             background: colors.primary,
             border: colors.primary,
-            color: colors.neutral0,
+            color: colors.neutral000,
             hover: {
-                background: colorsVariants.primary.hover,
-                borderColor: colorsVariants.primary.hover,
-                color: colors.neutral0,
+                background: colors.primaryHover,
+                borderColor: colors.primaryHover,
+                color: colors.neutral000,
             },
             disabled: {
                 background: colors.disabled,
                 borderColor: colors.disabled,
-                color: colors.neutral0,
+                color: colors.neutral000,
             },
         },
         secondary: {
