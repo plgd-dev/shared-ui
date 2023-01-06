@@ -5,8 +5,7 @@ import { mergeRefs } from 'react-merge-refs'
 import Icon from '../Icon'
 import { copyToClipboard } from '../../../common/utils'
 import { inputSizes } from './constants'
-
-const { detect } = require('detect-browser')
+import { detect } from 'detect-browser'
 
 const FormInput: FC<Props> = (props) => {
     const {
