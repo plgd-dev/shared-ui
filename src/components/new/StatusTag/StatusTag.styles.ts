@@ -16,7 +16,7 @@ const getColorByVariant = (variant: TagTypeType) => {
         `
     } else if (variant === tagVariants.ERROR) {
         return css`
-            color: ${colors.error};
+            color: ${colors.red};
             background: rgba(215, 78, 58, 0.16);
         `
     } else if (variant === tagVariants.NORMAL) {

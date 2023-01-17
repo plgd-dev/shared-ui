@@ -119,5 +119,5 @@ export const disabled = css`
 `
 
 export const error = css`
-    border-color: ${colors.error};
+    border-color: ${colors.red};
 `

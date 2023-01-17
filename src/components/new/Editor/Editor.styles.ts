@@ -50,7 +50,7 @@ export const editor = css`
                 }
 
                 &.ace_numeric {
-                    color: ${colors.error};
+                    color: ${colors.red};
                 }
             }
 
