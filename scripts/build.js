@@ -31,11 +31,10 @@ async function run(argv) {
     );
   }
 
-  const env = {
-    NODE_ENV: "production",
-    BABEL_ENV: "production",
-    MUI_BUILD_VERBOSE: verbose,
-  };
+    const env = {
+      NODE_ENV: "production",
+      BABEL_ENV: "production",
+    };
   // const babelConfigPath = path.resolve(__dirname, "../babel.config.js");
   const babelConfigPath = path.resolve(__dirname, "../.babelrc");
   const srcDir = path.resolve("./src");
