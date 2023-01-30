@@ -5,14 +5,14 @@ import Button from '../Button'
 import { Props, defaultProps } from './SplitButton.types'
 
 const SplitButton: FC<Props> = (props) => {
-    const { children, variant, className, menuProps, items, disabled, ...rest } = props
+    const { children, variant, className, menuProps, items, disabled, dataTestId, dataTestIdDropdown, ...rest } = props
 
     return (
         <RBDropdown className='split-button'>
-            <Button {...rest} variant={variant} disabled={disabled} className={classNames('split-button-left', className)}>
+            <Button {...rest} variant={variant} disabled={disabled} className={classNames('split-button-left', className)} dataTestId={dataTestId}>
                 {children}
             </Button>
-            <RBDropdown.Toggle variant={variant} disabled={disabled} className='split-button-right' />
+            <RBDropdown.Toggle variant={variant} disabled={disabled} className='split-button-right' data-test-id={dataTestIdDropdown} />
 
             <RBDropdown.Menu
                 {...menuProps}

@@ -13,6 +13,7 @@ export type Props = {
     loading?: boolean
     onClick?: (e: MouseEvent<HTMLElement>) => void
     variant?: ButtonVariantsType
+    dataTestId?: string
 }
 
 export const defaultProps: Partial<Props> = {

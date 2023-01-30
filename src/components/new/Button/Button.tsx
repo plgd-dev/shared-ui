@@ -7,7 +7,7 @@ import { iconPositions } from './constants'
 const { ICON_LEFT, ICON_RIGHT } = iconPositions
 
 const Button: FC<Props> = (props) => {
-    const { onClick, variant, icon, iconPosition, loading, className, children, ...rest } = props
+    const { onClick, variant, icon, iconPosition, loading, className, children, dataTestId, ...rest } = props
     const renderIcon = (position: ButtonIconPositionType) => {
         if (loading) {
             if (position === ICON_LEFT) {
@@ -40,7 +40,7 @@ const Button: FC<Props> = (props) => {
     }
 
     return (
-        <RB_Button {...rest} className={classNames({ loading }, className)} variant={variant} onClick={handleOnClick}>
+        <RB_Button {...rest} className={classNames({ loading }, className)} variant={variant} onClick={handleOnClick} data-test-id={dataTestId}>
             {renderIcon(ICON_LEFT)}
             {children}
             {renderIcon(ICON_RIGHT)}

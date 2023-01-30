@@ -18,6 +18,8 @@ export type Props = {
     }
     onClick?: () => void
     variant?: ButtonVariantsType
+    dataTestId?: string
+    dataTestIdDropdown?: string
 }
 
 export const defaultProps = {
