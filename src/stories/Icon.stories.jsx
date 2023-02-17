@@ -9,6 +9,9 @@ export default {
 }
 
 const data = [
+    { name: 'arrow-down' },
+    { name: 'arrow-left' },
+    { name: 'arrow-right' },
     { name: 'chat' },
     { name: 'close' },
     { name: 'close-circle' },
@@ -22,8 +25,10 @@ const data = [
     { name: 'devices' },
     { name: 'docs' },
     { name: 'edit' },
+    { name: 'error' },
     { name: 'icon-hide-password' },
     { name: 'icon-show-password' },
+    { name: 'info' },
     { name: 'integrations' },
     { name: 'link' },
     { name: 'lock' },
@@ -39,27 +44,69 @@ const data = [
     { name: 'settings' },
     { name: 'sort-down' },
     { name: 'sort-up' },
+    { name: 'success' },
+    { name: 'toast-close' },
     { name: 'trash' },
+    { name: 'warning' },
 ]
+
+const chunkify = (a, n = 3, balanced = true) => {
+    if (n < 2) return [a]
+
+    let len = a.length,
+        out = [],
+        i = 0,
+        size
+
+    if (len % n === 0) {
+        size = Math.floor(len / n)
+        while (i < len) {
+            out.push(a.slice(i, (i += size)))
+        }
+    } else if (balanced) {
+        while (i < len) {
+            size = Math.ceil((len - i) / n--)
+            out.push(a.slice(i, (i += size)))
+        }
+    } else {
+        n--
+        size = Math.floor(len / n)
+        if (len % size === 0) size--
+        while (i < size * n) {
+            out.push(a.slice(i, (i += size)))
+        }
+        out.push(a.slice(size * n))
+    }
+
+    return out
+}
 
 const Template = (args) => (
     <>
-        <table className='custom-table'>
-            {data.map((icon, key) => {
-                const { name, ...rest } = icon
-                return (
-                    <tr key={key}>
-                        <td>
-                            {icon.name}
-                            {icon.size ? ` (size: ${icon.size}px)` : ''}
-                        </td>
-                        <td>
-                            <Icon {...args} {...rest} icon={icon.name} size={icon?.size || 32} />
-                        </td>
-                    </tr>
-                )
-            })}
-        </table>
+        <div className='custom-row'>
+            {chunkify(data).map((chunk, key) => (
+                <div className='custom-cell' key={key}>
+                    <table className='custom-table'>
+                        <tbody>
+                            {chunk.map((icon, innerKey) => {
+                                const { name, ...rest } = icon
+                                return (
+                                    <tr key={innerKey}>
+                                        <td>
+                                            {icon.name}
+                                            {icon.size ? ` (size: ${icon.size}px)` : ''}
+                                        </td>
+                                        <td>
+                                            <Icon {...args} {...rest} icon={icon.name} size={icon?.size || 32} />
+                                        </td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
+            ))}
+        </div>
     </>
 )
 

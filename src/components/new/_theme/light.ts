@@ -4,7 +4,7 @@ const theme = {
     Button: {
         primary: {
             background: colors.primary,
-            border: colors.primary,
+            borderColor: colors.primary,
             color: colors.neutral000,
             hover: {
                 background: colors.primaryHover,

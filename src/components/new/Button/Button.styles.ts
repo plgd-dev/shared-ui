@@ -50,9 +50,10 @@ export const big = css`
 `
 
 export const normal = css`
-    padding: 14px 24px;
+    padding: 10px 24px;
     font-size: 14px;
     line-height: 16px;
+    height: 48px;
 `
 
 export const small = css`
@@ -74,6 +75,13 @@ export const icon = (position: ButtonIconPositionType) => css`
     display: flex;
     align-items: center;
     ${getIconMargin(position)};
+`
+
+export const loadingIcon = css`
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    display: block;
 `
 
 export const fullWidth = css`

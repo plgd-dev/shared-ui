@@ -9,7 +9,9 @@ import Editor from '../components/new/Editor'
 export default {
     title: 'Example/Modal',
     component: Modal,
-    argTypes: {},
+    argTypes: {
+        layout: 'fullscreen',
+    },
 }
 
 const Template = (args) => {
@@ -70,4 +72,6 @@ const Template = (args) => {
 }
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+    layout: 'fullscreen',
+}

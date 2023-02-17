@@ -23,13 +23,17 @@ const Template = (args) => (
         <FormInput {...args} defaultValue='Default value text' error={true} />
         <br />
         <h3>Password</h3>
-        <FormInput {...args} defaultValue='Text' type='password' />
+        <form action=''>
+            <FormInput {...args} defaultValue='Text' type='password' name='new-password' />
+        </form>
         <br />
         <h3>Copy</h3>
         <FormInput {...args} copy={true} defaultValue='Text' />
         <br />
-        <h3>Copy secreet</h3>
-        <FormInput {...args} copy={true} defaultValue='Text' type='password' />
+        <h3>Copy secret</h3>
+        <form action=''>
+            <FormInput {...args} copy={true} defaultValue='Text' type='password' name='new-password' />
+        </form>
         <br />
         <h3>Phone</h3>
         <FormInput {...args} defaultValue='Text' icon={<IconSlovakia />} pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}' telPrefix='+421' type='tel' />

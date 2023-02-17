@@ -1,26 +1,26 @@
-import { ButtonIconPositionType, ButtonVariantsType } from '../Button/Button.types'
-import { buttonVariants, iconPositions } from '../Button'
-import { AlignType } from 'react-bootstrap/types'
-import { ActionButtonItemType } from '../ActionButton/ActionButton.types'
+import { Props as ButtonProps, defaultProps as ButtonDefaultProps } from '../Button/Button.types'
+import { Placement } from '@floating-ui/react-dom-interactions'
 import { ReactNode } from 'react'
 
-export type Props = {
-    children: ReactNode
-    className?: string
-    disabled?: boolean
+export type SplitButtonItemType = {
+    component?: ReactNode
+    hidden?: boolean
     icon?: string
-    iconPosition?: ButtonIconPositionType
-    items: ActionButtonItemType[]
+    id?: string
+    label: string
+    onClick: (e: MouseEvent) => void
+}
+
+export type Props = ButtonProps & {
+    items: SplitButtonItemType[]
     loading?: boolean
     menuProps?: {
-        align?: AlignType
-        flip?: boolean
+        placement?: Placement
     }
-    onClick?: () => void
-    variant?: ButtonVariantsType
+    defaultOpen?: boolean
 }
 
 export const defaultProps = {
-    variant: buttonVariants.SECONDARY,
-    iconPosition: iconPositions.ICON_LEFT,
+    ...ButtonDefaultProps,
+    defaultOpen: false,
 }

@@ -1,48 +1,92 @@
-import { FC } from 'react'
-import RBDropdown from 'react-bootstrap/Dropdown'
-import classNames from 'classnames'
+import { FC, useEffect, useRef, useState } from 'react'
 import Button from '../Button'
 import { Props, defaultProps } from './SplitButton.types'
+import * as styles from './SplitButton.styles'
+import Icon from '../Icon'
+import { offset, shift, useFloating } from '@floating-ui/react'
+import isFunction from 'lodash/isFunction'
 
 const SplitButton: FC<Props> = (props) => {
-    const { children, variant, className, menuProps, items, disabled, ...rest } = props
+    const { defaultOpen, children, variant, className, menuProps, items, disabled, loading, onClick, ...rest } = { ...defaultProps, ...props }
+    const [open, setOpen] = useState(defaultOpen)
+    const ref = useRef(null)
+    const { x, y, reference, floating, strategy, context } = useFloating({
+        placement: menuProps?.placement || 'bottom-end',
+        strategy: 'fixed',
+        middleware: [shift(), offset(4)],
+    })
+
+    useEffect(() => {
+        function handleClickOutside(event: any) {
+            // @ts-ignore
+            if (ref?.current && !ref?.current?.contains(event.target)) {
+                setOpen(false)
+            }
+        }
+        if (open) {
+            document.addEventListener('mousedown', handleClickOutside)
+            return () => {
+                document.removeEventListener('mousedown', handleClickOutside)
+            }
+        }
+    }, [ref, open])
 
     return (
-        <RBDropdown className='split-button'>
-            <Button {...rest} variant={variant} disabled={disabled} className={classNames('split-button-left', className)}>
-                {children}
-            </Button>
-            <RBDropdown.Toggle variant={variant} disabled={disabled} className='split-button-right' />
+        <div ref={ref}>
+            <div css={styles.splitButton} ref={reference}>
+                <Button
+                    {...rest}
+                    variant={variant}
+                    disabled={disabled}
+                    loading={loading}
+                    css={styles.leftButton}
+                    onClick={(e) => {
+                        open && setOpen(false)
+                        isFunction(onClick) && onClick(e)
+                    }}
+                >
+                    {children}
+                </Button>
+                <Button variant={variant} disabled={disabled} css={styles.rightButton} onClick={() => !loading && setOpen(!open)}>
+                    <span css={[styles.arrow, open && styles.arrowOpen]}>
+                        <Icon icon='arrow-down' />
+                    </span>
+                </Button>
 
-            <RBDropdown.Menu
-                {...menuProps}
-                renderOnMount={true}
-                popperConfig={{
-                    strategy: 'fixed',
-                    modifiers: [
-                        {
-                            name: 'offset',
-                            options: {
-                                offset: [0, 5],
-                            },
-                        },
-                    ],
-                }}
-            >
-                {items
-                    .filter((item) => !item.hidden)
-                    .map((item) => {
-                        return (
-                            item.component || (
-                                <RBDropdown.Item className='btn btn-secondary' key={item.id || item.label} onClick={item.onClick}>
-                                    {item.icon && <i className={`fas ${item.icon} m-r-10`} />}
-                                    {item.label}
-                                </RBDropdown.Item>
-                            )
-                        )
-                    })}
-            </RBDropdown.Menu>
-        </RBDropdown>
+                {open && (
+                    <div
+                        css={styles.floatingMenu}
+                        ref={floating}
+                        style={{
+                            position: strategy,
+                            top: y ?? 0,
+                            left: x ?? 0,
+                            width: 'max-content',
+                        }}
+                    >
+                        {items
+                            .filter((item) => !item.hidden)
+                            .map((item) => {
+                                return (
+                                    item.component || (
+                                        <div
+                                            css={styles.item}
+                                            key={item.id || item.label}
+                                            onClick={(e) => {
+                                                open && setOpen(false)
+                                                isFunction(item.onClick) && item.onClick(e)
+                                            }}
+                                        >
+                                            {item.icon && <Icon icon={item.icon} size={20} css={styles.itemIcon} />}
+                                            <span css={styles.itemLabel}>{item.label}</span>
+                                        </div>
+                                    )
+                                )
+                            })}
+                    </div>
+                )}
+            </div>
+        </div>
     )
 }
 

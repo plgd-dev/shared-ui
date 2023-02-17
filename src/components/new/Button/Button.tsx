@@ -14,8 +14,8 @@ const Button: FC<Props> = (props) => {
         if (loading) {
             if (position === ICON_LEFT) {
                 return (
-                    <span css={styles.icon(position)}>
-                        <ClipLoader color={colorsVariants[variant!].text} size={20} />
+                    <span css={[styles.icon(position), styles.loadingIcon]}>
+                        <ClipLoader color={colorsVariants[variant!].text} size={16} />
                     </span>
                 )
             }
@@ -25,7 +25,7 @@ const Button: FC<Props> = (props) => {
     }
 
     const handleOnClick = (e: MouseEvent<HTMLElement>) => {
-        if (!loading && onClick) {
+        if (!loading && !disabled && onClick) {
             onClick(e)
         }
     }
