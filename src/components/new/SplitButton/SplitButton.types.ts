@@ -18,6 +18,8 @@ export type Props = ButtonProps & {
         placement?: Placement
     }
     defaultOpen?: boolean
+    dataTestId?: string
+    dataTestIdDropdown?: string
 }
 
 export const defaultProps = {

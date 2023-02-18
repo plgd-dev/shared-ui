@@ -8,7 +8,7 @@ import { Props } from './CopyBox.types'
 import { useIntl } from 'react-intl'
 
 const CopyBox: FC<Props> = (props) => {
-    const { text, copyToClipboardText, textToCopy } = props
+    const { certFormat, text, copyToClipboardText, textToCopy } = props
     const [copied, setCopied] = useState<boolean>(false)
     const { formatMessage: _ } = useIntl()
 
@@ -23,7 +23,7 @@ const CopyBox: FC<Props> = (props) => {
         )
 
     const handleCopyToClipboard = () => {
-        if (copyToClipboard(textToCopy || text)) {
+        if (copyToClipboard(textToCopy || text, certFormat)) {
             setCopied(true)
         }
     }

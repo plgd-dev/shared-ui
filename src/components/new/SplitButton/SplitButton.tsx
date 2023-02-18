@@ -7,7 +7,7 @@ import { offset, shift, useFloating } from '@floating-ui/react'
 import isFunction from 'lodash/isFunction'
 
 const SplitButton: FC<Props> = (props) => {
-    const { defaultOpen, children, variant, className, menuProps, items, disabled, loading, onClick, ...rest } = { ...defaultProps, ...props }
+    const { defaultOpen, children, variant, className, menuProps, items, disabled, loading, onClick, dataTestId, dataTestIdDropdown, ...rest } = { ...defaultProps, ...props }
     const [open, setOpen] = useState(defaultOpen)
     const ref = useRef(null)
     const { x, y, reference, floating, strategy, context } = useFloating({
@@ -44,10 +44,11 @@ const SplitButton: FC<Props> = (props) => {
                         open && setOpen(false)
                         isFunction(onClick) && onClick(e)
                     }}
+                    dataTestId={dataTestId}
                 >
                     {children}
                 </Button>
-                <Button variant={variant} disabled={disabled} css={styles.rightButton} onClick={() => !loading && setOpen(!open)}>
+                <Button variant={variant} disabled={disabled} css={styles.rightButton} onClick={() => !loading && setOpen(!open)} data-test-id={dataTestIdDropdown}>
                     <span css={[styles.arrow, open && styles.arrowOpen]}>
                         <Icon icon='arrow-down' />
                     </span>

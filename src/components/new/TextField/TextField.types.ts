@@ -11,5 +11,6 @@ export type Props = {
     onChange?: ChangeEventHandler<FormControlElement>
     onKeyPress?: (e: any) => void
     placeholder?: string
+    readOnly?: boolean
     value: string | number
 }

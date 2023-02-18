@@ -95,6 +95,7 @@ const Footer: FC<Props> = memo(({ links }) => {
 
     return (
         <footer id='footer'>
+            <div id='pending-commands-wrapper'></div>
             <div className='left'>
                 <BuildInformation />
             </div>

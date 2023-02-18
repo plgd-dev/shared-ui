@@ -9,6 +9,7 @@ export type Props = {
     labelBefore?: boolean
     onChange?: (e: any) => void
     size?: SwitcherSizeType
+    className?: string
 }
 
 export const defaultProps: Partial<Props> = {

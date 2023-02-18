@@ -20,6 +20,7 @@ export type Props = {
     size?: ButtonSizesType
     tabIndex?: number
     variant?: ButtonVariantsType
+    dataTestId?: string
 }
 
 export const defaultProps: Partial<Props> = {

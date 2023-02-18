@@ -1,14 +1,14 @@
-export const copyToClipboard = text => {
-  if (document.execCommand) {
-    const textField = document.createElement('textarea')
-    textField.innerText = text
-    document.body.appendChild(textField)
-    textField.select()
-    document.execCommand('copy')
-    textField.remove()
+export const copyToClipboard = (text, certFormat = false) => {
+    if (document.execCommand) {
+        const textField = document.createElement('textarea')
+        textField.innerText = certFormat ? JSON.stringify(text.replace(/<br>/g, '\n')) : text
+        document.body.appendChild(textField)
+        textField.select()
+        document.execCommand('copy')
+        textField.remove()
 
-    return true
-  }
+        return true
+    }
 
-  return false
+    return false
 }

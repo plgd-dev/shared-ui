@@ -29,6 +29,7 @@ export type Props = {
         }
     ) => void
     type?: ActionButtonTypeType
+    disabled?: boolean
 }
 
 export const defaultProps = {

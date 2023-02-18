@@ -37,7 +37,7 @@ const LanguageSwitcher = memo(() => {
                 <div className='content'>
                     {appConfig?.supportedLanguages?.map?.((language: string) => {
                         // @ts-ignore
-                        const lang = t[language]
+                        const lang = _(t[language])
                         return (
                             <span key={language} onClick={() => changeLanguage(language)}>
                                 {lang || language}

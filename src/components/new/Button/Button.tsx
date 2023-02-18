@@ -8,7 +8,7 @@ import { useTheme } from '@emotion/react'
 
 const { ICON_LEFT, ICON_RIGHT } = iconPositions
 const Button: FC<Props> = (props) => {
-    const { onClick, variant, icon, iconPosition, loading, className, children, disabled, htmlType, size, fullWidth, ...rest } = { ...defaultProps, ...props }
+    const { onClick, variant, icon, iconPosition, loading, className, children, disabled, htmlType, size, fullWidth, dataTestId, ...rest } = { ...defaultProps, ...props }
     const theme = useTheme()
     const renderIcon = (position: ButtonIconPositionType) => {
         if (loading) {
@@ -45,6 +45,7 @@ const Button: FC<Props> = (props) => {
             ]}
             onClick={handleOnClick}
             type={htmlType}
+            data-test-id={dataTestId}
         >
             {renderIcon(ICON_LEFT)}
             {children}
