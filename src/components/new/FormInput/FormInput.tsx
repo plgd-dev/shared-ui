@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react'
+import { FC, forwardRef, useRef, useState } from 'react'
 import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.styles'
 import { mergeRefs } from 'react-merge-refs'
@@ -7,7 +7,7 @@ import { copyToClipboard } from '../../../common/utils'
 import { inputSizes } from './constants'
 import { detect } from 'detect-browser'
 
-const FormInput: FC<Props> = (props) => {
+const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const {
         ariaInvalid,
         autoComplete,
@@ -45,7 +45,7 @@ const FormInput: FC<Props> = (props) => {
             data-inline={inline?.toString()}
             disabled={disabled || false}
             pattern={telPattern}
-            ref={inputRef ? (mergeRefs([localInputRef, inputRef]) as any) : localInputRef}
+            ref={mergeRefs([ref, localInputRef, inputRef]) as any}
             type={type}
             value={value}
             data-endge-pass={isEdge ? 'true' : undefined}
@@ -81,7 +81,7 @@ const FormInput: FC<Props> = (props) => {
     }
 
     return inputBase
-}
+})
 
 FormInput.displayName = 'FormInput'
 FormInput.defaultProps = defaultProps

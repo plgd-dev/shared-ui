@@ -20,3 +20,16 @@ export const errorMessage = css`
     color: ${colors.red};
     padding-top: 4px;
 `
+
+export const inlineItems = css`
+    margin: -4px;
+    align-items: flex-start;
+`
+
+export const inlineItem = css`
+    margin: 4px;
+`
+
+export const inlineItemFullSize = css`
+    width: 100%;
+`

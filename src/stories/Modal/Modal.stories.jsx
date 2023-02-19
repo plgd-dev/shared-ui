@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import Modal from '../components/new/Modal'
-import ModalStrippedLine from '../components/new/Modal/ModalStrippedLine'
-import Button from '../components/new/Button'
-import Switch from '../components/new/Switch'
-import TimeoutControl from '../components/new/TimeoutControl'
-import Editor from '../components/new/Editor'
+import Modal from '../../components/new/Modal'
+import ModalStrippedLine from '../../components/new/Modal/ModalStrippedLine'
+import Button from '../../components/new/Button'
+import Switch from '../../components/new/Switch'
+import TimeoutControl from '../../components/new/TimeoutControl'
+import Editor from '../../components/new/Editor'
 
 export default {
-    title: 'Example/Modal',
+    title: 'Modal/Default',
     component: Modal,
     argTypes: {
         layout: 'fullscreen',

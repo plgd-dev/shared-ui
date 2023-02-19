@@ -98,7 +98,6 @@ export const content = css`
 export const footer = css`
     padding: 20px 32px 0 32px;
     background: #fff;
-    box-shadow: 0px -30px 20px rgba(28, 52, 99, 0.05);
     display: flex;
     justify-content: flex-end;
 

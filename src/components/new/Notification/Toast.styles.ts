@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
 import { css as cssRaw } from '@emotion/css'
 import { colors } from '../_utils/colors'
-import { ToastTypesType } from './Toast.types'
 import { toastTypes } from './constants'
+import { TypeOptions } from 'react-toastify/dist/types'
 
-const getColorByType = (type: ToastTypesType) => {
+const getColorByType = (type: TypeOptions) => {
     switch (type) {
         case toastTypes.info:
             return colors.primaryDarken
@@ -17,7 +17,7 @@ const getColorByType = (type: ToastTypesType) => {
     }
 }
 
-export const toast = (type: ToastTypesType) => cssRaw`
+export const toast = (type: TypeOptions) => cssRaw`
     overflow: visible;
     background: #fff;
     border: 1px solid ${colors.neutral200};
@@ -62,7 +62,7 @@ export const toastInner = css`
     justify-content: flex-start;
 `
 
-export const icon = (type: ToastTypesType) => css`
+export const icon = (type: TypeOptions) => css`
     width: 24px;
     height: 24px;
     flex: 0 0 24px;
@@ -73,7 +73,7 @@ export const content = css`
     padding-left: 12px;
 `
 
-export const headline = (type: ToastTypesType) => css`
+export const headline = (type: TypeOptions) => css`
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 16px;
