@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Button from '../components/new/Button'
-import ShareDeviceModal from '../components/new/Modal/components/ShareDeviceModal'
+import Button from '../../components/new/Button'
+import ShareDeviceModal from '../../components/new/Modal/components/ShareDeviceModal'
 
 export default {
     title: 'Modal/ShareDeviceModal',
@@ -22,16 +22,18 @@ const Template = (args) => {
             <Button onClick={() => setShow(true)}>Show modal</Button>
             <ShareDeviceModal
                 onClose={() => setShow(false)}
-                renderFooter={() => (
-                    <div className='modal-buttons'>
-                        <Button className='modal-button' variant='tertiary' onClick={() => setShow(false)}>
-                            Cancel
-                        </Button>
-                        <Button className='modal-button' onClick={() => setShow(false)} variant='primary'>
-                            Save
-                        </Button>
-                    </div>
-                )}
+                footerActions={[
+                    {
+                        label: 'Cancel',
+                        onClick: () => setShow(false),
+                        variant: 'tertiary',
+                    },
+                    {
+                        label: 'Save',
+                        onClick: () => setShow(false),
+                        variant: 'primary',
+                    },
+                ]}
                 show={show}
                 title='Share "device name"'
                 alreadyShared={shared}

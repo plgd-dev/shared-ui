@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { fontPrimary, fontSecondary } from '../_utils/commonStyles'
 
 export const modalCore = css`
     &.modal-enter-done,
@@ -47,8 +48,9 @@ export const modalDrop = css`
 
 export const inner = css`
     background: #fff;
-    padding: 20px 0;
+    padding: 24px 0;
     min-width: 600px;
+    border-radius: 8px;
 `
 
 export const header = css`
@@ -60,7 +62,7 @@ export const header = css`
 `
 
 export const headline = css`
-    font-family: 'Circular Pro', sans-serif;
+    font-family: ${fontSecondary};
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
@@ -70,7 +72,7 @@ export const headline = css`
 `
 
 export const close = css`
-    font-family: 'Poppins', sans-serif;
+    font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -91,12 +93,12 @@ export const close = css`
 `
 
 export const content = css`
-    padding: 0 32px 20px 32px;
+    padding: 0 32px;
     background: #fff;
 `
 
 export const footer = css`
-    padding: 20px 32px 0 32px;
+    padding: 24px 32px 0 32px;
     background: #fff;
     display: flex;
     justify-content: flex-end;

@@ -36,7 +36,7 @@ const SharedItem = (sharedItem: AlreadySharedItemType & { onRemoveShared: (id: s
 )
 
 const ShareDeviceModal: FC<Props> = (props) => {
-    const { alreadyShared, onAddShared, onRemoveShared, ...rest } = props
+    const { alreadyShared, onAddShared, onRemoveShared, ...rest } = { ...defaultProps, ...props }
     const {
         register,
         handleSubmit,
