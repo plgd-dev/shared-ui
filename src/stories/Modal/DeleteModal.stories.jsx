@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Button from '../../components/new/Button'
-import DeleteDeviceModal from '../../components/new/Modal/components/DeleteDeviceModal'
+import DeleteModal from '../../components/new/Modal/components/DeleteDeviceModal'
 
 export default {
     title: 'Modal/DeleteDeviceModal',
-    component: DeleteDeviceModal,
+    component: DeleteModal,
     argTypes: {
         layout: 'fullscreen',
     },
@@ -16,7 +16,7 @@ const Template = (args) => {
     return (
         <div>
             <Button onClick={() => setShow(true)}>Show modal</Button>
-            <DeleteDeviceModal
+            <DeleteModal
                 onClose={() => setShow(false)}
                 footerActions={[
                     {
@@ -33,8 +33,10 @@ const Template = (args) => {
                 show={show}
                 title='Are you sure you want to delete this device?'
                 subTitle='This action cannot be undone.'
-                deviceName='August Doorbell Cam'
-                deviceId='376ee947-4801-5cfe-3a8f-49103697f7d1'
+                deleteInformation={[
+                    { label: 'Device Name', value: 'August Doorbell Cam' },
+                    { label: 'Device ID', value: '376ee947-4801-5cfe-3a8f-49103697f7d1' },
+                ]}
             />
         </div>
     )

@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
-import { Props, defaultProps } from './DeleteDeviceModal.types'
+import { Props, defaultProps } from './DeleteModal.types'
 import Modal from '../../Modal'
-import * as styles from './DeleteDeviceModal.styles'
+import * as styles from './DeleteModal.styles'
 import { Icon } from '../../../Icon'
 
-const DeleteDeviceModal: FC<Props> = (props) => {
-    const { title, subTitle, deviceId, deviceIdLabel, deviceName, deviceNameLabel, ...rest } = { ...defaultProps, ...props }
+const DeleteModal: FC<Props> = (props) => {
+    const { title, subTitle, deleteInformation, ...rest } = { ...defaultProps, ...props }
 
     const renderHeader = () => (
         <div css={styles.header}>
@@ -21,14 +21,12 @@ const DeleteDeviceModal: FC<Props> = (props) => {
 
     const renderBody = () => (
         <div css={styles.body}>
-            <div css={styles.item}>
-                <div css={styles.attr}>{deviceNameLabel}</div>
-                <div css={styles.val}>{deviceName}</div>
-            </div>
-            <div css={styles.item}>
-                <div css={styles.attr}>{deviceIdLabel}</div>
-                <div css={styles.val}>{deviceId}</div>
-            </div>
+            {deleteInformation.map((info) => (
+                <div css={styles.item}>
+                    <div css={styles.attr}>{info.label}</div>
+                    <div css={styles.val}>{info.value}</div>
+                </div>
+            ))}
         </div>
     )
 
@@ -44,7 +42,7 @@ const DeleteDeviceModal: FC<Props> = (props) => {
     )
 }
 
-DeleteDeviceModal.displayName = 'DeleteDeviceModal'
-DeleteDeviceModal.defaultProps = defaultProps
+DeleteModal.displayName = 'DeleteModal'
+DeleteModal.defaultProps = defaultProps
 
-export default DeleteDeviceModal
+export default DeleteModal

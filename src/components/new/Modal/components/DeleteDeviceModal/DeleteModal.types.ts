@@ -1,15 +1,15 @@
 import { defaultProps as ModalDefaultProps, Props as ModalProps } from '../../Modal.types'
 
+type DeleteInformationType = {
+    label: string
+    value: string
+}
+
 export type Props = ModalProps & {
-    deviceId: string
-    deviceIdLabel?: string
-    deviceName: string
-    deviceNameLabel?: string
+    deleteInformation: DeleteInformationType[]
     subTitle: string
 }
 
 export const defaultProps = {
     ...ModalDefaultProps,
-    deviceIdLabel: 'Device ID',
-    deviceNameLabel: 'Device name',
 }

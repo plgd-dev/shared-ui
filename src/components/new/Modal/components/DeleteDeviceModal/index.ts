@@ -1,2 +1,2 @@
-export { default } from './DeleteDeviceModal'
-export * from './DeleteDeviceModal'
+export { default } from './DeleteModal'
+export * from './DeleteModal'
