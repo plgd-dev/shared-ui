@@ -48,7 +48,7 @@ export const modalDrop = css`
 
 export const inner = css`
     background: #fff;
-    padding: 24px 0;
+    padding: 24px;
     min-width: 600px;
     border-radius: 8px;
 `
@@ -58,7 +58,7 @@ export const header = css`
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid #e6e9ed;
-    padding: 12px 32px 32px 32px;
+    padding: 12px 0 32px 0;
 `
 
 export const headline = css`
@@ -93,12 +93,12 @@ export const close = css`
 `
 
 export const content = css`
-    padding: 0 32px;
     background: #fff;
+    padding: 24px 0 0 0;
 `
 
 export const footer = css`
-    padding: 24px 32px 0 32px;
+    padding: 24px 0 0 0;
     background: #fff;
     display: flex;
     justify-content: flex-end;

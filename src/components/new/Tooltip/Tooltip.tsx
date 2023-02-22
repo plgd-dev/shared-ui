@@ -1,12 +1,12 @@
 import { FC, ReactNode, useMemo, useRef } from 'react'
-import { Props } from './Tooltip.types'
+import { Props, defaultProps } from './Tooltip.types'
 import * as styles from './Tooltip.styles'
 import { Global } from '@emotion/react'
 import { FloatingDelayGroup, useDelayGroup, useDelayGroupContext } from '@floating-ui/react-dom-interactions'
 import { useTooltipState, TooltipAnchor, TooltipContent } from './TooltipUtils'
 
 const Tooltip: FC<Props> = (props) => {
-    const { content, children, delay, id: propId, className, initialOpen } = props
+    const { content, children, delay, id: propId, className, initialOpen, portalTarget } = { ...defaultProps, ...props }
     const delayGroupContext = useDelayGroupContext()
     const id: string | ReactNode = useMemo(() => propId || content, [propId, content])
 
@@ -25,7 +25,7 @@ const Tooltip: FC<Props> = (props) => {
             <TooltipAnchor asChild state={state}>
                 {children}
             </TooltipAnchor>
-            <TooltipContent state={state}>
+            <TooltipContent state={state} portalTarget={portalTarget}>
                 {content}
                 <div className='tooltip-arrow' id={`${id}-arrow`} />
             </TooltipContent>
@@ -36,5 +36,6 @@ const Tooltip: FC<Props> = (props) => {
 export { FloatingDelayGroup }
 
 Tooltip.displayName = 'Tooltip'
+Tooltip.defaultProps = defaultProps
 
 export default Tooltip

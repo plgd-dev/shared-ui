@@ -2,9 +2,7 @@ import { css } from '@emotion/react'
 import { commonStyles, fontPrimary } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
 
-export const body = css`
-    padding: 24px 0 0 0;
-`
+export const body = css``
 
 export const headline = css`
     font-family: ${commonStyles.fontSecondary};

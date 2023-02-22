@@ -1,4 +1,4 @@
-import React, { cloneElement, createRef, forwardRef, Fragment, MutableRefObject, RefObject, useEffect, useMemo, useState } from 'react'
+import React, { cloneElement, createRef, forwardRef, Fragment, MutableRefObject, ReactElement, RefObject, useEffect, useMemo, useState } from 'react'
 import { mergeRefs } from 'react-merge-refs'
 import {
     useFloating,
@@ -17,6 +17,7 @@ import {
 } from '@floating-ui/react-dom-interactions'
 import type { UseFloatingReturn, Placement } from '@floating-ui/react-dom-interactions'
 import { motion, AnimatePresence } from 'framer-motion'
+import ConditionalWrapper from '../ConditionalWrapper'
 
 interface TooltipState extends UseFloatingReturn, ReturnType<typeof useInteractions> {
     open: boolean
@@ -97,7 +98,10 @@ export const TooltipAnchor = forwardRef(function TooltipAnchor(
     )
 })
 
-export const TooltipContent = forwardRef(function TooltipContent({ state, ...props }: { state: TooltipState } & React.HTMLProps<HTMLDivElement>, propRef) {
+export const TooltipContent = forwardRef(function TooltipContent(
+    { state, ...props }: { state: TooltipState; portalTarget?: HTMLElement } & React.HTMLProps<HTMLDivElement>,
+    propRef
+) {
     const { delay } = useDelayGroupContext()
 
     const ref = useMemo(() => mergeRefs([state.floating, propRef]), [state.floating, propRef])
@@ -129,8 +133,10 @@ export const TooltipContent = forwardRef(function TooltipContent({ state, ...pro
         arrowElement.current.style[staticSide] = '-4px'
     }
 
+    const { portalTarget, ...rest } = props
+
     return (
-        <FloatingPortal>
+        <ConditionalWrapper condition={!!portalTarget} wrapper={(c) => <FloatingPortal root={portalTarget}>{c}</FloatingPortal>}>
             <AnimatePresence>
                 {state.open && (
                     <motion.div
@@ -143,17 +149,17 @@ export const TooltipContent = forwardRef(function TooltipContent({ state, ...pro
                             position: state.strategy,
                             top: state.y ?? 0,
                             left: state.x ?? 0,
-                            ...props.style,
+                            ...rest.style,
                         }}
                         transition={
                             // When in "grouped phase", make the transition faster
                             // The open delay becomes 1ms during this phase.
                             typeof delay === 'object' && delay.open === 1 ? { duration: 0.08 } : { type: 'spring', damping: 20, stiffness: 300 }
                         }
-                        {...state.getFloatingProps(props)}
+                        {...state.getFloatingProps(rest)}
                     />
                 )}
             </AnimatePresence>
-        </FloatingPortal>
+        </ConditionalWrapper>
     )
 })

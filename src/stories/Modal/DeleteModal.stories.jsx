@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import Button from '../../components/new/Button'
-import DeleteModal from '../../components/new/Modal/components/DeleteDeviceModal'
+import { DeleteModal } from '../../components/new/Modal'
 
 export default {
-    title: 'Modal/DeleteDeviceModal',
+    title: 'Modal/DeleteModal',
     component: DeleteModal,
     argTypes: {
         layout: 'fullscreen',

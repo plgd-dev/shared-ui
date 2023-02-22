@@ -6,3 +6,9 @@ export * from './ModalStrippedLine'
 
 export { default as ShareDeviceModal } from './components/ShareDeviceModal'
 export * from './components/ShareDeviceModal'
+
+export { default as DeleteModal } from './components/DeleteModal'
+export * from './components/DeleteModal'
+
+export { default as ProvisionDeviceModal } from './components/ProvisionDeviceModal'
+export * from './components/ProvisionDeviceModal'

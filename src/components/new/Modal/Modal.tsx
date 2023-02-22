@@ -77,8 +77,8 @@ export const Modal: FC<Props> = memo((props) => {
         } else if (footerActions) {
             return (
                 <div className='modal-buttons'>
-                    {footerActions.map((action) => (
-                        <Button className='modal-button' onClick={action.onClick} disabled={action.disabled} variant={action.variant}>
+                    {footerActions.map((action, key) => (
+                        <Button key={key} className='modal-button' onClick={action.onClick} disabled={action.disabled} variant={action.variant}>
                             {action.label}
                         </Button>
                     ))}

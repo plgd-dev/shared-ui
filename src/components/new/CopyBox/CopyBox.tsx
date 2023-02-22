@@ -3,23 +3,21 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import { v4 as uuidv4 } from 'uuid'
 import { copyToClipboard } from '../../../common/utils'
-import { messages as t } from './CopyBox.i18n'
-import { Props } from './CopyBox.types'
-import { useIntl } from 'react-intl'
+import Icon from '../Icon'
+import { Props, defaultProps } from './CopyBox.types'
 
 const CopyBox: FC<Props> = (props) => {
-    const { certFormat, text, copyToClipboardText, textToCopy } = props
+    const { certFormat, text, copyToClipboardText, copiedText, textToCopy } = { ...defaultProps, ...props }
     const [copied, setCopied] = useState<boolean>(false)
-    const { formatMessage: _ } = useIntl()
 
     const renderCopyToClipboardHintContent = () =>
         copied ? (
             <div className='copy-success'>
                 <i className='fas fa-check-circle m-r-5' />
-                {_(t.copied)}
+                {copiedText}
             </div>
         ) : (
-            copyToClipboardText || _(t.copyToClipboard)
+            copyToClipboardText
         )
 
     const handleCopyToClipboard = () => {
@@ -51,7 +49,7 @@ const CopyBox: FC<Props> = (props) => {
                 }
             >
                 <div className='box m-l-10' onClick={handleCopyToClipboard}>
-                    <i className='far fa-copy' />
+                    <Icon icon='copy' />
                 </div>
             </OverlayTrigger>
         </div>
@@ -59,5 +57,6 @@ const CopyBox: FC<Props> = (props) => {
 }
 
 CopyBox.displayName = 'CopyBox'
+CopyBox.defaultProps = defaultProps
 
 export default CopyBox

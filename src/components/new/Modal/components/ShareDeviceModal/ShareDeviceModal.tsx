@@ -72,7 +72,6 @@ const ShareDeviceModal: FC<Props> = (props) => {
                     <FormInput
                         placeholder='E-mail address'
                         inputRef={inputRef}
-                        // onChange={(e) => setEmail(e.target.value)}
                         {...register('Email', { pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i })}
                     />
                     <Button variant='primary' htmlType='submit' disabled={!!errors.Email}>

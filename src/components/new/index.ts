@@ -24,6 +24,9 @@ export * from './ConfirmModal'
 export { default as CopyBox } from './CopyBox'
 export * from './CopyBox'
 
+export { default as CopyElement } from './CopyElement'
+export * from './CopyElement'
+
 export { default as Display } from './Display'
 export * from './Display'
 

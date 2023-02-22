@@ -58,7 +58,7 @@ export const subTitle = css`
 
 export const body = css`
     background: #f4f9fb;
-    margin-top: 32px;
+    margin-top: 8px;
     border-radius: 8px;
     padding: 8px 24px;
 `

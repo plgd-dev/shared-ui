@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactElement, ReactNode } from 'react'
 
 export type Props = {
     children: JSX.Element
@@ -7,4 +7,9 @@ export type Props = {
     delay?: number
     id?: string
     initialOpen?: boolean
+    portalTarget?: HTMLElement
+}
+
+export const defaultProps: Partial<Props> = {
+    portalTarget: document.getElementById('modal-floating')!,
 }
