@@ -1,15 +1,23 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { fontPrimary } from '../_utils/commonStyles'
 
-export const tile = css`
-    border: 1px solid #e6e9ed;
+export const tileToggle = css`
+    background: ${colors.neutral100};
     border-radius: 8px;
     padding: 24px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 `
 
-export const left = css`
-    flex: 1 1 auto;
+export const name = css`
+    font-family: ${fontPrimary};
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: ${colors.primaryDarken};
 `
 
 export const headline = css`

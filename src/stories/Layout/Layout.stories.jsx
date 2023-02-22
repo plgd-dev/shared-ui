@@ -16,9 +16,9 @@ import Table from '../../components/new/TableNew'
 import TableSelectionPanel from '../../components/new/TableNew/TableSelectionPanel'
 import Breadcrumbs from '../../components/new/Layout/Header/Breadcrumbs'
 import StatusTag from '../../components/new/StatusTag'
-import Tile from '../../components/new/Tile'
+import Tile from '../../components/new/TileToggle'
 import Switch from '../../components/new/Switch'
-import TileRow from '../../components/new/Tile/TileRow'
+import TileRow from '../../components/new/TileToggle/TileToggleRow'
 import Headline from '../../components/new/Headline'
 
 export default {

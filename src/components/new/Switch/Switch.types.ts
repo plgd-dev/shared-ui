@@ -5,7 +5,7 @@ export type Props = {
     defaultChecked?: boolean
     disabled?: boolean
     id?: string
-    label: string
+    label?: string
     labelBefore?: boolean
     onChange?: (e: any) => void
     size?: SwitcherSizeType
