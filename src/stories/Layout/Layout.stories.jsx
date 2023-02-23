@@ -16,9 +16,9 @@ import Table from '../../components/new/TableNew'
 import TableSelectionPanel from '../../components/new/TableNew/TableSelectionPanel'
 import Breadcrumbs from '../../components/new/Layout/Header/Breadcrumbs'
 import StatusTag from '../../components/new/StatusTag'
-import Tile from '../../components/new/TileToggle'
+import TileToggle from '../../components/new/TileToggle'
 import Switch from '../../components/new/Switch'
-import TileRow from '../../components/new/TileToggle/TileToggleRow'
+import TileToggleRow from '../../components/new/TileToggle/TileToggleRow'
 import Headline from '../../components/new/Headline'
 
 export default {
@@ -445,6 +445,11 @@ const TemplateDeviceDetail = (args) => {
     )
 
     const [collapsed, setCollapsed] = useState(false)
+    const [state, setState] = useState({
+        tile1: false,
+        tile2: false,
+        tile3: false,
+    })
     const ref = useRef(null)
 
     return (
@@ -474,15 +479,11 @@ const TemplateDeviceDetail = (args) => {
                             paddingTop: 8,
                         }}
                     >
-                        <TileRow>
-                            <Tile {...args} headline='ID'>
-                                c486781e-f342-46c9-72fd-b740b7e864af
-                            </Tile>
-                            <Tile {...args} headline='Types' tags={[<Tag key={1}>oic.d.clouddevice</Tag>, <Tag key={2}>oic.wk.d</Tag>]}></Tile>
-                            <Tile {...args} headline='Shadow synchronization' right={<Switch {...args} defaultChecked={true} size='big' />}>
-                                Text here
-                            </Tile>
-                        </TileRow>
+                        <TileToggleRow>
+                            <TileToggle name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
+                            <TileToggle name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
+                            <TileToggle name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })} />
+                        </TileToggleRow>
                     </div>
                     <div
                         style={{

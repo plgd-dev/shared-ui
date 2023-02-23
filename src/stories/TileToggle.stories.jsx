@@ -20,9 +20,7 @@ const Template = (args) => {
         <div>
             <TileToggle {...args} name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
             <TileToggle {...args} name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
-            <TileToggle {...args} name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })}>
-                Text here
-            </TileToggle>
+            <TileToggle {...args} name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })} />
         </div>
     )
 }
