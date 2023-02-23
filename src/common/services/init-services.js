@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 
 import { WebSocketEventClient } from './websocket-event-client'
 import { eventFilters } from './websocket-event-constants'
+import { deviceStatusListener } from '../../../../src/containers/Devices/websockets'
 
 let initialized = false
 
@@ -16,7 +17,7 @@ export const InitServices = (deviceStatusListener) => {
                         eventFilter: [eventFilters.DEVICE_METADATA_UPDATED, eventFilters.REGISTERED, eventFilters.UNREGISTERED],
                     },
                     'device-status',
-                    deviceStatusListener
+                    deviceStatusListener.deviceStatusListener
                 )
             }
             initialized = true

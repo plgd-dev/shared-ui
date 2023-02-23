@@ -123,6 +123,7 @@ class _WebSocketEventClient {
             }
         } catch (e) {
             if (getAppMode() !== 'production') {
+                console.error(e)
                 console.info('%cWebSocket: Cannot parse JSON', 'color: #eab927;')
             }
         }
