@@ -107,9 +107,11 @@ export const Modal: FC<Props> = memo((props) => {
                         <div css={styles.inner}>
                             <Header />
                             {renderBody && <div css={styles.content}>{isFunction(renderBody) ? renderBody() : renderBody}</div>}
-                            <div css={styles.footer}>
-                                <Footer />
-                            </div>
+                            {(renderFooter || footerActions) && (
+                                <div css={styles.footer}>
+                                    <Footer />
+                                </div>
+                            )}
                         </div>
                     </div>
                     <div className='drop-shadow' css={styles.modalDrop}></div>

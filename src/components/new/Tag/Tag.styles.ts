@@ -23,3 +23,8 @@ export const clickable = css`
 export const icon = css`
     margin-right: 4px;
 `
+
+export const blue = css`
+    color: ${colors.primary};
+    background: rgba(135, 206, 242, 0.2);
+`

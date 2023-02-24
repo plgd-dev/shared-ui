@@ -1,5 +1,6 @@
 import React from 'react'
 import Tag from '../components/new/Tag'
+import TagGroup from '../components/new/TagGroup'
 
 export default {
     title: 'Example/Tag',
@@ -20,3 +21,16 @@ const Template = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {}
+
+const TemplateGroup = (args) => (
+    <TagGroup>
+        <Tag {...args}>oic.d.clouddevice</Tag>
+        <Tag {...args}>oic.wk.d</Tag>
+        <Tag {...args}>oic.wk.e</Tag>
+        <Tag {...args}>oic.wk.f</Tag>
+        <Tag {...args}>oic.wk.g</Tag>
+    </TagGroup>
+)
+
+export const Group = TemplateGroup.bind({})
+Group.args = {}

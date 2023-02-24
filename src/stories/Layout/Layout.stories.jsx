@@ -20,6 +20,10 @@ import TileToggle from '../../components/new/TileToggle'
 import Switch from '../../components/new/Switch'
 import TileToggleRow from '../../components/new/TileToggle/TileToggleRow'
 import Headline from '../../components/new/Headline'
+import Tabs from '../../components/new/Tabs'
+import TagGroup from '../../components/new/TagGroup'
+import { Icon } from '../../components/new/Icon'
+import SimpleStripTable from '../../components/new/SimpleStripTable'
 
 export default {
     title: 'Layout/Layout',
@@ -452,59 +456,93 @@ const TemplateDeviceDetail = (args) => {
     })
     const ref = useRef(null)
 
+    const Tab1 = () => (
+        <div
+            style={{
+                paddingTop: 8,
+            }}
+        >
+            <TileToggleRow>
+                <TileToggle name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
+                <TileToggle name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
+                <TileToggle name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })} />
+            </TileToggleRow>
+            <div style={{ paddingTop: 16 }}>
+                <SimpleStripTable
+                    rows={[
+                        { attribute: 'ID', value: '738d9afc-a457-4f2d-9393-ca09c118b656' },
+                        { attribute: 'Model', value: 'doorbell-2020-11-03' },
+                        {
+                            attribute: 'Types',
+                            value: (
+                                <TagGroup>
+                                    <Tag {...args}>oic.d.clouddevice</Tag>
+                                    <Tag {...args}>oic.d.clouddevice</Tag>
+                                    <Tag {...args}>oic.d.clouddevice</Tag>
+                                    <Tag {...args}>oic.d.clouddevice</Tag>
+                                </TagGroup>
+                            ),
+                        },
+                        {
+                            attribute: 'Firmware',
+                            value: (
+                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <span style={{ marginRight: 6 }}>0.22.1</span> <Icon icon='cloud-success' size={24} />
+                                </div>
+                            ),
+                        },
+                        { attribute: 'Status', value: '3 pending commands' },
+                    ]}
+                />
+            </div>
+        </div>
+    )
+
+    const Tab2 = () => (
+        <>
+            <div
+                style={{
+                    padding: '24px 0',
+                }}
+            >
+                <Headline type='h5'>Resources</Headline>
+            </div>
+            <Table
+                columns={columns}
+                data={data}
+                defaultPageSize={10}
+                defaultSortBy={[
+                    {
+                        id: 'name',
+                        desc: false,
+                    },
+                ]}
+                globalSearch={false}
+                paginationPortalTarget={ref}
+            />
+        </>
+    )
+
     return (
         <Layout
             {...args}
             collapsedMenu={collapsed}
             content={
-                <Content
-                    actions={[
-                        {
-                            icon: 'trash',
-                            text: 'Delete',
-                            onClick: () => console.log('secondary'),
-                        },
-                        {
-                            icon: 'plus',
-                            text: 'Notification',
-                            variant: 'primary',
-                            onClick: () => console.log('primary'),
-                        },
-                    ]}
-                    headline='August Doorbell Cam'
-                    headlineStatusTag={<StatusTag variant='error'>offline</StatusTag>}
-                >
+                <Content headline='August Doorbell Cam' headlineStatusTag={<StatusTag variant='error'>offline</StatusTag>}>
                     <div
                         style={{
-                            paddingTop: 8,
+                            marginTop: '-8px',
                         }}
                     >
-                        <TileToggleRow>
-                            <TileToggle name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
-                            <TileToggle name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
-                            <TileToggle name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })} />
-                        </TileToggleRow>
+                        <Tabs
+                            {...args}
+                            tabs={[
+                                { name: 'Device information', content: <Tab1 /> },
+                                { name: 'Resources', content: <Tab2 /> },
+                            ]}
+                            onItemChange={(activeItem) => console.log(`Active item: ${activeItem}`)}
+                        />
                     </div>
-                    <div
-                        style={{
-                            padding: '24px 0',
-                        }}
-                    >
-                        <Headline type='h5'>Resources</Headline>
-                    </div>
-                    <Table
-                        columns={columns}
-                        data={data}
-                        defaultPageSize={10}
-                        defaultSortBy={[
-                            {
-                                id: 'name',
-                                desc: false,
-                            },
-                        ]}
-                        globalSearch={false}
-                        paginationPortalTarget={ref}
-                    />
                 </Content>
             }
             footer={
