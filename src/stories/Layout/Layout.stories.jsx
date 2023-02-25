@@ -449,54 +449,57 @@ const TemplateDeviceDetail = (args) => {
     )
 
     const [collapsed, setCollapsed] = useState(false)
-    const [state, setState] = useState({
-        tile1: false,
-        tile2: false,
-        tile3: false,
-    })
     const ref = useRef(null)
 
-    const Tab1 = () => (
-        <div
-            style={{
-                paddingTop: 8,
-            }}
-        >
-            <TileToggleRow>
-                <TileToggle name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
-                <TileToggle name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
-                <TileToggle name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })} />
-            </TileToggleRow>
-            <div style={{ paddingTop: 16 }}>
-                <SimpleStripTable
-                    rows={[
-                        { attribute: 'ID', value: '738d9afc-a457-4f2d-9393-ca09c118b656' },
-                        { attribute: 'Model', value: 'doorbell-2020-11-03' },
-                        {
-                            attribute: 'Types',
-                            value: (
-                                <TagGroup>
-                                    <Tag {...args}>oic.d.clouddevice</Tag>
-                                    <Tag {...args}>oic.d.clouddevice</Tag>
-                                    <Tag {...args}>oic.d.clouddevice</Tag>
-                                    <Tag {...args}>oic.d.clouddevice</Tag>
-                                </TagGroup>
-                            ),
-                        },
-                        {
-                            attribute: 'Firmware',
-                            value: (
-                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <span style={{ marginRight: 6 }}>0.22.1</span> <Icon icon='cloud-success' size={24} />
-                                </div>
-                            ),
-                        },
-                        { attribute: 'Status', value: '3 pending commands' },
-                    ]}
-                />
+    const Tab1 = () => {
+        const [state, setState] = useState({
+            tile1: false,
+            tile2: false,
+            tile3: false,
+        })
+        return (
+            <div
+                style={{
+                    paddingTop: 8,
+                }}
+            >
+                <TileToggleRow>
+                    <TileToggle name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
+                    <TileToggle name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
+                    <TileToggle name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })} />
+                </TileToggleRow>
+                <div style={{ paddingTop: 16 }}>
+                    <SimpleStripTable
+                        rows={[
+                            { attribute: 'ID', value: '738d9afc-a457-4f2d-9393-ca09c118b656' },
+                            { attribute: 'Model', value: 'doorbell-2020-11-03' },
+                            {
+                                attribute: 'Types',
+                                value: (
+                                    <TagGroup>
+                                        <Tag {...args}>oic.d.clouddevice</Tag>
+                                        <Tag {...args}>oic.d.clouddevice</Tag>
+                                        <Tag {...args}>oic.d.clouddevice</Tag>
+                                        <Tag {...args}>oic.d.clouddevice</Tag>
+                                        <Tag {...args}>oic.d.clouddevice</Tag>
+                                    </TagGroup>
+                                ),
+                            },
+                            {
+                                attribute: 'Firmware',
+                                value: (
+                                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                        <span style={{ marginRight: 6 }}>0.22.1</span> <Icon icon='cloud-success' size={24} />
+                                    </div>
+                                ),
+                            },
+                            { attribute: 'Status', value: '3 pending commands' },
+                        ]}
+                    />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 
     const Tab2 = () => (
         <>
