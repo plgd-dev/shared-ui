@@ -1,5 +1,6 @@
 import React from 'react'
 import VersionMark from '../components/new/VersionMark'
+import { severities } from '../components/new/VersionMark/constants'
 
 export default {
     title: 'Example/VersionMark',
@@ -9,14 +10,14 @@ export default {
 
 const Template = (args) => (
     <div>
-        <VersionMark {...args} severity='success' versionText='Version 2.02'>
+        <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02'>
             Tag text
         </VersionMark>
         <br />
         <br />
         <VersionMark
             {...args}
-            severity='warning'
+            severity={severities.WARNING}
             update={{
                 text: 'Click here!',
                 onClick: () => console.log('update click'),
@@ -29,7 +30,7 @@ const Template = (args) => (
         <br />
         <VersionMark
             {...args}
-            severity='error'
+            severity={severities.ERROR}
             update={{
                 text: 'Click here!',
                 onClick: () => console.log('update click'),

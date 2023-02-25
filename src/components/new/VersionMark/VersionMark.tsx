@@ -1,11 +1,11 @@
 import { FC } from 'react'
-import { Props } from './VersionMark.types'
+import { defaultProps, Props } from './VersionMark.types'
 import * as styles from './VersionMark.styles'
 import { severities } from './constants'
 import Icon from '../Icon'
 
 const VersionMark: FC<Props> = (props) => {
-    const { severity, update, versionText } = props
+    const { collapsed, severity, update, versionText } = { ...defaultProps, ...props }
 
     const icon = {
         [severities.SUCCESS]: 'cloud-success',
@@ -15,17 +15,24 @@ const VersionMark: FC<Props> = (props) => {
 
     return (
         <div css={styles.versionMark}>
-            <Icon icon={icon} size={24} />
-            <span css={styles.versionText}>{versionText}</span>
-            {update && (
-                <span css={styles.updateText} onClick={update.onClick}>
-                    {update.text}
-                </span>
+            <div css={styles.left}>
+                <Icon icon={icon} size={24} />
+            </div>
+            {!collapsed && (
+                <div css={styles.right}>
+                    <span css={styles.versionText}>{versionText}</span>
+                    {update && (
+                        <span css={styles.updateText} onClick={update.onClick}>
+                            {update.text}
+                        </span>
+                    )}
+                </div>
             )}
         </div>
     )
 }
 
 VersionMark.displayName = 'VersionMark'
+VersionMark.defaultProps = defaultProps
 
 export default VersionMark

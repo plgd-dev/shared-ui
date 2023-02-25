@@ -135,11 +135,13 @@ const Table: FC<Props> = (props) => {
 
     const renderPagination = () => {
         let target = null
-        if (paginationPortalTarget.current) {
+        if (paginationPortalTarget?.current) {
             target = paginationPortalTarget.current
         } else if (paginationPortalTarget && !paginationPortalTarget.hasOwnProperty('current')) {
             target = paginationPortalTarget
         }
+
+        console.log(target)
 
         return target
             ? createPortal(

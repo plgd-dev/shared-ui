@@ -31,7 +31,7 @@ export const logoCollapsed = css`
 export const menu = css`
     flex: 1 1 auto;
     overflow: auto;
-    padding: 0 24px 50px 24px;
+    padding: 0 24px;
     box-sizing: border-box;
 
     .menu-list-group {
@@ -61,7 +61,7 @@ export const menu = css`
 `
 
 export const menuCollapsed = css`
-    padding: 0 12px 22px 12px;
+    padding: 0 12px;
 `
 
 export const menuList = css`
@@ -277,7 +277,7 @@ export const newFeature = css`
     cursor: pointer;
     margin-top: 8px;
     position: absolute;
-    bottom: -26px;
+    bottom: 24px;
 `
 
 export const header = css`
@@ -320,4 +320,17 @@ export const iconClose = css`
     &:hover {
         color: ${colors.primary};
     }
+`
+
+export const versionItem = css`
+    border-top: 2px solid ${colors.neutral200};
+    margin-top: 12px;
+    padding: 24px 0 24px 8px;
+    display: flex;
+    align-items: center;
+`
+
+export const versionCollapsed = css`
+    padding-left: 0;
+    justify-content: center;
 `

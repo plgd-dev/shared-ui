@@ -1,5 +1,5 @@
 import { tagVariants } from './constants'
-import { SyntheticEvent } from 'react'
+import { ReactNode, SyntheticEvent } from 'react'
 import { Strategy } from '@floating-ui/core/src/types'
 
 export type MenuTagVariantType = typeof tagVariants[keyof typeof tagVariants]
@@ -10,11 +10,11 @@ type MenuItemTag = {
 }
 
 export type MenuItem = {
+    children?: MenuItem[]
     icon: string
     id: string
     tag?: MenuItemTag
     title: string
-    children?: MenuItem[]
 }
 
 type MenuGroup = {
@@ -24,29 +24,33 @@ type MenuGroup = {
 
 export type Props = {
     activeId?: string
+    className?: string
     collapsed?: boolean
+    id?: string
     menu?: MenuGroup[]
     newFeature?: {
         onClick: () => void
         onClose: () => void
     }
+    versionMark: ReactNode
 }
 
 export type LeftPanelItemType = {
-    item: MenuItem
-    collapsed?: boolean
     active: string | null
+    collapsed?: boolean
     handleItemClick: (item: MenuItem, e: SyntheticEvent) => void
+    item: MenuItem
     key: number
 }
 
 export type LeftPanelSubItemsType = {
-    item: MenuItem
-    collapsed?: boolean
     active: string | null
-    isActive?: boolean
+    collapsed?: boolean
     floating: any
+    handleItemClick: (item: MenuItem, e: SyntheticEvent) => void
+    isActive?: boolean
+    item: MenuItem
+    strategy: Strategy
     x: number | null
     y: number | null
-    strategy: Strategy
 }

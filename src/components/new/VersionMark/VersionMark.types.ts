@@ -9,4 +9,9 @@ export type Props = {
         text: string
         onClick?: () => void
     }
+    collapsed?: boolean
+}
+
+export const defaultProps = {
+    collapsed: false,
 }

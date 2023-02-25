@@ -1,8 +1,9 @@
-import { FC, SyntheticEvent, useState } from 'react'
+import React, { cloneElement, FC, ReactElement, SyntheticEvent, useState } from 'react'
 import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
 import { CSSTransition } from 'react-transition-group'
 import { useFloating, shift, offset } from '@floating-ui/react-dom'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { Logo, LogoSmall, Close, Arrow, Feature } from './components'
 
@@ -39,14 +40,24 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                 </div>
             </a>
             {item.children && (
-                <LeftPanelSubItems active={active} collapsed={collapsed} floating={floating} isActive={isActive} item={item} strategy={strategy} x={x} y={y} />
+                <LeftPanelSubItems
+                    active={active}
+                    collapsed={collapsed}
+                    floating={floating}
+                    isActive={isActive}
+                    item={item}
+                    strategy={strategy}
+                    x={x}
+                    y={y}
+                    handleItemClick={handleItemClick}
+                />
             )}
         </li>
     )
 }
 
 const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
-    const { active, item, isActive, collapsed, floating, strategy, x, y } = props
+    const { active, item, isActive, collapsed, floating, strategy, x, y, handleItemClick } = props
 
     if (collapsed) {
         if (isActive) {
@@ -72,6 +83,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                             (item.children?.length || 0) - 1 === key && styles.subItemLinkLast,
                                         ]}
                                         href='#'
+                                        onClick={(e) => handleItemClick(item, e)}
                                     >
                                         <img alt='line' css={styles.line} src={img} />
                                         {subItem.title}
@@ -108,8 +120,9 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 }
 
 const LeftPanel: FC<Props> = (props) => {
-    const { collapsed, menu, newFeature } = props
+    const { className, collapsed, id, menu, newFeature, versionMark } = props
     const [active, setActive] = useState<string | null>(props.activeId || null)
+    const [showFeature, setShowFeature] = useState(!!newFeature)
 
     const handleItemClick = (item: MenuItem, e: SyntheticEvent) => {
         if (item.children) {
@@ -121,7 +134,7 @@ const LeftPanel: FC<Props> = (props) => {
     }
 
     return (
-        <div css={[styles.leftPanel, collapsed && styles.collapsedPanel]}>
+        <div css={[styles.leftPanel, collapsed && styles.collapsedPanel]} className={className} id={id}>
             <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
                 {collapsed ? <LogoSmall height={32} width={50} /> : <Logo height={32} width={147} />}
             </div>
@@ -138,28 +151,45 @@ const LeftPanel: FC<Props> = (props) => {
                         </li>
                     ))}
                     {!collapsed && newFeature && (
-                        <li css={styles.newFeature} onClick={newFeature.onClick}>
-                            <div css={styles.header}>
-                                <div css={styles.headerLeft}>
-                                    <div css={styles.headline}>New feature release!</div>
-                                    <div css={styles.description}>Check out the new features.</div>
-                                </div>
-                                <div css={styles.headerRight}>
-                                    <Close
-                                        css={styles.iconClose}
-                                        height={20}
-                                        onClick={(e: SyntheticEvent) => {
-                                            e.preventDefault()
-                                            e.stopPropagation()
-                                            newFeature.onClose()
-                                        }}
-                                        width={20}
-                                    />
-                                </div>
-                            </div>
-                            <Feature height={120} width={200} />
-                        </li>
+                        <AnimatePresence>
+                            {showFeature && (
+                                <motion.li
+                                    layout
+                                    initial={false}
+                                    exit={{
+                                        scale: 0,
+                                        opacity: 0,
+                                        transition: { duration: 0.2 },
+                                    }}
+                                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                                    css={styles.newFeature}
+                                    onClick={newFeature.onClick}
+                                >
+                                    <div css={styles.header}>
+                                        <div css={styles.headerLeft}>
+                                            <div css={styles.headline}>New feature release!</div>
+                                            <div css={styles.description}>Check out the new features.</div>
+                                        </div>
+                                        <div css={styles.headerRight}>
+                                            <Close
+                                                css={styles.iconClose}
+                                                height={20}
+                                                onClick={(e: SyntheticEvent) => {
+                                                    e.preventDefault()
+                                                    e.stopPropagation()
+                                                    setShowFeature(false)
+                                                    newFeature.onClose()
+                                                }}
+                                                width={20}
+                                            />
+                                        </div>
+                                    </div>
+                                    <Feature height={120} width={200} />
+                                </motion.li>
+                            )}
+                        </AnimatePresence>
                     )}
+                    <li css={[styles.versionItem, collapsed && styles.versionCollapsed]}>{cloneElement(versionMark as ReactElement, { collapsed })}</li>
                 </ul>
             </div>
         </div>

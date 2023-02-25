@@ -6,6 +6,15 @@ export const versionMark = css`
     align-items: center;
 `
 
+export const left = css`
+    flex: 0 0 24px;
+`
+
+export const right = css`
+    flex: 1 1 auto;
+    padding-left: 8px;
+`
+
 export const versionText = css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -14,7 +23,6 @@ export const versionText = css`
     line-height: 18px;
     text-align: center;
     color: ${colors.neutral500};
-    padding-left: 6px;
 `
 
 export const updateText = css`
@@ -22,7 +30,7 @@ export const updateText = css`
     text-decoration: underline;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 12px;
     line-height: 18px;
     padding-left: 6px;
