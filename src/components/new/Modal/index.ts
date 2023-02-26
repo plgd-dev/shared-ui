@@ -12,3 +12,6 @@ export * from './components/DeleteModal'
 
 export { default as ProvisionDeviceModal } from './components/ProvisionDeviceModal'
 export * from './components/ProvisionDeviceModal'
+
+export { default as AddClientModal } from './components/AddClientModal'
+export * from './components/AddClientModal'
