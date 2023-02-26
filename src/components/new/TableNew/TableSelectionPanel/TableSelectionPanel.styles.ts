@@ -8,19 +8,6 @@ export const selectionPanel = css`
     bottom: 0;
     right: 0;
     z-index: 20;
-
-    .item-enter-done,
-    .item-appear-done {
-        //opacity: 1;
-        transform: translateY(0);
-    }
-
-    .item-exit,
-    .item-exit-active,
-    .item-exit-done {
-        //opacity: 0;
-        transform: translateY(200px);
-    }
 `
 
 export const isLeftPanelCollapsed = css`
@@ -36,7 +23,6 @@ export const inner = css`
     background: #fff;
     box-shadow: 0px -30px 20px rgba(28, 52, 99, 0.05);
     transition: all 0.35s;
-    transform: translateY(200px);
 `
 
 export const left = css`

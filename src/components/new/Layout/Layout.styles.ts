@@ -26,4 +26,5 @@ export const right = css`
 
 export const content = css`
     flex: 1 1 auto;
+    overflow: auto;
 `

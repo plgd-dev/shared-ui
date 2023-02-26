@@ -141,8 +141,6 @@ const Table: FC<Props> = (props) => {
             target = paginationPortalTarget
         }
 
-        console.log(target)
-
         return target
             ? createPortal(
                   <Pagination

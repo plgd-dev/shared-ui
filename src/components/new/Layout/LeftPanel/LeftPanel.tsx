@@ -9,6 +9,7 @@ import { Logo, LogoSmall, Close, Arrow, Feature } from './components'
 
 import img from './assets/line.png'
 import { Icon } from '../../Icon'
+import isFunction from 'lodash/isFunction'
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
@@ -120,7 +121,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 }
 
 const LeftPanel: FC<Props> = (props) => {
-    const { className, collapsed, id, menu, newFeature, versionMark } = props
+    const { className, collapsed, id, menu, newFeature, versionMark, onItemClick } = props
     const [active, setActive] = useState<string | null>(props.activeId || null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
 
@@ -130,6 +131,8 @@ const LeftPanel: FC<Props> = (props) => {
             e.stopPropagation()
 
             setActive(active === item.id ? null : item.id)
+        } else {
+            isFunction(onItemClick) && onItemClick(item, e)
         }
     }
 
@@ -189,7 +192,9 @@ const LeftPanel: FC<Props> = (props) => {
                             )}
                         </AnimatePresence>
                     )}
-                    <li css={[styles.versionItem, collapsed && styles.versionCollapsed]}>{cloneElement(versionMark as ReactElement, { collapsed })}</li>
+                    {versionMark && (
+                        <li css={[styles.versionItem, collapsed && styles.versionCollapsed]}>{cloneElement(versionMark as ReactElement, { collapsed })}</li>
+                    )}
                 </ul>
             </div>
         </div>

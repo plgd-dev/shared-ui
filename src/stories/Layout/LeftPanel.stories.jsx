@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LeftPanel from '../../components/new/Layout/LeftPanel'
 import VersionMark from '../../components/new/VersionMark'
 import { severities } from '../../components/new/VersionMark/constants'
@@ -10,19 +10,29 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
-    <div>
-        <LeftPanel
-            {...args}
-            menu={leftPanelMenu}
-            versionMark={
-                <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02'>
-                    Tag text
-                </VersionMark>
-            }
-        />
-    </div>
-)
+const Template = (args) => {
+    const [active, setActive] = useState('')
+    return (
+        <div>
+            <LeftPanel
+                {...args}
+                activeId={active}
+                menu={leftPanelMenu}
+                onItemClick={(item, e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    console.log(item)
+                    setActive(item.id)
+                }}
+                versionMark={
+                    <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02'>
+                        Tag text
+                    </VersionMark>
+                }
+            />
+        </div>
+    )
+}
 
 export const Default = Template.bind({})
 Default.args = {}

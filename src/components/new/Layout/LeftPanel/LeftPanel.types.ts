@@ -33,6 +33,7 @@ export type Props = {
         onClose: () => void
     }
     versionMark: ReactNode
+    onItemClick?: (item: MenuItem, e: SyntheticEvent) => void
 }
 
 export type LeftPanelItemType = {

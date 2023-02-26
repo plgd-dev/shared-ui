@@ -24,6 +24,7 @@ import TagGroup from '../../components/new/TagGroup'
 import { Icon } from '../../components/new/Icon'
 import SimpleStripTable from '../../components/new/SimpleStripTable'
 import { leftPanelMenu } from '../data'
+import { severities } from '../../components/new/VersionMark/constants'
 
 export default {
     title: 'Layout/Layout',
@@ -105,6 +106,45 @@ const TemplateDashboard = (args) => {
         ],
         []
     )
+    const tasksColumns = useMemo(
+        () => [
+            {
+                Header: 'Created',
+                accessor: 'col1',
+                Cell: ({ value, row }) => <span className='no-wrap-text'>{value}</span>,
+            },
+            {
+                Header: 'Type',
+                accessor: 'col2',
+                Cell: ({ value }) => <span className='no-wrap-text'>{value}</span>,
+            },
+            {
+                Header: 'Resource href',
+                accessor: 'col3',
+                style: { width: '300px' },
+                Cell: ({ value }) => <span className='no-wrap-text'>{value}</span>,
+            },
+            {
+                Header: 'Status',
+                accessor: 'col4',
+                style: { width: '250px' },
+                Cell: ({ value }) => <span className='no-wrap-text'>{value}</span>,
+            },
+            {
+                Header: 'Valid until',
+                accessor: 'col5',
+                Cell: ({ value }) => <span className='no-wrap-text'>{value}</span>,
+            },
+            {
+                Header: 'Actions',
+                accessor: 'col6',
+                disableSortBy: true,
+                Cell: ({ row }) => <TableActions items={[{ icon: 'trash', onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' }]} />,
+                className: 'actions',
+            },
+        ],
+        []
+    )
     const data = useMemo(
         () =>
             Array.from(Array(100).keys()).map((item) => ({
@@ -119,6 +159,19 @@ const TemplateDashboard = (args) => {
                 },
                 col4: 'tcp',
                 col5: 'tag',
+            })),
+        []
+    )
+
+    const tasksData = useMemo(
+        () =>
+            Array.from(Array(5).keys()).map((item) => ({
+                col1: 'Jan 17, 2023 8:50 AM',
+                col2: 'Update resource',
+                col3: '/light/1',
+                col4: 'tcp',
+                col5: 'pending',
+                col6: 'Jan 17, 2023 8:51 AM',
             })),
         []
     )
@@ -183,7 +236,8 @@ const TemplateDashboard = (args) => {
             footer={
                 <Footer
                     paginationComponent={<div id='paginationPortalTarget' ref={ref}></div>}
-                    versionComponent={<VersionMark severity='success' versionText='Version 2.02' />}
+                    recentTasks={<Table globalSearch={false} columns={tasksColumns} data={tasksData} defaultPageSize={10} />}
+                    recentTasksTitle='Recent tasks'
                 />
             }
             header={
@@ -200,6 +254,11 @@ const TemplateDashboard = (args) => {
                         onClick: () => console.log('click'),
                         onClose: () => console.log('close'),
                     }}
+                    versionMark={
+                        <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02'>
+                            Tag text
+                        </VersionMark>
+                    }
                 />
             }
         />

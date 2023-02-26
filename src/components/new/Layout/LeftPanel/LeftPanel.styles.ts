@@ -36,7 +36,7 @@ export const menu = css`
 
     .menu-list-group {
         & + .menu-list-group {
-            margin-top: 24px;
+            margin-top: 12px;
         }
     }
 
