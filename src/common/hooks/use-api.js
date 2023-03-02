@@ -3,8 +3,9 @@ import { context, trace } from '@opentelemetry/api'
 import get from 'lodash/get'
 
 import { useIsMounted } from './use-is-mounted'
-import { fetchApi, streamApi } from '../services'
+import { fetchApi, security, streamApi } from "../services";
 import { useAppConfig } from '@/containers/App'
+import { SecurityConfig } from "../../../../src/containers/App/App.types";
 
 const getData = async (method, url, options, telemetryWebTracer) => {
     const { telemetrySpan, ...restOptions } = options
@@ -37,7 +38,9 @@ export const useStreamApi = (url, options = {}) => {
     })
     const [refreshIndex, setRefreshIndex] = useState(0)
     const { telemetryWebTracer, unauthorizedCallback } = useAppConfig()
+    const { cancelRequestDeadlineTimeout } = security.getGeneralConfig()
     options.unauthorizedCallback = unauthorizedCallback
+    options.cancelRequestDeadlineTimeout = cancelRequestDeadlineTimeout
     const apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
 
     useEffect(

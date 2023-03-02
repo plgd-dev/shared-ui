@@ -13,9 +13,10 @@ export const errorCodes = {
 }
 
 export const fetchApi = async (url, options = {}) => {
-    const { scopes, body, useToken: useTokenDefault, unauthorizedCallback, ...fetchOptions } = options
+    const { scopes, body, useToken: useTokenDefault, unauthorizedCallback, cancelRequestDeadlineTimeout: cancelRequestDeadlineTimeoutDefault, ...fetchOptions } = options
     const useToken = useTokenDefault !== false
     const accessToken = useToken ? security.getAccessToken() : null
+    const cancelRequestDeadlineTimeout = cancelRequestDeadlineTimeoutDefault || CANCEL_REQUEST_DEADLINE_MS
 
     const oAuthSettings = {
         ...fetchOptions,
@@ -40,9 +41,9 @@ export const fetchApi = async (url, options = {}) => {
     return new Promise((resolve, reject) => {
         // Timer for the request cancellation
         const deadlineTimer = setTimeout(() => {
-            // Cancel the request over CANCEL_REQUEST_DEADLINE_MS
-            cancelTokenSource.cancel()
-        }, CANCEL_REQUEST_DEADLINE_MS)
+            // Cancel the request over cancelRequestDeadlineTimeout
+            cancelTokenSource.cancel(errorCodes.DEADLINE_EXCEEDED)
+        }, cancelRequestDeadlineTimeout)
 
         axios({
             ...oAuthSettings,
