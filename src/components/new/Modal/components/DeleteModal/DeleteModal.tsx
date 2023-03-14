@@ -21,8 +21,8 @@ const DeleteModal: FC<Props> = (props) => {
 
     const renderBody = () => (
         <div css={styles.body}>
-            {deleteInformation.map((info) => (
-                <div css={styles.item}>
+            {deleteInformation.map((info, key) => (
+                <div css={styles.item} key={key}>
                     <div css={styles.attr}>{info.label}</div>
                     <div css={styles.val}>{info.value}</div>
                 </div>

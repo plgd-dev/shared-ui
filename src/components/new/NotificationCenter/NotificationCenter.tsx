@@ -1,11 +1,11 @@
-import { FC, ReactNode, useState } from 'react'
-import { Props } from './NotificationCenter.types'
+import { FC, useState } from 'react'
+import { NotificationCenterItemType, Props } from "./NotificationCenter.types";
 import Bell from './components/Bell'
 import { offset, shift, useFloating } from '@floating-ui/react'
 import * as styles from './NotificationCenter.styles'
 import { FloatingPortal } from '@floating-ui/react-dom-interactions'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useNotificationCenter } from 'react-toastify/addons/use-notification-center'
+import { NotificationCenterItem, useNotificationCenter } from 'react-toastify/addons/use-notification-center'
 
 const NotificationCenter: FC<Props> = () => {
     const [open, setOpen] = useState(false)
@@ -61,7 +61,7 @@ const NotificationCenter: FC<Props> = () => {
                                     animate={open ? 'open' : 'closed'}
                                 >
                                     <AnimatePresence>
-                                        {notifications.map((notification) => (
+                                        {notifications.map((notification: any) => (
                                             <motion.div
                                                 key={notification.id}
                                                 layout

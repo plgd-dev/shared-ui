@@ -11,7 +11,7 @@ export default {
 }
 
 const Template = (args) => {
-    const [show, setShow] = useState(true)
+    const [show, setShow] = useState(false)
     const [deviceAuthLoading, setDeviceAuthLoading] = useState(false)
     const [deviceAuthCode, setDeviceAuthCode] = useState('')
 
@@ -26,6 +26,7 @@ const Template = (args) => {
         <div>
             <Button onClick={() => setShow(true)}>Show modal</Button>
             <ProvisionDeviceModal
+                {...args}
                 onClose={() => setShow(false)}
                 footerActions={[
                     {

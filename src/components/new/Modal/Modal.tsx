@@ -1,48 +1,44 @@
-import React, { FC, memo, ReactElement, useEffect } from 'react'
+import React, { FC, memo, useCallback, useEffect } from 'react'
 import { defaultProps, Props } from './Modal.types'
 import * as styles from './Modal.styles'
-import { CSSTransition } from 'react-transition-group'
-import ConditionalWrapper from '../ConditionalWrapper'
 import { createPortal } from 'react-dom'
 import Headline from '../Headline'
 import Icon from '../Icon'
 import isFunction from 'lodash/isFunction'
 import Button from '../Button'
+import { AnimatePresence, motion } from 'framer-motion'
+import Backdrop from './Backdrop'
 
 export const Modal: FC<Props> = memo((props) => {
-    const {
-        appRoot,
-        onClose,
-        className,
-        footerActions,
-        id,
-        title,
-        renderBody,
-        renderHeader,
-        renderFooter,
-        portalTarget,
-        show,
-        closeButton,
-        onExit,
-        onExited,
-        onEnter,
-        onEntered,
-    } = {
-        ...defaultProps,
-        ...props,
-    }
+    const { appRoot, onClose, className, footerActions, id, title, renderBody, renderHeader, renderFooter, portalTarget, show, closeButton, closeButtonText } =
+        {
+            ...defaultProps,
+            ...props,
+        }
 
     useEffect(() => {
-        if (appRoot) {
+        if (appRoot && show) {
             // @ts-ignore
             appRoot.style.filter = `blur(${show ? 6 : 0}px)`
 
             return () => {
                 // @ts-ignore
-                appRoot.style.filter = `blur(0px)`
+                appRoot.style.filter = `none`
             }
         }
     }, [show, appRoot])
+
+    const escFunction = useCallback((event: KeyboardEvent) => {
+        event.key === 'Escape' && isFunction(onClose) && onClose()
+    }, [])
+
+    useEffect(() => {
+        document.addEventListener('keydown', escFunction, false)
+
+        return () => {
+            document.removeEventListener('keydown', escFunction, false)
+        }
+    }, [escFunction])
 
     const Header: () => any = () => {
         if (renderHeader) {
@@ -64,7 +60,7 @@ export const Modal: FC<Props> = memo((props) => {
                             isFunction(onClose) && onClose()
                         }}
                     >
-                        <span>Close</span> <Icon icon='close-circle' size={26} />
+                        <span>{closeButtonText}</span> <Icon icon='close-circle' size={26} />
                     </a>
                 )}
             </div>
@@ -89,22 +85,33 @@ export const Modal: FC<Props> = memo((props) => {
         return null
     }
 
-    return (
-        <CSSTransition
-            unmountOnExit
-            appear={true}
-            classNames='modal'
-            in={show}
-            onEnter={onEnter || undefined}
-            onEntered={onEntered || undefined}
-            onExit={onExit || undefined}
-            onExited={onExited || undefined}
-            timeout={300}
-        >
-            <ConditionalWrapper condition={!!portalTarget} wrapper={(c) => createPortal(c, portalTarget as Element)}>
-                <div className={className} css={styles.modalCore} id={id}>
-                    <div className='modal' css={styles.modal}>
-                        <div css={styles.inner}>
+    const dropIn = {
+        hidden: {
+            y: '-150px',
+            opacity: 0,
+        },
+        visible: {
+            y: '0',
+            opacity: 1,
+            transition: {
+                duration: 0.1,
+                type: 'spring',
+                damping: 25,
+                stiffness: 500,
+            },
+        },
+        exit: {
+            y: '-150px',
+            opacity: 0,
+        },
+    }
+
+    const ModalBase = (
+        <AnimatePresence initial={false} mode='wait' onExitComplete={() => null}>
+            {show && (
+                <Backdrop onClick={() => isFunction(onClose) && onClose()}>
+                    <motion.div className={className} id={id} onClick={(e) => e.stopPropagation()} variants={dropIn} initial='hidden' animate='visible'>
+                        <div css={styles.modal}>
                             <Header />
                             {renderBody && <div css={styles.content}>{isFunction(renderBody) ? renderBody() : renderBody}</div>}
                             {(renderFooter || footerActions) && (
@@ -113,12 +120,17 @@ export const Modal: FC<Props> = memo((props) => {
                                 </div>
                             )}
                         </div>
-                    </div>
-                    <div className='drop-shadow' css={styles.modalDrop}></div>
-                </div>
-            </ConditionalWrapper>
-        </CSSTransition>
+                    </motion.div>
+                </Backdrop>
+            )}
+        </AnimatePresence>
     )
+
+    if (portalTarget) {
+        return createPortal(ModalBase, portalTarget as Element)
+    }
+
+    return ModalBase
 })
 
 Modal.displayName = 'Modal'

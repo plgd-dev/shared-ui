@@ -13,7 +13,7 @@ const StatusPill: FC<Props> = (props) => {
                 <ConditionalWrapper
                     condition={!!tooltipText}
                     wrapper={(child) => (
-                        <Tooltip content={tooltipText} delay={200}>
+                        <Tooltip content={tooltipText} delay={200} portalTarget={document.getElementById('modal-root') as HTMLDivElement}>
                             {child}
                         </Tooltip>
                     )}

@@ -14,13 +14,10 @@ export type Props = {
     appRoot?: ReactNode | Element | null
     className?: string
     closeButton?: boolean
+    closeButtonText?: string
     footerActions?: FooterAction[]
     id?: string
     onClose?: () => void
-    onEnter?: () => void
-    onEntered?: () => void
-    onExit?: () => void
-    onExited?: () => void
     portalTarget?: ReactNode | Element | null
     renderHeader?: RenderType | ReactNode
     renderBody?: RenderType | ReactNode
@@ -31,4 +28,5 @@ export type Props = {
 
 export const defaultProps = {
     closeButton: true,
+    closeButtonText: 'Close',
 }

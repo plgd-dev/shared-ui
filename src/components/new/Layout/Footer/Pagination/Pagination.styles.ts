@@ -23,6 +23,10 @@ export const item = css`
     height: 32px;
     min-width: 32px;
     margin: 0 2px;
+
+    &:hover {
+        text-decoration: none !important;
+    }
 `
 
 export const active = css`
@@ -31,6 +35,10 @@ export const active = css`
     background: #f6f7f9;
     border-radius: 4px;
     cursor: default;
+
+    &:hover {
+        text-decoration: none;
+    }
 `
 
 export const disabled = css`

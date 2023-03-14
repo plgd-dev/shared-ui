@@ -1,4 +1,5 @@
 import { states } from './constants'
+import { ReactNode } from 'react'
 
 export type StatusPillStatusType = typeof states[keyof typeof states]
 
@@ -9,5 +10,5 @@ export type Props = {
         text: string
         onClick: () => void
     }
-    tooltipText?: string
+    tooltipText?: ReactNode
 }

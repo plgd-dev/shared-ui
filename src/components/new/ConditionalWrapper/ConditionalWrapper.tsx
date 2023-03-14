@@ -1,7 +1,7 @@
 import { Props } from './ConditionalWrapper.types'
-import { ReactElement } from 'react'
+import { ReactElement, FC } from 'react'
 
-const ConditionalWrapper = ({ condition, wrapper, children }: Props) => (condition ? wrapper(children as ReactElement) : children)
+const ConditionalWrapper:FC<Props> = ({ condition, wrapper, children }) => (condition ? wrapper(children as ReactElement) : children) as ReactElement
 
 ConditionalWrapper.displayName = 'ConditionalWrapper'
 

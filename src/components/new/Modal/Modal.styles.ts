@@ -2,57 +2,12 @@ import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary, fontSecondary } from '../_utils/commonStyles'
 
-export const modalCore = css`
-    &.modal-enter-done,
-    &.modal-appear-done {
-        .drop-shadow,
-        .modal {
-            opacity: 1;
-        }
-    }
-
-    &.modal-exit,
-    &.modal-exit-active,
-    &.modal-exit-done {
-        .drop-shadow,
-        .modal {
-            opacity: 0;
-        }
-    }
-`
-
 export const modal = css`
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    transition: all 0.25s;
-`
-
-export const modalDrop = css`
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(25, 26, 26, 0.9);
-    z-index: 1;
-    transition: all 0.25s;
-`
-
-export const inner = css`
     background: #fff;
     padding: 24px;
     min-width: 600px;
     border-radius: 8px;
 `
-
 export const header = css`
     display: flex;
     align-items: center;

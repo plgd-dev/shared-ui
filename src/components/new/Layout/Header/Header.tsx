@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, SyntheticEvent } from "react";
 import { Props } from './Header.types'
 import * as styles from './Header.styles'
 import { Icon } from '../../Icon'
@@ -7,7 +7,7 @@ import isFunction from 'lodash/isFunction'
 const Header: FC<Props> = (props) => {
     const { breadcrumbs, onCollapseToggle, userWidget } = props
 
-    const handleCollapseToggle = (e: MouseEvent) => {
+    const handleCollapseToggle = (e: SyntheticEvent) => {
         e.preventDefault()
         e.stopPropagation()
 

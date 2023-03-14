@@ -10,6 +10,7 @@ import { Logo, LogoSmall, Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
 import { Icon } from '../../Icon'
 import isFunction from 'lodash/isFunction'
+import { panelSizes } from './constants'
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
@@ -137,7 +138,22 @@ const LeftPanel: FC<Props> = (props) => {
     }
 
     return (
-        <div css={[styles.leftPanel, collapsed && styles.collapsedPanel]} className={className} id={id}>
+        <motion.div
+            layout
+            initial={false}
+            animate={{
+                width: collapsed ? panelSizes.COLLAPSED : panelSizes.FULL,
+            }}
+            exit={{
+                height: panelSizes.COLLAPSED,
+            }}
+            transition={{
+                duration: 0.3,
+            }}
+            css={[styles.leftPanel]}
+            className={className}
+            id={id}
+        >
             <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
                 {collapsed ? <LogoSmall height={32} width={50} /> : <Logo height={32} width={147} />}
             </div>
@@ -192,12 +208,12 @@ const LeftPanel: FC<Props> = (props) => {
                             )}
                         </AnimatePresence>
                     )}
-                    {versionMark && (
-                        <li css={[styles.versionItem, collapsed && styles.versionCollapsed]}>{cloneElement(versionMark as ReactElement, { collapsed })}</li>
-                    )}
                 </ul>
+                {versionMark && (
+                    <div css={[styles.versionItem, collapsed && styles.versionCollapsed]}>{cloneElement(versionMark as ReactElement, { collapsed })}</div>
+                )}
             </div>
-        </div>
+        </motion.div>
     )
 }
 

@@ -5,6 +5,7 @@ import { colors } from '../_utils/colors'
 export const table = css`
     border: 0;
     border-collapse: collapse;
+    width: 100%;
 
     th,
     td,
@@ -32,6 +33,7 @@ export const headerTitle = styled.span`
     line-height: 18px;
     color: ${colors.neutral500};
     transition: all 0.25s;
+    white-space: nowrap;
 `
 
 export const headerItem = css`
@@ -97,6 +99,14 @@ export const cell = styled.div`
         right: 0;
         position: absolute;
         background-color: ${colors.neutral200};
+    }
+
+    a {
+        color: ${colors.neutral800};
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 `
 

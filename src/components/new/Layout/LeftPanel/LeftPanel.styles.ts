@@ -5,7 +5,6 @@ import { colors } from '../../_utils/colors'
 
 export const leftPanel = css`
     background: #f4f9fb;
-    width: ${panelSizes.FULL}px;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -33,6 +32,8 @@ export const menu = css`
     overflow: auto;
     padding: 0 24px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 
     .menu-list-group {
         & + .menu-list-group {
@@ -69,7 +70,7 @@ export const menuList = css`
     padding: 0;
     margin: 0;
     position: relative;
-    min-height: 100%;
+    flex: 1 1 auto;
 `
 
 export const menuListItem = css`
@@ -325,7 +326,7 @@ export const iconClose = css`
 export const versionItem = css`
     border-top: 2px solid ${colors.neutral200};
     margin-top: 12px;
-    padding: 24px 0 24px 8px;
+    padding: 19px 0 19px 8px;
     display: flex;
     align-items: center;
 `

@@ -19,12 +19,12 @@ const theme = {
         },
         secondary: {
             background: colorsVariants.secondary.background,
-            borderColor: colors.primary,
-            color: colors.primary,
+            borderColor: colors.primaryDarken,
+            color: colors.primaryDarken,
             hover: {
-                background: colorsVariants.secondary.background,
-                borderColor: colorsVariants.secondary.hover,
-                color: colorsVariants.secondary.hover,
+                background: colors.primaryDarken,
+                borderColor: colors.primaryDarken,
+                color: colors.neutral000,
             },
             disabled: {
                 background: colorsVariants.secondary.background,
@@ -34,12 +34,12 @@ const theme = {
         },
         tertiary: {
             background: colorsVariants.tertiary.background,
-            borderColor: colors.tertiary,
+            borderColor: colors.neutral300,
             color: colorsVariants.tertiary.text,
             hover: {
-                background: colorsVariants.tertiary.hover,
-                borderColor: colors.tertiary,
-                color: colorsVariants.tertiary.text,
+                background: colors.neutral000,
+                borderColor: colors.primary,
+                color: colors.primary,
             },
             disabled: {
                 background: colors.tertiary,

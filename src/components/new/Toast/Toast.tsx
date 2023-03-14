@@ -136,7 +136,7 @@ export const BrowserNotificationsContainer = () => {
     }
 
     const loadSounds = () => {
-        loadFartSound()
+        //loadFartSound()
         document.removeEventListener('click', loadSounds)
     }
 

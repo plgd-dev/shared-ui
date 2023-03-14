@@ -65,7 +65,7 @@ export const colorsVariants = {
         hover: '#1d589f',
     },
     tertiary: {
-        background: colors.tertiary,
+        background: colors.neutral000,
         text: colors.neutral900,
         hover: colors.neutral200,
     },

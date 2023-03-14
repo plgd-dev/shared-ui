@@ -2,6 +2,8 @@ import { ReactNode } from 'react'
 
 export type Props = {
     paginationComponent: ReactNode
-    recentTasks?: ReactNode
-    recentTasksTitle?: string
+    recentTasksPortal?: ReactNode
+    recentTasksPortalTitle?: ReactNode
+    footerExpanded: boolean
+    setFooterExpanded: (expanded: boolean) => void
 }

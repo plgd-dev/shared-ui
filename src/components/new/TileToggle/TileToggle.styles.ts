@@ -18,6 +18,12 @@ export const name = css`
     font-size: 14px;
     line-height: 16px;
     color: ${colors.primaryDarken};
+    display: flex;
+    align-items: center;
+`
+
+export const loading = css`
+    margin-left: 8px;
 `
 
 export const headline = css`

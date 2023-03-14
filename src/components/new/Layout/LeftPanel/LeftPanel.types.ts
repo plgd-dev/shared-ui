@@ -15,6 +15,7 @@ export type MenuItem = {
     id: string
     tag?: MenuItemTag
     title: string
+    link: string
 }
 
 type MenuGroup = {

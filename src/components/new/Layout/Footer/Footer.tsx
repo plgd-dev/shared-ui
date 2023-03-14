@@ -1,23 +1,22 @@
-import { FC, memo, useState } from 'react'
+import { FC, memo } from 'react'
 import { Props } from './Footer.types'
 import * as styles from './Footer.styles'
 import { Icon } from '../../Icon'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const Footer: FC<Props> = memo((props) => {
-    const { paginationComponent, recentTasks, recentTasksTitle } = props
-    const [recentPanelOpen, setRecentPanelOpen] = useState(false)
+    const { paginationComponent, recentTasksPortal, recentTasksPortalTitle, footerExpanded, setFooterExpanded } = props
 
     const handleToggle = (e: any) => {
         e.preventDefault()
-        setRecentPanelOpen(!recentPanelOpen)
+        setFooterExpanded(!footerExpanded)
     }
 
     const LeftSide = () => {
-        if (recentTasks && recentTasksTitle) {
+        if (recentTasksPortalTitle) {
             return (
                 <a href='#' css={styles.recentTasks} onClick={handleToggle}>
-                    {recentTasksTitle} <Icon icon='arrow-triangle-full-up' css={[styles.icon, recentPanelOpen && styles.panelOpen]} />
+                    {recentTasksPortalTitle} <Icon icon='arrow-triangle-full-up' css={[styles.icon, footerExpanded && styles.panelOpen]} />
                 </a>
             )
         } else {
@@ -30,8 +29,8 @@ const Footer: FC<Props> = memo((props) => {
             layout
             initial={false}
             animate={{
-                height: recentPanelOpen ? 420 : 65,
-                flex: `0 0 ${recentPanelOpen ? 420 : 65}`,
+                height: footerExpanded ? 420 : 65,
+                flex: `0 0 ${footerExpanded ? 420 : 65}`,
             }}
             exit={{
                 height: 65,
@@ -46,24 +45,7 @@ const Footer: FC<Props> = memo((props) => {
                 <div>{paginationComponent}</div>
             </div>
 
-            <AnimatePresence mode='wait'>
-                {recentPanelOpen && (
-                    <motion.div
-                        layout
-                        initial={{ opacity: 0 }}
-                        exit={{
-                            opacity: 0,
-                        }}
-                        animate={{ opacity: 1 }}
-                        transition={{
-                            duration: 0.3,
-                        }}
-                    >
-                        {recentTasks}
-                        <div style={{ height: 24 }} />
-                    </motion.div>
-                )}
-            </AnimatePresence>
+            {recentTasksPortal}
         </motion.div>
     )
 })

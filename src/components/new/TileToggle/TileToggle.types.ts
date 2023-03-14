@@ -5,4 +5,5 @@ export type Props = {
     className?: string
     name: string
     onChange: (e: any) => void
+    loading?: boolean
 }

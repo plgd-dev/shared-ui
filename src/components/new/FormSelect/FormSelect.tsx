@@ -5,6 +5,13 @@ import Select from 'react-select'
 
 const FormSelect: FC<Props> = (props) => {
     const { className, defaultValue, disabled, isSearchable, options, name, onChange, value } = props
+    const stylesOverride = {
+        menu: (base: any) => ({
+            ...base,
+            width: 'max-content',
+            minWidth: '100%',
+        }),
+    }
     return (
         <Select
             className={className}
@@ -17,6 +24,7 @@ const FormSelect: FC<Props> = (props) => {
             onChange={onChange}
             options={options}
             value={value}
+            styles={stylesOverride}
         />
     )
 }

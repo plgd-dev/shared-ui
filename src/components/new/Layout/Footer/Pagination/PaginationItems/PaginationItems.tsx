@@ -43,7 +43,7 @@ const PaginationItems: FC<Props> = (props) => {
         pageButtons.unshift(
             <li key={1}>
                 <a
-                    css={[styles.item]}
+                    css={styles.item}
                     href='#'
                     onClick={(e) => {
                         e.preventDefault()
@@ -65,7 +65,7 @@ const PaginationItems: FC<Props> = (props) => {
         pageButtons.push(
             <li key={pageCount}>
                 <a
-                    css={[styles.item]}
+                    css={styles.item}
                     href='#'
                     onClick={(e) => {
                         e.preventDefault()

@@ -1,5 +1,5 @@
 // Case insensitive sort function
-export const compareIgnoreCase = (a, b) => {
+export const compareIgnoreCase = (a: any, b: any) => {
     let item1 = a
     let item2 = b
 

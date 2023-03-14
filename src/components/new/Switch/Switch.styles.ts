@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { SwitcherSizeType } from '@plgd/shared-ui/components/new/Switch/Switch.types'
+import { SwitcherSizeType } from './Switch.types'
 import { colors } from '../_utils/colors'
 import styled from '@emotion/styled'
 
@@ -46,13 +46,13 @@ export const slider = styled.span`
     }
 `
 
-export const input = (size: SwitcherSizeType) => css`
+export const input = (size: SwitcherSizeType, disabled: boolean) => css`
     opacity: 0;
     width: 0;
     height: 0;
 
     &:checked ~ ${slider} {
-        background: ${colors.primary};
+        background: ${disabled ? colors.disabled : colors.primary};
 
         &:before {
             transform: translateX(${size === 'big' ? '12px' : '8px'});
@@ -83,4 +83,8 @@ export const label = css`
 export const labelBeforeSwitch = css`
     padding-left: 0;
     padding-right: 8px;
+`
+
+export const disabled = css`
+    cursor: not-allowed !important;
 `

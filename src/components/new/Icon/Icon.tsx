@@ -1,5 +1,6 @@
 import { FC, forwardRef, SVGProps, useEffect, useRef, useState } from 'react'
 import { Props, defaultProps } from './Icon.types'
+import * as styles from './Icon.styles'
 
 export const Icon = forwardRef<any, Props>((props, ref) => {
     const { className, icon, id, size, onError, onCompleted, ...rest } = { ...defaultProps, ...props }
@@ -47,6 +48,7 @@ export const Icon = forwardRef<any, Props>((props, ref) => {
     return (
         <div
             className={className}
+            css={styles.icon}
             data-icon={iconLoad}
             id={id}
             ref={ref}

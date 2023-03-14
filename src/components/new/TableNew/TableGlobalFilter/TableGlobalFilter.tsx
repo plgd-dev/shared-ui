@@ -1,14 +1,16 @@
-import { FC, useMemo, useState } from 'react'
+import { FC, useState } from 'react'
 import { Props } from './TableGlobalFilter.types'
 import { useAsyncDebounce } from 'react-table'
 import * as styles from './TableGlobalFilter.styles'
 import Icon from '../../Icon'
 import Button from '../../Button'
+import { messages as t } from '../Table.i18n'
+import { useIntl } from 'react-intl'
 
 const TableGlobalFilter: FC<Props> = (props) => {
-    const { globalFilter, preGlobalFilteredRows, setGlobalFilter } = props
-    const count = useMemo(() => preGlobalFilteredRows.length, [preGlobalFilteredRows])
+    const { globalFilter, setGlobalFilter } = props
     const [value, setValue] = useState(globalFilter)
+    const { formatMessage: _ } = useIntl()
 
     const onChange = useAsyncDebounce((value) => {
         setGlobalFilter(value || undefined)
@@ -24,13 +26,13 @@ const TableGlobalFilter: FC<Props> = (props) => {
                         setValue(e.target.value)
                         onChange(e.target.value)
                     }}
-                    placeholder='Search...'
+                    placeholder={`${_(t.search)}...`}
                     value={value || ''}
                 />
             </div>
             <div>
                 <Button onClick={() => onChange(value)} size='small' variant='tertiary'>
-                    Search
+                    {_(t.search)}
                 </Button>
             </div>
         </div>

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ChangeEvent, FC, useEffect, useState } from 'react'
 import { Props, defaultProps } from './Table.types'
 import * as styles from './Table.styles'
@@ -135,6 +136,7 @@ const Table: FC<Props> = (props) => {
 
     const renderPagination = () => {
         let target = null
+        // let target = document.getElementById('paginationPortalTarget')
         if (paginationPortalTarget?.current) {
             target = paginationPortalTarget.current
         } else if (paginationPortalTarget && !paginationPortalTarget.hasOwnProperty('current')) {

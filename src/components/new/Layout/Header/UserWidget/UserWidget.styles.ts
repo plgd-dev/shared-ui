@@ -30,4 +30,10 @@ export const image = css`
     height: 44px;
     flex: 0 0 44px;
     margin-right: 12px;
+
+    img {
+        border-radius: 50%;
+        width: 100%;
+        height: auto;
+    }
 `
