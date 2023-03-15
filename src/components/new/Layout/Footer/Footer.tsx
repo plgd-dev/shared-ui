@@ -15,8 +15,8 @@ const Footer: FC<Props> = memo((props) => {
     const LeftSide = () => {
         if (recentTasksPortalTitle) {
             return (
-                <a href='#' css={styles.recentTasks} onClick={handleToggle}>
-                    {recentTasksPortalTitle} <Icon icon='arrow-triangle-full-up' css={[styles.icon, footerExpanded && styles.panelOpen]} />
+                <a css={styles.recentTasks} href='#' onClick={handleToggle}>
+                    {recentTasksPortalTitle} <Icon css={[styles.icon, footerExpanded && styles.panelOpen]} icon='arrow-triangle-full-up' />
                 </a>
             )
         } else {
@@ -27,18 +27,18 @@ const Footer: FC<Props> = memo((props) => {
     return (
         <motion.div
             layout
-            initial={false}
             animate={{
                 height: footerExpanded ? 420 : 65,
                 flex: `0 0 ${footerExpanded ? 420 : 65}`,
             }}
+            css={styles.footer}
             exit={{
                 height: 65,
             }}
+            initial={false}
             transition={{
                 duration: 0.3,
             }}
-            css={styles.footer}
         >
             <div css={styles.footerMainLine}>
                 <LeftSide />

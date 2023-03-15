@@ -1,59 +1,84 @@
-import React, { FC } from 'react'
-import BDropdown from 'react-bootstrap/Dropdown'
-import omit from 'lodash/omit'
-import { ActionButtonItemType, defaultProps, Props } from './ActionButton.types'
+import React, { FC, useEffect, useRef, useState } from 'react'
+import { defaultProps, Props } from './ActionButton.types'
 import { Icon } from '../Icon'
+import * as styles from './ActionButton.styles'
+import isFunction from 'lodash/isFunction'
+import { offset, shift, useFloating } from '@floating-ui/react'
 
 const ActionButton: FC<Props> = (props) => {
-    const { type, menuProps, items, onToggle, ...rest } = props
-    const getIcon = (item: ActionButtonItemType) => {
-        if (item.loading) {
-            return <i className={`fas fa-spinner m-r-10`} />
-        } else if (item.icon && typeof item.icon === 'string') {
-            return <i className={`fas ${item.icon} m-r-10`} />
-        } else if (item.icon) {
-            return <span className='m-r-10'>{item.icon}</span>
+    const { menuProps, items, onToggle, className, id, defaultOpen, loading, dataTestIdDropdown } = props
+    const [open, setOpen] = useState(defaultOpen)
+    const ref = useRef(null)
+    const { x, y, reference, floating, strategy } = useFloating({
+        placement: menuProps?.placement || 'bottom-end',
+        strategy: 'fixed',
+        middleware: [shift(), offset(4)],
+    })
+
+    useEffect(() => {
+        function handleClickOutside(event: any) {
+            // @ts-ignore
+            if (ref?.current && !ref?.current?.contains(event.target)) {
+                setOpen(false)
+                isFunction(onToggle) && onToggle(false)
+            }
         }
+        if (open) {
+            document.addEventListener('mousedown', handleClickOutside)
+            return () => {
+                document.removeEventListener('mousedown', handleClickOutside)
+            }
+        }
+    }, [ref, open, onToggle])
 
-        return null
+    const handleOpen = () => {
+        if (!loading) {
+            const newState = !open
+            setOpen(newState)
+            isFunction(onToggle) && onToggle(newState)
+        }
     }
-    return (
-        <BDropdown className='action-button' onToggle={onToggle}>
-            <BDropdown.Toggle variant={type} {...omit(rest, 'children')}>
-                <span />
-                <span />
-                <span />
-            </BDropdown.Toggle>
 
-            <BDropdown.Menu
-                renderOnMount={true}
-                {...menuProps}
-                popperConfig={{
-                    strategy: 'fixed',
-                    modifiers: [
-                        {
-                            name: 'offset',
-                            options: {
-                                offset: [-9, -15],
-                            },
-                        },
-                    ],
-                }}
-            >
-                {items
-                    .filter((item) => !item.hidden)
-                    .map((item) => {
-                        return (
-                            item.component || (
-                                <BDropdown.Item className='btn btn-secondary' key={item.id || item.label} onClick={item.onClick} disabled={item.loading}>
-                                    {getIcon(item)}
-                                    {!item.loading && item.label}
-                                </BDropdown.Item>
+    return (
+        <div className={className} css={styles.actionButton} id={id} ref={ref}>
+            <div css={[styles.icon, open && styles.iconActive]} data-test-id={dataTestIdDropdown} onClick={handleOpen} ref={reference}>
+                <Icon icon='actions' size={20} />
+            </div>
+
+            {open && (
+                <div
+                    css={styles.floatingMenu}
+                    ref={floating}
+                    style={{
+                        position: strategy,
+                        top: y ?? 0,
+                        left: x ?? 0,
+                        width: 'max-content',
+                    }}
+                >
+                    {items
+                        .filter((item) => !item.hidden)
+                        .map((item) => {
+                            return (
+                                item.component || (
+                                    <div
+                                        css={styles.item}
+                                        key={item.id || item.label}
+                                        onClick={(e) => {
+                                            open && setOpen(false)
+                                            isFunction(onToggle) && onToggle(false)
+                                            isFunction(item.onClick) && item.onClick(e)
+                                        }}
+                                    >
+                                        {item.icon && <Icon css={styles.itemIcon} icon={item.icon} size={20} />}
+                                        <span css={styles.itemLabel}>{item.label}</span>
+                                    </div>
+                                )
                             )
-                        )
-                    })}
-            </BDropdown.Menu>
-        </BDropdown>
+                        })}
+                </div>
+            )}
+        </div>
     )
 }
 

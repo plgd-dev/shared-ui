@@ -3,6 +3,7 @@ export type TableActionItemType = {
     id: string
     onClick: () => void
     tooltipText: string
+    size?: number
 }
 
 export type Props = {

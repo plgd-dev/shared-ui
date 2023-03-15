@@ -4,6 +4,7 @@ import { colors } from '../../_utils/colors'
 export const actionItems = css`
     display: flex;
     margin: 0 -10px;
+    align-items: center;
 `
 
 export const actionItem = css`

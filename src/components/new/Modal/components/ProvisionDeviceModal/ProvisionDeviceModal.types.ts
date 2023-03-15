@@ -13,6 +13,13 @@ export type Props = ModalProps & {
     deviceAuthLoading?: boolean
     deviceInformation?: DeviceInformationLineType[]
     getDeviceAuthCode: (deviceId: string) => void
+    i18n: {
+        deviceId: string
+        enterDeviceID: string
+        invalidUuidFormat: string
+        getTheCode: string
+        deviceInformation: string
+    }
 }
 
 export type Inputs = {

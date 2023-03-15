@@ -1,16 +1,13 @@
 import { FC, useState } from 'react'
-import { Props } from './TableGlobalFilter.types'
+import { defaultProps, Props } from './TableGlobalFilter.types'
 import { useAsyncDebounce } from 'react-table'
 import * as styles from './TableGlobalFilter.styles'
 import Icon from '../../Icon'
 import Button from '../../Button'
-import { messages as t } from '../Table.i18n'
-import { useIntl } from 'react-intl'
 
 const TableGlobalFilter: FC<Props> = (props) => {
-    const { globalFilter, setGlobalFilter } = props
+    const { globalFilter, setGlobalFilter, i18n } = { ...defaultProps, ...props }
     const [value, setValue] = useState(globalFilter)
-    const { formatMessage: _ } = useIntl()
 
     const onChange = useAsyncDebounce((value) => {
         setGlobalFilter(value || undefined)
@@ -26,13 +23,13 @@ const TableGlobalFilter: FC<Props> = (props) => {
                         setValue(e.target.value)
                         onChange(e.target.value)
                     }}
-                    placeholder={`${_(t.search)}...`}
+                    placeholder={`${i18n.search}...`}
                     value={value || ''}
                 />
             </div>
             <div>
                 <Button onClick={() => onChange(value)} size='small' variant='tertiary'>
-                    {_(t.search)}
+                    {i18n.search}
                 </Button>
             </div>
         </div>
@@ -40,5 +37,6 @@ const TableGlobalFilter: FC<Props> = (props) => {
 }
 
 TableGlobalFilter.displayName = 'TableGlobalFilter'
+TableGlobalFilter.defaultProps = defaultProps
 
 export default TableGlobalFilter

@@ -14,12 +14,13 @@ import Icon from '../../../Icon'
 import { copyToClipboard } from '../../../../../common/utils'
 
 const ProvisionDeviceModal: FC<Props> = (props) => {
-    const { defaultDeviceId, deviceAuthCode, deviceAuthLoading, getDeviceAuthCode, deviceInformation, footerActions, ...rest } = { ...defaultProps, ...props }
+    const { defaultDeviceId, deviceAuthCode, deviceAuthLoading, getDeviceAuthCode, deviceInformation, footerActions, i18n, ...rest } = {
+        ...defaultProps,
+        ...props,
+    }
     const {
         register,
         handleSubmit,
-        watch,
-        setValue,
         formState: { errors },
     } = useForm<Inputs>({
         mode: 'all',
@@ -35,8 +36,8 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
             <div css={styles.attribute}>{data.attribute}</div>
             <div css={styles.value}>
                 {data.value}
-                <Tooltip content='Copy to clipboard' id={`tooltip-group-${data.attribute}`} portalTarget={undefined} css={styles.icon}>
-                    <Icon icon='copy' size={16} onClick={() => copyToClipboard(data?.copyValue || data.value, data.certFormat)} />
+                <Tooltip content='Copy to clipboard' css={styles.icon} id={`tooltip-group-${data.attribute}`} portalTarget={undefined}>
+                    <Icon icon='copy' onClick={() => copyToClipboard(data?.copyValue || data.value, data.certFormat)} size={16} />
                 </Tooltip>
             </div>
         </div>
@@ -48,12 +49,12 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
             return (
                 <div>
                     <div css={styles.codeInfoHeader}>
-                        <h3 css={styles.title}>Device information</h3>
+                        <h3 css={styles.title}>{i18n.deviceInformation}</h3>
                         <CopyElement textToCopy={JSON.stringify(dataForCopy)} />
                     </div>
                     <div css={[styles.getCodeBox, styles.codeBoxWithLines]}>
                         {deviceInformation?.map((info: DeviceInformationLineType, key) => (
-                            <DeviceInformationLine key={key} {...info} />
+                            <DeviceInformationLine key={info.attribute} {...info} />
                         ))}
                     </div>
                 </div>
@@ -61,8 +62,8 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
         } else {
             return (
                 <div css={styles.getCodeBox}>
-                    <Button variant='primary' htmlType='submit' disabled={!!errors.deviceId} loading={deviceAuthLoading}>
-                        Get the code
+                    <Button disabled={!!errors.deviceId} htmlType='submit' loading={deviceAuthLoading} variant='primary'>
+                        {i18n.getTheCode}
                     </Button>
                 </div>
             )
@@ -71,11 +72,11 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
 
     const renderBody = () => (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <FormGroup id='device-id' error={errors.deviceId ? 'Invalid uuid format' : undefined}>
-                <FormLabel text='Device ID' />
+            <FormGroup error={errors.deviceId ? i18n.invalidUuidFormat : undefined} id='device-id'>
+                <FormLabel text={i18n.deviceId} />
                 <FormInput
-                    placeholder='Enter the device ID'
                     inputRef={inputRef}
+                    placeholder={i18n.enterDeviceID}
                     {...register('deviceId', { validate: (val) => isValidUUID(val) })}
                     disabled={!!deviceAuthLoading || !!deviceAuthCode}
                 />
@@ -88,9 +89,9 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
         <Modal
             {...rest}
             appRoot={document.getElementById('root')}
+            footerActions={deviceAuthCode ? footerActions : undefined}
             portalTarget={document.getElementById('modal-root')}
             renderBody={renderBody}
-            footerActions={deviceAuthCode ? footerActions : undefined}
         />
     )
 }

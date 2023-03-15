@@ -27,13 +27,16 @@ export type Props = {
         desc?: boolean
     }[]
     enablePagination?: boolean
+    i18n: {
+        search: string
+    }
     getCellProps?: (data: any) => void
     getColumnProps?: (data?: any) => void
     getRowProps?: (data?: any) => void
     globalSearch?: boolean
     onRowsSelect?: (isAllRowsSelected: boolean, data?: any) => void
     paginationProps?: object
-    paginationPortalTarget?: any
+    paginationPortalTargetId?: any
     primaryAttribute?: string
     unselectRowsToken?: string | number
 }

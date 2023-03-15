@@ -1,13 +1,13 @@
 import { ReactNode, SyntheticEvent } from 'react'
 import { dropdownTypes } from './constants'
-import { AlignType } from 'react-bootstrap/types'
+import { Placement } from '@floating-ui/react-dom-interactions'
 
 export type ActionButtonTypeType = typeof dropdownTypes[keyof typeof dropdownTypes]
 
 export type ActionButtonItemType = {
     component?: ReactNode
     hidden?: boolean
-    icon?: string | ReactNode
+    icon?: string
     id?: string
     label: string
     loading?: boolean
@@ -15,19 +15,17 @@ export type ActionButtonItemType = {
 }
 
 export type Props = {
-    children: ReactNode
+    className?: string
+    dataTestId?: string
+    dataTestIdDropdown?: string
+    defaultOpen?: boolean
+    id?: string
     items: ActionButtonItemType[]
+    loading?: boolean
     menuProps?: {
-        align?: AlignType
-        flip?: boolean
+        placement?: Placement
     }
-    onToggle?: () => (
-        isOpen: boolean,
-        event: SyntheticEvent<any>,
-        metadata: {
-            source: 'select' | 'click' | 'rootClose' | 'keydown'
-        }
-    ) => void
+    onToggle?: (isOpen: boolean, event: SyntheticEvent<any>) => void
     type?: ActionButtonTypeType
     disabled?: boolean
 }

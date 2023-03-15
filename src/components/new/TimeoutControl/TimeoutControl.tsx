@@ -13,7 +13,7 @@ import { inputSizes } from '../FormInput/constants'
 const { INFINITE, NS } = commandTimeoutUnits
 
 const TimeoutControl: FC<Props> = (props) => {
-    const { defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, isDelete } = props
+    const { defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError } = props
     const closestUnit = useMemo(() => findClosestUnit(defaultValue), [defaultValue])
     const closestDefaultTtl = useMemo(() => {
         const unit = findClosestUnit(defaultTtlValue)

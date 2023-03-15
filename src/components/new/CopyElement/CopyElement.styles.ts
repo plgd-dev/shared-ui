@@ -47,6 +47,11 @@ export const copied = css`
     right: 0;
     left: 0;
     transition: all 0.3s;
+
+    &:hover {
+        text-decoration: none;
+        color: #fff;
+    }
 `
 
 export const active = css`

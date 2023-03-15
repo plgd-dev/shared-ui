@@ -41,26 +41,24 @@ const Footer: FC<Props> = memo(({ links }) => {
         return (
             <Display when={!!buildInformation}>
                 <OverlayTrigger
-                    placement='top'
                     overlay={
                         <Tooltip className='plgd-tooltip' id='footer-version'>
                             {_(t.clickToCopy)}
                         </Tooltip>
                     }
+                    placement='top'
                 >
                     <span className='copy' onClick={copyVersion}>
-                        <i className={`fas fa-copy m-r-10`} />
+                        <i className='fas fa-copy m-r-10' />
                     </span>
                 </OverlayTrigger>
 
                 <OverlayTrigger
-                    placement='top-start'
-                    show={show}
                     delay={{ show: 0, hide: 1000 }}
                     overlay={
                         <Popover
-                            id='popover-positioned-top'
                             className='plgd-popover interactive'
+                            id='popover-positioned-top'
                             onMouseEnter={handleOnMouseEnter}
                             onMouseLeave={handleOnMouseLeave}
                         >
@@ -75,6 +73,7 @@ const Footer: FC<Props> = memo(({ links }) => {
                                         <a
                                             className='val'
                                             href={`https://github.com/plgd-dev/client-application/commit/${buildInformation.commitHash}`}
+                                            rel='noreferrer'
                                             target='_blank'
                                         >
                                             {buildInformation.commitHash}
@@ -84,6 +83,8 @@ const Footer: FC<Props> = memo(({ links }) => {
                             </Popover.Body>
                         </Popover>
                     }
+                    placement='top-start'
+                    show={show}
                 >
                     <span onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
                         {buildInformation.version}
@@ -104,7 +105,7 @@ const Footer: FC<Props> = memo(({ links }) => {
                     // @ts-ignore
                     const tran = _(t[item.i18key])
                     return (
-                        <a href={item.to} target='_blank' rel='noopener' key={index}>
+                        <a href={item.to} key={index} rel='noopener noreferrer' target='_blank'>
                             {tran}
                         </a>
                     )

@@ -9,6 +9,7 @@ export default {
 }
 
 const data = [
+    { name: 'actions' },
     { name: 'arrow-down' },
     { name: 'arrow-left' },
     { name: 'arrow-right' },

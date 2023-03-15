@@ -47,9 +47,9 @@ const Button: FC<Props> = (props) => {
                 size === buttonSizes.SMALL && styles.small,
                 fullWidth && styles.fullWidth,
             ]}
+            data-test-id={dataTestId}
             onClick={handleOnClick}
             type={htmlType}
-            data-test-id={dataTestId}
         >
             {renderIcon(ICON_LEFT)}
             {children}

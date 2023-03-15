@@ -16,6 +16,7 @@ export const row = css`
     background: #ffffff;
     border-radius: 8px;
     transition: all 0.25s;
+    height: 54px;
 
     &:hover {
         background: ${colors.tertiary};
@@ -25,6 +26,8 @@ export const row = css`
 export const attribute = css`
     padding: 16px 24px;
     color: ${colors.neutral500};
+    height: 54px;
+    box-sizing: border-box;
 `
 
 export const value = css`
@@ -34,6 +37,8 @@ export const value = css`
     text-align: right;
     display: flex;
     justify-content: flex-end;
+    height: 54px;
+    box-sizing: border-box;
 `
 
 export const border = css`

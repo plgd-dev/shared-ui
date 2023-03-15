@@ -23,12 +23,13 @@ const Table: FC<Props> = (props) => {
         defaultSelectedRowIds,
         defaultSortBy,
         enablePagination,
+        i18n,
         getCellProps,
         getColumnProps,
         getRowProps,
         globalSearch,
         onRowsSelect,
-        paginationPortalTarget,
+        paginationPortalTargetId,
         paginationProps,
         primaryAttribute,
         unselectRowsToken,
@@ -136,11 +137,9 @@ const Table: FC<Props> = (props) => {
 
     const renderPagination = () => {
         let target = null
-        // let target = document.getElementById('paginationPortalTarget')
-        if (paginationPortalTarget?.current) {
-            target = paginationPortalTarget.current
-        } else if (paginationPortalTarget && !paginationPortalTarget.hasOwnProperty('current')) {
-            target = paginationPortalTarget
+
+        if (paginationPortalTargetId) {
+            target = document.getElementById(paginationPortalTargetId)
         }
 
         return target
@@ -166,7 +165,16 @@ const Table: FC<Props> = (props) => {
 
     return (
         <div className={className}>
-            {globalSearch && <TableGlobalFilter globalFilter={globalFilter} preGlobalFilteredRows={preGlobalFilteredRows} setGlobalFilter={setGlobalFilter} />}
+            {globalSearch && (
+                <TableGlobalFilter
+                    globalFilter={globalFilter}
+                    i18n={{
+                        search: i18n.search,
+                    }}
+                    preGlobalFilteredRows={preGlobalFilteredRows}
+                    setGlobalFilter={setGlobalFilter}
+                />
+            )}
             <table {...getTableProps()} css={styles.table}>
                 <thead>
                     {headerGroups.map((headerGroup: any) => (

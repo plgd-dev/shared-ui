@@ -13,7 +13,7 @@ const TableActions: FC<Props> = (props) => {
                     {items.map((item, key) => (
                         <div css={styles.actionItem} key={key}>
                             <Tooltip content={item.tooltipText} id={item.id}>
-                                <Icon css={styles.icon} icon={item.icon} onClick={item.onClick} size={20} />
+                                <Icon css={styles.icon} icon={item.icon} onClick={item.onClick} size={item.size || 20} />
                             </Tooltip>
                         </div>
                     ))}

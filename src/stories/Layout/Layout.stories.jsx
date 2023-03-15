@@ -34,6 +34,7 @@ export default {
 
 const TemplateDashboard = (args) => {
     const menu = useMemo(() => leftPanelMenu, [])
+    const [footerExpanded, setFooterExpanded] = useState(false)
 
     const columns = useMemo(
         () => [
@@ -181,8 +182,6 @@ const TemplateDashboard = (args) => {
     const selectedCount = useMemo(() => Object.keys(selected).length, [selected])
     const [collapsed, setCollapsed] = useState(false)
 
-    const ref = useRef(null)
-
     return (
         <Layout
             {...args}
@@ -215,11 +214,14 @@ const TemplateDashboard = (args) => {
                                 desc: false,
                             },
                         ]}
+                        i18n={{
+                            search: 'Search',
+                        }}
                         onRowsSelect={(isAllRowsSelected, selection) => {
                             isAllRowsSelected !== isAllSelected && setIsAllSelected(isAllRowsSelected)
                             setSelected(selection)
                         }}
-                        paginationPortalTarget={ref}
+                        paginationPortalTargetId='paginationPortalTarget'
                     />
                     <TableSelectionPanel
                         actionPrimary={<Button variant='primary'>Main Action</Button>}
@@ -235,9 +237,23 @@ const TemplateDashboard = (args) => {
             }
             footer={
                 <Footer
-                    paginationComponent={<div id='paginationPortalTarget' ref={ref}></div>}
-                    recentTasks={<Table globalSearch={false} columns={tasksColumns} data={tasksData} defaultPageSize={10} />}
+                    footerExpanded={footerExpanded}
+                    paginationComponent={<div id='paginationPortalTarget'></div>}
+                    recentTasks={
+                        <Table
+                            columns={tasksColumns}
+                            data={tasksData}
+                            defaultPageSize={10}
+                            globalSearch={false}
+                            i18n={{
+                                search: 'Search',
+                            }}
+                        />
+                    }
+                    recentTasksPortal={<div id='recentTasksPortalTarget'></div>}
+                    recentTasksPortalTitle={<span id='recentTasksPortalTitleTarget'></span>}
                     recentTasksTitle='Recent tasks'
+                    setFooterExpanded={setFooterExpanded}
                 />
             }
             header={
@@ -320,7 +336,7 @@ const TemplateDeviceDetail = (args) => {
     )
 
     const [collapsed, setCollapsed] = useState(false)
-    const ref = useRef(null)
+    const [footerExpanded, setFooterExpanded] = useState(false)
 
     const Tab1 = () => {
         const [state, setState] = useState({
@@ -335,9 +351,9 @@ const TemplateDeviceDetail = (args) => {
                 }}
             >
                 <TileToggleRow>
-                    <TileToggle name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
-                    <TileToggle name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
-                    <TileToggle name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })} />
+                    <TileToggle checked={state.tile1} name='Twin state' onChange={() => setState({ ...state, tile1: !state.tile1 })} />
+                    <TileToggle checked={state.tile2} name='Subscribe & notify' onChange={() => setState({ ...state, tile2: !state.tile2 })} />
+                    <TileToggle checked={state.tile3} name='Logging' onChange={() => setState({ ...state, tile3: !state.tile3 })} />
                 </TileToggleRow>
                 <div style={{ paddingTop: 16 }}>
                     <SimpleStripTable
@@ -391,6 +407,10 @@ const TemplateDeviceDetail = (args) => {
                         desc: false,
                     },
                 ]}
+                i18n={{
+                    search: 'Search',
+                }}
+                paginationPortalTargetId='paginationPortalTarget'
             />
         </>
     )
@@ -408,18 +428,22 @@ const TemplateDeviceDetail = (args) => {
                     >
                         <Tabs
                             {...args}
+                            onItemChange={(activeItem) => console.log(`Active item: ${activeItem}`)}
                             tabs={[
                                 { name: 'Device information', content: <Tab1 /> },
                                 { name: 'Resources', content: <Tab2 /> },
                             ]}
-                            onItemChange={(activeItem) => console.log(`Active item: ${activeItem}`)}
                         />
                     </div>
                 </Content>
             }
             footer={
                 <Footer
-                    paginationComponent={<div id='paginationPortalTarget' ref={ref}></div>}
+                    footerExpanded={footerExpanded}
+                    paginationComponent={<div id='paginationPortalTarget'></div>}
+                    recentTasksPortal={<div id='recentTasksPortalTarget'></div>}
+                    recentTasksPortalTitle={<span id='recentTasksPortalTitleTarget'></span>}
+                    setFooterExpanded={setFooterExpanded}
                     versionComponent={<VersionMark severity='success' versionText='Version 2.02' />}
                 />
             }
@@ -438,6 +462,7 @@ const TemplateDeviceDetail = (args) => {
                         onClick: () => console.log('click'),
                         onClose: () => console.log('close'),
                     }}
+                    versionMark={<VersionMark severity={severities.SUCCESS} versionText='Version 2.02' />}
                 />
             }
         />
