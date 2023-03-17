@@ -5,12 +5,11 @@ import { CSSTransition } from 'react-transition-group'
 import { useFloating, shift, offset } from '@floating-ui/react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { Logo, LogoSmall, Close, Arrow, Feature } from './components'
+import { Logo, Close, Arrow, Feature } from './components'
 
 import img from './assets/line.png'
 import { Icon } from '../../Icon'
 import isFunction from 'lodash/isFunction'
-import { panelSizes } from './constants'
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
@@ -25,15 +24,12 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 
     return (
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
-            <a
-                css={[styles.item, isActive && styles.activeItem, collapsed && styles.itemCollapsed]}
-                href='#'
-                onClick={(e) => handleItemClick(item, e)}
-                ref={reference}
-            >
+            <a css={[styles.item, isActive && styles.activeItem]} href='#' onClick={(e) => handleItemClick(item, e)} ref={reference}>
                 <div css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
-                    <Icon css={[!collapsed && styles.itemTitleIcon]} icon={item.icon} />
-                    <span css={[collapsed && styles.titleHidden]}>{item.title}</span>
+                    <Icon icon={item.icon} />
+                    <span aria-label={item.title} css={styles.itemTitleText}>
+                        {item.title}
+                    </span>
                     {item.children && (
                         <span css={[styles.arrow, isActive && styles.activeArrow, collapsed && styles.arrowCollapsed]}>
                             <Arrow height={6} width={10} />
@@ -46,12 +42,12 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                     active={active}
                     collapsed={collapsed}
                     floating={floating}
+                    handleItemClick={handleItemClick}
                     isActive={isActive}
                     item={item}
                     strategy={strategy}
                     x={x}
                     y={y}
-                    handleItemClick={handleItemClick}
                 />
             )}
         </li>
@@ -138,24 +134,9 @@ const LeftPanel: FC<Props> = (props) => {
     }
 
     return (
-        <motion.div
-            layout
-            initial={false}
-            animate={{
-                width: collapsed ? panelSizes.COLLAPSED : panelSizes.FULL,
-            }}
-            exit={{
-                height: panelSizes.COLLAPSED,
-            }}
-            transition={{
-                duration: 0.3,
-            }}
-            css={[styles.leftPanel]}
-            className={className}
-            id={id}
-        >
+        <div className={className} css={[styles.leftPanel]} id={id}>
             <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
-                {collapsed ? <LogoSmall height={32} width={50} /> : <Logo height={32} width={147} />}
+                <Logo css={[styles.logoSvg, collapsed && styles.logoSvgCollapsed]} height={32} width={147} />
             </div>
             <div css={[styles.menu, collapsed && styles.menuCollapsed]}>
                 <ul css={styles.menuList}>
@@ -174,14 +155,14 @@ const LeftPanel: FC<Props> = (props) => {
                             {showFeature && (
                                 <motion.li
                                     layout
-                                    initial={false}
+                                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                                    css={styles.newFeature}
                                     exit={{
                                         scale: 0,
                                         opacity: 0,
                                         transition: { duration: 0.2 },
                                     }}
-                                    animate={{ scale: 1, opacity: 1, y: 0 }}
-                                    css={styles.newFeature}
+                                    initial={false}
                                     onClick={newFeature.onClick}
                                 >
                                     <div css={styles.header}>
@@ -210,10 +191,12 @@ const LeftPanel: FC<Props> = (props) => {
                     )}
                 </ul>
                 {versionMark && (
-                    <div css={[styles.versionItem, collapsed && styles.versionCollapsed]}>{cloneElement(versionMark as ReactElement, { collapsed })}</div>
+                    <div css={[styles.versionItem, collapsed && styles.versionCollapsed]}>
+                        <div css={styles.versionItemInner}>{versionMark}</div>
+                    </div>
                 )}
             </div>
-        </motion.div>
+        </div>
     )
 }
 

@@ -4,6 +4,8 @@
  * SPLIT - page is split to two sides.
  */
 export const layoutTypes = {
-  FULL_PAGE: 'full-page',
-  SPLIT: 'split',
+    FULL_PAGE: 'full-page',
+    SPLIT: 'split',
 }
+
+export const COLLAPSE_ANIMATION_TIME = '0.3s'

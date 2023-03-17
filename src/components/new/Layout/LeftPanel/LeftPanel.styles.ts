@@ -1,17 +1,15 @@
 import { css } from '@emotion/react'
 import { MenuTagVariantType } from './LeftPanel.types'
-import { panelSizes, tagVariants } from './constants'
+import { tagVariants } from './constants'
 import { colors } from '../../_utils/colors'
+import { COLLAPSE_ANIMATION_TIME } from '../constants'
 
 export const leftPanel = css`
     background: #f4f9fb;
     display: flex;
     flex-direction: column;
     height: 100%;
-`
-
-export const collapsedPanel = css`
-    width: ${panelSizes.COLLAPSED}px;
+    transition: all ${COLLAPSE_ANIMATION_TIME};
 `
 
 export const logo = css`
@@ -20,11 +18,37 @@ export const logo = css`
     margin-bottom: 24px;
     box-sizing: border-box;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
+    transition: all ${COLLAPSE_ANIMATION_TIME};
+    height: 80px;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 17px;
+        background: #f4f9fb;
+    }
+`
+
+export const logoSvg = css`
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    transition: all ${COLLAPSE_ANIMATION_TIME};
 `
 
 export const logoCollapsed = css`
     justify-content: flex-start;
     padding: 24px 17px;
+`
+
+export const logoSvgCollapsed = css`
+    left: 17px;
 `
 
 export const menu = css`
@@ -34,6 +58,7 @@ export const menu = css`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    transition: all ${COLLAPSE_ANIMATION_TIME};
 
     .menu-list-group {
         & + .menu-list-group {
@@ -62,7 +87,7 @@ export const menu = css`
 `
 
 export const menuCollapsed = css`
-    padding: 0 12px;
+    padding: 0 22px;
 `
 
 export const menuList = css`
@@ -74,8 +99,8 @@ export const menuList = css`
 `
 
 export const menuListItem = css`
-    display: flex;
-    justify-content: center;
+    //display: flex;
+    //justify-content: center;
 `
 
 export const group = css`
@@ -109,14 +134,12 @@ export const item = css`
     border-radius: 8px;
     color: #81868c;
     transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
 
     &:hover {
         color: ${colors.neutral800};
     }
-`
-
-export const itemCollapsed = css`
-    //padding: 12px 0;
 `
 
 export const activeItem = css`
@@ -133,19 +156,17 @@ export const itemTitle = css`
     width: 100%;
     display: flex;
     align-items: center;
-    position: relative;
+    position: absolute;
+    top: 12px;
+    left: 12px;
 `
 
-export const itemTitleIcon = css`
-    margin-right: 12px;
+export const itemTitleText = css`
+    margin-left: 12px;
 `
 
 export const itemTitleActive = css`
     font-weight: bold;
-`
-
-export const titleHidden = css`
-    display: none;
 `
 
 export const arrow = css`
@@ -329,6 +350,15 @@ export const versionItem = css`
     padding: 19px 0 19px 8px;
     display: flex;
     align-items: center;
+    position: relative;
+    height: 64px;
+`
+
+export const versionItemInner = css`
+    position: absolute;
+    left: 8px;
+    top: 19px;
+    overflow: hidden;
 `
 
 export const versionCollapsed = css`

@@ -5,7 +5,7 @@ import { severities } from './constants'
 import Icon from '../Icon'
 
 const VersionMark: FC<Props> = (props) => {
-    const { collapsed, severity, update, versionText } = { ...defaultProps, ...props }
+    const { collapsed, severity, update, versionText, className, id } = { ...defaultProps, ...props }
 
     const icon = {
         [severities.SUCCESS]: 'cloud-success',
@@ -14,7 +14,7 @@ const VersionMark: FC<Props> = (props) => {
     }[severity]
 
     return (
-        <div css={styles.versionMark}>
+        <div className={className} css={styles.versionMark} id={id}>
             <div css={styles.left}>
                 <Icon icon={icon} size={24} />
             </div>
