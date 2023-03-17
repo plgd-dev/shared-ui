@@ -7,7 +7,7 @@ type DeleteInformationType = {
 }
 
 export type Props = ModalProps & {
-    deleteInformation: DeleteInformationType[]
+    deleteInformation?: DeleteInformationType[]
     subTitle: string
 }
 

@@ -10,11 +10,27 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Backdrop from './Backdrop'
 
 export const Modal: FC<Props> = memo((props) => {
-    const { appRoot, onClose, className, footerActions, id, title, renderBody, renderHeader, renderFooter, portalTarget, show, closeButton, closeButtonText } =
-        {
-            ...defaultProps,
-            ...props,
-        }
+    const {
+        appRoot,
+        onClose,
+        className,
+        footerActions,
+        fullSizeButtons,
+        id,
+        title,
+        maxWidth,
+        maxWidthTitle,
+        renderBody,
+        renderHeader,
+        renderFooter,
+        portalTarget,
+        show,
+        closeButton,
+        closeButtonText,
+    } = {
+        ...defaultProps,
+        ...props,
+    }
 
     useEffect(() => {
         if (appRoot && show) {
@@ -28,9 +44,12 @@ export const Modal: FC<Props> = memo((props) => {
         }
     }, [show, appRoot])
 
-    const escFunction = useCallback((event: KeyboardEvent) => {
-        event.key === 'Escape' && isFunction(onClose) && onClose()
-    }, [])
+    const escFunction = useCallback(
+        (event: KeyboardEvent) => {
+            event.key === 'Escape' && isFunction(onClose) && onClose()
+        },
+        [onClose]
+    )
 
     useEffect(() => {
         document.addEventListener('keydown', escFunction, false)
@@ -46,7 +65,7 @@ export const Modal: FC<Props> = memo((props) => {
         }
         return (
             <div css={styles.header}>
-                <Headline css={styles.headline} type='h4'>
+                <Headline css={styles.headline(maxWidthTitle)} type='h4'>
                     {title}
                 </Headline>
 
@@ -72,9 +91,9 @@ export const Modal: FC<Props> = memo((props) => {
             return isFunction(renderFooter) ? renderFooter() : renderFooter
         } else if (footerActions) {
             return (
-                <div className='modal-buttons'>
+                <div className='modal-buttons' css={[fullSizeButtons && styles.fullSizeButtons]}>
                     {footerActions.map((action, key) => (
-                        <Button key={key} className='modal-button' onClick={action.onClick} disabled={action.disabled} variant={action.variant}>
+                        <Button className='modal-button' disabled={action.disabled} key={key} onClick={action.onClick} variant={action.variant}>
                             {action.label}
                         </Button>
                     ))}
@@ -110,8 +129,8 @@ export const Modal: FC<Props> = memo((props) => {
         <AnimatePresence initial={false} mode='wait' onExitComplete={() => null}>
             {show && (
                 <Backdrop onClick={() => isFunction(onClose) && onClose()}>
-                    <motion.div className={className} id={id} onClick={(e) => e.stopPropagation()} variants={dropIn} initial='hidden' animate='visible'>
-                        <div css={styles.modal}>
+                    <motion.div animate='visible' className={className} id={id} initial='hidden' onClick={(e) => e.stopPropagation()} variants={dropIn}>
+                        <div css={styles.modal(maxWidth)}>
                             <Header />
                             {renderBody && <div css={styles.content}>{isFunction(renderBody) ? renderBody() : renderBody}</div>}
                             {(renderFooter || footerActions) && (

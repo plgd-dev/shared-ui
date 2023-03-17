@@ -34,7 +34,7 @@ export const deleteIconInner = css`
     box-shadow: 0 6px 12px rgba(215, 78, 58, 0.32);
 `
 
-export const title = css`
+export const title = (maxWidth?: number) => css`
     font-family: ${fontSecondary};
     font-style: normal;
     font-weight: 700;
@@ -44,6 +44,7 @@ export const title = css`
     letter-spacing: -0.5px;
     color: ${colors.primaryDarken};
     margin: 16px 0 8px 0;
+    max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
 `
 
 export const subTitle = css`
@@ -92,4 +93,10 @@ export const val = css`
     line-height: 22px;
     text-align: right;
     color: ${colors.neutral800};
+`
+
+export const emptyDeleteInformation = css`
+    height: 2px;
+    width: 100%;
+    background: ${colors.neutral200};
 `

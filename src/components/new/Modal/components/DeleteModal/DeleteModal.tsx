@@ -5,7 +5,7 @@ import * as styles from './DeleteModal.styles'
 import { Icon } from '../../../Icon'
 
 const DeleteModal: FC<Props> = (props) => {
-    const { title, subTitle, deleteInformation, ...rest } = { ...defaultProps, ...props }
+    const { title, subTitle, deleteInformation, maxWidthTitle, ...rest } = { ...defaultProps, ...props }
 
     const renderHeader = () => (
         <div css={styles.header}>
@@ -14,30 +14,36 @@ const DeleteModal: FC<Props> = (props) => {
                     <Icon icon='trash' size={42} />
                 </div>
             </div>
-            <h2 css={styles.title}>{title}</h2>
+            <h2 css={styles.title(maxWidthTitle)}>{title}</h2>
             <div css={styles.subTitle}>{subTitle}</div>
         </div>
     )
 
-    const renderBody = () => (
-        <div css={styles.body}>
-            {deleteInformation.map((info, key) => (
-                <div css={styles.item} key={key}>
-                    <div css={styles.attr}>{info.label}</div>
-                    <div css={styles.val}>{info.value}</div>
+    const renderBody = () => {
+        if (deleteInformation) {
+            return (
+                <div css={styles.body}>
+                    {deleteInformation.map((info, key) => (
+                        <div css={styles.item} key={key}>
+                            <div css={styles.attr}>{info.label}</div>
+                            <div css={styles.val}>{info.value}</div>
+                        </div>
+                    ))}
                 </div>
-            ))}
-        </div>
-    )
+            )
+        } else {
+            return <div css={styles.emptyDeleteInformation}></div>
+        }
+    }
 
     return (
         <Modal
             {...rest}
-            closeButton={false}
             appRoot={document.getElementById('root')}
+            closeButton={false}
             portalTarget={document.getElementById('modal-root')}
-            renderHeader={renderHeader}
             renderBody={renderBody}
+            renderHeader={renderHeader}
         />
     )
 }

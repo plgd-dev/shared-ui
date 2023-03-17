@@ -2,10 +2,10 @@ import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary, fontSecondary } from '../_utils/commonStyles'
 
-export const modal = css`
+export const modal = (maxWidth: number) => css`
     background: #fff;
     padding: 24px;
-    min-width: 600px;
+    min-width: ${maxWidth}px;
     border-radius: 8px;
 `
 export const header = css`
@@ -16,7 +16,7 @@ export const header = css`
     padding: 12px 0 32px 0;
 `
 
-export const headline = css`
+export const headline = (maxWidth?: number) => css`
     font-family: ${fontSecondary};
     font-style: normal;
     font-weight: 700;
@@ -24,6 +24,7 @@ export const headline = css`
     line-height: 30px;
     letter-spacing: -0.5px;
     color: #0a2965;
+    max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
 `
 
 export const close = css`
@@ -64,5 +65,16 @@ export const footer = css`
         .modal-button {
             margin: 0 4px;
         }
+    }
+`
+
+export const fullSizeButtons = css`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal-button {
+        width: 100%;
     }
 `
