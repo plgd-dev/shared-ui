@@ -50,23 +50,23 @@ const Tabs: FC<Props> = (props) => {
                     <motion.button
                         css={[styles.tabItem, i === value && styles.isActive]}
                         key={i}
-                        transition={{ duration: 0.25 }}
-                        ref={(el) => childRefs.current.set(i, el)}
                         onClick={() => setValue(i)}
+                        ref={(el) => childRefs.current.set(i, el)}
+                        transition={{ duration: 0.25 }}
                     >
                         {tab.name}
                     </motion.button>
                 ))}
                 {slider.hasValue && (
                     <motion.div
-                        css={styles.slider}
                         layout
-                        transition={{ bounceDamping: 3 }}
+                        css={styles.slider}
                         initial={false}
                         style={{
                             left: slider.left,
                             right: slider.right,
                         }}
+                        transition={{ bounceDamping: 3 }}
                     />
                 )}
             </div>

@@ -42,7 +42,7 @@ export const tabItem = css`
     transition: all 0.25s;
 
     &:hover {
-        color: ${colors.primaryDarken};
+        color: ${colors.primary};
         background: transparent;
     }
 

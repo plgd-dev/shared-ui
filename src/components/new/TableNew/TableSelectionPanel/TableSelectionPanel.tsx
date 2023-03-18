@@ -6,20 +6,22 @@ import { motion, AnimatePresence } from 'framer-motion'
 const TableSelectionPanel: FC<Props> = memo((props) => {
     const { actionPrimary, actionSecondary, leftPanelCollapsed, selectionInfo, show } = props
 
+    console.log(leftPanelCollapsed)
+
     return (
         <AnimatePresence>
             {show && (
                 <motion.div
-                    initial={{ opacity: 0, y: 150 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    css={[styles.selectionPanel, leftPanelCollapsed && styles.isLeftPanelCollapsed]}
                     exit={{
                         opacity: 0,
                         y: 150,
                     }}
-                    animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 150 }}
                     transition={{
                         duration: 0.3,
                     }}
-                    css={[styles.selectionPanel, leftPanelCollapsed && styles.isLeftPanelCollapsed]}
                 >
                     <div css={styles.inner}>
                         <div css={styles.left}>

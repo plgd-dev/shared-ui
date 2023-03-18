@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { COLLAPSE_ANIMATION_TIME } from '../../Layout/constants'
 import { panelSizes } from '../../Layout/LeftPanel/constants'
 import { colors } from '../../_utils/colors'
 
@@ -8,10 +9,11 @@ export const selectionPanel = css`
     bottom: 0;
     right: 0;
     z-index: 20;
+    transition: all ${COLLAPSE_ANIMATION_TIME};
 `
 
 export const isLeftPanelCollapsed = css`
-    left: ${panelSizes.COLLAPSED};
+    left: ${panelSizes.COLLAPSED}px;
 `
 
 export const inner = css`
