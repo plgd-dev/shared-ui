@@ -352,6 +352,7 @@ export const versionItem = css`
     align-items: center;
     position: relative;
     height: 64px;
+    overflow: hidden;
 `
 
 export const versionItemInner = css`
