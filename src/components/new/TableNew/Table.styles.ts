@@ -72,7 +72,12 @@ export const sortArrow = css`
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s;
     color: ${colors.neutral500};
+`
+
+export const sortActive = css`
+    color: ${colors.primaryBonus};
 `
 
 export const cell = styled.div`
@@ -107,6 +112,10 @@ export const cell = styled.div`
         &:hover {
             text-decoration: none;
         }
+    }
+
+    .link {
+        color: ${colors.primaryBonus};
     }
 `
 

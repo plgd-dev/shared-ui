@@ -6,8 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 const TableSelectionPanel: FC<Props> = memo((props) => {
     const { actionPrimary, actionSecondary, leftPanelCollapsed, selectionInfo, show } = props
 
-    console.log(leftPanelCollapsed)
-
     return (
         <AnimatePresence>
             {show && (

@@ -206,8 +206,16 @@ const Table: FC<Props> = (props) => {
                                                 })}
                                                 css={styles.sortArrows}
                                             >
-                                                <Icon css={styles.sortArrow} icon='sort-up' size={6} />
-                                                <Icon css={styles.sortArrow} icon='sort-down' size={6} />
+                                                <Icon
+                                                    css={[styles.sortArrow, column.isSorted && !column.isSortedDesc && styles.sortActive]}
+                                                    icon='table-arrow-up'
+                                                    size={6}
+                                                />
+                                                <Icon
+                                                    css={[styles.sortArrow, column.isSorted && column.isSortedDesc && styles.sortActive]}
+                                                    icon='table-arrow-down'
+                                                    size={6}
+                                                />
                                             </span>
                                         )}
                                     </div>
