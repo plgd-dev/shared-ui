@@ -46,6 +46,8 @@ const data = [
     { name: 'sort-down' },
     { name: 'sort-up' },
     { name: 'success' },
+    { name: 'table-arrow-down' },
+    { name: 'table-arrow-up' },
     { name: 'toast-close' },
     { name: 'trash' },
     { name: 'warning' },

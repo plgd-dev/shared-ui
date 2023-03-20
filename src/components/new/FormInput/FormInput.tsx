@@ -1,4 +1,4 @@
-import { FC, forwardRef, useRef, useState } from 'react'
+import { forwardRef, useRef, useState } from 'react'
 import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.styles'
 import { mergeRefs } from 'react-merge-refs'
@@ -42,13 +42,13 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 size === inputSizes.BIG && styles.big,
                 size === inputSizes.NORMAL && styles.normal,
             ]}
+            data-endge-pass={isEdge ? 'true' : undefined}
             data-inline={inline?.toString()}
             disabled={disabled || false}
             pattern={telPattern}
             ref={mergeRefs([ref, localInputRef, inputRef]) as any}
             type={type}
             value={value}
-            data-endge-pass={isEdge ? 'true' : undefined}
         />
     )
 

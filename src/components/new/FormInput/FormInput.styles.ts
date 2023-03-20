@@ -44,7 +44,7 @@ export const big = css`
 `
 
 export const normal = css`
-    height: 40px;
+    height: 44px;
 `
 
 export const inputWithIconWrapper = css`

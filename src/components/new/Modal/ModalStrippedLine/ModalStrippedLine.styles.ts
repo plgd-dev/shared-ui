@@ -9,6 +9,10 @@ export const strippedLine = css`
     border-bottom: 1px solid ${colors.neutral200};
 `
 
+export const smallPadding = css`
+    padding: 12px 0;
+`
+
 export const label = css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;

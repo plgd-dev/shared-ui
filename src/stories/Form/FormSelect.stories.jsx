@@ -14,10 +14,10 @@ const Template = (args) => {
         { value: 'vanilla', label: 'Vanilla' },
     ]
     return (
-        <div>
+        <div style={{ width: 400 }}>
             <FormSelect name='form-select-1' options={options} />
             <br />
-            <FormSelect defaultValue={options[1]} name='form-select-2' options={options} />
+            <FormSelect defaultValue={options[1]} menuIsOpen={true} name='form-select-2' options={options} />
         </div>
     )
 }
