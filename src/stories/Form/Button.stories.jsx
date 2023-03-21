@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../../components/new/Button'
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
 import '../global.css'
@@ -59,6 +59,21 @@ const Template = (args) => (
                 <Button {...args} children='Tertiary small' size='small' variant='tertiary' />
             </div>
         </div>
+
+        <br />
+        <br />
+
+        <div className='custom-row'>
+            <div className='custom-cell'>
+                <Button {...args} children='Filter big' size='big' variant='filter' />
+            </div>
+            <div className='custom-cell'>
+                <Button {...args} children='Filter normal' size='normal' variant='filter' />
+            </div>
+            <div className='custom-cell'>
+                <Button {...args} children='Filter small' size='small' variant='filter' />
+            </div>
+        </div>
     </div>
 )
 
@@ -77,7 +92,64 @@ Icon.args = {
     icon: <IconPlus />,
 }
 
-export const Loading = Template.bind({})
+const LoadingTemplate = (args) => {
+    const [loading1, setLoading1] = useState(false)
+    const [loading2, setLoading2] = useState(false)
+    const [loading3, setLoading3] = useState(false)
+    return (
+        <div>
+            <div className='custom-row'>
+                <div className='custom-cell'>
+                    <Button
+                        {...args}
+                        children='Update'
+                        loading={loading1}
+                        loadingText='Updating'
+                        onClick={() => setLoading1(!loading1)}
+                        size='normal'
+                        variant='primary'
+                    />
+                </div>
+                <div className='custom-cell'>
+                    <Button
+                        {...args}
+                        children='Update'
+                        loading={loading2}
+                        loadingText='Updating'
+                        onClick={() => setLoading2(!loading2)}
+                        size='normal'
+                        variant='secondary'
+                    />
+                </div>
+                <div className='custom-cell'>
+                    <Button
+                        {...args}
+                        children='Update'
+                        loading={loading3}
+                        loadingText='Updating'
+                        onClick={() => setLoading3(!loading3)}
+                        size='normal'
+                        variant='tertiary'
+                    />
+                </div>
+                <div className='custom-cell'>
+                    <Button
+                        children='Stop all'
+                        onClick={() => {
+                            setLoading1(false)
+                            setLoading2(false)
+                            setLoading3(false)
+                        }}
+                        size='normal'
+                        variant='filter'
+                    />
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export const Loading = LoadingTemplate.bind({})
 Loading.args = {
     loading: true,
 }

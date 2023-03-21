@@ -1,4 +1,4 @@
-import { toast as toastify, ToastContainer, ToastOptions } from 'react-toastify'
+import { toast as toastify, ToastOptions } from 'react-toastify'
 import Icon from '../Icon'
 import { toastTypes } from './constants'
 import * as styles from './Toast.styles'
@@ -23,12 +23,12 @@ const ToastComponent = ({ closeToast, toastProps }: any) => {
 
     return (
         <div css={styles.toastInner}>
-            <Icon icon={type} size={24} css={styles.icon(type)} />
+            <Icon css={styles.icon(type)} icon={type} size={24} />
             <div css={styles.content}>
                 <div css={styles.headline(type)}>{type}</div>
                 <div css={styles.text}>{text}</div>
             </div>
-            <a href='#' onClick={handleClose} css={styles.closeButton} className='close-button'>
+            <a className='close-button' css={styles.closeButton} href='#' onClick={handleClose}>
                 <Icon icon='toast-close' size={20} />
             </a>
         </div>

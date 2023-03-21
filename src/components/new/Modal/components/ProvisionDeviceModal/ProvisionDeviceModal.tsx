@@ -36,7 +36,7 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
             <div css={styles.attribute}>{data.attribute}</div>
             <div css={styles.value}>
                 {data.value}
-                <Tooltip content='Copy to clipboard' css={styles.icon} id={`tooltip-group-${data.attribute}`} portalTarget={undefined}>
+                <Tooltip content={i18n.copy} css={styles.icon} id={`tooltip-group-${data.attribute}`} portalTarget={undefined}>
                     <Icon icon='copy' onClick={() => copyToClipboard(data?.copyValue || data.value, data.certFormat)} size={16} />
                 </Tooltip>
             </div>
@@ -62,7 +62,7 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
         } else {
             return (
                 <div css={styles.getCodeBox}>
-                    <Button disabled={!!errors.deviceId} htmlType='submit' loading={deviceAuthLoading} variant='primary'>
+                    <Button disabled={!!errors.deviceId} htmlType='submit' loading={deviceAuthLoading} loadingText={i18n.getTheCode} variant='primary'>
                         {i18n.getTheCode}
                     </Button>
                 </div>
@@ -97,5 +97,6 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
 }
 
 ProvisionDeviceModal.displayName = 'ProvisionDeviceModal'
+ProvisionDeviceModal.defaultProps = defaultProps
 
 export default ProvisionDeviceModal

@@ -15,6 +15,7 @@ export type Props = {
     iconPosition?: ButtonIconPositionType
     id?: string
     loading?: boolean
+    loadingText?: string
     name?: string
     onClick?: (e: MouseEvent<HTMLElement>) => void
     size?: ButtonSizesType

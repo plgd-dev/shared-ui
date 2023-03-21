@@ -69,4 +69,9 @@ export const colorsVariants = {
         text: colors.neutral900,
         hover: colors.neutral200,
     },
+    filter: {
+        background: colors.neutral000,
+        text: colors.neutral900,
+        hover: colors.neutral200,
+    },
 }

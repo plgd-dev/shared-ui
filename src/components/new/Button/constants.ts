@@ -2,6 +2,7 @@ export const buttonVariants = {
     PRIMARY: 'primary',
     SECONDARY: 'secondary',
     TERTIARY: 'tertiary',
+    FILTER: 'filter',
 } as const
 
 export const buttonSizes = {

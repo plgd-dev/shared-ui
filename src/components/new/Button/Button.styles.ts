@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import { ButtonIconPositionType, ButtonVariantsType } from './Button.types'
 import { iconPositions } from './constants'
 import { get, ThemeType } from '../_theme'
+import { keyframes } from '@emotion/css'
 
 export const button = (variant: ButtonVariantsType | undefined, disabled: boolean | undefined) => css`
     display: inline-flex;
@@ -77,13 +78,50 @@ export const icon = (position: ButtonIconPositionType) => css`
     ${getIconMargin(position)};
 `
 
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`
+
 export const loadingIcon = css`
     width: 20px;
     height: 20px;
     overflow: hidden;
     display: block;
+    animation: 0.75s linear 0s infinite normal both running ${spin};
 `
 
 export const fullWidth = css`
     flex: 1 1 auto;
+`
+
+export const loadingWrapper = css`
+    position: relative;
+`
+
+export const loadingText = css`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
+export const sizeMeasure = css`
+    visibility: hidden;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `

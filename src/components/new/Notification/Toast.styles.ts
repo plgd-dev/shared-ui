@@ -4,7 +4,7 @@ import { colors } from '../_utils/colors'
 import { toastTypes } from './constants'
 import { TypeOptions } from 'react-toastify/dist/types'
 
-const getColorByType = (type: TypeOptions) => {
+export const getColorByType = (type: TypeOptions) => {
     switch (type) {
         case toastTypes.info:
             return colors.primaryDarken

@@ -14,11 +14,12 @@ export type Props = ModalProps & {
     deviceInformation?: DeviceInformationLineType[]
     getDeviceAuthCode: (deviceId: string) => void
     i18n: {
+        copy: string
         deviceId: string
-        enterDeviceID: string
-        invalidUuidFormat: string
-        getTheCode: string
         deviceInformation: string
+        enterDeviceID: string
+        getTheCode: string
+        invalidUuidFormat: string
     }
 }
 

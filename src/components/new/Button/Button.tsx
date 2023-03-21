@@ -2,24 +2,22 @@ import React, { FC, MouseEvent } from 'react'
 import { Props, defaultProps, ButtonIconPositionType } from './Button.types'
 import { buttonSizes, iconPositions } from './constants'
 import * as styles from './Button.styles'
-import { ClipLoader } from 'react-spinners'
 import { colorsVariants } from '../_utils/colors'
-import { useTheme } from '@emotion/react'
+import Icon from '../Icon'
 
 const { ICON_LEFT, ICON_RIGHT } = iconPositions
 const Button: FC<Props> = (props) => {
-    const { onClick, variant, icon, iconPosition, loading, className, children, disabled, htmlType, size, fullWidth, dataTestId, ...rest } = {
+    const { onClick, variant, icon, iconPosition, loading, loadingText, className, children, disabled, htmlType, size, fullWidth, dataTestId, ...rest } = {
         ...defaultProps,
         ...props,
     }
-    const theme = useTheme()
 
     const renderIcon = (position: ButtonIconPositionType) => {
         if (loading) {
             if (position === ICON_LEFT) {
                 return (
                     <span css={[styles.icon(position), styles.loadingIcon]}>
-                        <ClipLoader color={colorsVariants[variant!].text} size={16} />
+                        <Icon color={colorsVariants[variant!].text} icon='loader' size={20} />
                     </span>
                 )
             }
@@ -31,6 +29,33 @@ const Button: FC<Props> = (props) => {
     const handleOnClick = (e: MouseEvent<HTMLElement>) => {
         if (!loading && !disabled && onClick) {
             onClick(e)
+        }
+    }
+
+    const ButtonContent = () => {
+        if (typeof loading === 'boolean' && loadingText) {
+            return (
+                <span css={styles.loadingWrapper}>
+                    <span css={styles.sizeMeasure}>
+                        <span css={[styles.icon(iconPositions.ICON_LEFT), styles.loadingIcon]}>
+                            <Icon color={colorsVariants[variant!].text} icon='loader' size={20} />
+                        </span>
+                        {loadingText}
+                    </span>
+                    <span css={styles.loadingText}>
+                        {renderIcon(ICON_LEFT)}
+                        {loading ? loadingText : children}
+                    </span>
+                </span>
+            )
+        } else {
+            return (
+                <>
+                    {renderIcon(ICON_LEFT)}
+                    {children}
+                    {renderIcon(ICON_RIGHT)}
+                </>
+            )
         }
     }
 
@@ -51,9 +76,7 @@ const Button: FC<Props> = (props) => {
             onClick={handleOnClick}
             type={htmlType}
         >
-            {renderIcon(ICON_LEFT)}
-            {children}
-            {renderIcon(ICON_RIGHT)}
+            <ButtonContent />
         </button>
     )
 }

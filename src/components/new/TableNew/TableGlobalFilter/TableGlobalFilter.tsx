@@ -28,7 +28,7 @@ const TableGlobalFilter: FC<Props> = (props) => {
                 />
             </div>
             <div>
-                <Button onClick={() => onChange(value)} size='small' variant='tertiary'>
+                <Button onClick={() => onChange(value)} size='small' variant='filter'>
                     {i18n.search}
                 </Button>
             </div>

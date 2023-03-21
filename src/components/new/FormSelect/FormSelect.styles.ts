@@ -57,12 +57,12 @@ export const menuList = css`
 `
 
 export const option = css`
-    color: ${colors.neutral500};
+    color: ${colors.neutral800};
     font-family: ${fontPrimary};
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
+    line-height: 22px;
     font-size: 14px;
-    line-height: 14px;
     display: flex;
     align-items: center;
     background: transparent;
@@ -71,7 +71,7 @@ export const option = css`
     padding: 8px 16px;
 
     &:hover {
-        color: ${colors.primaryBonus};
+        color: ${colors.primary};
         background: transparent;
     }
 
@@ -81,7 +81,7 @@ export const option = css`
 `
 
 export const optionSelected = css`
-    color: ${colors.primaryBonus};
+    color: ${colors.primary};
     background: transparent;
 `
 

@@ -1,4 +1,4 @@
-import React, { cloneElement, FC, ReactElement, SyntheticEvent, useState } from 'react'
+import React, { FC, SyntheticEvent, useState } from 'react'
 import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
 import { CSSTransition } from 'react-transition-group'

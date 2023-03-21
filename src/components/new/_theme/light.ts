@@ -33,6 +33,21 @@ const theme = {
             },
         },
         tertiary: {
+            background: colors.neutral100,
+            borderColor: colors.neutral100,
+            color: colors.neutral900,
+            hover: {
+                background: colors.neutral300,
+                borderColor: colors.neutral300,
+                color: colors.neutral900,
+            },
+            disabled: {
+                background: colors.neutral100,
+                borderColor: colors.neutral100,
+                color: colors.neutral300,
+            },
+        },
+        filter: {
             background: colorsVariants.tertiary.background,
             borderColor: colors.neutral300,
             color: colorsVariants.tertiary.text,

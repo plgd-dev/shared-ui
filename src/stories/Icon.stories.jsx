@@ -32,6 +32,7 @@ const data = [
     { name: 'info' },
     { name: 'integrations' },
     { name: 'link' },
+    { name: 'loader' },
     { name: 'lock' },
     { name: 'log' },
     { name: 'net' },
