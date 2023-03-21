@@ -1,6 +1,6 @@
 import ResizeObserver from 'resize-observer-polyfill'
 import { useCallbackRef } from './use-callback-ref'
-import { useState, useEffect, useLayoutEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 export function useMeasure() {
     const [element, attachRef] = useCallbackRef()

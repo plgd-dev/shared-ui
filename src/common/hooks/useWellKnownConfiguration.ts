@@ -19,14 +19,14 @@ export type RemoteProvisioningDataType = {
         audience: string
         clientId: string
         providerName: string
-        scopes : string[]
+        scopes: string[]
     }
     id: string
     jwtOwnerClaim: string
     webOauthClient: {
         audience: string
         clientId: string
-        scopes : string[]
+        scopes: string[]
     }
     mode: string
     userAgent: {
@@ -54,7 +54,7 @@ export function useWellKnownConfiguration(url: string): useWellKnownConfiguratio
 
     const fetchConfig = async () => {
         try {
-            return fetchApi(`${url}/.well-known/configuration`, {
+            return await fetchApi(`${url}/.well-known/configuration`, {
                 useToken: false,
             }).then((result) => {
                 const data = result.data

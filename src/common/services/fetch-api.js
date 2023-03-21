@@ -25,11 +25,12 @@ export const fetchApi = async (url, options = {}) => {
         },
     }
 
+    if (useToken && !accessToken) {
+        new Error(errorCodes.NO_TOKEN)
+    }
+
     // Add the Authorization header to the existing headers
     if (useToken && accessToken) {
-        if (!accessToken) {
-            new Error(errorCodes.NO_TOKEN)
-        }
         oAuthSettings.headers.Authorization = `Bearer ${accessToken}`
     }
 
@@ -53,7 +54,7 @@ export const fetchApi = async (url, options = {}) => {
             .then((response) => {
                 clearTimeout(deadlineTimer)
 
-                if(response.status === 401){
+                if (response.status === 401) {
                     unauthorizedCallback()
                     return reject(new Error(errorCodes.UNAUTHORIZED))
                 } else {

@@ -1,7 +1,7 @@
 import { getAppMode } from '../utils'
 import { security } from './security'
 
-class _WebSocketEventClient {
+class WebSocketEventClientClass {
     constructor(api) {
         this.ws = null
         this.api = api
@@ -205,7 +205,7 @@ class _WebSocketEventClient {
     onError = () => {}
 }
 
-export const WebSocketEventClient = new _WebSocketEventClient('/api/v1/ws/events')
+export const WebSocketEventClient = new WebSocketEventClientClass('/api/v1/ws/events')
 
 /*
 // ------------Example usage:-------------- //
