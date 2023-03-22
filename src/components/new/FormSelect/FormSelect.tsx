@@ -1,20 +1,23 @@
 import { FC } from 'react'
-import { GroupedOption, Option, Props } from './FormSelect.types'
+import { GroupedOption, Option, Props, defaultProps } from './FormSelect.types'
 import * as styles from './FormSelect.styles'
 import Select, {
     components,
     ContainerProps,
+    ControlProps,
     DropdownIndicatorProps,
     MenuListProps,
     MenuProps,
     OptionProps,
+    PlaceholderProps,
     SingleValueProps,
     ValueContainerProps,
 } from 'react-select'
 import { Icon } from '../Icon'
+import { selectSizes } from './constants'
 
 const FormSelect: FC<Props> = (props) => {
-    const { className, defaultValue, disabled, isSearchable, options, name, menuIsOpen, onChange, value } = props
+    const { className, defaultValue, error, disabled, isSearchable, options, name, menuIsOpen, onChange, size, value } = { ...defaultProps, ...props }
     const stylesOverride = {
         menu: (base: any) => ({
             ...base,
@@ -22,6 +25,12 @@ const FormSelect: FC<Props> = (props) => {
             minWidth: '100%',
         }),
     }
+
+    const Control = ({ children, ...props }: ControlProps<Option>) => (
+        <components.Control {...props} css={[styles.control, error && styles.error, size === selectSizes.SMALL && styles.small]}>
+            {children}
+        </components.Control>
+    )
 
     const ValueContainer = ({ children, ...props }: ValueContainerProps<Option>) => (
         <components.ValueContainer {...props} css={styles.valueContainer}>
@@ -36,7 +45,7 @@ const FormSelect: FC<Props> = (props) => {
     )
 
     const SingleValue = ({ children, ...props }: SingleValueProps<Option>) => (
-        <components.SingleValue {...props} css={styles.value}>
+        <components.SingleValue {...props} css={[styles.value, props.selectProps.isDisabled && styles.disabled]}>
             {children}
         </components.SingleValue>
     )
@@ -67,12 +76,18 @@ const FormSelect: FC<Props> = (props) => {
         </components.Option>
     )
 
+    const Placeholder = (props: PlaceholderProps<Option>) => (
+        <components.Placeholder {...props} css={[styles.placeholder, props.selectProps.isDisabled && styles.disabled]}>
+            {props.children}
+        </components.Placeholder>
+    )
+
     return (
         <Select
             className={className}
             classNamePrefix='select'
-            components={{ DropdownIndicator, Menu, MenuList, Option, SelectContainer, SingleValue, ValueContainer }}
-            css={styles.select}
+            components={{ DropdownIndicator, Menu, MenuList, Option, SelectContainer, SingleValue, ValueContainer, Placeholder, Control }}
+            css={styles.select(size, disabled)}
             defaultValue={defaultValue}
             isDisabled={disabled}
             isSearchable={isSearchable}
@@ -87,5 +102,6 @@ const FormSelect: FC<Props> = (props) => {
 }
 
 FormSelect.displayName = 'FormSelect'
+FormSelect.defaultProps = defaultProps
 
 export default FormSelect

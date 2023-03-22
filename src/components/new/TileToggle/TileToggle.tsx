@@ -11,9 +11,9 @@ const TileToggle: FC<Props> = memo((props) => {
         <div className={className} css={styles.tileToggle}>
             <div css={styles.name}>
                 {name}
-                {loading && <ClipLoader color={colors.primaryDarken} size={16} css={styles.loading} />}
+                {loading && <ClipLoader color={colors.primaryDarken} css={styles.loading} size={16} />}
             </div>
-            <Switch checked={checked} onChange={onChange} disabled={loading} />
+            <Switch checked={checked} disabled={loading} loading={loading} onChange={onChange} />
         </div>
     )
 })

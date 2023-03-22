@@ -4,7 +4,7 @@ import { iconPositions } from './constants'
 import { get, ThemeType } from '../_theme'
 import { keyframes } from '@emotion/css'
 
-export const button = (variant: ButtonVariantsType | undefined, disabled: boolean | undefined) => css`
+export const button = css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -76,26 +76,6 @@ export const icon = (position: ButtonIconPositionType) => css`
     display: flex;
     align-items: center;
     ${getIconMargin(position)};
-`
-
-const spin = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`
-
-export const loadingIcon = css`
-    width: 20px;
-    height: 20px;
-    overflow: hidden;
-    display: block;
-    animation: 0.75s linear 0s infinite normal both running ${spin};
 `
 
 export const fullWidth = css`

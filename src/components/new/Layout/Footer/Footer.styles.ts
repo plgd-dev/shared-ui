@@ -3,6 +3,7 @@ import { colors } from '../../_utils/colors'
 import { fontPrimary } from '../../_utils/commonStyles'
 
 export const footer = css`
+    border-top: 1px solid #e6e9ed;
     background: #fff;
     padding: 0 40px;
     box-sizing: border-box;

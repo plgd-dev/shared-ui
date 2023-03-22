@@ -60,6 +60,12 @@ export const input = (size: SwitcherSizeType, disabled: boolean) => css`
     }
 `
 
+export const loading = css`
+    & ~ ${slider} {
+        background: ${colors.neutral500}!important;
+    }
+`
+
 export const sliderStyle = (size: SwitcherSizeType) => css`
     ${getSwitcherSize(size)};
 

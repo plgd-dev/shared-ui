@@ -1,19 +1,11 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
+import { FormSelectSizeType } from './FormSelect.types'
 
-export const select = css`
+export const select = (size: FormSelectSizeType, disabled?: boolean) => css`
     .select__control {
-        height: 44px;
-        min-height: 44px;
-        border: 1px solid ${colors.neutral300};
-        border-radius: 8px;
-
         .select__value-container {
-            .select__placeholder {
-                color: #81868c;
-            }
-
             .select__placeholder,
             .select__input-container {
                 font-family: 'Poppins', sans-serif;
@@ -32,22 +24,60 @@ export const select = css`
                 }
             }
         }
-    }
 
-    .select__single-value {
-        text-align: left;
+        &.select__control--menu-is-open {
+            ${!disabled &&
+            css`
+                border: 1px solid ${colors.primaryBonus};
+            `}
+        }
+
+        &.select__control--is-focused {
+            box-shadow: none;
+        }
     }
 
     .select__indicator-separator {
         display: none;
     }
+
+    .select__input-container {
+        margin: 0;
+    }
+`
+
+export const control = css`
+    height: 44px;
+    min-height: 44px;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: all 0.3s;
+    border: 1px solid ${colors.neutral300};
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        outline: none;
+        border: 1px solid ${colors.primaryBonus};
+    }
+`
+
+export const small = css`
+    height: 36px;
+    min-height: 36px;
+`
+
+export const error = css`
+    border-color: ${colors.red}!important;
 `
 
 export const menu = css`
     margin-top: 4px;
     margin-bottom: 4px;
-    border: 1px solid ${colors.neutral300};
-    box-shadow: none;
+    border: 1px solid ${colors.neutral200};
+    box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
 `
 
@@ -57,7 +87,7 @@ export const menuList = css`
 `
 
 export const option = css`
-    color: ${colors.neutral800};
+    color: ${colors.neutral500};
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
@@ -81,7 +111,7 @@ export const option = css`
 `
 
 export const optionSelected = css`
-    color: ${colors.primary};
+    color: ${colors.neutral800};
     background: transparent;
 `
 
@@ -90,7 +120,7 @@ export const selectContainer = css`
 `
 
 export const valueContainer = css`
-    padding: 0 16px;
+    padding: 0 15px; // -1 for border
 `
 
 export const value = css`
@@ -100,6 +130,7 @@ export const value = css`
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
+    text-align: left;
 `
 
 export const dropdownIndicator = css`
@@ -113,4 +144,17 @@ export const indicator = css`
 
 export const indicatorOpen = css`
     transform: rotate(180deg);
+`
+
+export const placeholder = css`
+    color: ${colors.neutral800};
+    font-family: ${fontPrimary};
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+`
+
+export const disabled = css`
+    color: ${colors.neutral500};
 `

@@ -23,3 +23,8 @@ const Template = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {}
+
+export const Loading = Template.bind({})
+Loading.args = {
+    loading: true,
+}
