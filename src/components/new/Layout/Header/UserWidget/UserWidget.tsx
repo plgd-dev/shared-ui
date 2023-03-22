@@ -7,10 +7,10 @@ const UserWidget: FC<Props> = (props) => {
     const { name, description, image } = props
     return (
         <div css={styles.userWidget}>
-            {image && <div css={styles.image}>{image}</div>}
+            {image && <div css={styles.image}>{typeof image === 'string' ? <img alt={name} src={image} /> : image}</div>}
             {!image && (
                 <div css={styles.image}>
-                    <Avatar name={name} size='44' round='50%' color='#255897' />
+                    <Avatar color='#255897' name={name} round='50%' size='44' />
                 </div>
             )}
             <div>
