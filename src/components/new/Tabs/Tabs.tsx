@@ -7,7 +7,7 @@ import Pager from './Pager'
 import isFunction from 'lodash/isFunction'
 
 const Tabs: FC<Props> = (props) => {
-    const { activeItem, onItemChange, tabs } = { ...defaultProps, ...props }
+    const { activeItem, onItemChange, fullHeight, tabs } = { ...defaultProps, ...props }
     const [value, setValue] = useState(activeItem)
     const childRefs = useRef(new Map())
     const tabListRef = useRef<HTMLDivElement | null>(null)
@@ -16,7 +16,7 @@ const Tabs: FC<Props> = (props) => {
 
     useEffect(() => {
         isFunction(onItemChange) && onItemChange(value)
-    }, [value])
+    }, [onItemChange, value])
 
     // measure our elements
     useEffect(() => {
@@ -44,7 +44,7 @@ const Tabs: FC<Props> = (props) => {
     }, [value, bounds])
 
     return (
-        <div css={styles.container} ref={ref}>
+        <div css={[styles.container, fullHeight && styles.fullHeight]} ref={ref}>
             <div css={styles.tabList} ref={tabListRef}>
                 {tabs.map((tab, i) => (
                     <motion.button
@@ -70,13 +70,14 @@ const Tabs: FC<Props> = (props) => {
                     />
                 )}
             </div>
-            <Pager value={value}>
+            <Pager fullHeight={fullHeight} value={value}>
                 {tabs.map((tab, i) => (
                     <div
                         css={styles.page}
                         key={i}
                         style={{
                             width: '100%',
+                            height: fullHeight ? '100%' : undefined,
                         }}
                     >
                         {tab.content}

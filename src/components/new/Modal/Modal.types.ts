@@ -15,6 +15,7 @@ export type Props = {
     className?: string
     closeButton?: boolean
     closeButtonText?: string
+    contentPadding?: boolean
     footerActions?: FooterAction[]
     fullSizeButtons?: boolean
     id?: string
@@ -32,5 +33,6 @@ export type Props = {
 export const defaultProps = {
     closeButton: true,
     closeButtonText: 'Close',
+    contentPadding: true,
     maxWidth: 600,
 }

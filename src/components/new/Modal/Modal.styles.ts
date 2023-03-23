@@ -50,9 +50,11 @@ export const close = css`
 
 export const content = css`
     background: #fff;
-    padding: 24px 0 0 0;
 `
 
+export const contentPadding = css`
+    padding: 24px 0 0 0;
+`
 export const footer = css`
     padding: 24px 0 0 0;
     background: #fff;
@@ -60,6 +62,8 @@ export const footer = css`
     justify-content: flex-end;
 
     .modal-buttons {
+        display: flex;
+        align-items: center;
         margin: 0 -8px;
 
         .modal-button {

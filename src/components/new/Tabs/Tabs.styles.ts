@@ -7,6 +7,12 @@ export const container = css`
     box-shadow: none;
 `
 
+export const fullHeight = css`
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+`
+
 export const tabList = css`
     display: block;
     position: relative;

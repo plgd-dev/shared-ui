@@ -27,9 +27,11 @@ export type Props = {
         desc?: boolean
     }[]
     enablePagination?: boolean
+    height?: number
     i18n: {
         search: string
     }
+    id?: string
     getCellProps?: (data: any) => void
     getColumnProps?: (data?: any) => void
     getRowProps?: (data?: any) => void

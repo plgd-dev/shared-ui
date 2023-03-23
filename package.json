@@ -90,6 +90,7 @@
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.43.1",
     "react-merge-refs": "^2.0.1",
+    "react-resize-detector": "^8.0.4",
     "react-select": "^5.7.0",
     "react-spinners": "^0.13.7",
     "react-table": "^7.8.0",

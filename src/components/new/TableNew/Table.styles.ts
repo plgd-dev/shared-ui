@@ -2,6 +2,10 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { colors } from '../_utils/colors'
 
+export const tableWrapper = css`
+    overflow: auto;
+`
+
 export const table = css`
     border: 0;
     border-collapse: collapse;

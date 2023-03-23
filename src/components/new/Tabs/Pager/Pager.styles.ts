@@ -7,6 +7,10 @@ export const container = css`
     width: 100%;
 `
 
+export const fullHeight = css`
+    flex: 1 1 auto;
+`
+
 export const animatedContainer = css`
     flex-direction: row;
     direction: ltr;
@@ -24,6 +28,6 @@ export const page = css`
     justify-content: flex-start;
     flex-shrink: 0;
     height: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
     outline: none;
 `

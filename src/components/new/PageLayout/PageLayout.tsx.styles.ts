@@ -2,6 +2,9 @@ import { css } from '@emotion/react'
 
 export const pageLayout = css`
     padding: 24px 40px 0 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 `
 
 export const header = css`

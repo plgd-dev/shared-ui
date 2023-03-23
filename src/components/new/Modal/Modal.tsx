@@ -12,21 +12,22 @@ import Backdrop from './Backdrop'
 export const Modal: FC<Props> = memo((props) => {
     const {
         appRoot,
-        onClose,
         className,
+        closeButton,
+        closeButtonText,
+        contentPadding,
         footerActions,
         fullSizeButtons,
         id,
-        title,
         maxWidth,
         maxWidthTitle,
-        renderBody,
-        renderHeader,
-        renderFooter,
+        onClose,
         portalTarget,
+        renderBody,
+        renderFooter,
+        renderHeader,
         show,
-        closeButton,
-        closeButtonText,
+        title,
     } = {
         ...defaultProps,
         ...props,
@@ -132,7 +133,9 @@ export const Modal: FC<Props> = memo((props) => {
                     <motion.div animate='visible' className={className} id={id} initial='hidden' onClick={(e) => e.stopPropagation()} variants={dropIn}>
                         <div css={styles.modal(maxWidth)}>
                             <Header />
-                            {renderBody && <div css={styles.content}>{isFunction(renderBody) ? renderBody() : renderBody}</div>}
+                            {renderBody && (
+                                <div css={[styles.content, contentPadding && styles.contentPadding]}>{isFunction(renderBody) ? renderBody() : renderBody}</div>
+                            )}
                             {(renderFooter || footerActions) && (
                                 <div css={styles.footer}>
                                     <Footer />

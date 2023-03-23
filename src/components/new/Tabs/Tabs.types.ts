@@ -6,9 +6,10 @@ export type TabItem = {
 }
 
 export type Props = {
-    tabs: TabItem[]
     activeItem?: number
+    fullHeight?: boolean
     onItemChange?: (activeItem: number) => void
+    tabs: TabItem[]
 }
 
 export const defaultProps = {

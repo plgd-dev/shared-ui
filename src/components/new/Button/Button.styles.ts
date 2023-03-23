@@ -2,7 +2,6 @@ import { css } from '@emotion/react'
 import { ButtonIconPositionType, ButtonVariantsType } from './Button.types'
 import { iconPositions } from './constants'
 import { get, ThemeType } from '../_theme'
-import { keyframes } from '@emotion/css'
 
 export const button = css`
     display: inline-flex;
