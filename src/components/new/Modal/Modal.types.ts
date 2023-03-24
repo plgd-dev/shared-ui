@@ -6,6 +6,8 @@ type RenderType = () => ReactNode
 type FooterAction = {
     disabled?: boolean
     label: string
+    loading?: boolean
+    loadingText?: string
     onClick: (e: MouseEvent<HTMLElement>) => void
     variant: ButtonVariantsType
 }
