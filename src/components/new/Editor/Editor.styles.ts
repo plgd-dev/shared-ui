@@ -2,6 +2,10 @@ import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 
 export const editor = css`
+    &.disabled:after {
+        //display: none;
+        background: rgba(255, 255, 255, 0);
+    }
     .jsoneditor {
         border: 1px solid #e6e9ed;
         border-radius: 8px;

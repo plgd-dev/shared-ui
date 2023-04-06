@@ -1,4 +1,4 @@
-//@ts-nocheck
+// @ts-nocheck
 import React, { FC, MutableRefObject, useEffect, useRef } from 'react'
 import { defaultProps, Props } from './Editor.types'
 import * as styles from './Editor.styles'
@@ -53,44 +53,45 @@ const Editor: FC<Props> = (props) => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            const options = {
-                mode,
-                mainMenuBar: false,
-                statusBar: false,
-                onChangeText,
-                onValidationError: onValidationError,
-                schema,
-            }
+        // setTimeout(() => {
+        const options = {
+            mode,
+            mainMenuBar: false,
+            statusBar: false,
+            onChangeText,
+            onValidationError: onValidationError,
+            schema,
+            disabled: true,
+        }
 
-            jsonEditor.current = new JSONEditor(container.current, options)
-            if (typeof json === 'object') {
-                // @ts-ignore
-                jsonEditor?.current?.set(json)
-            } else if (typeof json === 'string') {
-                // @ts-ignore
-                jsonEditor?.current?.setText(json)
-            }
+        jsonEditor.current = new JSONEditor(container.current, options)
+        if (typeof json === 'object') {
+            // @ts-ignore
+            jsonEditor?.current?.set(json)
+        } else if (typeof json === 'string') {
+            // @ts-ignore
+            jsonEditor?.current?.setText(json)
+        }
 
-            if (autofocus) {
-                // @ts-ignore
-                jsonEditor?.current?.focus()
-            }
+        if (autofocus) {
+            // @ts-ignore
+            jsonEditor?.current?.focus()
+        }
 
-            // lineHeight
-            jsonEditor.current.aceEditor.setOptions({
-                minLines: 1000,
-                fontSize: 14,
-                // highlightGutterLine: false,
-            })
+        // lineHeight
+        jsonEditor.current.aceEditor.setOptions({
+            minLines: 1000,
+            fontSize: 14,
+            // highlightGutterLine: false,
+        })
 
-            if (typeof ResizeObserver === 'function' && container.current) {
-                resizeObserver.current = new ResizeObserver(handleResize)
-                resizeObserver.current.observe(container.current)
-            }
+        if (typeof ResizeObserver === 'function' && container.current) {
+            resizeObserver.current = new ResizeObserver(handleResize)
+            resizeObserver.current.observe(container.current)
+        }
 
-            handleEditorRef(jsonEditor)
-        }, 1)
+        handleEditorRef(jsonEditor)
+        // }, 1)
 
         return () => {
             if (jsonEditor && jsonEditor.current) {
@@ -109,11 +110,11 @@ const Editor: FC<Props> = (props) => {
     return (
         <div
             {...rest}
-            css={styles.editor}
             className={classNames(className, 'editor', {
                 disabled,
                 resize: !!ResizeObserver,
             })}
+            css={styles.editor}
             ref={(ref) => handleContainerRef(ref)}
             style={{ ...style, width, height }}
         />

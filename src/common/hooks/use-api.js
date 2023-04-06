@@ -38,7 +38,10 @@ export const useStreamApi = (url, options = {}) => {
     const [refreshIndex, setRefreshIndex] = useState(0)
     const { telemetryWebTracer, unauthorizedCallback } = useAppConfig()
     options.unauthorizedCallback = unauthorizedCallback
-    const apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
+    let apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
+
+    const urlBase = url.split('?')[0]?.split('/api/')[1]
+    const mockKey = urlBase.toUpperCase().replace(/\//g, '_').replace(/-/g, '_')
 
     useEffect(
         () => {
@@ -46,7 +49,14 @@ export const useStreamApi = (url, options = {}) => {
                 try {
                     // Set loading to true
                     setState({ ...state, loading: true })
-                    const data = await getData(apiMethod, url, options, telemetryWebTracer)
+                    let data = []
+
+                    if (process.env[`REACT_APP_MOCK_API_${mockKey}`]) {
+                        const mockUrl = `${process.env.REACT_APP_MOCK_BASE_RUL}/api/${urlBase}`
+                        data = await getData(fetchApi, mockUrl, options, telemetryWebTracer)
+                    } else {
+                        data = await getData(apiMethod, url, options, telemetryWebTracer)
+                    }
 
                     if (isMounted.current) {
                         setState({

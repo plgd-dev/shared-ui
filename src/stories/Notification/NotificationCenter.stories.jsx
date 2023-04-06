@@ -1,10 +1,10 @@
 import React from 'react'
-import NotificationCenter from '../components/new/NotificationCenter'
-import App from '../components/new/App'
-import Notification from '../components/new/Notification'
+import NotificationCenter from '../../components/new/NotificationCenter'
+import App from '../../components/new/App'
+import Notification from '../../components/new/Notification'
 
 export default {
-    title: 'Example/NotificationCenter',
+    title: 'Notification/NotificationCenter',
     component: NotificationCenter,
     argTypes: {},
 }
@@ -23,7 +23,7 @@ const Template = (args) => (
                 padding: '20px 20px 20px 450px',
             }}
         >
-            <NotificationCenter />
+            <NotificationCenter {...args} />
         </div>
     </App>
 )

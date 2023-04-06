@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from 'react'
+import { CSSProperties, MouseEvent, ReactNode } from 'react'
 import { iconPositions, buttonVariants, buttonSizes } from './constants'
 
 export type ButtonIconPositionType = typeof iconPositions[keyof typeof iconPositions]
@@ -19,6 +19,7 @@ export type Props = {
     name?: string
     onClick?: (e: MouseEvent<HTMLElement>) => void
     size?: ButtonSizesType
+    style?: CSSProperties
     tabIndex?: number
     variant?: ButtonVariantsType
     dataTestId?: string
