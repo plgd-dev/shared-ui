@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { useIntl } from 'react-intl'
 import { useMediaQuery } from 'react-responsive'
 
 import ActionButton from '../../new/ActionButton'
@@ -9,7 +8,6 @@ import TableActions from '../../new/TableNew/TableActions'
 
 const DevicesResourcesActionButton: FC<Props> = (props) => {
     const { disabled, href, deviceId, i18n, interfaces, onCreate, onUpdate, onDelete } = { ...defaultProps, ...props }
-    const { formatMessage: _ } = useIntl()
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1281px)',
     })
