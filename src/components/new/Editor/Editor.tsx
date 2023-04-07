@@ -61,7 +61,6 @@ const Editor: FC<Props> = (props) => {
             onChangeText,
             onValidationError: onValidationError,
             schema,
-            disabled: true,
         }
 
         jsonEditor.current = new JSONEditor(container.current, options)

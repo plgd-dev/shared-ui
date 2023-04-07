@@ -11,6 +11,7 @@ import Button from '../../new/Button'
 import Modal, { ModalStrippedLine } from '../../new/Modal'
 
 import DevicesResourcesModalNotifications from './DevicesResourcesModalNotifications'
+import isEmpty from 'lodash/isEmpty'
 
 const { UPDATE_RESOURCE } = resourceModalTypes
 
@@ -64,19 +65,20 @@ const DevicesResourcesModal: FC<Props> = (props) => {
 
     useEffect(() => {
         const dataToDisplay = resourceData?.data?.content
-        setJsonData(dataToDisplay || defaultData)
+        const newJsonData = (dataToDisplay && !isEmpty(dataToDisplay)) || defaultData
+        setJsonData(newJsonData)
 
         if (resourceData && editor.current) {
             // Set the retrieved JSON object to the editor
             if (typeof resourceData === 'object') {
                 // @ts-ignore
-                editor?.current?.current?.set(dataToDisplay)
+                editor?.current?.current?.set(newJsonData)
             } else if (typeof resourceData === 'string') {
                 // @ts-ignore
-                editor?.current?.current?.setText(dataToDisplay)
+                editor?.current?.current?.setText(newJsonData)
             }
         }
-    }, [defaultData, resourceData])
+    }, [defaultData, resourceData, show])
 
     const handleRetrieve = () => {
         fetchResource({
