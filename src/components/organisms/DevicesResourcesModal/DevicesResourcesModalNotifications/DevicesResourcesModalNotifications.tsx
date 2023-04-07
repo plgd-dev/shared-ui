@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Props } from './DevicesResourcesModalNotifications.types'
+import isFunction from 'lodash/isFunction'
 
 // Components
 import { WebSocketEventClient, eventFilters } from '../../../../common/services'
@@ -41,7 +42,7 @@ const DevicesResourcesModalNotifications: FC<Props> = (props) => {
             WebSocketEventClient.unsubscribe(resourceUpdateObservationWSKey)
         }
 
-        dispatch(toggleActiveNotification(resourceUpdateObservationWSKey))
+        isFunction(toggleActiveNotification) && dispatch(toggleActiveNotification(resourceUpdateObservationWSKey))
     }
 
     return (

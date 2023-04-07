@@ -11,7 +11,7 @@ export type ForwardProps = {
         deviceName: string
     }) => ({ resourceChanged }: { resourceChanged: boolean }) => void
     isNotificationActive: (key: string) => (state: any) => boolean
-    toggleActiveNotification: (key: string) => AnyAction
+    toggleActiveNotification?: (key: string) => AnyAction
 }
 
 export type NotificationI18n = {
