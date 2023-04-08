@@ -2,10 +2,10 @@ import { FC } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import ActionButton from '../../new/ActionButton'
-import { Props, ItemType } from './DevicesResourcesActionButton.types'
+import { Props, ItemType } from './TableActionButton.types'
 import TableActions from '../../new/TableNew/TableActions'
 
-const DevicesResourcesActionButton: FC<Props> = (props) => {
+const TableActionButton: FC<Props> = (props) => {
     const { disabled, items } = props
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1281px)',
@@ -37,6 +37,6 @@ const DevicesResourcesActionButton: FC<Props> = (props) => {
     )
 }
 
-DevicesResourcesActionButton.displayName = 'DevicesResourcesActionButton'
+TableActionButton.displayName = 'TableActionButton'
 
-export default DevicesResourcesActionButton
+export default TableActionButton
