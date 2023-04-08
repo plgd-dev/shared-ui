@@ -4,12 +4,23 @@ import { useMediaQuery } from 'react-responsive'
 import ActionButton from '../../new/ActionButton'
 import { Props, ItemType } from './TableActionButton.types'
 import TableActions from '../../new/TableNew/TableActions'
+import isFunction from 'lodash/isFunction'
 
 const TableActionButton: FC<Props> = (props) => {
-    const { disabled, items } = props
-    const isDesktopOrLaptop = useMediaQuery({
-        query: '(min-width: 1281px)',
-    })
+    const { disabled, items, onToggle } = props
+
+    const onChange = (matches: boolean) => {
+        // just simulate -> all items are visible
+        isFunction(onToggle) && matches && onToggle(true)
+    }
+
+    const isDesktopOrLaptop = useMediaQuery(
+        {
+            query: '(min-width: 1281px)',
+        },
+        undefined,
+        onChange
+    )
 
     if (isDesktopOrLaptop) {
         const innerItems =
@@ -33,6 +44,7 @@ const TableActionButton: FC<Props> = (props) => {
             menuProps={{
                 placement: 'bottom-end',
             }}
+            onToggle={onToggle}
         />
     )
 }

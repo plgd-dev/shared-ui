@@ -5,4 +5,5 @@ export type ItemType = ActionButtonItemType
 export type Props = {
     disabled?: boolean
     items: ItemType[]
+    onToggle?: (state: boolean) => void
 }
