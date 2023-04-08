@@ -7,10 +7,13 @@ import { offset, shift, useFloating } from '@floating-ui/react'
 import isFunction from 'lodash/isFunction'
 
 const SplitButton: FC<Props> = (props) => {
-    const { defaultOpen, children, variant, className, menuProps, items, disabled, loading, onClick, dataTestId, dataTestIdDropdown, ...rest } = { ...defaultProps, ...props }
+    const { defaultOpen, children, variant, className, menuProps, items, disabled, loading, onClick, dataTestId, dataTestIdDropdown, ...rest } = {
+        ...defaultProps,
+        ...props,
+    }
     const [open, setOpen] = useState(defaultOpen)
     const ref = useRef(null)
-    const { x, y, reference, floating, strategy, context } = useFloating({
+    const { x, y, reference, floating, strategy } = useFloating({
         placement: menuProps?.placement || 'bottom-end',
         strategy: 'fixed',
         middleware: [shift(), offset(4)],
@@ -36,19 +39,25 @@ const SplitButton: FC<Props> = (props) => {
             <div css={styles.splitButton} ref={reference}>
                 <Button
                     {...rest}
-                    variant={variant}
+                    css={styles.leftButton}
+                    dataTestId={dataTestId}
                     disabled={disabled}
                     loading={loading}
-                    css={styles.leftButton}
                     onClick={(e) => {
                         open && setOpen(false)
                         isFunction(onClick) && onClick(e)
                     }}
-                    dataTestId={dataTestId}
+                    variant={variant}
                 >
                     {children}
                 </Button>
-                <Button variant={variant} disabled={disabled} css={styles.rightButton} onClick={() => !loading && setOpen(!open)} data-test-id={dataTestIdDropdown}>
+                <Button
+                    css={styles.rightButton}
+                    data-test-id={dataTestIdDropdown}
+                    disabled={disabled}
+                    onClick={() => !loading && setOpen(!open)}
+                    variant={variant}
+                >
                     <span css={[styles.arrow, open && styles.arrowOpen]}>
                         <Icon icon='arrow-down' />
                     </span>
@@ -78,7 +87,7 @@ const SplitButton: FC<Props> = (props) => {
                                                 isFunction(item.onClick) && item.onClick(e)
                                             }}
                                         >
-                                            {item.icon && <Icon icon={item.icon} size={20} css={styles.itemIcon} />}
+                                            {item.icon && <Icon css={styles.itemIcon} icon={item.icon} size={20} />}
                                             <span css={styles.itemLabel}>{item.label}</span>
                                         </div>
                                     )
