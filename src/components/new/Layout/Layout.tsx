@@ -3,7 +3,7 @@ import { Props, defaultProps } from './Layout.types'
 import * as styles from './Layout.styles'
 
 const Layout: FC<Props> = (props) => {
-    const { leftPanel, header, collapsedMenu, content, footer } = { ...defaultProps, ...props }
+    const { leftPanel, header, collapsedMenu, content } = { ...defaultProps, ...props }
 
     return (
         <div css={styles.layout}>
@@ -11,7 +11,6 @@ const Layout: FC<Props> = (props) => {
             <div css={styles.right}>
                 {header}
                 <div css={styles.content}>{content}</div>
-                {footer}
             </div>
         </div>
     )

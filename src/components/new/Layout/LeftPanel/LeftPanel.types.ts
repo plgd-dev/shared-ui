@@ -16,9 +16,10 @@ export type MenuItem = {
     tag?: MenuItemTag
     title: string
     link: string
+    paths?: string[]
 }
 
-type MenuGroup = {
+export type MenuGroup = {
     title: string
     items?: MenuItem[]
 }

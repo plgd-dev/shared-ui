@@ -1,4 +1,4 @@
-import React, { FC, SyntheticEvent, useState } from 'react'
+import React, { FC, SyntheticEvent, useEffect, useState } from 'react'
 import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
 import { CSSTransition } from 'react-transition-group'
@@ -132,6 +132,10 @@ const LeftPanel: FC<Props> = (props) => {
             isFunction(onItemClick) && onItemClick(item, e)
         }
     }
+
+    useEffect(() => {
+        props.activeId && setActive(props.activeId)
+    }, [props.activeId])
 
     return (
         <div className={className} css={[styles.leftPanel]} id={id}>
