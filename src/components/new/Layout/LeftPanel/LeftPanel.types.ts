@@ -27,7 +27,6 @@ export type MenuGroup = {
 export type Props = {
     activeId?: string
     className?: string
-    collapsed?: boolean
     id?: string
     menu?: MenuGroup[]
     newFeature?: {

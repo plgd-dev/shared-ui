@@ -1,4 +1,4 @@
-import { FC, SyntheticEvent } from "react";
+import { FC, SyntheticEvent } from 'react'
 import { Props } from './Header.types'
 import * as styles from './Header.styles'
 import { Icon } from '../../Icon'
@@ -17,9 +17,10 @@ const Header: FC<Props> = (props) => {
     return (
         <div css={styles.header}>
             <div css={styles.left}>
-                <a css={styles.iconCollapse} href='#' onClick={(e) => handleCollapseToggle(e)}>
-                    <Icon icon='collapse' size={24} />
-                </a>
+                <div id='header-icon-collapse-portal-target'></div>
+                {/* <a css={styles.iconCollapse} href='#' onClick={(e) => handleCollapseToggle(e)}>*/}
+                {/*    <Icon icon='collapse' size={24} />*/}
+                {/* </a>*/}
                 {breadcrumbs && <div css={styles.breadcrumbs}>{breadcrumbs}</div>}
             </div>
             <div css={styles.right}>

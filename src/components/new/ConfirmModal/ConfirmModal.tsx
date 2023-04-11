@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useIntl } from 'react-intl'
 import Button from '../Button'
-import Modal from '../ModalOld'
+import Modal from '../Modal'
 import { messages as t } from './ConfirmModal.i18n'
 import { defaultProps, Props } from './ConfirmModal.types'
 
@@ -11,10 +11,10 @@ const ConfirmModal: FC<Props> = (props) => {
 
     const renderFooter = (
         <div className='w-100 d-flex justify-content-end align-items-center'>
-            <Button variant='secondary' onClick={onClose} disabled={loading}>
+            <Button disabled={loading} onClick={onClose} variant='secondary'>
                 {cancelButtonText || _(t.cancel)}
             </Button>
-            <Button variant='primary' onClick={() => onConfirm(onClose, data)} loading={loading} disabled={loading || confirmDisabled}>
+            <Button disabled={loading || confirmDisabled} loading={loading} onClick={() => onConfirm(onClose, data)} variant='primary'>
                 {confirmButtonText || _(t.confirm)}
             </Button>
         </div>
@@ -23,12 +23,12 @@ const ConfirmModal: FC<Props> = (props) => {
     return (
         <Modal
             {...rest}
-            show={show}
+            closeButton={!loading}
             onClose={!loading ? onClose : () => {}}
-            title={title}
             renderBody={body}
             renderFooter={renderFooter}
-            closeButton={!loading}
+            show={show}
+            title={title}
         />
     )
 }

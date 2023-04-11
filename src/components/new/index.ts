@@ -54,8 +54,8 @@ export * from './LeftPanel'
 export { default as Menu } from './Menu'
 export * from './Menu'
 
-export { default as Modal } from './ModalOld'
-export * from './ModalOld'
+export { default as Modal } from './Modal'
+export * from './Modal'
 
 export { default as PageLoader } from './PageLoader'
 export * from './PageLoader'

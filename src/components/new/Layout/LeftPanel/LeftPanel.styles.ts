@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { MenuTagVariantType } from './LeftPanel.types'
-import { tagVariants } from './constants'
+import { panelSizes, tagVariants } from './constants'
 import { colors } from '../../_utils/colors'
 import { COLLAPSE_ANIMATION_TIME } from '../constants'
 
@@ -8,8 +8,24 @@ export const leftPanel = css`
     background: #f4f9fb;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    //height: 100%;
     transition: all ${COLLAPSE_ANIMATION_TIME};
+    flex: 0 0 ${panelSizes.FULL}px;
+    transition: all ${COLLAPSE_ANIMATION_TIME};
+`
+
+export const collapsed = css`
+    flex: 0 0 ${panelSizes.COLLAPSED}px;
+`
+
+export const collapseToggle = css`
+    color: ${colors.neutral500};
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: ${colors.primary};
+    }
 `
 
 export const logo = css`

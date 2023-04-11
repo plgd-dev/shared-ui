@@ -4,12 +4,14 @@ import * as styles from './LeftPanel.styles'
 import { CSSTransition } from 'react-transition-group'
 import { useFloating, shift, offset } from '@floating-ui/react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { createPortal } from 'react-dom'
 
 import { Logo, Close, Arrow, Feature } from './components'
 
 import img from './assets/line.png'
 import { Icon } from '../../Icon'
 import isFunction from 'lodash/isFunction'
+import { useLocalStorage } from '../../../../common/hooks'
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
@@ -118,9 +120,19 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 }
 
 const LeftPanel: FC<Props> = (props) => {
-    const { className, collapsed, id, menu, newFeature, versionMark, onItemClick } = props
+    const { className, id, menu, newFeature, versionMark, onItemClick } = props
+    const [collapsed, setCollapsed] = useLocalStorage('leftPanelCollapsed', true)
+    // const { collapsed, setCollapsed } = useContext(any)
     const [active, setActive] = useState<string | null>(props.activeId || null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
+    const [domReady, setDomReady] = useState(false)
+
+    useEffect(() => {
+        setDomReady(true)
+    }, [])
+
+    console.log('!!')
+    console.log(document.getElementById('header-icon-collapse-portal-target'))
 
     const handleItemClick = (item: MenuItem, e: SyntheticEvent) => {
         if (item.children) {
@@ -138,7 +150,21 @@ const LeftPanel: FC<Props> = (props) => {
     }, [props.activeId])
 
     return (
-        <div className={className} css={[styles.leftPanel]} id={id}>
+        <div className={className} css={[styles.leftPanel, collapsed && styles.collapsed]} id={id}>
+            {domReady &&
+                createPortal(
+                    <a
+                        css={styles.collapseToggle}
+                        href='#'
+                        onClick={(e) => {
+                            e.preventDefault()
+                            setCollapsed(!collapsed)
+                        }}
+                    >
+                        <Icon icon='collapse' size={24} />
+                    </a>,
+                    document.getElementById('header-icon-collapse-portal-target') as Element
+                )}
             <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
                 <Logo css={[styles.logoSvg, collapsed && styles.logoSvgCollapsed]} height={32} width={147} />
             </div>
