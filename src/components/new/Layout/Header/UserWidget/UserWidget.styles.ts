@@ -3,7 +3,7 @@ import { colors } from '../../../_utils/colors'
 
 export const widgetReference = css`
     display: flex;
-    align-items: center;
+    align-items: stretch;
 `
 
 export const userWidget = css`
@@ -17,6 +17,9 @@ export const clickable = css`
 
 export const widgetArrow = css`
     padding-left: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 `
 
 export const icon = css`
