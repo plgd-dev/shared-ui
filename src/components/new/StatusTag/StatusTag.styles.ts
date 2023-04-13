@@ -40,4 +40,5 @@ export const tag = (variant: TagTypeType) => css`
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
+    text-transform: lowercase;
 `

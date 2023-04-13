@@ -1,10 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, memo } from 'react'
 import { Props } from './PageLayout.types'
 import * as styles from './PageLayout.tsx.styles'
 import Headline from '../Headline'
 import { Helmet } from 'react-helmet'
 
-const PageLayout: FC<Props> = (props) => {
+const PageLayout: FC<Props> = memo((props) => {
     const { children, headlineStatusTag, title, header, footer } = props
     return (
         <div css={styles.pageLayout}>
@@ -26,7 +26,7 @@ const PageLayout: FC<Props> = (props) => {
             {footer}
         </div>
     )
-}
+})
 
 PageLayout.displayName = 'PageLayout'
 

@@ -4,6 +4,6 @@ export type Props = {
     paginationComponent: ReactNode
     recentTasksPortal?: ReactNode
     recentTasksPortalTitle?: ReactNode
-    footerExpanded: boolean
-    setFooterExpanded: (expanded: boolean) => void
+    footerExpanded?: boolean
+    setFooterExpanded?: (expanded: boolean) => void
 }

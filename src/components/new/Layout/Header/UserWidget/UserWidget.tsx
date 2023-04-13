@@ -60,7 +60,7 @@ const UserWidget: FC<Props> = (props) => {
                     }}
                 >
                     {dropdownItems.map((item) => (
-                        <div css={styles.item} onClick={item.onClick}>
+                        <div css={styles.item} onClick={item.onClick} key={item.title}>
                             {item.title}
                         </div>
                     ))}
