@@ -5,6 +5,7 @@ export const tagGroup = css`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
 `
 
 export const tag = css`

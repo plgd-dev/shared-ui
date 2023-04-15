@@ -4,6 +4,8 @@
 $margin_size: 5px;
 
 .badge {
+  display: flex;
+  align-items: center;
   text-transform: lowercase;
   font-size: $font_size_small;
   padding: 2px 7px;

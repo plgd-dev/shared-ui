@@ -2,10 +2,16 @@ import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary, fontSecondary } from '../_utils/commonStyles'
 
+export const modalWrapper = css`
+    display: flex;
+    justify-content: center;
+`
+
 export const modal = (maxWidth: number) => css`
     background: #fff;
     padding: 24px;
     min-width: ${maxWidth}px;
+    max-width: 90%;
     border-radius: 8px;
 `
 export const header = css`

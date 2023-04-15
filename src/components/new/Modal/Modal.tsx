@@ -130,7 +130,15 @@ export const Modal: FC<Props> = memo((props) => {
         <AnimatePresence initial={false} mode='wait' onExitComplete={() => null}>
             {show && (
                 <Backdrop onClick={() => isFunction(onClose) && onClose()}>
-                    <motion.div animate='visible' className={className} id={id} initial='hidden' onClick={(e) => e.stopPropagation()} variants={dropIn}>
+                    <motion.div
+                        css={styles.modalWrapper}
+                        animate='visible'
+                        className={className}
+                        id={id}
+                        initial='hidden'
+                        onClick={(e) => e.stopPropagation()}
+                        variants={dropIn}
+                    >
                         <div css={styles.modal(maxWidth)}>
                             <Header />
                             {renderBody && (
