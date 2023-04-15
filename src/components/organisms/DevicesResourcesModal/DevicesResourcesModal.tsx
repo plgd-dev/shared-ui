@@ -65,7 +65,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
 
     useEffect(() => {
         const dataToDisplay = resourceData?.data?.content
-        const newJsonData = (dataToDisplay && !isEmpty(dataToDisplay)) || defaultData
+        const newJsonData = dataToDisplay && !isEmpty(dataToDisplay) ? dataToDisplay : defaultData
         setJsonData(newJsonData)
 
         if (resourceData && editor.current) {
