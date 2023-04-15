@@ -122,7 +122,6 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 const LeftPanel: FC<Props> = (props) => {
     const { className, id, menu, newFeature, versionMark, onItemClick } = props
     const [collapsed, setCollapsed] = useLocalStorage('leftPanelCollapsed', true)
-    // const { collapsed, setCollapsed } = useContext(any)
     const [active, setActive] = useState<string | null>(props.activeId || null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
     const [domReady, setDomReady] = useState(false)
@@ -130,9 +129,6 @@ const LeftPanel: FC<Props> = (props) => {
     useEffect(() => {
         setDomReady(true)
     }, [])
-
-    console.log('!!')
-    console.log(document.getElementById('header-icon-collapse-portal-target'))
 
     const handleItemClick = (item: MenuItem, e: SyntheticEvent) => {
         if (item.children) {
