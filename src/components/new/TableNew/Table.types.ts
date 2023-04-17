@@ -40,6 +40,7 @@ export type Props = {
     paginationProps?: object
     paginationPortalTargetId?: any
     primaryAttribute?: string
+    rowHeight?: number
     unselectRowsToken?: string | number
 }
 
@@ -51,4 +52,5 @@ export const defaultProps = {
     getColumnProps: () => ({}),
     getRowProps: () => ({}),
     globalSearch: true,
+    rowHeight: 54,
 }

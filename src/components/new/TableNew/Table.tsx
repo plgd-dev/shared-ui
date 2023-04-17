@@ -14,7 +14,6 @@ import isEmpty from 'lodash/isEmpty'
 import TableGlobalFilter from './TableGlobalFilter'
 
 const HEADER_HEIGHT = 62
-const ROW_HEIGHT = 54
 
 const Table: FC<Props> = (props) => {
     const {
@@ -37,6 +36,7 @@ const Table: FC<Props> = (props) => {
         paginationPortalTargetId,
         paginationProps,
         primaryAttribute,
+        rowHeight,
         unselectRowsToken,
     } = { ...defaultProps, ...props }
 
@@ -254,6 +254,7 @@ const Table: FC<Props> = (props) => {
                                                 data-row={row.id}
                                             >
                                                 <Cell
+                                                    rowHeight={rowHeight}
                                                     css={[
                                                         key === 0 && styles.firstRowCell,
                                                         cellKey === 0 && styles.firstCell,

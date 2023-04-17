@@ -10,7 +10,7 @@ export type DevicesResourcesModalParamsType = {
 }
 
 export type Props = {
-    confirmDisabled: boolean
+    confirmDisabled?: boolean
     createResource: ({ href, currentInterface }: DevicesResourcesModalParamsType, jsonData?: any) => void
     data?: {
         deviceId?: string

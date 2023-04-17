@@ -84,8 +84,13 @@ export const sortActive = css`
     color: ${colors.primaryBonus};
 `
 
+const getRowHeight = (props: { rowHeight: number }) =>
+    css`
+        height: ${props.rowHeight}px;
+    `
+
 export const cell = styled.div`
-    height: 54px;
+    ${getRowHeight};
     display: flex;
     align-items: center;
     position: relative;
