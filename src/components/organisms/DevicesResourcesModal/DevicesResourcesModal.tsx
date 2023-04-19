@@ -51,11 +51,9 @@ const DevicesResourcesModal: FC<Props> = (props) => {
             isUpdateModal
                 ? {}
                 : {
-                      rt: ['oic.r.switch.binary'],
+                      rt: [],
                       if: ['oic.if.a', 'oic.if.baseline'],
-                      rep: {
-                          value: true,
-                      },
+                      rep: {},
                       p: {
                           bm: 3,
                       },
