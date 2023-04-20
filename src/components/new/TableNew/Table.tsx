@@ -183,7 +183,7 @@ const Table: FC<Props> = (props) => {
             <div
                 css={styles.tableWrapper}
                 style={{
-                    height: globalSearch && height ? height - HEADER_HEIGHT : height,
+                    height: height ? height - HEADER_HEIGHT : height,
                 }}
             >
                 <table {...getTableProps()} css={styles.table}>
@@ -254,12 +254,12 @@ const Table: FC<Props> = (props) => {
                                                 data-row={row.id}
                                             >
                                                 <Cell
-                                                    rowHeight={rowHeight}
                                                     css={[
                                                         key === 0 && styles.firstRowCell,
                                                         cellKey === 0 && styles.firstCell,
                                                         cellKey === row.cells.length - 1 && styles.lastCell,
                                                     ]}
+                                                    rowHeight={rowHeight}
                                                 >
                                                     {cell.render('Cell')}
                                                 </Cell>

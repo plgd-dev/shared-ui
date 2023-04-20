@@ -30,7 +30,7 @@ export const streamApi = async (url, options = {}) => {
                 return response
             } else {
                 errorCode = response.status
-                throw new Error(response.statusText);
+                throw new Error(response.statusText)
             }
         })
         .then((response) => response.body)
@@ -72,8 +72,8 @@ export const streamApi = async (url, options = {}) => {
         })
         .catch((error) => {
             console.error(error)
-            if(errorCode === 401){
+            if (errorCode === 401) {
                 unauthorizedCallback()
             }
-        });
+        })
 }

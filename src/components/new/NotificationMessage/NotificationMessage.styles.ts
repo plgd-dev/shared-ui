@@ -12,6 +12,7 @@ export const message = css`
     right: 0;
     bottom: 65px;
     transition: all ${COLLAPSE_ANIMATION_TIME};
+    z-index: 999;
 `
 
 export const collapsed = css`

@@ -5,7 +5,8 @@ import { eventFilters } from './websocket-event-constants'
 
 let initialized = false
 
-export const InitServices = (deviceStatusListener) => {
+export const InitServices = (props) => {
+    const { deviceStatusListener } = props
     useEffect(() => {
         // Register the default WS instances
         WebSocketEventClient._connect()
@@ -25,7 +26,7 @@ export const InitServices = (deviceStatusListener) => {
         return () => {
             WebSocketEventClient.unsubscribe('device-status')
         }
-    }, [])
+    }, [deviceStatusListener])
 
     return null
 }
