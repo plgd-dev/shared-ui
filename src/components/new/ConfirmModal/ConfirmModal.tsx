@@ -11,12 +11,20 @@ const ConfirmModal: FC<Props> = (props) => {
 
     const renderFooter = (
         <div className='w-100 d-flex justify-content-end align-items-center'>
-            <Button disabled={loading} onClick={onClose} variant='secondary'>
-                {cancelButtonText || _(t.cancel)}
-            </Button>
-            <Button disabled={loading || confirmDisabled} loading={loading} onClick={() => onConfirm(onClose, data)} variant='primary'>
-                {confirmButtonText || _(t.confirm)}
-            </Button>
+            <div className='modal-buttons'>
+                <Button className='modal-button' disabled={loading} onClick={onClose} variant='secondary'>
+                    {cancelButtonText || _(t.cancel)}
+                </Button>
+                <Button
+                    className='modal-button'
+                    disabled={loading || confirmDisabled}
+                    loading={loading}
+                    onClick={() => onConfirm(onClose, data)}
+                    variant='primary'
+                >
+                    {confirmButtonText || _(t.confirm)}
+                </Button>
+            </div>
         </div>
     )
 
