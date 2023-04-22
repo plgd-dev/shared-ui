@@ -17,14 +17,7 @@ export const rightButton = css`
     padding: 14px;
 `
 
-export const arrow = css`
-    transition: all 0.3s;
-`
-
-export const arrowOpen = css`
-    transform: rotate(180deg);
-`
-
+export const floatingMenu = css`
 export const floatingMenu = css`
     z-index: 10;
     background: #fff;

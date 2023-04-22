@@ -1,4 +1,7 @@
 import { ChangeEvent, FC, useMemo, useState } from 'react'
+import isFunction from 'lodash/isFunction'
+import startCase from 'lodash/startCase'
+
 import { Props } from './TimeoutControl.types'
 import * as styles from './TimeoutControl.styles'
 import FormGroup from '../FormGroup'
@@ -7,13 +10,12 @@ import FormInput from '../FormInput'
 import FormSelect from '../FormSelect'
 import { commandTimeoutUnits } from './constants'
 import { findClosestUnit, convertAndNormalizeValueFromTo, convertValueToNs, normalizeToFixedFloatValue, hasCommandTimeoutError } from './utils'
-import isFunction from 'lodash/isFunction'
 import { inputSizes } from '../FormInput/constants'
 
 const { INFINITE, NS } = commandTimeoutUnits
 
 const TimeoutControl: FC<Props> = (props) => {
-    const { defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError } = props
+    const { defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, i18n } = props
     const closestUnit = useMemo(() => findClosestUnit(defaultValue), [defaultValue])
     const closestDefaultTtl = useMemo(() => {
         const unit = findClosestUnit(defaultTtlValue)
@@ -31,7 +33,7 @@ const TimeoutControl: FC<Props> = (props) => {
         .filter((_unit) => _unit !== NS)
         .map((_unit) => ({
             value: _unit,
-            label: _unit === INFINITE ? 'Default' : _unit,
+            label: _unit === INFINITE ? i18n.default : _unit,
         }))
 
     const handleOnUnitChange = ({ value: unitValue }: { value: string }) => {
@@ -89,20 +91,20 @@ const TimeoutControl: FC<Props> = (props) => {
     return (
         <div css={styles.timeoutControl}>
             <FormGroup error={ttlHasError ? '' : undefined} id='Command Timeout' inline={true}>
-                <FormLabel text='Duration' />
+                <FormLabel text={i18n.duration} />
                 <FormInput
                     css={styles.input}
                     disabled={disabled || isDefault}
                     onBlur={handleOnValueBlur}
                     onChange={handleOnValueChange}
-                    placeholder='Placeholder text'
+                    placeholder={i18n.placeholder}
                     size={inputSizes.NORMAL}
                     value={!isDefault ? inputValue : `${closestDefaultTtl.value}${closestDefaultTtl.unit}`}
                 />
             </FormGroup>
             <div css={styles.right}>
                 <FormGroup id='Unit' inline={true}>
-                    <FormLabel text='Unit' />
+                    <FormLabel text={startCase(i18n.unit)} />
                     <FormSelect
                         css={styles.input}
                         defaultValue={units.filter((option) => option.value === unit)}

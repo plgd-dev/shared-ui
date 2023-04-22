@@ -69,7 +69,7 @@ const Button: FC<Props> = (props) => {
             onClick={handleOnClick}
             type={htmlType}
         >
-            <ButtonContent />
+            {loading || icon ? <ButtonContent /> : children}
         </button>
     )
 }

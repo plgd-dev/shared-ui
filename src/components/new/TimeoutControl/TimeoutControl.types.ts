@@ -1,9 +1,15 @@
 export type Props = {
-    defaultValue: number
     defaultTtlValue: number
-    onChange: (v: any) => void
+    defaultValue: number
     disabled?: boolean
-    ttlHasError?: boolean
-    onTtlHasError?: (v: boolean) => void
+    i18n: {
+        default: string
+        duration: string
+        placeholder: string
+        unit: string
+    }
     isDelete?: boolean
+    onChange: (v: any) => void
+    onTtlHasError?: (v: boolean) => void
+    ttlHasError?: boolean
 }

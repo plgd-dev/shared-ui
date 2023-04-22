@@ -11,7 +11,6 @@ import { Logo, Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
 import { Icon } from '../../Icon'
 import isFunction from 'lodash/isFunction'
-import { useLocalStorage } from '../../../../common/hooks'
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
@@ -120,8 +119,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 }
 
 const LeftPanel: FC<Props> = (props) => {
-    const { className, id, menu, newFeature, versionMark, onItemClick } = props
-    const [collapsed, setCollapsed] = useLocalStorage('leftPanelCollapsed', true)
+    const { className, collapsed, id, menu, newFeature, versionMark, onItemClick, setCollapsed } = props
     const [active, setActive] = useState<string | null>(props.activeId || null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
     const [domReady, setDomReady] = useState(false)
@@ -154,7 +152,7 @@ const LeftPanel: FC<Props> = (props) => {
                         href='#'
                         onClick={(e) => {
                             e.preventDefault()
-                            setCollapsed(!collapsed)
+                            isFunction(setCollapsed) && setCollapsed(!collapsed)
                         }}
                     >
                         <Icon icon='collapse' size={24} />

@@ -5,6 +5,7 @@ import * as styles from './SplitButton.styles'
 import Icon from '../Icon'
 import { offset, shift, useFloating } from '@floating-ui/react'
 import isFunction from 'lodash/isFunction'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const SplitButton: FC<Props> = (props) => {
     const { defaultOpen, children, variant, className, menuProps, items, disabled, loading, onClick, dataTestId, dataTestIdDropdown, ...rest } = {
@@ -58,9 +59,18 @@ const SplitButton: FC<Props> = (props) => {
                     onClick={() => !loading && setOpen(!open)}
                     variant={variant}
                 >
-                    <span css={[styles.arrow, open && styles.arrowOpen]}>
+                    <motion.div
+                        animate={{
+                            rotate: open ? 180 : 0,
+                        }}
+                        transition={{
+                            duration: 0.3,
+                            damping: 25,
+                            stiffness: 500,
+                        }}
+                    >
                         <Icon icon='arrow-down' />
-                    </span>
+                    </motion.div>
                 </Button>
 
                 {open && (

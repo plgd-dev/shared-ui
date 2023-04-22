@@ -27,6 +27,7 @@ export type MenuGroup = {
 export type Props = {
     activeId?: string
     className?: string
+    collapsed?: boolean
     id?: string
     menu?: MenuGroup[]
     newFeature?: {
@@ -35,6 +36,7 @@ export type Props = {
     }
     versionMark: ReactNode
     onItemClick?: (item: MenuItem, e: SyntheticEvent) => void
+    setCollapsed?: (collapsed: boolean) => void
 }
 
 export type LeftPanelItemType = {
