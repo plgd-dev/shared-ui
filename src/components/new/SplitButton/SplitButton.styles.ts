@@ -18,7 +18,6 @@ export const rightButton = css`
 `
 
 export const floatingMenu = css`
-export const floatingMenu = css`
     z-index: 10;
     background: #fff;
     border: 1px solid #e6e9ed;
