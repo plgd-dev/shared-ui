@@ -27,7 +27,7 @@ const Button: FC<Props> = (props) => {
         }
     }
 
-    const ButtonContent = () => {
+    const getButtonContent = () => {
         if (typeof loading === 'boolean' && loadingText) {
             return (
                 <span css={styles.loadingWrapper}>
@@ -69,7 +69,7 @@ const Button: FC<Props> = (props) => {
             onClick={handleOnClick}
             type={htmlType}
         >
-            {loading || icon ? <ButtonContent /> : children}
+            {loading || icon ? getButtonContent() : children}
         </button>
     )
 }

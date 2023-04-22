@@ -11,6 +11,12 @@ export const devicesApiEndpoints = {
     DEVICES_WS: '/api/v1/ws/devices',
 }
 
+export const shadowSynchronizationStates = {
+    UNSET: 'UNSET',
+    ENABLED: 'ENABLED',
+    DISABLED: 'DISABLED',
+}
+
 export const RESOURCES_DEFAULT_PAGE_SIZE = 10
 
 export const DEVICES_DEFAULT_PAGE_SIZE = 10
