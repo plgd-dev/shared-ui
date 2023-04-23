@@ -10,5 +10,5 @@ export type Props = {
         interfaces: string[]
         resourceTypes: string[]
     }
-    deviceStatus: DevicesResourcesDeviceStatusType
+    deviceStatus?: DevicesResourcesDeviceStatusType
 }
