@@ -1,6 +1,7 @@
 // @ts-ignore
 import * as converter from 'units-converter/dist/es/index'
 import { DEVICES_RESOURCE_UPDATE_WS_KEY, knownInterfaces, commandTimeoutUnits, MINIMAL_TTL_VALUE_MS } from '../constants'
+import { compareIgnoreCase } from '../../components/new/Table/Utils'
 
 const time = converter.time
 
@@ -45,4 +46,58 @@ export const findClosestUnit = (value: number) => {
     } else {
         return H
     }
+}
+
+const addItem = (objToAddTo: any, item: any, position: number) => {
+    const { href, ...rest } = item
+    const parts = href.split('/')
+    const isLast = position === parts.length - 1
+    position = position + 1
+    const key = `/${parts.slice(1, position).join('/')}/`
+
+    if (isLast) {
+        objToAddTo[key] = { ...objToAddTo[key], ...rest, href: key }
+    } else {
+        objToAddTo[key] = {
+            ...objToAddTo[key],
+            ...(key === href ? rest : {}),
+            href: key,
+            subRows: { ...(objToAddTo[key]?.subRows || {}) }, // subRows is the next level in the tree structure
+        }
+        // Go deeper with recursion
+        addItem(objToAddTo[key].subRows, item, position)
+    }
+}
+
+export const createNestedResourceData = (data: any) => {
+    // Always construct the objects from scratch
+    let firstSwipe = {}
+    if (data) {
+        data.forEach((item: any) => {
+            addItem(firstSwipe, item, 1)
+        })
+    }
+    // Then take the object structure and output the tree scructure
+    const output = deDensisfy(firstSwipe)
+
+    // Finally sort the output by href
+    return output.sort((a, b) => {
+        return compareIgnoreCase(a.href, b.href)
+    })
+}
+const deDensisfy = (objectToDeDensify: any) => {
+    const { href, ...rest } = objectToDeDensify
+
+    const keys = Object.keys(rest)
+    return keys
+        .map((thisKey) => {
+            const value = objectToDeDensify[thisKey]
+            if (value.subRows) {
+                value.subRows = deDensisfy(value.subRows)
+            }
+            return value
+        })
+        .sort((a, b) => {
+            return compareIgnoreCase(a.href, b.href)
+        })
 }
