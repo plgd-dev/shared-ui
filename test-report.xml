@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/patrik/plgd/hub/http-gateway/web/packages/shared-ui/src/components/new/Checkbox/Checkbox.test.tsx">
+    <testCase name="&lt;Checkbox&gt; render correctly - snapshot" duration="54"/>
+  </file>
+  <file path="/Users/patrik/plgd/hub/http-gateway/web/packages/shared-ui/src/components/new/FormInput/FormInput.test.tsx">
+    <testCase name="&lt;FormInput&gt; render correctly - snapshot" duration="71"/>
+  </file>
+  <file path="/Users/patrik/plgd/hub/http-gateway/web/packages/shared-ui/src/components/new/ActionButton/ActionButton.test.tsx">
+    <testCase name="&lt;ActionButton&gt; render correctly - snapshot" duration="83"/>
+  </file>
+  <file path="/Users/patrik/plgd/hub/http-gateway/web/packages/shared-ui/src/components/new/Button/Button.test.tsx">
+    <testCase name="&lt;Button&gt; render correctly - snapshot" duration="50"/>
+    <testCase name="&lt;Button&gt; render correctly - loading" duration="27"/>
+    <testCase name="&lt;Button&gt; onCLick" duration="5"/>
+  </file>
+  <file path="/Users/patrik/plgd/hub/http-gateway/web/packages/shared-ui/src/components/new/Badge/Badge.test.tsx">
+    <testCase name="&lt;Badge&gt; render correctly - snapshot" duration="8"/>
+  </file>
+</testExecutions>

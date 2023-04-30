@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ActionButton> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  width: 20px;
+  height: 20px;
+}
+
+.emotion-1 {
+  width: 20px;
+  height: 20px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  color: #81868C;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  color: #007BBF;
+}
+
+.emotion-1:hover {
+  color: #007BBF;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-3 {
+  z-index: 10;
+  background: #fff;
+  border: 1px solid #e6e9ed;
+  box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.emotion-4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #81868C;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 8px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #E6E9ED;
+}
+
+.emotion-4:hover {
+  color: #2261AE;
+}
+
+.emotion-4:last-child {
+  border-bottom: 0;
+}
+
+.emotion-5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.emotion-6 {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-2"
+        data-icon=""
+        style="width: 20px; height: 20px;"
+      />
+    </div>
+    <div
+      class="emotion-3"
+      style="position: fixed; top: 0px; left: 0px;"
+    >
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-5"
+          data-icon=""
+          style="width: 20px; height: 20px;"
+        />
+        <span
+          class="emotion-6"
+        >
+          Create
+        </span>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-5"
+          data-icon=""
+          style="width: 20px; height: 20px;"
+        />
+        <span
+          class="emotion-6"
+        >
+          Update
+        </span>
+      </div>
+      <div
+        class="emotion-4"
+      >
+        <div
+          class="emotion-5"
+          data-icon=""
+          style="width: 20px; height: 20px;"
+        />
+        <span
+          class="emotion-6"
+        >
+          Delete
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

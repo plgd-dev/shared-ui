@@ -24,7 +24,7 @@
     "declaration": true,
     "sourceMap": true,
     "importHelpers": true,
-    "types": ["@emotion/react/types/css-prop"],
+    "types": ["@emotion/react/types/css-prop", "jest", "node"],
   },
   "include": ["src/**/*"],
   "exclude": [

@@ -3,7 +3,7 @@ import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.styles'
 import { mergeRefs } from 'react-merge-refs'
 import Icon from '../Icon'
-import { copyToClipboard } from '../../../common/utils'
+import { copyToClipboard } from '../../../common/utils/copy-to-clipboard'
 import { inputSizes } from './constants'
 import { detect } from 'detect-browser'
 

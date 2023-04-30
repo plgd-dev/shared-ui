@@ -24,7 +24,7 @@ const Template = (args) => (
         <br />
         <h3>Password</h3>
         <form action=''>
-            <FormInput {...args} defaultValue='Text' type='password' name='new-password' />
+            <FormInput {...args} defaultValue='Text' name='new-password' type='password' />
         </form>
         <br />
         <h3>Copy</h3>
@@ -32,11 +32,11 @@ const Template = (args) => (
         <br />
         <h3>Copy secret</h3>
         <form action=''>
-            <FormInput {...args} copy={true} defaultValue='Text' type='password' name='new-password' />
+            <FormInput {...args} copy={true} defaultValue='Text' name='new-password' type='password' />
         </form>
         <br />
         <h3>Phone</h3>
-        <FormInput {...args} defaultValue='Text' icon={<IconSlovakia />} pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}' telPrefix='+421' type='tel' />
+        <FormInput {...args} defaultValue='Text' icon={<IconSlovakia />} telPattern='[0-9]{3}-[0-9]{2}-[0-9]{3}' telPrefix='+421' type='tel' />
         <br />
         <h3>Normal size</h3>
         <FormInput {...args} defaultValue='Normal size' size='normal' />

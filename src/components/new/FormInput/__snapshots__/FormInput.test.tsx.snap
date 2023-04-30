@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormInput> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  height: 48px;
+}
+
+.emotion-0::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-0::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-0:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-0::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-0:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-0::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-0:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-0::-ms-reveal,
+.emotion-0::-ms-clear {
+  display: none;
+}
+
+.emotion-2 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  background: #f6f7f9;
+  color: #757676;
+  height: 48px;
+}
+
+.emotion-2::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-2::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-2:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-2::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-2:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-2::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-2:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-2::-ms-reveal,
+.emotion-2::-ms-clear {
+  display: none;
+}
+
+.emotion-3 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  border-color: #D74E3A;
+  height: 48px;
+}
+
+.emotion-3::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-3::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-3:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-3::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-3:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-3::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-3:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-3::-ms-reveal,
+.emotion-3::-ms-clear {
+  display: none;
+}
+
+.emotion-4 {
+  position: relative;
+}
+
+.emotion-5 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  padding-right: 48px;
+  height: 48px;
+}
+
+.emotion-5::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-5::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-5:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-5::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-5:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-5::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-5:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-5::-ms-reveal,
+.emotion-5::-ms-clear {
+  display: none;
+}
+
+.emotion-6 {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  z-index: 2;
+  color: #81868c;
+  cursor: pointer;
+  -webkit-transition: all 0.25ms;
+  transition: all 0.25ms;
+}
+
+.emotion-6:hover {
+  color: #007bbf;
+}
+
+.emotion-6 svg {
+  width: 24px;
+  height: 24px;
+}
+
+.emotion-7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-9 {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  height: 24px;
+  border-right: 1px solid #d7d8da;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-10 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #252626;
+  padding: 0 10px 0 8px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.emotion-11 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  padding-left: 100px;
+  height: 48px;
+}
+
+.emotion-11::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-11::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-11:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-11::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-11:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-11::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-11:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-11::-ms-reveal,
+.emotion-11::-ms-clear {
+  display: none;
+}
+
+.emotion-12 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  height: 44px;
+}
+
+.emotion-12::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-12::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-12:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-12::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-12:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-12::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-12:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-12::-ms-reveal,
+.emotion-12::-ms-clear {
+  display: none;
+}
+
+<div>
+    <input
+      class="emotion-0"
+      name=""
+      placeholder="Placeholder text"
+      tabindex="1"
+      type="text"
+      value=""
+    />
+    <input
+      class="emotion-0"
+      name=""
+      tabindex="1"
+      type="text"
+      value="Default value text"
+    />
+    <input
+      class="emotion-2"
+      disabled=""
+      name=""
+      tabindex="1"
+      type="text"
+      value="Default value text"
+    />
+    <input
+      aria-invalid="true"
+      class="emotion-3"
+      name=""
+      tabindex="1"
+      type="text"
+      value="Default value text"
+    />
+    <div
+      class="emotion-4"
+    >
+      <input
+        class="emotion-5"
+        name="new-password"
+        tabindex="1"
+        type="password"
+        value="Text"
+      />
+      <span
+        class="emotion-6"
+      >
+        <div
+          class="emotion-7"
+          data-icon=""
+          style="width: 24px; height: 24px;"
+        />
+      </span>
+    </div>
+    <div
+      class="emotion-4"
+    >
+      <div
+        class="emotion-9"
+      >
+        <div />
+        <span
+          class="emotion-10"
+        >
+          +421
+        </span>
+      </div>
+      <input
+        class="emotion-11"
+        name=""
+        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+        tabindex="1"
+        type="tel"
+        value="Text"
+      />
+    </div>
+    <input
+      class="emotion-12"
+      name=""
+      tabindex="1"
+      type="text"
+      value="Normal size"
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -22,14 +22,14 @@ const ConfirmButton: FC<Props> = (props) => {
             </Button>
             <ConfirmModal
                 {...modalProps}
-                show={show}
-                onClose={() => setShow(false)}
-                title={title}
                 body={body}
-                loading={loading}
                 cancelButtonText={cancelButtonText}
                 confirmButtonText={confirmButtonText}
+                loading={loading}
+                onClose={() => setShow(false)}
                 onConfirm={onConfirmClick}
+                show={show}
+                title={title}
             />
         </>
     )
