@@ -1,5 +1,6 @@
 export * from './fetch-api'
 export * from './stream-api'
 export * from './security'
+export * from './notifications'
 export * from './websocket-event-client'
 export * from './websocket-event-constants'

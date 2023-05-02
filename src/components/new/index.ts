@@ -6,9 +6,6 @@ export * from './ActionButton'
 export { default as Badge } from './Badge'
 export * from './Badge'
 
-export { default as Breadcrumbs } from './Breadcrumbs'
-export * from './Breadcrumbs'
-
 export { default as Button } from './Button'
 export * from './Button'
 
