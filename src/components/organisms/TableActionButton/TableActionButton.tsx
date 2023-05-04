@@ -45,6 +45,7 @@ const TableActionButton: FC<Props> = (props) => {
                 placement: 'bottom-end',
             }}
             onToggle={onToggle}
+            portalTarget={document.getElementById('modal-root')}
         />
     )
 }

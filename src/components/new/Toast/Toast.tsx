@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ToastContainer as Toastr, toast } from 'react-toastify'
 import classNames from 'classnames'
@@ -18,6 +18,7 @@ import {
 } from './constants'
 import { translateToastString } from './utils'
 import { defaultProps, Props, ToastMessageType, ToastOptionType } from './Toast.types'
+import { createPortal } from 'react-dom'
 
 const { ERROR, SUCCESS, WARNING, INFO } = toastTypes
 
@@ -27,19 +28,31 @@ let dispatchedBrowserNotifications = 0
 let notification: any = null
 let decrementTimer: any = null
 
+type ToastContainerProps = {
+    portalTarget?: ReactNode | Element | null
+}
+
 // Container responsible for processing and dispatching the toast notifications
-export const ToastContainer = () => {
-    return (
+export const ToastContainer = (props: ToastContainerProps) => {
+    const { portalTarget } = props
+
+    const container = (
         <Toastr
-            closeButton={({ closeToast }: { closeToast: any }) => <i onClick={closeToast} className='fas fa-times close-toast' />}
-            pauseOnFocusLoss={false}
-            limit={MAX_NUMBER_OF_VISIBLE_TOASTS}
+            hideProgressBar
             newestOnTop
             autoClose={TOAST_HIDE_TIME}
-            hideProgressBar
+            closeButton={({ closeToast }: { closeToast: any }) => <i className='fas fa-times close-toast' onClick={closeToast} />}
             icon={false}
+            limit={MAX_NUMBER_OF_VISIBLE_TOASTS}
+            pauseOnFocusLoss={false}
         />
     )
+
+    if (portalTarget) {
+        return createPortal(container, portalTarget as Element)
+    }
+
+    return container
 }
 
 // Single toast component
@@ -136,7 +149,7 @@ export const BrowserNotificationsContainer = () => {
     }
 
     const loadSounds = () => {
-        //loadFartSound()
+        // loadFartSound()
         document.removeEventListener('click', loadSounds)
     }
 

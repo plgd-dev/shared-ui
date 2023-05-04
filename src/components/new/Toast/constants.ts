@@ -1,8 +1,8 @@
 export const toastTypes = {
-  ERROR: 'error',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-  INFO: 'info',
+    ERROR: 'error',
+    SUCCESS: 'success',
+    WARNING: 'warning',
+    INFO: 'info',
 }
 
 // Default hide time of a toast
@@ -25,7 +25,7 @@ export const BROWSER_NOTIFICATIONS_EVENT_KEY = 'browser-notifications'
 
 // List of permissions available in the browser notifications
 export const browserNotificationPermissions = {
-  GRANTED: 'granted',
-  DENIED: 'denied',
-  DEFAULT: 'default',
+    GRANTED: 'granted',
+    DENIED: 'denied',
+    DEFAULT: 'default',
 }

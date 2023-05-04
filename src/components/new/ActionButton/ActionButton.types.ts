@@ -26,6 +26,7 @@ export type Props = {
         placement?: Placement
     }
     onToggle?: (isOpen: boolean, event: SyntheticEvent<any>) => void
+    portalTarget?: ReactNode | Element | null
     type?: ActionButtonTypeType
     disabled?: boolean
 }
