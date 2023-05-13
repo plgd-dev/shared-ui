@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@emotion/react'
-import addons from '@storybook/addons'
+import { addons } from '@storybook/addons'
 import { useEffect, useState } from 'react'
 import { CHANGE } from 'storybook-addon-themes/src/constants'
 import light from '../src/components/new/_theme/light'

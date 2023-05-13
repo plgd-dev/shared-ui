@@ -15,6 +15,8 @@ export const Modal: FC<Props> = memo((props) => {
         className,
         closeButton,
         closeButtonText,
+        closeOnBackdrop,
+        closeOnEsc,
         contentPadding,
         footerActions,
         fullSizeButtons,
@@ -47,9 +49,9 @@ export const Modal: FC<Props> = memo((props) => {
 
     const escFunction = useCallback(
         (event: KeyboardEvent) => {
-            event.key === 'Escape' && isFunction(onClose) && onClose()
+            event.key === 'Escape' && closeOnEsc && isFunction(onClose) && onClose()
         },
-        [onClose]
+        [onClose, closeOnEsc]
     )
 
     useEffect(() => {
@@ -129,11 +131,11 @@ export const Modal: FC<Props> = memo((props) => {
     const ModalBase = (
         <AnimatePresence initial={false} mode='wait' onExitComplete={() => null}>
             {show && (
-                <Backdrop onClick={() => isFunction(onClose) && onClose()}>
+                <Backdrop onClick={() => isFunction(onClose) && closeOnBackdrop && onClose()}>
                     <motion.div
-                        css={styles.modalWrapper}
                         animate='visible'
                         className={className}
+                        css={styles.modalWrapper}
                         id={id}
                         initial='hidden'
                         onClick={(e) => e.stopPropagation()}

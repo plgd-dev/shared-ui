@@ -17,6 +17,8 @@ export type Props = {
     className?: string
     closeButton?: boolean
     closeButtonText?: string
+    closeOnBackdrop?: boolean
+    closeOnEsc?: boolean
     contentPadding?: boolean
     footerActions?: FooterAction[]
     fullSizeButtons?: boolean
@@ -25,9 +27,9 @@ export type Props = {
     maxWidthTitle?: number
     onClose?: () => void
     portalTarget?: ReactNode | Element | null
-    renderHeader?: RenderType | ReactNode
     renderBody?: RenderType | ReactNode
     renderFooter?: RenderType | ReactNode
+    renderHeader?: RenderType | ReactNode
     show: boolean
     title?: ReactNode
 }
@@ -35,6 +37,8 @@ export type Props = {
 export const defaultProps = {
     closeButton: true,
     closeButtonText: 'Close',
+    closeOnBackdrop: true,
+    closeOnEsc: true,
     contentPadding: true,
     maxWidth: 600,
 }

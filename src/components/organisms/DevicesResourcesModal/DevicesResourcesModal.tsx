@@ -204,6 +204,8 @@ const DevicesResourcesModal: FC<Props> = (props) => {
             appRoot={document.getElementById('root')}
             closeButton={!disabled}
             closeButtonText={i18n.close}
+            closeOnBackdrop={false}
+            closeOnEsc={false}
             contentPadding={false}
             onClose={!disabled ? handleClose : undefined}
             portalTarget={document.getElementById('modal-root')}

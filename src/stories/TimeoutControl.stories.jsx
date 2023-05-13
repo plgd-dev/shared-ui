@@ -13,7 +13,18 @@ const Template = (args) => {
     const [error, setError] = useState(false)
     return (
         <div>
-            <TimeoutControl defaultTtlValue={defaultCommandTimeToLive} defaultValue={ttl} onChange={setTtl} onTtlHasError={setError} />
+            <TimeoutControl
+                defaultTtlValue={defaultCommandTimeToLive}
+                defaultValue={ttl}
+                i18n={{
+                    default: 'default',
+                    duration: 'duration',
+                    placeholder: 'placeholder',
+                    unit: 'unit',
+                }}
+                onChange={setTtl}
+                onTtlHasError={setError}
+            />
             <br />
             TTL: {ttl}
             <br />

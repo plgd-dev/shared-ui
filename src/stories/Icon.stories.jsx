@@ -27,6 +27,7 @@ const data = [
     { name: 'docs' },
     { name: 'edit' },
     { name: 'error' },
+    { name: 'file-pem' },
     { name: 'icon-hide-password' },
     { name: 'icon-show-password' },
     { name: 'info' },
