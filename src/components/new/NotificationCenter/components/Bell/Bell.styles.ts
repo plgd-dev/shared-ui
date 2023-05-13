@@ -15,6 +15,42 @@ export const bell = css`
     &:hover {
         color: ${colors.primaryBonus};
     }
+
+    .shake {
+        animation: bellshake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        backface-visibility: hidden;
+        transform-origin: top right;
+    }
+
+    @keyframes bellshake {
+        0% {
+            transform: rotate(0);
+        }
+        15% {
+            transform: rotate(5deg);
+        }
+        30% {
+            transform: rotate(-5deg);
+        }
+        45% {
+            transform: rotate(4deg);
+        }
+        60% {
+            transform: rotate(-4deg);
+        }
+        75% {
+            transform: rotate(2deg);
+        }
+        85% {
+            transform: rotate(-2deg);
+        }
+        92% {
+            transform: rotate(1deg);
+        }
+        100% {
+            transform: rotate(0);
+        }
+    }
 `
 
 export const hasUnRead = css`
@@ -30,5 +66,6 @@ export const hasUnRead = css`
         right: 10px;
         width: 11px;
         height: 11px;
+        z-index: 2;
     }
 `

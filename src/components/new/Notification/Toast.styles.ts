@@ -17,7 +17,7 @@ export const getColorByType = (type: TypeOptions) => {
     }
 }
 
-export const toast = (type: TypeOptions) => cssRaw`
+export const toast = (type: TypeOptions, clickable = false) => cssRaw`
     overflow: visible;
     background: #fff;
     border: 1px solid ${colors.neutral200};
@@ -25,6 +25,7 @@ export const toast = (type: TypeOptions) => cssRaw`
     border-radius: 8px;
     margin-bottom: 12px;
     padding: 16px;
+    cursor: ${clickable ? 'pointer' : 'default'};
     
     &:before {
         content: '';

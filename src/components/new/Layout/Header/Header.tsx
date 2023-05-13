@@ -1,26 +1,16 @@
-import { FC, SyntheticEvent } from 'react'
-import { Props } from './Header.types'
+import { FC } from 'react'
+import { Props, defaultProps } from './Header.types'
 import * as styles from './Header.styles'
 import { Icon } from '../../Icon'
-import isFunction from 'lodash/isFunction'
+import NotificationCenter from '../../NotificationCenter'
 
 const Header: FC<Props> = (props) => {
-    const { breadcrumbs, onCollapseToggle, userWidget } = props
-
-    const handleCollapseToggle = (e: SyntheticEvent) => {
-        e.preventDefault()
-        e.stopPropagation()
-
-        isFunction(onCollapseToggle) && onCollapseToggle()
-    }
+    const { breadcrumbs, userWidget, useNotificationCenter } = { ...defaultProps, ...props }
 
     return (
         <div css={styles.header}>
             <div css={styles.left}>
                 <div id='header-icon-collapse-portal-target'></div>
-                {/* <a css={styles.iconCollapse} href='#' onClick={(e) => handleCollapseToggle(e)}>*/}
-                {/*    <Icon icon='collapse' size={24} />*/}
-                {/* </a>*/}
                 {breadcrumbs && <div css={styles.breadcrumbs}>{breadcrumbs}</div>}
             </div>
             <div css={styles.right}>
@@ -30,11 +20,11 @@ const Header: FC<Props> = (props) => {
                             <Icon icon='settings' size={20} />
                         </a>
                     </li>
-                    <li>
-                        <a css={styles.actionItem} href='#'>
-                            <Icon icon='notification' size={20} />
-                        </a>
-                    </li>
+                    {useNotificationCenter && (
+                        <li>
+                            <NotificationCenter />
+                        </li>
+                    )}
                 </ul>
                 {userWidget}
             </div>
@@ -43,5 +33,6 @@ const Header: FC<Props> = (props) => {
 }
 
 Header.displayName = 'Header'
+Header.defaultProps = defaultProps
 
 export default Header

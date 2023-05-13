@@ -2,6 +2,10 @@ import { ReactNode } from 'react'
 
 export type Props = {
     breadcrumbs?: ReactNode
-    onCollapseToggle?: () => void
+    useNotificationCenter?: boolean
     userWidget?: ReactNode
+}
+
+export const defaultProps: Partial<Props> = {
+    useNotificationCenter: true,
 }

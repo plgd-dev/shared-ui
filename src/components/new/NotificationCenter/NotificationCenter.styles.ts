@@ -25,6 +25,7 @@ export const headline = css`
     font-size: 16px;
     line-height: 140%;
     letter-spacing: -0.5px;
+    color: ${colors.primaryDarken};
 `
 
 export const clearAll = css`
@@ -41,6 +42,9 @@ export const clearAll = css`
     }
 `
 
-export const content = css``
+export const content = css`
+    overflow: auto;
+    max-height: 400px;
+`
 
 export const item = css``

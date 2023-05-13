@@ -12,7 +12,13 @@ export default {
 const types = ['success', 'info', 'warning', 'error']
 
 const addNotification = () => {
-    Notification.toast('Lorem ipsum dolor sit amet, consectetur adipiscing elit', types[Math.floor(Math.random() * types.length)])
+    Notification.toast(
+        {
+            title: 'Title',
+            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+        },
+        types[Math.floor(Math.random() * types.length)]
+    )
 }
 
 const Template = (args) => (

@@ -29,22 +29,26 @@ let notification: any = null
 let decrementTimer: any = null
 
 type ToastContainerProps = {
+    containerId?: string
     portalTarget?: ReactNode | Element | null
+    showNotifications?: boolean
 }
 
 // Container responsible for processing and dispatching the toast notifications
 export const ToastContainer = (props: ToastContainerProps) => {
-    const { portalTarget } = props
+    const { containerId, portalTarget, showNotifications } = props
 
     const container = (
         <Toastr
             hideProgressBar
             newestOnTop
-            autoClose={TOAST_HIDE_TIME}
-            closeButton={({ closeToast }: { closeToast: any }) => <i className='fas fa-times close-toast' onClick={closeToast} />}
-            icon={false}
+            containerId={containerId}
             limit={MAX_NUMBER_OF_VISIBLE_TOASTS}
             pauseOnFocusLoss={false}
+            style={{ display: showNotifications ? 'block' : 'none' }}
+            autoClose={TOAST_HIDE_TIME}
+            // closeButton={({ closeToast }: { closeToast: any }) => <i className='fas fa-times close-toast' onClick={closeToast} />}
+            icon={false}
         />
     )
 
