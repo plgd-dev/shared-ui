@@ -27,8 +27,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "storybook-to-ghpages",
-    "icons:create": "npx @svgr/cli  --icon  --typescript -d ./src/components/new/Icon/components ./src/components/new/Icon/assets --config-file ./config/svgr-config.json --template ./config/svg-template.js",
-    "icons:create:tmp": "npx @svgr/cli  --icon  --typescript -d ./src/components/new/Notification/components ./src/components/new/Notification/assets --config-file ./config/svgr-config.json --template ./config/svg-template.js"
+    "icons:create": "npx @svgr/cli  --icon  --typescript -d ./src/components/new/Icon/components ./src/components/new/Icon/assets --config-file ./config/svgr-config.json --template ./config/svg-template.js"
   },
   "peerDependencies": {
     "@opentelemetry/api": "^1.1.0",

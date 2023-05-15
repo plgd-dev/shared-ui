@@ -97,7 +97,7 @@ const Dropzone: FC<Props> = (props) => {
                 <input {...getInputProps()} />
                 {thumbs.length === 0 && (
                     <div css={styles.placeholder}>
-                        <Icon icon='cloud-warning' size={50} />
+                        <Icon icon='file-upload' size={50} />
 
                         <p css={styles.placeholderText}>{title}</p>
                         {description && <p css={styles.placeholderDescription}>{description}</p>}
