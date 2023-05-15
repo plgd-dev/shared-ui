@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../../components/new/Layout/Header'
-import UserWidget from '../../components/new/Layout/Header/UserWidget'
-import Breadcrumbs from '../../components/new/Layout/Header/Breadcrumbs'
+import Header from '../../components/Layout/Header'
+import UserWidget from '../../components/Layout/Header/UserWidget'
+import Breadcrumbs from '../../components/Layout/Header/Breadcrumbs'
 
 import roman from '../assets/roman.png'
 

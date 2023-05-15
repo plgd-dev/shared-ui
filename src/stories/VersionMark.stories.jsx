@@ -1,6 +1,6 @@
 import React from 'react'
-import VersionMark from '../components/new/VersionMark'
-import { severities } from '../components/new/VersionMark/constants'
+import VersionMark from '../components/Atomic/VersionMark'
+import { severities } from '../components/Atomic/VersionMark/constants'
 
 export default {
     title: 'Example/VersionMark',

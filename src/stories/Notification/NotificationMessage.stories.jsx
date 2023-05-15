@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import NotificationMessage from '../../components/new/NotificationMessage'
-import Button from '../../components/new/Button'
+import NotificationMessage from '../../components/Atomic/NotificationMessage'
+import Button from '../../components/Atomic/Button'
 
 export default {
     title: 'Notification/NotificationMessage',

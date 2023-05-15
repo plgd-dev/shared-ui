@@ -1,6 +1,6 @@
 import React from 'react'
-import Tooltip, { FloatingDelayGroup } from '../components/new/Tooltip'
-import Icon from '../components/new/Icon'
+import Tooltip, { FloatingDelayGroup } from '../components/Atomic/Tooltip'
+import Icon from '../components/Atomic/Icon'
 
 export default {
     title: 'Example/Tooltip',

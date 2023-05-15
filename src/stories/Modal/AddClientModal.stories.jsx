@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Button from '../../components/new/Button'
-import { AddClientModal } from '../../components/new/Modal'
+import Button from '../../components/Atomic/Button'
+import { AddClientModal } from '../../components/Atomic/Modal'
 
 export default {
     title: 'Modal/AddClientModal',
@@ -26,7 +26,9 @@ const Template = (args) => {
         <div>
             <Button onClick={() => setShow(true)}>Show modal</Button>
             <AddClientModal
-                onClose={() => setShow(false)}
+                deviceAuthCode={deviceAuthCode}
+                deviceAuthLoading={deviceAuthLoading}
+                deviceInformation={deviceAuthCode ? [{ attribute: 'Version', value: '3.0.2' }] : undefined}
                 footerActions={[
                     {
                         label: 'Done',
@@ -34,10 +36,8 @@ const Template = (args) => {
                         variant: 'primary',
                     },
                 ]}
-                deviceInformation={deviceAuthCode ? [{ attribute: 'Version', value: '3.0.2' }] : undefined}
-                deviceAuthLoading={deviceAuthLoading}
-                deviceAuthCode={deviceAuthCode}
                 getDeviceAuthCode={getDeviceAuthCode}
+                onClose={() => setShow(false)}
                 show={show}
                 title='Add a new client'
             />

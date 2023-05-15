@@ -1,12 +1,12 @@
 import React from 'react'
 
-import Swiper from '../components/new/Swiper'
-import SwiperFeatureItem from '../components/new/Swiper/SwiperFeatureItem'
-import SwiperTestimonialItem from '../components/new/Swiper/SwiperTestimonialItem'
+import Swiper from '../components/Atomic/Swiper'
+import SwiperFeatureItem from '../components/Atomic/Swiper/SwiperFeatureItem'
+import SwiperTestimonialItem from '../components/Atomic/Swiper/SwiperTestimonialItem'
 import image1 from './assets/feature-1.jpeg'
 import image2 from './assets/feature-2.jpeg'
 import image3 from './assets/feature-3.jpeg'
-import { colors } from '../components/new/_utils/colors'
+import { colors } from '../components/Atomic/_utils/colors'
 import image from './assets/testimonial-author-image.png'
 
 export default {

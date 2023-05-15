@@ -1,5 +1,5 @@
 import React from 'react'
-import Headline from '../components/new/Headline'
+import Headline from '../components/Atomic/Headline'
 
 export default {
     title: 'Example/Headline',

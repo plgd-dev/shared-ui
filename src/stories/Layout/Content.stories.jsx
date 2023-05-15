@@ -1,8 +1,8 @@
 import React from 'react'
-import Content from '../../components/new/Layout/Content'
-import Button from '../../components/new/Button'
-import Icon from '../../components/new/Icon'
-import StatusTag from '../../components/new/StatusTag'
+import Content from '../../components/Layout/Content'
+import Button from '../../components/Atomic/Button'
+import Icon from '../../components/Atomic/Icon'
+import StatusTag from '../../components/Atomic/StatusTag'
 
 export default {
     title: 'Layout/Content',

@@ -1,6 +1,6 @@
 import React from 'react'
 import '../global.css'
-import IconLoader from '../../components/new/Loader/IconLoader'
+import IconLoader from '../../components/Atomic/Loader/IconLoader'
 
 export default {
     title: 'Loader/IconLoader',

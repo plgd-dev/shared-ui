@@ -1,7 +1,7 @@
 import React from 'react'
-import Footer from '../../components/new/Layout/Footer'
-import Pagination from '../../components/new/Layout/Footer/Pagination'
-import VersionMark from '../../components/new/VersionMark'
+import Footer from '../../components/Layout/Footer'
+import Pagination from '../../components/Layout/Footer/Pagination'
+import VersionMark from '../../components/Atomic/VersionMark'
 
 export default {
     title: 'Layout/Footer',

@@ -1,12 +1,12 @@
 import React, { useMemo, useRef, useState } from 'react'
-import Table from '../../components/new/TableNew'
-import TableActions from '../../components/new/TableNew/TableActions'
-import Button from '../../components/new/Button'
-import Tag from '../../components/new/Tag'
-import StatusPill from '../../components/new/StatusPill'
+import Table from '../../components/Atomic/TableNew'
+import TableActions from '../../components/Atomic/TableNew/TableActions'
+import Button from '../../components/Atomic/Button'
+import Tag from '../../components/Atomic/Tag'
+import StatusPill from '../../components/Atomic/StatusPill'
 import sample from 'lodash/sample'
 import '../global.css'
-import TableSelectionPanel from '../../components/new/TableNew/TableSelectionPanel/TableSelectionPanel'
+import TableSelectionPanel from '../../components/Atomic/TableNew/TableSelectionPanel/TableSelectionPanel'
 
 export default {
     title: 'Table/Table',

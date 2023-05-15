@@ -1,5 +1,5 @@
 import React from 'react'
-import Editor from '../components/new/Editor'
+import Editor from '../components/Atomic/Editor'
 
 export default {
     title: 'Example/Editor',

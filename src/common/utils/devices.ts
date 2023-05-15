@@ -1,7 +1,7 @@
 // @ts-ignore
 import * as converter from 'units-converter/dist/es/index'
 import { DEVICES_RESOURCE_UPDATE_WS_KEY, knownInterfaces, commandTimeoutUnits, MINIMAL_TTL_VALUE_MS } from '../constants'
-import { compareIgnoreCase } from '../../components/new/Table/Utils'
+import { compareIgnoreCase } from '../../components/Atomic/Table/Utils'
 
 const time = converter.time
 

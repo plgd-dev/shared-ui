@@ -1,5 +1,5 @@
 import React from 'react'
-import SplitButton from '../../components/new/SplitButton'
+import SplitButton from '../../components/Atomic/SplitButton'
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
 import '../global.css'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from '../components/new/Link'
+import Link from '../components/Atomic/Link'
 
 export default {
     title: 'Example/Link',

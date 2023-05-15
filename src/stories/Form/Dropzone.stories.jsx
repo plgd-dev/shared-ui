@@ -1,5 +1,5 @@
 import React from 'react'
-import Dropzone from '../../components/new/Dropzone'
+import Dropzone from '../../components/Atomic/Dropzone'
 
 export default {
     title: 'Form/Dropzone',

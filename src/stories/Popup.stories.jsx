@@ -1,9 +1,9 @@
 import React from 'react'
-import Popup from '../components/new/Popup/Popup'
-import FormGroup from '../components/new/FormGroup'
-import FormLabel from '../components/new/FormLabel'
-import FormInput from '../components/new/FormInput'
-import Button from '../components/new/Button'
+import Popup from '../components/Atomic/Popup/Popup'
+import FormGroup from '../components/Atomic/FormGroup'
+import FormLabel from '../components/Atomic/FormLabel'
+import FormInput from '../components/Atomic/FormInput'
+import Button from '../components/Atomic/Button'
 
 export default {
     title: 'Example/Popup',

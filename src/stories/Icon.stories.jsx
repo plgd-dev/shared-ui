@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '../components/new/Icon'
+import { Icon } from '../components/Atomic/Icon'
 import './global.css'
 
 export default {

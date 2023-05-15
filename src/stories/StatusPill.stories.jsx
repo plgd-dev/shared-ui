@@ -1,5 +1,5 @@
 import React from 'react'
-import StatusPill from '../components/new/StatusPill'
+import StatusPill from '../components/Atomic/StatusPill'
 
 export default {
     title: 'Example/StatusPill',

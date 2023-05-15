@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Button from '../../components/new/Button'
-import { ProvisionDeviceModal } from '../../components/new/Modal'
+import Button from '../../components/Atomic/Button'
+import { ProvisionDeviceModal } from '../../components/Atomic/Modal'
 
 export default {
     title: 'Modal/ProvisionDeviceModal',
@@ -27,19 +27,8 @@ const Template = (args) => {
             <Button onClick={() => setShow(true)}>Show modal</Button>
             <ProvisionDeviceModal
                 {...args}
-                onClose={() => setShow(false)}
-                footerActions={[
-                    {
-                        label: 'Cancel',
-                        onClick: () => setShow(false),
-                        variant: 'tertiary',
-                    },
-                    {
-                        label: 'Delete',
-                        onClick: () => setShow(false),
-                        variant: 'primary',
-                    },
-                ]}
+                deviceAuthCode={deviceAuthCode}
+                deviceAuthLoading={deviceAuthLoading}
                 deviceInformation={
                     deviceAuthCode
                         ? [
@@ -52,9 +41,20 @@ const Template = (args) => {
                         : undefined
                 }
                 // defaultDeviceId='37aa3586-9f07-4659-8800-db6fe9a7dec6'
-                deviceAuthLoading={deviceAuthLoading}
-                deviceAuthCode={deviceAuthCode}
+                footerActions={[
+                    {
+                        label: 'Cancel',
+                        onClick: () => setShow(false),
+                        variant: 'tertiary',
+                    },
+                    {
+                        label: 'Delete',
+                        onClick: () => setShow(false),
+                        variant: 'primary',
+                    },
+                ]}
                 getDeviceAuthCode={getDeviceAuthCode}
+                onClose={() => setShow(false)}
                 show={show}
                 title='Provision a new device'
             />

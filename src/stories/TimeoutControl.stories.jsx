@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import TimeoutControl from '../components/new/TimeoutControl'
+import TimeoutControl from '../components/Atomic/TimeoutControl'
 
 export default {
     title: 'Example/TimeoutControl',

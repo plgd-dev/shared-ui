@@ -1,7 +1,7 @@
 import React from 'react'
-import NotificationCenter from '../../components/new/NotificationCenter'
-import App from '../../components/new/App'
-import Notification from '../../components/new/Notification'
+import NotificationCenter from '../../components/Atomic/NotificationCenter'
+import App from '../../components/Atomic/App'
+import Notification from '../../components/Atomic/Notification'
 
 export default {
     title: 'Notification/NotificationCenter',

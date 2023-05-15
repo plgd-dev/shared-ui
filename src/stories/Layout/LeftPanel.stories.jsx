@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import LeftPanel from '../../components/new/Layout/LeftPanel'
-import VersionMark from '../../components/new/VersionMark'
-import { severities } from '../../components/new/VersionMark/constants'
+import LeftPanel from '../../components/Layout/LeftPanel'
+import VersionMark from '../../components/Atomic/VersionMark'
+import { severities } from '../../components/Atomic/VersionMark/constants'
 import { leftPanelMenu } from '../data'
 
 export default {

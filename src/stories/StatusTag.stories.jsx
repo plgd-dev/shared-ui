@@ -1,5 +1,5 @@
 import React from 'react'
-import StatusTag from '../components/new/StatusTag'
+import StatusTag from '../components/Atomic/StatusTag'
 
 export default {
     title: 'Example/StatusTag',

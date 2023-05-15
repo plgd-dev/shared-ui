@@ -1,6 +1,6 @@
 import React from 'react'
-import Tag from '../components/new/Tag'
-import TagGroup from '../components/new/TagGroup'
+import Tag from '../components/Atomic/Tag'
+import TagGroup from '../components/Atomic/TagGroup'
 
 export default {
     title: 'Example/Tag',

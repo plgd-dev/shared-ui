@@ -1,8 +1,8 @@
 import React from 'react'
-import SimpleStripTable from '../../components/new/SimpleStripTable'
-import TagGroup from '../../components/new/TagGroup'
-import Tag from '../../components/new/Tag'
-import { Icon } from '../../components/new/Icon'
+import SimpleStripTable from '../../components/Atomic/SimpleStripTable'
+import TagGroup from '../../components/Atomic/TagGroup'
+import Tag from '../../components/Atomic/Tag'
+import { Icon } from '../../components/Atomic/Icon'
 
 export default {
     title: 'Table/SimpleStripTable',

@@ -1,6 +1,6 @@
 import React from 'react'
-import Notification from '../../components/new/Notification'
-import App from '../../components/new/App'
+import Notification from '../../components/Atomic/Notification'
+import App from '../../components/Atomic/App'
 
 export default {
     title: 'Notification/Notification',

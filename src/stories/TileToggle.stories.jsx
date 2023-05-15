@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import TileToggle from '../components/new/TileToggle'
-import Tag from '../components/new/Tag'
-import Switch from '../components/new/Switch'
-import TileToggleRow from '../components/new/TileToggle/TileToggleRow'
+import TileToggle from '../components/Atomic/TileToggle'
+import Tag from '../components/Atomic/Tag'
+import Switch from '../components/Atomic/Switch'
+import TileToggleRow from '../components/Atomic/TileToggle/TileToggleRow'
 
 export default {
     title: 'Example/TileToggle',
@@ -18,9 +18,9 @@ const Template = (args) => {
     })
     return (
         <div>
-            <TileToggle {...args} name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
-            <TileToggle {...args} name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
-            <TileToggle {...args} name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })} />
+            <TileToggle {...args} checked={state.tile1} name='Twin state' onChange={() => setState({ ...state, tile1: !state.tile1 })} />
+            <TileToggle {...args} checked={state.tile2} name='Subscribe & notify' onChange={() => setState({ ...state, tile2: !state.tile2 })} />
+            <TileToggle {...args} checked={state.tile3} name='Logging' onChange={() => setState({ ...state, tile3: !state.tile3 })} />
         </div>
     )
 }
@@ -36,9 +36,9 @@ const TemplateTileRow = (args) => {
     })
     return (
         <TileToggleRow>
-            <TileToggle {...args} name='Twin state' checked={state.tile1} onChange={() => setState({ ...state, tile1: !state.tile1 })} />
-            <TileToggle {...args} name='Subscribe & notify' checked={state.tile2} onChange={() => setState({ ...state, tile2: !state.tile2 })} />
-            <TileToggle {...args} name='Logging' checked={state.tile3} onChange={() => setState({ ...state, tile3: !state.tile3 })}>
+            <TileToggle {...args} checked={state.tile1} name='Twin state' onChange={() => setState({ ...state, tile1: !state.tile1 })} />
+            <TileToggle {...args} checked={state.tile2} name='Subscribe & notify' onChange={() => setState({ ...state, tile2: !state.tile2 })} />
+            <TileToggle {...args} checked={state.tile3} name='Logging' onChange={() => setState({ ...state, tile3: !state.tile3 })}>
                 Text here
             </TileToggle>
         </TileToggleRow>

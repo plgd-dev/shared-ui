@@ -1,5 +1,5 @@
 import React from 'react'
-import FormSelect from '../../components/new/FormSelect'
+import FormSelect from '../../components/Atomic/FormSelect'
 import '../global.css'
 
 export default {

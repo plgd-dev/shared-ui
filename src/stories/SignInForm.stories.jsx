@@ -1,11 +1,11 @@
 import React from 'react'
-import Link from '../components/new/Link'
-import FormGroup from '../components/new/FormGroup'
-import FormLabel from '../components/new/FormLabel'
-import FormInput from '../components/new/FormInput'
-import Checkbox from '../components/new/Checkbox'
-import Button from '../components/new/Button'
-import SignInForm from '../components/new/Templates/SignInForm'
+import Link from '../components/Atomic/Link'
+import FormGroup from '../components/Atomic/FormGroup'
+import FormLabel from '../components/Atomic/FormLabel'
+import FormInput from '../components/Atomic/FormInput'
+import Checkbox from '../components/Atomic/Checkbox'
+import Button from '../components/Atomic/Button'
+import SignInForm from '../components/Templates/SignInForm'
 import './global.css'
 
 export default {

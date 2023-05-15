@@ -1,5 +1,5 @@
 import React from 'react'
-import InitializedByDifferentUser from '../components/new/Pages/InitializedByDifferentUser'
+import InitializedByDifferentUser from '../components/Organisms/InitializedByDifferentUser'
 
 export default {
     title: 'Pages/InitializedByDifferentUser',

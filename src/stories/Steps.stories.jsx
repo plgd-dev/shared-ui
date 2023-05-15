@@ -1,5 +1,5 @@
 import React from 'react'
-import Steps from '../components/new/Templates/Steps'
+import Steps from '../components/Templates/Steps'
 
 export default {
     title: 'Templates/Steps',

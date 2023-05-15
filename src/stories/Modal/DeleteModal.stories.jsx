@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Button from '../../components/new/Button'
-import { DeleteModal } from '../../components/new/Modal'
+import Button from '../../components/Atomic/Button'
+import { DeleteModal } from '../../components/Atomic/Modal'
 
 export default {
     title: 'Modal/DeleteModal',
@@ -17,7 +17,10 @@ const Template = (args) => {
         <div>
             <Button onClick={() => setShow(true)}>Show modal</Button>
             <DeleteModal
-                onClose={() => setShow(false)}
+                deleteInformation={[
+                    { label: 'Device Name', value: 'August Doorbell Cam' },
+                    { label: 'Device ID', value: '376ee947-4801-5cfe-3a8f-49103697f7d1' },
+                ]}
                 footerActions={[
                     {
                         label: 'Cancel',
@@ -30,13 +33,10 @@ const Template = (args) => {
                         variant: 'primary',
                     },
                 ]}
+                onClose={() => setShow(false)}
                 show={show}
-                title='Are you sure you want to delete this device?'
                 subTitle='This action cannot be undone.'
-                deleteInformation={[
-                    { label: 'Device Name', value: 'August Doorbell Cam' },
-                    { label: 'Device ID', value: '376ee947-4801-5cfe-3a8f-49103697f7d1' },
-                ]}
+                title='Are you sure you want to delete this device?'
             />
         </div>
     )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from '../../components/new/Button'
+import Button from '../../components/Atomic/Button'
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
 import '../global.css'
 

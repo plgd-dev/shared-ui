@@ -1,5 +1,5 @@
 import React from 'react'
-import ActionButton from '../../components/new/ActionButton'
+import ActionButton from '../../components/Atomic/ActionButton'
 import '../global.css'
 
 export default {

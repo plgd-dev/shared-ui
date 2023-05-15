@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Modal from '../../components/new/Modal'
-import ModalStrippedLine from '../../components/new/Modal/ModalStrippedLine'
-import Button from '../../components/new/Button'
-import Switch from '../../components/new/Switch'
-import TimeoutControl from '../../components/new/TimeoutControl'
-import Editor from '../../components/new/Editor'
+import Modal from '../../components/Atomic/Modal'
+import ModalStrippedLine from '../../components/Atomic/Modal/ModalStrippedLine'
+import Button from '../../components/Atomic/Button'
+import Switch from '../../components/Atomic/Switch'
+import TimeoutControl from '../../components/Atomic/TimeoutControl'
+import Editor from '../../components/Atomic/Editor'
 
 export default {
     title: 'Modal/Default',
