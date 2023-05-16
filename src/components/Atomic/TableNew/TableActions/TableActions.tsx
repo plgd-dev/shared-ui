@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { Props } from './TableActions.types'
 import * as styles from './TableActions.styles'
 import Tooltip, { FloatingDelayGroup } from '../../Tooltip'
 import Icon from '../../Icon'
 
-const TableActions: FC<Props> = (props) => {
+const TableActions: FC<Props> = memo((props) => {
     const { className, id, items } = props
     return (
         <div className={className} id={id}>
@@ -21,7 +21,7 @@ const TableActions: FC<Props> = (props) => {
             </FloatingDelayGroup>
         </div>
     )
-}
+})
 
 TableActions.displayName = 'TableActions'
 

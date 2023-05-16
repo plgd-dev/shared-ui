@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import ActionButton from '../../Atomic/ActionButton'
@@ -6,7 +6,7 @@ import { Props, ItemType } from './TableActionButton.types'
 import TableActions from '../../Atomic/TableNew/TableActions'
 import isFunction from 'lodash/isFunction'
 
-const TableActionButton: FC<Props> = (props) => {
+const TableActionButton: FC<Props> = memo((props) => {
     const { disabled, items, onToggle } = props
 
     const onChange = (matches: boolean) => {
@@ -48,7 +48,7 @@ const TableActionButton: FC<Props> = (props) => {
             portalTarget={document.getElementById('modal-root')}
         />
     )
-}
+})
 
 TableActionButton.displayName = 'TableActionButton'
 

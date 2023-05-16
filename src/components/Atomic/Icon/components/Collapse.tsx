@@ -1,10 +1,9 @@
 // Auto-generated file created by svgr-cli source svg-template.js
-// Run yarn icons:create to update
-// Do not edit
+// Do not edit directly
 import * as React from 'react'
-import { SVGProps } from 'react'
-const SvgCollapse = (props: SVGProps<SVGSVGElement>) => (
-    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
+import { SVGProps, Ref, forwardRef } from 'react'
+const SvgCollapse = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' ref={ref} {...props}>
         <path d='M21 7H9h12Z' fill='currentcolor' />
         <path d='M21 7H9M21 12H9M21 17H9' stroke='currentcolor' strokeWidth={2} strokeLinecap='round' />
         <path
@@ -15,4 +14,5 @@ const SvgCollapse = (props: SVGProps<SVGSVGElement>) => (
         />
     </svg>
 )
-export default SvgCollapse
+const ForwardRef = forwardRef(SvgCollapse)
+export default ForwardRef

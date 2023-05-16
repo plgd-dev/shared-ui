@@ -2,8 +2,13 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { colors } from '../_utils/colors'
 
+export const tableComponent = css`
+    height: 100%;
+`
+
 export const tableWrapper = css`
     overflow: auto;
+    height: 100%;
 `
 
 export const table = css`

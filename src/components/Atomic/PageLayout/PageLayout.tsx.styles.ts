@@ -11,6 +11,8 @@ export const top = css`
     height: 100%;
     display: flex;
     flex-direction: column;
+    flex: 1 1 auto;
+    overflow: hidden;
 `
 
 export const header = css`
@@ -24,6 +26,8 @@ export const left = css`
     display: flex;
     align-items: center;
     flex: 1 1 auto;
+    position: relative;
+    z-index: 1;
 `
 
 export const headline = css`

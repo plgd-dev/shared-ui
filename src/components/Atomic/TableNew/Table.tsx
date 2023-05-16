@@ -169,7 +169,7 @@ const Table: FC<Props> = (props) => {
     }
 
     return (
-        <div className={className} id={id}>
+        <div className={className} css={styles.tableComponent} id={id}>
             {globalSearch && (
                 <TableGlobalFilter
                     globalFilter={globalFilter}

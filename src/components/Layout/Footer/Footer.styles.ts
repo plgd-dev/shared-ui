@@ -7,6 +7,17 @@ export const footer = css`
     background: #fff;
     padding: 0 40px;
     box-sizing: border-box;
+    flex-shrink: 0;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+`
+
+export const footerInner = css`
+    flex: 0 0 420px;
 `
 
 export const footerMainLine = css`

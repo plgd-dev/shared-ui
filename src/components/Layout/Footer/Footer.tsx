@@ -1,9 +1,9 @@
 import { FC, memo } from 'react'
+import { motion } from 'framer-motion'
+import isFunction from 'lodash/isFunction'
 import { Props } from './Footer.types'
 import * as styles from './Footer.styles'
 import { Icon } from '../../Atomic/Icon'
-import { motion } from 'framer-motion'
-import isFunction from "lodash/isFunction";
 
 const Footer: FC<Props> = memo((props) => {
     const { paginationComponent, recentTasksPortal, recentTasksPortalTitle, footerExpanded, setFooterExpanded } = props
@@ -41,12 +41,14 @@ const Footer: FC<Props> = memo((props) => {
                 duration: 0.3,
             }}
         >
-            <div css={styles.footerMainLine}>
-                <LeftSide />
-                <div>{paginationComponent}</div>
-            </div>
+            <div css={styles.footerInner}>
+                <div css={styles.footerMainLine}>
+                    <LeftSide />
+                    <div>{paginationComponent}</div>
+                </div>
 
-            {recentTasksPortal}
+                {recentTasksPortal}
+            </div>
         </motion.div>
     )
 })

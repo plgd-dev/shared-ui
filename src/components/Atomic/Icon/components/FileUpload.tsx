@@ -1,10 +1,9 @@
 // Auto-generated file created by svgr-cli source svg-template.js
-// Run yarn icons:create to update
-// Do not edit
+// Do not edit directly
 import * as React from 'react'
-import { SVGProps } from 'react'
-const SvgFileUpload = (props: SVGProps<SVGSVGElement>) => (
-    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 50 61' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
+import { SVGProps, Ref, forwardRef } from 'react'
+const SvgFileUpload = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 50 61' fill='none' xmlns='http://www.w3.org/2000/svg' ref={ref} {...props}>
         <path
             d='M.5 6A5.5 5.5 0 0 1 6 .5h23.046A5.5 5.5 0 0 1 32.9 2.077l3.25 3.192 3.705 3.64a5.5 5.5 0 0 1 1.645 3.923V50a5.5 5.5 0 0 1-5.5 5.5H6A5.5 5.5 0 0 1 .5 50V6Z'
             fill='#F6F7F9'
@@ -37,4 +36,5 @@ const SvgFileUpload = (props: SVGProps<SVGSVGElement>) => (
         />
     </svg>
 )
-export default SvgFileUpload
+const ForwardRef = forwardRef(SvgFileUpload)
+export default ForwardRef

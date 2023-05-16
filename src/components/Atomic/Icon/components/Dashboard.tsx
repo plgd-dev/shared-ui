@@ -1,10 +1,9 @@
 // Auto-generated file created by svgr-cli source svg-template.js
-// Run yarn icons:create to update
-// Do not edit
+// Do not edit directly
 import * as React from 'react'
-import { SVGProps } from 'react'
-const SvgDashboard = (props: SVGProps<SVGSVGElement>) => (
-    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
+import { SVGProps, Ref, forwardRef } from 'react'
+const SvgDashboard = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg' ref={ref} {...props}>
         <mask
             id='dashboard_svg__a'
             style={{
@@ -28,4 +27,5 @@ const SvgDashboard = (props: SVGProps<SVGSVGElement>) => (
         </g>
     </svg>
 )
-export default SvgDashboard
+const ForwardRef = forwardRef(SvgDashboard)
+export default ForwardRef

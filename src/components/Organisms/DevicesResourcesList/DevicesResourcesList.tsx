@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import Table from '../../Atomic/TableNew'
 import { RESOURCES_DEFAULT_PAGE_SIZE } from '../../../common/constants'
 import { Props } from './DevicesResourcesList.types'
 
-const DevicesResourcesList: FC<Props> = (props) => {
+const DevicesResourcesList: FC<Props> = memo((props) => {
     const { data, isActiveTab, pageSize, i18n, columns } = props
 
     return (
@@ -23,7 +23,7 @@ const DevicesResourcesList: FC<Props> = (props) => {
             paginationPortalTargetId={isActiveTab ? 'paginationPortalTarget' : undefined}
         />
     )
-}
+})
 
 DevicesResourcesList.displayName = 'DevicesResourcesList'
 

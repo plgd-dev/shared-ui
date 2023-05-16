@@ -1,10 +1,9 @@
 // Auto-generated file created by svgr-cli source svg-template.js
-// Run yarn icons:create to update
-// Do not edit
+// Do not edit directly
 import * as React from 'react'
-import { SVGProps } from 'react'
-const SvgArrowTriangleFullUp = (props: SVGProps<SVGSVGElement>) => (
-    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 6 11' fill='none' xmlns='http://www.w3.org/2000/svg' {...props}>
+import { SVGProps, Ref, forwardRef } from 'react'
+const SvgArrowTriangleFullUp = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
+    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 6 11' fill='none' xmlns='http://www.w3.org/2000/svg' ref={ref} {...props}>
         <path
             fillRule='evenodd'
             clipRule='evenodd'
@@ -24,4 +23,5 @@ const SvgArrowTriangleFullUp = (props: SVGProps<SVGSVGElement>) => (
         </defs>
     </svg>
 )
-export default SvgArrowTriangleFullUp
+const ForwardRef = forwardRef(SvgArrowTriangleFullUp)
+export default ForwardRef
