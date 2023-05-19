@@ -7,6 +7,7 @@ import StatusPill from '../../components/Atomic/StatusPill'
 import sample from 'lodash/sample'
 import '../global.css'
 import TableSelectionPanel from '../../components/Atomic/TableNew/TableSelectionPanel/TableSelectionPanel'
+import { IconEdit, IconLink, IconShowPassword, IconTrash } from '../../components/Atomic'
 
 export default {
     title: 'Table/Table',
@@ -67,7 +68,7 @@ const Template = (args) => {
                 Header: 'Shared',
                 accessor: 'col5',
                 Cell: ({ value }) => (
-                    <Tag icon='link' onClick={console.log}>
+                    <Tag icon={<IconLink />} onClick={console.log}>
                         {value}
                     </Tag>
                 ),
@@ -79,8 +80,8 @@ const Template = (args) => {
                 Cell: ({ row }) => (
                     <TableActions
                         items={[
-                            { icon: 'trash', onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
-                            { icon: 'icon-show-password', onClick: console.log, id: `detail-row-${row.index}`, tooltipText: 'Detail' },
+                            { icon: <IconTrash />, onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
+                            { icon: <IconShowPassword />, onClick: console.log, id: `detail-row-${row.index}`, tooltipText: 'Detail' },
                         ]}
                     />
                 ),
@@ -176,8 +177,8 @@ const TemplateSmall = (args) => {
                 Cell: ({ row }) => (
                     <TableActions
                         items={[
-                            { icon: 'trash', onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
-                            { icon: 'edit', onClick: console.log, id: `edit-row-${row.index}`, tooltipText: 'Edit' },
+                            { icon: <IconTrash />, onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
+                            { icon: <IconEdit />, onClick: console.log, id: `edit-row-${row.index}`, tooltipText: 'Edit' },
                         ]}
                     />
                 ),
@@ -208,6 +209,9 @@ const TemplateSmall = (args) => {
                     },
                 ]}
                 globalSearch={false}
+                i18n={{
+                    search: 'search',
+                }}
                 paginationPortalTarget={ref}
             />
             <div id='paginationPortalTarget' ref={ref} style={{ border: '1px solid red', marginTop: '20px' }}></div>

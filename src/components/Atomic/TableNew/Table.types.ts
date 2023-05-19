@@ -16,6 +16,7 @@ export type TableColumnType = {
 export type TableDataType = any
 
 export type Props = {
+    autoHeight?: boolean
     autoFillEmptyRows?: boolean
     className?: string
     columns: TableColumnType[]

@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import Layout from '../../components/Layout'
 import LeftPanel from '../../components/Layout/LeftPanel'
 import Header from '../../components/Layout/Header'
@@ -21,7 +21,7 @@ import TileToggleRow from '../../components/Atomic/TileToggle/TileToggleRow'
 import Headline from '../../components/Atomic/Headline'
 import Tabs from '../../components/Atomic/Tabs'
 import TagGroup from '../../components/Atomic/TagGroup'
-import { Icon } from '../../components/Atomic/Icon'
+import { convertSize, IconCloudSuccess, IconEdit, IconLink, IconPlus, IconRefresh, IconShowPassword, IconTrash } from '../../components/Atomic/Icon'
 import SimpleStripTable from '../../components/Atomic/SimpleStripTable'
 import { leftPanelMenu } from '../data'
 import { severities } from '../../components/Atomic/VersionMark/constants'
@@ -85,7 +85,7 @@ const TemplateDashboard = (args) => {
                 Header: 'Shared',
                 accessor: 'col5',
                 Cell: ({ value }) => (
-                    <Tag icon='link' onClick={console.log}>
+                    <Tag icon={<IconLink />} onClick={console.log}>
                         {value}
                     </Tag>
                 ),
@@ -97,8 +97,8 @@ const TemplateDashboard = (args) => {
                 Cell: ({ row }) => (
                     <TableActions
                         items={[
-                            { icon: 'trash', onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
-                            { icon: 'icon-show-password', onClick: console.log, id: `detail-row-${row.index}`, tooltipText: 'Detail' },
+                            { icon: <IconTrash />, onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
+                            { icon: <IconShowPassword />, onClick: console.log, id: `detail-row-${row.index}`, tooltipText: 'Detail' },
                         ]}
                     />
                 ),
@@ -140,7 +140,9 @@ const TemplateDashboard = (args) => {
                 Header: 'Actions',
                 accessor: 'col6',
                 disableSortBy: true,
-                Cell: ({ row }) => <TableActions items={[{ icon: 'trash', onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' }]} />,
+                Cell: ({ row }) => (
+                    <TableActions items={[{ icon: <IconTrash />, onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' }]} />
+                ),
                 className: 'actions',
             },
         ],
@@ -190,12 +192,12 @@ const TemplateDashboard = (args) => {
                 <Content
                     actions={[
                         {
-                            icon: 'refresh',
+                            icon: <IconRefresh />,
                             text: 'Secondary',
                             onClick: () => console.log('secondary'),
                         },
                         {
-                            icon: 'plus',
+                            icon: <IconPlus />,
                             text: 'Primary',
                             variant: 'primary',
                             onClick: () => console.log('primary'),
@@ -316,8 +318,8 @@ const TemplateDeviceDetail = (args) => {
                 Cell: ({ row }) => (
                     <TableActions
                         items={[
-                            { icon: 'trash', onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
-                            { icon: 'edit', onClick: console.log, id: `edit-row-${row.index}`, tooltipText: 'Edit' },
+                            { icon: <IconTrash />, onClick: console.log, id: `delete-row-${row.index}`, tooltipText: 'Delete' },
+                            { icon: <IconEdit />, onClick: console.log, id: `edit-row-${row.index}`, tooltipText: 'Edit' },
                         ]}
                     />
                 ),
@@ -376,7 +378,7 @@ const TemplateDeviceDetail = (args) => {
                                 attribute: 'Firmware',
                                 value: (
                                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                        <span style={{ marginRight: 6 }}>0.22.1</span> <Icon icon='cloud-success' size={24} />
+                                        <span style={{ marginRight: 6 }}>0.22.1</span> <IconCloudSuccess {...convertSize(24)} />
                                     </div>
                                 ),
                             },

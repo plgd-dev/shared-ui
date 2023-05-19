@@ -17,6 +17,7 @@ const HEADER_HEIGHT = 62
 
 const Table: FC<Props> = (props) => {
     const {
+        autoHeight,
         autoFillEmptyRows,
         className,
         columns,
@@ -168,6 +169,16 @@ const Table: FC<Props> = (props) => {
             : null
     }
 
+    const calculateTableHeight = () => {
+        if (autoHeight) {
+            const num = page.length < pageSize ? page.length : pageSize
+
+            return {
+                height: num * rowHeight - HEADER_HEIGHT,
+            }
+        }
+    }
+
     return (
         <div className={className} css={styles.tableComponent} id={id}>
             {globalSearch && (
@@ -186,100 +197,102 @@ const Table: FC<Props> = (props) => {
                     height: height ? height - HEADER_HEIGHT : height,
                 }}
             >
-                <table {...getTableProps()} css={styles.table}>
-                    <thead>
-                        {headerGroups.map((headerGroup: any) => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map((column: any, key: number) => (
-                                    // Sorting props to control sorting
-                                    <th
-                                        {...column.getHeaderProps(column.getSortByToggleProps())}
-                                        className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
-                                        css={styles.headerTh}
-                                        style={{
-                                            ...column.getHeaderProps(column.getSortByToggleProps()).style,
-                                            ...column.style,
-                                        }}
-                                    >
-                                        <div
-                                            css={[
-                                                styles.headerItem,
-                                                key === 0 && styles.headerItemFirst,
-                                                key === headerGroup.headers.length - 1 && styles.headerItemLast,
-                                            ]}
+                <div style={calculateTableHeight()}>
+                    <table {...getTableProps()} css={styles.table}>
+                        <thead>
+                            {headerGroups.map((headerGroup: any) => (
+                                <tr {...headerGroup.getHeaderGroupProps()}>
+                                    {headerGroup.headers.map((column: any, key: number) => (
+                                        // Sorting props to control sorting
+                                        <th
+                                            {...column.getHeaderProps(column.getSortByToggleProps())}
+                                            className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
+                                            css={styles.headerTh}
+                                            style={{
+                                                ...column.getHeaderProps(column.getSortByToggleProps()).style,
+                                                ...column.style,
+                                            }}
                                         >
-                                            <HeaderTitle>{column.render('Header')}</HeaderTitle>
-                                            {column.canSort && (
-                                                <span
-                                                    className={classNames('sort-arrows', {
-                                                        desc: column.isSorted && column.isSortedDesc,
-                                                        asc: column.isSorted && !column.isSortedDesc,
-                                                    })}
-                                                    css={styles.sortArrows}
-                                                >
-                                                    <IconTableArrowUp
-                                                        {...convertSize(6)}
-                                                        css={[styles.sortArrow, column.isSorted && !column.isSortedDesc && styles.sortActive]}
-                                                    />
-                                                    <IconTableArrowDown
-                                                        {...convertSize(6)}
-                                                        css={[styles.sortArrow, column.isSorted && column.isSortedDesc && styles.sortActive]}
-                                                    />
-                                                </span>
-                                            )}
-                                        </div>
-                                    </th>
-                                ))}
-                            </tr>
-                        ))}
-                    </thead>
-                    <tbody {...getTableBodyProps()}>
-                        {page.map((row: any, key: number) => {
-                            prepareRow(row)
-                            return (
-                                <tr {...row.getRowProps(getRowProps!(row))} css={[styles.row, row.isSelected && styles.isSelected]}>
-                                    {row.cells.map((cell: any, cellKey: number) => {
-                                        return (
-                                            <td
-                                                {...cell.getCellProps([
-                                                    {
-                                                        className: cell.column.className,
-                                                        style: cell.column.style,
-                                                    },
-                                                    getColumnProps!(cell.column),
-                                                    getCellProps!(cell),
-                                                ])}
-                                                data-row={row.id}
+                                            <div
+                                                css={[
+                                                    styles.headerItem,
+                                                    key === 0 && styles.headerItemFirst,
+                                                    key === headerGroup.headers.length - 1 && styles.headerItemLast,
+                                                ]}
                                             >
-                                                <Cell
-                                                    css={[
-                                                        key === 0 && styles.firstRowCell,
-                                                        cellKey === 0 && styles.firstCell,
-                                                        cellKey === row.cells.length - 1 && styles.lastCell,
-                                                    ]}
-                                                    rowHeight={rowHeight}
-                                                >
-                                                    {cell.render('Cell')}
-                                                </Cell>
-                                            </td>
-                                        )
-                                    })}
+                                                <HeaderTitle>{column.render('Header')}</HeaderTitle>
+                                                {column.canSort && (
+                                                    <span
+                                                        className={classNames('sort-arrows', {
+                                                            desc: column.isSorted && column.isSortedDesc,
+                                                            asc: column.isSorted && !column.isSortedDesc,
+                                                        })}
+                                                        css={styles.sortArrows}
+                                                    >
+                                                        <IconTableArrowUp
+                                                            {...convertSize(6)}
+                                                            css={[styles.sortArrow, column.isSorted && !column.isSortedDesc && styles.sortActive]}
+                                                        />
+                                                        <IconTableArrowDown
+                                                            {...convertSize(6)}
+                                                            css={[styles.sortArrow, column.isSorted && column.isSortedDesc && styles.sortActive]}
+                                                        />
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </th>
+                                    ))}
                                 </tr>
-                            )
-                        })}
-                        {/* {autoFillEmptyRows &&*/}
-                        {/*    page.length < pageSize &&*/}
-                        {/*    Array(pageSize - page.length)*/}
-                        {/*        .fill(0)*/}
-                        {/*        .map((emptyRow, i) => {*/}
-                        {/*            return (*/}
-                        {/*                <tr key={`empty-table-row-${i}`}>*/}
-                        {/*                    <td colSpan={100} />*/}
-                        {/*                </tr>*/}
-                        {/*            )*/}
-                        {/*        })}*/}
-                    </tbody>
-                </table>
+                            ))}
+                        </thead>
+                        <tbody {...getTableBodyProps()}>
+                            {page.map((row: any, key: number) => {
+                                prepareRow(row)
+                                return (
+                                    <tr {...row.getRowProps(getRowProps!(row))} css={[styles.row, row.isSelected && styles.isSelected]}>
+                                        {row.cells.map((cell: any, cellKey: number) => {
+                                            return (
+                                                <td
+                                                    {...cell.getCellProps([
+                                                        {
+                                                            className: cell.column.className,
+                                                            style: cell.column.style,
+                                                        },
+                                                        getColumnProps!(cell.column),
+                                                        getCellProps!(cell),
+                                                    ])}
+                                                    data-row={row.id}
+                                                >
+                                                    <Cell
+                                                        css={[
+                                                            key === 0 && styles.firstRowCell,
+                                                            cellKey === 0 && styles.firstCell,
+                                                            cellKey === row.cells.length - 1 && styles.lastCell,
+                                                        ]}
+                                                        rowHeight={rowHeight}
+                                                    >
+                                                        {cell.render('Cell')}
+                                                    </Cell>
+                                                </td>
+                                            )
+                                        })}
+                                    </tr>
+                                )
+                            })}
+                            {/* {autoFillEmptyRows &&*/}
+                            {/*    page.length < pageSize &&*/}
+                            {/*    Array(pageSize - page.length)*/}
+                            {/*        .fill(0)*/}
+                            {/*        .map((emptyRow, i) => {*/}
+                            {/*            return (*/}
+                            {/*                <tr key={`empty-table-row-${i}`}>*/}
+                            {/*                    <td colSpan={100} />*/}
+                            {/*                </tr>*/}
+                            {/*            )*/}
+                            {/*        })}*/}
+                        </tbody>
+                    </table>
+                </div>
             </div>
             {enablePagination && renderPagination()}
         </div>

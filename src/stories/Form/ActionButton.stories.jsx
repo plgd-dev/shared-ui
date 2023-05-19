@@ -1,6 +1,7 @@
 import React from 'react'
 import ActionButton from '../../components/Atomic/ActionButton'
 import '../global.css'
+import { IconEdit, IconPlus, IconTrash } from '../../components/Atomic'
 
 export default {
     title: 'Form/ActionButton',
@@ -21,17 +22,17 @@ const Template = (args) => (
                 {
                     onClick: () => console.log('Create'),
                     label: 'Create',
-                    icon: 'plus',
+                    icon: <IconPlus />,
                 },
                 {
                     onClick: () => console.log('Update'),
                     label: 'Update',
-                    icon: 'edit',
+                    icon: <IconEdit />,
                 },
                 {
                     onClick: () => console.log('Delete'),
                     label: 'Delete',
-                    icon: 'trash',
+                    icon: <IconTrash />,
                 },
             ]}
             menuProps={{

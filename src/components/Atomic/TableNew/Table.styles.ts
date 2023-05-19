@@ -4,6 +4,10 @@ import { colors } from '../_utils/colors'
 
 export const tableComponent = css`
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: hidden;
 `
 
 export const tableWrapper = css`

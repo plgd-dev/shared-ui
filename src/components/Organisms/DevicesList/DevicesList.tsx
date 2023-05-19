@@ -26,6 +26,7 @@ const DevicesList: FC<Props> = (props) => {
     return (
         <>
             <Table
+                autoHeight={true}
                 columns={columns}
                 data={validData(data)}
                 defaultPageSize={DEVICES_DEFAULT_PAGE_SIZE}
