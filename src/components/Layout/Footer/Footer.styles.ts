@@ -12,8 +12,6 @@ export const footer = css`
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    position: relative;
-    z-index: 2;
 `
 
 export const footerInner = css`
