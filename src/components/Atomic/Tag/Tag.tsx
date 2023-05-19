@@ -21,7 +21,7 @@ const Tag: FC<Props> = (props) => {
             id={id}
             onClick={onClick}
         >
-            {getIcon()}
+            {getIcon(icon)}
             {children}
         </div>
     )
