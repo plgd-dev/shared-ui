@@ -5,7 +5,7 @@ import * as styles from './Table.styles'
 import { usePagination, useRowSelect, useSortBy, useTable, useGlobalFilter } from 'react-table'
 import { compareIgnoreCase } from './Utils'
 import classNames from 'classnames'
-import Icon from '../Icon'
+import { IconTableArrowDown, IconTableArrowUp, convertSize } from '../Icon'
 import Checkbox from '../Checkbox'
 import { createPortal } from 'react-dom'
 import Pagination from '../../Layout/Footer/Pagination/Pagination'
@@ -217,15 +217,13 @@ const Table: FC<Props> = (props) => {
                                                     })}
                                                     css={styles.sortArrows}
                                                 >
-                                                    <Icon
+                                                    <IconTableArrowUp
+                                                        {...convertSize(6)}
                                                         css={[styles.sortArrow, column.isSorted && !column.isSortedDesc && styles.sortActive]}
-                                                        icon='table-arrow-up'
-                                                        size={6}
                                                     />
-                                                    <Icon
+                                                    <IconTableArrowDown
+                                                        {...convertSize(6)}
                                                         css={[styles.sortArrow, column.isSorted && column.isSortedDesc && styles.sortActive]}
-                                                        icon='table-arrow-down'
-                                                        size={6}
                                                     />
                                                 </span>
                                             )}

@@ -10,7 +10,7 @@ import Button from '../../../Button'
 import * as styles from './ProvisionDeviceModal.styles'
 import CopyElement from '../../../CopyElement'
 import Tooltip from '../../../Tooltip'
-import Icon from '../../../Icon'
+import { IconCopy } from '../../../Icon'
 import { copyToClipboard } from '../../../../../common/utils'
 
 const ProvisionDeviceModal: FC<Props> = (props) => {
@@ -37,7 +37,7 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
             <div css={styles.value}>
                 {data.value}
                 <Tooltip content={i18n.copy} css={styles.icon} id={`tooltip-group-${data.attribute}`} portalTarget={undefined}>
-                    <Icon icon='copy' onClick={() => copyToClipboard(data?.copyValue || data.value, data.certFormat)} size={16} />
+                    <IconCopy onClick={() => copyToClipboard(data?.copyValue || data.value, data.certFormat)} />
                 </Tooltip>
             </div>
         </div>

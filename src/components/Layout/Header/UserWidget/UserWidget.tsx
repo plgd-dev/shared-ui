@@ -4,7 +4,7 @@ import * as styles from './UserWidget.styles'
 import Avatar from 'react-avatar'
 import { useClickOutside } from '../../../../common/hooks'
 import { offset, shift, useFloating } from '@floating-ui/react'
-import Icon from '../../../Atomic/Icon'
+import { convertSize, IconArrowDown } from '../../../Atomic/Icon'
 
 const UserWidget: FC<Props> = (props) => {
     const { name, description, defaultOpen, dropdownItems, image, loading } = props
@@ -43,7 +43,7 @@ const UserWidget: FC<Props> = (props) => {
                 </div>
                 {dropdownItems && (
                     <div css={styles.widgetArrow}>
-                        <Icon css={[styles.icon, open && styles.iconActive]} icon='arrow-down' size={12} />
+                        <IconArrowDown {...convertSize(12)} css={[styles.icon, open && styles.iconActive]} />
                     </div>
                 )}
             </div>
@@ -60,7 +60,7 @@ const UserWidget: FC<Props> = (props) => {
                     }}
                 >
                     {dropdownItems.map((item) => (
-                        <div css={styles.item} onClick={item.onClick} key={item.title}>
+                        <div css={styles.item} key={item.title} onClick={item.onClick}>
                             {item.title}
                         </div>
                     ))}

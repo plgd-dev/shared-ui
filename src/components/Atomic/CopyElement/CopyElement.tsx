@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { defaultProps, Props } from './CopyElement.types'
 import * as styles from './CopyElement.styles'
-import { Icon } from '../Icon'
+import { IconCopy } from '../Icon'
 import { copyToClipboard } from '../../../common/utils'
 
 const CopyElement: FC<Props> = (props) => {
@@ -28,11 +28,11 @@ const CopyElement: FC<Props> = (props) => {
     return (
         <div css={styles.copyElement}>
             <a css={styles.copy} href='src/components/atomic/CopyElement/index#' onClick={handleCopy}>
-                <Icon icon='copy' />
+                <IconCopy />
                 <span css={styles.text}>{copyText}</span>
             </a>
             <a css={[styles.copied, copied && styles.active]} href='src/components/atomic/CopyElement/index#' onClick={(e) => e.preventDefault()}>
-                <Icon icon='copy' />
+                <IconCopy />
                 <span css={styles.text}>{copiedText}</span>
             </a>
         </div>

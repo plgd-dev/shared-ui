@@ -1,8 +1,8 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { cloneElement, FC, ReactElement, useEffect, useRef, useState } from 'react'
 import Button from '../Button'
-import { Props, defaultProps } from './SplitButton.types'
+import { Props, defaultProps, SplitButtonItemType } from './SplitButton.types'
 import * as styles from './SplitButton.styles'
-import Icon from '../Icon'
+import Icon, { convertSize, IconArrowDown } from '../Icon'
 import { offset, shift, useFloating } from '@floating-ui/react'
 import isFunction from 'lodash/isFunction'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -34,6 +34,18 @@ const SplitButton: FC<Props> = (props) => {
             }
         }
     }, [ref, open])
+
+    const getIcon = (item: SplitButtonItemType) => {
+        if (item.icon) {
+            return typeof item.icon === 'string' ? (
+                <Icon css={styles.itemIcon} icon={item.icon} size={20} />
+            ) : (
+                cloneElement(item.icon as ReactElement, { ...convertSize(20), css: styles.itemIcon })
+            )
+        }
+
+        return null
+    }
 
     return (
         <div ref={ref}>
@@ -69,7 +81,7 @@ const SplitButton: FC<Props> = (props) => {
                             stiffness: 500,
                         }}
                     >
-                        <Icon icon='arrow-down' />
+                        <IconArrowDown />
                     </motion.div>
                 </Button>
 
@@ -97,7 +109,7 @@ const SplitButton: FC<Props> = (props) => {
                                                 isFunction(item.onClick) && item.onClick(e)
                                             }}
                                         >
-                                            {item.icon && <Icon css={styles.itemIcon} icon={item.icon} size={20} />}
+                                            {getIcon(item)}
                                             <span css={styles.itemLabel}>{item.label}</span>
                                         </div>
                                     )

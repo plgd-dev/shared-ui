@@ -3,7 +3,7 @@ import { Accept, FileError } from 'react-dropzone'
 
 export type CustomFileRenderType = {
     format: string
-    icon: string
+    icon: ReactNode
 }
 
 export type Props = {

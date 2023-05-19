@@ -1,5 +1,7 @@
+import { ReactNode } from 'react'
+
 export type TableActionItemType = {
-    icon: string
+    icon: ReactNode
     id: string
     onClick: () => void
     tooltipText: string

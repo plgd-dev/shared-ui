@@ -7,8 +7,8 @@ import pick from 'lodash/pick'
 import * as styles from './Toast.styles'
 import { toastTypes, DEFAULT_CONTAINER_ID, TOAST_HIDE_TIME, toastVariants } from './constants'
 import { translateToastString } from './utils'
-import Icon from '../Icon'
-import { MessageType, ToastSettings } from './Toast.types'
+import { convertSize, IconError, IconInfo, IconSuccess, IconToastClose, IconWarning } from '../Icon'
+import { MessageType, ToastSettings, ToastTypesType } from './Toast.types'
 
 const commonSettings: Partial<ToastSettings> = {
     autoClose: TOAST_HIDE_TIME,
@@ -36,15 +36,28 @@ const ToastComponent = (props: any) => {
     const toastTitle = translateToastString(message.title, _)
     const toastMessage = translateToastString(message.message, _)
 
+    const getIcon = (type: ToastTypesType) => {
+        switch (type) {
+            case toastTypes.success:
+                return <IconSuccess {...convertSize(24)} css={styles.icon(type)} />
+            case toastTypes.warning:
+                return <IconWarning {...convertSize(24)} css={styles.icon(type)} />
+            case toastTypes.info:
+                return <IconInfo {...convertSize(24)} css={styles.icon(type)} />
+            case toastTypes.error:
+                return <IconError {...convertSize(24)} css={styles.icon(type)} />
+        }
+    }
+
     return (
         <div css={styles.toastInner}>
-            <Icon css={styles.icon(type)} icon={type} size={24} />
+            {getIcon(type)}
             <div css={styles.content}>
                 <div css={styles.headline(type)}>{toastTitle}</div>
                 <div css={styles.text}>{toastMessage}</div>
             </div>
             <a className='close-button' css={styles.closeButton} href='src/components/atomic/Notification/index#' onClick={handleClose}>
-                <Icon icon='toast-close' size={20} />
+                <IconToastClose {...convertSize(20)} />
             </a>
         </div>
     )

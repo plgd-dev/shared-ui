@@ -6,7 +6,7 @@ export type TagVariantType = typeof tagVariants[keyof typeof tagVariants]
 export type Props = {
     className?: string
     children: ReactNode
-    icon?: string
+    icon?: ReactNode
     id?: string
     onClick?: () => void
     variant?: TagVariantType

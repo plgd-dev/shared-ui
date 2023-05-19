@@ -11,7 +11,7 @@ type MenuItemTag = {
 
 export type MenuItem = {
     children?: MenuItem[]
-    icon: string
+    icon: ReactNode
     id: string
     tag?: MenuItemTag
     title: string

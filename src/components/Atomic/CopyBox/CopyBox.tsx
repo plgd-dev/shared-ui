@@ -3,7 +3,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import { v4 as uuidv4 } from 'uuid'
 import { copyToClipboard } from '../../../common/utils'
-import Icon from '../Icon'
+import { IconCopy } from '../Icon'
 import { Props, defaultProps } from './CopyBox.types'
 
 const CopyBox: FC<Props> = (props) => {
@@ -49,7 +49,7 @@ const CopyBox: FC<Props> = (props) => {
                 placement='right'
             >
                 <div className='box m-l-10' onClick={handleCopyToClipboard}>
-                    <Icon icon='copy' />
+                    <IconCopy />
                 </div>
             </OverlayTrigger>
         </div>

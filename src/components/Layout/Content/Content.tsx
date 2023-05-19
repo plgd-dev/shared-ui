@@ -23,7 +23,11 @@ const ContentHeader: FC<ContentHeaderProps> = memo((props) => {
                 <ul css={styles.rightActions}>
                     {actions.map((action, key) => (
                         <li css={styles.rightAction} key={key}>
-                            <Button icon={<Icon icon={action.icon} />} onClick={action.onClick} variant={action.variant}>
+                            <Button
+                                icon={typeof action.icon === 'string' ? <Icon icon={action.icon} /> : action.icon}
+                                onClick={action.onClick}
+                                variant={action.variant}
+                            >
                                 {action.text}
                             </Button>
                         </li>

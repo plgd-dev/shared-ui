@@ -1,7 +1,7 @@
 // Auto-generated file created by svgr-cli source svg-template.js
 // Do not edit directly
 import * as React from 'react'
-import { SVGProps, Ref, forwardRef } from 'react'
+import { SVGProps, Ref, forwardRef, memo } from 'react'
 const SvgIconShowPassword = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
     <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 25 24' fill='none' xmlns='http://www.w3.org/2000/svg' ref={ref} {...props}>
         <path
@@ -11,4 +11,5 @@ const SvgIconShowPassword = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElem
     </svg>
 )
 const ForwardRef = forwardRef(SvgIconShowPassword)
-export default ForwardRef
+const Memo = memo(ForwardRef)
+export default Memo

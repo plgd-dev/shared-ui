@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { Props } from './Popup.types'
 import * as styles from './Popup.styles'
-import Icon from '../Icon'
+import { convertSize, IconClose } from '../Icon'
 import { CSSTransition } from 'react-transition-group'
 import { Logo, Pattern, RightPattern } from './components'
 
@@ -16,7 +16,7 @@ const Popup: FC<Props> = (props) => {
                 <div css={styles.top}>
                     <div css={styles.logo}>
                         <CSSTransition appear={true} classNames='item-blur' in={showMobileBar} timeout={0}>
-                            <Logo height={38} width={170} css={styles.logoSvg} />
+                            <Logo css={styles.logoSvg} height={38} width={170} />
                         </CSSTransition>
                     </div>
                     <div css={styles.boxWrapper}>
@@ -33,14 +33,13 @@ const Popup: FC<Props> = (props) => {
                                     <div css={styles.rightHeader}>
                                         <h2 css={styles.headlineRight}>{right.headline}</h2>
                                         <CSSTransition appear={true} classNames='item-icon' in={showMobileBar} timeout={0}>
-                                            <Icon
+                                            <IconClose
+                                                {...convertSize(32)}
                                                 css={styles.close}
-                                                icon='close'
                                                 onClick={() => {
                                                     setShowMobileBar(false)
                                                     setMobileBar(false)
                                                 }}
-                                                size={32}
                                             />
                                         </CSSTransition>
                                     </div>

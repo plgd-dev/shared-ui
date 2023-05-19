@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { FC, useEffect } from 'react'
 import { Props, defaultProps } from './NotificationMessage.types'
 import * as styles from './NotificationMessage.styles'
-import { Icon } from '../Icon'
+import { convertSize, IconInfo } from '../Icon'
 import isFunction from 'lodash/isFunction'
 
 const NotificationMessage: FC<Props> = (props) => {
@@ -40,7 +40,7 @@ const NotificationMessage: FC<Props> = (props) => {
                     }}
                 >
                     <div css={styles.messageInner}>
-                        <Icon css={styles.icon(type)} icon='info' size={24} />
+                        <IconInfo {...convertSize(24)} css={styles.icon(type)} />
                         <span css={styles.type(type)}>{type}</span>
                         <span css={styles.messageText}>{message}</span>
                     </div>

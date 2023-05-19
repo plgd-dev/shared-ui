@@ -10,7 +10,7 @@ import Button from '../../../Button'
 import * as styles from './AddClientModal.styles'
 import CopyElement from '../../../CopyElement'
 import Tooltip from '../../../Tooltip'
-import Icon from '../../../Icon'
+import { IconCopy } from '../../../Icon'
 import { copyToClipboard } from '../../../../../common/utils'
 import { Column, Row } from '../../../Grid'
 
@@ -41,7 +41,7 @@ const AddClientModal: FC<Props> = (props) => {
             <div css={styles.value}>
                 {data.value}
                 <Tooltip content='Copy to clipboard' css={styles.icon} id={`tooltip-group-${data.attribute}`} portalTarget={undefined}>
-                    <Icon icon='copy' onClick={() => copyToClipboard(data?.copyValue || data.value, data.certFormat)} size={16} />
+                    <IconCopy onClick={() => copyToClipboard(data?.copyValue || data.value, data.certFormat)} />
                 </Tooltip>
             </div>
         </div>

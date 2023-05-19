@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useRef, useState } from 'react'
-import { defaultProps, Props } from './ActionButton.types'
-import { Icon } from '../Icon'
+import React, { cloneElement, FC, ReactElement, useEffect, useRef, useState } from 'react'
+import { ActionButtonItemType, defaultProps, Props } from './ActionButton.types'
+import { convertSize, Icon, IconActions } from '../Icon'
 import * as styles from './ActionButton.styles'
 import isFunction from 'lodash/isFunction'
 import { offset, shift, useFloating } from '@floating-ui/react'
@@ -40,6 +40,18 @@ const ActionButton: FC<Props> = (props) => {
         }
     }
 
+    const getIcon = (item: ActionButtonItemType) => {
+        if (item.icon) {
+            return typeof item.icon === 'string' ? (
+                <Icon css={styles.itemIcon} data-close-dropdown={false} icon={item.icon} size={20} />
+            ) : (
+                cloneElement(item.icon as ReactElement, { ...convertSize(20), 'css': styles.itemIcon, 'data-close-dropdown': false })
+            )
+        }
+
+        return null
+    }
+
     const floatingPanel = (
         <div
             css={styles.floatingMenu}
@@ -66,7 +78,7 @@ const ActionButton: FC<Props> = (props) => {
                                     isFunction(item.onClick) && item.onClick(e)
                                 }}
                             >
-                                {item.icon && <Icon css={styles.itemIcon} data-close-dropdown={false} icon={item.icon} size={20} />}
+                                {getIcon(item)}
                                 <span css={styles.itemLabel} data-close-dropdown={false}>
                                     {item.label}
                                 </span>
@@ -80,7 +92,7 @@ const ActionButton: FC<Props> = (props) => {
     return (
         <div className={className} css={styles.actionButton} id={id} ref={ref}>
             <div css={[styles.icon, open && styles.iconActive]} data-test-id={dataTestIdDropdown} onClick={handleOpen} ref={reference}>
-                <Icon icon='actions' size={20} />
+                <IconActions {...convertSize(20)} />
             </div>
 
             {open && portalTarget && createPortal(floatingPanel, portalTarget as Element)}

@@ -1,6 +1,8 @@
+import { ReactNode } from 'react'
+
 export type MenuItem = {
     to: string
-    icon: string
+    icon: ReactNode
     nameKey: string
     className?: string
 }

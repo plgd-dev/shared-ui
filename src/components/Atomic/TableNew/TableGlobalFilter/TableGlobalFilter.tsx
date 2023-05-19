@@ -2,7 +2,7 @@ import { FC, useState } from 'react'
 import { defaultProps, Props } from './TableGlobalFilter.types'
 import { useAsyncDebounce } from 'react-table'
 import * as styles from './TableGlobalFilter.styles'
-import Icon from '../../Icon'
+import { IconSearch } from '../../Icon'
 import Button from '../../Button'
 
 const TableGlobalFilter: FC<Props> = (props) => {
@@ -16,7 +16,7 @@ const TableGlobalFilter: FC<Props> = (props) => {
     return (
         <div css={styles.globalFilter}>
             <div css={styles.left}>
-                <Icon css={styles.icon} icon='search' />
+                <IconSearch css={styles.icon} />
                 <input
                     css={styles.searchInput}
                     onChange={(e) => {

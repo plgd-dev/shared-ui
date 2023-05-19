@@ -1,9 +1,9 @@
-import { FC, SyntheticEvent, useCallback, useEffect, useMemo, useState } from 'react'
+import { cloneElement, FC, ReactElement, SyntheticEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 
 import { Props } from './Dropzone.types'
 import * as styles from './Dropzone.styles'
-import { Icon } from '../Icon'
+import { convertSize, Icon, IconClose, IconFileUpload } from '../Icon'
 
 const Dropzone: FC<Props> = (props) => {
     const { accept, customFileRenders, description, disabled, maxFiles, maxSize, title, validator } = props
@@ -34,7 +34,11 @@ const Dropzone: FC<Props> = (props) => {
             const index = customFileRenders?.findIndex((item) => item.format === format.toLowerCase())
 
             if (customFileRenders && index !== undefined && index >= 0) {
-                return <Icon icon={customFileRenders[index].icon} size={40} />
+                return typeof customFileRenders[index].icon === 'string' ? (
+                    <Icon icon={customFileRenders[index].icon as string} size={40} />
+                ) : (
+                    cloneElement(customFileRenders[index].icon as ReactElement, { ...convertSize(40) })
+                )
             }
 
             return (
@@ -75,7 +79,7 @@ const Dropzone: FC<Props> = (props) => {
                     <div css={styles.contentWrapper}>
                         <div css={styles.fileLine}>
                             <div css={styles.fileName}>{file.name}</div>
-                            <Icon css={styles.closeIcon} icon='close' onClick={(e) => removeFile(file, e)} />
+                            <IconClose css={styles.closeIcon} onClick={(e) => removeFile(file, e)} />
                         </div>
                         <div css={styles.fileLine}>
                             <div css={styles.fileSize}>{bytesFormatter(file.size)}</div>
@@ -97,7 +101,7 @@ const Dropzone: FC<Props> = (props) => {
                 <input {...getInputProps()} />
                 {thumbs.length === 0 && (
                     <div css={styles.placeholder}>
-                        <Icon icon='file-upload' size={50} />
+                        <IconFileUpload {...convertSize(50)} />
 
                         <p css={styles.placeholderText}>{title}</p>
                         {description && <p css={styles.placeholderDescription}>{description}</p>}

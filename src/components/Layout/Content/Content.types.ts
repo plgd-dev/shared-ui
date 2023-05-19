@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { ButtonVariantsType } from '../../Atomic/Button/Button.types'
 
 export type ContentActionType = {
-    icon: string
+    icon: ReactNode
     text: string
     variant?: ButtonVariantsType
     onClick: () => void

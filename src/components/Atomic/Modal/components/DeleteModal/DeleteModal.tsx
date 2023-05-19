@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { Props, defaultProps } from './DeleteModal.types'
 import Modal from '../../Modal'
 import * as styles from './DeleteModal.styles'
-import { Icon } from '../../../Icon'
+import { convertSize, IconTrash } from '../../../Icon'
 
 const DeleteModal: FC<Props> = (props) => {
     const { title, subTitle, deleteInformation, maxWidthTitle, ...rest } = { ...defaultProps, ...props }
@@ -11,7 +11,7 @@ const DeleteModal: FC<Props> = (props) => {
         <div css={styles.header}>
             <div css={styles.deleteIcon}>
                 <div css={styles.deleteIconInner}>
-                    <Icon icon='trash' size={42} />
+                    <IconTrash {...convertSize(42)} />
                 </div>
             </div>
             <h2 css={styles.title(maxWidthTitle)}>{title}</h2>

@@ -2,7 +2,7 @@ import { forwardRef, useRef, useState } from 'react'
 import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.styles'
 import { mergeRefs } from 'react-merge-refs'
-import Icon from '../Icon'
+import { convertSize, IconCopy, IconHidePassword, IconShowPassword } from '../Icon'
 import { copyToClipboard } from '../../../common/utils/copy-to-clipboard'
 import { inputSizes } from './constants'
 import { detect } from 'detect-browser'
@@ -64,7 +64,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 {inputBase}
                 {copy && (
                     <span css={styles.inputIcon} onClick={() => copyToClipboard(localInputRef.current?.value || '')}>
-                        <Icon icon='copy' size={24} />
+                        <IconCopy {...convertSize(24)} />
                     </span>
                 )}
                 {defaultType === 'password' && !copy && (
@@ -72,7 +72,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                         css={[styles.inputIcon, isEdge && defaultType === 'password' && styles.passwordIcon]}
                         onClick={() => setType(type === defaultType ? 'text' : defaultType)}
                     >
-                        {<Icon icon={`icon-${type === 'text' ? 'hide' : 'show'}-password`} size={24} />}
+                        {type === 'text' ? <IconHidePassword {...convertSize(24)} /> : <IconShowPassword {...convertSize(24)} />}
                     </span>
                 )}
                 {defaultType !== 'password' && defaultType !== 'tel' && !copy && <span css={styles.inputIcon}>{icon}</span>}

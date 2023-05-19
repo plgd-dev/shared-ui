@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { cloneElement, FC, ReactElement, ReactNode } from 'react'
 import { defaultProps, Props } from './Tag.types'
 import * as styles from './Tag.styles'
 import { Icon } from '../Icon'
@@ -7,6 +7,13 @@ import { tagVariants } from './constants'
 
 const Tag: FC<Props> = (props) => {
     const { children, className, icon, id, onClick, variant } = { ...defaultProps, ...props }
+    const getIcon = (icon?: ReactNode) => {
+        if (icon) {
+            return typeof icon === 'string' ? <Icon css={styles.icon} icon={icon} /> : cloneElement(icon as ReactElement, { css: styles.icon })
+        }
+
+        return null
+    }
     return (
         <div
             className={className}
@@ -14,7 +21,7 @@ const Tag: FC<Props> = (props) => {
             id={id}
             onClick={onClick}
         >
-            {icon && <Icon css={styles.icon} icon={icon} />}
+            {getIcon()}
             {children}
         </div>
     )

@@ -9,7 +9,7 @@ import { createPortal } from 'react-dom'
 import { Logo, Close, Arrow, Feature } from './components'
 
 import img from './assets/line.png'
-import { Icon } from '../../Atomic/Icon'
+import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
 import isFunction from 'lodash/isFunction'
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
@@ -25,9 +25,14 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 
     return (
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
-            <a css={[styles.item, isActive && styles.activeItem]} href='packages/shared-ui/src/components/Layout/LeftPanel#' onClick={(e) => handleItemClick(item, e)} ref={reference}>
+            <a
+                css={[styles.item, isActive && styles.activeItem]}
+                href='packages/shared-ui/src/components/Layout/LeftPanel#'
+                onClick={(e) => handleItemClick(item, e)}
+                ref={reference}
+            >
                 <div css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
-                    <Icon icon={item.icon} />
+                    {typeof item.icon === 'string' ? <Icon icon={item.icon} /> : item.icon}
                     <span aria-label={item.title} css={styles.itemTitleText}>
                         {item.title}
                     </span>
@@ -104,7 +109,10 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                     <ul css={[styles.subItemsList]}>
                         {item.children?.map((item, key) => (
                             <li key={key}>
-                                <a css={[styles.subItemLink, item.id === active && styles.subItemLinkActive]} href='packages/shared-ui/src/components/Layout/LeftPanel#'>
+                                <a
+                                    css={[styles.subItemLink, item.id === active && styles.subItemLinkActive]}
+                                    href='packages/shared-ui/src/components/Layout/LeftPanel#'
+                                >
                                     <img alt='line' css={styles.line} src={img} />
                                     {item.title}
                                     {item.tag && <span css={styles.tag(item.tag.variant)}>{item.tag.text}</span>}
@@ -155,7 +163,7 @@ const LeftPanel: FC<Props> = (props) => {
                             isFunction(setCollapsed) && setCollapsed(!collapsed)
                         }}
                     >
-                        <Icon icon='collapse' size={24} />
+                        <IconCollapse {...convertSize(24)} />
                     </a>,
                     document.getElementById('header-icon-collapse-portal-target') as Element
                 )}

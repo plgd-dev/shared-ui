@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 import { Props } from './Footer.types'
 import * as styles from './Footer.styles'
-import { Icon } from '../../Atomic/Icon'
+import { IconArrowTriangleFullUp } from '../../Atomic/Icon'
 
 const Footer: FC<Props> = memo((props) => {
     const { paginationComponent, recentTasksPortal, recentTasksPortalTitle, footerExpanded, setFooterExpanded } = props
@@ -17,7 +17,7 @@ const Footer: FC<Props> = memo((props) => {
         if (recentTasksPortalTitle) {
             return (
                 <a css={styles.recentTasks} href='packages/shared-ui/src/components/Layout/Footer#' onClick={handleToggle}>
-                    {recentTasksPortalTitle} <Icon css={[styles.icon, footerExpanded && styles.panelOpen]} icon='arrow-triangle-full-up' />
+                    {recentTasksPortalTitle} <IconArrowTriangleFullUp css={[styles.icon, footerExpanded && styles.panelOpen]} />
                 </a>
             )
         } else {

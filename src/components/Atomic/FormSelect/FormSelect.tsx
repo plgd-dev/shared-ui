@@ -13,7 +13,7 @@ import Select, {
     SingleValueProps,
     ValueContainerProps,
 } from 'react-select'
-import { Icon } from '../Icon'
+import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectSizes } from './constants'
 
 const FormSelect: FC<Props> = (props) => {
@@ -53,7 +53,7 @@ const FormSelect: FC<Props> = (props) => {
     const DropdownIndicator = (props: DropdownIndicatorProps) => (
         <components.DropdownIndicator {...props} css={styles.dropdownIndicator}>
             <div css={[styles.indicator, props.selectProps.menuIsOpen && styles.indicatorOpen]}>
-                <Icon icon='table-arrow-down' size={10} />
+                <IconTableArrowDown {...convertSize(10)} />
             </div>
         </components.DropdownIndicator>
     )

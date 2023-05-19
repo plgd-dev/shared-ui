@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react'
 import { Props } from './Bell.types'
-import { Icon } from '../../../Icon'
+import { convertSize, IconBell } from '../../../Icon'
 import * as styles from './Bell.styles'
 
 const Bell: FC<Props> = (props) => {
@@ -33,7 +33,7 @@ const Bell: FC<Props> = (props) => {
             }}
             ref={props.innerRef}
         >
-            <Icon icon='bell' ref={iconRef} size={24} />
+            <IconBell {...convertSize(24)} ref={iconRef} />
         </a>
     )
 }

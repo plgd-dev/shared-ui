@@ -3,7 +3,7 @@ import { defaultProps, Props } from './Modal.types'
 import * as styles from './Modal.styles'
 import { createPortal } from 'react-dom'
 import Headline from '../Headline'
-import Icon from '../Icon'
+import { convertSize, IconCloseCircle } from '../Icon'
 import isFunction from 'lodash/isFunction'
 import Button from '../Button'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -82,7 +82,7 @@ export const Modal: FC<Props> = memo((props) => {
                             isFunction(onClose) && onClose()
                         }}
                     >
-                        <span>{closeButtonText}</span> <Icon icon='close-circle' size={26} />
+                        <span>{closeButtonText}</span> <IconCloseCircle {...convertSize(26)} />
                     </a>
                 )}
             </div>

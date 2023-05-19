@@ -1,11 +1,11 @@
 import { FC, useEffect } from 'react'
 import { Props } from './Pagination.types'
 import * as styles from './Pagination.styles'
-import Icon from '../../../Atomic/Icon'
+import { convertSize, IconArrowLeft, IconArrowRight } from '../../../Atomic/Icon'
 import PaginationItems from './PaginationItems'
 
 const Pagination: FC<Props> = (props) => {
-    const { className, disabled, canPreviousPage, canNextPage, pageCount, gotoPage, nextPage, previousPage, pageIndex, pageLength } = props
+    const { className, canPreviousPage, canNextPage, pageCount, gotoPage, nextPage, previousPage, pageIndex, pageLength } = props
 
     // If the last item is removed from the list, and we are on the last page (pageLength === 0), update the last page with (pageCount - 1)
     // Only do this if there are the least 2 pages available (pageCount > 1)
@@ -28,7 +28,7 @@ const Pagination: FC<Props> = (props) => {
                         previousPage()
                     }}
                 >
-                    <Icon icon='arrow-left' size={12} />
+                    <IconArrowLeft {...convertSize(12)} />
                 </a>
             </li>
             <PaginationItems activePage={pageIndex + 1} maxButtons={10} onItemClick={gotoPage} pageCount={pageCount} />
@@ -42,7 +42,7 @@ const Pagination: FC<Props> = (props) => {
                         nextPage()
                     }}
                 >
-                    <Icon icon='arrow-right' size={12} />
+                    <IconArrowRight {...convertSize(12)} />
                 </a>
             </li>
         </ul>

@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 export type SplitButtonItemType = {
     component?: ReactNode
     hidden?: boolean
-    icon?: string
+    icon?: ReactNode
     id?: string
     label: string
     onClick: (e: MouseEvent) => void

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import Icon from '../../Icon'
+import { convertSize, IconLoader as IconLoaderC } from '../../Icon'
 import { Props, defaultProps } from './IconLoader.types'
 import * as styles from './IconLoader.styles'
 
@@ -9,7 +9,7 @@ const IconLoader: FC<Props> = (props) => {
     const { type, className, ...rest } = { ...defaultProps, ...props }
     return (
         <span className={className} css={styles.loadingIcon(props.size || defaultSize, type)}>
-            <Icon {...rest} icon='loader' ref={undefined} size={props.size || defaultSize} />
+            <IconLoaderC {...rest} {...convertSize(props.size || defaultSize)} ref={undefined} />
         </span>
     )
 }
