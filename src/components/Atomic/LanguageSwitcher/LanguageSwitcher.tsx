@@ -1,15 +1,16 @@
-import { useContext, useRef, useState, memo } from 'react'
+import { useContext, useRef, useState, memo, FC } from 'react'
 import { useIntl } from 'react-intl'
 import classNames from 'classnames'
+import { Props } from './LanguageSwitcher.types'
 
 import { useClickOutside } from '../../../common/hooks'
 import { LanguageContext } from '../IntlProvider'
-import appConfig from '@/config'
 import { messages as t } from './LanguageSwitcher.i18n'
 import './LanguageSwitcher.scss'
 
 // @ts-ignore
-const LanguageSwitcher = memo(() => {
+const LanguageSwitcher: FC<Props> = memo((props) => {
+    const { supportedLanguages } = props
     const { formatMessage: _ } = useIntl()
     const [expanded, setExpand] = useState(false)
     const clickRef = useRef<HTMLDivElement>(null)
@@ -23,7 +24,7 @@ const LanguageSwitcher = memo(() => {
     }
 
     return (
-        <div id='language-switcher' className='status-bar-item' ref={clickRef}>
+        <div className='status-bar-item' id='language-switcher' ref={clickRef}>
             <div className='toggle' onClick={() => setExpand(!expanded)}>
                 {language}
                 <i
@@ -35,7 +36,7 @@ const LanguageSwitcher = memo(() => {
             </div>
             {expanded && (
                 <div className='content'>
-                    {appConfig?.supportedLanguages?.map?.((language: string) => {
+                    {supportedLanguages?.map?.((language: string) => {
                         // @ts-ignore
                         const lang = _(t[language])
                         return (
