@@ -2,6 +2,7 @@ import React from 'react'
 import NotificationCenter from '../../components/Atomic/NotificationCenter'
 import App from '../../components/Atomic/App'
 import Notification from '../../components/Atomic/Notification'
+import { IntlProvider } from '../../components/Atomic'
 
 export default {
     title: 'Notification/NotificationCenter',
@@ -22,16 +23,18 @@ const addNotification = () => {
 }
 
 const Template = (args) => (
-    <App>
-        <button onClick={addNotification}>Add toast</button>
-        <div
-            style={{
-                padding: '20px 20px 20px 450px',
-            }}
-        >
-            <NotificationCenter {...args} />
-        </div>
-    </App>
+    <IntlProvider defaultLanguage='en' languages={{ en: {} }}>
+        <App>
+            <button onClick={addNotification}>Add toast</button>
+            <div
+                style={{
+                    padding: '20px 20px 20px 450px',
+                }}
+            >
+                <NotificationCenter {...args} />
+            </div>
+        </App>
+    </IntlProvider>
 )
 
 export const Default = Template.bind({})

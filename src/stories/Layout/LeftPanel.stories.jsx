@@ -14,6 +14,7 @@ const Template = (args) => {
     const [active, setActive] = useState('')
     return (
         <div>
+            <div id='header-icon-collapse-portal-target'></div>
             <LeftPanel
                 {...args}
                 activeId={active}
@@ -40,6 +41,7 @@ Default.args = {}
 const TemplateActive = (args) => (
     <div style={{ display: 'flex', margin: -10 }}>
         <div style={{ padding: 10 }}>
+            <div id='header-icon-collapse-portal-target'></div>
             <LeftPanel
                 {...args}
                 activeId='1'
@@ -52,6 +54,7 @@ const TemplateActive = (args) => (
             />
         </div>
         <div style={{ padding: 10 }}>
+            <div id='header-icon-collapse-portal-target'></div>
             <LeftPanel
                 {...args}
                 activeId='10'
@@ -79,6 +82,7 @@ Default.args = {}
 
 const TemplateFeature = (args) => (
     <div>
+        <div id='header-icon-collapse-portal-target'></div>
         <LeftPanel
             {...args}
             menu={leftPanelMenu}
@@ -109,6 +113,7 @@ Default.args = {}
 const TemplateCollapsed = (args) => (
     <div style={{ display: 'flex', margin: '-10px -120px' }}>
         <div style={{ padding: '10px 120px' }}>
+            <div id='header-icon-collapse-portal-target'></div>
             <LeftPanel
                 {...args}
                 collapsed={true}
@@ -121,6 +126,7 @@ const TemplateCollapsed = (args) => (
             />
         </div>
         <div style={{ padding: '10px 120px' }}>
+            <div id='header-icon-collapse-portal-target'></div>
             <LeftPanel
                 {...args}
                 activeId='1'
@@ -134,6 +140,7 @@ const TemplateCollapsed = (args) => (
             />
         </div>
         <div style={{ padding: '10px 120px' }}>
+            <div id='header-icon-collapse-portal-target'></div>
             <LeftPanel
                 {...args}
                 activeId='10'

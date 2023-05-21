@@ -11,7 +11,7 @@ export default {
 }
 
 const Template = (args) => {
-    const [show, setShow] = useState(false)
+    const [show, setShow] = useState(true)
     const [deviceAuthLoading, setDeviceAuthLoading] = useState(false)
     const [deviceAuthCode, setDeviceAuthCode] = useState('')
 
@@ -54,6 +54,14 @@ const Template = (args) => {
                     },
                 ]}
                 getDeviceAuthCode={getDeviceAuthCode}
+                i18n={{
+                    copy: 'copy',
+                    deviceId: 'deviceId',
+                    enterDeviceID: 'enterDeviceID',
+                    invalidUuidFormat: 'invalidUuidFormat',
+                    getTheCode: 'getTheCode',
+                    deviceInformation: 'deviceInformation',
+                }}
                 onClose={() => setShow(false)}
                 show={show}
                 title='Provision a new device'

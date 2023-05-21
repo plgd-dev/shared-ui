@@ -125,6 +125,9 @@ const Template = (args) => {
                         desc: false,
                     },
                 ]}
+                i18n={{
+                    search: 'search',
+                }}
                 onRowsSelect={(isAllRowsSelected, selection) => {
                     isAllRowsSelected !== isAllSelected && setIsAllSelected(isAllRowsSelected)
                     setSelected(selection)

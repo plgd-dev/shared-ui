@@ -39,7 +39,20 @@ const Template = (args) => {
             <ModalStrippedLine component='core.light' label='Types' />
             <ModalStrippedLine component='core.light, oic.ifbaseline' label='Interfaces' />
             <ModalStrippedLine
-                component={<TimeoutControl defaultTtlValue={defaultCommandTimeToLive} defaultValue={ttl} onChange={setTtl} onTtlHasError={setError} />}
+                component={
+                    <TimeoutControl
+                        defaultTtlValue={defaultCommandTimeToLive}
+                        defaultValue={ttl}
+                        i18n={{
+                            default: 'default',
+                            duration: 'duration',
+                            placeholder: 'placeholder',
+                            unit: 'unit',
+                        }}
+                        onChange={setTtl}
+                        onTtlHasError={setError}
+                    />
+                }
                 label='Command Timeout'
             />
             <div style={{ padding: '24px 0 20px 0' }}>

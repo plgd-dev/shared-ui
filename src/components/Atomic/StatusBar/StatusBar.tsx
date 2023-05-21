@@ -7,7 +7,7 @@ const StatusBar = memo(({ children }: { children?: ReactNode }) => (
         <div className='status-bar' id='status-bar-shadow' />
         <header className='status-bar' id='status-bar'>
             {/* Insert custom components here. */}
-            <LanguageSwitcher />
+            <LanguageSwitcher supportedLanguages={[]} />
             {children}
         </header>
     </>
