@@ -9,7 +9,7 @@ const { INFINITE, NS, MS, S, M, H } = commandTimeoutUnits
 
 export const getResourceUpdateNotificationKey = (deviceId: string, href: string) => `${DEVICES_RESOURCE_UPDATE_WS_KEY}.${deviceId}.${href}`
 
-export const canCreateResource = (interfaces: string[]) => interfaces.includes(knownInterfaces.OIC_IF_CREATE)
+export const canCreateResource = (interfaces: string[]) => interfaces?.includes(knownInterfaces.OIC_IF_CREATE)
 
 export const normalizeToFixedFloatValue = (value: any) => +value.toFixed(5)
 
