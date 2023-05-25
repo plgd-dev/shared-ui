@@ -1,4 +1,4 @@
-import React, { FC, SyntheticEvent, useEffect, useState } from 'react'
+import React, { cloneElement, FC, ReactElement, SyntheticEvent, useEffect, useState } from 'react'
 import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
 import { CSSTransition } from 'react-transition-group'
@@ -11,6 +11,7 @@ import { Logo, Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
 import isFunction from 'lodash/isFunction'
+import { itemTitleIcon } from './LeftPanel.styles'
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
@@ -25,14 +26,9 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 
     return (
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
-            <a
-                css={[styles.item, isActive && styles.activeItem]}
-                href='packages/shared-ui/src/components/Layout/LeftPanel#'
-                onClick={(e) => handleItemClick(item, e)}
-                ref={reference}
-            >
+            <a css={[styles.item, isActive && styles.activeItem]} href='#' onClick={(e) => handleItemClick(item, e)} ref={reference}>
                 <div css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
-                    {typeof item.icon === 'string' ? <Icon icon={item.icon} /> : item.icon}
+                    {typeof item.icon === 'string' ? <Icon icon={item.icon} /> : cloneElement(item.icon as ReactElement, { css: styles.itemTitleIcon })}
                     <span aria-label={item.title} css={styles.itemTitleText}>
                         {item.title}
                     </span>
@@ -86,7 +82,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                             subItem.id === active && styles.subItemLinkActive,
                                             (item.children?.length || 0) - 1 === key && styles.subItemLinkLast,
                                         ]}
-                                        href='packages/shared-ui/src/components/Layout/LeftPanel#'
+                                        href='#'
                                         onClick={(e) => handleItemClick(item, e)}
                                     >
                                         <img alt='line' css={styles.line} src={img} />
@@ -109,10 +105,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                     <ul css={[styles.subItemsList]}>
                         {item.children?.map((item, key) => (
                             <li key={key}>
-                                <a
-                                    css={[styles.subItemLink, item.id === active && styles.subItemLinkActive]}
-                                    href='packages/shared-ui/src/components/Layout/LeftPanel#'
-                                >
+                                <a css={[styles.subItemLink, item.id === active && styles.subItemLinkActive]} href='#'>
                                     <img alt='line' css={styles.line} src={img} />
                                     {item.title}
                                     {item.tag && <span css={styles.tag(item.tag.variant)}>{item.tag.text}</span>}

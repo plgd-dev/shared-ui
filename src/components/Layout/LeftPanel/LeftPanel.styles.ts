@@ -177,6 +177,10 @@ export const itemTitle = css`
     left: 12px;
 `
 
+export const itemTitleIcon = css`
+    flex: 0 0 16px;
+`
+
 export const itemTitleText = css`
     margin-left: 12px;
 `
