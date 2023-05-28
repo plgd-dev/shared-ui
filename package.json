@@ -157,7 +157,7 @@
     "ts-jest": "^29.1.0",
     "util": "^0.12.5",
     "uuid": "^9.0.0",
-    "webpack": "^5.75.0",
+    "webpack": "^5.84.1",
     "yargs": "^17.6.2"
   },
   "sideEffects": false
