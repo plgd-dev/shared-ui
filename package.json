@@ -26,7 +26,7 @@
     "prebuild": "rimraf build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages",
+    "deploy-storybook": "storybook-to-ghpages --dry-run",
     "icons:create": "npx @svgr/cli --config-file ./config/.svgrrc.js  -d ./src/components/Atomic/Icon/components ./src/components/Atomic/Icon/assets"
   },
   "dependencies": {
