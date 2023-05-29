@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { fetchApi } from '../services'
+import { fetchApi, security } from "../services";
+import { useAppConfig } from "../../../../src/containers/App";
+import { SecurityConfig } from "../../../../src/containers/App/App.types";
 
 export type BuildInformationType = {
     buildDate: string
@@ -51,11 +53,13 @@ type useWellKnownConfigurationReturnType = [
 export function useWellKnownConfiguration(url: string): useWellKnownConfigurationReturnType {
     const [wellKnownConfig, setWellKnownConfig] = useState<WellKnownConfigType | undefined>(undefined)
     const [error, setError] = useState<Error | undefined>(undefined)
+    const { httpGatewayAddress, cancelRequestDeadlineTimeout } = security.getGeneralConfig() as SecurityConfig
 
     const fetchConfig = async () => {
         try {
             return await fetchApi(`${url}/.well-known/configuration`, {
                 useToken: false,
+                cancelRequestDeadlineTimeout
             }).then((result) => {
                 const data = result.data
                 setWellKnownConfig(data)
