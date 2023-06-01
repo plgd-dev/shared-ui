@@ -1,0 +1,416 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormGroup> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  margin-bottom: 20px;
+}
+
+.emotion-1 {
+  font-family: 'Poppins',sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #81868c;
+  cursor: pointer;
+}
+
+.emotion-2 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  height: 48px;
+}
+
+.emotion-2::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-2::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-2:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-2::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-2:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-2::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-2:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-2::-ms-reveal,
+.emotion-2::-ms-clear {
+  display: none;
+}
+
+.emotion-8 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  background: #f6f7f9;
+  color: #757676;
+  height: 48px;
+}
+
+.emotion-8::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-8::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-8:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-8::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-8:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-8::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-8:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-8::-ms-reveal,
+.emotion-8::-ms-clear {
+  display: none;
+}
+
+.emotion-11 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  border-color: #D74E3A;
+  height: 48px;
+}
+
+.emotion-11::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-11::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-11:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-11::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-11:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-11::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-11:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-11::-ms-reveal,
+.emotion-11::-ms-clear {
+  display: none;
+}
+
+.emotion-12 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 160%;
+  text-align: right;
+  color: #D74E3A;
+  padding-top: 4px;
+}
+
+.emotion-15 {
+  position: relative;
+}
+
+.emotion-16 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  padding-right: 48px;
+  height: 48px;
+}
+
+.emotion-16::-webkit-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-16::-moz-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-16:-ms-input-placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-16::placeholder {
+  color: #81868c;
+  opacity: 1;
+}
+
+.emotion-16:-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-16::-ms-input-placeholder {
+  color: #81868c;
+}
+
+.emotion-16:focus {
+  border-color: #2261AE;
+  outline: none;
+}
+
+.emotion-16::-ms-reveal,
+.emotion-16::-ms-clear {
+  display: none;
+}
+
+.emotion-17 {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 24px;
+  height: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  z-index: 2;
+  color: #81868c;
+  cursor: pointer;
+  -webkit-transition: all 0.25ms;
+  transition: all 0.25ms;
+}
+
+.emotion-17:hover {
+  color: #007bbf;
+}
+
+.emotion-17 svg {
+  width: 24px;
+  height: 24px;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <label
+        class="emotion-1"
+        for="form-group-1"
+      >
+        Placeholder text
+      </label>
+      <input
+        class="emotion-2"
+        id="form-group-1"
+        name=""
+        placeholder="Placeholder text"
+        tabindex="1"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <label
+        class="emotion-1"
+        for="form-group-2"
+      >
+        Placeholder text
+      </label>
+      <input
+        class="emotion-2"
+        id="form-group-2"
+        name=""
+        tabindex="1"
+        type="text"
+        value="Default value text"
+      />
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <label
+        class="emotion-1"
+        for="form-group-3"
+      >
+        Disabled text
+      </label>
+      <input
+        class="emotion-8"
+        disabled=""
+        id="form-group-3"
+        name=""
+        tabindex="1"
+        type="text"
+        value="Disabled text"
+      />
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <label
+        class="emotion-1"
+        for="form-group-4"
+      >
+        Error text
+      </label>
+      <input
+        aria-invalid="true"
+        class="emotion-11"
+        id="form-group-4"
+        name=""
+        tabindex="1"
+        type="text"
+        value="Error text"
+      />
+      <div
+        aria-live="polite"
+        class="emotion-12"
+      >
+        Error message
+      </div>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <label
+        class="emotion-1"
+        for="form-group-5"
+      >
+        Password
+      </label>
+      <div
+        class="emotion-15"
+      >
+        <input
+          class="emotion-16"
+          id="form-group-5"
+          name=""
+          tabindex="1"
+          type="password"
+          value="Text"
+        />
+        <span
+          class="emotion-17"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 25 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2.375c-3.367 0-6.063 1.581-8.025 3.463-1.95 1.865-3.254 4.1-3.87 5.634-.138.339-.138.717 0 1.056.616 1.534 1.92 3.769 3.87 5.634 1.962 1.882 4.658 3.463 8.025 3.463s6.062-1.581 8.025-3.463c1.95-1.87 3.254-4.1 3.875-5.633.137-.34.137-.718 0-1.057-.62-1.534-1.925-3.769-3.875-5.634C18.062 3.956 15.367 2.375 12 2.375ZM18 12c0 3.416-2.688 6.188-6 6.188-3.313 0-6-2.772-6-6.188s2.687-6.188 6-6.188c3.312 0 6 2.772 6 6.188Zm-6-2.75C12 10.767 10.804 12 9.333 12c-.479 0-.929-.129-1.316-.36-.009.12-.017.235-.017.36 0 2.277 1.792 4.125 4 4.125s4-1.848 4-4.125-1.792-4.125-4-4.125c-.117 0-.233.004-.35.017.22.4.35.864.35 1.358Z"
+              fill="currentcolor"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

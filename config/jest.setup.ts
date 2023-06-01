@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom'
 
 expect.extend(matchers)
 
+const ResizeObserverOrigin = window.ResizeObserver
+
 beforeAll(() => {
     console.error = (error) => {
         console.log(error)
@@ -14,6 +16,18 @@ beforeAll(() => {
     ReactDOM.createPortal = jest.fn((element) => element as ReactPortal)
 })
 
+beforeEach(() => {
+    // @ts-ignore
+    delete window.ResizeObserver
+
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+        observe: jest.fn(),
+        unobserve: jest.fn(),
+        disconnect: jest.fn(),
+    }))
+})
+
 afterEach(() => {
+    window.ResizeObserver = ResizeObserverOrigin
     jest.resetAllMocks()
 })

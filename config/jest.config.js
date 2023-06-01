@@ -1,4 +1,4 @@
-const esModules = ['react-merge-refs'].join('|')
+const esModules = ['react-merge-refs', 'swiper'].join('|')
 
 module.exports = {
     preset: 'ts-jest',
@@ -6,6 +6,7 @@ module.exports = {
     moduleNameMapper: {
         'react-merge-refs': '<rootDir>/config/jest.reactMergeRefMock.js',
         '\\.svg$': '<rootDir>/config/jest.svgMock.js',
+        '\\.(css|less|jpg|jpeg)$': '<rootDir>/config/styleMock.js',
         // 'units-converter': '<rootDir>/config/jest.moduleMock.js',
     },
     clearMocks: true,

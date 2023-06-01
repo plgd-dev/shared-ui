@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  background: #ffffff;
+  border-radius: 8px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  height: 54px;
+}
+
+.emotion-0:hover {
+  background: #f6f7f9;
+}
+
+.emotion-1 {
+  padding: 16px 24px;
+  color: #81868C;
+  height: 54px;
+  box-sizing: border-box;
+  position: relative;
+  position: relative;
+}
+
+.emotion-1:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #E6E9ED;
+}
+
+.emotion-1:after {
+  left: 7px;
+  right: 0;
+  width: calc(100% - 7px);
+}
+
+.emotion-2 {
+  padding: 16px 24px;
+  color: #252626;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: right;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  height: 54px;
+  box-sizing: border-box;
+  position: relative;
+  position: relative;
+}
+
+.emotion-2:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #E6E9ED;
+}
+
+.emotion-2:after {
+  left: 0;
+  right: 7px;
+  width: calc(100% - 7px);
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        attribute1
+      </div>
+      <div
+        class="emotion-2"
+      >
+        value1
+      </div>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        attribute2
+      </div>
+      <div
+        class="emotion-2"
+      >
+        value2
+      </div>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        attribute3
+      </div>
+      <div
+        class="emotion-2"
+      >
+        value3
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

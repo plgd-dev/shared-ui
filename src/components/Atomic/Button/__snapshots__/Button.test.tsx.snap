@@ -97,21 +97,6 @@ exports[`<Button> render correctly - loading 1`] = `
 }
 
 .emotion-4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
-
-.emotion-5 {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -134,7 +119,7 @@ exports[`<Button> render correctly - loading 1`] = `
   justify-content: center;
 }
 
-.emotion-11 {
+.emotion-9 {
   width: 20px;
   height: 20px;
   overflow: hidden;
@@ -153,7 +138,7 @@ exports[`<Button> render correctly - loading 1`] = `
   margin-right: 8px;
 }
 
-.emotion-19 {
+.emotion-15 {
   width: 20px;
   height: 20px;
   overflow: hidden;
@@ -187,25 +172,41 @@ exports[`<Button> render correctly - loading 1`] = `
           <span
             class="emotion-3"
           >
-            <div
-              class="emotion-4"
-              data-icon=""
-              style="width: 20px; height: 20px;"
-            />
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
           </span>
           loadingText primary
         </span>
         <span
-          class="emotion-5"
+          class="emotion-4"
         >
           <span
             class="emotion-3"
           >
-            <div
-              class="emotion-4"
-              data-icon=""
-              style="width: 20px; height: 20px;"
-            />
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
           </span>
           loadingText primary
         </span>
@@ -223,27 +224,43 @@ exports[`<Button> render correctly - loading 1`] = `
           class="emotion-2"
         >
           <span
-            class="emotion-11"
+            class="emotion-9"
           >
-            <div
-              class="emotion-4"
-              data-icon=""
-              style="width: 20px; height: 20px;"
-            />
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
           </span>
           loadingText secondary
         </span>
         <span
-          class="emotion-5"
+          class="emotion-4"
         >
           <span
-            class="emotion-11"
+            class="emotion-9"
           >
-            <div
-              class="emotion-4"
-              data-icon=""
-              style="width: 20px; height: 20px;"
-            />
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
           </span>
           loadingText secondary
         </span>
@@ -261,27 +278,43 @@ exports[`<Button> render correctly - loading 1`] = `
           class="emotion-2"
         >
           <span
-            class="emotion-19"
+            class="emotion-15"
           >
-            <div
-              class="emotion-4"
-              data-icon=""
-              style="width: 20px; height: 20px;"
-            />
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
           </span>
           loadingText tertiary
         </span>
         <span
-          class="emotion-5"
+          class="emotion-4"
         >
           <span
-            class="emotion-19"
+            class="emotion-15"
           >
-            <div
-              class="emotion-4"
-              data-icon=""
-              style="width: 20px; height: 20px;"
-            />
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
           </span>
           loadingText tertiary
         </span>
@@ -301,25 +334,41 @@ exports[`<Button> render correctly - loading 1`] = `
           <span
             class="emotion-3"
           >
-            <div
-              class="emotion-4"
-              data-icon=""
-              style="width: 20px; height: 20px;"
-            />
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
           </span>
           loadingText filter
         </span>
         <span
-          class="emotion-5"
+          class="emotion-4"
         >
           <span
             class="emotion-3"
           >
-            <div
-              class="emotion-4"
-              data-icon=""
-              style="width: 20px; height: 20px;"
-            />
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
           </span>
           loadingText filter
         </span>

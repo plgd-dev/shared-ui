@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConditionalWrapper> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0.disabled:after {
+  background: rgba(255, 255, 255, 0);
+}
+
+.emotion-0 .jsoneditor {
+  border: 1px solid #e6e9ed;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_scroller {
+  background: #f4f9fb;
+}
+
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_gutter {
+  background: #e6e9ed;
+}
+
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_gutter .ace_gutter-cell {
+  color: #757676;
+  padding: 0 16px;
+}
+
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_bracket,
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_punctuation,
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_operator,
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_string,
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_constant,
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_paren,
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_variable {
+  color: #757676;
+}
+
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_constant.ace_boolean {
+  color: #FEBF40;
+}
+
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_constant.ace_numeric {
+  color: #D74E3A;
+}
+
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_string {
+  color: #52c5a2;
+}
+
+<div>
+    <div
+      class="editor resize emotion-0"
+      style="width: 100%; height: 300px;"
+    >
+      <div
+        class="jsoneditor jsoneditor-mode-code"
+      >
+        <div
+          class="jsoneditor-outer"
+          style="margin-bottom: -1px; padding-bottom: 1px;"
+        >
+          <div
+            class=" ace_editor ace_hidpi ace-jsoneditor"
+            style="height: 100%; width: 100%; font-size: 14px;"
+          >
+            <textarea
+              aria-autocomplete="both"
+              aria-haspopup="false"
+              autocapitalize="off"
+              autocorrect="off"
+              class="ace_text-input"
+              role="textbox"
+              spellcheck="false"
+              style="opacity: 0; font-size: 1px;"
+              wrap="off"
+            />
+            <div
+              aria-hidden="true"
+              class="ace_gutter"
+            >
+              <div
+                class="ace_layer ace_gutter-layer ace_folding-enabled"
+                style="height: 1000000px;"
+              />
+            </div>
+            <div
+              class="ace_scroller"
+              style="line-height: 0px;"
+            >
+              <div
+                class="ace_content"
+              >
+                <div
+                  class="ace_layer ace_print-margin-layer"
+                >
+                  <div
+                    class="ace_print-margin"
+                    style="left: 4px; visibility: hidden;"
+                  />
+                </div>
+                <div
+                  class="ace_layer ace_marker-layer"
+                />
+                <div
+                  class="ace_layer ace_text-layer"
+                  style="height: 1000000px; margin: 0px 4px;"
+                />
+                <div
+                  class="ace_layer ace_marker-layer"
+                />
+                <div
+                  class="ace_layer ace_cursor-layer ace_hidden-cursors"
+                >
+                  <div
+                    class="ace_cursor"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="ace_scrollbar ace_scrollbar-v"
+              style="display: none; width: 20px;"
+            >
+              <div
+                class="ace_scrollbar-inner"
+                style="width: 20px;"
+              >
+                 
+              </div>
+            </div>
+            <div
+              class="ace_scrollbar ace_scrollbar-h"
+              style="display: none; height: 20px;"
+            >
+              <div
+                class="ace_scrollbar-inner"
+                style="height: 20px;"
+              >
+                 
+              </div>
+            </div>
+            <div
+              style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; overflow: hidden;"
+            >
+              <div
+                style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; overflow: visible;"
+              />
+              <div
+                style="height: auto; width: auto; top: 0px; left: 0px; visibility: hidden; position: absolute; white-space: pre; overflow: visible;"
+              >
+                XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="jsoneditor-validation-errors-container"
+        >
+          <div
+            class="jsoneditor-additional-errors fadein"
+            style="display: none;"
+          >
+            Scroll for more ▿
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

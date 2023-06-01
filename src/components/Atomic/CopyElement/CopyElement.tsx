@@ -27,11 +27,11 @@ const CopyElement: FC<Props> = (props) => {
 
     return (
         <div css={styles.copyElement}>
-            <a css={styles.copy} href='src/components/atomic/CopyElement/index#' onClick={handleCopy}>
+            <a css={styles.copy} href='#' onClick={handleCopy}>
                 <IconCopy />
                 <span css={styles.text}>{copyText}</span>
             </a>
-            <a css={[styles.copied, copied && styles.active]} href='src/components/atomic/CopyElement/index#' onClick={(e) => e.preventDefault()}>
+            <a css={[styles.copied, copied && styles.active]} href='#' onClick={(e) => e.preventDefault()}>
                 <IconCopy />
                 <span css={styles.text}>{copiedText}</span>
             </a>

@@ -1,0 +1,254 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageLayout> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.emotion-1 {
+  padding: 24px 40px 0 40px;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-bottom: 16px;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.emotion-4 {
+  color: #191A1A;
+  font-family: 'Circular Pro',sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.5px;
+  margin: 0;
+  color: #0a2965;
+}
+
+@media (max-width: 767px) {
+  .emotion-4 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.emotion-6 {
+  border-top: 1px solid #e6e9ed;
+  background: #fff;
+  padding: 0 40px;
+  box-sizing: border-box;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.emotion-7 {
+  -webkit-flex: 0 0 420px;
+  -ms-flex: 0 0 420px;
+  flex: 0 0 420px;
+}
+
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 16px 0;
+  min-height: 64px;
+}
+
+.emotion-9 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #191A1A;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-right: 22px;
+  position: relative;
+}
+
+.emotion-10 {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 0;
+  color: #81868C;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          <h4
+            class="h4 emotion-4"
+          >
+            PageLayoutTitle
+          </h4>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div>
+            Custom Header
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-6"
+      style="height: 65px;"
+    >
+      <div
+        class="emotion-7"
+      >
+        <div
+          class="emotion-8"
+        >
+          <a
+            class="emotion-9"
+            href="packages/shared-ui/src/components/Layout/Footer#"
+          >
+            <span>
+              recentTasksPortalTitle
+            </span>
+             
+            <svg
+              class="emotion-10"
+              fill="none"
+              height="16"
+              viewBox="0 0 6 11"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M.126 6.854a.387.387 0 0 0 .606 0L3 4.207l2.268 2.647a.387.387 0 0 0 .606 0 .56.56 0 0 0 0-.708l-2.571-3a.387.387 0 0 0-.606 0l-2.571 3a.56.56 0 0 0 0 .708Z"
+                fill="currentcolor"
+                fill-rule="evenodd"
+              />
+              <g
+                clip-path="url(#icon-arrow-triangle-full-up_svg__a)"
+              >
+                <path
+                  d="M2.576 3.196a.56.56 0 0 1 .85 0l2.4 2.666a.718.718 0 0 1 .129.727c-.094.25-.311.413-.555.413L.6 7c-.242 0-.461-.163-.555-.413a.723.723 0 0 1 .13-.727l2.4-2.666.001.002Z"
+                  fill="currentcolor"
+                />
+              </g>
+              <defs>
+                <clippath
+                  id="icon-arrow-triangle-full-up_svg__a"
+                >
+                  <path
+                    d="M0 0h6v10.667H0z"
+                    fill="#fff"
+                    transform="matrix(1 0 0 -1 0 11)"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </a>
+          <div>
+            <div
+              id="paginationPortalTarget"
+            />
+          </div>
+        </div>
+        <div
+          id="recentTasksPortalTarget"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

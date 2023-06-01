@@ -1,0 +1,586 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.emotion-0 .select__control .select__value-container .select__placeholder,
+.emotion-0 .select__control .select__value-container .select__input-container {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.emotion-0 .select__control .select__value-container .select__placeholder input,
+.emotion-0 .select__control .select__value-container .select__input-container input {
+  font-family: 'Poppins',sans-serif!important;
+  font-style: normal!important;
+  font-weight: 400!important;
+  font-size: 14px!important;
+  line-height: 22px!important;
+  color: #252626!important;
+}
+
+.emotion-0 .select__control.select__control--menu-is-open {
+  border: 1px solid #007BBF;
+}
+
+.emotion-0 .select__control.select__control--is-focused {
+  box-shadow: none;
+}
+
+.emotion-0 .select__indicator-separator {
+  display: none;
+}
+
+.emotion-0 .select__input-container {
+  margin: 0;
+}
+
+.emotion-1 {
+  z-index: 9999;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.emotion-3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  min-height: 38px;
+  outline: 0!important;
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 80%);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  height: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+  box-shadow: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #D7D8DA;
+}
+
+.emotion-3:hover {
+  border-color: hsl(0, 0%, 70%);
+}
+
+.emotion-3:focus {
+  outline: none;
+}
+
+.emotion-3:hover {
+  outline: none;
+  border: 1px solid #007BBF;
+}
+
+.emotion-4 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: grid;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow: hidden;
+  padding: 2px 8px;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.emotion-5 {
+  grid-area: 1/1/2/3;
+  color: hsl(0, 0%, 50%);
+  margin-left: 2px;
+  margin-right: 2px;
+  box-sizing: border-box;
+  color: #252626;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.emotion-6 {
+  visibility: visible;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: inline-grid;
+  grid-area: 1/1/2/3;
+  grid-template-columns: 0 min-content;
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  color: hsl(0, 0%, 20%);
+  box-sizing: border-box;
+}
+
+.emotion-6:after {
+  content: attr(data-value) " ";
+  visibility: hidden;
+  white-space: pre;
+  grid-area: 1/2;
+  font: inherit;
+  min-width: 2px;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+.emotion-7 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.emotion-8 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 1px;
+  background-color: hsl(0, 0%, 80%);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 150ms;
+  transition: color 150ms;
+  color: hsl(0, 0%, 80%);
+  padding: 8px;
+  box-sizing: border-box;
+  padding-right: 16px;
+}
+
+.emotion-9:hover {
+  color: hsl(0, 0%, 60%);
+}
+
+.emotion-10 {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #81868C;
+}
+
+.emotion-16 {
+  grid-area: 1/1/2/3;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: hsl(0, 0%, 20%);
+  margin-left: 2px;
+  margin-right: 2px;
+  box-sizing: border-box;
+  color: #252626;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: left;
+}
+
+.emotion-21 {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #81868C;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.emotion-22 {
+  top: 100%;
+  position: absolute;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  z-index: 1;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1),0 4px 11px hsla(0, 0%, 0%, 0.1);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  min-width: 100%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: 1px solid #E6E9ED;
+  box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
+  border-radius: 8px;
+}
+
+.emotion-23 {
+  max-height: 300px;
+  overflow-y: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  box-sizing: border-box;
+  text-align: left;
+  padding: 8px 0;
+}
+
+.emotion-24 {
+  cursor: default;
+  display: block;
+  font-size: inherit;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  color: inherit;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  color: #81868C;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: transparent;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.emotion-24:active {
+  background-color: #B2D4FF;
+}
+
+.emotion-24:hover {
+  color: #2261AE;
+  background: transparent;
+}
+
+.emotion-24:active {
+  background: transparent;
+}
+
+.emotion-25 {
+  cursor: default;
+  display: block;
+  font-size: inherit;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: #2684FF;
+  color: hsl(0, 0%, 100%);
+  padding: 8px 12px;
+  box-sizing: border-box;
+  color: #81868C;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: transparent;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  cursor: pointer;
+  padding: 8px 16px;
+  color: #252626;
+  background: transparent;
+}
+
+.emotion-25:active {
+  background-color: #2684FF;
+}
+
+.emotion-25:hover {
+  color: #2261AE;
+  background: transparent;
+}
+
+.emotion-25:active {
+  background: transparent;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <span
+        class="emotion-1"
+        id="react-select-2-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="emotion-1"
+      />
+      <div
+        class="select__control emotion-3"
+      >
+        <div
+          class="select__value-container emotion-4"
+        >
+          <div
+            class="select__placeholder emotion-5"
+            id="react-select-2-placeholder"
+          >
+            Select...
+          </div>
+          <div
+            class="select__input-container emotion-6"
+            data-value=""
+          >
+            <input
+              aria-autocomplete="list"
+              aria-describedby="react-select-2-placeholder"
+              aria-expanded="false"
+              aria-haspopup="true"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              class="select__input"
+              id="react-select-2-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="select__indicators emotion-7"
+        >
+          <span
+            class="select__indicator-separator emotion-8"
+          />
+          <div
+            aria-hidden="true"
+            class="select__indicator select__dropdown-indicator emotion-9"
+          >
+            <div
+              class="emotion-10"
+            >
+              <svg
+                fill="none"
+                height="10"
+                viewBox="0 0 6 4"
+                width="10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m2.576 3.805-2.4-2.666a.718.718 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.722.722 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0Z"
+                  fill="currentcolor"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input
+        name="form-select-1"
+        type="hidden"
+        value=""
+      />
+    </div>
+    <br />
+    <div
+      class="emotion-0"
+    >
+      <span
+        class="emotion-1"
+        id="react-select-3-live-region"
+      />
+      <span
+        aria-atomic="false"
+        aria-live="polite"
+        aria-relevant="additions text"
+        class="emotion-1"
+      />
+      <div
+        class="select__control select__control--menu-is-open emotion-3"
+      >
+        <div
+          class="select__value-container select__value-container--has-value emotion-4"
+        >
+          <div
+            class="select__single-value emotion-16"
+          >
+            Strawberry
+          </div>
+          <div
+            class="select__input-container emotion-6"
+            data-value=""
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="react-select-3-listbox"
+              aria-expanded="true"
+              aria-haspopup="true"
+              aria-owns="react-select-3-listbox"
+              autocapitalize="none"
+              autocomplete="off"
+              autocorrect="off"
+              class="select__input"
+              id="react-select-3-input"
+              role="combobox"
+              spellcheck="false"
+              style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+              tabindex="0"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="select__indicators emotion-7"
+        >
+          <span
+            class="select__indicator-separator emotion-8"
+          />
+          <div
+            aria-hidden="true"
+            class="select__indicator select__dropdown-indicator emotion-9"
+          >
+            <div
+              class="emotion-21"
+            >
+              <svg
+                fill="none"
+                height="10"
+                viewBox="0 0 6 4"
+                width="10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m2.576 3.805-2.4-2.666a.718.718 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.722.722 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0Z"
+                  fill="currentcolor"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="select__menu emotion-22"
+        id="react-select-3-listbox"
+      >
+        <div
+          class="select__menu-list emotion-23"
+        >
+          <div
+            aria-disabled="false"
+            class="select__option emotion-24"
+            id="react-select-3-option-0"
+            tabindex="-1"
+          >
+            Chocolate
+          </div>
+          <div
+            aria-disabled="false"
+            class="select__option select__option--is-focused select__option--is-selected emotion-25"
+            id="react-select-3-option-1"
+            tabindex="-1"
+          >
+            Strawberry
+          </div>
+          <div
+            aria-disabled="false"
+            class="select__option emotion-24"
+            id="react-select-3-option-2"
+            tabindex="-1"
+          >
+            Vanilla
+          </div>
+        </div>
+      </div>
+      <input
+        name="form-select-2"
+        type="hidden"
+        value="strawberry"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

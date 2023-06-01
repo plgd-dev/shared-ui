@@ -3,7 +3,7 @@ import { defaultProps, Props } from './Link.types'
 import * as styles from './Link.styles'
 
 const Link: FC<Props> = (props) => {
-    const { children, disabled, href, onClick, preventDefault, target } = { ...defaultProps, ...props }
+    const { children, dataTestId, disabled, href, onClick, preventDefault, target } = { ...defaultProps, ...props }
 
     const handleOnClick = (e: MouseEvent<HTMLElement>) => {
         if (!disabled && onClick) {
@@ -13,7 +13,7 @@ const Link: FC<Props> = (props) => {
     }
 
     return (
-        <a css={styles.link} href={href || '#'} onClick={handleOnClick} target={target}>
+        <a css={styles.link} href={href || '#'} onClick={handleOnClick} target={target} data-test-id={dataTestId}>
             {children}
         </a>
     )

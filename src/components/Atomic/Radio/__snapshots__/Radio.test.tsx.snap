@@ -1,0 +1,310 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Radio> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 fieldset {
+  padding: 0;
+  margin: 0 -12px;
+  border: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  margin: 0 12px;
+}
+
+.emotion-2 {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  left: -10px;
+}
+
+.emotion-2:indeterminate~.emotion-4 {
+  border-color: #2261AE;
+}
+
+.emotion-2:indeterminate~.emotion-4:before {
+  opacity: 1;
+}
+
+.emotion-2:checked~.emotion-4 {
+  border-color: #2261AE;
+}
+
+.emotion-2:checked~.emotion-4:after {
+  opacity: 1;
+}
+
+.emotion-3 {
+  width: 16px;
+  height: 16px;
+  -webkit-flex: 0 0 16px;
+  -ms-flex: 0 0 16px;
+  flex: 0 0 16px;
+  border: 1px solid #d7d8da;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.emotion-3:before,
+.emotion-3:after {
+  content: '';
+  display: block;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 10px;
+  border-radius: 2px;
+  background: #2261AE;
+  opacity: 0;
+}
+
+.emotion-3:before {
+  height: 2px;
+}
+
+.emotion-3:after {
+  height: 10px;
+}
+
+.emotion-14 {
+  font-size: 12px;
+  color: #81868c;
+  padding-left: 8px;
+  cursor: pointer;
+  line-height: 18px;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.emotion-34 {
+  width: 16px;
+  height: 16px;
+  -webkit-flex: 0 0 16px;
+  -ms-flex: 0 0 16px;
+  flex: 0 0 16px;
+  border: 1px solid #d7d8da;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  box-sizing: border-box;
+  border-color: #D74E3A;
+}
+
+.emotion-34:before,
+.emotion-34:after {
+  content: '';
+  display: block;
+  -webkit-transition: opacity 0.25s;
+  transition: opacity 0.25s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 10px;
+  border-radius: 2px;
+  background: #2261AE;
+  opacity: 0;
+}
+
+.emotion-34:before {
+  height: 2px;
+}
+
+.emotion-34:after {
+  height: 10px;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <fieldset>
+        <label
+          class="emotion-1"
+          id="1"
+        >
+          <input
+            class="emotion-2"
+            name="radio1"
+            type="radio"
+          />
+          <span
+            class="emotion-3 emotion-4"
+          />
+        </label>
+        <label
+          class="emotion-1"
+          id="2"
+        >
+          <input
+            class="emotion-2"
+            name="radio1"
+            type="radio"
+          />
+          <span
+            class="emotion-3 emotion-4"
+          />
+        </label>
+      </fieldset>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <fieldset>
+        <label
+          class="emotion-1"
+          id="1"
+        >
+          <input
+            class="emotion-2"
+            name="radio1"
+            type="radio"
+          />
+          <span
+            class="emotion-3 emotion-4"
+          />
+          <div
+            class="emotion-14"
+          >
+            1
+          </div>
+        </label>
+        <label
+          class="emotion-1"
+          id="2"
+        >
+          <input
+            class="emotion-2"
+            name="radio1"
+            type="radio"
+          />
+          <span
+            class="emotion-3 emotion-4"
+          />
+          <div
+            class="emotion-14"
+          >
+            2
+          </div>
+        </label>
+      </fieldset>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <fieldset>
+        <label
+          class="emotion-1"
+          id="1"
+        >
+          <input
+            class="emotion-2"
+            name="radio1"
+            type="radio"
+          />
+          <span
+            class="emotion-3 emotion-4"
+          />
+          <div
+            class="emotion-14"
+          >
+            1
+          </div>
+        </label>
+        <label
+          class="emotion-1"
+          id="2"
+        >
+          <input
+            checked=""
+            class="emotion-2"
+            name="radio1"
+            type="radio"
+          />
+          <span
+            class="emotion-3 emotion-4"
+          />
+          <div
+            class="emotion-14"
+          >
+            2
+          </div>
+        </label>
+      </fieldset>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <fieldset>
+        <label
+          class="emotion-1"
+          id="1"
+        >
+          <input
+            class="emotion-2"
+            name="radio1"
+            type="radio"
+          />
+          <span
+            class="emotion-34 emotion-4"
+          />
+          <div
+            class="emotion-14"
+          >
+            1
+          </div>
+        </label>
+        <label
+          class="emotion-1"
+          id="2"
+        >
+          <input
+            class="emotion-2"
+            name="radio1"
+            type="radio"
+          />
+          <span
+            class="emotion-34 emotion-4"
+          />
+          <div
+            class="emotion-14"
+          >
+            2
+          </div>
+        </label>
+      </fieldset>
+    </div>
+  </div>
+</DocumentFragment>
+`;

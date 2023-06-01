@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormLabel> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: 'Poppins',sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #81868c;
+  cursor: pointer;
+}
+
+<div>
+    <label
+      class="emotion-0"
+    >
+      Placeholder text
+    </label>
+  </div>
+</DocumentFragment>
+`;

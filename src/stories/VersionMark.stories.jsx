@@ -10,9 +10,7 @@ export default {
 
 const Template = (args) => (
     <div>
-        <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02'>
-            Tag text
-        </VersionMark>
+        <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02' />
         <br />
         <br />
         <VersionMark
@@ -23,9 +21,7 @@ const Template = (args) => (
                 onClick: () => console.log('update click'),
             }}
             versionText='Version 2.02 • New update is available.'
-        >
-            Tag text
-        </VersionMark>
+        />
         <br />
         <br />
         <VersionMark
@@ -36,9 +32,7 @@ const Template = (args) => (
                 onClick: () => console.log('update click'),
             }}
             versionText='Version 2.02 • New update is available.'
-        >
-            Tag text
-        </VersionMark>
+        />
     </div>
 )
 

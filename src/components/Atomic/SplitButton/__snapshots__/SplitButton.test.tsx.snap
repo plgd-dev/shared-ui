@@ -1,0 +1,570 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+  padding: 14px;
+}
+
+.emotion-7 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  border: 1px solid;
+  cursor: not-allowed;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.emotion-8 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  border: 1px solid;
+  cursor: not-allowed;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+  padding: 14px;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.emotion-22 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.emotion-26 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  color: #2261AE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+<div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          class="emotion-1"
+          tabindex="1"
+          type="submit"
+        >
+          Primary
+        </button>
+        <button
+          class="emotion-2"
+          tabindex="1"
+          type="submit"
+        >
+          <div
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 14 8"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          class="emotion-1"
+          tabindex="1"
+          type="submit"
+        >
+          Secondary
+        </button>
+        <button
+          class="emotion-2"
+          tabindex="1"
+          type="submit"
+        >
+          <div
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 14 8"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          class="emotion-7"
+          tabindex="1"
+          type="submit"
+        >
+          Primary
+        </button>
+        <button
+          class="emotion-8"
+          tabindex="1"
+          type="submit"
+        >
+          <div
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 14 8"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          class="emotion-7"
+          tabindex="1"
+          type="submit"
+        >
+          Secondary
+        </button>
+        <button
+          class="emotion-8"
+          tabindex="1"
+          type="submit"
+        >
+          <div
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 14 8"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          class="emotion-1"
+          tabindex="1"
+          type="submit"
+        >
+          <span
+            class="emotion-14"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 20 20"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 18.333A8.333 8.333 0 0 0 18.333 10 8.333 8.333 0 0 0 10 1.667 8.333 8.333 0 0 0 1.667 10 8.333 8.333 0 0 0 10 18.333Zm-.781-5.468V10.78H7.135a.78.78 0 0 1-.78-.78.78.78 0 0 1 .78-.782H9.22V7.136A.78.78 0 0 1 10 6.354a.78.78 0 0 1 .781.782v2.083h2.084a.78.78 0 0 1 .78.781.78.78 0 0 1-.78.781H10.78v2.084a.78.78 0 0 1-.781.78.78.78 0 0 1-.781-.78Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          Primary
+        </button>
+        <button
+          class="emotion-2"
+          tabindex="1"
+          type="submit"
+        >
+          <div
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 14 8"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          class="emotion-1"
+          tabindex="1"
+          type="submit"
+        >
+          <span
+            class="emotion-14"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 20 20"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 18.333A8.333 8.333 0 0 0 18.333 10 8.333 8.333 0 0 0 10 1.667 8.333 8.333 0 0 0 1.667 10 8.333 8.333 0 0 0 10 18.333Zm-.781-5.468V10.78H7.135a.78.78 0 0 1-.78-.78.78.78 0 0 1 .78-.782H9.22V7.136A.78.78 0 0 1 10 6.354a.78.78 0 0 1 .781.782v2.083h2.084a.78.78 0 0 1 .78.781.78.78 0 0 1-.78.781H10.78v2.084a.78.78 0 0 1-.781.78.78.78 0 0 1-.781-.78Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          Secondary
+        </button>
+        <button
+          class="emotion-2"
+          tabindex="1"
+          type="submit"
+        >
+          <div
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 14 8"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          class="emotion-1"
+          tabindex="1"
+          type="submit"
+        >
+          <span
+            class="emotion-22"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          Primary
+        </button>
+        <button
+          class="emotion-2"
+          tabindex="1"
+          type="submit"
+        >
+          <div
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 14 8"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div>
+      <div
+        class="emotion-0"
+      >
+        <button
+          class="emotion-1"
+          tabindex="1"
+          type="submit"
+        >
+          <span
+            class="emotion-26"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          Secondary
+        </button>
+        <button
+          class="emotion-2"
+          tabindex="1"
+          type="submit"
+        >
+          <div
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="16"
+              viewBox="0 0 14 8"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

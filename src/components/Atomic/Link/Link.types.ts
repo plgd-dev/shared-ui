@@ -2,6 +2,7 @@ import { HTMLAttributeAnchorTarget, MouseEvent, ReactNode } from 'react'
 
 export type Props = {
     children: ReactNode
+    dataTestId?: string
     disabled?: boolean
     href?: string
     onClick?: (e: MouseEvent<HTMLElement>) => void
