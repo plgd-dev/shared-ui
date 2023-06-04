@@ -6,7 +6,7 @@ import { Props } from './LanguageSwitcher.types'
 import { useClickOutside } from '../../../common/hooks'
 import { LanguageContext } from '../IntlProvider'
 import { messages as t } from './LanguageSwitcher.i18n'
-import './LanguageSwitcher.scss'
+// import './LanguageSwitcher.scss'
 
 // @ts-ignore
 const LanguageSwitcher: FC<Props> = memo((props) => {

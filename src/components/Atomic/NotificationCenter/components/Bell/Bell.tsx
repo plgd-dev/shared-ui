@@ -26,7 +26,7 @@ const Bell: FC<Props> = (props) => {
         <a
             css={[styles.bell, props.hasUnRead && styles.hasUnRead]}
             data-block-outside-click={true}
-            href='src/components/atomic/NotificationCenter/components/Bell/index#'
+            href='#'
             onClick={(e) => {
                 e.preventDefault()
                 props.onClick()

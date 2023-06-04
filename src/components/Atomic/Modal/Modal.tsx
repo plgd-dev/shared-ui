@@ -75,7 +75,7 @@ export const Modal: FC<Props> = memo((props) => {
                 {closeButton && (
                     <a
                         css={styles.close}
-                        href='src/components/atomic/Modal/index#'
+                        href='#'
                         onClick={(e) => {
                             e.stopPropagation()
                             e.preventDefault()

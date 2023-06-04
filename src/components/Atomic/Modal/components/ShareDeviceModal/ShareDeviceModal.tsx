@@ -23,7 +23,7 @@ const SharedItem = (sharedItem: AlreadySharedItemType & { onRemoveShared: (id: s
         <div css={styles.right}>
             <a
                 css={styles.removeBtn}
-                href='src/components/atomic/Modal/components/ShareDeviceModal/index#'
+                href='#'
                 onClick={(e) => {
                     e.preventDefault()
                     sharedItem.onRemoveShared(sharedItem.email)

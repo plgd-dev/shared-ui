@@ -1,6 +1,6 @@
 import { memo, ReactNode } from 'react'
 import LanguageSwitcher from '../LanguageSwitcher'
-import './StatusBar.scss'
+// import './StatusBar.scss'
 
 const StatusBar = memo(({ children }: { children?: ReactNode }) => (
     <>

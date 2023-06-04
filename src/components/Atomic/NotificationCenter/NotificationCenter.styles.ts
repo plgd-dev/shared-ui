@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
-import { commonStyles } from '../_utils/commonStyles'
+import { commonStyles, fontPrimary } from '../_utils/commonStyles'
 
 export const floatingPanel = css`
     z-index: 10;
@@ -14,8 +14,11 @@ export const floatingPanel = css`
 export const header = css`
     padding: 16px;
     display: flex;
+    height: 56px;
+    box-sizing: border-box;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #e6e9ed;
 `
 
 export const headline = css`
@@ -45,6 +48,19 @@ export const clearAll = css`
 export const content = css`
     overflow: auto;
     max-height: 400px;
+    padding: 0 16px;
 `
 
-export const item = css``
+export const noNotifications = css`
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ${fontPrimary};
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.neutral500};
+`

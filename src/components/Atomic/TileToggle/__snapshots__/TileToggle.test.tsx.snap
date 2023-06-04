@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TileToggle> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: #F6F7F9;
+  border-radius: 8px;
+  padding: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+  color: #0A2965;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  width: 32px;
+  height: 20px;
+  border-radius: 26.6667px;
+  background: #D7D8DA;
+  position: relative;
+}
+
+.emotion-4 {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.emotion-4:checked~.emotion-6 {
+  background: #2261AE;
+}
+
+.emotion-4:checked~.emotion-6:before {
+  -webkit-transform: translateX(12px);
+  -moz-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+.emotion-5 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 32px;
+  height: 20px;
+  border-radius: 26.6667px;
+}
+
+.emotion-5:before {
+  position: absolute;
+  content: '';
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.emotion-5:before {
+  width: 16px;
+  height: 16px;
+}
+
+<div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        Checked
+      </div>
+      <label
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          <input
+            checked=""
+            class="emotion-4"
+            type="checkbox"
+          />
+          <span
+            class="emotion-5 emotion-6"
+          />
+        </div>
+      </label>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        UnChecked
+      </div>
+      <label
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          <input
+            class="emotion-4"
+            type="checkbox"
+          />
+          <span
+            class="emotion-5 emotion-6"
+          />
+        </div>
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;

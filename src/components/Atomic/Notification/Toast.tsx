@@ -56,7 +56,7 @@ const ToastComponent = (props: any) => {
                 <div css={styles.headline(type)}>{toastTitle}</div>
                 <div css={styles.text}>{toastMessage}</div>
             </div>
-            <a className='close-button' css={styles.closeButton} href='src/components/atomic/Notification/index#' onClick={handleClose}>
+            <a className='close-button' css={styles.closeButton} href='#' onClick={handleClose}>
                 <IconToastClose {...convertSize(20)} />
             </a>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import PageLayout from './PageLayout'
-import Footer from 'src/components/Layout/Footer'
+import Footer from '../../Layout/Footer'
 
 describe('<PageLayout>', () => {
     it('render correctly - snapshot', () => {

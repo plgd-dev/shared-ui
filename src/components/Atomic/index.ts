@@ -78,9 +78,6 @@ export * from './Link'
 export { default as IconLoader } from './Loader/IconLoader'
 export * from './Loader'
 
-export { default as Menu } from './Menu'
-export * from './Menu'
-
 export { default as Modal } from './Modal'
 export * from './Modal'
 
@@ -158,9 +155,6 @@ export * from './Tooltip'
 
 export { default as TreeExpander } from './TreeExpander'
 export * from './TreeExpander'
-
-export { default as UserWidget } from './UserWidget'
-export * from './UserWidget'
 
 export { default as VersionMark } from './VersionMark'
 export * from './VersionMark'

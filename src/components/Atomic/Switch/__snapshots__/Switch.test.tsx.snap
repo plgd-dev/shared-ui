@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Switch> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-1 {
+  width: 24px;
+  height: 15px;
+  border-radius: 20px;
+  background: #D7D8DA;
+  position: relative;
+}
+
+.emotion-2 {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.emotion-2:checked~.emotion-4 {
+  background: #2261AE;
+}
+
+.emotion-2:checked~.emotion-4:before {
+  -webkit-transform: translateX(8px);
+  -moz-transform: translateX(8px);
+  -ms-transform: translateX(8px);
+  transform: translateX(8px);
+}
+
+.emotion-3 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 24px;
+  height: 15px;
+  border-radius: 20px;
+}
+
+.emotion-3:before {
+  position: absolute;
+  content: '';
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.emotion-3:before {
+  width: 11px;
+  height: 11px;
+}
+
+.emotion-6 {
+  width: 32px;
+  height: 20px;
+  border-radius: 26.6667px;
+  background: #D7D8DA;
+  position: relative;
+}
+
+.emotion-7 {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.emotion-7:checked~.emotion-4 {
+  background: #2261AE;
+}
+
+.emotion-7:checked~.emotion-4:before {
+  -webkit-transform: translateX(12px);
+  -moz-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+.emotion-8 {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 32px;
+  height: 20px;
+  border-radius: 26.6667px;
+}
+
+.emotion-8:before {
+  position: absolute;
+  content: '';
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.emotion-8:before {
+  width: 16px;
+  height: 16px;
+}
+
+.emotion-25 {
+  font-size: 14px;
+  color: #252626;
+  padding-left: 8px;
+  cursor: pointer;
+  line-height: 18px;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+<div>
+    <label
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <input
+          class="emotion-2"
+          type="checkbox"
+        />
+        <span
+          class="emotion-3 emotion-4"
+        />
+      </div>
+    </label>
+    <label
+      class="emotion-0"
+    >
+      <div
+        class="emotion-6"
+      >
+        <input
+          class="emotion-7"
+          type="checkbox"
+        />
+        <span
+          class="emotion-8 emotion-4"
+        />
+      </div>
+    </label>
+    <label
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <input
+          checked=""
+          class="emotion-2"
+          type="checkbox"
+        />
+        <span
+          class="emotion-3 emotion-4"
+        />
+      </div>
+    </label>
+    <label
+      class="emotion-0"
+    >
+      <div
+        class="emotion-6"
+      >
+        <input
+          checked=""
+          class="emotion-7"
+          type="checkbox"
+        />
+        <span
+          class="emotion-8 emotion-4"
+        />
+      </div>
+    </label>
+    <label
+      class="emotion-0"
+    >
+      <div
+        class="emotion-6"
+      >
+        <input
+          checked=""
+          class="emotion-7"
+          type="checkbox"
+        />
+        <span
+          class="emotion-8 emotion-4"
+        />
+      </div>
+      <div
+        class="emotion-25"
+      >
+        Label text
+      </div>
+    </label>
+  </div>
+</DocumentFragment>
+`;

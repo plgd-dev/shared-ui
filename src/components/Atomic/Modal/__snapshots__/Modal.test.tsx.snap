@@ -170,7 +170,7 @@ exports[`<Modal> render correctly - snapshot 1`] = `
             />
             <a
               class="emotion-5"
-              href="src/components/atomic/Modal/index#"
+              href="#"
             >
               <span>
                 Close

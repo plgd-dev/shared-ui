@@ -12,3 +12,5 @@
 
 !config/**/*.js
 !config/**/*.ts
+
+!scripts/**/*.js

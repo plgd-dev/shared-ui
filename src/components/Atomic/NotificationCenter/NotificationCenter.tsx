@@ -1,75 +1,25 @@
 import { FC, useEffect, useRef, useState } from 'react'
-import { useIntl } from 'react-intl'
 import { offset, shift, useFloating } from '@floating-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FloatingPortal } from '@floating-ui/react-dom-interactions'
-import { NotificationCenterItem, useNotificationCenter } from 'react-toastify/addons/use-notification-center'
+import { useNotificationCenter } from 'react-toastify/addons/use-notification-center'
 
-import { NotificationCenterItemType, Props } from './NotificationCenter.types'
+import { Props, defaultProps } from './NotificationCenter.types'
 import Bell from './components/Bell'
 import * as styles from './NotificationCenter.styles'
-import { translateToastString } from '../Notification'
 import { hasEventBlocker } from '../_utils/envets'
+import InnerToast from './components/InnerToast/InnerToast'
 
-const InnerToast = (props: any) => {
-    const { notification } = props
-    const { formatMessage: _ } = useIntl()
-
-    const toastTitle = translateToastString(notification.data.message.title, _)
-    const toastMessage = translateToastString(notification.data.message.message, _)
-
-    return (
-        <motion.div
-            layout
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{
-                scale: 0,
-                opacity: 0,
-                transition: { duration: 0.2 },
-            }}
-            initial={{ scale: 0.4, opacity: 0, y: 50 }}
-            key={notification.id}
-        >
-            <motion.article
-                css={styles.item}
-                variants={{
-                    open: {
-                        y: 0,
-                        opacity: 1,
-                        transition: {
-                            y: { stiffness: 1000, velocity: -100 },
-                        },
-                    },
-                    closed: {
-                        y: 50,
-                        opacity: 0,
-                        transition: {
-                            y: { stiffness: 1000 },
-                        },
-                    },
-                }}
-            >
-                <div>
-                    <h5>{toastTitle}</h5>
-                    <br />
-                    {toastMessage}
-                </div>
-            </motion.article>
-        </motion.div>
-    )
-}
-
-const NotificationCenter: FC<Props> = () => {
-    const [open, setOpen] = useState(false)
+const NotificationCenter: FC<Props> = (props) => {
+    const { i18n } = { ...defaultProps, ...props }
+    const [open, setOpen] = useState(true)
     const ref = useRef(null)
     const { x, y, reference, floating, strategy, context } = useFloating({
         placement: 'bottom-end',
         strategy: 'fixed',
         middleware: [shift(), offset(4)],
     })
-    const { notifications, clear, markAllAsRead, markAsRead, remove, unreadCount } = useNotificationCenter()
-
-    // console.log({ notifications })
+    const { notifications, markAllAsRead, unreadCount } = useNotificationCenter()
 
     useEffect(() => {
         function handleClickOutside(event: any) {
@@ -88,7 +38,7 @@ const NotificationCenter: FC<Props> = () => {
 
     return (
         <div>
-            <Bell hasUnRead={notifications.length > 0} innerRef={reference} notificationsCount={notifications.length} onClick={() => setOpen(!open)} />
+            <Bell hasUnRead={unreadCount > 0} innerRef={reference} notificationsCount={notifications.length} onClick={() => setOpen(!open)} />
             <FloatingPortal>
                 <AnimatePresence>
                     {open && (
@@ -112,10 +62,19 @@ const NotificationCenter: FC<Props> = () => {
                         >
                             <div ref={ref}>
                                 <div css={styles.header}>
-                                    <div css={styles.headline}>Notifications</div>
-                                    <a css={styles.clearAll} href='src/components/atomic/NotificationCenter/index#'>
-                                        mark all as read
-                                    </a>
+                                    <div css={styles.headline}>{i18n.notifications}</div>
+                                    {notifications.length > 0 && (
+                                        <a
+                                            css={styles.clearAll}
+                                            href='#'
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                markAllAsRead()
+                                            }}
+                                        >
+                                            {i18n.markAllAsRead}
+                                        </a>
+                                    )}
                                 </div>
                                 <AnimatePresence>
                                     <motion.section
@@ -131,9 +90,11 @@ const NotificationCenter: FC<Props> = () => {
                                         }}
                                     >
                                         <AnimatePresence>
-                                            {notifications.length === 0 && <div>No notifications</div>}
+                                            {notifications.length === 0 && <div css={styles.noNotifications}>{i18n.noNotifications}</div>}
                                             {notifications.length > 0 &&
-                                                notifications.map((notification: any, i) => <InnerToast key={i} notification={notification} />)}
+                                                notifications.map((notification: any, i) => (
+                                                    <InnerToast key={i} notification={notification} borderTop={i !== 0} />
+                                                ))}
                                         </AnimatePresence>
                                     </motion.section>
                                 </AnimatePresence>
@@ -147,5 +108,6 @@ const NotificationCenter: FC<Props> = () => {
 }
 
 NotificationCenter.displayName = 'NotificationCenter'
+NotificationCenter.defaultProps = defaultProps
 
 export default NotificationCenter
