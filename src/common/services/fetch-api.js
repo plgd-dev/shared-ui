@@ -13,7 +13,14 @@ export const errorCodes = {
 }
 
 export const fetchApi = async (url, options = {}) => {
-    const { scopes, body, useToken: useTokenDefault, unauthorizedCallback, cancelRequestDeadlineTimeout: cancelRequestDeadlineTimeoutDefault, ...fetchOptions } = options
+    const {
+        scopes,
+        body,
+        useToken: useTokenDefault,
+        unauthorizedCallback,
+        cancelRequestDeadlineTimeout: cancelRequestDeadlineTimeoutDefault,
+        ...fetchOptions
+    } = options
     const useToken = useTokenDefault !== false
     const accessToken = useToken ? security.getAccessToken() : null
     const cancelRequestDeadlineTimeout = cancelRequestDeadlineTimeoutDefault || CANCEL_REQUEST_DEADLINE_MS

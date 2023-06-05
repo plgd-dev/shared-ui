@@ -12,7 +12,7 @@ import InnerToast from './components/InnerToast/InnerToast'
 
 const NotificationCenter: FC<Props> = (props) => {
     const { i18n } = { ...defaultProps, ...props }
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const ref = useRef(null)
     const { x, y, reference, floating, strategy, context } = useFloating({
         placement: 'bottom-end',
@@ -93,7 +93,7 @@ const NotificationCenter: FC<Props> = (props) => {
                                             {notifications.length === 0 && <div css={styles.noNotifications}>{i18n.noNotifications}</div>}
                                             {notifications.length > 0 &&
                                                 notifications.map((notification: any, i) => (
-                                                    <InnerToast key={i} notification={notification} borderTop={i !== 0} />
+                                                    <InnerToast borderTop={i !== 0} key={i} notification={notification} />
                                                 ))}
                                         </AnimatePresence>
                                     </motion.section>

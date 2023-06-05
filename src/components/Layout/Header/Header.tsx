@@ -1,11 +1,10 @@
 import { FC } from 'react'
-import { Props, defaultProps } from './Header.types'
+import { Props } from './Header.types'
 import * as styles from './Header.styles'
-import { convertSize, IconSettings } from '../../Atomic/Icon'
-import NotificationCenter from '../../Atomic/NotificationCenter'
+// import { convertSize, IconSettings } from '../../Atomic/Icon'
 
 const Header: FC<Props> = (props) => {
-    const { breadcrumbs, userWidget, useNotificationCenter } = { ...defaultProps, ...props }
+    const { breadcrumbs, configButton, notificationCenter, userWidget } = props
 
     return (
         <div css={styles.header}>
@@ -15,16 +14,13 @@ const Header: FC<Props> = (props) => {
             </div>
             <div css={styles.right}>
                 <ul css={styles.actions}>
-                    <li>
-                        <a css={styles.actionItem} href='packages/shared-ui/src/components/Layout/Header#'>
-                            <IconSettings {...convertSize(20)} />
-                        </a>
-                    </li>
-                    {useNotificationCenter && (
-                        <li>
-                            <NotificationCenter />
-                        </li>
-                    )}
+                    {configButton && <li>{configButton}</li>}
+                    {/* <li>*/}
+                    {/*    <a css={styles.actionItem} href='#'>*/}
+                    {/*        <IconSettings {...convertSize(20)} />*/}
+                    {/*    </a>*/}
+                    {/* </li>*/}
+                    {notificationCenter && <li>{notificationCenter}</li>}
                 </ul>
                 {userWidget}
             </div>
@@ -33,6 +29,5 @@ const Header: FC<Props> = (props) => {
 }
 
 Header.displayName = 'Header'
-Header.defaultProps = defaultProps
 
 export default Header

@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 
 import { WebSocketEventClient } from './websocket-event-client'
 import { eventFilters } from './websocket-event-constants'
-import { deviceStatusListener } from '../../../../src/containers/Devices/websockets'
 
 let initialized = false
 

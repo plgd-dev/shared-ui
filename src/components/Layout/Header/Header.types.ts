@@ -2,10 +2,7 @@ import { ReactNode } from 'react'
 
 export type Props = {
     breadcrumbs?: ReactNode
-    useNotificationCenter?: boolean
+    configButton?: ReactNode
+    notificationCenter?: ReactNode
     userWidget?: ReactNode
-}
-
-export const defaultProps: Partial<Props> = {
-    useNotificationCenter: true,
 }
