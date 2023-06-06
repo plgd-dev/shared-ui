@@ -1,8 +1,9 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { offset, shift, useFloating } from '@floating-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FloatingPortal } from '@floating-ui/react-dom-interactions'
 import { useNotificationCenter } from 'react-toastify/addons/use-notification-center'
+import isFunction from 'lodash/isFunction'
 
 import { Props, defaultProps } from './NotificationCenter.types'
 import Bell from './components/Bell'
@@ -11,15 +12,26 @@ import { hasEventBlocker } from '../_utils/envets'
 import InnerToast from './components/InnerToast/InnerToast'
 
 const NotificationCenter: FC<Props> = (props) => {
-    const { i18n } = { ...defaultProps, ...props }
+    const { defaultNotification, i18n, onNotification, readAllNotifications } = { ...defaultProps, ...props }
     const [open, setOpen] = useState(false)
     const ref = useRef(null)
-    const { x, y, reference, floating, strategy, context } = useFloating({
+    const { x, y, reference, floating, strategy } = useFloating({
         placement: 'bottom-end',
         strategy: 'fixed',
         middleware: [shift(), offset(4)],
     })
-    const { notifications, markAllAsRead, unreadCount } = useNotificationCenter()
+
+    const notificationsCount = useRef<number>(defaultNotification?.length ?? 0)
+    // const notificationsCount = useRef(1)
+    const { notifications, markAllAsRead, unreadCount } = useNotificationCenter({
+        data: defaultNotification ?? [],
+        sort: (l, r) => r.createdAt - l.createdAt,
+    })
+
+    const readAll = useCallback(() => {
+        isFunction(readAllNotifications) && readAllNotifications()
+        markAllAsRead()
+    }, [markAllAsRead, readAllNotifications])
 
     useEffect(() => {
         function handleClickOutside(event: any) {
@@ -35,6 +47,13 @@ const NotificationCenter: FC<Props> = (props) => {
             }
         }
     }, [ref, open])
+
+    useEffect(() => {
+        if (notifications && notifications.length !== notificationsCount.current) {
+            notificationsCount.current = notifications.length
+            isFunction(onNotification) && notifications && onNotification(notifications)
+        }
+    }, [notifications, onNotification])
 
     return (
         <div>
@@ -69,7 +88,7 @@ const NotificationCenter: FC<Props> = (props) => {
                                             href='#'
                                             onClick={(e) => {
                                                 e.preventDefault()
-                                                markAllAsRead()
+                                                readAll()
                                             }}
                                         >
                                             {i18n.markAllAsRead}
