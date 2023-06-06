@@ -17,7 +17,7 @@ export const InitServices = (props) => {
                         eventFilter: [eventFilters.DEVICE_METADATA_UPDATED, eventFilters.REGISTERED, eventFilters.UNREGISTERED],
                     },
                     'device-status',
-                    deviceStatusListener.deviceStatusListener
+                    deviceStatusListener
                 )
             }
             initialized = true
@@ -26,7 +26,8 @@ export const InitServices = (props) => {
         return () => {
             WebSocketEventClient.unsubscribe('device-status')
         }
-    }, [deviceStatusListener])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return null
 }
