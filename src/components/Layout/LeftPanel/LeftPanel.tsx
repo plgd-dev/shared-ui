@@ -150,7 +150,7 @@ const LeftPanel: FC<Props> = (props) => {
                 createPortal(
                     <a
                         css={styles.collapseToggle}
-                        href='packages/shared-ui/src/components/Layout/LeftPanel#'
+                        href='#'
                         onClick={(e) => {
                             e.preventDefault()
                             isFunction(setCollapsed) && setCollapsed(!collapsed)

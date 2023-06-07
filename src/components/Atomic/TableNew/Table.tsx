@@ -64,6 +64,7 @@ const Table: FC<Props> = (props) => {
         selectedFlatRows,
         toggleAllRowsSelected,
         isAllRowsSelected,
+        toggleAllPageRowsSelected,
         preGlobalFilteredRows,
         setGlobalFilter,
         state: { pageIndex, pageSize, selectedRowIds, globalFilter },
@@ -133,7 +134,8 @@ const Table: FC<Props> = (props) => {
 
     // Any time the unselectRowsToken is changed, all rows are gonna be unselected
     useEffect(() => {
-        // toggleAllRowsSelected(false)
+        setPrevSelectedRowIds(isEmpty(defaultSelectedRowIds) ? {} : defaultSelectedRowIds)
+        toggleAllPageRowsSelected(false)
     }, [unselectRowsToken]) // eslint-disable-line
 
     // When the defaultPageSize is changed, update the pageSize in the table
