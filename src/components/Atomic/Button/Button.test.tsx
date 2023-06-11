@@ -2,7 +2,6 @@ import React from 'react'
 import Button from './Button'
 import { fireEvent, render, waitFor } from '@testing-library/react'
 import { buttonVariants, buttonSizes } from './constants'
-import Checkbox from '../Checkbox'
 import { forEach } from 'lodash'
 
 describe('<Button>', () => {

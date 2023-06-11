@@ -1,3 +1,7 @@
+import React from 'react'
+import { render, waitFor } from '@testing-library/react'
+import LeftPanel from './LeftPanel'
+import VersionMark from '../../Atomic/VersionMark'
 import {
     IconChat,
     IconDashboard,
@@ -12,7 +16,8 @@ import {
     IconPendingCommands,
     IconRemoteClients,
     IconSearch,
-} from '../components/Atomic/Icon'
+} from '../../Atomic/Icon'
+import { severities } from 'src/components/Atomic/VersionMark/constants'
 
 export const leftPanelMenu = [
     {
@@ -22,26 +27,31 @@ export const leftPanelMenu = [
                 icon: <IconDashboard />,
                 id: '1',
                 title: 'Dashboard',
+                link: '/dashboard',
             },
             {
                 icon: <IconDevices />,
                 id: '2',
                 title: 'Devices',
+                link: '/devices',
             },
             {
                 icon: <IconIntegrations />,
                 id: '3',
                 title: 'Integrations',
+                link: '/integrations',
             },
             {
                 icon: <IconRemoteClients />,
                 id: '4',
                 title: 'Remote clients',
+                link: '/remote-clients',
             },
             {
                 icon: <IconPendingCommands />,
                 id: '5',
                 title: 'Pending commands',
+                link: '/pending-commands',
             },
         ],
     },
@@ -60,6 +70,7 @@ export const leftPanelMenu = [
                     { icon: <IconSearch />, id: '104', title: 'Certificates', tag: { variant: 'info', text: 'Soon!' } },
                     { icon: <IconSearch />, id: '105', title: 'Registration records' },
                 ],
+                link: '/device-provisioning',
             },
             {
                 icon: <IconDeviceUpdate />,
@@ -72,21 +83,25 @@ export const leftPanelMenu = [
                     { icon: <IconSearch />, id: '114', title: 'Certificates 2', tag: { variant: 'info', text: 'Soon!' } },
                     { icon: <IconSearch />, id: '115', title: 'Registration records 2' },
                 ],
+                link: '/device-update',
             },
             {
                 icon: <IconLog />,
                 id: '12',
                 title: 'Device logs',
+                link: 'device-logs',
             },
             {
                 icon: <IconLock />,
                 id: '13',
                 title: 'API tokens',
+                link: 'api-tokens',
             },
             {
                 icon: <IconNet />,
                 id: '14',
                 title: 'Schema hub',
+                link: '/schema-hub',
             },
         ],
     },
@@ -97,12 +112,76 @@ export const leftPanelMenu = [
                 icon: <IconDocs />,
                 id: '20',
                 title: 'Docs',
+                link: '/docs',
             },
             {
                 icon: <IconChat />,
                 id: '21',
                 title: 'Chat room',
+                link: '/chart-room',
             },
         ],
     },
 ]
+
+describe('<LeftPanel>', () => {
+    it('render correctly - snapshot', async () => {
+        const { asFragment } = render(
+            <LeftPanel
+                activeId='1'
+                collapsed={false}
+                menu={leftPanelMenu}
+                versionMark={<VersionMark severity={severities.SUCCESS} versionText='Version 2.02' />}
+            />
+        )
+    })
+
+    it('render correctly - snapshot', async () => {
+        const { asFragment } = render(
+            <LeftPanel
+                activeId='1'
+                collapsed={false}
+                menu={leftPanelMenu}
+                versionMark={<VersionMark severity={severities.WARNING} versionText='Version 2.02' />}
+            />
+        )
+
+        await waitFor(() => {
+            expect(asFragment()).toMatchSnapshot()
+        })
+    })
+
+    it('render correctly - snapshot', async () => {
+        const { asFragment } = render(
+            <LeftPanel
+                activeId='1'
+                collapsed={false}
+                menu={leftPanelMenu}
+                versionMark={<VersionMark severity={severities.ERROR} versionText='Version 2.02' />}
+            />
+        )
+
+        await waitFor(() => {
+            expect(asFragment()).toMatchSnapshot()
+        })
+    })
+
+    it('render correctly - snapshot', async () => {
+        const { asFragment } = render(
+            <LeftPanel
+                activeId='4'
+                collapsed={true}
+                menu={leftPanelMenu}
+                newFeature={{
+                    onClick: () => console.log('click'),
+                    onClose: () => console.log('close'),
+                }}
+                versionMark={<VersionMark severity={severities.SUCCESS} versionText='Version 2.02' />}
+            />
+        )
+
+        await waitFor(() => {
+            expect(asFragment()).toMatchSnapshot()
+        })
+    })
+})
