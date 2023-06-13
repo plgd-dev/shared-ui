@@ -34,6 +34,10 @@ export type Props = {
     newFeature?: {
         onClick: () => void
         onClose: () => void
+        i18n: {
+            headline: string
+            description: string
+        }
     }
     versionMark: ReactNode
     onItemClick?: (item: MenuItem, e: SyntheticEvent) => void

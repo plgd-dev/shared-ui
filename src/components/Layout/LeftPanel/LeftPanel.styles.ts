@@ -282,7 +282,7 @@ export const line = css`
     bottom: 50%;
 `
 
-const getColorByVariant = (variant: MenuTagVariantType) => {
+const getColorByVariant = (variant: MenuTagVariantType | string) => {
     switch (variant) {
         case tagVariants.SUCCESS:
             return css`
@@ -295,7 +295,7 @@ const getColorByVariant = (variant: MenuTagVariantType) => {
     }
 }
 
-export const tag = (variant: MenuTagVariantType) => css`
+export const tag = (variant: MenuTagVariantType | string) => css`
     position: absolute;
     top: 50%;
     right: 0;

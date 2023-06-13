@@ -10,7 +10,7 @@ const ActionButton: FC<Props> = (props) => {
     const { menuProps, items, onToggle, className, id, defaultOpen, loading, dataTestIdDropdown, portalTarget } = props
     const [open, setOpen] = useState(defaultOpen)
     const ref = useRef(null)
-    const { x, y, reference, floating, strategy } = useFloating({
+    const { x, y, refs, strategy } = useFloating({
         placement: menuProps?.placement || 'bottom-end',
         strategy: 'fixed',
         middleware: [shift(), offset(4)],
@@ -55,7 +55,7 @@ const ActionButton: FC<Props> = (props) => {
     const floatingPanel = (
         <div
             css={styles.floatingMenu}
-            ref={floating}
+            ref={refs.setFloating}
             style={{
                 position: strategy,
                 top: y ?? 0,
@@ -91,7 +91,7 @@ const ActionButton: FC<Props> = (props) => {
 
     return (
         <div className={className} css={styles.actionButton} id={id} ref={ref}>
-            <div css={[styles.icon, open && styles.iconActive]} data-test-id={dataTestIdDropdown} onClick={handleOpen} ref={reference}>
+            <div css={[styles.icon, open && styles.iconActive]} data-test-id={dataTestIdDropdown} onClick={handleOpen} ref={refs.setReference}>
                 <IconActions {...convertSize(20)} />
             </div>
 

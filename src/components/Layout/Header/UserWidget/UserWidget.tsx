@@ -12,7 +12,7 @@ const UserWidget: FC<Props> = (props) => {
     const clickRef = useRef<HTMLDivElement>(null)
     useClickOutside(clickRef, () => setOpen(false))
 
-    const { x, y, reference, floating, strategy } = useFloating({
+    const { x, y, refs, strategy } = useFloating({
         placement: 'bottom-end',
         strategy: 'fixed',
         middleware: [shift(), offset(4)],
@@ -28,7 +28,7 @@ const UserWidget: FC<Props> = (props) => {
 
     return (
         <div ref={clickRef}>
-            <div css={styles.widgetReference} onClick={handleClick} ref={reference}>
+            <div css={styles.widgetReference} onClick={handleClick} ref={refs.setReference}>
                 <div css={[styles.userWidget, dropdownItems && styles.clickable]}>
                     {image && <div css={styles.image}>{typeof image === 'string' ? <img alt={name} src={image} /> : image}</div>}
                     {!image && (
@@ -51,7 +51,7 @@ const UserWidget: FC<Props> = (props) => {
             {dropdownItems && open && (
                 <div
                     css={styles.floatingMenu}
-                    ref={floating}
+                    ref={refs.setFloating}
                     style={{
                         position: strategy,
                         top: y ?? 0,
