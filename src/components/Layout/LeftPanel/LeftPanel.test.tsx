@@ -17,7 +17,7 @@ import {
     IconRemoteClients,
     IconSearch,
 } from '../../Atomic/Icon'
-import { severities } from 'src/components/Atomic/VersionMark/constants'
+import { severities } from '../../Atomic/VersionMark/constants'
 
 export const leftPanelMenu = [
     {
@@ -173,6 +173,10 @@ describe('<LeftPanel>', () => {
                 collapsed={true}
                 menu={leftPanelMenu}
                 newFeature={{
+                    i18n: {
+                        headline: 'headline',
+                        description: 'description',
+                    },
                     onClick: () => console.log('click'),
                     onClose: () => console.log('close'),
                 }}
