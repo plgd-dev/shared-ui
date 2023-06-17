@@ -5,17 +5,16 @@ import { CSSTransition } from 'react-transition-group'
 import { useFloating, shift, offset } from '@floating-ui/react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { createPortal } from 'react-dom'
+import isFunction from 'lodash/isFunction'
 
 import { Logo, Close, Arrow, Feature } from './components'
 
 import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
-import isFunction from 'lodash/isFunction'
-import { itemTitleIcon } from './LeftPanel.styles'
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
-    const { x, y, reference, floating, strategy } = useFloating({
+    const { x, y, refs, strategy } = useFloating({
         placement: 'bottom-start',
         strategy: 'fixed',
         middleware: [shift(), offset(4)],
@@ -26,7 +25,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 
     return (
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
-            <a css={[styles.item, isActive && styles.activeItem]} href='#' onClick={(e) => handleItemClick(item, e)} ref={reference}>
+            <a css={[styles.item, isActive && styles.activeItem]} href='#' onClick={(e) => handleItemClick(item, e)} ref={refs.setReference}>
                 <div css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
                     {typeof item.icon === 'string' ? <Icon icon={item.icon} /> : cloneElement(item.icon as ReactElement, { css: styles.itemTitleIcon })}
                     <span aria-label={item.title} css={styles.itemTitleText}>
@@ -43,7 +42,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                 <LeftPanelSubItems
                     active={active}
                     collapsed={collapsed}
-                    floating={floating}
+                    floating={refs.setFloating}
                     handleItemClick={handleItemClick}
                     isActive={isActive}
                     item={item}
@@ -192,8 +191,8 @@ const LeftPanel: FC<Props> = (props) => {
                                 >
                                     <div css={styles.header}>
                                         <div css={styles.headerLeft}>
-                                            <div css={styles.headline}>New feature release!</div>
-                                            <div css={styles.description}>Check out the new features.</div>
+                                            <div css={styles.headline}>{newFeature.i18n.headline}</div>
+                                            <div css={styles.description}>{newFeature.i18n.description}</div>
                                         </div>
                                         <div css={styles.headerRight}>
                                             <Close

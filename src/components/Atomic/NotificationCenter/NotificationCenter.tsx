@@ -15,7 +15,7 @@ const NotificationCenter: FC<Props> = (props) => {
     const { defaultNotification, i18n, onNotification, readAllNotifications } = { ...defaultProps, ...props }
     const [open, setOpen] = useState(false)
     const ref = useRef(null)
-    const { x, y, reference, floating, strategy } = useFloating({
+    const { x, y, refs, strategy } = useFloating({
         placement: 'bottom-end',
         strategy: 'fixed',
         middleware: [shift(), offset(4)],
@@ -57,7 +57,7 @@ const NotificationCenter: FC<Props> = (props) => {
 
     return (
         <div>
-            <Bell hasUnRead={unreadCount > 0} innerRef={reference} notificationsCount={notifications.length} onClick={() => setOpen(!open)} />
+            <Bell hasUnRead={unreadCount > 0} innerRef={refs.setReference} notificationsCount={notifications.length} onClick={() => setOpen(!open)} />
             <FloatingPortal>
                 <AnimatePresence>
                     {open && (
@@ -66,7 +66,7 @@ const NotificationCenter: FC<Props> = (props) => {
                             css={styles.floatingPanel}
                             exit={{ opacity: 0, y: 0 }}
                             initial={{ opacity: 0, scale: 0.85, y: -100 }}
-                            ref={floating}
+                            ref={refs.setFloating}
                             style={{
                                 position: strategy,
                                 top: y ?? 0,

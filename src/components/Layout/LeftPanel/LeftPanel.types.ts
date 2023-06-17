@@ -2,11 +2,11 @@ import { tagVariants } from './constants'
 import { ReactNode, SyntheticEvent } from 'react'
 import { Strategy } from '@floating-ui/core/src/types'
 
-export type MenuTagVariantType = typeof tagVariants[keyof typeof tagVariants]
+export type MenuTagVariantType = (typeof tagVariants)[keyof typeof tagVariants]
 
 type MenuItemTag = {
     text: string
-    variant: MenuTagVariantType
+    variant: MenuTagVariantType | string
 }
 
 export type MenuItem = {
@@ -14,7 +14,7 @@ export type MenuItem = {
     exact?: boolean
     icon: ReactNode
     id: string
-    link: string
+    link?: string
     paths?: string[]
     tag?: MenuItemTag
     title: string
@@ -34,6 +34,10 @@ export type Props = {
     newFeature?: {
         onClick: () => void
         onClose: () => void
+        i18n: {
+            headline: string
+            description: string
+        }
     }
     versionMark: ReactNode
     onItemClick?: (item: MenuItem, e: SyntheticEvent) => void

@@ -5,7 +5,7 @@ import * as styles from './SplitButton.styles'
 import Icon, { convertSize, IconArrowDown } from '../Icon'
 import { offset, shift, useFloating } from '@floating-ui/react'
 import isFunction from 'lodash/isFunction'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const SplitButton: FC<Props> = (props) => {
     const { defaultOpen, children, variant, className, menuProps, items, disabled, loading, onClick, dataTestId, dataTestIdDropdown, ...rest } = {
@@ -14,7 +14,7 @@ const SplitButton: FC<Props> = (props) => {
     }
     const [open, setOpen] = useState(defaultOpen)
     const ref = useRef(null)
-    const { x, y, reference, floating, strategy } = useFloating({
+    const { x, y, refs, strategy } = useFloating({
         placement: menuProps?.placement || 'bottom-end',
         strategy: 'fixed',
         middleware: [shift(), offset(4)],
@@ -49,7 +49,7 @@ const SplitButton: FC<Props> = (props) => {
 
     return (
         <div ref={ref}>
-            <div css={styles.splitButton} ref={reference}>
+            <div css={styles.splitButton} ref={refs.setReference}>
                 <Button
                     {...rest}
                     css={styles.leftButton}
@@ -88,7 +88,7 @@ const SplitButton: FC<Props> = (props) => {
                 {open && (
                     <div
                         css={styles.floatingMenu}
-                        ref={floating}
+                        ref={refs.setFloating}
                         style={{
                             position: strategy,
                             top: y ?? 0,

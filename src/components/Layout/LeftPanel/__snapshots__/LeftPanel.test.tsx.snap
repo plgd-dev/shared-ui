@@ -1,0 +1,3233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LeftPanel> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: #f4f9fb;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-flex: 0 0 280px;
+  -ms-flex: 0 0 280px;
+  flex: 0 0 280px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.emotion-1 {
+  padding: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  height: 80px;
+}
+
+.emotion-1:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 17px;
+  background: #f4f9fb;
+}
+
+.emotion-2 {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.emotion-3 .menu-list-group+.menu-list-group {
+  margin-top: 12px;
+}
+
+.emotion-3 .item-enter-done {
+  max-height: 200px;
+}
+
+.emotion-3 .item-enter-active {
+  max-height: 200px;
+}
+
+.emotion-3 .item-exit {
+  max-height: 0;
+}
+
+.emotion-3 .item-exit-active {
+  max-height: 0;
+}
+
+.emotion-4 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.emotion-5 .menu-list-item+.menu-list-item {
+  margin-top: 6px;
+}
+
+.emotion-6 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(129, 134, 140, 0.8);
+  margin-bottom: 12px;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: #81868c;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+  color: #0a2965;
+  background: #fff;
+}
+
+.emotion-9:hover {
+  color: #252626;
+}
+
+.emotion-10 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-weight: bold;
+}
+
+.emotion-11 {
+  -webkit-flex: 0 0 16px;
+  -ms-flex: 0 0 16px;
+  flex: 0 0 16px;
+}
+
+.emotion-12 {
+  margin-left: 12px;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: #81868c;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.emotion-14:hover {
+  color: #252626;
+}
+
+.emotion-15 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.emotion-41 {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.emotion-42 {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.45s;
+  transition: all 0.45s;
+}
+
+.emotion-43 {
+  padding: 10px 0 0 20px;
+  margin: 0;
+  list-style: none;
+}
+
+.emotion-44 {
+  display: block;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #81868c;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  margin: 4px 0 4px 0;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  padding: 8px 8px 8px 20px;
+  white-space: nowrap;
+}
+
+.emotion-44:hover {
+  color: #252626;
+}
+
+.emotion-45 {
+  width: 14px;
+  height: 55px;
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+}
+
+.emotion-46 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 100px;
+  background: #52c5a2;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 18px;
+  color: #ffffff;
+  padding: 0 10px;
+}
+
+.emotion-53 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 100px;
+  background: #2261AE;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 18px;
+  color: #ffffff;
+  padding: 0 10px;
+}
+
+.emotion-104 {
+  border-top: 2px solid #E6E9ED;
+  margin-top: 12px;
+  padding: 19px 0 19px 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  height: 64px;
+  overflow: hidden;
+}
+
+.emotion-105 {
+  position: absolute;
+  left: 8px;
+  top: 19px;
+  overflow: hidden;
+}
+
+.emotion-106 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-107 {
+  -webkit-flex: 0 0 24px;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+}
+
+.emotion-108 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding-left: 8px;
+}
+
+.emotion-109 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #81868C;
+  white-space: nowrap;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <svg
+        class="emotion-2"
+        fill="none"
+        height="32"
+        role="img"
+        viewBox="0 0 147 32"
+        width="147"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M85.106 11.835c1.494 0 2.63.485 3.408 1.457v-1.305h2.836v8.483c0 1.867-.493 3.258-1.476 4.168-.984.907-2.42 1.362-4.308 1.362-.996 0-1.942-.12-2.834-.36-.895-.24-1.636-.588-2.222-1.042.119-.21 1.07-1.907 1.188-2.12.432.355.98.635 1.646.842.665.21 1.327.312 1.992.312 1.034 0 1.797-.229 2.288-.69.493-.462.738-1.16.738-2.095v-.434c-.779.847-1.866 1.27-3.256 1.27a5.53 5.53 0 0 1-2.596-.615 4.753 4.753 0 0 1-1.866-1.736c-.46-.742-.69-1.602-.69-2.574 0-.973.23-1.83.69-2.575a4.725 4.725 0 0 1 1.866-1.733c.786-.41 1.65-.615 2.596-.615Zm-19.016-.003c.958 0 1.83.218 2.617.655a4.71 4.71 0 0 1 1.845 1.835c.447.79.672 1.708.672 2.758 0 1.047-.225 1.965-.672 2.755a4.719 4.719 0 0 1-1.845 1.838c-.787.435-1.659.652-2.617.652-1.314 0-2.349-.41-3.102-1.233v4.756H60V11.983h2.854v1.175c.74-.883 1.82-1.325 3.236-1.325Zm63.871 0c.983 0 1.876.205 2.68.615a4.783 4.783 0 0 1 1.926 1.783c.478.775.718 1.695.718 2.755l-7.622 1.458c.217.505.559.884 1.024 1.137.465.253 1.037.378 1.714.378.536 0 1.011-.078 1.428-.235a3.48 3.48 0 0 0 1.158-.75l1.59 1.705c-.971 1.097-2.389 1.647-4.252 1.647-1.163 0-2.191-.222-3.084-.67-.895-.45-1.583-1.073-2.068-1.867-.485-.796-.728-1.698-.728-2.708 0-.998.24-1.897.718-2.7a5.004 5.004 0 0 1 1.972-1.875c.837-.448 1.779-.673 2.826-.673Zm-7.422-3.712v14.055h-2.854V21c-.741.885-1.816 1.325-3.219 1.325-.971 0-1.848-.215-2.634-.642a4.657 4.657 0 0 1-1.848-1.838c-.447-.795-.67-1.718-.67-2.765 0-1.047.225-1.97.67-2.765a4.658 4.658 0 0 1 1.848-1.837c.786-.43 1.663-.646 2.634-.646 1.315 0 2.344.413 3.085 1.233V8.12h2.988Zm-14.297 10.53c.524 0 .964.17 1.323.503.356.334.536.775.536 1.317 0 .53-.18.973-.536 1.326-.359.354-.799.53-1.323.53-.523 0-.965-.176-1.322-.53-.356-.354-.536-.796-.536-1.326 0-.542.18-.983.536-1.317.357-.333.799-.503 1.322-.503ZM76.202 8.12v10.512c0 .43.114.76.337.996.222.232.538.35.947.35.154 0 .309-.02.47-.058.16-.037.284-.083.372-.133.015.23.122 2.063.134 2.293a4.96 4.96 0 0 1-1.55.245c-1.162 0-2.07-.305-2.72-.917-.652-.613-.975-1.48-.975-2.605V8.12h2.985ZM104.471 8v14.055h-2.854V20.88c-.741.885-1.813 1.325-3.219 1.325-.968 0-1.848-.212-2.632-.642a4.653 4.653 0 0 1-1.848-1.838c-.447-.795-.67-1.718-.67-2.765 0-1.047.223-1.97.67-2.765a4.646 4.646 0 0 1 1.848-1.838c.784-.43 1.664-.642 2.632-.642 1.317 0 2.344.41 3.085 1.23V8h2.988Zm34.088 3.943 2.73 7.677 2.73-7.677H147l-4.098 10.225h-3.284l-4.098-10.225h3.039Zm-21.577 2.315c-.766 0-1.398.255-1.896.767-.498.51-.746 1.195-.746 2.055 0 .858.248 1.542.746 2.055.5.51 1.13.765 1.896.765.756 0 1.38-.255 1.878-.765.499-.513.746-1.197.746-2.055 0-.86-.247-1.545-.746-2.055-.498-.512-1.125-.767-1.878-.767Zm-51.408 0c-.766 0-1.395.255-1.886.767-.493.51-.738 1.195-.738 2.055 0 .858.245 1.542.738 2.055.49.51 1.12.765 1.886.765.767 0 1.396-.255 1.886-.765.49-.513.739-1.197.739-2.055 0-.86-.248-1.545-.74-2.055-.49-.512-1.118-.767-1.885-.767Zm33.343-.12c-.766 0-1.398.255-1.896.767-.498.51-.749 1.195-.749 2.055 0 .858.25 1.543.749 2.055.498.51 1.13.765 1.895.765.754.003 1.381-.255 1.876-.765.499-.512.749-1.197.749-2.055 0-.86-.25-1.545-.749-2.055-.498-.512-1.122-.768-1.876-.768Zm-13.217.12c-.791 0-1.443.23-1.954.692-.508.46-.763 1.063-.763 1.808 0 .744.255 1.347.763 1.81.51.46 1.163.69 1.954.69.791 0 1.438-.23 1.944-.69.506-.463.756-1.066.756-1.81 0-.745-.25-1.348-.756-1.808-.506-.463-1.153-.692-1.944-.692Zm44.261-.19c-.753 0-1.368.24-1.838.72-.473.48-.723 1.142-.748 1.99.501-.098 4.515-.87 5.018-.968a2.226 2.226 0 0 0-.862-1.268c-.435-.317-.958-.474-1.57-.474Z"
+          fill="#191A1A"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M47.405 27.009A12.68 12.68 0 0 0 50 19.302c0-7.007-5.646-12.688-12.61-12.688-.566 0-1.122.042-1.669.115-.45-.723-.806-1.265-1.024-1.544C32.233 2.027 28.405 0 24.106 0c-6.37 0-11.704 4.456-13.098 10.438 0-.008-.008-.018-.006-.025-.1-.003-.199-.01-.3-.01C4.793 10.403 0 15.226 0 21.173 0 27.118 4.792 31.94 10.703 31.94c3.936 0 9.28.047 12.98.047 2.207 0 3.402-.026 12.513 0l.22-.002c1.184.056 3.729.011 6.147-1.109.388-.184 2.745-1.176 4.843-3.866l-.001-.001Z"
+          fill="#FEBF40"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M47.405 27.009A12.68 12.68 0 0 0 50 19.302c0-7.007-5.646-12.688-12.61-12.688-.566 0-1.122.042-1.668.115-.45-.723-.806-1.265-1.025-1.544C32.233 2.027 28.406 0 24.106 0c-7.43 0-13.457 6.061-13.457 13.54 0 7.478 5.602 18.447 13.034 18.447 2.207 0 3.403-.026 12.513 0l.221-.002c1.183.056 3.728.011 6.147-1.109.388-.184 2.744-1.176 4.842-3.866l-.001-.001Z"
+          fill="#87CEF2"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M46.93 26.296C44.882 22.622 36.278 7.21 34.696 5.184 32.233 2.027 28.404 0 24.105 0c-7.43 0-13.457 6.061-13.457 13.54 0 7.478 5.602 18.447 13.034 18.447 2.208 0 3.403-.026 12.513 0l.221-.002c1.184.056 3.729.012 6.147-1.109.388-.184 2.745-1.176 4.842-3.866l-.476-.714Z"
+          fill="#2261AE"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="emotion-3"
+    >
+      <ul
+        class="emotion-4"
+      >
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Main menu
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <mask
+                      height="14"
+                      id="icon-dashboard_svg__a"
+                      maskUnits="userSpaceOnUse"
+                      style="mask-type: alpha;"
+                      width="14"
+                      x="1"
+                      y="1"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M1.6 3.1a1.5 1.5 0 0 1 1.5-1.5h9.8a1.5 1.5 0 0 1 1.5 1.5v.2a1.5 1.5 0 0 1-1.5 1.5H3.1a1.5 1.5 0 0 1-1.5-1.5v-.2Zm0 4.8a1.5 1.5 0 0 1 1.5-1.5h.2a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5h-.2a1.5 1.5 0 0 1-1.5-1.5v-5Zm6.3-1.5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h5a1.5 1.5 0 0 0 1.5-1.5v-5a1.5 1.5 0 0 0-1.5-1.5h-5Z"
+                        fill="#fff"
+                        fill-rule="evenodd"
+                      />
+                    </mask>
+                    <g
+                      mask="url(#icon-dashboard_svg__a)"
+                    >
+                      <path
+                        d="M0 0h16v16H0z"
+                        fill="currentcolor"
+                      />
+                    </g>
+                  </svg>
+                  <span
+                    aria-label="Dashboard"
+                    class="emotion-12"
+                  >
+                    Dashboard
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 1.5c-1.655 0-3 1.345-3 3v3c0 1.655 1.345 3 3 3h16c1.655 0 3-1.345 3-3v-3c0-1.655-1.345-3-3-3H4Zm11.125 5.625A1.122 1.122 0 0 1 14 6c0-.623.502-1.125 1.125-1.125S16.25 5.377 16.25 6s-.502 1.125-1.125 1.125ZM19.625 6c0 .623-.502 1.125-1.125 1.125A1.122 1.122 0 0 1 17.375 6c0-.623.502-1.125 1.125-1.125s1.125.502 1.125 1.125ZM4 13.5c-1.655 0-3 1.345-3 3v3c0 1.655 1.345 3 3 3h16c1.655 0 3-1.345 3-3v-3c0-1.655-1.345-3-3-3H4Zm11.125 5.625A1.122 1.122 0 0 1 14 18c0-.623.502-1.125 1.125-1.125s1.125.502 1.125 1.125-.502 1.125-1.125 1.125ZM20 18c0 .623-.502 1.125-1.125 1.125A1.122 1.122 0 0 1 17.75 18c0-.623.502-1.125 1.125-1.125S20 17.377 20 18Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Devices"
+                    class="emotion-12"
+                  >
+                    Devices
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21.346 9.832h-1.539A7.731 7.731 0 0 0 19.027 8l1.096-1.074a.673.673 0 0 0 0-.968l-2.086-2.084a.675.675 0 0 0-.97 0l-1.095 1.094a7.671 7.671 0 0 0-1.834-.757V2.674A.679.679 0 0 0 13.464 2h-2.93a.679.679 0 0 0-.674.674v1.558a7.668 7.668 0 0 0-1.833.758L6.952 3.895a.715.715 0 0 0-.97 0L3.898 5.979a.673.673 0 0 0 0 .969l1.095 1.094c-.337.59-.59 1.2-.758 1.832h-1.56a.679.679 0 0 0-.674.673v2.948c0 .379.316.674.674.674h1.56c.084.294.169.568.274.842l3.098-3.074a2.213 2.213 0 0 1-.253-1.958c.105-.316.295-.632.527-.863.337-.337.8-.59 1.285-.632l4.447-.59c.084-.02.19-.02.295-.02.59 0 1.159.231 1.58.652.485.485.717 1.18.633 1.874l-.59 4.442a2.25 2.25 0 0 1-1.497 1.81 2.116 2.116 0 0 1-.716.106c-.443 0-.864-.126-1.223-.358l-3.098 3.095c.274.105.57.21.865.294v1.537c0 .38.295.674.674.674h2.95c.38 0 .675-.295.675-.674V19.79a7.748 7.748 0 0 0 1.833-.779l1.075 1.095a.675.675 0 0 0 .97 0l2.085-2.084a.673.673 0 0 0 0-.969l-1.096-1.094c.338-.59.59-1.2.76-1.832h1.538c.379 0 .674-.294.674-.674v-2.926a.653.653 0 0 0-.653-.694Z"
+                      fill="currentcolor"
+                    />
+                    <path
+                      d="M12.905 14.947c.148.148.379.211.569.127.21-.063.336-.253.378-.463l.59-4.443a.558.558 0 0 0-.169-.463.558.558 0 0 0-.463-.168l-4.442.59a.47.47 0 0 0-.316.168.436.436 0 0 0-.126.21.557.557 0 0 0 .126.569l.864.863-5.706 5.747a.485.485 0 0 0 0 .653l1.453 1.453c.168.168.463.168.653 0l5.726-5.727.863.884Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Integrations"
+                    class="emotion-12"
+                  >
+                    Integrations
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#icon-remote-clients_svg__a)"
+                    >
+                      <path
+                        d="M0 15.214C0 18.408 2.419 21 5.4 21h13.8c2.651 0 4.8-2.302 4.8-5.143 0-2.487-1.65-4.564-3.84-5.038.154-.43.24-.9.24-1.39 0-2.13-1.612-3.858-3.6-3.858-.739 0-1.429.242-1.999.651C13.762 4.294 11.824 3 9.6 3c-3.315 0-6 2.877-6 6.429 0 .108.004.217.007.325-2.1.792-3.607 2.937-3.607 5.46Z"
+                        fill="currentcolor"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="icon-remote-clients_svg__a"
+                      >
+                        <path
+                          d="M0 0h24v24H0z"
+                          fill="currentcolor"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                  <span
+                    aria-label="Remote clients"
+                    class="emotion-12"
+                  >
+                    Remote clients
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10Zm-.938-15.313V12c0 .313.157.605.418.781l3.75 2.5a.935.935 0 0 0 1.301-.261.934.934 0 0 0-.261-1.301L12.938 11.5V6.687A.935.935 0 0 0 12 5.75a.935.935 0 0 0-.938.938Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Pending commands"
+                    class="emotion-12"
+                  >
+                    Pending commands
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Other
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1.333c-.662 0-1.2.532-1.2 1.188v2.375c0 .655.538 1.187 1.2 1.187h1.2v1H1.467c-.443 0-.8.354-.8.792 0 .438.357.792.8.792H3.2v1.25H2c-.662 0-1.2.532-1.2 1.187v2.375c0 .656.538 1.188 1.2 1.188h4c.663 0 1.2-.532 1.2-1.188v-2.375c0-.655-.537-1.187-1.2-1.187H4.8v-1.25h6.4v1.25H10c-.662 0-1.2.532-1.2 1.187v2.375c0 .656.538 1.188 1.2 1.188h4c.663 0 1.2-.532 1.2-1.188v-2.375c0-.655-.537-1.187-1.2-1.187h-1.2v-1.25h1.734c.442 0 .8-.354.8-.792a.795.795 0 0 0-.8-.792H8.8v-1H10c.663 0 1.2-.532 1.2-1.187V2.52c0-.656-.537-1.188-1.2-1.188H6Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device provisioning"
+                    class="emotion-12"
+                  >
+                    Device provisioning
+                  </span>
+                  <span
+                    class="emotion-41"
+                  >
+                    <svg
+                      fill="none"
+                      height="6"
+                      role="img"
+                      viewBox="0 0 10 6"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M.21.22a.69.69 0 0 1 1.01 0L5 4.19 8.78.22a.69.69 0 0 1 1.01 0 .777.777 0 0 1 0 1.06l-4.285 4.5a.69.69 0 0 1-1.01 0L.209 1.28a.777.777 0 0 1 0-1.06Z"
+                        fill="#81868C"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+              <div
+                class="emotion-42"
+              >
+                <ul
+                  class="emotion-43"
+                >
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Quickstart
+                      <span
+                        class="emotion-46"
+                      >
+                        New
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Manage enrollments
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Linked hubs
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Certificates
+                      <span
+                        class="emotion-53"
+                      >
+                        Soon!
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Registration records
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.833 4.18v6.32a.832.832 0 1 1-1.667 0V4.18L5.255 6.09a.835.835 0 0 1-1.18-1.18L7.41 1.579a.835.835 0 0 1 1.18 0l3.332 3.334a.834.834 0 0 1-1.18 1.18L8.834 4.18ZM3 10.5h3.333c0 .92.747 1.667 1.667 1.667.919 0 1.666-.748 1.666-1.667H13c.919 0 1.666.748 1.666 1.667V13c0 .92-.747 1.667-1.666 1.667H3c-.92 0-1.667-.748-1.667-1.667v-.833c0-.92.747-1.667 1.667-1.667Zm9.583 2.708a.623.623 0 0 0 .625-.625.624.624 0 0 0-.625-.625.624.624 0 0 0-.625.625c0 .347.279.625.625.625Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device firmware update"
+                    class="emotion-12"
+                  >
+                    Device firmware update
+                  </span>
+                  <span
+                    class="emotion-41"
+                  >
+                    <svg
+                      fill="none"
+                      height="6"
+                      role="img"
+                      viewBox="0 0 10 6"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M.21.22a.69.69 0 0 1 1.01 0L5 4.19 8.78.22a.69.69 0 0 1 1.01 0 .777.777 0 0 1 0 1.06l-4.285 4.5a.69.69 0 0 1-1.01 0L.209 1.28a.777.777 0 0 1 0-1.06Z"
+                        fill="#81868C"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+              <div
+                class="emotion-42"
+              >
+                <ul
+                  class="emotion-43"
+                >
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Quickstart 2
+                      <span
+                        class="emotion-46"
+                      >
+                        New 2
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Manage enrollments 2
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Linked hubs 2
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Certificates 2
+                      <span
+                        class="emotion-53"
+                      >
+                        Soon!
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Registration records 2
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.667 1.333C3.747 1.333 3 2.081 3 3v10c0 .92.747 1.667 1.667 1.667h6.666c.92 0 1.667-.748 1.667-1.667V5.5H9.667a.832.832 0 0 1-.834-.833V1.333H4.667Zm5 0v3.334H13L9.667 1.333ZM5.917 8h4.166c.23 0 .417.188.417.417 0 .229-.188.416-.417.416H5.917a.418.418 0 0 1-.417-.416c0-.23.188-.417.417-.417Zm0 1.667h4.166c.23 0 .417.187.417.416 0 .23-.188.417-.417.417H5.917a.418.418 0 0 1-.417-.417c0-.229.188-.416.417-.416Zm0 1.666h4.166c.23 0 .417.188.417.417 0 .23-.188.417-.417.417H5.917a.418.418 0 0 1-.417-.417c0-.23.188-.417.417-.417Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device logs"
+                    class="emotion-12"
+                  >
+                    Device logs
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 3c1.118 0 2.024.932 2.024 2.083v1.25H5.976v-1.25C5.976 3.933 6.882 3 8 3ZM4.357 5.083v1.25h-.405c-.893 0-1.619.748-1.619 1.667v5c0 .92.726 1.667 1.62 1.667h8.094c.893 0 1.62-.748 1.62-1.667V8c0-.92-.727-1.667-1.62-1.667h-.405v-1.25c0-2.07-1.631-3.75-3.642-3.75s-3.643 1.68-3.643 3.75Zm4.452 4.584v1.666a.82.82 0 0 1-.81.834.82.82 0 0 1-.809-.834V9.667A.82.82 0 0 1 8 8.833a.82.82 0 0 1 .81.834Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="API tokens"
+                    class="emotion-12"
+                  >
+                    API tokens
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.2 2.917c0 .339-.107.65-.29.908l.73 1.546a3.61 3.61 0 0 1 3.118.792l2.052-1.49a1.593 1.593 0 0 1 1.59-1.757c.883 0 1.6.71 1.6 1.584 0 .873-.717 1.583-1.6 1.583a1.6 1.6 0 0 1-.645-.133l-2.05 1.49a3.538 3.538 0 0 1 .117 2.523l1.8 1.068c.23-.126.495-.198.778-.198.883 0 1.6.71 1.6 1.584C16 13.29 15.283 14 14.4 14c-.883 0-1.6-.71-1.6-1.583v-.028l-1.803-1.07A3.601 3.601 0 0 1 8.4 12.416a3.593 3.593 0 0 1-3.51-2.771H2.985a1.603 1.603 0 0 1-1.385.791c-.883 0-1.6-.71-1.6-1.583s.718-1.583 1.6-1.583a1.6 1.6 0 0 1 1.385.792h1.903A3.562 3.562 0 0 1 6.19 6.04l-.73-1.546A1.592 1.592 0 0 1 4 2.917c0-.874.718-1.584 1.6-1.584.883 0 1.6.71 1.6 1.584Zm1.2 7.125c.662 0 1.2-.532 1.2-1.188 0-.655-.537-1.187-1.2-1.187-.663 0-1.2.532-1.2 1.187 0 .656.537 1.188 1.2 1.188Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Schema hub"
+                    class="emotion-12"
+                  >
+                    Schema hub
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Support
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.926 7.185.667 11.031V3.952c0-.893.73-1.619 1.63-1.619h2.992c.433 0 .848.17 1.153.473l.675.67c.306.304.72.474 1.154.474h2.99c.898 0 1.629.726 1.629 1.619v.81H4.334c-.58 0-1.115.306-1.408.804v.002Zm.703.408a.817.817 0 0 1 .705-.403H14.52a.81.81 0 0 1 .703 1.22l-2.853 4.857a.812.812 0 0 1-.702.4H1.482a.81.81 0 0 1-.703-1.22L3.631 7.59l-.002.003Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Docs"
+                    class="emotion-12"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.267 1.333c-.883 0-1.6.71-1.6 1.584v5.416c0 .874.717 1.584 1.6 1.584h.8v1.187c0 .151.085.287.22.354a.408.408 0 0 0 .42-.037l2.027-1.504H8.8c.883 0 1.6-.71 1.6-1.584V2.917c0-.874-.717-1.584-1.6-1.584H2.267ZM8.8 10.708H6.4v.792c0 .873.718 1.583 1.6 1.583h2.933l1.36 1.505c.12.089.283.103.42.037a.39.39 0 0 0 .22-.354v-1.188h.8c.883 0 1.6-.71 1.6-1.583V6.75c0-.873-.717-1.583-1.6-1.583H11.2v3.166c0 1.312-1.075 2.375-2.4 2.375Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Chat room"
+                    class="emotion-12"
+                  >
+                    Chat room
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div
+        class="emotion-104"
+      >
+        <div
+          class="emotion-105"
+        >
+          <div
+            class="emotion-106"
+          >
+            <div
+              class="emotion-107"
+            >
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 16"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M24 9.651c0 1.45-.465 2.785-1.246 3.853v.001c-.954 1.275-2.02 1.787-2.287 1.915l-.037.018c-1.16.56-2.382.582-2.95.554l-.048.001h-.058a678.371 678.371 0 0 0-6.006 0c-.875 0-1.94-.005-3.022-.01-1.116-.007-2.25-.013-3.209-.013C2.3 15.97 0 13.56 0 10.586c0-2.973 2.3-5.384 5.137-5.384l.096.002.048.002.001.007.002.006C5.953 2.228 8.514 0 11.57 0c2.064 0 3.9 1.014 5.083 2.592.105.14.276.41.492.773.262-.037.53-.058.801-.058C21.29 3.307 24 6.147 24 9.651ZM11.291 4.264a1.08 1.08 0 0 1 1.415 0h.003l3.998 3.6a.84.84 0 0 1 0 1.274 1.081 1.081 0 0 1-1.415 0L13 7.074V12.1c0 .498-.446.9-.999.9-.553 0-1-.402-1-.9V7.074L8.709 9.138a1.08 1.08 0 0 1-1.415 0 .84.84 0 0 1 0-1.274l3.998-3.6Z"
+                  fill="#EAAA43"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="emotion-108"
+            >
+              <span
+                class="emotion-109"
+              >
+                Version 2.02
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<LeftPanel> render correctly - snapshot 2`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: #f4f9fb;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-flex: 0 0 280px;
+  -ms-flex: 0 0 280px;
+  flex: 0 0 280px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.emotion-1 {
+  padding: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  height: 80px;
+}
+
+.emotion-1:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 17px;
+  background: #f4f9fb;
+}
+
+.emotion-2 {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.emotion-3 .menu-list-group+.menu-list-group {
+  margin-top: 12px;
+}
+
+.emotion-3 .item-enter-done {
+  max-height: 200px;
+}
+
+.emotion-3 .item-enter-active {
+  max-height: 200px;
+}
+
+.emotion-3 .item-exit {
+  max-height: 0;
+}
+
+.emotion-3 .item-exit-active {
+  max-height: 0;
+}
+
+.emotion-4 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.emotion-5 .menu-list-item+.menu-list-item {
+  margin-top: 6px;
+}
+
+.emotion-6 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(129, 134, 140, 0.8);
+  margin-bottom: 12px;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: #81868c;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+  color: #0a2965;
+  background: #fff;
+}
+
+.emotion-9:hover {
+  color: #252626;
+}
+
+.emotion-10 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-weight: bold;
+}
+
+.emotion-11 {
+  -webkit-flex: 0 0 16px;
+  -ms-flex: 0 0 16px;
+  flex: 0 0 16px;
+}
+
+.emotion-12 {
+  margin-left: 12px;
+}
+
+.emotion-14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: #81868c;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.emotion-14:hover {
+  color: #252626;
+}
+
+.emotion-15 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.emotion-41 {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.emotion-42 {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.45s;
+  transition: all 0.45s;
+}
+
+.emotion-43 {
+  padding: 10px 0 0 20px;
+  margin: 0;
+  list-style: none;
+}
+
+.emotion-44 {
+  display: block;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #81868c;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  position: relative;
+  margin: 4px 0 4px 0;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  padding: 8px 8px 8px 20px;
+  white-space: nowrap;
+}
+
+.emotion-44:hover {
+  color: #252626;
+}
+
+.emotion-45 {
+  width: 14px;
+  height: 55px;
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+}
+
+.emotion-46 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 100px;
+  background: #52c5a2;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 18px;
+  color: #ffffff;
+  padding: 0 10px;
+}
+
+.emotion-53 {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-radius: 100px;
+  background: #2261AE;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 18px;
+  color: #ffffff;
+  padding: 0 10px;
+}
+
+.emotion-104 {
+  border-top: 2px solid #E6E9ED;
+  margin-top: 12px;
+  padding: 19px 0 19px 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  height: 64px;
+  overflow: hidden;
+}
+
+.emotion-105 {
+  position: absolute;
+  left: 8px;
+  top: 19px;
+  overflow: hidden;
+}
+
+.emotion-106 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-107 {
+  -webkit-flex: 0 0 24px;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+}
+
+.emotion-108 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding-left: 8px;
+}
+
+.emotion-109 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #81868C;
+  white-space: nowrap;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <svg
+        class="emotion-2"
+        fill="none"
+        height="32"
+        role="img"
+        viewBox="0 0 147 32"
+        width="147"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M85.106 11.835c1.494 0 2.63.485 3.408 1.457v-1.305h2.836v8.483c0 1.867-.493 3.258-1.476 4.168-.984.907-2.42 1.362-4.308 1.362-.996 0-1.942-.12-2.834-.36-.895-.24-1.636-.588-2.222-1.042.119-.21 1.07-1.907 1.188-2.12.432.355.98.635 1.646.842.665.21 1.327.312 1.992.312 1.034 0 1.797-.229 2.288-.69.493-.462.738-1.16.738-2.095v-.434c-.779.847-1.866 1.27-3.256 1.27a5.53 5.53 0 0 1-2.596-.615 4.753 4.753 0 0 1-1.866-1.736c-.46-.742-.69-1.602-.69-2.574 0-.973.23-1.83.69-2.575a4.725 4.725 0 0 1 1.866-1.733c.786-.41 1.65-.615 2.596-.615Zm-19.016-.003c.958 0 1.83.218 2.617.655a4.71 4.71 0 0 1 1.845 1.835c.447.79.672 1.708.672 2.758 0 1.047-.225 1.965-.672 2.755a4.719 4.719 0 0 1-1.845 1.838c-.787.435-1.659.652-2.617.652-1.314 0-2.349-.41-3.102-1.233v4.756H60V11.983h2.854v1.175c.74-.883 1.82-1.325 3.236-1.325Zm63.871 0c.983 0 1.876.205 2.68.615a4.783 4.783 0 0 1 1.926 1.783c.478.775.718 1.695.718 2.755l-7.622 1.458c.217.505.559.884 1.024 1.137.465.253 1.037.378 1.714.378.536 0 1.011-.078 1.428-.235a3.48 3.48 0 0 0 1.158-.75l1.59 1.705c-.971 1.097-2.389 1.647-4.252 1.647-1.163 0-2.191-.222-3.084-.67-.895-.45-1.583-1.073-2.068-1.867-.485-.796-.728-1.698-.728-2.708 0-.998.24-1.897.718-2.7a5.004 5.004 0 0 1 1.972-1.875c.837-.448 1.779-.673 2.826-.673Zm-7.422-3.712v14.055h-2.854V21c-.741.885-1.816 1.325-3.219 1.325-.971 0-1.848-.215-2.634-.642a4.657 4.657 0 0 1-1.848-1.838c-.447-.795-.67-1.718-.67-2.765 0-1.047.225-1.97.67-2.765a4.658 4.658 0 0 1 1.848-1.837c.786-.43 1.663-.646 2.634-.646 1.315 0 2.344.413 3.085 1.233V8.12h2.988Zm-14.297 10.53c.524 0 .964.17 1.323.503.356.334.536.775.536 1.317 0 .53-.18.973-.536 1.326-.359.354-.799.53-1.323.53-.523 0-.965-.176-1.322-.53-.356-.354-.536-.796-.536-1.326 0-.542.18-.983.536-1.317.357-.333.799-.503 1.322-.503ZM76.202 8.12v10.512c0 .43.114.76.337.996.222.232.538.35.947.35.154 0 .309-.02.47-.058.16-.037.284-.083.372-.133.015.23.122 2.063.134 2.293a4.96 4.96 0 0 1-1.55.245c-1.162 0-2.07-.305-2.72-.917-.652-.613-.975-1.48-.975-2.605V8.12h2.985ZM104.471 8v14.055h-2.854V20.88c-.741.885-1.813 1.325-3.219 1.325-.968 0-1.848-.212-2.632-.642a4.653 4.653 0 0 1-1.848-1.838c-.447-.795-.67-1.718-.67-2.765 0-1.047.223-1.97.67-2.765a4.646 4.646 0 0 1 1.848-1.838c.784-.43 1.664-.642 2.632-.642 1.317 0 2.344.41 3.085 1.23V8h2.988Zm34.088 3.943 2.73 7.677 2.73-7.677H147l-4.098 10.225h-3.284l-4.098-10.225h3.039Zm-21.577 2.315c-.766 0-1.398.255-1.896.767-.498.51-.746 1.195-.746 2.055 0 .858.248 1.542.746 2.055.5.51 1.13.765 1.896.765.756 0 1.38-.255 1.878-.765.499-.513.746-1.197.746-2.055 0-.86-.247-1.545-.746-2.055-.498-.512-1.125-.767-1.878-.767Zm-51.408 0c-.766 0-1.395.255-1.886.767-.493.51-.738 1.195-.738 2.055 0 .858.245 1.542.738 2.055.49.51 1.12.765 1.886.765.767 0 1.396-.255 1.886-.765.49-.513.739-1.197.739-2.055 0-.86-.248-1.545-.74-2.055-.49-.512-1.118-.767-1.885-.767Zm33.343-.12c-.766 0-1.398.255-1.896.767-.498.51-.749 1.195-.749 2.055 0 .858.25 1.543.749 2.055.498.51 1.13.765 1.895.765.754.003 1.381-.255 1.876-.765.499-.512.749-1.197.749-2.055 0-.86-.25-1.545-.749-2.055-.498-.512-1.122-.768-1.876-.768Zm-13.217.12c-.791 0-1.443.23-1.954.692-.508.46-.763 1.063-.763 1.808 0 .744.255 1.347.763 1.81.51.46 1.163.69 1.954.69.791 0 1.438-.23 1.944-.69.506-.463.756-1.066.756-1.81 0-.745-.25-1.348-.756-1.808-.506-.463-1.153-.692-1.944-.692Zm44.261-.19c-.753 0-1.368.24-1.838.72-.473.48-.723 1.142-.748 1.99.501-.098 4.515-.87 5.018-.968a2.226 2.226 0 0 0-.862-1.268c-.435-.317-.958-.474-1.57-.474Z"
+          fill="#191A1A"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M47.405 27.009A12.68 12.68 0 0 0 50 19.302c0-7.007-5.646-12.688-12.61-12.688-.566 0-1.122.042-1.669.115-.45-.723-.806-1.265-1.024-1.544C32.233 2.027 28.405 0 24.106 0c-6.37 0-11.704 4.456-13.098 10.438 0-.008-.008-.018-.006-.025-.1-.003-.199-.01-.3-.01C4.793 10.403 0 15.226 0 21.173 0 27.118 4.792 31.94 10.703 31.94c3.936 0 9.28.047 12.98.047 2.207 0 3.402-.026 12.513 0l.22-.002c1.184.056 3.729.011 6.147-1.109.388-.184 2.745-1.176 4.843-3.866l-.001-.001Z"
+          fill="#FEBF40"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M47.405 27.009A12.68 12.68 0 0 0 50 19.302c0-7.007-5.646-12.688-12.61-12.688-.566 0-1.122.042-1.668.115-.45-.723-.806-1.265-1.025-1.544C32.233 2.027 28.406 0 24.106 0c-7.43 0-13.457 6.061-13.457 13.54 0 7.478 5.602 18.447 13.034 18.447 2.207 0 3.403-.026 12.513 0l.221-.002c1.183.056 3.728.011 6.147-1.109.388-.184 2.744-1.176 4.842-3.866l-.001-.001Z"
+          fill="#87CEF2"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M46.93 26.296C44.882 22.622 36.278 7.21 34.696 5.184 32.233 2.027 28.404 0 24.105 0c-7.43 0-13.457 6.061-13.457 13.54 0 7.478 5.602 18.447 13.034 18.447 2.208 0 3.403-.026 12.513 0l.221-.002c1.184.056 3.729.012 6.147-1.109.388-.184 2.745-1.176 4.842-3.866l-.476-.714Z"
+          fill="#2261AE"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="emotion-3"
+    >
+      <ul
+        class="emotion-4"
+      >
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Main menu
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <mask
+                      height="14"
+                      id="icon-dashboard_svg__a"
+                      maskUnits="userSpaceOnUse"
+                      style="mask-type: alpha;"
+                      width="14"
+                      x="1"
+                      y="1"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M1.6 3.1a1.5 1.5 0 0 1 1.5-1.5h9.8a1.5 1.5 0 0 1 1.5 1.5v.2a1.5 1.5 0 0 1-1.5 1.5H3.1a1.5 1.5 0 0 1-1.5-1.5v-.2Zm0 4.8a1.5 1.5 0 0 1 1.5-1.5h.2a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5h-.2a1.5 1.5 0 0 1-1.5-1.5v-5Zm6.3-1.5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h5a1.5 1.5 0 0 0 1.5-1.5v-5a1.5 1.5 0 0 0-1.5-1.5h-5Z"
+                        fill="#fff"
+                        fill-rule="evenodd"
+                      />
+                    </mask>
+                    <g
+                      mask="url(#icon-dashboard_svg__a)"
+                    >
+                      <path
+                        d="M0 0h16v16H0z"
+                        fill="currentcolor"
+                      />
+                    </g>
+                  </svg>
+                  <span
+                    aria-label="Dashboard"
+                    class="emotion-12"
+                  >
+                    Dashboard
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 1.5c-1.655 0-3 1.345-3 3v3c0 1.655 1.345 3 3 3h16c1.655 0 3-1.345 3-3v-3c0-1.655-1.345-3-3-3H4Zm11.125 5.625A1.122 1.122 0 0 1 14 6c0-.623.502-1.125 1.125-1.125S16.25 5.377 16.25 6s-.502 1.125-1.125 1.125ZM19.625 6c0 .623-.502 1.125-1.125 1.125A1.122 1.122 0 0 1 17.375 6c0-.623.502-1.125 1.125-1.125s1.125.502 1.125 1.125ZM4 13.5c-1.655 0-3 1.345-3 3v3c0 1.655 1.345 3 3 3h16c1.655 0 3-1.345 3-3v-3c0-1.655-1.345-3-3-3H4Zm11.125 5.625A1.122 1.122 0 0 1 14 18c0-.623.502-1.125 1.125-1.125s1.125.502 1.125 1.125-.502 1.125-1.125 1.125ZM20 18c0 .623-.502 1.125-1.125 1.125A1.122 1.122 0 0 1 17.75 18c0-.623.502-1.125 1.125-1.125S20 17.377 20 18Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Devices"
+                    class="emotion-12"
+                  >
+                    Devices
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21.346 9.832h-1.539A7.731 7.731 0 0 0 19.027 8l1.096-1.074a.673.673 0 0 0 0-.968l-2.086-2.084a.675.675 0 0 0-.97 0l-1.095 1.094a7.671 7.671 0 0 0-1.834-.757V2.674A.679.679 0 0 0 13.464 2h-2.93a.679.679 0 0 0-.674.674v1.558a7.668 7.668 0 0 0-1.833.758L6.952 3.895a.715.715 0 0 0-.97 0L3.898 5.979a.673.673 0 0 0 0 .969l1.095 1.094c-.337.59-.59 1.2-.758 1.832h-1.56a.679.679 0 0 0-.674.673v2.948c0 .379.316.674.674.674h1.56c.084.294.169.568.274.842l3.098-3.074a2.213 2.213 0 0 1-.253-1.958c.105-.316.295-.632.527-.863.337-.337.8-.59 1.285-.632l4.447-.59c.084-.02.19-.02.295-.02.59 0 1.159.231 1.58.652.485.485.717 1.18.633 1.874l-.59 4.442a2.25 2.25 0 0 1-1.497 1.81 2.116 2.116 0 0 1-.716.106c-.443 0-.864-.126-1.223-.358l-3.098 3.095c.274.105.57.21.865.294v1.537c0 .38.295.674.674.674h2.95c.38 0 .675-.295.675-.674V19.79a7.748 7.748 0 0 0 1.833-.779l1.075 1.095a.675.675 0 0 0 .97 0l2.085-2.084a.673.673 0 0 0 0-.969l-1.096-1.094c.338-.59.59-1.2.76-1.832h1.538c.379 0 .674-.294.674-.674v-2.926a.653.653 0 0 0-.653-.694Z"
+                      fill="currentcolor"
+                    />
+                    <path
+                      d="M12.905 14.947c.148.148.379.211.569.127.21-.063.336-.253.378-.463l.59-4.443a.558.558 0 0 0-.169-.463.558.558 0 0 0-.463-.168l-4.442.59a.47.47 0 0 0-.316.168.436.436 0 0 0-.126.21.557.557 0 0 0 .126.569l.864.863-5.706 5.747a.485.485 0 0 0 0 .653l1.453 1.453c.168.168.463.168.653 0l5.726-5.727.863.884Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Integrations"
+                    class="emotion-12"
+                  >
+                    Integrations
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#icon-remote-clients_svg__a)"
+                    >
+                      <path
+                        d="M0 15.214C0 18.408 2.419 21 5.4 21h13.8c2.651 0 4.8-2.302 4.8-5.143 0-2.487-1.65-4.564-3.84-5.038.154-.43.24-.9.24-1.39 0-2.13-1.612-3.858-3.6-3.858-.739 0-1.429.242-1.999.651C13.762 4.294 11.824 3 9.6 3c-3.315 0-6 2.877-6 6.429 0 .108.004.217.007.325-2.1.792-3.607 2.937-3.607 5.46Z"
+                        fill="currentcolor"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="icon-remote-clients_svg__a"
+                      >
+                        <path
+                          d="M0 0h24v24H0z"
+                          fill="currentcolor"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                  <span
+                    aria-label="Remote clients"
+                    class="emotion-12"
+                  >
+                    Remote clients
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10Zm-.938-15.313V12c0 .313.157.605.418.781l3.75 2.5a.935.935 0 0 0 1.301-.261.934.934 0 0 0-.261-1.301L12.938 11.5V6.687A.935.935 0 0 0 12 5.75a.935.935 0 0 0-.938.938Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Pending commands"
+                    class="emotion-12"
+                  >
+                    Pending commands
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Other
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1.333c-.662 0-1.2.532-1.2 1.188v2.375c0 .655.538 1.187 1.2 1.187h1.2v1H1.467c-.443 0-.8.354-.8.792 0 .438.357.792.8.792H3.2v1.25H2c-.662 0-1.2.532-1.2 1.187v2.375c0 .656.538 1.188 1.2 1.188h4c.663 0 1.2-.532 1.2-1.188v-2.375c0-.655-.537-1.187-1.2-1.187H4.8v-1.25h6.4v1.25H10c-.662 0-1.2.532-1.2 1.187v2.375c0 .656.538 1.188 1.2 1.188h4c.663 0 1.2-.532 1.2-1.188v-2.375c0-.655-.537-1.187-1.2-1.187h-1.2v-1.25h1.734c.442 0 .8-.354.8-.792a.795.795 0 0 0-.8-.792H8.8v-1H10c.663 0 1.2-.532 1.2-1.187V2.52c0-.656-.537-1.188-1.2-1.188H6Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device provisioning"
+                    class="emotion-12"
+                  >
+                    Device provisioning
+                  </span>
+                  <span
+                    class="emotion-41"
+                  >
+                    <svg
+                      fill="none"
+                      height="6"
+                      role="img"
+                      viewBox="0 0 10 6"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M.21.22a.69.69 0 0 1 1.01 0L5 4.19 8.78.22a.69.69 0 0 1 1.01 0 .777.777 0 0 1 0 1.06l-4.285 4.5a.69.69 0 0 1-1.01 0L.209 1.28a.777.777 0 0 1 0-1.06Z"
+                        fill="#81868C"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+              <div
+                class="emotion-42"
+              >
+                <ul
+                  class="emotion-43"
+                >
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Quickstart
+                      <span
+                        class="emotion-46"
+                      >
+                        New
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Manage enrollments
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Linked hubs
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Certificates
+                      <span
+                        class="emotion-53"
+                      >
+                        Soon!
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Registration records
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.833 4.18v6.32a.832.832 0 1 1-1.667 0V4.18L5.255 6.09a.835.835 0 0 1-1.18-1.18L7.41 1.579a.835.835 0 0 1 1.18 0l3.332 3.334a.834.834 0 0 1-1.18 1.18L8.834 4.18ZM3 10.5h3.333c0 .92.747 1.667 1.667 1.667.919 0 1.666-.748 1.666-1.667H13c.919 0 1.666.748 1.666 1.667V13c0 .92-.747 1.667-1.666 1.667H3c-.92 0-1.667-.748-1.667-1.667v-.833c0-.92.747-1.667 1.667-1.667Zm9.583 2.708a.623.623 0 0 0 .625-.625.624.624 0 0 0-.625-.625.624.624 0 0 0-.625.625c0 .347.279.625.625.625Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device firmware update"
+                    class="emotion-12"
+                  >
+                    Device firmware update
+                  </span>
+                  <span
+                    class="emotion-41"
+                  >
+                    <svg
+                      fill="none"
+                      height="6"
+                      role="img"
+                      viewBox="0 0 10 6"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M.21.22a.69.69 0 0 1 1.01 0L5 4.19 8.78.22a.69.69 0 0 1 1.01 0 .777.777 0 0 1 0 1.06l-4.285 4.5a.69.69 0 0 1-1.01 0L.209 1.28a.777.777 0 0 1 0-1.06Z"
+                        fill="#81868C"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+              <div
+                class="emotion-42"
+              >
+                <ul
+                  class="emotion-43"
+                >
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Quickstart 2
+                      <span
+                        class="emotion-46"
+                      >
+                        New 2
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Manage enrollments 2
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Linked hubs 2
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Certificates 2
+                      <span
+                        class="emotion-53"
+                      >
+                        Soon!
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="emotion-44"
+                      href="#"
+                    >
+                      <img
+                        alt="line"
+                        class="emotion-45"
+                        src="[object Object]"
+                      />
+                      Registration records 2
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.667 1.333C3.747 1.333 3 2.081 3 3v10c0 .92.747 1.667 1.667 1.667h6.666c.92 0 1.667-.748 1.667-1.667V5.5H9.667a.832.832 0 0 1-.834-.833V1.333H4.667Zm5 0v3.334H13L9.667 1.333ZM5.917 8h4.166c.23 0 .417.188.417.417 0 .229-.188.416-.417.416H5.917a.418.418 0 0 1-.417-.416c0-.23.188-.417.417-.417Zm0 1.667h4.166c.23 0 .417.187.417.416 0 .23-.188.417-.417.417H5.917a.418.418 0 0 1-.417-.417c0-.229.188-.416.417-.416Zm0 1.666h4.166c.23 0 .417.188.417.417 0 .23-.188.417-.417.417H5.917a.418.418 0 0 1-.417-.417c0-.23.188-.417.417-.417Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device logs"
+                    class="emotion-12"
+                  >
+                    Device logs
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 3c1.118 0 2.024.932 2.024 2.083v1.25H5.976v-1.25C5.976 3.933 6.882 3 8 3ZM4.357 5.083v1.25h-.405c-.893 0-1.619.748-1.619 1.667v5c0 .92.726 1.667 1.62 1.667h8.094c.893 0 1.62-.748 1.62-1.667V8c0-.92-.727-1.667-1.62-1.667h-.405v-1.25c0-2.07-1.631-3.75-3.642-3.75s-3.643 1.68-3.643 3.75Zm4.452 4.584v1.666a.82.82 0 0 1-.81.834.82.82 0 0 1-.809-.834V9.667A.82.82 0 0 1 8 8.833a.82.82 0 0 1 .81.834Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="API tokens"
+                    class="emotion-12"
+                  >
+                    API tokens
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.2 2.917c0 .339-.107.65-.29.908l.73 1.546a3.61 3.61 0 0 1 3.118.792l2.052-1.49a1.593 1.593 0 0 1 1.59-1.757c.883 0 1.6.71 1.6 1.584 0 .873-.717 1.583-1.6 1.583a1.6 1.6 0 0 1-.645-.133l-2.05 1.49a3.538 3.538 0 0 1 .117 2.523l1.8 1.068c.23-.126.495-.198.778-.198.883 0 1.6.71 1.6 1.584C16 13.29 15.283 14 14.4 14c-.883 0-1.6-.71-1.6-1.583v-.028l-1.803-1.07A3.601 3.601 0 0 1 8.4 12.416a3.593 3.593 0 0 1-3.51-2.771H2.985a1.603 1.603 0 0 1-1.385.791c-.883 0-1.6-.71-1.6-1.583s.718-1.583 1.6-1.583a1.6 1.6 0 0 1 1.385.792h1.903A3.562 3.562 0 0 1 6.19 6.04l-.73-1.546A1.592 1.592 0 0 1 4 2.917c0-.874.718-1.584 1.6-1.584.883 0 1.6.71 1.6 1.584Zm1.2 7.125c.662 0 1.2-.532 1.2-1.188 0-.655-.537-1.187-1.2-1.187-.663 0-1.2.532-1.2 1.187 0 .656.537 1.188 1.2 1.188Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Schema hub"
+                    class="emotion-12"
+                  >
+                    Schema hub
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Support
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.926 7.185.667 11.031V3.952c0-.893.73-1.619 1.63-1.619h2.992c.433 0 .848.17 1.153.473l.675.67c.306.304.72.474 1.154.474h2.99c.898 0 1.629.726 1.629 1.619v.81H4.334c-.58 0-1.115.306-1.408.804v.002Zm.703.408a.817.817 0 0 1 .705-.403H14.52a.81.81 0 0 1 .703 1.22l-2.853 4.857a.812.812 0 0 1-.702.4H1.482a.81.81 0 0 1-.703-1.22L3.631 7.59l-.002.003Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Docs"
+                    class="emotion-12"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-14"
+                href="#"
+              >
+                <div
+                  class="emotion-15"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.267 1.333c-.883 0-1.6.71-1.6 1.584v5.416c0 .874.717 1.584 1.6 1.584h.8v1.187c0 .151.085.287.22.354a.408.408 0 0 0 .42-.037l2.027-1.504H8.8c.883 0 1.6-.71 1.6-1.584V2.917c0-.874-.717-1.584-1.6-1.584H2.267ZM8.8 10.708H6.4v.792c0 .873.718 1.583 1.6 1.583h2.933l1.36 1.505c.12.089.283.103.42.037a.39.39 0 0 0 .22-.354v-1.188h.8c.883 0 1.6-.71 1.6-1.583V6.75c0-.873-.717-1.583-1.6-1.583H11.2v3.166c0 1.312-1.075 2.375-2.4 2.375Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Chat room"
+                    class="emotion-12"
+                  >
+                    Chat room
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div
+        class="emotion-104"
+      >
+        <div
+          class="emotion-105"
+        >
+          <div
+            class="emotion-106"
+          >
+            <div
+              class="emotion-107"
+            >
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 16"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M24 9.651c0 1.45-.465 2.785-1.246 3.853v.001c-.954 1.275-2.02 1.787-2.287 1.915l-.037.018c-1.16.56-2.382.582-2.95.554l-.048.001h-.058a678.371 678.371 0 0 0-6.006 0c-.875 0-1.94-.005-3.022-.01-1.116-.007-2.25-.013-3.209-.013C2.3 15.97 0 13.56 0 10.586c0-2.973 2.3-5.384 5.137-5.384l.096.002.048.002.001.007.002.006C5.953 2.228 8.514 0 11.57 0c2.064 0 3.9 1.014 5.083 2.592.105.14.276.41.492.773.262-.037.53-.058.801-.058C21.29 3.307 24 6.147 24 9.651ZM11 5a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0V5Zm0 7a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
+                  fill="#D74E3A"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="emotion-108"
+            >
+              <span
+                class="emotion-109"
+              >
+                Version 2.02
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<LeftPanel> render correctly - snapshot 3`] = `
+<DocumentFragment>
+  .emotion-0 {
+  background: #f4f9fb;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-flex: 0 0 280px;
+  -ms-flex: 0 0 280px;
+  flex: 0 0 280px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-flex: 0 0 84px;
+  -ms-flex: 0 0 84px;
+  flex: 0 0 84px;
+}
+
+.emotion-1 {
+  padding: 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 24px;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  height: 80px;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  padding: 24px 17px;
+}
+
+.emotion-1:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 17px;
+  background: #f4f9fb;
+}
+
+.emotion-2 {
+  position: absolute;
+  left: 24px;
+  top: 24px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  left: 17px;
+}
+
+.emotion-3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  padding: 0 22px;
+}
+
+.emotion-3 .menu-list-group+.menu-list-group {
+  margin-top: 12px;
+}
+
+.emotion-3 .item-enter-done {
+  max-height: 200px;
+}
+
+.emotion-3 .item-enter-active {
+  max-height: 200px;
+}
+
+.emotion-3 .item-exit {
+  max-height: 0;
+}
+
+.emotion-3 .item-exit-active {
+  max-height: 0;
+}
+
+.emotion-4 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.emotion-5 .menu-list-item+.menu-list-item {
+  margin-top: 6px;
+}
+
+.emotion-6 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(129, 134, 140, 0.8);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: #81868c;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.emotion-9:hover {
+  color: #252626;
+}
+
+.emotion-10 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.emotion-11 {
+  -webkit-flex: 0 0 16px;
+  -ms-flex: 0 0 16px;
+  flex: 0 0 16px;
+}
+
+.emotion-12 {
+  margin-left: 12px;
+}
+
+.emotion-24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 12px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: #81868c;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+  color: #0a2965;
+  background: #fff;
+}
+
+.emotion-24:hover {
+  color: #252626;
+}
+
+.emotion-25 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-weight: bold;
+}
+
+.emotion-41 {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: inherit;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  transform: none;
+  top: unset;
+  margin-left: 5px;
+}
+
+.emotion-76 {
+  border-top: 2px solid #E6E9ED;
+  margin-top: 12px;
+  padding: 19px 0 19px 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  height: 64px;
+  overflow: hidden;
+  padding-left: 0;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-77 {
+  position: absolute;
+  left: 8px;
+  top: 19px;
+  overflow: hidden;
+}
+
+.emotion-78 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-79 {
+  -webkit-flex: 0 0 24px;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+}
+
+.emotion-80 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding-left: 8px;
+}
+
+.emotion-81 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #81868C;
+  white-space: nowrap;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <svg
+        class="emotion-2"
+        fill="none"
+        height="32"
+        role="img"
+        viewBox="0 0 147 32"
+        width="147"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M85.106 11.835c1.494 0 2.63.485 3.408 1.457v-1.305h2.836v8.483c0 1.867-.493 3.258-1.476 4.168-.984.907-2.42 1.362-4.308 1.362-.996 0-1.942-.12-2.834-.36-.895-.24-1.636-.588-2.222-1.042.119-.21 1.07-1.907 1.188-2.12.432.355.98.635 1.646.842.665.21 1.327.312 1.992.312 1.034 0 1.797-.229 2.288-.69.493-.462.738-1.16.738-2.095v-.434c-.779.847-1.866 1.27-3.256 1.27a5.53 5.53 0 0 1-2.596-.615 4.753 4.753 0 0 1-1.866-1.736c-.46-.742-.69-1.602-.69-2.574 0-.973.23-1.83.69-2.575a4.725 4.725 0 0 1 1.866-1.733c.786-.41 1.65-.615 2.596-.615Zm-19.016-.003c.958 0 1.83.218 2.617.655a4.71 4.71 0 0 1 1.845 1.835c.447.79.672 1.708.672 2.758 0 1.047-.225 1.965-.672 2.755a4.719 4.719 0 0 1-1.845 1.838c-.787.435-1.659.652-2.617.652-1.314 0-2.349-.41-3.102-1.233v4.756H60V11.983h2.854v1.175c.74-.883 1.82-1.325 3.236-1.325Zm63.871 0c.983 0 1.876.205 2.68.615a4.783 4.783 0 0 1 1.926 1.783c.478.775.718 1.695.718 2.755l-7.622 1.458c.217.505.559.884 1.024 1.137.465.253 1.037.378 1.714.378.536 0 1.011-.078 1.428-.235a3.48 3.48 0 0 0 1.158-.75l1.59 1.705c-.971 1.097-2.389 1.647-4.252 1.647-1.163 0-2.191-.222-3.084-.67-.895-.45-1.583-1.073-2.068-1.867-.485-.796-.728-1.698-.728-2.708 0-.998.24-1.897.718-2.7a5.004 5.004 0 0 1 1.972-1.875c.837-.448 1.779-.673 2.826-.673Zm-7.422-3.712v14.055h-2.854V21c-.741.885-1.816 1.325-3.219 1.325-.971 0-1.848-.215-2.634-.642a4.657 4.657 0 0 1-1.848-1.838c-.447-.795-.67-1.718-.67-2.765 0-1.047.225-1.97.67-2.765a4.658 4.658 0 0 1 1.848-1.837c.786-.43 1.663-.646 2.634-.646 1.315 0 2.344.413 3.085 1.233V8.12h2.988Zm-14.297 10.53c.524 0 .964.17 1.323.503.356.334.536.775.536 1.317 0 .53-.18.973-.536 1.326-.359.354-.799.53-1.323.53-.523 0-.965-.176-1.322-.53-.356-.354-.536-.796-.536-1.326 0-.542.18-.983.536-1.317.357-.333.799-.503 1.322-.503ZM76.202 8.12v10.512c0 .43.114.76.337.996.222.232.538.35.947.35.154 0 .309-.02.47-.058.16-.037.284-.083.372-.133.015.23.122 2.063.134 2.293a4.96 4.96 0 0 1-1.55.245c-1.162 0-2.07-.305-2.72-.917-.652-.613-.975-1.48-.975-2.605V8.12h2.985ZM104.471 8v14.055h-2.854V20.88c-.741.885-1.813 1.325-3.219 1.325-.968 0-1.848-.212-2.632-.642a4.653 4.653 0 0 1-1.848-1.838c-.447-.795-.67-1.718-.67-2.765 0-1.047.223-1.97.67-2.765a4.646 4.646 0 0 1 1.848-1.838c.784-.43 1.664-.642 2.632-.642 1.317 0 2.344.41 3.085 1.23V8h2.988Zm34.088 3.943 2.73 7.677 2.73-7.677H147l-4.098 10.225h-3.284l-4.098-10.225h3.039Zm-21.577 2.315c-.766 0-1.398.255-1.896.767-.498.51-.746 1.195-.746 2.055 0 .858.248 1.542.746 2.055.5.51 1.13.765 1.896.765.756 0 1.38-.255 1.878-.765.499-.513.746-1.197.746-2.055 0-.86-.247-1.545-.746-2.055-.498-.512-1.125-.767-1.878-.767Zm-51.408 0c-.766 0-1.395.255-1.886.767-.493.51-.738 1.195-.738 2.055 0 .858.245 1.542.738 2.055.49.51 1.12.765 1.886.765.767 0 1.396-.255 1.886-.765.49-.513.739-1.197.739-2.055 0-.86-.248-1.545-.74-2.055-.49-.512-1.118-.767-1.885-.767Zm33.343-.12c-.766 0-1.398.255-1.896.767-.498.51-.749 1.195-.749 2.055 0 .858.25 1.543.749 2.055.498.51 1.13.765 1.895.765.754.003 1.381-.255 1.876-.765.499-.512.749-1.197.749-2.055 0-.86-.25-1.545-.749-2.055-.498-.512-1.122-.768-1.876-.768Zm-13.217.12c-.791 0-1.443.23-1.954.692-.508.46-.763 1.063-.763 1.808 0 .744.255 1.347.763 1.81.51.46 1.163.69 1.954.69.791 0 1.438-.23 1.944-.69.506-.463.756-1.066.756-1.81 0-.745-.25-1.348-.756-1.808-.506-.463-1.153-.692-1.944-.692Zm44.261-.19c-.753 0-1.368.24-1.838.72-.473.48-.723 1.142-.748 1.99.501-.098 4.515-.87 5.018-.968a2.226 2.226 0 0 0-.862-1.268c-.435-.317-.958-.474-1.57-.474Z"
+          fill="#191A1A"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M47.405 27.009A12.68 12.68 0 0 0 50 19.302c0-7.007-5.646-12.688-12.61-12.688-.566 0-1.122.042-1.669.115-.45-.723-.806-1.265-1.024-1.544C32.233 2.027 28.405 0 24.106 0c-6.37 0-11.704 4.456-13.098 10.438 0-.008-.008-.018-.006-.025-.1-.003-.199-.01-.3-.01C4.793 10.403 0 15.226 0 21.173 0 27.118 4.792 31.94 10.703 31.94c3.936 0 9.28.047 12.98.047 2.207 0 3.402-.026 12.513 0l.22-.002c1.184.056 3.729.011 6.147-1.109.388-.184 2.745-1.176 4.843-3.866l-.001-.001Z"
+          fill="#FEBF40"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M47.405 27.009A12.68 12.68 0 0 0 50 19.302c0-7.007-5.646-12.688-12.61-12.688-.566 0-1.122.042-1.668.115-.45-.723-.806-1.265-1.025-1.544C32.233 2.027 28.406 0 24.106 0c-7.43 0-13.457 6.061-13.457 13.54 0 7.478 5.602 18.447 13.034 18.447 2.207 0 3.403-.026 12.513 0l.221-.002c1.183.056 3.728.011 6.147-1.109.388-.184 2.744-1.176 4.842-3.866l-.001-.001Z"
+          fill="#87CEF2"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M46.93 26.296C44.882 22.622 36.278 7.21 34.696 5.184 32.233 2.027 28.404 0 24.105 0c-7.43 0-13.457 6.061-13.457 13.54 0 7.478 5.602 18.447 13.034 18.447 2.208 0 3.403-.026 12.513 0l.221-.002c1.184.056 3.729.012 6.147-1.109.388-.184 2.745-1.176 4.842-3.866l-.476-.714Z"
+          fill="#2261AE"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div
+      class="emotion-3"
+    >
+      <ul
+        class="emotion-4"
+      >
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Main menu
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <mask
+                      height="14"
+                      id="icon-dashboard_svg__a"
+                      maskUnits="userSpaceOnUse"
+                      style="mask-type: alpha;"
+                      width="14"
+                      x="1"
+                      y="1"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M1.6 3.1a1.5 1.5 0 0 1 1.5-1.5h9.8a1.5 1.5 0 0 1 1.5 1.5v.2a1.5 1.5 0 0 1-1.5 1.5H3.1a1.5 1.5 0 0 1-1.5-1.5v-.2Zm0 4.8a1.5 1.5 0 0 1 1.5-1.5h.2a1.5 1.5 0 0 1 1.5 1.5v5a1.5 1.5 0 0 1-1.5 1.5h-.2a1.5 1.5 0 0 1-1.5-1.5v-5Zm6.3-1.5a1.5 1.5 0 0 0-1.5 1.5v5a1.5 1.5 0 0 0 1.5 1.5h5a1.5 1.5 0 0 0 1.5-1.5v-5a1.5 1.5 0 0 0-1.5-1.5h-5Z"
+                        fill="#fff"
+                        fill-rule="evenodd"
+                      />
+                    </mask>
+                    <g
+                      mask="url(#icon-dashboard_svg__a)"
+                    >
+                      <path
+                        d="M0 0h16v16H0z"
+                        fill="currentcolor"
+                      />
+                    </g>
+                  </svg>
+                  <span
+                    aria-label="Dashboard"
+                    class="emotion-12"
+                  >
+                    Dashboard
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4 1.5c-1.655 0-3 1.345-3 3v3c0 1.655 1.345 3 3 3h16c1.655 0 3-1.345 3-3v-3c0-1.655-1.345-3-3-3H4Zm11.125 5.625A1.122 1.122 0 0 1 14 6c0-.623.502-1.125 1.125-1.125S16.25 5.377 16.25 6s-.502 1.125-1.125 1.125ZM19.625 6c0 .623-.502 1.125-1.125 1.125A1.122 1.122 0 0 1 17.375 6c0-.623.502-1.125 1.125-1.125s1.125.502 1.125 1.125ZM4 13.5c-1.655 0-3 1.345-3 3v3c0 1.655 1.345 3 3 3h16c1.655 0 3-1.345 3-3v-3c0-1.655-1.345-3-3-3H4Zm11.125 5.625A1.122 1.122 0 0 1 14 18c0-.623.502-1.125 1.125-1.125s1.125.502 1.125 1.125-.502 1.125-1.125 1.125ZM20 18c0 .623-.502 1.125-1.125 1.125A1.122 1.122 0 0 1 17.75 18c0-.623.502-1.125 1.125-1.125S20 17.377 20 18Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Devices"
+                    class="emotion-12"
+                  >
+                    Devices
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21.346 9.832h-1.539A7.731 7.731 0 0 0 19.027 8l1.096-1.074a.673.673 0 0 0 0-.968l-2.086-2.084a.675.675 0 0 0-.97 0l-1.095 1.094a7.671 7.671 0 0 0-1.834-.757V2.674A.679.679 0 0 0 13.464 2h-2.93a.679.679 0 0 0-.674.674v1.558a7.668 7.668 0 0 0-1.833.758L6.952 3.895a.715.715 0 0 0-.97 0L3.898 5.979a.673.673 0 0 0 0 .969l1.095 1.094c-.337.59-.59 1.2-.758 1.832h-1.56a.679.679 0 0 0-.674.673v2.948c0 .379.316.674.674.674h1.56c.084.294.169.568.274.842l3.098-3.074a2.213 2.213 0 0 1-.253-1.958c.105-.316.295-.632.527-.863.337-.337.8-.59 1.285-.632l4.447-.59c.084-.02.19-.02.295-.02.59 0 1.159.231 1.58.652.485.485.717 1.18.633 1.874l-.59 4.442a2.25 2.25 0 0 1-1.497 1.81 2.116 2.116 0 0 1-.716.106c-.443 0-.864-.126-1.223-.358l-3.098 3.095c.274.105.57.21.865.294v1.537c0 .38.295.674.674.674h2.95c.38 0 .675-.295.675-.674V19.79a7.748 7.748 0 0 0 1.833-.779l1.075 1.095a.675.675 0 0 0 .97 0l2.085-2.084a.673.673 0 0 0 0-.969l-1.096-1.094c.338-.59.59-1.2.76-1.832h1.538c.379 0 .674-.294.674-.674v-2.926a.653.653 0 0 0-.653-.694Z"
+                      fill="currentcolor"
+                    />
+                    <path
+                      d="M12.905 14.947c.148.148.379.211.569.127.21-.063.336-.253.378-.463l.59-4.443a.558.558 0 0 0-.169-.463.558.558 0 0 0-.463-.168l-4.442.59a.47.47 0 0 0-.316.168.436.436 0 0 0-.126.21.557.557 0 0 0 .126.569l.864.863-5.706 5.747a.485.485 0 0 0 0 .653l1.453 1.453c.168.168.463.168.653 0l5.726-5.727.863.884Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Integrations"
+                    class="emotion-12"
+                  >
+                    Integrations
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-24"
+                href="#"
+              >
+                <div
+                  class="emotion-25"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      clip-path="url(#icon-remote-clients_svg__a)"
+                    >
+                      <path
+                        d="M0 15.214C0 18.408 2.419 21 5.4 21h13.8c2.651 0 4.8-2.302 4.8-5.143 0-2.487-1.65-4.564-3.84-5.038.154-.43.24-.9.24-1.39 0-2.13-1.612-3.858-3.6-3.858-.739 0-1.429.242-1.999.651C13.762 4.294 11.824 3 9.6 3c-3.315 0-6 2.877-6 6.429 0 .108.004.217.007.325-2.1.792-3.607 2.937-3.607 5.46Z"
+                        fill="currentcolor"
+                      />
+                    </g>
+                    <defs>
+                      <clippath
+                        id="icon-remote-clients_svg__a"
+                      >
+                        <path
+                          d="M0 0h24v24H0z"
+                          fill="currentcolor"
+                        />
+                      </clippath>
+                    </defs>
+                  </svg>
+                  <span
+                    aria-label="Remote clients"
+                    class="emotion-12"
+                  >
+                    Remote clients
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10Zm-.938-15.313V12c0 .313.157.605.418.781l3.75 2.5a.935.935 0 0 0 1.301-.261.934.934 0 0 0-.261-1.301L12.938 11.5V6.687A.935.935 0 0 0 12 5.75a.935.935 0 0 0-.938.938Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Pending commands"
+                    class="emotion-12"
+                  >
+                    Pending commands
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Other
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 1.333c-.662 0-1.2.532-1.2 1.188v2.375c0 .655.538 1.187 1.2 1.187h1.2v1H1.467c-.443 0-.8.354-.8.792 0 .438.357.792.8.792H3.2v1.25H2c-.662 0-1.2.532-1.2 1.187v2.375c0 .656.538 1.188 1.2 1.188h4c.663 0 1.2-.532 1.2-1.188v-2.375c0-.655-.537-1.187-1.2-1.187H4.8v-1.25h6.4v1.25H10c-.662 0-1.2.532-1.2 1.187v2.375c0 .656.538 1.188 1.2 1.188h4c.663 0 1.2-.532 1.2-1.188v-2.375c0-.655-.537-1.187-1.2-1.187h-1.2v-1.25h1.734c.442 0 .8-.354.8-.792a.795.795 0 0 0-.8-.792H8.8v-1H10c.663 0 1.2-.532 1.2-1.187V2.52c0-.656-.537-1.188-1.2-1.188H6Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device provisioning"
+                    class="emotion-12"
+                  >
+                    Device provisioning
+                  </span>
+                  <span
+                    class="emotion-41"
+                  >
+                    <svg
+                      fill="none"
+                      height="6"
+                      role="img"
+                      viewBox="0 0 10 6"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M.21.22a.69.69 0 0 1 1.01 0L5 4.19 8.78.22a.69.69 0 0 1 1.01 0 .777.777 0 0 1 0 1.06l-4.285 4.5a.69.69 0 0 1-1.01 0L.209 1.28a.777.777 0 0 1 0-1.06Z"
+                        fill="#81868C"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.833 4.18v6.32a.832.832 0 1 1-1.667 0V4.18L5.255 6.09a.835.835 0 0 1-1.18-1.18L7.41 1.579a.835.835 0 0 1 1.18 0l3.332 3.334a.834.834 0 0 1-1.18 1.18L8.834 4.18ZM3 10.5h3.333c0 .92.747 1.667 1.667 1.667.919 0 1.666-.748 1.666-1.667H13c.919 0 1.666.748 1.666 1.667V13c0 .92-.747 1.667-1.666 1.667H3c-.92 0-1.667-.748-1.667-1.667v-.833c0-.92.747-1.667 1.667-1.667Zm9.583 2.708a.623.623 0 0 0 .625-.625.624.624 0 0 0-.625-.625.624.624 0 0 0-.625.625c0 .347.279.625.625.625Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device firmware update"
+                    class="emotion-12"
+                  >
+                    Device firmware update
+                  </span>
+                  <span
+                    class="emotion-41"
+                  >
+                    <svg
+                      fill="none"
+                      height="6"
+                      role="img"
+                      viewBox="0 0 10 6"
+                      width="10"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M.21.22a.69.69 0 0 1 1.01 0L5 4.19 8.78.22a.69.69 0 0 1 1.01 0 .777.777 0 0 1 0 1.06l-4.285 4.5a.69.69 0 0 1-1.01 0L.209 1.28a.777.777 0 0 1 0-1.06Z"
+                        fill="#81868C"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M4.667 1.333C3.747 1.333 3 2.081 3 3v10c0 .92.747 1.667 1.667 1.667h6.666c.92 0 1.667-.748 1.667-1.667V5.5H9.667a.832.832 0 0 1-.834-.833V1.333H4.667Zm5 0v3.334H13L9.667 1.333ZM5.917 8h4.166c.23 0 .417.188.417.417 0 .229-.188.416-.417.416H5.917a.418.418 0 0 1-.417-.416c0-.23.188-.417.417-.417Zm0 1.667h4.166c.23 0 .417.187.417.416 0 .23-.188.417-.417.417H5.917a.418.418 0 0 1-.417-.417c0-.229.188-.416.417-.416Zm0 1.666h4.166c.23 0 .417.188.417.417 0 .23-.188.417-.417.417H5.917a.418.418 0 0 1-.417-.417c0-.23.188-.417.417-.417Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Device logs"
+                    class="emotion-12"
+                  >
+                    Device logs
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 3c1.118 0 2.024.932 2.024 2.083v1.25H5.976v-1.25C5.976 3.933 6.882 3 8 3ZM4.357 5.083v1.25h-.405c-.893 0-1.619.748-1.619 1.667v5c0 .92.726 1.667 1.62 1.667h8.094c.893 0 1.62-.748 1.62-1.667V8c0-.92-.727-1.667-1.62-1.667h-.405v-1.25c0-2.07-1.631-3.75-3.642-3.75s-3.643 1.68-3.643 3.75Zm4.452 4.584v1.666a.82.82 0 0 1-.81.834.82.82 0 0 1-.809-.834V9.667A.82.82 0 0 1 8 8.833a.82.82 0 0 1 .81.834Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="API tokens"
+                    class="emotion-12"
+                  >
+                    API tokens
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.2 2.917c0 .339-.107.65-.29.908l.73 1.546a3.61 3.61 0 0 1 3.118.792l2.052-1.49a1.593 1.593 0 0 1 1.59-1.757c.883 0 1.6.71 1.6 1.584 0 .873-.717 1.583-1.6 1.583a1.6 1.6 0 0 1-.645-.133l-2.05 1.49a3.538 3.538 0 0 1 .117 2.523l1.8 1.068c.23-.126.495-.198.778-.198.883 0 1.6.71 1.6 1.584C16 13.29 15.283 14 14.4 14c-.883 0-1.6-.71-1.6-1.583v-.028l-1.803-1.07A3.601 3.601 0 0 1 8.4 12.416a3.593 3.593 0 0 1-3.51-2.771H2.985a1.603 1.603 0 0 1-1.385.791c-.883 0-1.6-.71-1.6-1.583s.718-1.583 1.6-1.583a1.6 1.6 0 0 1 1.385.792h1.903A3.562 3.562 0 0 1 6.19 6.04l-.73-1.546A1.592 1.592 0 0 1 4 2.917c0-.874.718-1.584 1.6-1.584.883 0 1.6.71 1.6 1.584Zm1.2 7.125c.662 0 1.2-.532 1.2-1.188 0-.655-.537-1.187-1.2-1.187-.663 0-1.2.532-1.2 1.187 0 .656.537 1.188 1.2 1.188Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Schema hub"
+                    class="emotion-12"
+                  >
+                    Schema hub
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="menu-list-group emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            Support
+          </div>
+          <ul
+            class="emotion-4"
+          >
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.926 7.185.667 11.031V3.952c0-.893.73-1.619 1.63-1.619h2.992c.433 0 .848.17 1.153.473l.675.67c.306.304.72.474 1.154.474h2.99c.898 0 1.629.726 1.629 1.619v.81H4.334c-.58 0-1.115.306-1.408.804v.002Zm.703.408a.817.817 0 0 1 .705-.403H14.52a.81.81 0 0 1 .703 1.22l-2.853 4.857a.812.812 0 0 1-.702.4H1.482a.81.81 0 0 1-.703-1.22L3.631 7.59l-.002.003Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Docs"
+                    class="emotion-12"
+                  >
+                    Docs
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li
+              class="menu-list-item emotion-8"
+            >
+              <a
+                class="emotion-9"
+                href="#"
+              >
+                <div
+                  class="emotion-10"
+                  data-icon="[object Object]"
+                >
+                  <svg
+                    class="emotion-11"
+                    fill="none"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M2.267 1.333c-.883 0-1.6.71-1.6 1.584v5.416c0 .874.717 1.584 1.6 1.584h.8v1.187c0 .151.085.287.22.354a.408.408 0 0 0 .42-.037l2.027-1.504H8.8c.883 0 1.6-.71 1.6-1.584V2.917c0-.874-.717-1.584-1.6-1.584H2.267ZM8.8 10.708H6.4v.792c0 .873.718 1.583 1.6 1.583h2.933l1.36 1.505c.12.089.283.103.42.037a.39.39 0 0 0 .22-.354v-1.188h.8c.883 0 1.6-.71 1.6-1.583V6.75c0-.873-.717-1.583-1.6-1.583H11.2v3.166c0 1.312-1.075 2.375-2.4 2.375Z"
+                      fill="currentcolor"
+                    />
+                  </svg>
+                  <span
+                    aria-label="Chat room"
+                    class="emotion-12"
+                  >
+                    Chat room
+                  </span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div
+        class="emotion-76"
+      >
+        <div
+          class="emotion-77"
+        >
+          <div
+            class="emotion-78"
+          >
+            <div
+              class="emotion-79"
+            >
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 16"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M24 9.651c0 1.45-.465 2.785-1.246 3.853v.001c-.954 1.275-2.02 1.787-2.287 1.915l-.037.018c-1.16.56-2.382.582-2.95.554l-.048.001h-.058a678.371 678.371 0 0 0-6.006 0c-.875 0-1.94-.005-3.022-.01-1.116-.007-2.25-.013-3.209-.013C2.3 15.97 0 13.56 0 10.586c0-2.973 2.3-5.384 5.137-5.384l.096.002.048.002.001.007.002.006C5.953 2.228 8.514 0 11.57 0c2.064 0 3.9 1.014 5.083 2.592.105.14.276.41.492.773.262-.037.53-.058.801-.058C21.29 3.307 24 6.147 24 9.651Zm-7.765-3.872a.992.992 0 0 1 0 1.349l-4.798 5.091a.861.861 0 0 1-1.272 0L7.763 9.675a.996.996 0 0 1 0-1.349.861.861 0 0 1 1.272 0l1.764 1.87 4.165-4.416a.864.864 0 0 1 1.271 0Z"
+                  fill="#52C5A2"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div
+              class="emotion-80"
+            >
+              <span
+                class="emotion-81"
+              >
+                Version 2.02
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
