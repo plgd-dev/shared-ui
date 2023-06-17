@@ -1,17 +1,17 @@
 import React, { FC, useRef } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+
 import { Props, Inputs, defaultProps, DeviceInformationLineType } from './ProvisionDeviceModal.types'
 import Modal from '../../Modal'
 import FormGroup from '../../../FormGroup'
 import FormLabel from '../../../FormLabel'
 import FormInput from '../../../FormInput'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { validate as isValidUUID } from 'uuid'
 import Button from '../../../Button'
 import * as styles from './ProvisionDeviceModal.styles'
 import CopyElement from '../../../CopyElement'
 import Tooltip from '../../../Tooltip'
 import { IconCopy } from '../../../Icon'
-import { copyToClipboard } from '../../../../../common/utils'
+import { checkIfValidUUID, copyToClipboard } from '../../../../../common/utils'
 
 const ProvisionDeviceModal: FC<Props> = (props) => {
     const { defaultDeviceId, deviceAuthCode, deviceAuthLoading, getDeviceAuthCode, deviceInformation, footerActions, i18n, ...rest } = {
@@ -77,7 +77,7 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
                 <FormInput
                     inputRef={inputRef}
                     placeholder={i18n.enterDeviceID}
-                    {...register('deviceId', { validate: (val) => isValidUUID(val) })}
+                    {...register('deviceId', { validate: (val) => checkIfValidUUID(val) })}
                     disabled={!!deviceAuthLoading || !!deviceAuthCode}
                 />
             </FormGroup>
