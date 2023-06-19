@@ -82,6 +82,7 @@ const Table: FC<Props> = (props) => {
             },
             autoResetPage: false,
             autoResetSelectedRows: false,
+            autoResetGlobalFilter: false,
         },
         useGlobalFilter,
         useSortBy,
