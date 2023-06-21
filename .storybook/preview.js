@@ -5,6 +5,21 @@ import { CHANGE } from 'storybook-addon-themes/src/constants'
 import light from '../src/components/Atomic/_theme/light'
 import dark from '../src/components/Atomic/_theme/dark'
 
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
+// @import '@/assets/fonts/fontawesome/css/all.min.css';
+import '../../../src/assets/fonts/fontawesome/css/all.min.css';
+
+import '../src/common/styles/colors.scss'
+import '../src/common/styles/default.scss'
+import '../src/common/styles/animations.scss'
+import '../src/common/styles/form.scss'
+
+import '../src/components/Atomic/Badge/Badge.scss'
+import '../src/components/Atomic/Table/Table.scss'
+import '../src/components/Atomic/TreeExpander/TreeExpander.scss'
+
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {

@@ -1,17 +1,15 @@
-import classNames from 'classnames'
 import { FC } from 'react'
 import { Props } from './TreeExpander.types'
+import { IconTableArrowDown } from '../Icon'
+import * as styles from './TreeExpander.styles'
 
-const TreeExpander: FC<Props> = ({ expanded, ...rest }) => (
-    <div {...rest} className={classNames('tree-expander', { expanded })}>
-        <i
-            className={classNames('fas', {
-                'fa-chevron-down': expanded,
-                'fa-chevron-right': !expanded,
-            })}
-        />
-    </div>
-)
+const TreeExpander: FC<Props> = ({ expanded, ...rest }) => {
+    return (
+        <div {...rest} css={styles.treeExpander}>
+            <IconTableArrowDown className='expander-icon' css={[styles.expanderIcon, expanded && styles.expanded]} height={4} width={7} />
+        </div>
+    )
+}
 
 TreeExpander.displayName = 'TreeExpander'
 

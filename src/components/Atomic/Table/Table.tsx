@@ -1,4 +1,4 @@
-//@ts-nocheck
+// @ts-nocheck
 import { FC, useEffect } from 'react'
 import { useTable, useSortBy, usePagination, useRowSelect } from 'react-table'
 import BTable from 'react-bootstrap/Table'
@@ -90,11 +90,11 @@ const Table: FC<Props> = (props) => {
                                     // Sorting props to control sorting
                                     <th
                                         {...column.getHeaderProps(column.getSortByToggleProps())}
+                                        className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
                                         style={{
                                             ...column.getHeaderProps(column.getSortByToggleProps()).style,
                                             ...column.style,
                                         }}
-                                        className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
                                     >
                                         <div className='th-div'>
                                             {column.render('Header')}
@@ -159,17 +159,17 @@ const Table: FC<Props> = (props) => {
                 {pageCount > 0 && enablePagination && (
                     <Pagination
                         {...paginationProps}
-                        canPreviousPage={canPreviousPage}
                         canNextPage={canNextPage}
-                        pageOptions={pageOptions}
-                        pageCount={pageCount}
+                        canPreviousPage={canPreviousPage}
                         gotoPage={gotoPage}
                         nextPage={nextPage}
+                        pageCount={pageCount}
+                        pageIndex={pageIndex}
+                        pageLength={page.length}
+                        pageOptions={pageOptions}
+                        pageSize={pageSize}
                         previousPage={previousPage}
                         setPageSize={setPageSize}
-                        pageIndex={pageIndex}
-                        pageSize={pageSize}
-                        pageLength={page.length}
                     />
                 )}
             </div>

@@ -27,6 +27,7 @@ $table_row_height: 60px;
       th {
         height: $table_header_height;
         white-space: nowrap;
+        background: transparent;
 
         .th-div {
           display: flex;

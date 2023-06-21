@@ -28,3 +28,8 @@ export const blue = css`
     color: ${colors.primary};
     background: rgba(135, 206, 242, 0.2);
 `
+
+export const white = css`
+    color: ${colors.neutral500};
+    background: #fff;
+`

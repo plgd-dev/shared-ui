@@ -8,14 +8,13 @@ import sample from 'lodash/sample'
 import '../global.css'
 import TableSelectionPanel from '../../components/Atomic/TableNew/TableSelectionPanel/TableSelectionPanel'
 import { IconEdit, IconLink, IconShowPassword, IconTrash } from '../../components/Atomic'
+import { generate } from 'random-words'
 
 export default {
     title: 'Table/Table',
     component: Table,
     argTypes: {},
 }
-
-const randomWords = require('random-words')
 
 const Template = (args) => {
     const ref = useRef()
@@ -93,7 +92,7 @@ const Template = (args) => {
     const data = useMemo(
         () =>
             Array.from(Array(100).keys()).map((item) => ({
-                col1: randomWords({ exactly: 3 }).join(' '),
+                col1: generate({ exactly: 3 }).join(' '),
                 col2: '376ee947-4801-5cfe-3a8f-49103697f7d1',
                 col3: {
                     state: sample(['online', 'offline']),

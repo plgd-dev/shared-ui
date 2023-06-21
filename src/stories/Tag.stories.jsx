@@ -1,6 +1,7 @@
 import React from 'react'
 import Tag from '../components/Atomic/Tag'
 import TagGroup from '../components/Atomic/TagGroup'
+import { tagVariants } from '../components/Atomic/Tag/constants'
 
 export default {
     title: 'Example/Tag',
@@ -16,6 +17,13 @@ const Template = (args) => (
         <Tag {...args} icon='link'>
             status
         </Tag>
+        <br />
+        <br />
+        <div style={{ background: '#ccc', padding: 5 }}>
+            <Tag {...args} variant={tagVariants.WHITE}>
+                white
+            </Tag>
+        </div>
     </div>
 )
 

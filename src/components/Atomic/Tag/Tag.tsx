@@ -17,7 +17,12 @@ const Tag: FC<Props> = (props) => {
     return (
         <div
             className={className}
-            css={[styles.tag, isFunction(onClick) && styles.clickable, variant === tagVariants.BLUE && styles.blue]}
+            css={[
+                styles.tag,
+                isFunction(onClick) && styles.clickable,
+                variant === tagVariants.BLUE && styles.blue,
+                variant === tagVariants.WHITE && styles.white,
+            ]}
             id={id}
             onClick={onClick}
         >

@@ -1,9 +1,9 @@
 import { FC, useMemo } from 'react'
 import classNames from 'classnames'
 
-import { TreeTable } from '../../Atomic/Table'
+import TreeTable from '../../Atomic/TreeTable'
 import { devicesStatuses } from '../../../common/constants'
-import { createNestedResourceData } from '../../../common/utils/devices'
+import { createNestedResourceData } from '../../../common/utils'
 import { Props } from './DevicesResourcesTree.types'
 
 const DevicesResourcesTree: FC<Props> = (props) => {
