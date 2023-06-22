@@ -1,6 +1,13 @@
 import { css } from '@emotion/react'
-import { cell } from '../TableNew/Table.styles'
 import { colors } from '../_utils/colors'
+
+export const treeComponent = css`
+    height: calc(100% - 32px); // switch view button
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: hidden;
+`
 
 export const table = css`
     border: 0;
@@ -20,31 +27,45 @@ export const table = css`
     }
 `
 
-export const rowExpanded = css`
-    ${cell} {
-        //background-color: ${colors.neutral100};
+export const row = css`
+    .tree-custom-tag {
+        transition: all 0.3s;
+    }
+
+    &:hover {
+        .tree-custom-tag {
+            background: #fff;
+        }
     }
 `
-
-// 7, 39, 54,
-
-// 15 + 24
 
 export const removeBottomBorderRadius = css`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     background-color: ${colors.neutral100};
+
+    .tree-custom-tag {
+        background: #fff;
+    }
 `
 
 export const removeTopBorderRadius = css`
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     background-color: ${colors.neutral100};
+
+    .tree-custom-tag {
+        background: #fff;
+    }
 `
 
 export const removeBorderRadius = css`
     border-radius: 0;
     background-color: ${colors.neutral100};
+
+    .tree-custom-tag {
+        background: #fff;
+    }
 `
 
 export const depthLeftBorder = (depth = 0) => {

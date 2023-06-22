@@ -5,11 +5,13 @@ export type Props = {
     className?: string
     columns: Column[]
     data: TableDataType
-    getRowProps?: (data?: any) => {}
     defaultSortBy?: {
         id?: string
         desc?: boolean
     }[]
+    getRowProps?: (data?: any) => {}
+    height?: number
+    id?: string
     rowHeight?: number
 }
 
