@@ -10,7 +10,6 @@ import { compareIgnoreCase } from '../TableNew/Utils'
 import { convertSize, IconTableArrowDown, IconTableArrowUp } from '../Icon'
 import ConditionalWrapper from '../ConditionalWrapper'
 import { ReactComponent as IconSubLine } from './assets/sub-line.svg'
-import { treeComponent } from './TreeTable.styles'
 
 const defaultPropGetter = () => ({})
 
