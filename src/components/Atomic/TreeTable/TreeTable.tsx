@@ -138,6 +138,7 @@ const TreeTable: FC<Props> = (props) => {
                                         >
                                             <Cell
                                                 css={[
+                                                    styles.treeCell,
                                                     key === 0 && tableStyles.firstRowCell,
                                                     cellKey === 0 && styles.depthLeftBorder(row.depth),
                                                     cellKey === row.cells.length - 1 && styles.depthRightBorder(row.depth),

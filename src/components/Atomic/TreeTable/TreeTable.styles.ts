@@ -39,6 +39,12 @@ export const row = css`
     }
 `
 
+export const treeCell = css`
+    .link {
+        color: ${colors.primary};
+    }
+`
+
 export const removeBottomBorderRadius = css`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
