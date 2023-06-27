@@ -4,9 +4,16 @@ export const parseActiveItem = (pathname: string, menuItems: MenuGroup[], matche
     let ret = '0'
 
     menuItems.forEach((item) => {
-        const id = item.items?.find((i) => matcher(pathname, i))?.id
-        if (id) {
-            ret = id
+        const menuItem = item.items?.find((i) => {
+            if (Array.isArray(i.paths)) {
+                return i.paths.find((j) => matcher(pathname, j))
+            } else {
+                return matcher(pathname, i)
+            }
+        })
+
+        if (menuItem) {
+            ret = menuItem.id
         }
     })
 

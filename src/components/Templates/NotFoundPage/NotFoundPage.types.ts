@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
 export type Props = {
-    title?: string
+    title?: ReactNode
     message?: ReactNode
 }

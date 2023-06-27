@@ -1,10 +1,11 @@
 import { FC, useEffect, useRef, useState } from 'react'
+import isFunction from 'lodash/isFunction'
+import { motion } from 'framer-motion'
+
 import { defaultProps, Props } from './Tabs.types'
 import * as styles from './Tabs.styles'
-import { motion } from 'framer-motion'
 import { useMeasure } from '../../../common/hooks/use-measure'
 import Pager from './Pager'
-import isFunction from 'lodash/isFunction'
 
 const Tabs: FC<Props> = (props) => {
     const { activeItem, onItemChange, fullHeight, tabs } = { ...defaultProps, ...props }
@@ -14,9 +15,10 @@ const Tabs: FC<Props> = (props) => {
     const [slider, setSlider] = useState({ left: 0, right: 0, hasValue: false })
     const { bounds, ref } = useMeasure()
 
-    useEffect(() => {
+    const handleTabChange = (i: number) => {
+        setValue(i)
         isFunction(onItemChange) && onItemChange(value)
-    }, [onItemChange, value])
+    }
 
     // measure our elements
     useEffect(() => {
@@ -50,7 +52,7 @@ const Tabs: FC<Props> = (props) => {
                     <motion.button
                         css={[styles.tabItem, i === value && styles.isActive]}
                         key={i}
-                        onClick={() => setValue(i)}
+                        onClick={() => handleTabChange(i)}
                         ref={(el) => childRefs.current.set(i, el)}
                         transition={{ duration: 0.25 }}
                     >
