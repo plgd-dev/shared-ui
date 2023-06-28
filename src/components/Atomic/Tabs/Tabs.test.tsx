@@ -9,8 +9,8 @@ describe('<Tabs>', () => {
                 <Tabs
                     onItemChange={(activeItem) => console.log(`Active item: ${activeItem}`)}
                     tabs={[
-                        { name: 'Device information', content: <div style={{ height: 300, background: '#e5e5e5' }}>Device information content</div> },
-                        { name: 'Resources', content: <div style={{ height: 300, background: '#e5e5e5' }}>Resources content</div> },
+                        { name: 'Device information', id: 0, content: <div style={{ height: 300, background: '#e5e5e5' }}>Device information content</div> },
+                        { name: 'Resources', id: 1, content: <div style={{ height: 300, background: '#e5e5e5' }}>Resources content</div> },
                     ]}
                 />
             </div>

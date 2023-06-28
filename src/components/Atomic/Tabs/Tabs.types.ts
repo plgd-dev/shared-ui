@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 export type TabItem = {
+    id: number
     name: string
     content: ReactNode
 }

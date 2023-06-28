@@ -17,7 +17,7 @@ const Tabs: FC<Props> = (props) => {
 
     const handleTabChange = (i: number) => {
         setValue(i)
-        isFunction(onItemChange) && onItemChange(value)
+        isFunction(onItemChange) && onItemChange(i)
     }
 
     // measure our elements
@@ -52,7 +52,7 @@ const Tabs: FC<Props> = (props) => {
                     <motion.button
                         css={[styles.tabItem, i === value && styles.isActive]}
                         key={i}
-                        onClick={() => handleTabChange(i)}
+                        onClick={() => handleTabChange(tab.id)}
                         ref={(el) => childRefs.current.set(i, el)}
                         transition={{ duration: 0.25 }}
                     >
