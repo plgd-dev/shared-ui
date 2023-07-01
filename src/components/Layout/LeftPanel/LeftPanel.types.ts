@@ -39,7 +39,7 @@ export type Props = {
             description: string
         }
     }
-    versionMark: ReactNode
+    versionMark?: ReactNode
     onItemClick?: (item: MenuItem, e: SyntheticEvent) => void
     setCollapsed?: (collapsed: boolean) => void
 }
