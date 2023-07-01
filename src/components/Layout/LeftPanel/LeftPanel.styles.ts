@@ -367,7 +367,7 @@ export const iconClose = css`
 export const versionItem = css`
     border-top: 2px solid ${colors.neutral200};
     margin-top: 12px;
-    padding: 19px 0 19px 8px;
+    padding: 0 0 0 8px;
     display: flex;
     align-items: center;
     position: relative;
@@ -378,7 +378,7 @@ export const versionItem = css`
 export const versionItemInner = css`
     position: absolute;
     left: 8px;
-    top: 19px;
+    //top: 19px;
     overflow: hidden;
 `
 

@@ -23,7 +23,6 @@ export const versionText = css`
     line-height: 18px;
     text-align: center;
     color: ${colors.neutral500};
-    white-space: nowrap;
 `
 
 export const updateText = css`
