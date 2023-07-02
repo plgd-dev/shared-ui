@@ -1,6 +1,7 @@
+import { SyntheticEvent } from 'react'
 import { severities } from './constants'
 
-export type VersionMarkSeverityType = typeof severities[keyof typeof severities]
+export type VersionMarkSeverityType = (typeof severities)[keyof typeof severities]
 
 export type Props = {
     className?: string
@@ -8,7 +9,7 @@ export type Props = {
     id?: string
     update?: {
         text: string
-        onClick?: () => void
+        onClick?: (e: SyntheticEvent) => void
     }
     versionText: string
     severity: VersionMarkSeverityType

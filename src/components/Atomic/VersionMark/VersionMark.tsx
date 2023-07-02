@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { defaultProps, Props, VersionMarkSeverityType } from './VersionMark.types'
 import * as styles from './VersionMark.styles'
 import { severities } from './constants'
-import Icon, { convertSize, IconCloudError, IconCloudSuccess, IconCloudWarning } from '../Icon'
+import { convertSize, IconCloudError, IconCloudSuccess, IconCloudWarning } from '../Icon'
 
 const VersionMark: FC<Props> = (props) => {
     const { collapsed, severity, update, versionText, className, id } = { ...defaultProps, ...props }
