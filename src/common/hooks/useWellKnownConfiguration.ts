@@ -39,6 +39,8 @@ export type WellKnownConfigType = {
     isInitialized: boolean
     remoteProvisioning?: RemoteProvisioningDataType
     owner?: string
+    version: string
+    releaseUrl: string
 } & BuildInformationType
 
 type useWellKnownConfigurationReturnType = [

@@ -26,7 +26,7 @@ export const getVersionMarkData = (props: Props): getVersionMarkDataReturnType =
         }
     } else {
         text += ` • ${i18n.newUpdateIsAvailable}`
-        const [latestMajor, latestMinor, latestPatch] = githubVersion?.split('-') || []
+        const [latestMajor, latestMinor, latestPatch] = githubVersion?.split('.') || []
         const [currentMajor, currentMinor, currentPath] = buildVersion.split('-')[0].split('.')
         const hasError =
             Math.abs(parseInt(latestMinor) - parseInt(currentMinor)) >= 3 ||
