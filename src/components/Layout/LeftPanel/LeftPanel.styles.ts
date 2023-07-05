@@ -163,6 +163,15 @@ export const activeItem = css`
     background: #fff;
 `
 
+export const disabled = css`
+    cursor: not-allowed;
+    opacity: 0.6;
+
+    &:hover {
+        color: #81868c;
+    }
+`
+
 export const itemTitle = css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -182,7 +191,7 @@ export const itemTitleIcon = css`
 `
 
 export const itemTitleText = css`
-    margin-left: 12px;
+    margin-left: 14px;
 `
 
 export const itemTitleActive = css`

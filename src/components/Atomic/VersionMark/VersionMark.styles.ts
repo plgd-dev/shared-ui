@@ -12,7 +12,7 @@ export const left = css`
 
 export const right = css`
     flex: 1 1 auto;
-    padding-left: 8px;
+    padding-left: 12px;
 `
 
 export const versionText = css`

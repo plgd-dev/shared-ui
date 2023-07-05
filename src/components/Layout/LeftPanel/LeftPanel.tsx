@@ -25,7 +25,12 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 
     return (
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
-            <a css={[styles.item, isActive && styles.activeItem]} href='#' onClick={(e) => handleItemClick(item, e)} ref={refs.setReference}>
+            <a
+                css={[styles.item, isActive && styles.activeItem, item.disabled && styles.disabled]}
+                href={item.link}
+                onClick={(e) => handleItemClick(item, e)}
+                ref={refs.setReference}
+            >
                 <div css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
                     {typeof item.icon === 'string' ? <Icon icon={item.icon} /> : cloneElement(item.icon as ReactElement, { css: styles.itemTitleIcon })}
                     <span aria-label={item.title} css={styles.itemTitleText}>
@@ -129,13 +134,18 @@ const LeftPanel: FC<Props> = (props) => {
     }, [])
 
     const handleItemClick = (item: MenuItem, e: SyntheticEvent) => {
+        if (item.disabled) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+
         if (item.children) {
             e.preventDefault()
             e.stopPropagation()
 
-            setActive(active === item.id ? null : item.id)
+            !item.disabled && setActive(active === item.id ? null : item.id)
         } else {
-            isFunction(onItemClick) && onItemClick(item, e)
+            !item.disabled && isFunction(onItemClick) && onItemClick(item, e)
         }
     }
 

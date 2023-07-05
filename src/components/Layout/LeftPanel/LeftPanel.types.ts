@@ -10,18 +10,19 @@ type MenuItemTag = {
 }
 
 export type MenuItem = {
-    children?: MenuItem[]
+    children?: Omit<MenuItem, 'icon'>[]
+    disabled?: boolean
     exact?: boolean
     icon: ReactNode
     id: string
     link?: string
     paths?: string[]
     tag?: MenuItemTag
-    title: string
+    title: any
 }
 
 export type MenuGroup = {
-    title: string
+    title: any
     items?: MenuItem[]
 }
 
