@@ -16,8 +16,9 @@ export type getVersionMarkDataReturnType = {
 }
 
 export const getVersionMarkData = (props: Props): getVersionMarkDataReturnType => {
-    const { buildVersion, githubVersion, i18n } = props
-    let text = `${i18n.version} ${buildVersion}`
+    const { buildVersion: buildVersionRaw, githubVersion, i18n } = props
+    let text = `${i18n.version} ${buildVersionRaw}`
+    const buildVersion = buildVersionRaw.split('-')[0] // remove PR or other tags after "-"
 
     if (githubVersion === buildVersion) {
         return {
@@ -27,7 +28,7 @@ export const getVersionMarkData = (props: Props): getVersionMarkDataReturnType =
     } else {
         text += ` • ${i18n.newUpdateIsAvailable}`
         const [latestMajor, latestMinor, latestPatch] = githubVersion?.split('.') || []
-        const [currentMajor, currentMinor, currentPath] = buildVersion.split('-')[0].split('.')
+        const [currentMajor, currentMinor, currentPath] = buildVersion.split('.')
         const hasError =
             Math.abs(parseInt(latestMinor) - parseInt(currentMinor)) >= 3 ||
             Math.abs(parseInt(latestPatch) - parseInt(currentPath)) >= 3 ||
