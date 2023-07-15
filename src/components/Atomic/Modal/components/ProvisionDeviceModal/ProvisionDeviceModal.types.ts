@@ -2,6 +2,7 @@ import { defaultProps as ModalDefaultProps, Props as ModalProps } from '../../Mo
 
 export type DeviceInformationLineType = {
     attribute: string
+    attributeKey: string
     certFormat?: boolean
     copyValue?: string
     value: string
