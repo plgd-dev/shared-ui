@@ -3,7 +3,7 @@ import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.styles'
 import { mergeRefs } from 'react-merge-refs'
 import { convertSize, IconCopy, IconHidePassword, IconShowPassword } from '../Icon'
-import { copyToClipboard } from '../../../common/utils/copy-to-clipboard'
+import { copyToClipboard } from '../../../common/utils'
 import { inputSizes } from './constants'
 import { detect } from 'detect-browser'
 
@@ -16,8 +16,10 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         error,
         icon,
         inline,
+        inputWrapperStyle,
         inputRef,
         size,
+        readOnly,
         telPattern,
         telPrefix,
         type: defaultType,
@@ -38,6 +40,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 (defaultType === 'password' || copy) && !isEdge && styles.inputWithIcon,
                 defaultType === 'tel' && styles.inputTel,
                 disabled && styles.disabled,
+                readOnly && styles.readOnly,
                 error && styles.error,
                 size === inputSizes.BIG && styles.big,
                 size === inputSizes.NORMAL && styles.normal,
@@ -46,6 +49,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             data-inline={inline?.toString()}
             disabled={disabled || false}
             pattern={telPattern}
+            readOnly={readOnly}
             ref={mergeRefs([ref, localInputRef, inputRef]) as any}
             type={type}
             value={value}
@@ -54,7 +58,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
 
     if (defaultType === 'password' || defaultType === 'tel' || copy || icon) {
         return (
-            <div css={styles.inputWithIconWrapper}>
+            <div css={[styles.inputWithIconWrapper, inputWrapperStyle]}>
                 {defaultType === 'tel' && (
                     <div css={styles.inputTelData} onClick={() => localInputRef?.current?.focus()}>
                         {icon}

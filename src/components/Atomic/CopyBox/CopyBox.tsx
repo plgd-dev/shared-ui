@@ -7,7 +7,7 @@ import { IconCopy } from '../Icon'
 import { Props, defaultProps } from './CopyBox.types'
 
 const CopyBox: FC<Props> = (props) => {
-    const { certFormat, text, copyToClipboardText, copiedText, textToCopy } = { ...defaultProps, ...props }
+    const { certFormat, text, copyToClipboardText, copiedText, textToCopy, tooltipPlacement } = { ...defaultProps, ...props }
     const [copied, setCopied] = useState<boolean>(false)
 
     const renderCopyToClipboardHintContent = () =>
@@ -29,7 +29,7 @@ const CopyBox: FC<Props> = (props) => {
     useEffect(() => {
         let timer: any = undefined
         if (copied) {
-            let timer = setTimeout(() => setCopied(false), 3000)
+            timer = setTimeout(() => setCopied(false), 3000)
         }
 
         return () => {
@@ -46,7 +46,7 @@ const CopyBox: FC<Props> = (props) => {
                         {renderCopyToClipboardHintContent()}
                     </Tooltip>
                 }
-                placement='right'
+                placement={tooltipPlacement}
             >
                 <div className='box m-l-10' onClick={handleCopyToClipboard}>
                     <IconCopy />

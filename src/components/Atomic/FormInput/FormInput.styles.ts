@@ -49,6 +49,7 @@ export const normal = css`
 
 export const inputWithIconWrapper = css`
     position: relative;
+    width: 100%;
 `
 
 export const inputWithIcon = css`
@@ -115,6 +116,10 @@ export const telPrefix = css`
 
 export const disabled = css`
     background: #f6f7f9;
+    color: #757676;
+`
+
+export const readOnly = css`
     color: #757676;
 `
 
