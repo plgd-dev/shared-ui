@@ -45,7 +45,7 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
 
     const RenderBoxInfo = () => {
         if (deviceAuthCode && deviceInformation) {
-            const dataForCopy = deviceInformation.map((i) => ({ attribute: i.attribute, value: i.copyValue || i.value }))
+            const dataForCopy = deviceInformation.map((i) => ({ attribute: i.attribute, value: i.copyValue || i.value, attributeKey: i.attributeKey }))
             return (
                 <div>
                     <div css={styles.codeInfoHeader}>
@@ -53,8 +53,8 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
                         <CopyElement textToCopy={JSON.stringify(dataForCopy)} />
                     </div>
                     <div css={[styles.getCodeBox, styles.codeBoxWithLines]}>
-                        {deviceInformation?.map((info: DeviceInformationLineType, key) => (
-                            <DeviceInformationLine key={info.attribute} {...info} />
+                        {deviceInformation?.map((info: DeviceInformationLineType) => (
+                            <DeviceInformationLine key={info.attributeKey} {...info} />
                         ))}
                     </div>
                 </div>
