@@ -1,12 +1,13 @@
-import { FC, useRef, useState } from 'react'
+import { FC, memo, useRef, useState } from 'react'
+import Avatar from 'react-avatar'
+import { offset, shift, useFloating } from '@floating-ui/react'
+
 import { Props } from './UserWidget.types'
 import * as styles from './UserWidget.styles'
-import Avatar from 'react-avatar'
 import { useClickOutside } from '../../../../common/hooks'
-import { offset, shift, useFloating } from '@floating-ui/react'
 import { convertSize, IconArrowDown } from '../../../Atomic/Icon'
 
-const UserWidget: FC<Props> = (props) => {
+const UserWidget: FC<Props> = memo((props) => {
     const { name, description, defaultOpen, dropdownItems, image, loading } = props
     const [open, setOpen] = useState(defaultOpen ?? false)
     const clickRef = useRef<HTMLDivElement>(null)
@@ -68,7 +69,7 @@ const UserWidget: FC<Props> = (props) => {
             )}
         </div>
     )
-}
+})
 
 UserWidget.displayName = 'UserWidget'
 
