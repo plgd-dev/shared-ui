@@ -3,12 +3,10 @@ import { context, trace } from '@opentelemetry/api'
 import get from 'lodash/get'
 
 import { useIsMounted } from './use-is-mounted'
-import { fetchApi, security, streamApi } from "../services";
-import { useAppConfig } from '@/containers/App'
-import { SecurityConfig } from "../../../../src/containers/App/App.types";
+import { fetchApi, streamApi } from '../services'
 
-const getData = async (method, url, options, telemetryWebTracer) => {
-    const { telemetrySpan, ...restOptions } = options
+const getData = async (method, url, options) => {
+    const { telemetrySpan, telemetryWebTracer, ...restOptions } = options
 
     if (telemetryWebTracer && telemetrySpan) {
         const singleSpan = telemetryWebTracer.startSpan(telemetrySpan)
@@ -37,11 +35,10 @@ export const useStreamApi = (url, options = {}) => {
         data: null,
     })
     const [refreshIndex, setRefreshIndex] = useState(0)
-    const { telemetryWebTracer, unauthorizedCallback } = useAppConfig()
-    const { cancelRequestDeadlineTimeout } = security.getGeneralConfig()
-    options.unauthorizedCallback = unauthorizedCallback
-    options.cancelRequestDeadlineTimeout = cancelRequestDeadlineTimeout
-    const apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
+    let apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
+
+    const urlBase = url.split('?')[0]?.split('/api/')[1]
+    const mockKey = urlBase.toUpperCase().replace(/\//g, '_').replace(/-/g, '_')
 
     useEffect(
         () => {
@@ -49,7 +46,14 @@ export const useStreamApi = (url, options = {}) => {
                 try {
                     // Set loading to true
                     setState({ ...state, loading: true })
-                    const data = await getData(apiMethod, url, options, telemetryWebTracer)
+                    let data = []
+
+                    if (process.env[`REACT_APP_MOCK_API_${mockKey}`]) {
+                        const mockUrl = `${process.env.REACT_APP_MOCK_BASE_RUL}/api/${urlBase}`
+                        data = await getData(fetchApi, mockUrl, options)
+                    } else {
+                        data = await getData(apiMethod, url, options)
+                    }
 
                     if (isMounted.current) {
                         setState({
@@ -76,7 +80,9 @@ export const useStreamApi = (url, options = {}) => {
 
     return {
         ...state,
-        updateData: (updatedData) => setState({ ...state, data: updatedData }),
+        updateData: (updatedData) => {
+            setState((prevState) => ({ ...prevState, data: updatedData }))
+        },
         refresh: () => setRefreshIndex(Math.random),
     }
 }

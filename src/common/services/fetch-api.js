@@ -13,7 +13,14 @@ export const errorCodes = {
 }
 
 export const fetchApi = async (url, options = {}) => {
-    const { scopes, body, useToken: useTokenDefault, unauthorizedCallback, cancelRequestDeadlineTimeout: cancelRequestDeadlineTimeoutDefault, ...fetchOptions } = options
+    const {
+        scopes,
+        body,
+        useToken: useTokenDefault,
+        unauthorizedCallback,
+        cancelRequestDeadlineTimeout: cancelRequestDeadlineTimeoutDefault,
+        ...fetchOptions
+    } = options
     const useToken = useTokenDefault !== false
     const accessToken = useToken ? security.getAccessToken() : null
     const cancelRequestDeadlineTimeout = cancelRequestDeadlineTimeoutDefault || CANCEL_REQUEST_DEADLINE_MS
@@ -26,11 +33,12 @@ export const fetchApi = async (url, options = {}) => {
         },
     }
 
+    if (useToken && !accessToken) {
+        new Error(errorCodes.NO_TOKEN)
+    }
+
     // Add the Authorization header to the existing headers
     if (useToken && accessToken) {
-        if (!accessToken) {
-            new Error(errorCodes.NO_TOKEN)
-        }
         oAuthSettings.headers.Authorization = `Bearer ${accessToken}`
     }
 
@@ -54,7 +62,7 @@ export const fetchApi = async (url, options = {}) => {
             .then((response) => {
                 clearTimeout(deadlineTimer)
 
-                if(response.status === 401){
+                if (response.status === 401) {
                     unauthorizedCallback()
                     return reject(new Error(errorCodes.UNAUTHORIZED))
                 } else {

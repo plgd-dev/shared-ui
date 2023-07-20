@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConditionalWrapper> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    children
+  </div>
+</DocumentFragment>
+`;

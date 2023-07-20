@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageLoader> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      aria-busy="true"
+      id="page-loader"
+      role="alert"
+    >
+      <div
+        class="bar"
+      >
+        <div
+          class="progress"
+        >
+          <div
+            class="subline inc"
+          />
+          <div
+            class="subline dec"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

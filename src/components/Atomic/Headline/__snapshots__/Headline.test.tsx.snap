@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Headline> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  color: #191A1A;
+  font-family: 'Circular Pro',sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 72px;
+  line-height: 80px;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .emotion-0 {
+    font-size: 50px;
+    line-height: 58px;
+  }
+}
+
+.emotion-1 {
+  color: #191A1A;
+  font-family: 'Circular Pro',sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 48px;
+  line-height: 54px;
+  letter-spacing: -1.5px;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .emotion-1 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+}
+
+.emotion-2 {
+  color: #191A1A;
+  font-family: 'Circular Pro',sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .emotion-2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+.emotion-3 {
+  color: #191A1A;
+  font-family: 'Circular Pro',sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .emotion-3 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.emotion-4 {
+  color: #191A1A;
+  font-family: 'Circular Pro',sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .emotion-4 {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+<div>
+    <h1
+      class="h1 emotion-0"
+    >
+      Headline 1
+    </h1>
+    <h2
+      class="h2 emotion-1"
+    >
+      Headline 2
+    </h2>
+    <h3
+      class="h3 emotion-2"
+    >
+      Headline 3
+    </h3>
+    <h4
+      class="h4 emotion-3"
+    >
+      Headline 4
+    </h4>
+    <h5
+      class="h5 emotion-4"
+    >
+      Headline 5
+    </h5>
+  </div>
+</DocumentFragment>
+`;

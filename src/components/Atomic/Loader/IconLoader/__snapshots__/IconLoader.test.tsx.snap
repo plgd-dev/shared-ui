@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IconLoader> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-0 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  color: #FFFFFF;
+}
+
+.emotion-2 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  color: #2261AE;
+}
+
+.emotion-3 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  color: #191A1A;
+}
+
+.emotion-4 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+}
+
+<div>
+    <span
+      class="emotion-0"
+    >
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 20 19"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+          fill="currentcolor"
+        />
+      </svg>
+    </span>
+    <span
+      class="emotion-0"
+    >
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 20 19"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+          fill="currentcolor"
+        />
+      </svg>
+    </span>
+    <span
+      class="emotion-2"
+    >
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 20 19"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+          fill="currentcolor"
+        />
+      </svg>
+    </span>
+    <span
+      class="emotion-3"
+    >
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 20 19"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+          fill="currentcolor"
+        />
+      </svg>
+    </span>
+    <span
+      class="emotion-4"
+    >
+      <svg
+        fill="none"
+        height="20"
+        viewBox="0 0 20 19"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+          fill="currentcolor"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
+`;

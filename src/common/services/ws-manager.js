@@ -1,8 +1,9 @@
 import { getAppMode } from '../utils'
 import { WebSocketClient } from './websocket-client'
+import isFunction from 'lodash/isFunction'
 
 // eslint-disable-next-line no-unused-vars
-class _WSManager {
+class WSManagerClass {
     constructor() {
         // Object containing the list of websocket clients which are about to be registered (or are already registered).
         this.wsClientList = {}
@@ -148,26 +149,33 @@ class _WSManager {
                         // Reset the reconnect attempts
                         reconnectAttempts = 0
 
-                        if (onOpen) {
-                            onOpen(...args)
-                        }
-
-                        if (getAppMode() !== 'production') {
-                            console.info(`ws [${id}] was opened %c@ ${new Date().toUTCString()}`, 'color: #255897;')
-                        }
+                        this.onOpen(id, args)
                     }
 
                     // Error callback
                     this.ws[id].onError = (...args) => {
-                        if (onError) {
-                            onError(...args)
-                        }
+                        this.onError(id, args)
                     }
                 }
             }
         })
 
         this.isInitialized = true
+    }
+
+    onOpen = (id, args) => {
+        const { onOpen = null } = this.wsClientList[id]
+
+        isFunction(onOpen) && onOpen(args)
+
+        if (getAppMode() !== 'production') {
+            console.info(`ws [${id}] was opened %c@ ${new Date().toUTCString()}`, 'color: #255897;')
+        }
+    }
+
+    onError = (id, args) => {
+        const { onError = null } = this.wsClientList[id]
+        isFunction(onError) && onError(args)
     }
 
     /**

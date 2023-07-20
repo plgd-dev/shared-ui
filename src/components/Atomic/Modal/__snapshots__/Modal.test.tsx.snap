@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Modal> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(25, 26, 26, 0.9);
+  z-index: 1;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-2 {
+  background: #fff;
+  padding: 24px;
+  min-width: 600px;
+  max-width: 90%;
+  border-radius: 8px;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  border-bottom: 2px solid #e6e9ed;
+  padding: 12px 0 32px 0;
+}
+
+.emotion-4 {
+  color: #191A1A;
+  font-family: 'Circular Pro',sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.5px;
+  margin: 0;
+  font-family: 'Circular Pro',sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: -0.5px;
+  color: #0a2965;
+  max-width: 100%;
+}
+
+@media (max-width: 767px) {
+  .emotion-4 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.emotion-5 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  color: #81868C;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.emotion-5 span {
+  margin-right: 10px;
+}
+
+.emotion-5:hover {
+  color: #2261AE;
+}
+
+.emotion-6 {
+  background: #fff;
+  padding: 24px 0 0 0;
+}
+
+.emotion-7 {
+  padding: 24px 0 0 0;
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.emotion-7 .modal-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 -8px;
+}
+
+.emotion-7 .modal-buttons .modal-button {
+  margin: 0 4px;
+}
+
+<div>
+    <div
+      class="emotion-0"
+      style="opacity: 1;"
+    >
+      <div
+        class="emotion-1"
+        style="opacity: 1; transform: none;"
+      >
+        <div
+          class="emotion-2"
+        >
+          <div
+            class="emotion-3"
+          >
+            <h4
+              class="h4 emotion-4"
+            />
+            <a
+              class="emotion-5"
+              href="#"
+            >
+              <span>
+                Close
+              </span>
+               
+              <svg
+                fill="none"
+                height="26"
+                viewBox="0 0 32 32"
+                width="26"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 29.333c7.333 0 13.333-6 13.333-13.333S23.333 2.667 16 2.667 2.667 8.667 2.667 16s6 13.333 13.333 13.333ZM12.227 19.773l7.546-7.546M19.773 19.773l-7.546-7.546"
+                  stroke="currentcolor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </a>
+          </div>
+          <div
+            class="emotion-6"
+          >
+            <div>
+              Modal Content
+            </div>
+          </div>
+          <div
+            class="emotion-7"
+          >
+            <div>
+              Modal Footer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

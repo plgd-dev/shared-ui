@@ -18,9 +18,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "jsxImportSource": "@emotion/react",
+    "declaration": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "types": ["@emotion/react/types/css-prop", "jest", "node"],
   },
-  "include": [
-    "src"
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "build"
   ]
 }

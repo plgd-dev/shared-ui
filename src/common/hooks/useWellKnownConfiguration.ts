@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
-import { fetchApi, security } from "../services";
-import { useAppConfig } from "../../../../src/containers/App";
-import { SecurityConfig } from "../../../../src/containers/App/App.types";
+import { fetchApi } from '../services'
 
 export type BuildInformationType = {
     buildDate: string
@@ -21,14 +19,14 @@ export type RemoteProvisioningDataType = {
         audience: string
         clientId: string
         providerName: string
-        scopes : string[]
+        scopes: string[]
     }
     id: string
     jwtOwnerClaim: string
     webOauthClient: {
         audience: string
         clientId: string
-        scopes : string[]
+        scopes: string[]
     }
     mode: string
     userAgent: {
@@ -41,6 +39,13 @@ export type WellKnownConfigType = {
     isInitialized: boolean
     remoteProvisioning?: RemoteProvisioningDataType
     owner?: string
+    buildInfo: {
+        buildDate: string
+        commitDate: string
+        commitHash: string
+        releaseUrl: string
+        version: string
+    }
 } & BuildInformationType
 
 type useWellKnownConfigurationReturnType = [
@@ -53,13 +58,11 @@ type useWellKnownConfigurationReturnType = [
 export function useWellKnownConfiguration(url: string): useWellKnownConfigurationReturnType {
     const [wellKnownConfig, setWellKnownConfig] = useState<WellKnownConfigType | undefined>(undefined)
     const [error, setError] = useState<Error | undefined>(undefined)
-    const { httpGatewayAddress, cancelRequestDeadlineTimeout } = security.getGeneralConfig() as SecurityConfig
 
     const fetchConfig = async () => {
         try {
-            return fetchApi(`${url}/.well-known/configuration`, {
+            return await fetchApi(`${url}/.well-known/configuration`, {
                 useToken: false,
-                cancelRequestDeadlineTimeout
             }).then((result) => {
                 const data = result.data
                 setWellKnownConfig(data)

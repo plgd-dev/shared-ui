@@ -1,0 +1,618 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button> render correctly - loading 1`] = `
+<DocumentFragment>
+  @keyframes animation-0 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+}
+
+.emotion-1 {
+  position: relative;
+}
+
+.emotion-2 {
+  visibility: hidden;
+  position: relative;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-3 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.emotion-4 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.emotion-9 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  color: #2261AE;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.emotion-15 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  color: #191A1A;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+<div>
+    <button
+      class="emotion-0"
+      tabindex="1"
+      type="submit"
+    >
+      <span
+        class="emotion-1"
+      >
+        <span
+          class="emotion-2"
+        >
+          <span
+            class="emotion-3"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          loadingText primary
+        </span>
+        <span
+          class="emotion-4"
+        >
+          <span
+            class="emotion-3"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          loadingText primary
+        </span>
+      </span>
+    </button>
+    <button
+      class="emotion-0"
+      tabindex="1"
+      type="submit"
+    >
+      <span
+        class="emotion-1"
+      >
+        <span
+          class="emotion-2"
+        >
+          <span
+            class="emotion-9"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          loadingText secondary
+        </span>
+        <span
+          class="emotion-4"
+        >
+          <span
+            class="emotion-9"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          loadingText secondary
+        </span>
+      </span>
+    </button>
+    <button
+      class="emotion-0"
+      tabindex="1"
+      type="submit"
+    >
+      <span
+        class="emotion-1"
+      >
+        <span
+          class="emotion-2"
+        >
+          <span
+            class="emotion-15"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          loadingText tertiary
+        </span>
+        <span
+          class="emotion-4"
+        >
+          <span
+            class="emotion-15"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          loadingText tertiary
+        </span>
+      </span>
+    </button>
+    <button
+      class="emotion-0"
+      tabindex="1"
+      type="submit"
+    >
+      <span
+        class="emotion-1"
+      >
+        <span
+          class="emotion-2"
+        >
+          <span
+            class="emotion-3"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          loadingText filter
+        </span>
+        <span
+          class="emotion-4"
+        >
+          <span
+            class="emotion-3"
+          >
+            <svg
+              fill="none"
+              height="20"
+              size="20"
+              viewBox="0 0 20 19"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                fill="currentcolor"
+              />
+            </svg>
+          </span>
+          loadingText filter
+        </span>
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Button> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 16px 32px;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.emotion-1 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+}
+
+.emotion-2 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.emotion-3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  border: 1px solid;
+  cursor: not-allowed;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+}
+
+<div>
+    <button
+      class="emotion-0"
+      tabindex="1"
+      type="submit"
+    >
+      primary big
+    </button>
+    <button
+      class="emotion-1"
+      tabindex="1"
+      type="submit"
+    >
+      primary normal
+    </button>
+    <button
+      class="emotion-2"
+      tabindex="1"
+      type="submit"
+    >
+      primary small
+    </button>
+    <button
+      class="emotion-3"
+      tabindex="1"
+      type="submit"
+    >
+      primary normal disabled
+    </button>
+    <button
+      class="emotion-0"
+      tabindex="1"
+      type="submit"
+    >
+      secondary big
+    </button>
+    <button
+      class="emotion-1"
+      tabindex="1"
+      type="submit"
+    >
+      secondary normal
+    </button>
+    <button
+      class="emotion-2"
+      tabindex="1"
+      type="submit"
+    >
+      secondary small
+    </button>
+    <button
+      class="emotion-3"
+      tabindex="1"
+      type="submit"
+    >
+      secondary normal disabled
+    </button>
+    <button
+      class="emotion-0"
+      tabindex="1"
+      type="submit"
+    >
+      tertiary big
+    </button>
+    <button
+      class="emotion-1"
+      tabindex="1"
+      type="submit"
+    >
+      tertiary normal
+    </button>
+    <button
+      class="emotion-2"
+      tabindex="1"
+      type="submit"
+    >
+      tertiary small
+    </button>
+    <button
+      class="emotion-3"
+      tabindex="1"
+      type="submit"
+    >
+      tertiary normal disabled
+    </button>
+    <button
+      class="emotion-0"
+      tabindex="1"
+      type="submit"
+    >
+      filter big
+    </button>
+    <button
+      class="emotion-1"
+      tabindex="1"
+      type="submit"
+    >
+      filter normal
+    </button>
+    <button
+      class="emotion-2"
+      tabindex="1"
+      type="submit"
+    >
+      filter small
+    </button>
+    <button
+      class="emotion-3"
+      tabindex="1"
+      type="submit"
+    >
+      filter normal disabled
+    </button>
+  </div>
+</DocumentFragment>
+`;

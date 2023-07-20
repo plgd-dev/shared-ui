@@ -1,0 +1,66 @@
+import React from 'react'
+import Content from '../../components/Layout/Content'
+import Button from '../../components/Atomic/Button'
+import Icon from '../../components/Atomic/Icon'
+import StatusTag from '../../components/Atomic/StatusTag'
+
+export default {
+    title: 'Layout/Content',
+    component: Content,
+    argTypes: {},
+}
+
+const Template = (args) => (
+    <div style={{ background: '#ccc', height: '100%', paddingTop: '200px', boxSizing: 'border-box' }}>
+        <Content
+            actions={[
+                {
+                    icon: 'refresh',
+                    text: 'Secondary',
+                    onClick: () => console.log('secondary'),
+                },
+                {
+                    icon: 'plus',
+                    text: 'Primary',
+                    variant: 'primary',
+                    onClick: () => console.log('primary'),
+                },
+            ]}
+            headline='August Doorbell Cam'
+        />
+    </div>
+)
+
+export const Default = Template.bind({})
+Default.args = {}
+Default.parameters = {
+    layout: 'fullscreen',
+}
+
+const TemplateStatusTag = (args) => (
+    <div style={{ background: '#ccc', height: '100%', paddingTop: '200px', boxSizing: 'border-box' }}>
+        <Content
+            actions={[
+                {
+                    icon: 'refresh',
+                    text: 'Secondary',
+                    onClick: () => console.log('secondary'),
+                },
+                {
+                    icon: 'plus',
+                    text: 'Primary',
+                    variant: 'primary',
+                    onClick: () => console.log('primary'),
+                },
+            ]}
+            headline='August Doorbell Cam'
+            headlineStatusTag={<StatusTag variant='error'>offline</StatusTag>}
+        />
+    </div>
+)
+
+export const HeadlineStatusTag = TemplateStatusTag.bind({})
+HeadlineStatusTag.args = {}
+HeadlineStatusTag.parameters = {
+    layout: 'fullscreen',
+}
