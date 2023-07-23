@@ -16,6 +16,10 @@ export const isLeftPanelCollapsed = css`
     left: ${panelSizes.COLLAPSED}px;
 `
 
+export const iframeMode = css`
+    left: 0;
+`
+
 export const inner = css`
     padding: 20px 50px;
     display: flex;

@@ -4,14 +4,14 @@ import * as styles from './TableSelectionPanel.styles'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const TableSelectionPanel: FC<Props> = memo((props) => {
-    const { actionPrimary, actionSecondary, leftPanelCollapsed, selectionInfo, show } = props
+    const { actionPrimary, actionSecondary, leftPanelCollapsed, iframeMode, selectionInfo, show } = props
 
     return (
         <AnimatePresence>
             {show && (
                 <motion.div
                     animate={{ opacity: 1, y: 0 }}
-                    css={[styles.selectionPanel, leftPanelCollapsed && styles.isLeftPanelCollapsed]}
+                    css={[styles.selectionPanel, leftPanelCollapsed && styles.isLeftPanelCollapsed, iframeMode && styles.iframeMode]}
                     exit={{
                         opacity: 0,
                         y: 150,

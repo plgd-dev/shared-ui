@@ -10,6 +10,7 @@ export type Props = {
         delete: string
         search: string
     }
+    iframeMode?: boolean
     isAllSelected: boolean
     loading: boolean
     onDeleteClick: (deviceId?: string) => void
