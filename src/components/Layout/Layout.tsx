@@ -3,14 +3,14 @@ import { Props } from './Layout.types'
 import * as styles from './Layout.styles'
 
 const Layout: FC<Props> = (props) => {
-    const { leftPanel, header, content } = props
+    const { leftPanel, header, content, isIframeMode } = props
 
     return (
         <div css={styles.layout}>
-            {leftPanel}
+            {!isIframeMode && leftPanel}
 
             <div css={styles.right}>
-                {header}
+                {!isIframeMode && header}
                 <div css={styles.content}>{content}</div>
             </div>
         </div>
