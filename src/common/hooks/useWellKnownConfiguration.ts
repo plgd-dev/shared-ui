@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { fetchApi } from '../services'
+import isFunction from 'lodash/isFunction'
+import { cloneDeep } from 'lodash'
 
 export type BuildInformationType = {
     buildDate: string
@@ -52,10 +54,29 @@ type useWellKnownConfigurationReturnType = [
     wellKnownConfig: WellKnownConfigType | undefined,
     updateWellKnowConfig: (newConfig: WellKnownConfigType) => void,
     reFetchConfig: () => void,
-    error: Error | undefined
+    error: Error | undefined,
 ]
 
-export function useWellKnownConfiguration(url: string): useWellKnownConfigurationReturnType {
+export const WellKnownConfigurationState = {
+    UNUSED: 'UNUSED',
+    REQUESTED: 'REQUESTED',
+    RECEIVED: 'RECEIVED',
+    MERGED: 'MERGED',
+}
+
+export const mergeConfig = (configOrigin: RemoteProvisioningDataType, configNew: RemoteProvisioningDataType) => {
+    const finalObject = cloneDeep(configOrigin)
+    Object.keys(configNew).forEach((key) => {
+        if (configOrigin.hasOwnProperty(key)) {
+            // @ts-ignore
+            finalObject[key] = configNew[key]
+        }
+    })
+
+    return finalObject
+}
+
+export function useWellKnownConfiguration(url: string, onConfigurationChange?: () => void): useWellKnownConfigurationReturnType {
     const [wellKnownConfig, setWellKnownConfig] = useState<WellKnownConfigType | undefined>(undefined)
     const [error, setError] = useState<Error | undefined>(undefined)
 
@@ -77,7 +98,10 @@ export function useWellKnownConfiguration(url: string): useWellKnownConfiguratio
         fetchConfig().then()
     }, []) // eslint-disable-line
 
-    const updateWellKnowConfig = (newConfig: WellKnownConfigType) => setWellKnownConfig(newConfig)
+    const updateWellKnowConfig = (newConfig: WellKnownConfigType) => {
+        setWellKnownConfig(newConfig)
+        isFunction(onConfigurationChange) && onConfigurationChange()
+    }
 
     const reFetchConfig = async () => await fetchConfig()
 
