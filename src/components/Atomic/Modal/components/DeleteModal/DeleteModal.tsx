@@ -15,7 +15,7 @@ const DeleteModal: FC<Props> = (props) => {
                 </div>
             </div>
             <h2 css={styles.title(maxWidthTitle)}>{title}</h2>
-            <div css={styles.subTitle}>{subTitle}</div>
+            {subTitle && <div css={styles.subTitle}>{subTitle}</div>}
         </div>
     )
 

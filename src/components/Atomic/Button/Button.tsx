@@ -69,7 +69,7 @@ const Button: FC<Props> = (props) => {
             onClick={handleOnClick}
             type={htmlType}
         >
-            {loading || icon ? getButtonContent() : children}
+            {typeof loading === 'boolean' || icon ? getButtonContent() : children}
         </button>
     )
 }

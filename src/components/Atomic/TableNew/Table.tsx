@@ -113,6 +113,7 @@ const Table: FC<Props> = (props) => {
                             const { indeterminate, ...rest } = row.getToggleRowSelectedProps()
                             return <Checkbox {...rest} name={`row-${row.id}`} />
                         },
+                        style: { width: '60px' },
                     },
                     ...columns,
                 ])

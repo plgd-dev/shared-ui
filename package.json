@@ -85,7 +85,7 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^7.44.3",
+    "react-hook-form": "^7.45.2",
     "react-intl": "^5.25.1",
     "react-merge-refs": "^2.0.2",
     "react-resize-detector": "^8.1.0",

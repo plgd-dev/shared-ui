@@ -54,6 +54,9 @@ const DevicesList: FC<Props> = (props) => {
                         {i18n.delete}
                     </Button>
                 }
+                i18n={{
+                    select: i18n.select,
+                }}
                 leftPanelCollapsed={collapsed}
                 iframeMode={iframeMode}
                 selectionInfo={`${selectedCount} device${selectedCount > 1 ? 's' : ''} `}

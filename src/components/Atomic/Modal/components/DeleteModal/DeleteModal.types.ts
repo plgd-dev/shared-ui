@@ -8,7 +8,7 @@ type DeleteInformationType = {
 
 export type Props = ModalProps & {
     deleteInformation?: DeleteInformationType[]
-    subTitle: string
+    subTitle: ReactNode
 }
 
 export const defaultProps = {

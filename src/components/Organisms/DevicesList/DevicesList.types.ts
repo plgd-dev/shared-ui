@@ -9,6 +9,7 @@ export type Props = {
     i18n: {
         delete: string
         search: string
+        select: string
     }
     iframeMode?: boolean
     isAllSelected: boolean

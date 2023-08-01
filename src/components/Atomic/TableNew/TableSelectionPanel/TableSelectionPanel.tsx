@@ -4,7 +4,7 @@ import * as styles from './TableSelectionPanel.styles'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const TableSelectionPanel: FC<Props> = memo((props) => {
-    const { actionPrimary, actionSecondary, leftPanelCollapsed, iframeMode, selectionInfo, show } = props
+    const { actionPrimary, actionSecondary, i18n, iframeMode, leftPanelCollapsed, selectionInfo, show } = props
 
     return (
         <AnimatePresence>
@@ -23,7 +23,7 @@ const TableSelectionPanel: FC<Props> = memo((props) => {
                 >
                     <div css={styles.inner}>
                         <div css={styles.left}>
-                            <div css={styles.label}>Select:&nbsp;</div>
+                            <div css={styles.label}>{i18n.select}:&nbsp;</div>
                             <div css={styles.selectionInfo}>{selectionInfo}</div>
                         </div>
                         <div css={styles.right}>
