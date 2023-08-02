@@ -184,9 +184,12 @@ export const itemTitle = css`
     position: absolute;
     top: 12px;
     left: 12px;
+    height: 14px;
+    text-overflow: ellipsis;
 `
 
 export const itemTitleIcon = css`
+    transition: all 0.3s;
     flex: 0 0 16px;
 `
 
