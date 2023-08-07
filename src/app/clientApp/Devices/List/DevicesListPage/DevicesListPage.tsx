@@ -239,7 +239,7 @@ const DevicesListPage: FC<Props> = (props) => {
                             deviceId={id}
                             onDelete={deleteDevices}
                             onOwnChange={() => handleOwnDevice(isOwned, id, data.content.name)}
-                            onView={(deviceId) => navigate(`/devices/${deviceId}`)}
+                            onView={(deviceId) => navigate(`${detailLinkPrefix}/devices/${deviceId}`)}
                             ownershipStatus={ownershipStatus}
                             resourcesLoadedCallback={(resources) => {
                                 setDpsData((prevData: DpsDataType) => ({
