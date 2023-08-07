@@ -10,5 +10,5 @@ export type Props = {
     className?: string
     id?: string
     items: BreadcrumbItem[]
-    onItemClick?: (item: BreadcrumbItem, e: MouseEvent) => {}
+    onItemClick?: (item: BreadcrumbItem, e: MouseEvent) => void
 }

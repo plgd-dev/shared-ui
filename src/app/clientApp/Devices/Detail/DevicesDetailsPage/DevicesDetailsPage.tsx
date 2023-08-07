@@ -1,4 +1,4 @@
-import { FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useIntl } from 'react-intl'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -30,13 +30,12 @@ import FirstTimeOnboardingModal from '../FirstTimeOnboardingModal/FirstTimeOnboa
 import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
 import { Props } from './DevicesDetailsPage.types'
-import AppContext from '../../../App/AppContext'
 
 const DevicesDetailsPage: FC<Props> = (props) => {
-    const { defaultActiveTab } = props
+    const { defaultActiveTab, detailLinkPrefix, breadcrumbs: breadcrumbsProp, defaultDeviceId } = props
     const { formatMessage: _ } = useIntl()
     const { id: routerId } = useParams()
-    const id = routerId || ''
+    const id = defaultDeviceId || routerId || ''
 
     const [showDpsModal, setShowDpsModal] = useState(false)
     const [showIncompleteOnboardingModal, setShowIncompleteOnboardingModal] = useState(false)
@@ -44,12 +43,10 @@ const DevicesDetailsPage: FC<Props> = (props) => {
     const [onboardingData, setOnboardingData] = useState<OnboardingDataType>(onboardingDataDefault)
     const [onboarding, setOnboarding] = useState(false)
     const [showEditNameModal, setShowEditNameModal] = useState(false)
-    const [domReady, setDomReady] = useState(false)
     const [deviceNameLoading, setDeviceNameLoading] = useState(false)
     const [activeTabItem, setActiveTabItem] = useState(defaultActiveTab ?? 0)
     const [ownLoading, setOwnLoading] = useState(false)
-
-    const { iframeMode } = useContext(AppContext)
+    const [isDomReady, setIsDomReady] = useState(false)
 
     const isMounted = useIsMounted()
     const { data, updateData, loading, error: deviceError } = useDeviceDetails(id)
@@ -73,7 +70,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
     const handleOpenEditDeviceNameModal = useCallback(() => setShowEditNameModal(true), [])
 
     useEffect(() => {
-        setDomReady(true)
+        setIsDomReady(true)
     }, [])
 
     // check onboarding status evert 1s if onboarding process running
@@ -169,9 +166,24 @@ const DevicesDetailsPage: FC<Props> = (props) => {
     const handleTabChange = useCallback((i: number) => {
         setActiveTabItem(i)
 
-        navigate(`/devices/${id}${i === 1 ? '/resources' : ''}`, { replace: true })
+        navigate(`${detailLinkPrefix}/devices/${id}${i === 1 ? '/resources' : ''}`, { replace: true })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    const breadcrumbs: BreadcrumbItem[] = useMemo(() => {
+        const _breadcrumbs = breadcrumbsProp ?? [
+            {
+                link: '/',
+                label: _(menuT.devices),
+            },
+        ]
+
+        if (deviceName && deviceName !== NO_DEVICE_NAME) {
+            _breadcrumbs.push({ label: deviceName })
+        }
+
+        return _breadcrumbs
+    }, [deviceName, breadcrumbsProp])
 
     // Update the device name in the data object
     const updateDeviceNameInData = useCallback((name: string) => {
@@ -199,17 +211,6 @@ const DevicesDetailsPage: FC<Props> = (props) => {
     const deviceStatus = data?.metadata?.status?.value
     const isOnline = true
     const isUnregistered = devicesStatuses.UNREGISTERED === deviceStatus
-
-    const breadcrumbs: BreadcrumbItem[] = [
-        {
-            link: '/',
-            label: _(menuT.devices),
-        },
-    ]
-
-    if (deviceName) {
-        breadcrumbs.push({ label: deviceName })
-    }
 
     const onboardDevice = async (onboardingData: OnboardingDataType) => {
         try {
@@ -290,7 +291,6 @@ const DevicesDetailsPage: FC<Props> = (props) => {
 
     return (
         <PageLayout
-            breadcrumbs={breadcrumbs}
             footer={<Footer footerExpanded={false} paginationComponent={<div id='paginationPortalTarget'></div>} />}
             header={
                 <DevicesDetailsHeader
@@ -316,10 +316,15 @@ const DevicesDetailsPage: FC<Props> = (props) => {
             loading={loading}
             title={deviceName || ''}
         >
-            {domReady &&
-                !iframeMode &&
+            {isDomReady &&
                 ReactDOM.createPortal(
-                    <Breadcrumbs items={[{ label: _(menuT.devices), link: '/' }, { label: deviceName }]} />,
+                    <Breadcrumbs
+                        items={breadcrumbs}
+                        onItemClick={(item, e) => {
+                            e.preventDefault()
+                            item.link && navigate(item.link)
+                        }}
+                    />,
                     document.querySelector('#breadcrumbsPortalTarget') as Element
                 )}
 
@@ -350,6 +355,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                         content: (
                             <Tab2
                                 closeDpsModal={() => setShowDpsModal(false)}
+                                detailLinkPrefix={detailLinkPrefix}
                                 deviceName={deviceName}
                                 deviceStatus={deviceStatus}
                                 isActiveTab={activeTabItem === 1}

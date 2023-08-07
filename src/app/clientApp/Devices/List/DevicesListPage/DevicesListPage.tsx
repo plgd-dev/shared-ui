@@ -1,8 +1,9 @@
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import React, { FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import ReactDOM from 'react-dom'
 
 import Notification from '../../../../../components/Atomic/Notification/Toast'
 import ConfirmModal from '../../../../../components/Atomic/ConfirmModal'
@@ -25,13 +26,15 @@ import { messages as t } from '../../Devices.i18n'
 import DevicesListHeader from '../DevicesListHeader'
 import DevicesTimeoutModal from '../DevicesTimeoutModal'
 import DevicesDPSModal from '../../DevicesDPSModal'
-import { DpsDataType } from './DevicesListPage.types'
+import { defaultProps, DpsDataType, Props } from './DevicesListPage.types'
 import DevicesListActionButton from '../DevicesListActionButton'
 import AppContext from '../../../App/AppContext'
+import Breadcrumbs from '../../../../../components/Layout/Header/Breadcrumbs'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
-const DevicesListPage = () => {
+const DevicesListPage: FC<Props> = (props) => {
+    const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, title } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
     const { data, loading, error: deviceError, refresh } = useDevicesList()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
@@ -50,7 +53,8 @@ const DevicesListPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const dataToDisplay: DeviceDataType = useSelector(getDevices)
-    const { collapsed, iframeMode } = useContext(AppContext)
+    const { collapsed } = useContext(AppContext)
+    const [isDomReady, setIsDomReady] = useState(false)
 
     useEffect(() => {
         deviceError && toast.error(getApiErrorMessage(deviceError))
@@ -60,6 +64,10 @@ const DevicesListPage = () => {
         // @ts-ignore
         data && dispatch(updateDevices(data))
     }, [data, dispatch])
+
+    useEffect(() => {
+        setIsDomReady(true)
+    }, [])
 
     const handleOpenDeleteModal = useCallback(
         (deviceId?: string) => {
@@ -89,7 +97,7 @@ const DevicesListPage = () => {
             await deleteDevicesApi()
             await sleep(200)
 
-            if (isMounted.current) {
+            if (isMounted) {
                 Notification.success({
                     title: _(t.devicesDeleted),
                     message: _(t.devicesDeletedMessage),
@@ -113,7 +121,7 @@ const DevicesListPage = () => {
             setOwning(true)
             isOwned ? await disownDeviceApi(deviceId) : await ownDeviceApi(deviceId)
 
-            if (isMounted.current) {
+            if (isMounted) {
                 Notification.success({
                     title: isOwned ? _(t.deviceDisOwned) : _(t.deviceOwned),
                     message: isOwned ? _(t.deviceWasDisOwned, { name: deviceName }) : _(t.deviceWasOwned, { name: deviceName }),
@@ -176,7 +184,7 @@ const DevicesListPage = () => {
                 Cell: ({ value, row }: { value: any; row: any }) => {
                     const deviceName = value || NO_DEVICE_NAME
                     return (
-                        <Link data-test-id={deviceName} to={`/devices/${row.original?.id}`}>
+                        <Link data-test-id={deviceName} to={`${detailLinkPrefix}/devices/${row.original?.id}`}>
                             <span className='no-wrap-text'>{deviceName}</span>
                         </Link>
                     )
@@ -252,13 +260,10 @@ const DevicesListPage = () => {
         [loading] // eslint-disable-line
     )
 
+    const breadcrumbs = useMemo(() => breadcrumbsProp ?? [{ label: _(menuT.devices), link: '/' }], [breadcrumbsProp])
+
     return (
         <PageLayout
-            breadcrumbs={[
-                {
-                    label: _(menuT.devices),
-                },
-            ]}
             footer={<Footer footerExpanded={false} paginationComponent={<div id='paginationPortalTarget'></div>} />}
             header={
                 <DevicesListHeader
@@ -272,8 +277,9 @@ const DevicesListPage = () => {
                 />
             }
             loading={loading || owning}
-            title={_(menuT.devices)}
+            title={title ?? _(menuT.devices)}
         >
+            {isDomReady && ReactDOM.createPortal(<Breadcrumbs items={breadcrumbs} />, document.querySelector('#breadcrumbsPortalTarget') as Element)}
             <DevicesList
                 collapsed={collapsed ?? false}
                 columns={columns}
@@ -283,7 +289,6 @@ const DevicesListPage = () => {
                     search: _(t.search),
                     select: _(t.select),
                 }}
-                iframeMode={iframeMode}
                 isAllSelected={isAllSelected}
                 loading={loadingOrDeletingOrOwning}
                 onDeleteClick={handleOpenDeleteModal}
@@ -316,6 +321,7 @@ const DevicesListPage = () => {
     )
 }
 
+DevicesListPage.defaultProps = defaultProps
 DevicesListPage.displayName = 'DevicesListPage'
 
 export default DevicesListPage

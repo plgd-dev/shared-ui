@@ -1,5 +1,6 @@
 export type Props = {
     closeDpsModal: () => void
+    detailLinkPrefix?: string
     deviceName: string
     deviceStatus: string
     isActiveTab: boolean
@@ -7,7 +8,7 @@ export type Props = {
     isOwned: boolean
     isUnregistered: boolean
     loadingResources: boolean
-    resourcesData?: any
     refreshResources: () => void
+    resourcesData?: any
     showDpsModal: boolean
 }

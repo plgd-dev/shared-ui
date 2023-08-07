@@ -1,3 +1,4 @@
+import { useContext, useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash/debounce'
 
 import { useStreamApi, useEmitter, WellKnownConfigType } from '../../../common/hooks'
@@ -6,19 +7,20 @@ import { devicesApiEndpoints, DEVICES_STATUS_WS_KEY, resourceEventTypes, TIMEOUT
 import { getOnboardingEndpoint, getResourceRegistrationNotificationKey, hasOnboardingFeature, loadResourceData } from './utils'
 import { useSelector } from 'react-redux'
 import { ResourcesType, StreamApiPropsType } from './Devices.types'
-import { security } from '../../../common/services'
+import { clientAppSetings, security } from '../../../common/services'
 import { SecurityConfig } from '../App/App.types'
-import { useContext, useEffect, useMemo, useState } from 'react'
 import AppContext from '../App/AppContext'
 
 const getConfig = () => security.getGeneralConfig() as SecurityConfig
+const getClientAppConfig = () => clientAppSetings.getGeneralConfig() as SecurityConfig
 
 export const useDevicesList = () => {
     const discoveryTimeout = useSelector(getDevicesDiscoveryTimeout)
     const { unauthorizedCallback } = useContext(AppContext)
+    const httpGatewayAddress = getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
 
     // Fetch the data
-    const { data, updateData, ...rest } = useStreamApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}`, {
+    const { data, updateData, ...rest } = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}`, {
         unauthorizedCallback,
         shadowQueryParameter: `?timeout=${discoveryTimeout / TIMEOUT_UNIT_PRECISION}`,
     })
@@ -36,8 +38,9 @@ export const useDevicesList = () => {
 
 export const useDeviceDetails = (deviceId: string) => {
     const { unauthorizedCallback } = useContext(AppContext)
-    // Fetch the data
-    const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}`, {
+    const httpGatewayAddress = getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
+
+    const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}`, {
         streamApi: false,
         unauthorizedCallback,
     })
@@ -67,9 +70,10 @@ export const useDeviceDetails = (deviceId: string) => {
 
 export const useDevicesResources = (deviceId: string) => {
     const { unauthorizedCallback } = useContext(AppContext)
-    // Fetch the data
+    const httpGatewayAddress = getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
+
     const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(
-        `${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/${devicesApiEndpoints.DEVICES_RESOURCES_SUFFIX}`,
+        `${httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/${devicesApiEndpoints.DEVICES_RESOURCES_SUFFIX}`,
         { parseResult: 'json', unauthorizedCallback }
     )
 

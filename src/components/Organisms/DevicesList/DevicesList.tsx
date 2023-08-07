@@ -11,7 +11,6 @@ const DevicesList: FC<Props> = (props) => {
         customContent,
         data,
         i18n,
-        iframeMode,
         isAllSelected,
         columns,
         onDeleteClick,
@@ -58,7 +57,6 @@ const DevicesList: FC<Props> = (props) => {
                     select: i18n.select,
                 }}
                 leftPanelCollapsed={collapsed}
-                iframeMode={iframeMode}
                 selectionInfo={`${selectedCount} device${selectedCount > 1 ? 's' : ''} `}
                 show={selectedCount > 0}
             />

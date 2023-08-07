@@ -29,6 +29,7 @@ import DevicesDPSModal from '../../../DevicesDPSModal'
 const Tab2: FC<Props> = (props) => {
     const {
         closeDpsModal,
+        detailLinkPrefix,
         deviceName,
         deviceStatus,
         isActiveTab,
@@ -36,12 +37,13 @@ const Tab2: FC<Props> = (props) => {
         isOwned,
         isUnregistered,
         loadingResources,
-        resourcesData,
         refreshResources,
+        resourcesData,
         showDpsModal,
     } = props
-    const { id: routerId, ...others } = useParams()
-    const id = routerId || ''
+    const { id: routerId, deviceId, ...others } = useParams()
+    // if deviceId is set, ignore id, id is clientId
+    const id = deviceId || routerId || ''
     const hrefParam = others['*'] || ''
 
     const { formatMessage: _ } = useIntl()
@@ -61,7 +63,7 @@ const Tab2: FC<Props> = (props) => {
     useEffect(
         () => {
             if (hrefParam && !loadingResources) {
-                openUpdateModal({ href: `/${hrefParam}` })
+                openUpdateModal({ href: `/${hrefParam}` }).then()
             }
         },
         [hrefParam, loadingResources] // eslint-disable-line
@@ -189,13 +191,13 @@ const Tab2: FC<Props> = (props) => {
                     resourceData,
                 })
                 setResourceModal(true)
-                navigate(`/devices/${id}/resources${href}`, { replace: true })
+                navigate(`${detailLinkPrefix}/devices/${id}/resources${href}`, { replace: true })
             }
         } catch (error) {
             if (error && isMounted.current) {
                 setLoadingResource(false)
                 handleFetchResourceErrors(error, _)
-                navigate(`/devices/${id}/resources`, { replace: true })
+                navigate(`${detailLinkPrefix}/devices/${id}/resources`, { replace: true })
             }
         }
     }
@@ -234,13 +236,12 @@ const Tab2: FC<Props> = (props) => {
 
     const closeDeleteModal = () => {
         setDeleteResourceHref('')
-        navigate(`/devices/${id}/resources`, { replace: true })
+        navigate(`${detailLinkPrefix}/devices/${id}/resources`, { replace: true })
     }
 
     const handleCloseUpdateModal = () => {
         setResourceModal(false)
-
-        navigate(`/devices/${id}/resources`, { replace: true })
+        navigate(`${detailLinkPrefix}/devices/${id}/resources`, { replace: true })
     }
 
     return (

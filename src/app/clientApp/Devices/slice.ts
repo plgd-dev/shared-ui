@@ -8,7 +8,7 @@ import isEqual from 'lodash/isEqual'
 const { OWNED } = devicesOwnerships
 
 export type Store = {
-    devices: StoreType
+    clientAppDevices: StoreType
 }
 
 export type StoreType = {
@@ -93,14 +93,14 @@ export const { setDevices, addDevice, flushDevices, ownDevice, disOwnDevice, upd
 // Reducer
 export default reducer
 
-export const isNotificationActive = (key: string) => (state: Store) => state.devices.activeNotifications?.includes?.(key) || false
+export const isNotificationActive = (key: string) => (state: Store) => state.clientAppDevices.activeNotifications?.includes?.(key) || false
 
-export const getDevices = (state: Store) => state.devices.devicesList
+export const getDevices = (state: Store) => state.clientAppDevices.devicesList
 
 export const getDevice = (state: Store, id: string) => {
-    const index = findIndex(state.devices.devicesList, (device: any) => device.id === id)
+    const index = findIndex(state.clientAppDevices.devicesList, (device: any) => device.id === id)
 
-    return index > -1 ? state.devices.devicesList[index] : undefined
+    return index > -1 ? state.clientAppDevices.devicesList[index] : undefined
 }
 
-export const getDevicesDiscoveryTimeout = (state: Store) => state.devices.discoveryTimeout
+export const getDevicesDiscoveryTimeout = (state: Store) => state.clientAppDevices.discoveryTimeout

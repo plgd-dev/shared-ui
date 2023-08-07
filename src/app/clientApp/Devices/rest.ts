@@ -1,4 +1,4 @@
-import { fetchApi, security } from '../../../common/services'
+import { fetchApi, security, clientAppSetings } from '../../../common/services'
 import { devicesApiEndpoints } from './constants'
 import { WellKnownConfigType } from '../../../common/hooks'
 import { interfaceGetParam } from './utils'
@@ -11,6 +11,9 @@ type SecurityConfig = {
 }
 
 const getConfig = () => security.getGeneralConfig() as SecurityConfig
+const getClientAppConfig = () => clientAppSetings.getGeneralConfig() as SecurityConfig
+
+const getHttpGatewayAddress = () => getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
 
 /**
  * Get a single thing by its ID Rest Api endpoint
@@ -30,13 +33,13 @@ export const deleteDevicesApi = () =>
  * @param deviceId
  */
 export const getDevicesResourcesAllApi = (deviceId: string) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/${devicesApiEndpoints.DEVICES_RESOURCES_SUFFIX}`)
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/${devicesApiEndpoints.DEVICES_RESOURCES_SUFFIX}`)
 
 /**
  * Get devices RESOURCES Rest Api endpoint
  */
 export const getDevicesResourcesApi = ({ deviceId, href, currentInterface = '' }: { deviceId: string; href: string; currentInterface?: string }) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/resources${href}${interfaceGetParam(currentInterface)}`)
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/resources${href}${interfaceGetParam(currentInterface)}`)
 
 /**
  * Update devices RESOURCE Rest Api endpoint
@@ -53,7 +56,7 @@ export const updateDevicesResourceApi = (
     },
     data: any
 ) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/resources${href}${interfaceGetParam(currentInterface)}`, {
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/resources${href}${interfaceGetParam(currentInterface)}`, {
         method: 'PUT',
         body: data,
     })
@@ -73,7 +76,7 @@ export const createDevicesResourceApi = (
     },
     data: any
 ) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/resource-links${href}${interfaceGetParam(currentInterface)}`, {
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/resource-links${href}${interfaceGetParam(currentInterface)}`, {
         method: 'POST',
         body: data,
     })
@@ -82,20 +85,20 @@ export const createDevicesResourceApi = (
  * Delete devices RESOURCE Rest Api endpoint
  */
 export const deleteDevicesResourceApi = ({ deviceId, href }: { deviceId: string; href: string }) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/resource-links${href}`, {
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/resource-links${href}`, {
         method: 'DELETE',
     })
 
 /**
  * Add device by IP
  */
-export const addDeviceByIp = (deviceIp: string) => fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}?useEndpoints=${deviceIp}`)
+export const addDeviceByIp = (deviceIp: string) => fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}?useEndpoints=${deviceIp}`)
 
 /**
  * Own device by deviceId
  */
 export const ownDeviceApi = (deviceId: string) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/own`, {
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/own`, {
         method: 'POST',
     }).then((result) => {
         if (result?.data?.identityCertificateChallenge) {
@@ -104,7 +107,7 @@ export const ownDeviceApi = (deviceId: string) =>
             // @ts-ignore
             const { certificateAuthority } = security.getWebOAuthConfig()
             signIdentityCsr(certificateAuthority, result.data.identityCertificateChallenge.certificateSigningRequest).then((result) => {
-                fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/own/${state}`, {
+                fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/own/${state}`, {
                     method: 'POST',
                     body: {
                         certificate: result.data.certificate,
@@ -119,8 +122,7 @@ export const ownDeviceApi = (deviceId: string) =>
 /**
  * DisOwn device by deviceId
  */
-export const disownDeviceApi = (deviceId: string) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/disown`, { method: 'POST' })
+export const disownDeviceApi = (deviceId: string) => fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/disown`, { method: 'POST' })
 
 export type OnboardDataType = {
     coapGatewayAddress: string
@@ -132,13 +134,13 @@ export type OnboardDataType = {
 }
 
 export const onboardDeviceApi = (deviceId: string, data: OnboardDataType) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/onboard`, {
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/onboard`, {
         method: 'POST',
         body: data,
     })
 
 export const offboardDeviceApi = (deviceId: string) =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/offboard`, {
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/offboard`, {
         method: 'POST',
     })
 
