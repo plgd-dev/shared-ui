@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-
 import { useIntl } from 'react-intl'
+
 import { Props } from './InnerToast.types'
 import { toastTypes, translateToastString } from '../../../Notification'
 import * as styles from './InnerToast.styles'
@@ -39,6 +39,10 @@ const getIcon = (type: ToastTypesType) => {
 const InnerToast = (props: Props) => {
     const { notification, borderTop } = props
     const { formatMessage: _ } = useIntl()
+
+    if (!notification.data?.message) {
+        return null
+    }
 
     const toastTitle = translateToastString(notification.data.message.title, _)
     const toastMessage = translateToastString(notification.data.message.message, _)
