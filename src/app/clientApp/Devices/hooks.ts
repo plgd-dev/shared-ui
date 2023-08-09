@@ -1,11 +1,11 @@
 import { useContext, useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash/debounce'
+import { useSelector } from 'react-redux'
 
 import { useStreamApi, useEmitter, WellKnownConfigType } from '../../../common/hooks'
 import { getDevicesDiscoveryTimeout } from './slice'
 import { devicesApiEndpoints, DEVICES_STATUS_WS_KEY, resourceEventTypes, TIMEOUT_UNIT_PRECISION, DEVICE_PROVISION_STATUS_DELAY_MS } from './constants'
 import { getOnboardingEndpoint, getResourceRegistrationNotificationKey, hasOnboardingFeature, loadResourceData } from './utils'
-import { useSelector } from 'react-redux'
 import { ResourcesType, StreamApiPropsType } from './Devices.types'
 import { clientAppSetings, security } from '../../../common/services'
 import { SecurityConfig } from '../App/App.types'

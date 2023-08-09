@@ -60,9 +60,8 @@ export const initializedByPreShared = (subjectId: string, key: string) =>
 
 export const getVersionNumberFromGithub = () => fetchApi(GITHUB_VERSION_URL, { useToken: false })
 
-export const getParentAppWellKnownConfiguration = (wellKnowConfigUrl: string) => {
-    return fetchApi(`${wellKnowConfigUrl}/.well-known/configuration`, {
+export const getParentAppWellKnownConfiguration = (wellKnowConfigUrl: string) =>
+    fetchApi(`${wellKnowConfigUrl}/.well-known/configuration`, {
         useToken: false,
         cancelRequestDeadlineTimeout: 10000,
     })
-}

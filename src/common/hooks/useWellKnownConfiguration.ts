@@ -54,7 +54,7 @@ type useWellKnownConfigurationReturnType = [
     wellKnownConfig: WellKnownConfigType | undefined,
     updateWellKnowConfig: (newConfig: WellKnownConfigType) => void,
     reFetchConfig: () => void,
-    error: Error | undefined,
+    error: Error | undefined
 ]
 
 export const WellKnownConfigurationState = {
@@ -76,7 +76,11 @@ export const mergeConfig = (configOrigin: RemoteProvisioningDataType, configNew:
     return finalObject
 }
 
-export function useWellKnownConfiguration(url: string, onConfigurationChange?: () => void): useWellKnownConfigurationReturnType {
+export function useWellKnownConfiguration(
+    url: string,
+    defaultRemoteProvisioningData?: RemoteProvisioningDataType,
+    onConfigurationChange?: () => void
+): useWellKnownConfigurationReturnType {
     const [wellKnownConfig, setWellKnownConfig] = useState<WellKnownConfigType | undefined>(undefined)
     const [error, setError] = useState<Error | undefined>(undefined)
 
@@ -85,7 +89,12 @@ export function useWellKnownConfiguration(url: string, onConfigurationChange?: (
             return await fetchApi(`${url}/.well-known/configuration`, {
                 useToken: false,
             }).then((result) => {
-                const data = result.data
+                let data = result.data
+
+                if (defaultRemoteProvisioningData) {
+                    data.remoteProvisioning = mergeConfig(data.remoteProvisioning, defaultRemoteProvisioningData)
+                }
+
                 setWellKnownConfig(data)
                 return data
             })
