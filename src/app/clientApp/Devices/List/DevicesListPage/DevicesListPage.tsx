@@ -57,7 +57,8 @@ const DevicesListPage: FC<Props> = (props) => {
     const [isDomReady, setIsDomReady] = useState(false)
 
     useEffect(() => {
-        deviceError && toast.error(getApiErrorMessage(deviceError))
+        deviceError && detailLinkPrefix === '' && toast.error(getApiErrorMessage(deviceError))
+        deviceError && detailLinkPrefix !== '' && Notification.error({ title: _(t.deviceError), message: getApiErrorMessage(deviceError) })
     }, [deviceError])
 
     useEffect(() => {

@@ -5,7 +5,7 @@ import isFunction from 'lodash/isFunction'
 import { getApiErrorMessage } from '../../../common/utils'
 import Notification from '../../../components/Atomic/Notification/Toast'
 import { compareIgnoreCase } from '../../../components/Atomic/Table/Utils'
-import { errorCodes, security } from '../../../common/services'
+import { errorCodes } from '../../../common/services'
 import {
     knownInterfaces,
     knownResourceTypes,
@@ -18,10 +18,10 @@ import {
     devicesStatusSeverities,
     devicesOnboardingStatuses,
 } from './constants'
-import { WellKnownConfigType } from '../../../common/hooks'
 import { ResourcesType } from './Devices.types'
 import { getDevicesResourcesApi, updateDevicesResourceApi } from './rest'
 import { messages as t } from './Devices.i18n'
+import { getWellKnowConfig } from '../utils'
 
 const time = converter.time
 const { INFINITE, NS, MS, S, M, H } = commandTimeoutUnits
@@ -359,7 +359,7 @@ export const getOnboardingEndpoint = (resources: ResourcesType[]) => {
 }
 
 export const hasOnboardingFeature = () => {
-    const wellKnowConfig = security.getWellKnowConfig() as WellKnownConfigType
+    const wellKnowConfig = getWellKnowConfig()
 
     if (!wellKnowConfig.remoteProvisioning) {
         return false

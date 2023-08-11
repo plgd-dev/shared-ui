@@ -22,9 +22,11 @@ const InitializedByAnother: FC<Props> = (props) => {
                 <IconInfo {...convertSize(50)} />
                 <h1 css={styles.headline}>{_(t.headline)}</h1>
                 <div css={styles.description}>{_(t.description)}</div>
-                <div css={styles.buttonWrapper}>
-                    <Button onClick={logout}>{_(t.logout)}</Button>
-                </div>
+                {logout && (
+                    <div css={styles.buttonWrapper}>
+                        <Button onClick={logout}>{_(t.logout)}</Button>
+                    </div>
+                )}
             </div>
         </div>
     )

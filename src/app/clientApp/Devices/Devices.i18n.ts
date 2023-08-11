@@ -25,6 +25,10 @@ export const messages = defineMessages({
         id: 'devices.deviceDisOwned',
         defaultMessage: 'Device disowned',
     },
+    deviceError: {
+        id: 'devices.deviceError',
+        defaultMessage: 'Device error',
+    },
     deviceWasOwned: {
         id: 'devices.deviceWasOwned',
         defaultMessage: 'device {name} was successfully owned.',

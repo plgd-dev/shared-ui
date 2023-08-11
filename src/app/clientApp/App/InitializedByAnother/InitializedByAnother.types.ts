@@ -1,4 +1,4 @@
 export type Props = {
-    logout: () => void
+    logout?: () => void
     show: boolean
 }

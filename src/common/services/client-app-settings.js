@@ -5,6 +5,8 @@ let webOAuthConfig = {}
 let getAccessToken = null
 let userManager = null
 let wellKnowConfig = null
+let userData = null
+let signOutRedirect = null
 
 // This singleton contains the method getAccessTokenSilently exposed globally, so that we can use this in our interceptors.
 export const clientAppSetings = {
@@ -22,4 +24,8 @@ export const clientAppSetings = {
     setUserManager: (data) => (userManager = data),
     getWellKnowConfig: () => wellKnowConfig,
     setWellKnowConfig: (config) => (wellKnowConfig = config),
+    getUserData: () => userData,
+    setUserData: (data) => (userData = data),
+    getSignOutRedirect: () => signOutRedirect,
+    setSignOutRedirect: (data) => (signOutRedirect = signOutRedirect),
 }

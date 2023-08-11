@@ -1,30 +1,20 @@
-import { fetchApi, security, clientAppSetings } from '../../../common/services'
+import { fetchApi, security } from '../../../common/services'
 import { devicesApiEndpoints } from './constants'
-import { WellKnownConfigType } from '../../../common/hooks'
 import { interfaceGetParam } from './utils'
 import { signIdentityCsr } from '../App/AppRest'
 import { DEVICE_AUTH_MODE, DEVICE_AUTH_CODE_SESSION_KEY } from '../constants'
-
-type SecurityConfig = {
-    httpGatewayAddress: string
-    authority: string
-}
-
-const getConfig = () => security.getGeneralConfig() as SecurityConfig
-const getClientAppConfig = () => clientAppSetings.getGeneralConfig() as SecurityConfig
-
-const getHttpGatewayAddress = () => getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
+import { getHttpGatewayAddress, getWebOAuthConfig, getWellKnowConfig } from '../utils'
 
 /**
  * Get a single thing by its ID Rest Api endpoint
  */
-export const getDeviceApi = (deviceId: string) => fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}`)
+export const getDeviceApi = (deviceId: string) => fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}`)
 
 /**
  * Delete a set of devices by their IDs Rest Api endpoint
  */
 export const deleteDevicesApi = () =>
-    fetchApi(`${getConfig().httpGatewayAddress}${devicesApiEndpoints.DEVICES}`, {
+    fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}`, {
         method: 'DELETE',
     })
 
@@ -105,8 +95,8 @@ export const ownDeviceApi = (deviceId: string) =>
             const state = result.data.identityCertificateChallenge.state
             // owning with csr
             // @ts-ignore
-            const { certificateAuthority } = security.getWebOAuthConfig()
-            signIdentityCsr(certificateAuthority, result.data.identityCertificateChallenge.certificateSigningRequest).then((result) => {
+            const { certificateAuthority } = getWebOAuthConfig()
+            return signIdentityCsr(certificateAuthority, result.data.identityCertificateChallenge.certificateSigningRequest).then((result) => {
                 fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}/own/${state}`, {
                     method: 'POST',
                     body: {
@@ -152,7 +142,7 @@ export const PLGD_BROWSER_USED = 'plgdBrowserUsed'
  */
 export const getDeviceAuthCode = (deviceId: string) => {
     return new Promise((resolve, reject) => {
-        const wellKnownConfig = security.getWellKnowConfig() as WellKnownConfigType
+        const wellKnownConfig = getWellKnowConfig()
 
         if (!wellKnownConfig.remoteProvisioning) {
             return reject(new Error('remoteProvisioning is missing in wellKnowConfig'))

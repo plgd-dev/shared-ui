@@ -7,17 +7,13 @@ import { getDevicesDiscoveryTimeout } from './slice'
 import { devicesApiEndpoints, DEVICES_STATUS_WS_KEY, resourceEventTypes, TIMEOUT_UNIT_PRECISION, DEVICE_PROVISION_STATUS_DELAY_MS } from './constants'
 import { getOnboardingEndpoint, getResourceRegistrationNotificationKey, hasOnboardingFeature, loadResourceData } from './utils'
 import { ResourcesType, StreamApiPropsType } from './Devices.types'
-import { clientAppSetings, security } from '../../../common/services'
-import { SecurityConfig } from '../App/App.types'
 import AppContext from '../App/AppContext'
-
-const getConfig = () => security.getGeneralConfig() as SecurityConfig
-const getClientAppConfig = () => clientAppSetings.getGeneralConfig() as SecurityConfig
+import { getHttpGatewayAddress } from '../utils'
 
 export const useDevicesList = () => {
     const discoveryTimeout = useSelector(getDevicesDiscoveryTimeout)
     const { unauthorizedCallback } = useContext(AppContext)
-    const httpGatewayAddress = getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
+    const httpGatewayAddress = getHttpGatewayAddress()
 
     // Fetch the data
     const { data, updateData, ...rest } = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}`, {
@@ -38,7 +34,7 @@ export const useDevicesList = () => {
 
 export const useDeviceDetails = (deviceId: string) => {
     const { unauthorizedCallback } = useContext(AppContext)
-    const httpGatewayAddress = getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
+    const httpGatewayAddress = getHttpGatewayAddress()
 
     const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}`, {
         streamApi: false,
@@ -70,7 +66,7 @@ export const useDeviceDetails = (deviceId: string) => {
 
 export const useDevicesResources = (deviceId: string) => {
     const { unauthorizedCallback } = useContext(AppContext)
-    const httpGatewayAddress = getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
+    const httpGatewayAddress = getHttpGatewayAddress()
 
     const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(
         `${httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/${devicesApiEndpoints.DEVICES_RESOURCES_SUFFIX}`,

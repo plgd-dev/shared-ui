@@ -7,11 +7,10 @@ import { useDispatch } from 'react-redux'
 import Footer from '../../../../../components/Layout/Footer'
 import NotFoundPage from '../../../../../components/Templates/NotFoundPage'
 import PageLayout from '../../../../../components/Atomic/PageLayout'
-import { useIsMounted, WellKnownConfigType } from '../../../../../common/hooks'
+import { useIsMounted } from '../../../../../common/hooks'
 import { messages as menuT } from '../../../../../components/Atomic/Menu/Menu.i18n'
 import Notification from '../../../../../components/Atomic/Notification/Toast'
 import { BreadcrumbItem } from '../../../../../components/Layout/Header/Breadcrumbs/Breadcrumbs.types'
-import { security } from '../../../../../common/services'
 import StatusTag from '../../../../../components/Atomic/StatusTag'
 import Breadcrumbs from '../../../../../components/Layout/Header/Breadcrumbs'
 import EditDeviceNameModal from '../../../../../components/Organisms/EditDeviceNameModal'
@@ -30,6 +29,7 @@ import FirstTimeOnboardingModal from '../FirstTimeOnboardingModal/FirstTimeOnboa
 import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
 import { Props } from './DevicesDetailsPage.types'
+import { getWellKnowConfig } from '../../../utils'
 
 const DevicesDetailsPage: FC<Props> = (props) => {
     const { defaultActiveTab, detailLinkPrefix, breadcrumbs: breadcrumbsProp, defaultDeviceId } = props
@@ -65,7 +65,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
         deviceId: id,
     })
 
-    const wellKnownConfig = security.getWellKnowConfig() as WellKnownConfigType
+    const wellKnownConfig = getWellKnowConfig()
     const parseOnboardingData = useCallback(() => getOnboardingDataFromConfig(wellKnownConfig), [wellKnownConfig])
     const handleOpenEditDeviceNameModal = useCallback(() => setShowEditNameModal(true), [])
 
