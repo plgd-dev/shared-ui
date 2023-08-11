@@ -18,7 +18,7 @@ import Tabs from '../../../../../components/Atomic/Tabs'
 import { getApiErrorMessage } from '../../../../../common/utils'
 import { disOwnDevice, ownDevice } from '../../slice'
 import { devicesStatuses, NO_DEVICE_NAME, devicesOwnerships, devicesOnboardingStatuses } from '../../constants'
-import { handleDeleteDevicesErrors, getDeviceChangeResourceHref } from '../../utils'
+import { getDeviceChangeResourceHref, handleOwnDevicesErrors } from '../../utils'
 import { useDeviceDetails, useDevicesResources, useOnboardingButton } from '../../hooks'
 import { ownDeviceApi, disownDeviceApi, getDeviceAuthCode, onboardDeviceApi, offboardDeviceApi, PLGD_BROWSER_USED, updateDevicesResourceApi } from '../../rest'
 import DevicesDetailsHeader from '../DevicesDetailsHeader'
@@ -149,7 +149,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                 })
             }
         } catch (error) {
-            handleDeleteDevicesErrors(error, _, true)
+            handleOwnDevicesErrors(error, _)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [_, id, isMounted, isOwned, deviceName])
