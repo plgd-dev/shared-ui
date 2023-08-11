@@ -15,6 +15,7 @@ import { addDeviceByIp } from '../../rest'
 import { messages as t } from '../../Devices.i18n'
 import { Props } from './FindNewDeviceByIp.types'
 import * as styles from '../../Detail/IncompleteOnboardingDataModal/IncompleteOnboardingDataModal.styles'
+import notificationId from '../../../notificationId'
 
 const FindNewDeviceByIp: FC<Props> = ({ disabled }) => {
     const [fetching, setFetching] = useState<boolean>(false)
@@ -72,20 +73,30 @@ const FindNewDeviceByIp: FC<Props> = ({ disabled }) => {
 
                     dispatch(addDevice(deviceData))
 
-                    Notification.success({
-                        title: _(t.deviceAddByIpSuccess),
-                        message: deviceData.data.content.n,
-                    })
+                    Notification.success(
+                        {
+                            title: _(t.deviceAddByIpSuccess),
+                            message: deviceData.data.content.n,
+                        },
+                        {
+                            notificationId: notificationId.FIND_NEW_DEVICE_BY_IP_FETCH,
+                        }
+                    )
 
                     setDeviceIp('')
                     setShow(false)
                 }
             })
         } catch (e: any) {
-            Notification.error({
-                title: _(t.deviceAddByIpError),
-                message: e.message,
-            })
+            Notification.error(
+                {
+                    title: _(t.deviceAddByIpError),
+                    message: e.message,
+                },
+                {
+                    notificationId: notificationId.FIND_NEW_DEVICE_BY_IP_FETCH,
+                }
+            )
 
             isMounted && setFetching(false)
         }

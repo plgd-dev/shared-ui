@@ -25,6 +25,7 @@ import DevicesResources from '../../../Resources/DevicesResources'
 import { Props } from './Tab2.types'
 import { DevicesDetailsResourceModalData } from '../DevicesDetailsPage.types'
 import DevicesDPSModal from '../../../DevicesDPSModal'
+import notificationId from '../../../../notificationId'
 
 const Tab2: FC<Props> = (props) => {
     const {
@@ -118,10 +119,15 @@ const Tab2: FC<Props> = (props) => {
             await createDevicesResourceApi({ deviceId: id, href, currentInterface }, resourceDataCreate)
 
             if (isMounted.current) {
-                Notification.success({
-                    title: _(t.resourceCreateSuccess),
-                    message: _(t.resourceWasCreated),
-                })
+                Notification.success(
+                    {
+                        title: _(t.resourceCreateSuccess),
+                        message: _(t.resourceWasCreated),
+                    },
+                    {
+                        notificationId: notificationId.DEVICE_DETAIL_TAB2_CREATE_RESOURCE,
+                    }
+                )
 
                 refreshResources()
                 setResourceModalData(undefined) // close modal
@@ -143,10 +149,15 @@ const Tab2: FC<Props> = (props) => {
             { deviceId: id, href, currentInterface },
             resourceDataUpdate,
             () => {
-                Notification.success({
-                    title: _(t.resourceUpdateSuccess),
-                    message: _(t.resourceWasUpdated),
-                })
+                Notification.success(
+                    {
+                        title: _(t.resourceUpdateSuccess),
+                        message: _(t.resourceWasUpdated),
+                    },
+                    {
+                        notificationId: notificationId.DEVICE_DETAIL_TAB_2_UPDATE_RESOURCE,
+                    }
+                )
                 handleCloseUpdateModal()
                 setSavingResource(false)
             },
@@ -212,10 +223,15 @@ const Tab2: FC<Props> = (props) => {
             })
 
             if (isMounted.current) {
-                Notification.success({
-                    title: _(t.resourceDeleteSuccess),
-                    message: _(t.resourceWasDeleted),
-                })
+                Notification.success(
+                    {
+                        title: _(t.resourceDeleteSuccess),
+                        message: _(t.resourceWasDeleted),
+                    },
+                    {
+                        notificationId: notificationId.DEVICE_DETAIL_TAB_2_DELETE_RESOURCE,
+                    }
+                )
 
                 refreshResources()
                 setLoadingResource(false)

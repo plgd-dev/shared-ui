@@ -1,6 +1,5 @@
 import React, { FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
-import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import ReactDOM from 'react-dom'
@@ -30,6 +29,7 @@ import { defaultProps, DpsDataType, Props } from './DevicesListPage.types'
 import DevicesListActionButton from '../DevicesListActionButton'
 import AppContext from '../../../App/AppContext'
 import Breadcrumbs from '../../../../../components/Layout/Header/Breadcrumbs'
+import notificationId from '../../../notificationId'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
@@ -57,8 +57,13 @@ const DevicesListPage: FC<Props> = (props) => {
     const [isDomReady, setIsDomReady] = useState(false)
 
     useEffect(() => {
-        deviceError && detailLinkPrefix === '' && toast.error(getApiErrorMessage(deviceError))
-        deviceError && detailLinkPrefix !== '' && Notification.error({ title: _(t.deviceError), message: getApiErrorMessage(deviceError) })
+        deviceError &&
+            Notification.error(
+                { title: _(t.deviceError), message: getApiErrorMessage(deviceError) },
+                {
+                    notificationId: notificationId.DEVICE_LIST_DEVICE_ERROR,
+                }
+            )
     }, [deviceError])
 
     useEffect(() => {
@@ -99,10 +104,15 @@ const DevicesListPage: FC<Props> = (props) => {
             await sleep(200)
 
             if (isMounted) {
-                Notification.success({
-                    title: _(t.devicesDeleted),
-                    message: _(t.devicesDeletedMessage),
-                })
+                Notification.success(
+                    {
+                        title: _(t.devicesDeleted),
+                        message: _(t.devicesDeletedMessage),
+                    },
+                    {
+                        notificationId: notificationId.DEVICE_LIST_DELETE_DEVICES,
+                    }
+                )
 
                 // @ts-ignore
                 dispatch(flushDevices(data))
@@ -123,10 +133,15 @@ const DevicesListPage: FC<Props> = (props) => {
             isOwned ? await disownDeviceApi(deviceId) : await ownDeviceApi(deviceId)
 
             if (isMounted) {
-                Notification.success({
-                    title: isOwned ? _(t.deviceDisOwned) : _(t.deviceOwned),
-                    message: isOwned ? _(t.deviceWasDisOwned, { name: deviceName }) : _(t.deviceWasOwned, { name: deviceName }),
-                })
+                Notification.success(
+                    {
+                        title: isOwned ? _(t.deviceDisOwned) : _(t.deviceOwned),
+                        message: isOwned ? _(t.deviceWasDisOwned, { name: deviceName }) : _(t.deviceWasOwned, { name: deviceName }),
+                    },
+                    {
+                        notificationId: notificationId.DEVICE_LIST_HANDLE_OWN_DEVICE,
+                    }
+                )
 
                 if (!isOwned) {
                     // @ts-ignore
@@ -152,10 +167,15 @@ const DevicesListPage: FC<Props> = (props) => {
             { deviceId: dpsData.deviceId, href, currentInterface },
             resourceDataUpdate,
             () => {
-                Notification.success({
-                    title: _(t.resourceUpdateSuccess),
-                    message: _(t.resourceWasUpdated),
-                })
+                Notification.success(
+                    {
+                        title: _(t.resourceUpdateSuccess),
+                        message: _(t.resourceWasUpdated),
+                    },
+                    {
+                        notificationId: notificationId.DEVICE_LIST_HANDLE_UPDATE_RESOURCE,
+                    }
+                )
                 setShowDpsModal(false)
                 setDpsData({ deviceId: '', resources: undefined })
             },

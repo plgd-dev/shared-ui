@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, KeyboardEvent, useEffect, useState } from 'react'
 import isFunction from 'lodash/isFunction'
 
 import Button from '../../Atomic/Button'
@@ -26,11 +26,17 @@ const EditDeviceNameModal: FC<Props> = (props) => {
         isFunction(handleSubmit) && handleSubmit(name)
     }
 
+    const handleKeyPress = (e: KeyboardEvent) => {
+        if (e && e.code === 'Enter') {
+            isFunction(handleSubmit) && handleSubmit(name)
+        }
+    }
+
     const renderBody = () => (
         <div css={styles.body}>
             <FormGroup id='device-name'>
                 <FormLabel text={i18n.name} />
-                <FormInput onChange={(e) => setName(e.target.value)} placeholder={i18n.deviceName} value={name} />
+                <FormInput onChange={(e) => setName(e.target.value)} onKeyPress={(e) => handleKeyPress(e)} placeholder={i18n.deviceName} value={name} />
             </FormGroup>
         </div>
     )

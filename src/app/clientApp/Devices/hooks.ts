@@ -52,7 +52,7 @@ export const useDeviceDetails = (deviceId: string) => {
                         ...data.metadata,
                         shadowSynchronization,
                         status: {
-                            ...data.metadata.status,
+                            ...data.metadata?.status,
                             value: status,
                         },
                     },

@@ -30,6 +30,7 @@ import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
 import { Props } from './DevicesDetailsPage.types'
 import { getWellKnowConfig } from '../../../utils'
+import notificationId from '../../../notificationId'
 
 const DevicesDetailsPage: FC<Props> = (props) => {
     const { defaultActiveTab, detailLinkPrefix, breadcrumbs: breadcrumbsProp, defaultDeviceId } = props
@@ -57,6 +58,17 @@ const DevicesDetailsPage: FC<Props> = (props) => {
     const isOwned = useMemo(() => data?.ownershipStatus === devicesOwnerships.OWNED, [data])
     const isUnsupported = useMemo(() => data?.ownershipStatus === devicesOwnerships.UNSUPPORTED, [data])
     const resources = useMemo(() => resourcesData?.resources || [], [resourcesData])
+    const breadcrumbBase = useMemo(
+        () =>
+            breadcrumbsProp ?? [
+                {
+                    link: '/',
+                    label: _(menuT.devices),
+                },
+            ],
+        [breadcrumbsProp]
+    )
+    const [breadcrumbs, setBreadcrumbs] = useState(breadcrumbBase)
 
     const [incompleteOnboardingData, onboardResourceLoading, deviceOnboardingResourceData, refetchDeviceOnboardingData] = useOnboardingButton({
         resources,
@@ -103,7 +115,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [deviceOnboardingResourceData, id, incompleteOnboardingData, onboardingData])
 
-    const deviceName = data?.data?.content?.n || NO_DEVICE_NAME
+    const deviceName = useMemo(() => data?.data?.content?.n || NO_DEVICE_NAME, [data])
 
     const handleOwnChange = useCallback(() => {
         try {
@@ -119,13 +131,18 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                         // @ts-ignore
                         dispatch(disOwnDevice(id))
 
-                        Notification.success({
-                            title: _(t.deviceDisOwned),
-                            message: _(t.deviceWasDisOwned, { name: deviceName }),
-                        })
+                        Notification.success(
+                            {
+                                title: _(t.deviceDisOwned),
+                                message: _(t.deviceWasDisOwned, { name: deviceName }),
+                            },
+                            {
+                                notificationId: notificationId.DEVICE_DETAIL_PAGE_OWN_CHANGE,
+                            }
+                        )
 
                         setOwnLoading(false)
-                        navigate('/')
+                        navigate(`${detailLinkPrefix}/`)
                     }
                 })
             } else {
@@ -139,10 +156,15 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                         // @ts-ignore
                         dispatch(ownDevice(id))
 
-                        Notification.success({
-                            title: _(t.deviceOwned),
-                            message: _(t.deviceWasOwned, { name: deviceName }),
-                        })
+                        Notification.success(
+                            {
+                                title: _(t.deviceOwned),
+                                message: _(t.deviceWasOwned, { name: deviceName }),
+                            },
+                            {
+                                notificationId: notificationId.DEVICE_DETAIL_PAGE_OWN_CHANGE,
+                            }
+                        )
 
                         setOwnLoading(false)
                     }
@@ -170,35 +192,11 @@ const DevicesDetailsPage: FC<Props> = (props) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    const breadcrumbs: BreadcrumbItem[] = useMemo(() => {
-        const _breadcrumbs = breadcrumbsProp ?? [
-            {
-                link: '/',
-                label: _(menuT.devices),
-            },
-        ]
-
+    useEffect(() => {
         if (deviceName && deviceName !== NO_DEVICE_NAME) {
-            _breadcrumbs.push({ label: deviceName })
+            setBreadcrumbs([...breadcrumbBase, { label: deviceName }])
         }
-
-        return _breadcrumbs
-    }, [deviceName, breadcrumbsProp])
-
-    // Update the device name in the data object
-    const updateDeviceNameInData = useCallback((name: string) => {
-        updateData({
-            ...data,
-            data: {
-                ...data.data,
-                content: {
-                    ...data.data.content,
-                    n: name,
-                },
-            },
-        })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [deviceName])
 
     if (deviceError) {
         return <NotFoundPage message={_(t.deviceNotFoundMessage, { id })} title={_(t.deviceNotFound)} />
@@ -240,14 +238,14 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                     refetchDeviceOnboardingData()
                 })
                 .catch((e) => {
-                    Notification.error(JSON.parse(e?.request?.response)?.message || e.message)
+                    Notification.error(JSON.parse(e?.request?.response)?.message || e.message, { notificationId: notificationId.ONBOARD_DEVICE })
                     setOnboardingData(onboardingData)
                     toggleOnboardingModal(true)
                     setOnboarding(false)
                 })
         } catch (e: any) {
             if (e !== 'user-cancel') {
-                Notification.error(e.message)
+                Notification.error(e.message, { notificationId: notificationId.ONBOARD_DEVICE })
                 console.error(e)
             }
 
@@ -262,7 +260,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
             setDeviceNameLoading(true)
 
             try {
-                const { data } = await updateDevicesResourceApi(
+                const { data: responseData } = await updateDevicesResourceApi(
                     { deviceId: id, href },
                     {
                         n: name,
@@ -271,14 +269,34 @@ const DevicesDetailsPage: FC<Props> = (props) => {
 
                 if (isMounted.current) {
                     setDeviceNameLoading(false)
-                    updateDeviceNameInData(data?.n || name)
+
+                    // remove current name from breadcrumb
+                    breadcrumbs.pop()
+
+                    updateData({
+                        ...data,
+                        data: {
+                            ...data.data,
+                            content: {
+                                ...data.data.content,
+                                n: responseData?.content?.n || name,
+                            },
+                        },
+                    })
+
+                    setShowEditNameModal(false)
                 }
             } catch (error) {
                 if (error && isMounted.current) {
-                    Notification.error({
-                        title: _(t.deviceNameChangeFailed),
-                        message: getApiErrorMessage(error),
-                    })
+                    Notification.error(
+                        {
+                            title: _(t.deviceNameChangeFailed),
+                            message: getApiErrorMessage(error),
+                        },
+                        {
+                            notificationId: notificationId.UPDATE_DEVICE_NAME,
+                        }
+                    )
                     setDeviceNameLoading(false)
                     setShowEditNameModal(false)
                 }
