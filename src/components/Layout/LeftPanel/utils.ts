@@ -1,7 +1,7 @@
 import { MenuGroup } from './LeftPanel.types'
 
 export const parseActiveItem = (pathname: string, menuItems: MenuGroup[], matcher: any) => {
-    let ret = '0'
+    let ret = '-1'
 
     menuItems.forEach((item) => {
         const menuItem = item.items?.find((i) => {

@@ -1,4 +1,5 @@
 export const DEVICE_AUTH_CODE_SESSION_KEY = 'tempDeviceAuthCode'
+export const DEVICE_AUTH_CODE_REMOTE_CLIENT_ID = 'DEVICE_AUTH_CODE_REMOTE_CLIENT_ID'
 
 export const DEVICE_AUTH_MODE = {
     X509: 'X509',

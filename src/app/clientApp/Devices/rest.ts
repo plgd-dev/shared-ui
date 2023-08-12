@@ -2,7 +2,7 @@ import { fetchApi, security } from '../../../common/services'
 import { devicesApiEndpoints } from './constants'
 import { interfaceGetParam } from './utils'
 import { signIdentityCsr } from '../App/AppRest'
-import { DEVICE_AUTH_MODE, DEVICE_AUTH_CODE_SESSION_KEY } from '../constants'
+import { DEVICE_AUTH_MODE, DEVICE_AUTH_CODE_SESSION_KEY, DEVICE_AUTH_CODE_REMOTE_CLIENT_ID } from '../constants'
 import { getHttpGatewayAddress, getWebOAuthConfig, getWellKnowConfig } from '../utils'
 
 /**
@@ -140,7 +140,7 @@ export const PLGD_BROWSER_USED = 'plgdBrowserUsed'
  * Returns an async function which resolves with a authorization code gathered from a rendered iframe, used for onboarding of a device.
  * @param {*} deviceId
  */
-export const getDeviceAuthCode = (deviceId: string) => {
+export const getDeviceAuthCode = (deviceId: string, remoteClientId?: string) => {
     return new Promise((resolve, reject) => {
         const wellKnownConfig = getWellKnowConfig()
 
@@ -156,6 +156,8 @@ export const getDeviceAuthCode = (deviceId: string) => {
         AuthUserManager.metadataService.getAuthorizationEndpoint().then((authorizationEndpoint: string) => {
             let timeout: any = null
             const audienceParam = audience ? `&audience=${audience}` : ''
+
+            remoteClientId && localStorage.setItem(DEVICE_AUTH_CODE_REMOTE_CLIENT_ID, remoteClientId)
 
             const win = window.open(
                 `${authorizationEndpoint}?response_type=code&client_id=${clientId}&scope=${scopes}${audienceParam}&redirect_uri=${window.location.origin}/devices&device_id=${deviceId}`,

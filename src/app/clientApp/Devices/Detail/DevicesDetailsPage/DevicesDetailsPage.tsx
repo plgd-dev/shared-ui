@@ -10,7 +10,6 @@ import PageLayout from '../../../../../components/Atomic/PageLayout'
 import { useIsMounted } from '../../../../../common/hooks'
 import { messages as menuT } from '../../../../../components/Atomic/Menu/Menu.i18n'
 import Notification from '../../../../../components/Atomic/Notification/Toast'
-import { BreadcrumbItem } from '../../../../../components/Layout/Header/Breadcrumbs/Breadcrumbs.types'
 import StatusTag from '../../../../../components/Atomic/StatusTag'
 import Breadcrumbs from '../../../../../components/Layout/Header/Breadcrumbs'
 import EditDeviceNameModal from '../../../../../components/Organisms/EditDeviceNameModal'
@@ -221,7 +220,10 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                 setShowFirstTimeOnboardingModal(true)
             }
 
-            const code = onboardingData.authorizationCode !== '' ? onboardingData.authorizationCode : await getDeviceAuthCode(id)
+            const code =
+                onboardingData.authorizationCode !== ''
+                    ? onboardingData.authorizationCode
+                    : await getDeviceAuthCode(id, detailLinkPrefix !== '' ? routerId : undefined)
 
             const cleanUpOnboardData = (d: string) => d.replace(/\\n/g, '\n')
 
