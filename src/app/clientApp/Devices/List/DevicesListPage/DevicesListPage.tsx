@@ -30,6 +30,7 @@ import DevicesListActionButton from '../DevicesListActionButton'
 import AppContext from '../../../App/AppContext'
 import Breadcrumbs from '../../../../../components/Layout/Header/Breadcrumbs'
 import notificationId from '../../../notificationId'
+import TagGroup from '../../../../../components/Atomic/TagGroup/TagGroup'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
@@ -220,7 +221,15 @@ const DevicesListPage: FC<Props> = (props) => {
                     if (!value) {
                         return null
                     }
-                    return value.filter((i: string) => i !== DEVICE_TYPE_OIC_WK_D).map((i: string) => <Tag key={i}>{i}</Tag>)
+                    return (
+                        <TagGroup>
+                            {value
+                                .filter((i: string) => i !== DEVICE_TYPE_OIC_WK_D)
+                                .map((i: string) => (
+                                    <Tag key={i}>{i}</Tag>
+                                ))}
+                        </TagGroup>
+                    )
                 },
             },
             {
