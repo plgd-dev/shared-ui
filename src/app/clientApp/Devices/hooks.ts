@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 import { useStreamApi, useEmitter, WellKnownConfigType } from '../../../common/hooks'
 import { getDevicesDiscoveryTimeout } from './slice'
-import { devicesApiEndpoints, DEVICES_STATUS_WS_KEY, resourceEventTypes, TIMEOUT_UNIT_PRECISION, DEVICE_PROVISION_STATUS_DELAY_MS } from './constants'
+import { devicesApiEndpoints, DEVICES_STATUS_WS_KEY, resourceEventTypes, DEVICE_PROVISION_STATUS_DELAY_MS } from './constants'
 import { getOnboardingEndpoint, getResourceRegistrationNotificationKey, hasOnboardingFeature, loadResourceData } from './utils'
 import { ResourcesType, StreamApiPropsType } from './Devices.types'
 import AppContext from '../App/AppContext'
@@ -16,9 +16,8 @@ export const useDevicesList = () => {
     const httpGatewayAddress = getHttpGatewayAddress()
 
     // Fetch the data
-    const { data, updateData, ...rest } = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}`, {
+    const { data, updateData, ...rest } = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}?timeout=${discoveryTimeout}`, {
         unauthorizedCallback,
-        shadowQueryParameter: `?timeout=${discoveryTimeout / TIMEOUT_UNIT_PRECISION}`,
     })
 
     // Update the metadata when a WS event is emitted
