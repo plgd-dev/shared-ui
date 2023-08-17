@@ -17,7 +17,7 @@ export type useClientAppPageTypes = {
     }
 }
 
-export type useClientAppPageReturnType = [clientData: any, error: boolean, errorElement: ReactElement]
+export type useClientAppPageReturnType = [clientData: RemoteClientType, error: boolean, errorElement: ReactElement]
 
 export const useClientAppPage = (props: useClientAppPageTypes): useClientAppPageReturnType => {
     const { clientId, i18n } = props

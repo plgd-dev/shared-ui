@@ -9,4 +9,7 @@ export type RemoteClientType = {
     created: string
     status: RemoteClientStatusType
     version: string
+    authenticationMode: string
+    preSharedSubjectId?: string
+    preSharedKey?: string
 }

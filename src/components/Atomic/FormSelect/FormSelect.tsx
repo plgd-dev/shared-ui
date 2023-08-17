@@ -1,6 +1,4 @@
-import { FC } from 'react'
-import { GroupedOption, Option, Props, defaultProps } from './FormSelect.types'
-import * as styles from './FormSelect.styles'
+import { FC, forwardRef } from 'react'
 import Select, {
     components,
     ContainerProps,
@@ -13,11 +11,14 @@ import Select, {
     SingleValueProps,
     ValueContainerProps,
 } from 'react-select'
+
+import { GroupedOption, Option, Props, defaultProps } from './FormSelect.types'
+import * as styles from './FormSelect.styles'
 import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectSizes } from './constants'
 
-const FormSelect: FC<Props> = (props) => {
-    const { className, defaultValue, error, disabled, isSearchable, options, name, menuIsOpen, onChange, size, value } = { ...defaultProps, ...props }
+const FormSelect = forwardRef<any, Props>((props, ref) => {
+    const { className, defaultValue, error, disabled, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } = { ...defaultProps, ...props }
     const stylesOverride = {
         menu: (base: any) => ({
             ...base,
@@ -84,6 +85,7 @@ const FormSelect: FC<Props> = (props) => {
 
     return (
         <Select
+            {...rest}
             className={className}
             classNamePrefix='select'
             components={{ DropdownIndicator, Menu, MenuList, Option, SelectContainer, SingleValue, ValueContainer, Placeholder, Control }}
@@ -95,11 +97,12 @@ const FormSelect: FC<Props> = (props) => {
             name={name}
             onChange={onChange}
             options={options}
+            ref={ref}
             styles={stylesOverride}
             value={value}
         />
     )
-}
+})
 
 FormSelect.displayName = 'FormSelect'
 FormSelect.defaultProps = defaultProps
