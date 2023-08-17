@@ -79,7 +79,7 @@ const FindNewDeviceByIp: FC<Props> = ({ disabled }) => {
                             message: deviceData.data.content.n,
                         },
                         {
-                            notificationId: notificationId.FIND_NEW_DEVICE_BY_IP_FETCH,
+                            notificationId: notificationId.SU_CA_FIND_NEW_DEVICE_BY_IP_FETCH,
                         }
                     )
 
@@ -94,7 +94,7 @@ const FindNewDeviceByIp: FC<Props> = ({ disabled }) => {
                     message: e.message,
                 },
                 {
-                    notificationId: notificationId.FIND_NEW_DEVICE_BY_IP_FETCH,
+                    notificationId: notificationId.SU_CA_FIND_NEW_DEVICE_BY_IP_FETCH,
                 }
             )
 

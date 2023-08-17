@@ -136,7 +136,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                                 message: _(t.deviceWasDisOwned, { name: deviceName }),
                             },
                             {
-                                notificationId: notificationId.DEVICE_DETAIL_PAGE_OWN_CHANGE,
+                                notificationId: notificationId.SU_CA_DEVICE_DETAIL_PAGE_OWN_CHANGE,
                             }
                         )
 
@@ -161,7 +161,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                                 message: _(t.deviceWasOwned, { name: deviceName }),
                             },
                             {
-                                notificationId: notificationId.DEVICE_DETAIL_PAGE_OWN_CHANGE,
+                                notificationId: notificationId.SU_CA_DEVICE_DETAIL_PAGE_OWN_CHANGE,
                             }
                         )
 
@@ -240,14 +240,14 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                     refetchDeviceOnboardingData()
                 })
                 .catch((e) => {
-                    Notification.error(JSON.parse(e?.request?.response)?.message || e.message, { notificationId: notificationId.ONBOARD_DEVICE })
+                    Notification.error(JSON.parse(e?.request?.response)?.message || e.message, { notificationId: notificationId.SU_CA_ONBOARD_DEVICE })
                     setOnboardingData(onboardingData)
                     toggleOnboardingModal(true)
                     setOnboarding(false)
                 })
         } catch (e: any) {
             if (e !== 'user-cancel') {
-                Notification.error(e.message, { notificationId: notificationId.ONBOARD_DEVICE })
+                Notification.error(e.message, { notificationId: notificationId.SU_CA_ONBOARD_DEVICE })
                 console.error(e)
             }
 
@@ -296,7 +296,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                             message: getApiErrorMessage(error),
                         },
                         {
-                            notificationId: notificationId.UPDATE_DEVICE_NAME,
+                            notificationId: notificationId.SU_CA_UPDATE_DEVICE_NAME,
                         }
                     )
                     setDeviceNameLoading(false)

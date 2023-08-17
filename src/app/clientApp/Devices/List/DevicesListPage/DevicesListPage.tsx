@@ -62,7 +62,7 @@ const DevicesListPage: FC<Props> = (props) => {
             Notification.error(
                 { title: _(t.deviceError), message: getApiErrorMessage(deviceError) },
                 {
-                    notificationId: notificationId.DEVICE_LIST_DEVICE_ERROR,
+                    notificationId: notificationId.SU_CA_DEVICE_LIST_DEVICE_ERROR,
                 }
             )
     }, [deviceError])
@@ -111,7 +111,7 @@ const DevicesListPage: FC<Props> = (props) => {
                         message: _(t.devicesDeletedMessage),
                     },
                     {
-                        notificationId: notificationId.DEVICE_LIST_DELETE_DEVICES,
+                        notificationId: notificationId.SU_CA_DEVICE_LIST_DELETE_DEVICES,
                     }
                 )
 
@@ -140,7 +140,7 @@ const DevicesListPage: FC<Props> = (props) => {
                         message: isOwned ? _(t.deviceWasDisOwned, { name: deviceName }) : _(t.deviceWasOwned, { name: deviceName }),
                     },
                     {
-                        notificationId: notificationId.DEVICE_LIST_HANDLE_OWN_DEVICE,
+                        notificationId: notificationId.SU_CA_DEVICE_LIST_HANDLE_OWN_DEVICE,
                     }
                 )
 
@@ -174,7 +174,7 @@ const DevicesListPage: FC<Props> = (props) => {
                         message: _(t.resourceWasUpdated),
                     },
                     {
-                        notificationId: notificationId.DEVICE_LIST_HANDLE_UPDATE_RESOURCE,
+                        notificationId: notificationId.SU_CA_DEVICE_LIST_HANDLE_UPDATE_RESOURCE,
                     }
                 )
                 setShowDpsModal(false)

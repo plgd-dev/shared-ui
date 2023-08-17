@@ -125,7 +125,7 @@ const Tab2: FC<Props> = (props) => {
                         message: _(t.resourceWasCreated),
                     },
                     {
-                        notificationId: notificationId.DEVICE_DETAIL_TAB2_CREATE_RESOURCE,
+                        notificationId: notificationId.SU_CA_DEVICE_DETAIL_TAB2_CREATE_RESOURCE,
                     }
                 )
 
@@ -155,7 +155,7 @@ const Tab2: FC<Props> = (props) => {
                         message: _(t.resourceWasUpdated),
                     },
                     {
-                        notificationId: notificationId.DEVICE_DETAIL_TAB_2_UPDATE_RESOURCE,
+                        notificationId: notificationId.SU_CA_DEVICE_DETAIL_TAB_2_UPDATE_RESOURCE,
                     }
                 )
                 handleCloseUpdateModal()
@@ -229,7 +229,7 @@ const Tab2: FC<Props> = (props) => {
                         message: _(t.resourceWasDeleted),
                     },
                     {
-                        notificationId: notificationId.DEVICE_DETAIL_TAB_2_DELETE_RESOURCE,
+                        notificationId: notificationId.SU_CA_DEVICE_DETAIL_TAB_2_DELETE_RESOURCE,
                     }
                 )
 

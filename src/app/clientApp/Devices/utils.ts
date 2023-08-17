@@ -63,7 +63,7 @@ export const handleUpdateResourceErrors = (error: any, { id: deviceId, href }: {
                 message: _(t.resourceWasUpdatedOffline),
             },
             {
-                notificationId: notificationId.HANDLE_UPDATE_RESOURCE_ERRORS_DEADLINE_EXCEEDED,
+                notificationId: notificationId.SU_CA_HANDLE_UPDATE_RESOURCE_ERRORS_DEADLINE_EXCEEDED,
             }
         )
     } else if (errorMessage?.includes?.(errorCodes.COMMAND_EXPIRED)) {
@@ -77,7 +77,7 @@ export const handleUpdateResourceErrors = (error: any, { id: deviceId, href }: {
                 })}`,
             },
             {
-                notificationId: notificationId.HANDLE_UPDATE_RESOURCE_ERRORS_COMMAND_EXPIRED,
+                notificationId: notificationId.SU_CA_HANDLE_UPDATE_RESOURCE_ERRORS_COMMAND_EXPIRED,
             }
         )
     } else if (errorMessage?.includes?.(errorCodes.INVALID_ARGUMENT)) {
@@ -87,7 +87,7 @@ export const handleUpdateResourceErrors = (error: any, { id: deviceId, href }: {
                 title: _(t.resourceUpdateError),
                 message: _(t.invalidArgument),
             },
-            { notificationId: notificationId.HANDLE_UPDATE_RESOURCE_ERRORS_INVALID_ARGUMENT }
+            { notificationId: notificationId.SU_CA_HANDLE_UPDATE_RESOURCE_ERRORS_INVALID_ARGUMENT }
         )
     } else {
         Notification.error(
@@ -96,7 +96,7 @@ export const handleUpdateResourceErrors = (error: any, { id: deviceId, href }: {
                 message: errorMessage,
             },
             {
-                notificationId: notificationId.HANDLE_UPDATE_RESOURCE_ERRORS,
+                notificationId: notificationId.SU_CA_HANDLE_UPDATE_RESOURCE_ERRORS,
             }
         )
     }
@@ -114,7 +114,7 @@ export const handleCreateResourceErrors = (error: any, { id: deviceId, href }: {
                 message: _(t.resourceWasCreatedOffline),
             },
             {
-                notificationId: notificationId.HANDLE_CREATE_RESOURCE_ERRORS_DEADLINE_EXCEEDED,
+                notificationId: notificationId.SU_CA_HANDLE_CREATE_RESOURCE_ERRORS_DEADLINE_EXCEEDED,
             }
         )
     } else if (errorMessage?.includes?.(errorCodes.COMMAND_EXPIRED)) {
@@ -128,7 +128,7 @@ export const handleCreateResourceErrors = (error: any, { id: deviceId, href }: {
                 })}`,
             },
             {
-                notificationId: notificationId.HANDLE_CREATE_RESOURCE_ERRORS_COMMAND_EXPIRED,
+                notificationId: notificationId.SU_CA_HANDLE_CREATE_RESOURCE_ERRORS_COMMAND_EXPIRED,
             }
         )
     } else if (errorMessage?.includes?.(errorCodes.INVALID_ARGUMENT)) {
@@ -139,7 +139,7 @@ export const handleCreateResourceErrors = (error: any, { id: deviceId, href }: {
                 message: _(t.invalidArgument),
             },
             {
-                notificationId: notificationId.HANDLE_CREATE_RESOURCE_ERRORS_INVALID_ARGUMENT,
+                notificationId: notificationId.SU_CA_HANDLE_CREATE_RESOURCE_ERRORS_INVALID_ARGUMENT,
             }
         )
     } else {
@@ -149,7 +149,7 @@ export const handleCreateResourceErrors = (error: any, { id: deviceId, href }: {
                 message: errorMessage,
             },
             {
-                notificationId: notificationId.HANDLE_CREATE_RESOURCE_ERRORS,
+                notificationId: notificationId.SU_CA_HANDLE_CREATE_RESOURCE_ERRORS,
             }
         )
     }
@@ -167,7 +167,7 @@ export const handleShadowSynchronizationErrors = (error: any, _: any) => {
                 message: _(t.shadowSynchronizationWasSetOffline),
             },
             {
-                notificationId: notificationId.HANDLE_SHADOW_SYNCHRONIZATION_ERRORS_DEADLINE_EXCEEDED,
+                notificationId: notificationId.SU_CA_HANDLE_SHADOW_SYNCHRONIZATION_ERRORS_DEADLINE_EXCEEDED,
             }
         )
     } else {
@@ -177,7 +177,7 @@ export const handleShadowSynchronizationErrors = (error: any, _: any) => {
                 message: errorMessage,
             },
             {
-                notificationId: notificationId.HANDLE_SHADOW_SYNCHRONIZATION_ERRORS,
+                notificationId: notificationId.SU_CA_HANDLE_SHADOW_SYNCHRONIZATION_ERRORS,
             }
         )
     }
@@ -191,7 +191,7 @@ export const handleFetchResourceErrors = (error: any, _: any) =>
             message: getApiErrorMessage(error),
         },
         {
-            notificationId: notificationId.HANDLE_FETCH_RESOURCE_ERRORS,
+            notificationId: notificationId.SU_CA_HANDLE_FETCH_RESOURCE_ERRORS,
         }
     )
 
@@ -207,7 +207,7 @@ export const handleDeleteResourceErrors = (error: any, { id: deviceId, href }: {
                 message: _(t.resourceWasDeletedOffline),
             },
             {
-                notificationId: notificationId.HANDLE_DELETE_RESOURCE_ERRORS_DEADLINE_EXCEEDED,
+                notificationId: notificationId.SU_CA_HANDLE_DELETE_RESOURCE_ERRORS_DEADLINE_EXCEEDED,
             }
         )
     } else if (errorMessage?.includes?.(errorCodes.COMMAND_EXPIRED)) {
@@ -221,7 +221,7 @@ export const handleDeleteResourceErrors = (error: any, { id: deviceId, href }: {
                 })}`,
             },
             {
-                notificationId: notificationId.HANDLE_DELETE_RESOURCE_ERRORS_COMMAND_EXPIRED,
+                notificationId: notificationId.SU_CA_HANDLE_DELETE_RESOURCE_ERRORS_COMMAND_EXPIRED,
             }
         )
     } else {
@@ -231,7 +231,7 @@ export const handleDeleteResourceErrors = (error: any, { id: deviceId, href }: {
                 message: errorMessage,
             },
             {
-                notificationId: notificationId.HANDLE_DELETE_RESOURCE_ERRORS,
+                notificationId: notificationId.SU_CA_HANDLE_DELETE_RESOURCE_ERRORS,
             }
         )
     }
@@ -247,7 +247,7 @@ export const handleDeleteDevicesErrors = (error: any, _: any, singular = false) 
             message: errorMessage,
         },
         {
-            notificationId: notificationId.HANDLE_DELETE_DEVICES_ERRORS,
+            notificationId: notificationId.SU_CA_HANDLE_DELETE_DEVICES_ERRORS,
         }
     )
 }
@@ -262,7 +262,7 @@ export const handleOwnDevicesErrors = (error: any, _: any) => {
             message: errorMessage,
         },
         {
-            notificationId: notificationId.HANDLE_OWN_DEVICES_ERRORS,
+            notificationId: notificationId.SU_CA_HANDLE_OWN_DEVICES_ERRORS,
         }
     )
 }
