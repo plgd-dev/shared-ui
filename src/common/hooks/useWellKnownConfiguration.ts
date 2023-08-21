@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { fetchApi } from '../services'
 import isFunction from 'lodash/isFunction'
-import { cloneDeep } from 'lodash'
+import mergeWith from 'lodash/mergeWith'
+import cloneDeep from 'lodash/cloneDeep'
 
 export type BuildInformationType = {
     buildDate: string
@@ -92,7 +93,8 @@ export function useWellKnownConfiguration(
                 let data = result.data
 
                 if (defaultRemoteProvisioningData) {
-                    data.remoteProvisioning = mergeConfig(data.remoteProvisioning, defaultRemoteProvisioningData)
+                    // data.remoteProvisioning = mergeConfig(data.remoteProvisioning, defaultRemoteProvisioningData)
+                    data.remoteProvisioning = mergeWith(data.remoteProvisioning, defaultRemoteProvisioningData)
                 }
 
                 setWellKnownConfig(data)

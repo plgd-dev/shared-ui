@@ -8,7 +8,7 @@ import { useClickOutside } from '../../../../common/hooks'
 import { convertSize, IconArrowDown } from '../../../Atomic/Icon'
 
 const UserWidget: FC<Props> = memo((props) => {
-    const { name, description, defaultOpen, dropdownItems, image, loading } = props
+    const { name, description, defaultOpen, dropdownItems, image, loading, dataTestId } = props
     const [open, setOpen] = useState(defaultOpen ?? false)
     const clickRef = useRef<HTMLDivElement>(null)
     useClickOutside(clickRef, () => setOpen(false))
@@ -29,7 +29,7 @@ const UserWidget: FC<Props> = memo((props) => {
 
     return (
         <div ref={clickRef}>
-            <div css={styles.widgetReference} onClick={handleClick} ref={refs.setReference}>
+            <div css={styles.widgetReference} data-test-id={dataTestId} onClick={handleClick} ref={refs.setReference}>
                 <div css={[styles.userWidget, dropdownItems && styles.clickable]}>
                     {image && <div css={styles.image}>{typeof image === 'string' ? <img alt={name} src={image} /> : image}</div>}
                     {!image && (
@@ -52,6 +52,7 @@ const UserWidget: FC<Props> = memo((props) => {
             {dropdownItems && open && (
                 <div
                     css={styles.floatingMenu}
+                    data-test-id={dataTestId?.concat('-floating-menu')}
                     ref={refs.setFloating}
                     style={{
                         position: strategy,
@@ -61,7 +62,7 @@ const UserWidget: FC<Props> = memo((props) => {
                     }}
                 >
                     {dropdownItems.map((item) => (
-                        <div css={styles.item} key={item.title} onClick={item.onClick}>
+                        <div css={styles.item} data-test-id={item.dataTestId} key={item.title} onClick={item.onClick}>
                             {item.title}
                         </div>
                     ))}
