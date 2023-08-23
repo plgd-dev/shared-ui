@@ -13,7 +13,6 @@ import { getApiErrorMessage } from '../../../../../common/utils'
 import Footer from '../../../../../components/Layout/Footer'
 import DevicesList from '../../../../../components/Organisms/DevicesList/DevicesList'
 import { DevicesResourcesModalParamsType } from '../../../../../components/Organisms/DevicesResourcesModal/DevicesResourcesModal.types'
-import Badge from '../../../../../components/Atomic/Badge'
 import Tag from '../../../../../components/Atomic/Tag'
 import { getDevices, updateDevices, flushDevices, ownDevice, disOwnDevice } from '../../slice'
 import { DEVICE_TYPE_OIC_WK_D, devicesOwnerships, NO_DEVICE_NAME } from '../../constants'
@@ -31,6 +30,7 @@ import AppContext from '../../../App/AppContext'
 import Breadcrumbs from '../../../../../components/Layout/Header/Breadcrumbs'
 import notificationId from '../../../notificationId'
 import TagGroup from '../../../../../components/Atomic/TagGroup/TagGroup'
+import StatusTag from '../../../../../components/Atomic/StatusTag'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
@@ -248,10 +248,10 @@ const DevicesListPage: FC<Props> = (props) => {
                     const isOwned = OWNED === value
 
                     if (UNSUPPORTED === value) {
-                        return <Badge className='grey'>{_(t.unsupported)}</Badge>
+                        return <StatusTag variant='normal'>{_(t.unsupported)}</StatusTag>
                     }
 
-                    return <Badge className={isOwned ? 'green' : 'red'}>{isOwned ? _(t.owned) : _(t.unowned)}</Badge>
+                    return <StatusTag variant={isOwned ? 'success' : 'error'}>{isOwned ? _(t.owned) : _(t.unowned)}</StatusTag>
                 },
             },
             {

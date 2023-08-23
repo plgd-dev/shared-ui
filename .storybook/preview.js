@@ -15,9 +15,8 @@ import '../src/common/styles/default.scss'
 import '../src/common/styles/animations.scss'
 import '../src/common/styles/form.scss'
 
-import '../src/components/Atomic/Badge/Badge.scss'
 import '../src/components/Atomic/Table/Table.scss'
-import '../src/components/Atomic/TreeExpander/TreeExpander.scss'
+// import '../src/components/Atomic/TreeExpander/TreeExpander.scss'
 
 
 export const parameters = {

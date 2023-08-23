@@ -6,9 +6,6 @@ export * from './ActionButton'
 export { default as App } from './App'
 export * from './App'
 
-export { default as Badge } from './Badge'
-export * from './Badge'
-
 export { default as Button } from './Button'
 export * from './Button'
 
@@ -65,9 +62,6 @@ export * from './Icon'
 
 export { default as IntlProvider } from './IntlProvider'
 export * from './IntlProvider'
-
-export { default as Label } from './Label'
-export * from './Label'
 
 export { default as LanguageSwitcher } from './LanguageSwitcher'
 export * from './LanguageSwitcher'

@@ -1,18 +1,17 @@
 import { FC, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
-import classNames from 'classnames'
 
 import SimpleStripTable from '../../../../../../components/Atomic/SimpleStripTable'
 import TagGroup from '../../../../../../components/Atomic/TagGroup'
 import Tag from '../../../../../../components/Atomic/Tag'
-import Badge from '../../../../../../components/Atomic/Badge'
 import { DEVICE_PROVISION_STATUS_DELAY_MS } from '../../../constants'
 import { IconLoader } from '../../../../../../components/Atomic/Loader'
 import { getColorByOnboardingStatus, getColorByProvisionStatus, getDPSEndpoint, loadResourceData } from '../../../utils'
 import { messages as t } from '../../../Devices.i18n'
-
 import { Props } from './Tab1.types'
 import testId from '../../../../testId'
+import StatusTag from '../../../../../../components/Atomic/StatusTag/StatusTag'
+import { TagTypeType } from '../../../../../../components/Atomic/StatusTag/StatusTag.types'
 
 const Tab1: FC<Props> = (props) => {
     const { data, deviceId, deviceOnboardingResourceData, isOwned, isUnsupported, resources, onboardResourceLoading } = props
@@ -50,20 +49,19 @@ const Tab1: FC<Props> = (props) => {
         { attribute: _(t.id), value: deviceId },
         {
             attribute: _(t.types),
-            value: data?.types ? <TagGroup>{data?.types.map((t, key) => <Tag key={t}>{t}</Tag>)}</TagGroup> : <div>-</div>,
+            value: data?.types ? (
+                <TagGroup>
+                    {data?.types.map((t, key) => (
+                        <Tag key={t}>{t}</Tag>
+                    ))}
+                </TagGroup>
+            ) : (
+                <div>-</div>
+            ),
         },
         {
             attribute: _(t.ownershipStatus),
-            value: (
-                <Badge
-                    className={classNames({
-                        green: isOwned,
-                        red: !isOwned,
-                    })}
-                >
-                    {isOwned ? _(t.owned) : _(t.unowned)}
-                </Badge>
-            ),
+            value: <StatusTag variant={isOwned ? 'success' : 'error'}>{isOwned ? _(t.owned) : _(t.unowned)}</StatusTag>,
             hidden: isUnsupported,
         },
         {
@@ -71,9 +69,9 @@ const Tab1: FC<Props> = (props) => {
             value: onboardResourceLoading ? (
                 <IconLoader size={20} type='secondary' />
             ) : (
-                <Badge className={getColorByOnboardingStatus(onboardingStatus)} data-test-id={onboardTitleStatus}>
+                <StatusTag data-test-id={onboardTitleStatus} variant={getColorByOnboardingStatus(onboardingStatus) as TagTypeType}>
                     {onboardingStatus}
-                </Badge>
+                </StatusTag>
             ),
         },
         {
@@ -81,15 +79,23 @@ const Tab1: FC<Props> = (props) => {
             value: resourceLoading ? (
                 <IconLoader size={20} type='secondary' />
             ) : (
-                <Badge className={isOwned ? getColorByProvisionStatus(provisionStatus) : 'grey'}>
+                <StatusTag variant={isOwned ? (getColorByProvisionStatus(provisionStatus) as TagTypeType) : 'normal'}>
                     {isOwned && deviceResourceData ? provisionStatus : _(t.notAvailable)}
-                </Badge>
+                </StatusTag>
             ),
             hidden: !dpsEndpoint,
         },
         {
             attribute: _(t.endpoints),
-            value: data?.endpoints ? <TagGroup>{data?.endpoints?.map?.((endpoint: string) => <Tag key={endpoint}>{endpoint}</Tag>)}</TagGroup> : <div>-</div>,
+            value: data?.endpoints ? (
+                <TagGroup>
+                    {data?.endpoints?.map?.((endpoint: string) => (
+                        <Tag key={endpoint}>{endpoint}</Tag>
+                    ))}
+                </TagGroup>
+            ) : (
+                <div>-</div>
+            ),
         },
     ]
 
