@@ -3,6 +3,9 @@
 export { default as ActionButton } from './ActionButton'
 export * from './ActionButton'
 
+export { default as Alert } from './Alert'
+export * from './Alert'
+
 export { default as App } from './App'
 export * from './App'
 

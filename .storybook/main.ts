@@ -43,7 +43,7 @@ const config: StorybookConfig = {
   core: {},
   staticDirs: ['../public'],
   docs: {
-    autodocs: true
+    autodocs: false
   }
 }
 
