@@ -138,9 +138,6 @@ export * from './Tag'
 export { default as TagGroup } from './TagGroup'
 export * from './TagGroup'
 
-export { default as TextField } from './TextField'
-export * from './TextField'
-
 export { default as TileToggle } from './TileToggle'
 export * from './TileToggle'
 
