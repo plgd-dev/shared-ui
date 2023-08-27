@@ -51,7 +51,7 @@ const EditDeviceNameModal: FC<Props> = (props) => {
         <div css={styles.footer}>
             <div />
             <div className='modal-buttons'>
-                <Button className='modal-button' onClick={handleReset} variant='secondary'>
+                <Button className='modal-button' dataTestId={dataTestId?.concat('-button-reset')} onClick={handleReset} variant='secondary'>
                     {i18n.reset}
                 </Button>
 

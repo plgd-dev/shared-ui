@@ -4,6 +4,7 @@ import { ButtonVariantsType } from '../Button/Button.types'
 type RenderType = () => ReactNode
 
 type FooterAction = {
+    dataTestId?: string
     disabled?: boolean
     label: string
     loading?: boolean

@@ -97,7 +97,14 @@ export const Modal: FC<Props> = memo((props) => {
             return (
                 <div className='modal-buttons' css={[fullSizeButtons && styles.fullSizeButtons]}>
                     {footerActions.map((action, key) => (
-                        <Button className='modal-button' disabled={action.disabled} key={key} onClick={action.onClick} variant={action.variant}>
+                        <Button
+                            className='modal-button'
+                            dataTestId={action.dataTestId}
+                            disabled={action.disabled}
+                            key={key}
+                            onClick={action.onClick}
+                            variant={action.variant}
+                        >
                             {action.label}
                         </Button>
                     ))}
