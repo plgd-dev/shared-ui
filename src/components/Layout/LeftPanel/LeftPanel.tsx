@@ -27,7 +27,9 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
             <a
                 css={[styles.item, isActive && styles.activeItem, item.disabled && styles.disabled]}
+                data-test-id={item.dataTestId}
                 href={item.link}
+                id={item.id}
                 onClick={(e) => handleItemClick(item, e)}
                 ref={refs.setReference}
             >

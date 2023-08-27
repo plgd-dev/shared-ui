@@ -4,6 +4,7 @@ export type TabItem = {
     id: number
     name: string
     content: ReactNode
+    dataTestId?: string
 }
 
 export type Props = {

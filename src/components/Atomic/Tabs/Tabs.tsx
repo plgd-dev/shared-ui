@@ -51,6 +51,7 @@ const Tabs: FC<Props> = (props) => {
                 {tabs.map((tab, i) => (
                     <motion.button
                         css={[styles.tabItem, i === value && styles.isActive]}
+                        data-test-id={tab.dataTestId}
                         key={i}
                         onClick={() => handleTabChange(tab.id)}
                         ref={(el) => childRefs.current.set(i, el)}

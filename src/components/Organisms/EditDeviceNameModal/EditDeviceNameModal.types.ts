@@ -1,4 +1,5 @@
 export type Props = {
+    dataTestId?: string
     deviceName: string
     deviceNameLoading: boolean
     handleClose: () => void

@@ -7,12 +7,15 @@ const Headline: FC<Props> = (props) => {
     const mergedProps = { ...defaultProps, ...props }
     const HeadlineElement = ({ type, children, ...props }: Props) => createElement(type as string, props, children)
 
+    const { dataTestId, className, ...rest } = mergedProps
+
     return (
         <HeadlineElement
-            {...mergedProps}
+            {...rest}
             children={mergedProps.children}
-            className={classNames(mergedProps.type, mergedProps.className)}
+            className={classNames(mergedProps.type, className)}
             css={styles.headline(mergedProps.type!)}
+            data-test-id={mergedProps.dataTestId}
         />
     )
 }

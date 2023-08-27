@@ -12,6 +12,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         ariaInvalid,
         autoComplete,
         copy,
+        dataTestId,
         disabled,
         error,
         icon,
@@ -47,6 +48,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             ]}
             data-endge-pass={isEdge ? 'true' : undefined}
             data-inline={inline?.toString()}
+            data-test-id={dataTestId}
             disabled={disabled || false}
             pattern={telPattern}
             readOnly={readOnly}

@@ -18,6 +18,7 @@ export const Modal: FC<Props> = memo((props) => {
         closeOnBackdrop,
         closeOnEsc,
         contentPadding,
+        dataTestId,
         footerActions,
         fullSizeButtons,
         id,
@@ -136,6 +137,7 @@ export const Modal: FC<Props> = memo((props) => {
                         animate='visible'
                         className={className}
                         css={styles.modalWrapper}
+                        data-test-id={dataTestId}
                         id={id}
                         initial='hidden'
                         onClick={(e) => e.stopPropagation()}

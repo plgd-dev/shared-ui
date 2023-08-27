@@ -20,6 +20,7 @@ export type Props = {
     closeOnBackdrop?: boolean
     closeOnEsc?: boolean
     contentPadding?: boolean
+    dataTestId?: string
     footerActions?: FooterAction[]
     fullSizeButtons?: boolean
     id?: string

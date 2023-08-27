@@ -2,7 +2,7 @@ import { SerializedStyles } from '@emotion/react'
 import { ChangeEvent } from 'react'
 import { inputSizes } from './constants'
 
-export type FormInputSizeType = typeof inputSizes[keyof typeof inputSizes]
+export type FormInputSizeType = (typeof inputSizes)[keyof typeof inputSizes]
 
 export type Props = {
     autoComplete?: string
@@ -10,6 +10,7 @@ export type Props = {
     ariaInvalid?: boolean
     className?: string
     copy?: boolean
+    dataTestId?: string
     defaultValue?: string | number
     disabled?: boolean
     error?: boolean

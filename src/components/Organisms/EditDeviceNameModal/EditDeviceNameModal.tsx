@@ -11,7 +11,7 @@ import { Props } from './EditDeviceNameModal.types'
 import * as styles from './EditDeviceNameModal.styles'
 
 const EditDeviceNameModal: FC<Props> = (props) => {
-    const { deviceName, deviceNameLoading, show, handleClose, handleSubmit, i18n } = props
+    const { dataTestId, deviceName, deviceNameLoading, show, handleClose, handleSubmit, i18n } = props
     const [name, setName] = useState(deviceName)
 
     useEffect(() => {
@@ -36,7 +36,13 @@ const EditDeviceNameModal: FC<Props> = (props) => {
         <div css={styles.body}>
             <FormGroup id='device-name'>
                 <FormLabel text={i18n.name} />
-                <FormInput onChange={(e) => setName(e.target.value)} onKeyPress={(e) => handleKeyPress(e)} placeholder={i18n.deviceName} value={name} />
+                <FormInput
+                    dataTestId={dataTestId?.concat('-input')}
+                    onChange={(e) => setName(e.target.value)}
+                    onKeyPress={(e) => handleKeyPress(e)}
+                    placeholder={i18n.deviceName}
+                    value={name}
+                />
             </FormGroup>
         </div>
     )
@@ -49,7 +55,14 @@ const EditDeviceNameModal: FC<Props> = (props) => {
                     {i18n.reset}
                 </Button>
 
-                <Button className='modal-button' loading={deviceNameLoading} loadingText={i18n.savingChanges} onClick={handleSubmitFunc} variant='primary'>
+                <Button
+                    className='modal-button'
+                    dataTestId={dataTestId?.concat('-button-confirm')}
+                    loading={deviceNameLoading}
+                    loadingText={i18n.savingChanges}
+                    onClick={handleSubmitFunc}
+                    variant='primary'
+                >
                     {i18n.saveChange}
                 </Button>
             </div>
@@ -61,6 +74,7 @@ const EditDeviceNameModal: FC<Props> = (props) => {
             appRoot={document.getElementById('root')}
             closeButtonText={i18n.close}
             contentPadding={false}
+            dataTestId={dataTestId}
             onClose={handleClose}
             portalTarget={document.getElementById('modal-root')}
             renderBody={renderBody}

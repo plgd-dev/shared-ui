@@ -11,6 +11,7 @@ type MenuItemTag = {
 
 export type MenuItem = {
     children?: Omit<MenuItem, 'icon'>[]
+    dataTestId?: string
     disabled?: boolean
     exact?: boolean
     icon: ReactNode
