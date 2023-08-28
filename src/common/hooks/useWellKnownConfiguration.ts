@@ -53,7 +53,7 @@ export type WellKnownConfigType = {
 
 type useWellKnownConfigurationReturnType = [
     wellKnownConfig: WellKnownConfigType | undefined,
-    updateWellKnowConfig: (newConfig: WellKnownConfigType) => void,
+    updateWellKnowConfig: (newConfig: WellKnownConfigType, mode?: string) => void,
     reFetchConfig: () => Promise<WellKnownConfigType>,
     error: Error | undefined
 ]
@@ -80,7 +80,7 @@ export const mergeConfig = (configOrigin: RemoteProvisioningDataType, configNew:
 export function useWellKnownConfiguration(
     url: string,
     defaultRemoteProvisioningData?: RemoteProvisioningDataType,
-    onConfigurationChange?: () => void
+    onConfigurationChange?: (newConfig: WellKnownConfigType) => void
 ): useWellKnownConfigurationReturnType {
     const [wellKnownConfig, setWellKnownConfig] = useState<WellKnownConfigType | undefined>(undefined)
     const [error, setError] = useState<Error | undefined>(undefined)
@@ -109,9 +109,11 @@ export function useWellKnownConfiguration(
         fetchConfig().then()
     }, []) // eslint-disable-line
 
-    const updateWellKnowConfig = (newConfig: WellKnownConfigType) => {
-        setWellKnownConfig(newConfig)
-        isFunction(onConfigurationChange) && onConfigurationChange()
+    const updateWellKnowConfig = (newConfig: WellKnownConfigType, mode = 'set') => {
+        const finalConfig = mode === 'set' ? newConfig : { ...wellKnownConfig, ...newConfig }
+        setWellKnownConfig(finalConfig)
+
+        isFunction(onConfigurationChange) && onConfigurationChange(finalConfig)
     }
 
     const reFetchConfig = async () => await fetchConfig()
