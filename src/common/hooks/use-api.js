@@ -34,6 +34,7 @@ export const useStreamApi = (url, options = {}) => {
         loading: true,
         data: null,
     })
+
     const [refreshIndex, setRefreshIndex] = useState(0)
     let apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
 

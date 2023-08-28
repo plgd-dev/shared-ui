@@ -9,15 +9,17 @@ import { getOnboardingEndpoint, getResourceRegistrationNotificationKey, hasOnboa
 import { ResourcesType, StreamApiPropsType } from './Devices.types'
 import AppContext from '../App/AppContext'
 import { getHttpGatewayAddress } from '../utils'
+import { DEVICE_AUTH_MODE } from '../constants'
 
 export const useDevicesList = () => {
     const discoveryTimeout = useSelector(getDevicesDiscoveryTimeout)
-    const { unauthorizedCallback } = useContext(AppContext)
+    const { unauthorizedCallback, remoteClientAuthenticationMode } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()
 
     // Fetch the data
     const { data, updateData, ...rest } = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}?timeout=${discoveryTimeout}`, {
         unauthorizedCallback,
+        useToken: remoteClientAuthenticationMode && remoteClientAuthenticationMode === DEVICE_AUTH_MODE.X509,
     })
 
     // Update the metadata when a WS event is emitted
@@ -32,12 +34,13 @@ export const useDevicesList = () => {
 }
 
 export const useDeviceDetails = (deviceId: string) => {
-    const { unauthorizedCallback } = useContext(AppContext)
+    const { unauthorizedCallback, remoteClientAuthenticationMode } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()
 
     const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}`, {
         streamApi: false,
         unauthorizedCallback,
+        useToken: remoteClientAuthenticationMode && remoteClientAuthenticationMode === DEVICE_AUTH_MODE.X509,
     })
 
     // Update the metadata when a WS event is emitted
@@ -64,12 +67,12 @@ export const useDeviceDetails = (deviceId: string) => {
 }
 
 export const useDevicesResources = (deviceId: string) => {
-    const { unauthorizedCallback } = useContext(AppContext)
+    const { unauthorizedCallback, remoteClientAuthenticationMode } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()
 
     const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(
         `${httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/${devicesApiEndpoints.DEVICES_RESOURCES_SUFFIX}`,
-        { parseResult: 'json', unauthorizedCallback }
+        { parseResult: 'json', unauthorizedCallback, useToken: remoteClientAuthenticationMode && remoteClientAuthenticationMode === DEVICE_AUTH_MODE.X509 }
     )
 
     useEmitter(getResourceRegistrationNotificationKey(deviceId), ({ event, resources: updatedResources }: { event: any; resources: any }) => {
