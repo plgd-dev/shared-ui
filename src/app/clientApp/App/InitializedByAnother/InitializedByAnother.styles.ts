@@ -9,6 +9,7 @@ export const initializedByAnother = css`
 
 export const infoBox = css`
     text-align: center;
+    padding: 20px;
 `
 
 export const headline = css`

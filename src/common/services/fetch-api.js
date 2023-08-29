@@ -72,6 +72,11 @@ export const fetchApi = async (url, options = {}) => {
             .catch((error) => {
                 clearTimeout(deadlineTimer)
 
+                if (error.response.status === 401) {
+                    unauthorizedCallback()
+                    return reject(new Error(errorCodes.UNAUTHORIZED))
+                }
+
                 // A middleware for checking if the error was caused by cancellation of the request, if so, throw a DeadlineExceeded error
                 if (axios.isCancel(error)) {
                     return reject(new Error(errorCodes.DEADLINE_EXCEEDED))

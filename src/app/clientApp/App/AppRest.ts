@@ -38,10 +38,11 @@ export const initializeFinal = (state: string, certificate: string) =>
         },
     })
 
-export const reset = (url = getHttpGatewayAddress()) =>
+export const reset = (url = getHttpGatewayAddress(), unauthorizedCallback?: () => void) =>
     fetchApi(`${url}/api/v1/reset`, {
         method: 'POST',
         body: {},
+        unauthorizedCallback,
     })
 
 export const initializedByPreShared = (subjectId: string, key: string) =>
