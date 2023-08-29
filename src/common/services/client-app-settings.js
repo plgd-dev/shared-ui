@@ -9,7 +9,7 @@ let userData = null
 let signOutRedirect = null
 
 // This singleton contains the method getAccessTokenSilently exposed globally, so that we can use this in our interceptors.
-export const clientAppSetings = {
+export const clientAppSettings = {
     getAccessTokenSilently: () => getAccessTokenSilently,
     setAccessTokenSilently: (func) => (getAccessTokenSilently = func),
     getAccessToken: () => getAccessToken,

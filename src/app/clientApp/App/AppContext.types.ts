@@ -6,5 +6,5 @@ export type AppContextType = {
     iframeMode?: boolean
     setCollapsed?: (collapsed: boolean) => void
     unauthorizedCallback?: () => void
-    remoteClientAuthenticationMode?: string
+    useToken?: boolean
 }

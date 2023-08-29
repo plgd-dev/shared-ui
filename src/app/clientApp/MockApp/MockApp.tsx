@@ -5,7 +5,7 @@ import { messages as t } from './MockApp.i18n'
 import { getWellKnowConfig, getClientUrl } from '../utils'
 import { DEVICE_AUTH_CODE_REMOTE_CLIENT_ID } from '../constants'
 import { useClientAppPage } from '../RemoteClients/use-client-app-page'
-import { clientAppSetings, security } from '../../../common/services'
+import { clientAppSettings, security } from '../../../common/services'
 import { useWellKnownConfiguration } from '../../../common/hooks'
 
 const MockApp = () => {
@@ -25,7 +25,7 @@ const MockApp = () => {
     const [httpGatewayAddress] = useState(getClientUrl(clientData?.clientUrl))
     const [wellKnownConfig, setWellKnownConfig, reFetchConfig, wellKnownConfigError] = useWellKnownConfiguration(httpGatewayAddress, hubWellKnownConfig)
 
-    clientAppSetings.setGeneralConfig({
+    clientAppSettings.setGeneralConfig({
         httpGatewayAddress,
     })
 

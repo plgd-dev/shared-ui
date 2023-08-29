@@ -1,4 +1,4 @@
-import { clientAppSetings, security } from '../../common/services'
+import { clientAppSettings, security } from '../../common/services'
 import { WellKnownConfigType } from '../../common/hooks'
 
 type SecurityConfig = {
@@ -6,15 +6,15 @@ type SecurityConfig = {
     authority: string
 }
 
-export const getWellKnowConfig = (): WellKnownConfigType => clientAppSetings.getWellKnowConfig() || security.getWellKnowConfig()
+export const getWellKnowConfig = (): WellKnownConfigType => clientAppSettings.getWellKnowConfig() || security.getWellKnowConfig()
 
 export const getHttpGatewayAddress = () => {
     const getConfig = () => security.getGeneralConfig() as SecurityConfig
-    const getClientAppConfig = () => clientAppSetings.getGeneralConfig() as SecurityConfig
+    const getClientAppConfig = () => clientAppSettings.getGeneralConfig() as SecurityConfig
 
     return getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
 }
 
-export const getWebOAuthConfig = () => clientAppSetings.getWebOAuthConfig() || security.getWebOAuthConfig()
+export const getWebOAuthConfig = () => clientAppSettings.getWebOAuthConfig() || security.getWebOAuthConfig()
 
 export const getClientUrl = (clientUrl: string) => (clientUrl.endsWith('/') ? clientUrl.slice(0, -1) : clientUrl)
