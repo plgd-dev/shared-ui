@@ -3,12 +3,12 @@ import { devicesApiEndpoints } from './constants'
 import { interfaceGetParam } from './utils'
 import { signIdentityCsr } from '../App/AppRest'
 import { DEVICE_AUTH_MODE, DEVICE_AUTH_CODE_SESSION_KEY, DEVICE_AUTH_CODE_REMOTE_CLIENT_ID } from '../constants'
-import { getHttpGatewayAddress, getWebOAuthConfig, getWellKnowConfig } from '../utils'
+import { getHttpGatewayAddress, getUseToken, getWebOAuthConfig, getWellKnowConfig } from '../utils'
 
 /**
  * Get a single thing by its ID Rest Api endpoint
  */
-export const getDeviceApi = (deviceId: string) => fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}`)
+export const getDeviceApi = (deviceId: string) => fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}/${deviceId}`, { useToken: getUseToken() })
 
 /**
  * Delete a set of devices by their IDs Rest Api endpoint
@@ -16,6 +16,7 @@ export const getDeviceApi = (deviceId: string) => fetchApi(`${getHttpGatewayAddr
 export const deleteDevicesApi = () =>
     fetchApi(`${getHttpGatewayAddress()}${devicesApiEndpoints.DEVICES}`, {
         method: 'DELETE',
+        useToken: getUseToken(),
     })
 
 /**

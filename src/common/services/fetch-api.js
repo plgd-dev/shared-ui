@@ -1,5 +1,7 @@
 import axios from 'axios'
 import { security } from './security'
+import { clientAppSettings } from './client-app-settings'
+import isFunction from 'lodash/isFunction'
 
 // Time needed to cancel the request
 const CANCEL_REQUEST_DEADLINE_MS = 30000
@@ -13,15 +15,21 @@ export const errorCodes = {
 }
 
 export const fetchApi = async (url, options = {}) => {
+    const defaultOptions = {
+        useToken: clientAppSettings ? clientAppSettings.getUseToken() : true,
+    }
     const {
         scopes,
         body,
-        useToken: useTokenDefault,
+        useToken,
         unauthorizedCallback,
         cancelRequestDeadlineTimeout: cancelRequestDeadlineTimeoutDefault,
         ...fetchOptions
-    } = options
-    const useToken = useTokenDefault !== false
+    } = {
+        ...defaultOptions,
+        ...options,
+    }
+
     const accessToken = useToken ? security.getAccessToken() : null
     const cancelRequestDeadlineTimeout = cancelRequestDeadlineTimeoutDefault || CANCEL_REQUEST_DEADLINE_MS
 
@@ -62,8 +70,8 @@ export const fetchApi = async (url, options = {}) => {
             .then((response) => {
                 clearTimeout(deadlineTimer)
 
-                if (response.status === 401) {
-                    unauthorizedCallback()
+                if (response.status === 401 || response.status === 501) {
+                    isFunction(unauthorizedCallback) && unauthorizedCallback()
                     return reject(new Error(errorCodes.UNAUTHORIZED))
                 } else {
                     return resolve(response)
@@ -72,8 +80,8 @@ export const fetchApi = async (url, options = {}) => {
             .catch((error) => {
                 clearTimeout(deadlineTimer)
 
-                if (error.response.status === 401) {
-                    unauthorizedCallback()
+                if (error?.response?.status === 401 || error?.response?.status === 501) {
+                    isFunction(unauthorizedCallback) && unauthorizedCallback()
                     return reject(new Error(errorCodes.UNAUTHORIZED))
                 }
 

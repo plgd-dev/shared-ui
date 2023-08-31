@@ -18,3 +18,5 @@ export const getHttpGatewayAddress = () => {
 export const getWebOAuthConfig = () => clientAppSettings.getWebOAuthConfig() || security.getWebOAuthConfig()
 
 export const getClientUrl = (clientUrl: string) => (clientUrl.endsWith('/') ? clientUrl.slice(0, -1) : clientUrl)
+
+export const getUseToken = () => clientAppSettings.getUseToken() ?? true

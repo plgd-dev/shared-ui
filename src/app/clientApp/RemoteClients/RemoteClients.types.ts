@@ -10,7 +10,6 @@ export type RemoteClientType = {
     id: string
     preSharedKey?: string
     preSharedSubjectId?: string
-    reInitialization?: boolean
     status: RemoteClientStatusType
     version: string
 }

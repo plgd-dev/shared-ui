@@ -2,17 +2,11 @@ import { fetchApi } from '../../../common/services'
 import { GITHUB_VERSION_URL } from '../constants'
 import { getHttpGatewayAddress } from '../utils'
 
-export const getAppWellKnownConfiguration = () =>
-    fetchApi(`${getHttpGatewayAddress()}/.well-known/configuration`, {
-        useToken: false,
-    })
+export const getAppWellKnownConfiguration = () => fetchApi(`${getHttpGatewayAddress()}/.well-known/configuration`)
 
-export const getOpenIdConfiguration = (authority: string) =>
-    fetchApi(`${authority}/.well-known/openid-configuration`, {
-        useToken: false,
-    })
+export const getOpenIdConfiguration = (authority: string) => fetchApi(`${authority}/.well-known/openid-configuration`)
 
-export const getJwksData = (url: string) => fetchApi(url, { useToken: false })
+export const getJwksData = (url: string) => fetchApi(url)
 
 export const initializeJwksData = (data: any) =>
     fetchApi(`${getHttpGatewayAddress()}/api/v1/initialize`, {
@@ -20,6 +14,7 @@ export const initializeJwksData = (data: any) =>
         body: {
             jwks: data,
         },
+        useToken: true,
     })
 
 export const signIdentityCsr = (certificateAuthority: string, certificateSigningRequest: string) =>
@@ -28,6 +23,7 @@ export const signIdentityCsr = (certificateAuthority: string, certificateSigning
         body: {
             certificateSigningRequest,
         },
+        useToken: true,
     })
 
 export const initializeFinal = (state: string, certificate: string) =>
@@ -36,12 +32,14 @@ export const initializeFinal = (state: string, certificate: string) =>
         body: {
             certificate,
         },
+        useToken: true,
     })
 
 export const reset = (url = getHttpGatewayAddress(), unauthorizedCallback?: () => void) =>
     fetchApi(`${url}/api/v1/reset`, {
         method: 'POST',
         body: {},
+        useToken: true,
         unauthorizedCallback,
     })
 

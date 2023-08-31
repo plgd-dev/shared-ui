@@ -1,9 +1,16 @@
 import { parseStreamedData } from '../utils'
 import { security } from './security'
+import { clientAppSettings } from './client-app-settings'
+import { errorCodes } from './fetch-api'
 
 export const streamApi = async (url, options = {}) => {
-    const { audience, scopes, body, parseResult, useToken: useTokenDefault, unauthorizedCallback, ...fetchOptions } = options
-    const useToken = useTokenDefault !== false
+    const defaultOptions = {
+        useToken: clientAppSettings ? clientAppSettings.getUseToken() : true,
+    }
+    const { audience, scopes, body, parseResult, useToken, unauthorizedCallback, ...fetchOptions } = {
+        ...defaultOptions,
+        ...options,
+    }
     const accessToken = useToken ? security.getAccessToken() : null
 
     const oAuthSettings = {
@@ -12,6 +19,10 @@ export const streamApi = async (url, options = {}) => {
             'Content-Type': 'application/json',
             ...fetchOptions.headers,
         },
+    }
+
+    if (useToken && !accessToken) {
+        new Error(errorCodes.NO_TOKEN)
     }
 
     // Add the Authorization header to the existing headers

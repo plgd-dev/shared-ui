@@ -12,13 +12,12 @@ import { getHttpGatewayAddress } from '../utils'
 
 export const useDevicesList = () => {
     const discoveryTimeout = useSelector(getDevicesDiscoveryTimeout)
-    const { unauthorizedCallback, useToken } = useContext(AppContext)
+    const { unauthorizedCallback } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()
 
     // Fetch the data
     const { data, updateData, ...rest } = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}?timeout=${discoveryTimeout}`, {
         unauthorizedCallback,
-        useToken,
     })
 
     // Update the metadata when a WS event is emitted
@@ -33,13 +32,12 @@ export const useDevicesList = () => {
 }
 
 export const useDeviceDetails = (deviceId: string) => {
-    const { unauthorizedCallback, useToken } = useContext(AppContext)
+    const { unauthorizedCallback } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()
 
     const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}`, {
         streamApi: false,
         unauthorizedCallback,
-        useToken,
     })
 
     // Update the metadata when a WS event is emitted
@@ -66,12 +64,12 @@ export const useDeviceDetails = (deviceId: string) => {
 }
 
 export const useDevicesResources = (deviceId: string) => {
-    const { unauthorizedCallback, useToken } = useContext(AppContext)
+    const { unauthorizedCallback } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()
 
     const { data, updateData, ...rest }: StreamApiPropsType = useStreamApi(
         `${httpGatewayAddress}${devicesApiEndpoints.DEVICES}/${deviceId}/${devicesApiEndpoints.DEVICES_RESOURCES_SUFFIX}`,
-        { parseResult: 'json', unauthorizedCallback, useToken: useToken }
+        { parseResult: 'json', unauthorizedCallback }
     )
 
     useEmitter(getResourceRegistrationNotificationKey(deviceId), ({ event, resources: updatedResources }: { event: any; resources: any }) => {
