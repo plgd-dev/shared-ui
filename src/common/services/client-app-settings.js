@@ -16,7 +16,7 @@ export const clientAppSettings = {
     getUserData: () => userData,
     setUserData: (data) => (userData = data),
     getSignOutRedirect: () => signOutRedirect,
-    setSignOutRedirect: (data) => (signOutRedirect = signOutRedirect),
+    setSignOutRedirect: (data) => (signOutRedirect = data),
     getUseToken: () => useToken,
     setUseToken: (data) => (useToken = data),
     reset: () => {
