@@ -21,5 +21,5 @@ export const security = {
     getUserManager: () => userManager,
     setUserManager: (data) => (userManager = data),
     getWellKnowConfig: () => wellKnowConfig,
-    setWellKnowConfig: (config) => (wellKnowConfig = config)
+    setWellKnowConfig: (config) => (wellKnowConfig = config),
 }

@@ -7,11 +7,11 @@ export const modalWrapper = css`
     justify-content: center;
 `
 
-export const modal = (maxWidth: number) => css`
+export const modal = (minWidth: number | string, maxWidth: number | string) => css`
     background: #fff;
     padding: 24px;
-    min-width: ${maxWidth}px;
-    max-width: 90%;
+    min-width: ${typeof minWidth === 'string' ? minWidth : `${minWidth}px`};
+    max-width: ${typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`};
     border-radius: 8px;
 `
 export const header = css`

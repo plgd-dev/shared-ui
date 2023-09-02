@@ -1,7 +1,6 @@
 let generalConfig = {}
 let webOAuthConfig = {}
 let wellKnowConfig = null
-let userData = null
 let signOutRedirect = null
 let useToken = true
 
@@ -13,8 +12,6 @@ export const clientAppSettings = {
     setWebOAuthConfig: (config) => (webOAuthConfig = config),
     getWellKnowConfig: () => wellKnowConfig,
     setWellKnowConfig: (config) => (wellKnowConfig = config),
-    getUserData: () => userData,
-    setUserData: (data) => (userData = data),
     getSignOutRedirect: () => signOutRedirect,
     setSignOutRedirect: (data) => (signOutRedirect = data),
     getUseToken: () => useToken,
@@ -23,7 +20,6 @@ export const clientAppSettings = {
         generalConfig = {}
         webOAuthConfig = {}
         wellKnowConfig = null
-        userData = null
         signOutRedirect = null
         useToken = true
     },

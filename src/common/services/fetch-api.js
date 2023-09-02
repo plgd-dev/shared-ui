@@ -12,6 +12,7 @@ export const errorCodes = {
     INVALID_ARGUMENT: 'InvalidArgument',
     NO_TOKEN: 'EmptyToken',
     UNAUTHORIZED: 'Unauthorized',
+    DIFFERENT_USER: 'Different user',
 }
 
 export const fetchApi = async (url, options = {}) => {

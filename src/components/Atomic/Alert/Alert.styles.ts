@@ -27,6 +27,10 @@ export const error = css`
     color: ${colors.red};
 `
 
+export const icon = css`
+    flex: 0 0 24px;
+`
+
 export const label = css`
     padding-left: 12px;
     color: ${colors.neutral600};

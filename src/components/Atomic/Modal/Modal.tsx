@@ -24,6 +24,7 @@ export const Modal: FC<Props> = memo((props) => {
         id,
         maxWidth,
         maxWidthTitle,
+        minWidth,
         onClose,
         portalTarget,
         renderBody,
@@ -150,7 +151,7 @@ export const Modal: FC<Props> = memo((props) => {
                         onClick={(e) => e.stopPropagation()}
                         variants={dropIn}
                     >
-                        <div css={styles.modal(maxWidth)}>
+                        <div css={styles.modal(minWidth, maxWidth)}>
                             <Header />
                             {renderBody && (
                                 <div css={[styles.content, contentPadding && styles.contentPadding]}>{isFunction(renderBody) ? renderBody() : renderBody}</div>

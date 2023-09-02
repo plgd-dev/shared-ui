@@ -31,7 +31,7 @@ const Alert: FC<Props> = (props) => {
                 severity === severities.ERROR && styles.error,
             ]}
         >
-            {getIcon(severity)}
+            <span css={styles.icon}>{getIcon(severity)}</span>
             <span css={styles.label}>{children}</span>
         </div>
     )

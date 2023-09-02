@@ -13,6 +13,10 @@ export const streamApi = async (url, options = {}) => {
     }
     const accessToken = useToken ? security.getAccessToken() : null
 
+    // if (hasDifferentOwner()) {
+    //     // new Error(errorCodes.DIFFERENT_USER)
+    // }
+
     const oAuthSettings = {
         ...fetchOptions,
         headers: {

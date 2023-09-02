@@ -25,8 +25,9 @@ export type Props = {
     footerActions?: FooterAction[]
     fullSizeButtons?: boolean
     id?: string
-    maxWidth?: number
+    maxWidth?: number | string
     maxWidthTitle?: number
+    minWidth?: number | string
     onClose?: () => void
     portalTarget?: ReactNode | Element | null
     renderBody?: RenderType | ReactNode
@@ -42,5 +43,6 @@ export const defaultProps = {
     closeOnBackdrop: true,
     closeOnEsc: true,
     contentPadding: true,
-    maxWidth: 600,
+    maxWidth: '90%',
+    minWidth: 600,
 }
