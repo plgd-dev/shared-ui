@@ -2,6 +2,7 @@ import { parseStreamedData } from '../utils'
 import { security } from './security'
 import { clientAppSettings } from './client-app-settings'
 import { errorCodes } from './fetch-api'
+import { hasDifferentOwner } from './api-utils'
 
 export const streamApi = async (url, options = {}) => {
     const defaultOptions = {
@@ -13,9 +14,9 @@ export const streamApi = async (url, options = {}) => {
     }
     const accessToken = useToken ? security.getAccessToken() : null
 
-    // if (hasDifferentOwner()) {
-    //     // new Error(errorCodes.DIFFERENT_USER)
-    // }
+    if (hasDifferentOwner()) {
+        new Error(errorCodes.DIFFERENT_USER)
+    }
 
     const oAuthSettings = {
         ...fetchOptions,
