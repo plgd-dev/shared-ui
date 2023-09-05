@@ -50,7 +50,7 @@ export const useStreamApi = (url, options = {}) => {
                     let data = []
 
                     if (process.env[`REACT_APP_MOCK_API_${mockKey}`]) {
-                        const mockUrl = `${process.env.REACT_APP_MOCK_BASE_RUL}/api/${urlBase}`
+                        const mockUrl = `${process.env.REACT_APP_MOCK_BASE_URL}/api/${urlBase}`
                         data = await getData(fetchApi, mockUrl, options)
                     } else {
                         data = await getData(apiMethod, url, options)

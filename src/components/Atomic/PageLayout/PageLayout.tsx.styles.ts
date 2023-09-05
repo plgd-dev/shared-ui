@@ -20,6 +20,7 @@ export const header = css`
     justify-content: space-between;
     align-items: center;
     padding-bottom: 16px;
+    min-height: 72px;
 `
 
 export const left = css`

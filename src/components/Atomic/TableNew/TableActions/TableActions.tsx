@@ -10,17 +10,19 @@ const TableActions: FC<Props> = memo((props) => {
         <div className={className} id={id}>
             <FloatingDelayGroup delay={200}>
                 <div css={styles.actionItems}>
-                    {items.map((item, key) => (
-                        <div css={styles.actionItem} key={key}>
-                            <Tooltip content={item.tooltipText} id={item.id}>
-                                {typeof item.icon === 'string' ? (
-                                    <Icon css={styles.icon} icon={item.icon} onClick={item.onClick} size={item.size || 20} />
-                                ) : (
-                                    cloneElement(item.icon as ReactElement, { onClick: item.onClick, ...convertSize(item.size || 20), css: styles.icon })
-                                )}
-                            </Tooltip>
-                        </div>
-                    ))}
+                    {items
+                        .filter((item) => !item.hidden)
+                        .map((item, key) => (
+                            <div css={styles.actionItem} key={key}>
+                                <Tooltip content={item.tooltipText} id={item.id}>
+                                    {typeof item.icon === 'string' ? (
+                                        <Icon css={styles.icon} icon={item.icon} onClick={item.onClick} size={item.size || 20} />
+                                    ) : (
+                                        cloneElement(item.icon as ReactElement, { onClick: item.onClick, ...convertSize(item.size || 20), css: styles.icon })
+                                    )}
+                                </Tooltip>
+                            </div>
+                        ))}
                 </div>
             </FloatingDelayGroup>
         </div>
