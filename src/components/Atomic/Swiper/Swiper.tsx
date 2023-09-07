@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { cloneElement, FC } from 'react'
 import { Props, defaultProps } from './Swiper.types'
 import { Swiper as SwiperBase, SwiperSlide } from 'swiper/react'
@@ -7,8 +8,6 @@ import * as styles from './Swiper.style'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
-
-// @ts-nocheck
 
 const Swiper: FC<Props> = (props) => {
     const { alignItems, delay, slides } = { ...defaultProps, ...props }

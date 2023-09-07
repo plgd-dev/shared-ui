@@ -88,7 +88,7 @@
     "react-hook-form": "^7.45.2",
     "react-intl": "^5.25.1",
     "react-merge-refs": "^2.0.2",
-    "react-resize-detector": "^8.1.0",
+    "react-resize-detector": "^9.1.0",
     "react-responsive": "^9.0.2",
     "react-select": "^5.7.4",
     "react-spinners": "^0.13.8",
