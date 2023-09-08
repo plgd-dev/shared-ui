@@ -17,6 +17,6 @@ export const icon = css`
     transition: all 0.25s;
 
     &:hover {
-        color: #007bbf;
+        color: ${colors.primary};
     }
 `

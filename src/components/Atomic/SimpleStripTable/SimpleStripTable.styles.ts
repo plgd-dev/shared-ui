@@ -13,13 +13,13 @@ export const row = css`
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    background: #ffffff;
+    background: #000028;
     border-radius: 8px;
     transition: all 0.25s;
     height: 54px;
 
     &:hover {
-        background: ${colors.tertiary};
+        background: #23233d;
     }
 `
 
@@ -32,7 +32,7 @@ export const attribute = css`
 
 export const value = css`
     padding: 16px 24px;
-    color: ${colors.neutral800};
+    color: #81868c;
     flex: 1 1 auto;
     text-align: right;
     display: flex;
@@ -50,7 +50,7 @@ export const border = css`
         position: absolute;
         bottom: 0;
         height: 1px;
-        background: ${colors.neutral200};
+        background: #23233c;
     }
 `
 export const borderLeft = css`

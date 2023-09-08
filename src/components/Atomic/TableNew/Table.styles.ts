@@ -52,13 +52,13 @@ export const headerTitle = styled.span`
 export const headerItem = css`
     display: flex;
     align-items: center;
-    background: #f6f7f9;
+    background: #23233c;
     height: 50px;
     padding: 0 8px;
 
     &:hover {
         ${headerTitle} {
-            color: ${colors.neutral800};
+            color: ${colors.primary};
         }
     }
 `
@@ -90,13 +90,12 @@ export const sortArrow = css`
 `
 
 export const sortActive = css`
-    color: ${colors.primaryBonus};
+    color: ${colors.primary};
 `
 
-const getRowHeight = (props: { rowHeight: number }) =>
-    css`
-        height: ${props.rowHeight}px;
-    `
+const getRowHeight = (props: { rowHeight: number }) => css`
+    height: ${props.rowHeight}px;
+`
 
 export const cell = styled.div`
     ${getRowHeight};
@@ -125,7 +124,7 @@ export const cell = styled.div`
     }
 
     a {
-        color: ${colors.neutral800};
+        color: #fff;
 
         &:hover {
             text-decoration: none;
@@ -168,13 +167,13 @@ export const lastCell = css`
 export const row = css`
     &:hover {
         ${cell} {
-            background-color: ${colors.neutral100};
+            background-color: #26233c;
         }
     }
 `
 
 export const isSelected = css`
     ${cell} {
-        background-color: ${colors.neutral100};
+        background-color: #26233c;
     }
 `

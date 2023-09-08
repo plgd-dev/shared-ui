@@ -6,13 +6,14 @@ export const input = css`
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    border: 1px solid #e6e9ed;
+    border: 1px solid #23233c;
+    background: #000028;
     border-radius: 8px;
     display: block;
     width: 100%;
     padding: 0 16px;
     transition: all 0.25s;
-    color: #252626;
+    color: #ffffff;
     box-sizing: border-box;
 
     &::placeholder {
@@ -119,5 +120,5 @@ export const disabled = css`
 `
 
 export const error = css`
-    border-color: ${colors.red};
+    border-color: #ef0137;
 `

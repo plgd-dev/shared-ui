@@ -63,7 +63,7 @@ const getSizes = (type: HeadlineType) => {
 }
 
 export const headline = (type: HeadlineType) => css`
-    color: ${colors.neutral900};
+    color: #00c5c7 !important;
     font-family: 'Circular Pro', sans-serif;
     font-weight: 700;
     font-style: normal;

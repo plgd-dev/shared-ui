@@ -23,7 +23,7 @@ export const unreadMark = css`
     left: 0;
     top: 0;
     background: ${colors.red};
-    border: 2px solid #ffffff;
+    border: 2px solid #23233c;
     border-radius: 50%;
     box-sizing: border-box;
 `

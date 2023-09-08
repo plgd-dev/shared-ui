@@ -29,4 +29,5 @@ export const content = css`
     flex: 1 1 auto;
     overflow: auto;
     height: 100%;
+    background: #000028;
 `

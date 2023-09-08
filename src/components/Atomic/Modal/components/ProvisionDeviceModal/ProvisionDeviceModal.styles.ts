@@ -7,7 +7,7 @@ export const getCodeBox = css`
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: #f4f9fb;
+    background: #000028;
     border-radius: 8px;
 `
 

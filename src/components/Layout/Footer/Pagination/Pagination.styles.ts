@@ -26,6 +26,7 @@ export const item = css`
 
     &:hover {
         text-decoration: none !important;
+        color: ${colors.primary};
     }
 `
 
@@ -37,6 +38,7 @@ export const active = css`
     cursor: default;
 
     &:hover {
+        color: ${colors.neutral900};
         text-decoration: none;
     }
 `

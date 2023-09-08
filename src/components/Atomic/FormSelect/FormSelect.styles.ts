@@ -13,6 +13,7 @@ export const select = (size: FormSelectSizeType, disabled?: boolean) => css`
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 22px;
+                color: #fff;
 
                 input {
                     font-family: 'Poppins', sans-serif !important;
@@ -20,7 +21,7 @@ export const select = (size: FormSelectSizeType, disabled?: boolean) => css`
                     font-weight: 400 !important;
                     font-size: 14px !important;
                     line-height: 22px !important;
-                    color: ${colors.neutral800}!important;
+                    color: #fff !important;
                 }
             }
         }
@@ -52,7 +53,8 @@ export const control = css`
     border-radius: 8px;
     box-shadow: none;
     transition: all 0.3s;
-    border: 1px solid ${colors.neutral300};
+    border: 1px solid #23233c;
+    background: #000028;
 
     &:focus {
         outline: none;
@@ -76,9 +78,10 @@ export const error = css`
 export const menu = css`
     margin-top: 4px;
     margin-bottom: 4px;
-    border: 1px solid ${colors.neutral200};
+    border: 1px solid #23233c;
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
+    background: #000028;
 `
 
 export const menuList = css`
@@ -111,7 +114,7 @@ export const option = css`
 `
 
 export const optionSelected = css`
-    color: ${colors.neutral800};
+    color: ${colors.primary};
     background: transparent;
 `
 
@@ -124,7 +127,7 @@ export const valueContainer = css`
 `
 
 export const value = css`
-    color: ${colors.neutral800};
+    color: #fff;
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
@@ -139,7 +142,7 @@ export const dropdownIndicator = css`
 
 export const indicator = css`
     transition: all 0.3s;
-    color: ${colors.neutral500};
+    color: #fff;
 `
 
 export const indicatorOpen = css`
@@ -147,7 +150,7 @@ export const indicatorOpen = css`
 `
 
 export const placeholder = css`
-    color: ${colors.neutral800};
+    color: #fff;
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;

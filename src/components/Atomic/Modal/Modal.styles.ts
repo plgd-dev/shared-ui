@@ -8,7 +8,7 @@ export const modalWrapper = css`
 `
 
 export const modal = (maxWidth: number) => css`
-    background: #fff;
+    background: #23233c;
     padding: 24px;
     min-width: ${maxWidth}px;
     max-width: 90%;
@@ -55,7 +55,7 @@ export const close = css`
 `
 
 export const content = css`
-    background: #fff;
+    background: #23233c;
 `
 
 export const contentPadding = css`
@@ -63,7 +63,7 @@ export const contentPadding = css`
 `
 export const footer = css`
     padding: 24px 0 0 0;
-    background: #fff;
+    background: #23233c;
     display: flex;
     justify-content: flex-end;
 

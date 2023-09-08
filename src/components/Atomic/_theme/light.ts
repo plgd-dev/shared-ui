@@ -5,11 +5,11 @@ const theme = {
         primary: {
             background: colors.primary,
             borderColor: colors.primary,
-            color: colors.neutral000,
+            color: '#23233C',
             hover: {
                 background: colors.primaryHover,
                 borderColor: colors.primaryHover,
-                color: colors.neutral000,
+                color: '#23233C',
             },
             disabled: {
                 background: colors.disabled,
@@ -18,9 +18,9 @@ const theme = {
             },
         },
         secondary: {
-            background: colorsVariants.secondary.background,
+            background: '#00af8e',
             borderColor: colors.primaryDarken,
-            color: colors.primaryDarken,
+            color: '#fff',
             hover: {
                 background: colors.primaryDarken,
                 borderColor: colors.primaryDarken,
@@ -48,13 +48,13 @@ const theme = {
             },
         },
         filter: {
-            background: colorsVariants.tertiary.background,
-            borderColor: colors.neutral300,
-            color: colorsVariants.tertiary.text,
+            background: '#23233c',
+            borderColor: '#23233c',
+            color: '#cacaca',
             hover: {
-                background: colors.neutral000,
-                borderColor: colors.primary,
-                color: colors.primary,
+                background: '#23233c',
+                borderColor: '#23233c',
+                color: '#fff',
             },
             disabled: {
                 background: colors.tertiary,

@@ -7,16 +7,16 @@ export const editor = css`
         background: rgba(255, 255, 255, 0);
     }
     .jsoneditor {
-        border: 1px solid #e6e9ed;
+        border: 1px solid #000028;
         border-radius: 8px;
         overflow: hidden;
 
         .ace-jsoneditor {
             .ace_scroller {
-                background: #f4f9fb;
+                background: #000028;
             }
             .ace_gutter {
-                background: #e6e9ed;
+                background: #000028;
                 //             //padding: 16px 0;
                 //
                 .ace_gutter-cell {
@@ -31,6 +31,10 @@ export const editor = css`
                     //                 display: flex;
                     //                 align-items: center;
                 }
+            }
+
+            .ace_gutter-active-line {
+                background: #000028;
             }
 
             .ace_bracket,

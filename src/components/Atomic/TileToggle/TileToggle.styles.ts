@@ -3,7 +3,7 @@ import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
 
 export const tileToggle = css`
-    background: ${colors.neutral100};
+    background: #23233c;
     border-radius: 8px;
     padding: 24px;
     display: flex;

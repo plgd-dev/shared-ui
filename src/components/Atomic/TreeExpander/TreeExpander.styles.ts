@@ -7,7 +7,7 @@ export const treeExpander = css`
 
     &:hover {
         .expander-icon {
-            color: ${colors.primary};
+            color: #fff;
         }
     }
 `
@@ -18,6 +18,6 @@ export const expanderIcon = css`
 `
 
 export const expanded = css`
-    color: ${colors.primary};
+    color: #fff;
     transform: rotate(180deg);
 `

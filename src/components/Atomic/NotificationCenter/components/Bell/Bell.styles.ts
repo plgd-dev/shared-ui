@@ -58,7 +58,7 @@ export const hasUnRead = css`
         content: '';
         display: block;
         box-sizing: border-box;
-        border: 2px solid #fff;
+        border: 2px solid #23233c;
         background: ${colors.red};
         border-radius: 50%;
         position: absolute;

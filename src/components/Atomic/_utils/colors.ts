@@ -1,13 +1,13 @@
 export const uiColorMap = {
     light: {
-        primaryDarken: '#0A2965', // darken
-        primary: '#2261AE',
-        primaryHover: '#1D589F', // hover
+        primaryDarken: '#00ADB4', // darken
+        primary: '#00ADB4',
+        primaryHover: '#00BEDC', // hover
         primaryBonus: '#007BBF', // bonus
         primaryBright: '#87CEF2', // bright
         light: '#F4F9FB',
         yellow: '#FEBF40',
-        red: '#D74E3A',
+        red: '#ef0137',
         green: '#52c5a2',
         neutral900: '#191A1A',
         neutral800: '#252626',

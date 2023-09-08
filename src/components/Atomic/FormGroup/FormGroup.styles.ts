@@ -17,7 +17,7 @@ export const errorMessage = css`
     font-size: 12px;
     line-height: 160%;
     text-align: right;
-    color: ${colors.red};
+    color: #ef0137;
     padding-top: 4px;
 `
 

@@ -58,7 +58,7 @@ export const subTitle = css`
 `
 
 export const body = css`
-    background: #f4f9fb;
+    background: #000028;
     margin-top: 8px;
     border-radius: 8px;
     padding: 8px 24px;
@@ -92,7 +92,7 @@ export const val = css`
     font-size: 14px;
     line-height: 22px;
     text-align: right;
-    color: ${colors.neutral800};
+    color: ${colors.neutral500};
 `
 
 export const emptyDeleteInformation = css`

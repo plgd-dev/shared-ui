@@ -36,7 +36,7 @@ export const name = css`
     font-weight: 500;
     font-size: 16px;
     line-height: 160%;
-    color: #0a2965;
+    color: #fff;
 `
 
 export const description = css`
@@ -59,6 +59,10 @@ export const image = css`
         border-radius: 50%;
         width: 100%;
         height: auto;
+    }
+
+    .sb-avatar__text {
+        background: #00002d !important;
     }
 `
 

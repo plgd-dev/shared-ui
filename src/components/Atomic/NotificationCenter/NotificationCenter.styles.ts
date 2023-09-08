@@ -4,8 +4,8 @@ import { commonStyles, fontPrimary } from '../_utils/commonStyles'
 
 export const floatingPanel = css`
     z-index: 10;
-    background: #fff;
-    border: 1px solid #e6e9ed;
+    background: #000028;
+    border: 1px solid #23233c;
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     min-width: 400px;

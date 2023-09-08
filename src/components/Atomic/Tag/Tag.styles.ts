@@ -5,7 +5,7 @@ export const tag = css`
     display: inline-flex;
     flex-direction: row;
     align-items: center;
-    background: ${colors.neutral100};
+    background: #23233c;
     border-radius: 4px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;

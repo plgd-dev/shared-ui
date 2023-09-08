@@ -31,6 +31,7 @@ export const searchInput = css`
     color: ${colors.neutral500};
     width: 100%;
     height: 30px;
+    background: transparent;
 
     &:focus {
         outline: none;

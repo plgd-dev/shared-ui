@@ -3,8 +3,8 @@ import { colors } from '../../Atomic/_utils/colors'
 import { fontPrimary } from '../../Atomic/_utils/commonStyles'
 
 export const footer = css`
-    border-top: 1px solid #e6e9ed;
-    background: #fff;
+    border-top: 1px solid #23233c;
+    background: #23233c;
     padding: 0 40px;
     box-sizing: border-box;
     flex-shrink: 0;
@@ -22,8 +22,9 @@ export const footerMainLine = css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 0;
+    padding: 16px 40px;
     min-height: 64px;
+    margin: 0 -40px;
 `
 
 export const recentTasks = css`
@@ -33,12 +34,17 @@ export const recentTasks = css`
     font-size: 12px;
     line-height: 18px;
     text-align: center;
-    color: ${colors.neutral900};
+    color: #fff;
     text-decoration: none;
     display: flex;
     align-items: center;
     padding-right: 22px;
+    transition: all 0.25s;
     position: relative;
+
+    &:hover {
+        color: ${colors.primary};
+    }
 `
 
 export const icon = css`

@@ -12,7 +12,7 @@ export const statusLine = (status: StatusPillStatusType) => css`
     width: 4px;
     height: 24px;
     border-radius: 6px;
-    background-color: ${status === states.ONLINE ? colors.green : colors.red};
+    background-color: ${status === states.ONLINE ? '#00af8e' : '#ef0137'};
 `
 
 export const label = css`

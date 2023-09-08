@@ -2,14 +2,14 @@ import { css } from '@emotion/react'
 import { colors } from '../../Atomic/_utils/colors'
 
 export const header = css`
-    background-color: #fff;
+    background-color: #23233c;
     height: 85px;
     padding: 20px 40px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #e6e9ed;
+    border-bottom: 1px solid #23233c;
 `
 
 export const left = css`

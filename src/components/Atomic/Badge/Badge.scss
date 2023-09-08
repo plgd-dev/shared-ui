@@ -36,15 +36,15 @@ $margin_size: 5px;
   }
 
   &.green, &.success {
-    background-color: $success_50 !important;
-    color: $success_100;
-    border-color: $success_50;
+    background-color: rgba(0, 175, 142, 0.35) !important;
+    color: #00af8e;
+    border-color: rgba(0, 175, 142, 0.35);
   }
 
   &.red, &.error {
-    background-color: $error_50 !important;
-    color: $error_100;
-    border-color: $error_50;
+    background-color: rgba(239, 1, 55, 0.35) !important;
+    color: #ef0137;
+    border-color: rgba(239, 1, 55, 0.35);
   }
 
   &.orange, &.warning {

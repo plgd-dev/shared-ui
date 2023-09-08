@@ -31,14 +31,14 @@ export const variant = (variant: ButtonVariantsType | undefined, theme: ThemeTyp
 `
 
 export const variantDisabled = (variant: ButtonVariantsType | undefined, theme: ThemeType) => css`
-    background: ${get(theme, `Button.${variant}.disabled.background`)};
-    border: 1px solid ${get(theme, `Button.${variant}.disabled.borderColor`)};
+    background: #81868c;
+    border: 1px solid #23233c;
     color: ${get(theme, `Button.${variant}.disabled.color`)};
     cursor: not-allowed;
 
     &:hover {
-        background: ${get(theme, `Button.${variant}.disabled.background`)};
-        border-color: ${get(theme, `Button.${variant}.disabled.borderColor`)};
+        border-color: #fff;
+        background: #81868c;
         color: ${get(theme, `Button.${variant}.disabled.color`)};
     }
 `

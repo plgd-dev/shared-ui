@@ -5,7 +5,7 @@ import { colors } from '../../Atomic/_utils/colors'
 import { COLLAPSE_ANIMATION_TIME } from '../constants'
 
 export const leftPanel = css`
-    background: #f4f9fb;
+    background: #23233c;
     display: flex;
     flex-direction: column;
     //height: 100%;
@@ -19,7 +19,7 @@ export const collapsed = css`
 `
 
 export const collapseToggle = css`
-    color: ${colors.neutral500};
+    color: #fff;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -47,7 +47,7 @@ export const logo = css`
         right: 0;
         bottom: 0;
         width: 17px;
-        background: #f4f9fb;
+        background: #23233c;
     }
 `
 
@@ -56,6 +56,7 @@ export const logoSvg = css`
     left: 24px;
     top: 24px;
     transition: all ${COLLAPSE_ANIMATION_TIME};
+    width: 180px;
 `
 
 export const logoCollapsed = css`
@@ -133,7 +134,7 @@ export const groupTitle = css`
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: rgba(129, 134, 140, 0.8);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 12px;
 `
 
@@ -148,7 +149,7 @@ export const item = css`
     min-height: 40px;
     box-sizing: border-box;
     border-radius: 8px;
-    color: #81868c;
+    color: #fff;
     transition: all 0.25s;
     position: relative;
     overflow: hidden;
@@ -374,7 +375,7 @@ export const iconClose = css`
 `
 
 export const versionItem = css`
-    border-top: 2px solid ${colors.neutral200};
+    border-top: 2px solid #000028;
     margin-top: 12px;
     padding: 0 0 0 8px;
     display: flex;

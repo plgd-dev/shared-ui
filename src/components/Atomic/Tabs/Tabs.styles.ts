@@ -16,7 +16,7 @@ export const fullHeight = css`
 export const tabList = css`
     display: block;
     position: relative;
-    border-bottom: 1px solid ${colors.neutral200};
+    border-bottom: 1px solid #81868c;
 `
 
 export const tabItem = css`
@@ -65,7 +65,7 @@ export const slider = css`
     height: 3px;
     bottom: 0;
     position: absolute;
-    background: ${colors.primaryBonus};
+    background: ${colors.primary};
 `
 
 export const page = css`

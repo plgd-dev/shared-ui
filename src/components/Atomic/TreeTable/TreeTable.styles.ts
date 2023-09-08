@@ -34,7 +34,7 @@ export const row = css`
 
     &:hover {
         .tree-custom-tag {
-            background: #fff;
+            background: #ccc;
         }
     }
 `
@@ -48,7 +48,7 @@ export const treeCell = css`
 export const removeBottomBorderRadius = css`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    background-color: ${colors.neutral100};
+    background-color: #23233c;
 
     .tree-custom-tag {
         background: #fff;
@@ -58,7 +58,7 @@ export const removeBottomBorderRadius = css`
 export const removeTopBorderRadius = css`
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background-color: ${colors.neutral100};
+    background-color: #23233c;
 
     .tree-custom-tag {
         background: #fff;
@@ -67,7 +67,7 @@ export const removeTopBorderRadius = css`
 
 export const removeBorderRadius = css`
     border-radius: 0;
-    background-color: ${colors.neutral100};
+    background-color: #23233c;
 
     .tree-custom-tag {
         background: #fff;

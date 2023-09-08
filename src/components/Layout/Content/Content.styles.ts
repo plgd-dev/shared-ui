@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 
 export const content = css`
-    background: #fff;
+    background: #000028;
     padding: 24px 40px 0 24px;
 `
 

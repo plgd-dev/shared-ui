@@ -22,7 +22,7 @@ export const inner = css`
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background: #fff;
+    background: #23233c;
     box-shadow: 0px -30px 20px rgba(28, 52, 99, 0.05);
     transition: all 0.35s;
 `
@@ -50,7 +50,7 @@ export const selectionInfo = css`
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    color: #0a2965;
+    color: ${colors.primary};
 `
 
 export const right = css`

@@ -12,12 +12,11 @@ export const labelBefore = css`
     flex-direction: row-reverse;
 `
 
-const getSwitcherSize = (size: SwitcherSizeType) =>
-    css`
-        width: ${size === 'big' ? '32px' : '24px'};
-        height: ${size === 'big' ? '20px' : '15px'};
-        border-radius: ${size === 'big' ? '26.6667px' : '20px'};
-    `
+const getSwitcherSize = (size: SwitcherSizeType) => css`
+    width: ${size === 'big' ? '32px' : '24px'};
+    height: ${size === 'big' ? '20px' : '15px'};
+    border-radius: ${size === 'big' ? '26.6667px' : '20px'};
+`
 
 export const switcher = (size: SwitcherSizeType) => css`
     ${getSwitcherSize(size)};
@@ -77,7 +76,7 @@ export const sliderStyle = (size: SwitcherSizeType) => css`
 
 export const label = css`
     font-size: 14px;
-    color: ${colors.neutral800};
+    color: #81868c;
     padding-left: 8px;
     cursor: pointer;
     line-height: 18px;
