@@ -51,7 +51,7 @@ export const removeBottomBorderRadius = css`
     background-color: #23233c;
 
     .tree-custom-tag {
-        background: #fff;
+        background: #ccc;
     }
 `
 
@@ -61,7 +61,7 @@ export const removeTopBorderRadius = css`
     background-color: #23233c;
 
     .tree-custom-tag {
-        background: #fff;
+        background: #ccc;
     }
 `
 
@@ -70,7 +70,7 @@ export const removeBorderRadius = css`
     background-color: #23233c;
 
     .tree-custom-tag {
-        background: #fff;
+        background: #ccc;
     }
 `
 
