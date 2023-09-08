@@ -4,7 +4,7 @@ import { fontPrimary } from '../../Atomic/_utils/commonStyles'
 
 export const footer = css`
     border-top: 1px solid #23233c;
-    background: #23233c;
+    background: #000028;
     padding: 0 40px;
     box-sizing: border-box;
     flex-shrink: 0;
@@ -25,6 +25,7 @@ export const footerMainLine = css`
     padding: 16px 40px;
     min-height: 64px;
     margin: 0 -40px;
+    background-color: #23233c;
 `
 
 export const recentTasks = css`
