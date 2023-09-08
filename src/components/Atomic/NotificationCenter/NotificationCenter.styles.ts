@@ -9,6 +9,7 @@ export const floatingPanel = css`
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     min-width: 400px;
+    max-width: 600px;
 `
 
 export const header = css`

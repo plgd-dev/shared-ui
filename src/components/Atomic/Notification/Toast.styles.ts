@@ -19,8 +19,8 @@ export const getColorByType = (type: TypeOptions) => {
 
 export const toast = (type: TypeOptions, clickable = false) => cssRaw`
     overflow: visible;
-    background: #fff;
-    border: 1px solid ${colors.neutral200};
+    background: #000028;
+    border: 1px solid #23233c;
     box-shadow: 0px 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     margin-bottom: 12px;

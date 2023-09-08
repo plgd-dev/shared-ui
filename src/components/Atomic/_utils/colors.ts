@@ -6,7 +6,7 @@ export const uiColorMap = {
         primaryBonus: '#007BBF', // bonus
         primaryBright: '#87CEF2', // bright
         light: '#F4F9FB',
-        yellow: '#FEBF40',
+        yellow: '#ffd732',
         red: '#ef0137',
         green: '#52c5a2',
         neutral900: '#191A1A',

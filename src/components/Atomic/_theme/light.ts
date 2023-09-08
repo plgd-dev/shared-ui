@@ -33,8 +33,8 @@ const theme = {
             },
         },
         tertiary: {
-            background: colors.neutral100,
-            borderColor: colors.neutral100,
+            background: '#9999a9',
+            borderColor: '#9999a9',
             color: colors.neutral900,
             hover: {
                 background: colors.neutral300,
