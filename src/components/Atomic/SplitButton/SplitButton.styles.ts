@@ -19,8 +19,8 @@ export const rightButton = css`
 
 export const floatingMenu = css`
     z-index: 10;
-    background: #fff;
-    border: 1px solid #e6e9ed;
+    background: #23233c;
+    border: 1px solid #000028;
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     padding: 10px 20px;
