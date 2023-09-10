@@ -36,7 +36,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
         show,
     } = { ...defaultProps, ...props }
     const editor = useRef()
-    const [jsonData, setJsonData] = useState<object | undefined>(undefined)
+    const [jsonData, setJsonData] = useState<object | string | undefined>(undefined)
     const [interfaceJsonError, setInterfaceJsonError] = useState(false)
 
     const disabled = retrieving || loading
@@ -63,18 +63,21 @@ const DevicesResourcesModal: FC<Props> = (props) => {
 
     useEffect(() => {
         const dataToDisplay = resourceData?.data?.content
-        const newJsonData = dataToDisplay && !isEmpty(dataToDisplay) ? dataToDisplay : defaultData
-        setJsonData(newJsonData)
 
         if (resourceData && editor.current) {
             // Set the retrieved JSON object to the editor
-            if (typeof resourceData === 'object') {
+            if (typeof dataToDisplay === 'object') {
+                const newJsonData = !isEmpty(dataToDisplay) ? dataToDisplay : defaultData
+                setJsonData(newJsonData)
                 // @ts-ignore
                 editor?.current?.current?.set(newJsonData)
-            } else if (typeof resourceData === 'string') {
+            } else if (typeof dataToDisplay === 'string' || typeof dataToDisplay === 'number' || typeof dataToDisplay === 'boolean') {
                 // @ts-ignore
-                editor?.current?.current?.setText(newJsonData)
+                editor?.current?.current?.setText(dataToDisplay.toString())
+                setJsonData(dataToDisplay.toString())
             }
+        } else {
+            setJsonData(defaultData)
         }
     }, [defaultData, resourceData, show])
 
