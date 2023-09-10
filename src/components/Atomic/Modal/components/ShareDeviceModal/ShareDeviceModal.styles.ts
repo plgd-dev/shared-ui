@@ -24,7 +24,7 @@ export const alreadyShared = css`
 export const sharedItem = css`
     display: flex;
     padding: 18px 0;
-    border-bottom: 1px solid ${colors.neutral300};
+    border-bottom: 1px solid #1a1a1a;
 `
 
 export const left = css`

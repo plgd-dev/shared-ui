@@ -37,6 +37,10 @@ export const editor = css`
                 background: #000028;
             }
 
+            .ace_indent-guide {
+                background: none;
+            }
+
             .ace_bracket,
             .ace_punctuation,
             .ace_operator,

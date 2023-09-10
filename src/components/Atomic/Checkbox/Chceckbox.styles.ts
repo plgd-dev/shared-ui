@@ -13,7 +13,7 @@ export const check = styled.span`
     width: 16px;
     height: 16px;
     flex: 0 0 16px;
-    border: 1px solid #d7d8da;
+    border: 1px solid #81868c;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.25s;

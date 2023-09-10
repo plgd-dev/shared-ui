@@ -18,7 +18,7 @@ export const header = css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #e6e9ed;
+    border-bottom: 2px solid #81868c;
     padding: 12px 0 32px 0;
 `
 

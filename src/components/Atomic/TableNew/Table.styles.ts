@@ -120,7 +120,7 @@ export const cell = styled.div`
         left: 0;
         right: 0;
         position: absolute;
-        background-color: ${colors.neutral200};
+        background-color: #23233c;
     }
 
     a {

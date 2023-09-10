@@ -6,7 +6,7 @@ export const strippedLine = css`
     padding: 16px 0;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid ${colors.neutral200};
+    border-bottom: 1px solid #81868c;
 `
 
 export const smallPadding = css`
