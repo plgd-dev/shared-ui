@@ -22,6 +22,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         telPrefix,
         type: defaultType,
         value,
+        inputWrapperStyle,
         ...rest
     } = { ...defaultProps, ...props }
     const [type, setType] = useState(defaultType)
@@ -54,7 +55,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
 
     if (defaultType === 'password' || defaultType === 'tel' || copy || icon) {
         return (
-            <div css={styles.inputWithIconWrapper}>
+            <div css={[styles.inputWithIconWrapper, inputWrapperStyle]}>
                 {defaultType === 'tel' && (
                     <div css={styles.inputTelData} onClick={() => localInputRef?.current?.focus()}>
                         {icon}

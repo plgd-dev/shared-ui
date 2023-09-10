@@ -5,9 +5,10 @@ export const formGroupMargin = css`
     margin-bottom: 20px;
 `
 
-export const inline = css`
+export const inline = (inlineJustifyContent: string) => css`
     display: flex;
     align-items: center;
+    justify-content: ${inlineJustifyContent};
 `
 
 export const errorMessage = css`
@@ -17,7 +18,7 @@ export const errorMessage = css`
     font-size: 12px;
     line-height: 160%;
     text-align: right;
-    color: #ef0137;
+    color: ${colors.red};
     padding-top: 4px;
 `
 
