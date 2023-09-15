@@ -3,9 +3,10 @@ import { MenuTagVariantType } from './LeftPanel.types'
 import { panelSizes, tagVariants } from './constants'
 import { colors } from '../../Atomic/_utils/colors'
 import { COLLAPSE_ANIMATION_TIME } from '../constants'
+import { get, ThemeType } from '../../Atomic/_theme'
 
-export const leftPanel = css`
-    background: #f4f9fb;
+export const leftPanel = (theme: ThemeType) => css`
+    background: ${get(theme, `LeftPanel.background`)};
     display: flex;
     flex-direction: column;
     //height: 100%;
@@ -18,17 +19,17 @@ export const collapsed = css`
     flex: 0 0 ${panelSizes.COLLAPSED}px;
 `
 
-export const collapseToggle = css`
-    color: ${colors.neutral500};
+export const collapseToggle = (theme: ThemeType) => css`
+    color: ${get(theme, `LeftPanel.collapseToggle.color`)};
     cursor: pointer;
     transition: all 0.3s;
 
     &:hover {
-        color: ${colors.primary};
+        color: ${get(theme, `LeftPanel.collapseToggle.hover.color`)};
     }
 `
 
-export const logo = css`
+export const logo = (theme: ThemeType) => css`
     padding: 24px;
     display: flex;
     margin-bottom: 24px;
@@ -47,7 +48,7 @@ export const logo = css`
         right: 0;
         bottom: 0;
         width: 17px;
-        background: #f4f9fb;
+        background: ${get(theme, `LeftPanel.logo.background`)};
     }
 `
 
@@ -127,13 +128,13 @@ export const group = css`
     }
 `
 
-export const groupTitle = css`
+export const groupTitle = (theme: ThemeType) => css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: rgba(129, 134, 140, 0.8);
+    color: ${get(theme, `LeftPanel.groupTitle.color`)};
     margin-bottom: 12px;
 `
 
@@ -141,25 +142,25 @@ export const groupTitleCollapsed = css`
     text-align: center;
 `
 
-export const item = css`
+export const item = (theme: ThemeType) => css`
     display: flex;
     padding: 12px;
     text-decoration: none;
     min-height: 40px;
     box-sizing: border-box;
     border-radius: 8px;
-    color: #81868c;
+    color: ${get(theme, `LeftPanel.item.color`)};
     transition: all 0.25s;
     position: relative;
     overflow: hidden;
 
     &:hover {
-        color: ${colors.neutral800};
+        color: ${get(theme, `LeftPanel.item.hover.color`)};
     }
 `
 
 export const activeItem = css`
-    color: #0a2965;
+    color: #0a2965 !important;
     background: #fff;
 `
 
@@ -376,8 +377,8 @@ export const iconClose = css`
     }
 `
 
-export const versionItem = css`
-    border-top: 2px solid ${colors.neutral200};
+export const versionItem = (theme: ThemeType) => css`
+    border-top: 2px solid ${get(theme, `LeftPanel.versionItem.borderColor`)};
     margin-top: 12px;
     padding: 0 0 0 8px;
     display: flex;

@@ -1,10 +1,11 @@
 import { css } from '@emotion/react'
 import { colors } from '../../Atomic/_utils/colors'
 import { fontPrimary } from '../../Atomic/_utils/commonStyles'
+import { ThemeType, get } from '../../Atomic/_theme'
 
-export const footer = css`
-    border-top: 1px solid #e6e9ed;
-    background: #fff;
+export const footer = (theme: ThemeType) => css`
+    border-top: 1px solid ${get(theme, `Footer.borderTop`)};
+    background: ${get(theme, `Footer.background`)};
     padding: 0 40px;
     box-sizing: border-box;
     flex-shrink: 0;
@@ -26,19 +27,24 @@ export const footerMainLine = css`
     min-height: 64px;
 `
 
-export const recentTasks = css`
+export const recentTasks = (theme: ThemeType) => css`
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     text-align: center;
-    color: ${colors.neutral900};
+    color: ${get(theme, `Footer.recentTasks.color`)};
     text-decoration: none;
     display: flex;
     align-items: center;
     padding-right: 22px;
     position: relative;
+    transition: all 0.25s;
+
+    &:hover {
+        color: ${get(theme, `Footer.recentTasks.hover.color`)};
+    }
 `
 
 export const icon = css`

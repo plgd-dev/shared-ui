@@ -1,11 +1,12 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
-export const tag = css`
+export const tag = (theme: ThemeType) => css`
     display: inline-flex;
     flex-direction: row;
     align-items: center;
-    background: ${colors.neutral100};
+    background: ${get(theme, `Tag.background`)};
     border-radius: 4px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;

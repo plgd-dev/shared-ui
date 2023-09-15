@@ -1,9 +1,10 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
+import { ThemeType, get } from '../_theme'
 
-export const tileToggle = css`
-    background: ${colors.neutral100};
+export const tileToggle = (theme: ThemeType) => css`
+    background: ${get(theme, `TileToggle.background`)};
     border-radius: 8px;
     padding: 24px;
     display: flex;

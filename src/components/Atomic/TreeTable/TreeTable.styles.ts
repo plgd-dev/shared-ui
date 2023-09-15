@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
 export const treeComponent = css`
     height: calc(100% - 32px); // switch view button
@@ -27,14 +28,14 @@ export const table = css`
     }
 `
 
-export const row = css`
+export const row = (theme: ThemeType) => css`
     .tree-custom-tag {
         transition: all 0.3s;
     }
 
     &:hover {
         .tree-custom-tag {
-            background: #fff;
+            background: ${get(theme, `TreeTable.row.hover.customTag.background`)};
         }
     }
 `
@@ -45,32 +46,32 @@ export const treeCell = css`
     }
 `
 
-export const removeBottomBorderRadius = css`
+export const removeBottomBorderRadius = (theme: ThemeType) => css`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    background-color: ${colors.neutral100};
+    background-color: ${get(theme, `TreeTable.removeBottomBorderRadius.background`)};
 
     .tree-custom-tag {
-        background: #fff;
+        background: ${get(theme, `TreeTable.removeBottomBorderRadius.customTag.background`)};
     }
 `
 
-export const removeTopBorderRadius = css`
+export const removeTopBorderRadius = (theme: ThemeType) => css`
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    background-color: ${colors.neutral100};
+    background-color: ${get(theme, `TreeTable.removeTopBorderRadius.background`)};
 
     .tree-custom-tag {
-        background: #fff;
+        background: ${get(theme, `TreeTable.removeBottomBorderRadius.customTag.background`)};
     }
 `
 
-export const removeBorderRadius = css`
+export const removeBorderRadius = (theme: ThemeType) => css`
     border-radius: 0;
-    background-color: ${colors.neutral100};
+    background-color: ${get(theme, `TreeTable.removeBorderRadius.background`)};
 
     .tree-custom-tag {
-        background: #fff;
+        background: ${get(theme, `TreeTable.removeBorderRadius.customTag.background`)};
     }
 `
 

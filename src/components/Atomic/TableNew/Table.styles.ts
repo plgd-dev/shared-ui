@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
 export const tableComponent = css`
     height: 100%;
@@ -49,16 +50,16 @@ export const headerTitle = styled.span`
     white-space: nowrap;
 `
 
-export const headerItem = css`
+export const headerItem = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
-    background: #f6f7f9;
+    background: ${get(theme, `Table.headerItem.background`)};
     height: 50px;
     padding: 0 8px;
 
     &:hover {
         ${headerTitle} {
-            color: ${colors.neutral800};
+            color: ${get(theme, `Table.headerItem.hover.color`)};
         }
     }
 `
@@ -89,16 +90,15 @@ export const sortArrow = css`
     color: ${colors.neutral500};
 `
 
-export const sortActive = css`
-    color: ${colors.primaryBonus};
+export const sortActive = (theme: ThemeType) => css`
+    color: ${get(theme, `Table.sortActive.color`)};
 `
 
-const getRowHeight = (props: { rowHeight: number }) =>
-    css`
-        height: ${props.rowHeight}px;
-    `
+const getRowHeight = (props: { rowHeight: number }) => css`
+    height: ${props.rowHeight}px;
+`
 
-export const cell = styled.div`
+export const cell = (theme: ThemeType) => styled.div`
     ${getRowHeight};
     display: flex;
     align-items: center;
@@ -121,11 +121,11 @@ export const cell = styled.div`
         left: 0;
         right: 0;
         position: absolute;
-        background-color: ${colors.neutral200};
+        background-color: ${get(theme, `Table.cell.before.background`)};
     }
 
     a {
-        color: ${colors.neutral800};
+        color: ${get(theme, `Table.cell.a.color`)};
 
         &:hover {
             text-decoration: none;
@@ -133,7 +133,7 @@ export const cell = styled.div`
     }
 
     .link {
-        color: ${colors.primaryBonus};
+        color: ${get(theme, `Table.cell.link.color`)};
     }
 `
 
@@ -165,16 +165,18 @@ export const lastCell = css`
     }
 `
 
-export const row = css`
+// @ts-ignore
+export const row = (theme: ThemeType) => css`
     &:hover {
         ${cell} {
-            background-color: ${colors.neutral100};
+            background-color: ${get(theme, `Table.row.background`)};
         }
     }
 `
 
-export const isSelected = css`
+// @ts-ignore
+export const isSelected = (theme: ThemeType) => css`
     ${cell} {
-        background-color: ${colors.neutral100};
+        background-color: ${get(theme, `Table.selected.background`)};
     }
 `

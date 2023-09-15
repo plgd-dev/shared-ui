@@ -47,11 +47,15 @@ export const uiColorMap = {
         tertiary: '#f6f7f9', // TODO
         disabled: '#D7D8DA', // TODO
     },
+    siemens: {
+        primary: '#00adb4',
+    },
 }
 
 export const colors = uiColorMap.light
 
 export const colorsDark = uiColorMap.dark
+export const colorsSiemens = uiColorMap.siemens
 
 export const colorsVariants = {
     primary: {

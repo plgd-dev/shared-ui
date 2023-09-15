@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
+import { ThemeType, get } from '../../Atomic/_theme'
 
-export const content = css`
-    background: #fff;
+export const content = (theme: ThemeType) => css`
+    background: ${get(theme, `Content.background`)};
     padding: 24px 40px 0 24px;
 `
 

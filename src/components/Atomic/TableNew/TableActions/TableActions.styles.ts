@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../../_utils/colors'
+import { ThemeType, get } from '../../_theme'
 
 export const actionItems = css`
     display: flex;
@@ -11,12 +12,12 @@ export const actionItem = css`
     padding: 0 10px;
 `
 
-export const icon = css`
+export const icon = (theme: ThemeType) => css`
     cursor: pointer;
     color: ${colors.neutral500};
     transition: all 0.25s;
 
     &:hover {
-        color: #007bbf;
+        color: ${get(theme, `TableActions.icon.hover.color`)};
     }
 `

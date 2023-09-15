@@ -1,14 +1,13 @@
 import React, { cloneElement, FC, ReactElement, SyntheticEvent, useEffect, useState } from 'react'
-import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
-import * as styles from './LeftPanel.styles'
+import { createPortal } from 'react-dom'
 import { CSSTransition } from 'react-transition-group'
 import { useFloating, shift, offset } from '@floating-ui/react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { createPortal } from 'react-dom'
 import isFunction from 'lodash/isFunction'
 
+import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
+import * as styles from './LeftPanel.styles'
 import { Logo, Close, Arrow, Feature } from './components'
-
 import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
 

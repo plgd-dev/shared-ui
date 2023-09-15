@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
 export const versionMark = css`
     display: flex;
@@ -25,8 +26,8 @@ export const versionText = css`
     color: ${colors.neutral500};
 `
 
-export const updateText = css`
-    color: ${colors.primary};
+export const updateText = (theme: ThemeType) => css`
+    color: ${get(theme, `VersionMark.link.color`)};
     text-decoration: underline;
     font-family: 'Poppins', sans-serif;
     font-style: normal;

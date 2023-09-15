@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import { COLLAPSE_ANIMATION_TIME } from '../../../Layout/constants'
 import { panelSizes } from '../../../Layout/LeftPanel/constants'
 import { colors } from '../../_utils/colors'
+import { ThemeType, get } from '../../_theme'
 
 export const selectionPanel = css`
     position: fixed;
@@ -20,13 +21,13 @@ export const iframeMode = css`
     left: 0;
 `
 
-export const inner = css`
+export const inner = (theme: ThemeType) => css`
     padding: 20px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background: #fff;
+    background: ${get(theme, `TableSelectionPanel.background`)};
     box-shadow: 0px -30px 20px rgba(28, 52, 99, 0.05);
     transition: all 0.35s;
 `
@@ -45,7 +46,7 @@ export const label = css`
     color: ${colors.neutral500};
 `
 
-export const selectionInfo = css`
+export const selectionInfo = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     /* Content/T2 */
@@ -54,7 +55,7 @@ export const selectionInfo = css`
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    color: #0a2965;
+    color: ${get(theme, `TableSelectionPanel.selectionInfo.color`)};
 `
 
 export const right = css`

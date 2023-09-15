@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../../../Atomic/_utils/colors'
+import { ThemeType, get } from '../../../Atomic/_theme'
 
 export const pagination = css`
     padding: 0;
@@ -8,7 +9,7 @@ export const pagination = css`
     display: flex;
 `
 
-export const item = css`
+export const item = (theme: ThemeType) => css`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,11 +26,12 @@ export const item = css`
     margin: 0 2px;
 
     &:hover {
+        color: ${get(theme, `Pagination.item.hover.color`)};
         text-decoration: none !important;
     }
 `
 
-export const active = css`
+export const active = (theme: ThemeType) => css`
     color: ${colors.neutral900};
     font-weight: 600;
     background: #f6f7f9;
@@ -37,6 +39,7 @@ export const active = css`
     cursor: default;
 
     &:hover {
+        color: ${get(theme, `Pagination.item.active.hover.color`)};
         text-decoration: none;
     }
 `

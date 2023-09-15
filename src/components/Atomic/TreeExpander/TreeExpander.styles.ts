@@ -1,13 +1,13 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
-export const treeExpander = css`
+export const treeExpander = (theme: ThemeType) => css`
     padding-right: 8px;
     cursor: pointer;
 
     &:hover {
         .expander-icon {
-            color: ${colors.primary};
+            color: ${get(theme, `TreeExpander.hover.expanderIcon.color`)};
         }
     }
 `
@@ -17,7 +17,7 @@ export const expanderIcon = css`
     transition: all 0.3s;
 `
 
-export const expanded = css`
-    color: ${colors.primary};
+export const expanded = (theme: ThemeType) => css`
+    color: ${get(theme, `TreeExpander.expanded.color`)};
     transform: rotate(180deg);
 `

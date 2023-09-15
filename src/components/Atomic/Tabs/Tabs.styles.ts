@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
+import { ThemeType, get } from '../_theme'
 
 export const container = css`
     overflow-y: hidden;
@@ -13,10 +14,10 @@ export const fullHeight = css`
     flex-direction: column;
 `
 
-export const tabList = css`
+export const tabList = (theme: ThemeType) => css`
     display: block;
     position: relative;
-    border-bottom: 1px solid ${colors.neutral200};
+    border-bottom: 1px solid ${get(theme, `Tabs.list.borderColor`)};
 `
 
 export const tabItem = css`
@@ -57,15 +58,15 @@ export const tabItem = css`
     }
 `
 
-export const isActive = css`
-    color: ${colors.primaryDarken};
+export const isActive = (theme: ThemeType) => css`
+    color: ${get(theme, `Tabs.active.color`)};
 `
 
-export const slider = css`
+export const slider = (theme: ThemeType) => css`
     height: 3px;
     bottom: 0;
     position: absolute;
-    background: ${colors.primaryBonus};
+    background: ${get(theme, `Tabs.slider.background`)};
 `
 
 export const page = css`
