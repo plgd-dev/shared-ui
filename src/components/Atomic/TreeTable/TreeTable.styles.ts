@@ -115,6 +115,10 @@ export const expanderWrapper = css`
     display: flex;
     align-items: center;
     position: relative;
+
+    .tree-expander-container {
+        display: flex;
+    }
 `
 
 export const drawExpandLine = (desc: number, rowHeight: number, depth = 0) => {

@@ -1,6 +1,16 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
 
 const theme = {
+    Alert: {
+        background: '#fff',
+        borderColor: '#e6e9ed',
+        line: {
+            background: colors.primaryDarken,
+        },
+        icon: {
+            color: colors.primaryDarken,
+        },
+    },
     Button: {
         primary: {
             background: colors.primary,

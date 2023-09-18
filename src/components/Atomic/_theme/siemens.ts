@@ -1,6 +1,16 @@
 import { colors, colorsSiemens } from '../_utils/colors'
 
 const theme = {
+    Alert: {
+        background: '#23233c',
+        borderColor: '#000028',
+        line: {
+            background: colorsSiemens.primary,
+        },
+        icon: {
+            color: colorsSiemens.primary,
+        },
+    },
     Button: {
         primary: {
             background: colorsSiemens.primary,
