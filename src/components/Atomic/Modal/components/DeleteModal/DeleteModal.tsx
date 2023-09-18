@@ -14,7 +14,7 @@ const DeleteModal: FC<Props> = (props) => {
                     <IconTrash {...convertSize(42)} />
                 </div>
             </div>
-            <h2 css={styles.title(maxWidthTitle)}>{title}</h2>
+            <h2 css={[(theme) => styles.title(theme, maxWidthTitle)]}>{title}</h2>
             {subTitle && <div css={styles.subTitle}>{subTitle}</div>}
         </div>
     )

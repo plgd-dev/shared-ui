@@ -15,6 +15,7 @@ export const tag = (theme: ThemeType) => css`
     line-height: 18px;
     color: ${colors.neutral500};
     padding: 3px 8px;
+    border: 1px solid ${get(theme, `Tag.blue.borderColor`)};
 `
 
 export const clickable = css`
@@ -25,12 +26,14 @@ export const icon = css`
     margin-right: 4px;
 `
 
-export const blue = css`
-    color: ${colors.primary};
-    background: rgba(135, 206, 242, 0.2);
+export const blue = (theme: ThemeType) => css`
+    color: ${get(theme, `Tag.blue.color`)};
+    background: ${get(theme, `Tag.blue.background`)};
+    border: 1px solid ${get(theme, `Tag.blue.borderColor`)};
 `
 
-export const white = css`
+export const white = (theme: ThemeType) => css`
     color: ${colors.neutral500};
-    background: #fff;
+    background: ${get(theme, `Tag.white.background`)};
+    border: 1px solid ${get(theme, `Tag.blue.borderColor`)};
 `

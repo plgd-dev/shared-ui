@@ -19,7 +19,7 @@ export const header = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid ${get(theme, `Modal.header.background`)};
+    border-bottom: 2px solid ${get(theme, `Modal.header.borderColor`)};
     padding: 12px 0 32px 0;
 `
 

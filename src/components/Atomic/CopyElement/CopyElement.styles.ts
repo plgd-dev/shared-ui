@@ -1,23 +1,29 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
+import { ThemeType, get } from '../_theme'
 
 export const copyElement = css`
     position: relative;
     overflow: hidden;
 `
 
-export const copy = css`
+export const copy = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${colors.neutral100};
+    background: ${get(theme, 'CopyElement.background')};
     border-radius: 4px;
     padding: 0 8px;
     height: 24px;
     box-sizing: border-box;
     color: ${colors.neutral500};
     text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+        color: ${get(theme, 'CopyElement.hover.color')};
+    }
 `
 
 export const text = css`

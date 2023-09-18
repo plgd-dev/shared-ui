@@ -1,8 +1,9 @@
 import { cloneElement, FC, ReactElement, ReactNode } from 'react'
+import isFunction from 'lodash/isFunction'
+
 import { defaultProps, Props } from './Tag.types'
 import * as styles from './Tag.styles'
 import { Icon } from '../Icon'
-import isFunction from 'lodash/isFunction'
 import { tagVariants } from './constants'
 
 const Tag: FC<Props> = (props) => {
@@ -17,11 +18,11 @@ const Tag: FC<Props> = (props) => {
     return (
         <div
             className={className}
-            css={[
-                styles.tag,
+            css={(theme) => [
+                styles.tag(theme),
                 isFunction(onClick) && styles.clickable,
-                variant === tagVariants.BLUE && styles.blue,
-                variant === tagVariants.WHITE && styles.white,
+                variant === tagVariants.BLUE && styles.blue(theme),
+                variant === tagVariants.WHITE && styles.white(theme),
             ]}
             id={id}
             onClick={onClick}

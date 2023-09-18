@@ -71,6 +71,12 @@ const theme = {
     Content: {
         background: '#fff',
     },
+    CopyElement: {
+        background: colors.neutral100,
+        hover: {
+            color: colors.primaryDarken,
+        },
+    },
     Checkbox: {
         borderColor: '#d7d8da',
         background: colors.primary,
@@ -86,8 +92,14 @@ const theme = {
         body: {
             background: '#f4f9fb',
         },
+        title: {
+            color: colors.primaryDarken,
+        },
         val: {
             color: colors.neutral800,
+        },
+        item: {
+            borderColor: colors.neutral200,
         },
     },
     Editor: {
@@ -183,6 +195,12 @@ const theme = {
             hover: {
                 color: colors.neutral800,
             },
+            active: {
+                color: '#0a2965',
+            },
+            disabled: {
+                color: colors.neutral500,
+            },
         },
         versionItem: {
             borderColor: colors.neutral200,
@@ -256,6 +274,9 @@ const theme = {
         title: {
             color: colors.primaryDarken,
         },
+        value: {
+            color: colors.neutral800,
+        },
     },
     ShareDeviceModal: {
         headline: {
@@ -295,6 +316,24 @@ const theme = {
         statusLine: {
             green: colors.green,
             red: colors.red,
+        },
+    },
+    StatusTag: {
+        success: {
+            color: colors.green,
+            background: 'rgba(82, 197, 162, 0.16)',
+        },
+        warning: {
+            color: colors.yellow,
+            background: 'rgba(254, 191, 64, 0.24)',
+        },
+        error: {
+            color: colors.red,
+            background: 'rgba(215, 78, 58, 0.16)',
+        },
+        normal: {
+            color: colors.neutral500,
+            background: '#f6f7f9',
         },
     },
     Switch: {
@@ -373,6 +412,15 @@ const theme = {
     },
     Tag: {
         background: colors.neutral100,
+        white: {
+            background: '#fff',
+            borderColor: 'transparent',
+        },
+        blue: {
+            color: colors.primary,
+            background: 'rgba(135, 206, 242, 0.2)',
+            borderColor: 'transparent',
+        },
     },
     TileToggle: {
         background: colors.neutral100,

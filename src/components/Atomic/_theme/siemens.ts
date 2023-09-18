@@ -87,6 +87,12 @@ const theme = {
             hover: {
                 color: '#fff',
             },
+            active: {
+                color: colorsSiemens.primary,
+            },
+            disabled: {
+                color: colors.neutral600,
+            },
         },
         versionItem: {
             borderColor: '#000028',
@@ -100,6 +106,12 @@ const theme = {
     Content: {
         background: '#000028',
     },
+    CopyElement: {
+        background: '#000028',
+        hover: {
+            color: colorsSiemens.primary,
+        },
+    },
     Checkbox: {
         borderColor: '#81868c',
         background: colorsSiemens.primary,
@@ -112,11 +124,17 @@ const theme = {
     },
     DeleteModal: {
         red: colorsSiemens.red,
+        title: {
+            color: colorsSiemens.primary,
+        },
         body: {
-            background: '#f4f9fb',
+            background: '#000028',
         },
         val: {
             color: colors.neutral500,
+        },
+        item: {
+            borderColor: colors.neutral500,
         },
     },
     Editor: {
@@ -196,7 +214,7 @@ const theme = {
     Modal: {
         background: '#23233c',
         header: {
-            borderColor: '#81868c',
+            borderColor: '#000028',
             color: colorsSiemens.primary,
         },
         content: {
@@ -256,6 +274,9 @@ const theme = {
         title: {
             color: '#00ADB4',
         },
+        value: {
+            color: colors.neutral500,
+        },
     },
     ShareDeviceModal: {
         headline: {
@@ -295,6 +316,24 @@ const theme = {
         statusLine: {
             green: colorsSiemens.green,
             red: colorsSiemens.red,
+        },
+    },
+    StatusTag: {
+        success: {
+            color: colorsSiemens.green,
+            background: 'rgba(82, 197, 162, 0.16)',
+        },
+        warning: {
+            color: colorsSiemens.yellow,
+            background: 'rgba(254, 191, 64, 0.24)',
+        },
+        error: {
+            color: colorsSiemens.red,
+            background: 'rgba(215, 78, 58, 0.16)',
+        },
+        normal: {
+            color: colors.neutral500,
+            background: '#23233c',
         },
     },
     Switch: {
@@ -373,6 +412,15 @@ const theme = {
     },
     Tag: {
         background: '#23233c',
+        white: {
+            background: '#000028',
+            borderColor: '#000028',
+        },
+        blue: {
+            color: colorsSiemens.primary,
+            background: '#23233c',
+            borderColor: '#000028',
+        },
     },
     Toast: {
         background: '#000028',

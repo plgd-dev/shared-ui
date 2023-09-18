@@ -159,17 +159,18 @@ export const item = (theme: ThemeType) => css`
     }
 `
 
-export const activeItem = css`
-    color: #0a2965 !important;
+export const activeItem = (theme: ThemeType) => css`
+    color: ${get(theme, 'LeftPanel.item.active.color')} !important;
     background: #fff;
 `
 
-export const disabled = css`
+export const disabled = (theme: ThemeType) => css`
     cursor: not-allowed;
-    opacity: 0.6;
+
+    color: ${get(theme, 'LeftPanel.item.disabled.color')} !important;
 
     &:hover {
-        color: #81868c;
+        color: ${get(theme, 'LeftPanel.item.disabled.color')} !important;
     }
 `
 

@@ -35,7 +35,7 @@ export const deleteIconInner = css`
     box-shadow: 0 6px 12px rgba(215, 78, 58, 0.32);
 `
 
-export const title = (maxWidth?: number) => css`
+export const title = (theme: ThemeType, maxWidth?: number) => css`
     font-family: ${fontSecondary};
     font-style: normal;
     font-weight: 700;
@@ -43,7 +43,7 @@ export const title = (maxWidth?: number) => css`
     line-height: 30px;
     text-align: center;
     letter-spacing: -0.5px;
-    color: ${colors.primaryDarken};
+    color: ${get(theme, 'DeleteModal.title.color')};
     margin: 16px 0 8px 0;
     max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
 `
@@ -65,12 +65,12 @@ export const body = (theme: ThemeType) => css`
     padding: 8px 24px;
 `
 
-export const item = css`
+export const item = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 16px 0;
-    border-bottom: 1px solid ${colors.neutral200};
+    border-bottom: 1px solid ${get(theme, 'DeleteModal.item.borderColor')};
 
     &:last-child {
         border-bottom: 0;

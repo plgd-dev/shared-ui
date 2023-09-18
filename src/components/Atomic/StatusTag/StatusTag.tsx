@@ -5,7 +5,7 @@ import * as styles from './StatusTag.styles'
 const StatusTag: FC<Props> = (props) => {
     const { children, onClick, variant } = { ...defaultProps, ...props }
     return (
-        <div css={styles.tag(variant)} onClick={onClick}>
+        <div css={(theme) => styles.tag(theme, variant)} onClick={onClick}>
             {children}
         </div>
     )

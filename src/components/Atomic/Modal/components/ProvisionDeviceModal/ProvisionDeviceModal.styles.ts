@@ -62,14 +62,14 @@ export const attribute = css`
     text-align: left;
 `
 
-export const value = css`
+export const value = (theme: ThemeType) => css`
     font-family: ${fontSecondary};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
     text-align: right;
-    color: ${colors.neutral800};
+    color: ${get(theme, 'ProvisionDeviceModal.value.color')};
     flex: 1 1 auto;
     display: flex;
     align-items: center;

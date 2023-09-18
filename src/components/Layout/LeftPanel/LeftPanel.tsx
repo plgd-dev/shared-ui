@@ -25,7 +25,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
     return (
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
             <a
-                css={[styles.item, isActive && styles.activeItem, item.disabled && styles.disabled]}
+                css={(theme) => [styles.item(theme), isActive && styles.activeItem(theme), item.disabled && styles.disabled(theme)]}
                 data-test-id={item.dataTestId}
                 href={item.link}
                 id={item.id}

@@ -1,40 +1,40 @@
 import { css } from '@emotion/react'
 import { TagTypeType } from './StatusTag.types'
 import { tagVariants } from './constants'
-import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
-const getColorByVariant = (variant: TagTypeType) => {
+const getColorByVariant = (theme: ThemeType, variant: TagTypeType) => {
     if (variant === tagVariants.SUCCESS) {
         return css`
-            color: ${colors.green};
-            background: rgba(82, 197, 162, 0.16);
+            color: ${get(theme, 'StatusTag.success.color')};
+            background: ${get(theme, 'StatusTag.success.background')};
         `
     } else if (variant === tagVariants.WARNING) {
         return css`
-            color: ${colors.yellow};
-            background: rgba(254, 191, 64, 0.24);
+            color: ${get(theme, 'StatusTag.warning.color')};
+            background: ${get(theme, 'StatusTag.warning.background')};
         `
     } else if (variant === tagVariants.ERROR) {
         return css`
-            color: ${colors.red};
-            background: rgba(215, 78, 58, 0.16);
+            color: ${get(theme, 'StatusTag.error.color')};
+            background: ${get(theme, 'StatusTag.error.background')};
         `
     } else if (variant === tagVariants.NORMAL) {
         return css`
-            color: ${colors.neutral500};
-            background: #f6f7f9;
+            color: ${get(theme, 'StatusTag.normal.color')};
+            background: ${get(theme, 'StatusTag.normal.background')};
         `
     }
 }
 
-export const tag = (variant: TagTypeType) => css`
+export const tag = (theme: ThemeType, variant: TagTypeType) => css`
     display: inline-flex;
     flex-direction: row;
     align-items: center;
     padding: 1px 10px;
     gap: 10px;
     border-radius: 44px;
-    ${getColorByVariant(variant)};
+    ${getColorByVariant(theme, variant)};
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
