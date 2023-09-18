@@ -49,6 +49,9 @@ export const uiColorMap = {
     },
     siemens: {
         primary: '#00adb4',
+        yellow: '#ffd732',
+        red: '#ef0137',
+        green: '#00d7a0',
     },
 }
 

@@ -1,7 +1,4 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
-import { removeBorderRadius, removeTopBorderRadius } from '../TreeTable/TreeTable.styles'
-import { selectionInfo } from '../TableNew/TableSelectionPanel/TableSelectionPanel.styles'
-import { headerItem } from '../TableNew/Table.styles'
 
 const theme = {
     Button: {
@@ -66,8 +63,47 @@ const theme = {
             },
         },
     },
+    Breadcrumb: {
+        link: {
+            color: colors.primary,
+        },
+    },
     Content: {
         background: '#fff',
+    },
+    Checkbox: {
+        borderColor: '#d7d8da',
+        background: colors.primary,
+        input: {
+            borderColor: colors.primary,
+        },
+        error: {
+            red: colors.red,
+        },
+    },
+    DeleteModal: {
+        red: colors.red,
+        body: {
+            background: '#f4f9fb',
+        },
+        val: {
+            color: colors.neutral800,
+        },
+    },
+    Editor: {
+        borderColor: '#e6e9ed',
+        scroller: {
+            background: '#f4f9fb',
+        },
+        gutter: {
+            background: '#e6e9ed',
+        },
+        gutterActiveLine: {
+            background: undefined,
+        },
+        indentGuide: {
+            background: undefined,
+        },
     },
     Footer: {
         borderTop: '#e6e9ed',
@@ -78,10 +114,52 @@ const theme = {
                 color: colors.primary,
             },
         },
+        footerMainLine: {
+            background: undefined,
+        },
+    },
+    FormInput: {
+        borderColor: '#e6e9ed',
+        background: undefined,
+        color: '#252626',
+        error: {
+            red: colors.red,
+        },
+        focus: {
+            borderColor: colors.primary,
+        },
+    },
+    FormSelect: {
+        input: {
+            color: colors.neutral800,
+        },
+        control: {
+            borderColor: colors.neutral300,
+            background: undefined,
+        },
+        menu: {
+            borderColor: colors.neutral200,
+            background: undefined,
+        },
+        optionSelected: {
+            color: colors.neutral800,
+        },
+        value: {
+            color: colors.neutral800,
+        },
+        indicator: {
+            color: colors.neutral500,
+        },
+        placeholder: {
+            color: colors.neutral800,
+        },
     },
     Header: {
         background: '#fff',
         borderBottom: '#e6e9ed',
+    },
+    Headline: {
+        color: colors.neutral900,
     },
     Layout: {
         background: '#fff',
@@ -109,6 +187,55 @@ const theme = {
         versionItem: {
             borderColor: colors.neutral200,
         },
+        iconClose: {
+            hover: {
+                color: colors.primary,
+            },
+        },
+    },
+    Modal: {
+        background: '#fff',
+        header: {
+            borderColor: '#e6e9ed',
+            color: '#0a2965',
+        },
+        content: {
+            background: '#fff',
+        },
+        footer: {
+            background: '#fff',
+        },
+        close: {
+            hover: {
+                color: colors.primary,
+            },
+        },
+    },
+    ModalStrippedLine: {
+        strippedLine: {
+            borderColor: colors.neutral200,
+        },
+    },
+    NotificationCenter: {
+        floatingPanel: {
+            background: '#fff',
+            borderColor: '#e6e9ed',
+        },
+        Bell: {
+            hasUnRead: {
+                borderColor: '#fff',
+            },
+        },
+        InnerToast: {
+            unreadMark: {
+                borderColor: '#fff',
+            },
+        },
+    },
+    PageLayout: {
+        headline: {
+            color: '#0a2965',
+        },
     },
     Pagination: {
         item: {
@@ -122,9 +249,69 @@ const theme = {
             },
         },
     },
+    ProvisionDeviceModal: {
+        getCodeBox: {
+            background: '#f4f9fb',
+        },
+        title: {
+            color: colors.primaryDarken,
+        },
+    },
+    ShareDeviceModal: {
+        headline: {
+            color: colors.primaryDarken,
+        },
+        sharedItem: {
+            color: colors.neutral300,
+        },
+        removeBtn: {
+            hover: {
+                color: colors.primary,
+                borderColor: colors.primary,
+            },
+        },
+    },
+    SimpleStripTable: {
+        row: {
+            background: '#fff',
+            hover: {
+                background: colors.tertiary,
+            },
+        },
+        value: {
+            color: colors.neutral800,
+        },
+        border: {
+            background: colors.neutral200,
+        },
+    },
+    SplitButton: {
+        floatingMenu: {
+            background: '#fff',
+            borderColor: '#e6e9ed',
+        },
+    },
+    StatusPill: {
+        statusLine: {
+            green: colors.green,
+            red: colors.red,
+        },
+    },
+    Switch: {
+        background: '#ccc',
+        label: {
+            color: colors.neutral800,
+        },
+        input: {
+            background: {
+                disabled: colors.disabled,
+                primary: colors.primary,
+            },
+        },
+    },
     Table: {
         headerItem: {
-            background: colors.neutral800,
+            background: '#f6f7f9',
             hover: {
                 color: colors.neutral800,
             },
@@ -136,12 +323,12 @@ const theme = {
             before: {
                 background: colors.neutral200,
             },
-        },
-        a: {
-            color: colors.neutral800,
-        },
-        link: {
-            color: colors.primaryBonus,
+            link: {
+                color: colors.primaryBonus,
+            },
+            a: {
+                color: colors.neutral800,
+            },
         },
         row: {
             background: colors.neutral100,
@@ -169,6 +356,11 @@ const theme = {
         },
     },
     Tabs: {
+        item: {
+            hover: {
+                color: colors.primary,
+            },
+        },
         list: {
             borderColor: colors.neutral200,
         },
@@ -184,6 +376,13 @@ const theme = {
     },
     TileToggle: {
         background: colors.neutral100,
+        name: {
+            color: colors.primaryDarken,
+        },
+    },
+    Toast: {
+        background: '#fff',
+        borderColor: colors.neutral200,
     },
     TreeExpander: {
         hover: {

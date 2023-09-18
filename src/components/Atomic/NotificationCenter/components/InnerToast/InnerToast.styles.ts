@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { fontPrimary, hexToRgbA } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
+import { ThemeType, get } from '../../../_theme'
 
 export const item = css`
     display: flex;
@@ -16,14 +17,14 @@ export const iconWrapper = css`
     position: relative;
 `
 
-export const unreadMark = css`
+export const unreadMark = (theme: ThemeType) => css`
     position: absolute;
     width: 11px;
     height: 11px;
     left: 0;
     top: 0;
     background: ${colors.red};
-    border: 2px solid #ffffff;
+    border: 2px solid ${get(theme, `NotificationCenter.InnerToast.unreadMark.borderColor`)};
     border-radius: 50%;
     box-sizing: border-box;
 `

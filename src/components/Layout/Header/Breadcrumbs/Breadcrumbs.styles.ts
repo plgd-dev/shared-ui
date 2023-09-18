@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../../../Atomic/_utils/colors'
+import { ThemeType, get } from '../../../Atomic/_theme'
 
 export const breadcrumbs = css`
     margin: 0;
@@ -32,7 +33,7 @@ export const item = css`
     color: ${colors.neutral500};
 `
 
-export const link = css`
-    color: ${colors.primary};
+export const link = (theme: ThemeType) => css`
+    color: ${get(theme, 'Breadcrumb.link.color')};
     text-decoration: none;
 `

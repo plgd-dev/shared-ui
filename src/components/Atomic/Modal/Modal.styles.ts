@@ -1,39 +1,40 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary, fontSecondary } from '../_utils/commonStyles'
+import { ThemeType, get } from '../_theme'
 
 export const modalWrapper = css`
     display: flex;
     justify-content: center;
 `
 
-export const modal = (minWidth: number | string, maxWidth: number | string) => css`
-    background: #fff;
+export const modal = (theme: ThemeType, minWidth: number | string, maxWidth: number | string) => css`
+    background: ${get(theme, `Modal.background`)};
     padding: 24px;
     min-width: ${typeof minWidth === 'string' ? minWidth : `${minWidth}px`};
     max-width: ${typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`};
     border-radius: 8px;
 `
-export const header = css`
+export const header = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #e6e9ed;
+    border-bottom: 2px solid ${get(theme, `Modal.header.background`)};
     padding: 12px 0 32px 0;
 `
 
-export const headline = (maxWidth?: number) => css`
+export const headline = (theme: ThemeType, maxWidth?: number) => css`
     font-family: ${fontSecondary};
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 30px;
     letter-spacing: -0.5px;
-    color: #0a2965;
+    color: ${get(theme, `Modal.header.color`)};
     max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
 `
 
-export const close = css`
+export const close = (theme: ThemeType) => css`
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
@@ -50,20 +51,20 @@ export const close = css`
     }
 
     &:hover {
-        color: ${colors.primary};
+        color: ${get(theme, `Modal.close.hover.color`)};
     }
 `
 
-export const content = css`
-    background: #fff;
+export const content = (theme: ThemeType) => css`
+    background: ${get(theme, `Modal.content.background`)};
 `
 
 export const contentPadding = css`
     padding: 24px 0 0 0;
 `
-export const footer = css`
+export const footer = (theme: ThemeType) => css`
     padding: 24px 0 0 0;
-    background: #fff;
+    background: ${get(theme, `Modal.footer.background`)};
     display: flex;
     justify-content: flex-end;
 

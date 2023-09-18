@@ -98,7 +98,7 @@ const getRowHeight = (props: { rowHeight: number }) => css`
     height: ${props.rowHeight}px;
 `
 
-export const cell = (theme: ThemeType) => styled.div`
+export const cell = styled.div`
     ${getRowHeight};
     display: flex;
     align-items: center;
@@ -121,11 +121,11 @@ export const cell = (theme: ThemeType) => styled.div`
         left: 0;
         right: 0;
         position: absolute;
-        background-color: ${get(theme, `Table.cell.before.background`)};
+        background-color: ${(props) => get(props.theme, `Table.cell.before.background`)};
     }
 
     a {
-        color: ${get(theme, `Table.cell.a.color`)};
+        color: ${(props) => get(props.theme, `Table.cell.a.color`)};
 
         &:hover {
             text-decoration: none;
@@ -133,7 +133,7 @@ export const cell = (theme: ThemeType) => styled.div`
     }
 
     .link {
-        color: ${get(theme, `Table.cell.link.color`)};
+        color: ${(props) => get(props.theme, `Table.cell.link.color`)};
     }
 `
 

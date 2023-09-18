@@ -2,7 +2,7 @@ import React, { FC, memo } from 'react'
 import { Helmet } from 'react-helmet'
 
 import { Props } from './PageLayout.types'
-import * as styles from './PageLayout.tsx.styles'
+import * as styles from './PageLayout.styles'
 import Headline from '../Headline'
 import PageLoader from '../PageLoader'
 

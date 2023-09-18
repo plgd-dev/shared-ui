@@ -367,13 +367,13 @@ export const description = css`
 
 export const headerRight = css``
 
-export const iconClose = css`
+export const iconClose = (theme: ThemeType) => css`
     cursor: pointer;
     transition: all 0.25s;
     color: ${colors.neutral500};
 
     &:hover {
-        color: ${colors.primary};
+        color: ${get(theme, `LeftPanel.iconClose.color`)};
     }
 `
 

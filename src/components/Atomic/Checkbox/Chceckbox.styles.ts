@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import styled from '@emotion/styled'
+import { get, ThemeType } from '../_theme'
 
 export const checkbox = css`
     display: flex;
@@ -13,7 +14,7 @@ export const check = styled.span`
     width: 16px;
     height: 16px;
     flex: 0 0 16px;
-    border: 1px solid #d7d8da;
+    border: 1px solid ${(props) => get(props.theme, `Checkbox.borderColor`)};
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.25s;
@@ -31,7 +32,7 @@ export const check = styled.span`
         transform: translate(-50%, -50%);
         width: 10px;
         border-radius: 2px;
-        background: ${colors.primary};
+        background: ${(props) => get(props.theme, `Checkbox.background`)};
         opacity: 0;
     }
 
@@ -44,14 +45,14 @@ export const check = styled.span`
     }
 `
 
-export const input = css`
+export const input = (theme: ThemeType) => css`
     width: 1px;
     height: 1px;
     position: absolute;
     left: -10px;
 
     &:indeterminate ~ ${check} {
-        border-color: ${colors.primary};
+        border-color: ${get(theme, `Checkbox.input.borderColor`)};
 
         &:before {
             opacity: 1;
@@ -59,7 +60,7 @@ export const input = css`
     }
 
     &:checked ~ ${check} {
-        border-color: ${colors.primary};
+        border-color: ${get(theme, `Checkbox.input.borderColor`)};
 
         &:after {
             opacity: 1;

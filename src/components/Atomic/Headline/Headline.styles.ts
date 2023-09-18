@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { HeadlineType } from './Headline.types'
-import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
 const getSizes = (type: HeadlineType) => {
     switch (type) {
@@ -62,8 +62,8 @@ const getSizes = (type: HeadlineType) => {
     }
 }
 
-export const headline = (type: HeadlineType) => css`
-    color: ${colors.neutral900};
+export const headline = (theme: ThemeType, type: HeadlineType) => css`
+    color: ${get(theme, `Headline.color`)};
     font-family: 'Circular Pro', sans-serif;
     font-weight: 700;
     font-style: normal;

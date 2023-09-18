@@ -2,8 +2,9 @@ import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
 import { FormSelectSizeType } from './FormSelect.types'
+import { ThemeType, get } from '../_theme'
 
-export const select = (size: FormSelectSizeType, disabled?: boolean) => css`
+export const select = (theme: ThemeType, size: FormSelectSizeType, disabled?: boolean) => css`
     .select__control {
         .select__value-container {
             .select__placeholder,
@@ -13,6 +14,7 @@ export const select = (size: FormSelectSizeType, disabled?: boolean) => css`
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 22px;
+                color: ${get(theme, `FormSelect.input.color`)}!important;
 
                 input {
                     font-family: 'Poppins', sans-serif !important;
@@ -20,7 +22,7 @@ export const select = (size: FormSelectSizeType, disabled?: boolean) => css`
                     font-weight: 400 !important;
                     font-size: 14px !important;
                     line-height: 22px !important;
-                    color: ${colors.neutral800}!important;
+                    color: ${get(theme, `FormSelect.input.color`)}!important;
                 }
             }
         }
@@ -46,13 +48,14 @@ export const select = (size: FormSelectSizeType, disabled?: boolean) => css`
     }
 `
 
-export const control = css`
+export const control = (theme: ThemeType) => css`
     height: 44px;
     min-height: 44px;
     border-radius: 8px;
     box-shadow: none;
     transition: all 0.3s;
-    border: 1px solid ${colors.neutral300};
+    border: 1px solid ${get(theme, `FormSelect.control.borderColor`)};
+    background: ${get(theme, `FormSelect.control.background`)};
 
     &:focus {
         outline: none;
@@ -73,12 +76,13 @@ export const error = css`
     border-color: ${colors.red}!important;
 `
 
-export const menu = css`
+export const menu = (theme: ThemeType) => css`
     margin-top: 4px;
     margin-bottom: 4px;
-    border: 1px solid ${colors.neutral200};
+    border: 1px solid ${get(theme, `FormSelect.menu.borderColor`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
+    background: ${get(theme, `FormSelect.menu.background`)};
 `
 
 export const menuList = css`
@@ -110,8 +114,8 @@ export const option = css`
     }
 `
 
-export const optionSelected = css`
-    color: ${colors.neutral800};
+export const optionSelected = (theme: ThemeType) => css`
+    color: ${get(theme, `FormSelect.optionSelected.color`)};
     background: transparent;
 `
 
@@ -123,8 +127,8 @@ export const valueContainer = css`
     padding: 0 15px; // -1 for border
 `
 
-export const value = css`
-    color: ${colors.neutral800};
+export const value = (theme: ThemeType) => css`
+    color: ${get(theme, `FormSelect.value.color`)};
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
@@ -137,17 +141,17 @@ export const dropdownIndicator = css`
     padding-right: 16px;
 `
 
-export const indicator = css`
+export const indicator = (theme: ThemeType) => css`
     transition: all 0.3s;
-    color: ${colors.neutral500};
+    color: ${get(theme, `FormSelect.indicator.color`)};
 `
 
 export const indicatorOpen = css`
     transform: rotate(180deg);
 `
 
-export const placeholder = css`
-    color: ${colors.neutral800};
+export const placeholder = (theme: ThemeType) => css`
+    color: ${get(theme, `FormSelect.placeholder.color`)};
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;

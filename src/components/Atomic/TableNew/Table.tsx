@@ -218,8 +218,8 @@ const Table: FC<Props> = (props) => {
                                             }}
                                         >
                                             <div
-                                                css={[
-                                                    styles.headerItem,
+                                                css={(theme) => [
+                                                    styles.headerItem(theme),
                                                     key === 0 && styles.headerItemFirst,
                                                     key === headerGroup.headers.length - 1 && styles.headerItemLast,
                                                 ]}
@@ -235,11 +235,17 @@ const Table: FC<Props> = (props) => {
                                                     >
                                                         <IconTableArrowUp
                                                             {...convertSize(6)}
-                                                            css={[styles.sortArrow, column.isSorted && !column.isSortedDesc && styles.sortActive]}
+                                                            css={(theme) => [
+                                                                styles.sortArrow,
+                                                                column.isSorted && !column.isSortedDesc && styles.sortActive(theme),
+                                                            ]}
                                                         />
                                                         <IconTableArrowDown
                                                             {...convertSize(6)}
-                                                            css={[styles.sortArrow, column.isSorted && column.isSortedDesc && styles.sortActive]}
+                                                            css={(theme) => [
+                                                                styles.sortArrow,
+                                                                column.isSorted && column.isSortedDesc && styles.sortActive(theme),
+                                                            ]}
                                                         />
                                                     </span>
                                                 )}

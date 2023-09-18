@@ -13,7 +13,7 @@ export const Breadcrumbs: FC<Props> = (props) => {
 
         if (!isLast) {
             return (
-                <a css={[styles.item, styles.link]} href={item?.link || '#'} onClick={(e) => handleClick(item, e)}>
+                <a css={(theme) => [styles.item, styles.link(theme)]} href={item?.link || '#'} onClick={(e) => handleClick(item, e)}>
                     {item.label}
                 </a>
             )

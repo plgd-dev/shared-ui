@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { fontPrimary, fontSecondary, hexToRgbA } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
+import { ThemeType, get } from '../../../_theme'
 
 export const header = css`
     display: flex;
@@ -10,14 +11,14 @@ export const header = css`
     flex-direction: column;
 `
 
-export const deleteIcon = css`
+export const deleteIcon = (theme: ThemeType) => css`
     width: 120px;
     height: 120px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${hexToRgbA(colors.red, 0.1)};
+    background: ${hexToRgbA(get(theme, `DeleteModal.red`), 0.1)};
     margin-top: -84px;
 `
 
@@ -57,8 +58,8 @@ export const subTitle = css`
     text-align: center;
 `
 
-export const body = css`
-    background: #f4f9fb;
+export const body = (theme: ThemeType) => css`
+    background: ${get(theme, `DeleteModal.body.background`)};
     margin-top: 8px;
     border-radius: 8px;
     padding: 8px 24px;
@@ -85,14 +86,14 @@ export const attr = css`
     color: ${colors.neutral500};
 `
 
-export const val = css`
+export const val = (theme: ThemeType) => css`
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
     text-align: right;
-    color: ${colors.neutral800};
+    color: ${get(theme, `DeleteModal.val.color`)};
 `
 
 export const emptyDeleteInformation = css`

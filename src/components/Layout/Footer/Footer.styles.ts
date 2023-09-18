@@ -19,12 +19,14 @@ export const footerInner = css`
     flex: 0 0 420px;
 `
 
-export const footerMainLine = css`
+export const footerMainLine = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 0;
+    padding: 16px 40px;
     min-height: 64px;
+    margin: 0 -40px;
+    background-color: ${get(theme, `Footer.footerMainLine.background`)};
 `
 
 export const recentTasks = (theme: ThemeType) => css`

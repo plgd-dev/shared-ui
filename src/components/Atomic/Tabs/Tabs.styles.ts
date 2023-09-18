@@ -20,7 +20,7 @@ export const tabList = (theme: ThemeType) => css`
     border-bottom: 1px solid ${get(theme, `Tabs.list.borderColor`)};
 `
 
-export const tabItem = css`
+export const tabItem = (theme: ThemeType) => css`
     white-space: nowrap;
     box-sizing: border-box;
     text-align: center;
@@ -49,7 +49,7 @@ export const tabItem = css`
     transition: all 0.25s;
 
     &:hover {
-        color: ${colors.primary};
+        color: ${get(theme, 'Tabs.item.hover.color')};
         background: transparent;
     }
 

@@ -50,7 +50,7 @@ const Tabs: FC<Props> = (props) => {
             <div css={styles.tabList} ref={tabListRef}>
                 {tabs.map((tab, i) => (
                     <motion.button
-                        css={[styles.tabItem, i === value && styles.isActive]}
+                        css={(theme) => [styles.tabItem(theme), i === value && styles.isActive]}
                         data-test-id={tab.dataTestId}
                         key={i}
                         onClick={() => handleTabChange(tab.id)}

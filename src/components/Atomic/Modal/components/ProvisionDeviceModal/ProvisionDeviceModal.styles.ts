@@ -1,13 +1,14 @@
 import { css } from '@emotion/react'
 import { fontPrimary, fontSecondary } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
+import { ThemeType, get } from '../../../_theme'
 
-export const getCodeBox = css`
+export const getCodeBox = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: #f4f9fb;
+    background: ${get(theme, `ProvisionDeviceModal.getCodeBox.background`)};
     border-radius: 8px;
 `
 
@@ -23,7 +24,7 @@ export const codeInfoHeader = css`
     margin: 0 0 16px 0;
 `
 
-export const title = css`
+export const title = (theme: ThemeType) => css`
     font-family: ${fontSecondary};
     font-style: normal;
     font-weight: 700;
@@ -32,7 +33,7 @@ export const title = css`
     display: flex;
     align-items: center;
     letter-spacing: -0.5px;
-    color: ${colors.primaryDarken};
+    color: ${get(theme, `ProvisionDeviceModal.title.color`)};
     margin: 0;
 `
 

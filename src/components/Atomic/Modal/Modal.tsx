@@ -70,7 +70,7 @@ export const Modal: FC<Props> = memo((props) => {
         }
         return (
             <div css={styles.header}>
-                <Headline css={styles.headline(maxWidthTitle)} type='h4'>
+                <Headline css={[(theme) => styles.headline(theme, maxWidthTitle)]} type='h4'>
                     {title}
                 </Headline>
 
@@ -151,7 +151,7 @@ export const Modal: FC<Props> = memo((props) => {
                         onClick={(e) => e.stopPropagation()}
                         variants={dropIn}
                     >
-                        <div css={styles.modal(minWidth, maxWidth)}>
+                        <div css={[(theme) => styles.modal(theme, minWidth, maxWidth)]}>
                             <Header />
                             {renderBody && (
                                 <div css={[styles.content, contentPadding && styles.contentPadding]}>{isFunction(renderBody) ? renderBody() : renderBody}</div>

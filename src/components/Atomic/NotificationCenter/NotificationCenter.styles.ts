@@ -1,11 +1,12 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { commonStyles, fontPrimary } from '../_utils/commonStyles'
+import { ThemeType, get } from '../_theme'
 
-export const floatingPanel = css`
+export const floatingPanel = (theme: ThemeType) => css`
     z-index: 10;
-    background: #fff;
-    border: 1px solid #e6e9ed;
+    background: ${get(theme, `NotificationCenter.floatingPanel.background`)};
+    border: 1px solid ${get(theme, `NotificationCenter.floatingPanel.borderColor`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     min-width: 400px;

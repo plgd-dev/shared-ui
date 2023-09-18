@@ -1,12 +1,13 @@
 import { css } from '@emotion/react'
 import { colors } from '../../_utils/colors'
+import { ThemeType, get } from '../../_theme'
 
-export const strippedLine = css`
+export const strippedLine = (theme: ThemeType) => css`
     display: flex;
     padding: 16px 0;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid ${colors.neutral200};
+    border-bottom: 1px solid ${get(theme, `ModalStrippedLine.strippedLine.borderColor`)};
 `
 
 export const smallPadding = css`

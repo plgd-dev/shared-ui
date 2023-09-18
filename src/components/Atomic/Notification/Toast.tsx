@@ -68,10 +68,10 @@ const toast = {
         toastify(<ToastComponent />, {
             className: classNames(
                 styles.toast(type, settings?.hasOwnProperty('onClick')),
-                settings?.variant === toastVariants.notification && 'notification-toast'
+                settings?.variant === toastVariants.notification && 'notification-toast',
+                'plgd-toast'
             ),
             message,
-            css: styles.toast,
             type,
             data: { message, ...pick(settings, ['onClick', 'variant']) },
             ...commonSettings,
@@ -81,10 +81,10 @@ const toast = {
         toastify(<ToastComponent />, {
             className: classNames(
                 styles.toast(toastTypes.info, settings?.hasOwnProperty('onClick')),
-                settings?.variant === toastVariants.notification && 'notification-toast'
+                settings?.variant === toastVariants.notification && 'notification-toast',
+                'plgd-toast'
             ),
             message,
-            css: styles.toast,
             type: toastTypes.info,
             data: { message, ...pick(settings, ['onClick', 'variant']) },
             ...commonSettings,
@@ -94,10 +94,10 @@ const toast = {
         toastify(<ToastComponent />, {
             className: classNames(
                 styles.toast(toastTypes.success, settings?.hasOwnProperty('onClick')),
-                settings?.variant === toastVariants.notification && 'notification-toast'
+                settings?.variant === toastVariants.notification && 'notification-toast',
+                'plgd-toast'
             ),
             message,
-            css: styles.toast,
             type: toastTypes.success,
             data: { message, ...pick(settings, ['onClick', 'variant']) },
             ...commonSettings,
@@ -107,10 +107,10 @@ const toast = {
         toastify(<ToastComponent />, {
             className: classNames(
                 styles.toast(toastTypes.warning, settings?.hasOwnProperty('onClick')),
-                settings?.variant === toastVariants.notification && 'notification-toast'
+                settings?.variant === toastVariants.notification && 'notification-toast',
+                'plgd-toast'
             ),
             message,
-            css: styles.toast,
             type: toastTypes.warning,
             data: { message, ...pick(settings, ['onClick', 'variant']) },
             ...commonSettings,
@@ -120,10 +120,10 @@ const toast = {
         toastify(<ToastComponent />, {
             className: classNames(
                 styles.toast(toastTypes.error, settings?.hasOwnProperty('onClick')),
-                settings?.variant === toastVariants.notification && 'notification-toast'
+                settings?.variant === toastVariants.notification && 'notification-toast',
+                'plgd-toast'
             ),
             message,
-            css: styles.toast,
             type: toastTypes.error,
             data: { message, ...pick(settings, ['onClick', 'variant']) },
             ...commonSettings,

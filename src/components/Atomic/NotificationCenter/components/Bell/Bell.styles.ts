@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../../../_utils/colors'
+import { ThemeType, get } from '../../../_theme'
 
 export const bell = css`
     width: 44px;
@@ -53,12 +54,12 @@ export const bell = css`
     }
 `
 
-export const hasUnRead = css`
+export const hasUnRead = (theme: ThemeType) => css`
     &:before {
         content: '';
         display: block;
         box-sizing: border-box;
-        border: 2px solid #fff;
+        border: 2px solid ${get(theme, `NotificationCenter.Bell.hasUnRead.borderColor`)};
         background: ${colors.red};
         border-radius: 50%;
         position: absolute;

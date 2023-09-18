@@ -12,13 +12,13 @@ export const tileToggle = (theme: ThemeType) => css`
     align-items: center;
 `
 
-export const name = css`
+export const name = (theme: ThemeType) => css`
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
-    color: ${colors.primaryDarken};
+    color: ${get(theme, 'TileToggle.name.color')};
     display: flex;
     align-items: center;
 `

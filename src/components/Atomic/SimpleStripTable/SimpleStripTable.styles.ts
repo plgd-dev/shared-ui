@@ -1,10 +1,11 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
+import { ThemeType, get } from '../_theme'
 
 export const table = css``
 
-export const row = css`
+export const row = (theme: ThemeType) => css`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,13 +14,13 @@ export const row = css`
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    background: #ffffff;
+    background: ${get(theme, `SimpleStripTable.row.background`)};
     border-radius: 8px;
     transition: all 0.25s;
     height: 54px;
 
     &:hover {
-        background: ${colors.tertiary};
+        background: ${get(theme, `SimpleStripTable.row.hover.background`)};
     }
 `
 
@@ -30,9 +31,9 @@ export const attribute = css`
     box-sizing: border-box;
 `
 
-export const value = css`
+export const value = (theme: ThemeType) => css`
     padding: 16px 24px;
-    color: ${colors.neutral800};
+    color: ${get(theme, `SimpleStripTable.value.color`)};
     flex: 1 1 auto;
     text-align: right;
     display: flex;
@@ -41,7 +42,7 @@ export const value = css`
     box-sizing: border-box;
 `
 
-export const border = css`
+export const border = (theme: ThemeType) => css`
     position: relative;
 
     &:after {
@@ -50,7 +51,7 @@ export const border = css`
         position: absolute;
         bottom: 0;
         height: 1px;
-        background: ${colors.neutral200};
+        background: ${get(theme, `SimpleStripTable.border.background`)};
     }
 `
 export const borderLeft = css`

@@ -1,22 +1,23 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
-export const editor = css`
+export const editor = (theme: ThemeType) => css`
     &.disabled:after {
         //display: none;
         background: rgba(255, 255, 255, 0);
     }
     .jsoneditor {
-        border: 1px solid #e6e9ed;
+        border: 1px solid ${get(theme, `Editor.borderColor`)};
         border-radius: 8px;
         overflow: hidden;
 
         .ace-jsoneditor {
             .ace_scroller {
-                background: #f4f9fb;
+                background: ${get(theme, `Editor.scroller.background`)};
             }
             .ace_gutter {
-                background: #e6e9ed;
+                background: ${get(theme, `Editor.gutter.background`)};
                 //             //padding: 16px 0;
                 //
                 .ace_gutter-cell {
@@ -31,6 +32,13 @@ export const editor = css`
                     //                 display: flex;
                     //                 align-items: center;
                 }
+            }
+
+            .ace_gutter-active-line {
+                background: #000028;
+            }
+            .ace_indent-guide {
+                background: none;
             }
 
             .ace_bracket,

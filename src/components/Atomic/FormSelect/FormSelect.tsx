@@ -89,7 +89,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
             className={className}
             classNamePrefix='select'
             components={{ DropdownIndicator, Menu, MenuList, Option, SelectContainer, SingleValue, ValueContainer, Placeholder, Control }}
-            css={styles.select(size, disabled)}
+            css={[(theme) => styles.select(theme, size, disabled)]}
             defaultValue={defaultValue}
             isDisabled={disabled}
             isSearchable={isSearchable}

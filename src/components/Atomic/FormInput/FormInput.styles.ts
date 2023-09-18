@@ -1,18 +1,20 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
-export const input = css`
+export const input = (theme: ThemeType) => css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    border: 1px solid #e6e9ed;
+    border: 1px solid ${get(theme, `FormInput.borderColor`)};
+    background: ${get(theme, `FormInput.background`)};
     border-radius: 8px;
     display: block;
     width: 100%;
     padding: 0 16px;
     transition: all 0.25s;
-    color: #252626;
+    color: ${get(theme, `FormInput.color`)};
     box-sizing: border-box;
 
     &::placeholder {
@@ -29,7 +31,7 @@ export const input = css`
     }
 
     &:focus {
-        border-color: ${colors.primary};
+        border-color: ${get(theme, `FormInput.focus.borderColor`)};
         outline: none;
     }
 
@@ -94,22 +96,22 @@ export const passwordIcon = css`
     box-sizing: border-box;
 `
 
-export const inputTelData = css`
+export const inputTelData = (theme: ThemeType) => css`
     position: absolute;
     left: 12px;
     top: 12px;
     height: 24px;
-    border-right: 1px solid #d7d8da;
+    border-right: 1px solid ${get(theme, `FormInput.borderColor`)};
     display: flex;
     align-items: center;
 `
 
-export const telPrefix = css`
+export const telPrefix = (theme: ThemeType) => css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    color: #252626;
+    color: ${get(theme, `FormInput.color`)};
     padding: 0 10px 0 8px;
     user-select: none;
 `
@@ -123,6 +125,6 @@ export const readOnly = css`
     color: #757676;
 `
 
-export const error = css`
-    border-color: ${colors.red};
+export const error = (theme: ThemeType) => css`
+    border-color: ${get(theme, `FormInput.error.red`)};
 `

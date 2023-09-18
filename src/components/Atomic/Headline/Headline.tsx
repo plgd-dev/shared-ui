@@ -1,7 +1,8 @@
 import { createElement, FC } from 'react'
+import classNames from 'classnames'
+
 import { Props, defaultProps } from './Headline.types'
 import * as styles from './Headline.styles'
-import classNames from 'classnames'
 
 const Headline: FC<Props> = (props) => {
     const mergedProps = { ...defaultProps, ...props }
@@ -14,7 +15,7 @@ const Headline: FC<Props> = (props) => {
             {...rest}
             children={mergedProps.children}
             className={classNames(mergedProps.type, className)}
-            css={styles.headline(mergedProps.type!)}
+            css={[(theme) => styles.headline(theme, mergedProps.type!)]}
             data-test-id={mergedProps.dataTestId}
         />
     )

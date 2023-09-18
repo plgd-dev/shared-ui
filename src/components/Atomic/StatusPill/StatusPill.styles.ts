@@ -2,17 +2,18 @@ import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { StatusPillStatusType } from './StatusPill.types'
 import { states } from './constants'
+import { ThemeType, get } from '../_theme'
 
 export const statusPill = css`
     display: flex;
     align-items: center;
 `
 
-export const statusLine = (status: StatusPillStatusType) => css`
+export const statusLine = (theme: ThemeType, status: StatusPillStatusType) => css`
     width: 4px;
     height: 24px;
     border-radius: 6px;
-    background-color: ${status === states.ONLINE ? colors.green : colors.red};
+    background-color: ${status === states.ONLINE ? get(theme, 'StatusPill.statusLine.green') : get(theme, 'StatusPill.statusLine.red')};
 `
 
 export const label = css`

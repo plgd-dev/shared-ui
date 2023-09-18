@@ -2,6 +2,7 @@ import { css } from '@emotion/react'
 import { SwitcherSizeType } from './Switch.types'
 import { colors } from '../_utils/colors'
 import styled from '@emotion/styled'
+import { ThemeType, get } from '../_theme'
 
 export const switchC = css`
     display: flex;
@@ -12,12 +13,12 @@ export const labelBefore = css`
     flex-direction: row-reverse;
 `
 
-const getSwitcherSize = (size: SwitcherSizeType) =>
-    css`
-        width: ${size === 'big' ? '32px' : '24px'};
-        height: ${size === 'big' ? '20px' : '15px'};
-        border-radius: ${size === 'big' ? '26.6667px' : '20px'};
-    `
+const getSwitcherSize = (size: SwitcherSizeType) => css`
+    width: ${size === 'big' ? '32px' : '24px'};
+    height: ${size === 'big' ? '20px' : '15px'};
+    border-radius: ${size === 'big' ? '26.6667px' : '20px'};
+    overflow: hidden;
+`
 
 export const switcher = (size: SwitcherSizeType) => css`
     ${getSwitcherSize(size)};
@@ -32,7 +33,7 @@ export const slider = styled.span`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: ${(props) => get(props.theme, `Switch.background`)};
     transition: 0.4s;
 
     &:before {
@@ -43,16 +44,18 @@ export const slider = styled.span`
         background-color: white;
         transition: 0.4s;
         border-radius: 50%;
+        width: ${(props: any) => (props.size === 'big' ? '16px' : '11px')};
+        height: ${(props: any) => (props.size === 'big' ? '16px' : '11px')};
     }
 `
 
-export const input = (size: SwitcherSizeType, disabled: boolean) => css`
+export const input = (theme: ThemeType, size: SwitcherSizeType, disabled: boolean) => css`
     opacity: 0;
     width: 0;
     height: 0;
 
     &:checked ~ ${slider} {
-        background: ${disabled ? colors.disabled : colors.primary};
+        background: ${disabled ? get(theme, 'Switch.input.background.disabled') : get(theme, 'Switch.input.background.primary')};
 
         &:before {
             transform: translateX(${size === 'big' ? '12px' : '8px'});
@@ -75,9 +78,9 @@ export const sliderStyle = (size: SwitcherSizeType) => css`
     }
 `
 
-export const label = css`
+export const label = (theme: ThemeType) => css`
     font-size: 14px;
-    color: ${colors.neutral800};
+    color: ${get(theme, `Switch.label.color`)};
     padding-left: 8px;
     cursor: pointer;
     line-height: 18px;

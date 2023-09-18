@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { ThemeType, get } from '../_theme'
 
 export const pageLayout = css`
     height: 100%;
@@ -31,8 +32,8 @@ export const left = css`
     z-index: 1;
 `
 
-export const headline = css`
-    color: #0a2965;
+export const headline = (theme: ThemeType) => css`
+    color: ${get(theme, 'PageLayout.headline.color')};
 `
 
 export const statusTag = css`
