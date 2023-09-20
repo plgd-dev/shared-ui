@@ -18,6 +18,7 @@ import {
     IconSearch,
 } from '../../Atomic/Icon'
 import { severities } from '../../Atomic/VersionMark/constants'
+import { Logo } from './components'
 
 export const leftPanelMenu = [
     {
@@ -130,6 +131,7 @@ describe('<LeftPanel>', () => {
             <LeftPanel
                 activeId='1'
                 collapsed={false}
+                logo={<Logo height={32} width={147} />}
                 menu={leftPanelMenu}
                 versionMark={<VersionMark severity={severities.SUCCESS} versionText='Version 2.02' />}
             />
@@ -141,6 +143,7 @@ describe('<LeftPanel>', () => {
             <LeftPanel
                 activeId='1'
                 collapsed={false}
+                logo={<Logo height={32} width={147} />}
                 menu={leftPanelMenu}
                 versionMark={<VersionMark severity={severities.WARNING} versionText='Version 2.02' />}
             />
@@ -156,6 +159,7 @@ describe('<LeftPanel>', () => {
             <LeftPanel
                 activeId='1'
                 collapsed={false}
+                logo={<Logo height={32} width={147} />}
                 menu={leftPanelMenu}
                 versionMark={<VersionMark severity={severities.ERROR} versionText='Version 2.02' />}
             />
@@ -171,6 +175,7 @@ describe('<LeftPanel>', () => {
             <LeftPanel
                 activeId='4'
                 collapsed={true}
+                logo={<Logo height={32} width={147} />}
                 menu={leftPanelMenu}
                 newFeature={{
                     i18n: {

@@ -125,7 +125,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 }
 
 const LeftPanel: FC<Props> = (props) => {
-    const { className, collapsed, id, menu, newFeature, versionMark, onItemClick, setCollapsed } = props
+    const { className, collapsed, id, logo, menu, newFeature, versionMark, onItemClick, setCollapsed } = props
     const [active, setActive] = useState<string | null>(props.activeId || null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
     const [domReady, setDomReady] = useState(false)
@@ -171,7 +171,7 @@ const LeftPanel: FC<Props> = (props) => {
                     document.getElementById('header-icon-collapse-portal-target') as Element
                 )}
             <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
-                <Logo css={[styles.logoSvg, collapsed && styles.logoSvgCollapsed]} height={32} width={147} />
+                {cloneElement(logo as ReactElement, { css: [styles.logoSvg, collapsed && styles.logoSvgCollapsed] })}
             </div>
             <div css={[styles.menu, collapsed && styles.menuCollapsed]}>
                 <ul css={styles.menuList}>
