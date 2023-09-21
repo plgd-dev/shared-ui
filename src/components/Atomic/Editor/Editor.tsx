@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { FC, MutableRefObject, useEffect, useRef } from 'react'
+import React, { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
 import { defaultProps, Props } from './Editor.types'
 import * as styles from './Editor.styles'
 import classNames from 'classnames'
@@ -8,7 +8,25 @@ import 'jsoneditor/dist/jsoneditor.css'
 import isFunction from 'lodash/isFunction'
 
 const Editor: FC<Props> = (props) => {
-    const { autofocus, className, editorRef, containerRef, onChange, onError, json, schema, height, width, style, onResize, disabled, mode, ...rest } = props
+    const {
+        autofocus,
+        className,
+        editorRef,
+        containerRef,
+        onChange,
+        onError,
+        json,
+        schema,
+        height: heightProp,
+        width,
+        style,
+        onResize,
+        disabled,
+        mode,
+        ...rest
+    } = props
+
+    const [height, setHeight] = useState(heightProp)
 
     const container = useRef()
     const jsonEditor = useRef()
@@ -47,7 +65,7 @@ const Editor: FC<Props> = (props) => {
         if (isFunction(onResize) && onResize) {
             onResize(width, height, () => {
                 // @ts-ignore
-                jsoneditor?.current?.aceEditor?.resize?.()
+                jsonEditor?.current?.aceEditor?.resize?.()
             })
         }
     }
@@ -77,11 +95,18 @@ const Editor: FC<Props> = (props) => {
             jsonEditor?.current?.focus()
         }
 
+        const numberOfLines = jsonEditor.current.aceEditor.env.document.doc.$lines.length || 0
+        const lineHeight = jsonEditor.current.aceEditor.renderer.lineHeight || 0
+
+        setHeight(Math.max(numberOfLines * lineHeight + 5, 300))
+
         // lineHeight
         jsonEditor.current.aceEditor.setOptions({
             minLines: 1000,
             fontSize: 14,
+            readOnly: disabled,
             // highlightGutterLine: false,
+            // showLineNumbers: false,
         })
 
         if (typeof ResizeObserver === 'function' && container.current) {

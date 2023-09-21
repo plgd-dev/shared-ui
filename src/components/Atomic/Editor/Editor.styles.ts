@@ -3,6 +3,8 @@ import { colors } from '../_utils/colors'
 import { ThemeType, get } from '../_theme'
 
 export const editor = (theme: ThemeType) => css`
+    max-height: 80%;
+
     &.disabled:after {
         //display: none;
         background: rgba(255, 255, 255, 0);
