@@ -36,13 +36,14 @@ export const row = (theme: ThemeType) => css`
     &:hover {
         .tree-custom-tag {
             background: ${get(theme, `TreeTable.row.hover.customTag.background`)};
+            color: ${get(theme, `TreeTable.row.hover.customTag.color`)};
         }
     }
 `
 
-export const treeCell = css`
+export const treeCell = (theme: ThemeType) => css`
     .link {
-        color: ${colors.primary};
+        color: ${get(theme, `TreeTable.cell.color`)};
     }
 `
 
@@ -53,6 +54,7 @@ export const removeBottomBorderRadius = (theme: ThemeType) => css`
 
     .tree-custom-tag {
         background: ${get(theme, `TreeTable.removeBottomBorderRadius.customTag.background`)};
+        color: ${get(theme, `TreeTable.removeBottomBorderRadius.customTag.color`)};
     }
 `
 
@@ -62,7 +64,8 @@ export const removeTopBorderRadius = (theme: ThemeType) => css`
     background-color: ${get(theme, `TreeTable.removeTopBorderRadius.background`)};
 
     .tree-custom-tag {
-        background: ${get(theme, `TreeTable.removeBottomBorderRadius.customTag.background`)};
+        background: ${get(theme, `TreeTable.removeTopBorderRadius.customTag.background`)};
+        color: ${get(theme, `TreeTable.removeTopBorderRadius.customTag.color`)};
     }
 `
 
@@ -72,6 +75,7 @@ export const removeBorderRadius = (theme: ThemeType) => css`
 
     .tree-custom-tag {
         background: ${get(theme, `TreeTable.removeBorderRadius.customTag.background`)};
+        color: ${get(theme, `TreeTable.removeBorderRadius.customTag.color`)};
     }
 `
 

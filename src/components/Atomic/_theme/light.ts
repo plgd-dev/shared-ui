@@ -252,6 +252,11 @@ const theme = {
             borderColor: colors.neutral200,
         },
     },
+    NotFound: {
+        title: {
+            color: '#0a2965',
+        },
+    },
     NotificationCenter: {
         floatingPanel: {
             background: '#fff',
@@ -465,25 +470,32 @@ const theme = {
             hover: {
                 customTag: {
                     background: '#fff',
+                    color: '#1a1a1a',
                 },
             },
+        },
+        cell: {
+            color: colors.primary,
         },
         removeBottomBorderRadius: {
             backgroundColor: colors.neutral100,
             customTag: {
                 background: '#fff',
+                color: '#81868D',
             },
         },
         removeTopBorderRadius: {
             backgroundColor: colors.neutral100,
             customTag: {
                 background: '#fff',
+                color: '#81868D',
             },
         },
         removeBorderRadius: {
             backgroundColor: colors.neutral100,
             customTag: {
                 background: '#fff',
+                color: '#81868D',
             },
         },
     },

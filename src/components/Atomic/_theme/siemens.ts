@@ -43,12 +43,12 @@ const theme = {
             },
         },
         tertiary: {
-            background: '#9999a9',
-            borderColor: '#9999a9',
+            background: colors.neutral300,
+            borderColor: colors.neutral300,
             color: colors.neutral900,
             hover: {
-                background: colors.neutral300,
-                borderColor: colors.neutral300,
+                background: '#9999a9',
+                borderColor: '#9999a9',
                 color: colors.neutral900,
             },
             disabled: {
@@ -250,6 +250,11 @@ const theme = {
     ModalStrippedLine: {
         strippedLine: {
             borderColor: '#81868c',
+        },
+    },
+    NotFound: {
+        title: {
+            color: colorsSiemens.primary,
         },
     },
     NotificationCenter: {
@@ -465,25 +470,32 @@ const theme = {
             hover: {
                 customTag: {
                     background: '#ccc',
+                    color: '#1a1a1a',
                 },
             },
+        },
+        cell: {
+            color: '#fff',
         },
         removeBottomBorderRadius: {
             backgroundColor: '#23233c',
             customTag: {
-                background: '#ccc',
+                background: '#23233c',
+                color: '#81868D',
             },
         },
         removeTopBorderRadius: {
             backgroundColor: '#23233c',
             customTag: {
-                background: '#ccc',
+                background: '#23233c',
+                color: '#81868D',
             },
         },
         removeBorderRadius: {
             backgroundColor: '#23233c',
             customTag: {
-                background: '#ccc',
+                background: '#23233c',
+                color: '#81868D',
             },
         },
     },

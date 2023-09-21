@@ -260,32 +260,30 @@ const Table: FC<Props> = (props) => {
                                 prepareRow(row)
                                 return (
                                     <tr {...row.getRowProps(getRowProps!(row))} css={[styles.row, row.isSelected && styles.isSelected]}>
-                                        {row.cells.map((cell: any, cellKey: number) => {
-                                            return (
-                                                <td
-                                                    {...cell.getCellProps([
-                                                        {
-                                                            className: cell.column.className,
-                                                            style: cell.column.style,
-                                                        },
-                                                        getColumnProps!(cell.column),
-                                                        getCellProps!(cell),
-                                                    ])}
-                                                    data-row={row.id}
+                                        {row.cells.map((cell: any, cellKey: number) => (
+                                            <td
+                                                {...cell.getCellProps([
+                                                    {
+                                                        className: cell.column.className,
+                                                        style: cell.column.style,
+                                                    },
+                                                    getColumnProps!(cell.column),
+                                                    getCellProps!(cell),
+                                                ])}
+                                                data-row={row.id}
+                                            >
+                                                <Cell
+                                                    css={[
+                                                        key === 0 && styles.firstRowCell,
+                                                        cellKey === 0 && styles.firstCell,
+                                                        cellKey === row.cells.length - 1 && styles.lastCell,
+                                                    ]}
+                                                    rowHeight={rowHeight}
                                                 >
-                                                    <Cell
-                                                        css={[
-                                                            key === 0 && styles.firstRowCell,
-                                                            cellKey === 0 && styles.firstCell,
-                                                            cellKey === row.cells.length - 1 && styles.lastCell,
-                                                        ]}
-                                                        rowHeight={rowHeight}
-                                                    >
-                                                        {cell.render('Cell')}
-                                                    </Cell>
-                                                </td>
-                                            )
-                                        })}
+                                                    {cell.render('Cell')}
+                                                </Cell>
+                                            </td>
+                                        ))}
                                     </tr>
                                 )
                             })}
