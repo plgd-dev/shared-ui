@@ -185,6 +185,14 @@ const theme = {
         focus: {
             borderColor: colorsSiemens.primary,
         },
+        disabled: {
+            background: '#000028',
+            color: '#81868c',
+            borderColor: '#000028',
+        },
+        readonly: {
+            color: '#ffffff',
+        },
     },
     FormSelect: {
         input: {

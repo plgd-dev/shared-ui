@@ -150,6 +150,14 @@ const theme = {
         focus: {
             borderColor: colors.primary,
         },
+        disabled: {
+            background: '#f6f7f9',
+            color: '#757676',
+            borderColor: '#e6e9ed',
+        },
+        readonly: {
+            color: '#757676',
+        },
     },
     FormSelect: {
         input: {

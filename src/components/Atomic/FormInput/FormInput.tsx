@@ -36,12 +36,12 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             {...rest}
             aria-invalid={error || ariaInvalid ? true : undefined}
             autoComplete={autoComplete}
-            css={[
-                styles.input,
+            css={(theme) => [
+                styles.input(theme),
                 (defaultType === 'password' || copy) && !isEdge && styles.inputWithIcon,
                 defaultType === 'tel' && styles.inputTel,
-                disabled && styles.disabled,
-                readOnly && styles.readOnly,
+                disabled && styles.disabled(theme),
+                readOnly && styles.readOnly(theme),
                 error && styles.error,
                 size === inputSizes.BIG && styles.big,
                 size === inputSizes.NORMAL && styles.normal,

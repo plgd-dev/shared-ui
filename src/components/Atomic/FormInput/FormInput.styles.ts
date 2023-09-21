@@ -116,13 +116,15 @@ export const telPrefix = (theme: ThemeType) => css`
     user-select: none;
 `
 
-export const disabled = css`
-    background: #f6f7f9;
-    color: #757676;
+export const disabled = (theme: ThemeType) => css`
+    background: ${get(theme, `FormInput.disabled.background`)};
+    color: ${get(theme, `FormInput.disabled.color`)};
+    border-color: ${get(theme, `FormInput.disabled.borderColor`)};
+    cursor: not-allowed;
 `
 
-export const readOnly = css`
-    color: #757676;
+export const readOnly = (theme: ThemeType) => css`
+    color: ${get(theme, `FormInput.readonly.color`)};
 `
 
 export const error = (theme: ThemeType) => css`
