@@ -34,7 +34,7 @@ export const variantDisabled = (variant: ButtonVariantsType | undefined, theme: 
     background: ${get(theme, `Button.${variant}.disabled.background`)};
     border: 1px solid ${get(theme, `Button.${variant}.disabled.borderColor`)};
     color: ${get(theme, `Button.${variant}.disabled.color`)};
-    cursor: not-allowed;
+    cursor: not-allowed !important;
 
     &:hover {
         background: ${get(theme, `Button.${variant}.disabled.background`)};

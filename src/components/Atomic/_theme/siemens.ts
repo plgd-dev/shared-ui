@@ -15,11 +15,11 @@ const theme = {
         primary: {
             background: colorsSiemens.primary,
             borderColor: colorsSiemens.primary,
-            color: '#23233C',
+            color: '#fff',
             hover: {
                 background: '#00BEDC',
                 borderColor: '#00BEDC',
-                color: '#23233C',
+                color: '#fff',
             },
             disabled: {
                 background: '#81868c',
@@ -28,7 +28,7 @@ const theme = {
             },
         },
         secondary: {
-            background: '#00af8e',
+            background: 'rgba(82, 197, 162, 0.16)',
             borderColor: '#00ADB4',
             color: '#fff',
             hover: {
@@ -43,9 +43,9 @@ const theme = {
             },
         },
         tertiary: {
-            background: colors.neutral300,
-            borderColor: colors.neutral300,
-            color: colors.neutral900,
+            background: '#23233c',
+            borderColor: colors.neutral500,
+            color: colors.neutral500,
             hover: {
                 background: '#9999a9',
                 borderColor: '#9999a9',
@@ -262,6 +262,12 @@ const theme = {
             background: '#000028',
             borderColor: '#23233c',
         },
+        Headline: {
+            color: colorsSiemens.primary,
+        },
+        ClearAll: {
+            color: colorsSiemens.primary,
+        },
         Bell: {
             hasUnRead: {
                 borderColor: '#23233c',
@@ -271,7 +277,14 @@ const theme = {
             unreadMark: {
                 borderColor: '#23233c',
             },
+            headline: {
+                color: '#fff',
+            },
         },
+        info: colorsSiemens.info,
+        green: colorsSiemens.green,
+        yellow: colorsSiemens.yellow,
+        red: colorsSiemens.red,
     },
     PageLayout: {
         headline: {

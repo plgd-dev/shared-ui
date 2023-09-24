@@ -52,6 +52,7 @@ export const uiColorMap = {
         yellow: '#ffd732',
         red: '#ef0137',
         green: '#00d7a0',
+        info: '#5FBDEB',
     },
 }
 

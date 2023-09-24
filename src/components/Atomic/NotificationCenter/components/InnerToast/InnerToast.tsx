@@ -11,25 +11,25 @@ const getIcon = (type: ToastTypesType) => {
     switch (type) {
         case toastTypes.info:
             return (
-                <div css={[styles.iconOverlay, styles.colorInfoBg]}>
+                <div css={(theme) => [styles.iconOverlay, styles.colorInfoBg(theme)]}>
                     <IconInfo {...convertSize(24)} css={styles.colorInfo} />
                 </div>
             )
         case toastTypes.success:
             return (
-                <div css={[styles.iconOverlay, styles.colorSuccessBg]}>
+                <div css={(theme) => [styles.iconOverlay, styles.colorSuccessBg(theme)]}>
                     <IconSuccess {...convertSize(24)} css={styles.colorSuccess} />
                 </div>
             )
         case toastTypes.warning:
             return (
-                <div css={[styles.iconOverlay, styles.colorWarningBg]}>
+                <div css={(theme) => [styles.iconOverlay, styles.colorWarningBg(theme)]}>
                     <IconError {...convertSize(24)} css={styles.colorWarning} />
                 </div>
             )
         case toastTypes.error:
             return (
-                <div css={[styles.iconOverlay, styles.colorErrorBg]}>
+                <div css={(theme) => [styles.iconOverlay, styles.colorErrorBg(theme)]}>
                     <IconError {...convertSize(24)} css={styles.colorError} />
                 </div>
             )

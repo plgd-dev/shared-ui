@@ -46,41 +46,41 @@ export const colorInfo = css`
     color: ${colors.primary};
 `
 
-export const colorInfoBg = css`
-    background-color: ${hexToRgbA(colors.primary, 0.16)};
+export const colorInfoBg = (theme: ThemeType) => css`
+    background-color: ${hexToRgbA(get(theme, `NotificationCenter.info`), 0.16)};
 `
 
 export const colorSuccess = css`
     color: ${colors.green};
 `
 
-export const colorSuccessBg = css`
-    background-color: ${hexToRgbA(colors.green, 0.16)};
+export const colorSuccessBg = (theme: ThemeType) => css`
+    background-color: ${hexToRgbA(get(theme, `NotificationCenter.green`), 0.16)};
 `
 
 export const colorWarning = css`
     color: ${colors.yellow};
 `
 
-export const colorWarningBg = css`
-    background-color: ${hexToRgbA(colors.yellow, 0.16)};
+export const colorWarningBg = (theme: ThemeType) => css`
+    background-color: ${hexToRgbA(get(theme, `NotificationCenter.yellow`), 0.16)};
 `
 
 export const colorError = css`
     color: ${colors.red};
 `
 
-export const colorErrorBg = css`
-    background-color: ${hexToRgbA(colors.red, 0.16)};
+export const colorErrorBg = (theme: ThemeType) => css`
+    background-color: ${hexToRgbA(get(theme, `NotificationCenter.red`), 0.16)};
 `
 
-export const headline = css`
+export const headline = (theme: ThemeType) => css`
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: ${colors.primaryDarken};
+    color: ${get(theme, `NotificationCenter.InnerToast.headline.color`)};
     margin: 0;
 `
 

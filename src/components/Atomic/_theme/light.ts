@@ -1,4 +1,5 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
+import { headline } from '../NotificationCenter/components/InnerToast/InnerToast.styles'
 
 const theme = {
     Alert: {
@@ -262,6 +263,12 @@ const theme = {
             background: '#fff',
             borderColor: '#e6e9ed',
         },
+        Headline: {
+            color: colors.primaryDarken,
+        },
+        ClearAll: {
+            color: colors.primary,
+        },
         Bell: {
             hasUnRead: {
                 borderColor: '#fff',
@@ -271,7 +278,14 @@ const theme = {
             unreadMark: {
                 borderColor: '#fff',
             },
+            headline: {
+                color: colors.primaryDarken,
+            },
         },
+        info: colors.primary,
+        green: colors.green,
+        yellow: colors.yellow,
+        red: colors.red,
     },
     PageLayout: {
         headline: {

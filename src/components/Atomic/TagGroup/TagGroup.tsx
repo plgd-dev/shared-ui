@@ -52,6 +52,7 @@ const TagGroup: FC<Props> = (props) => {
 
             <Modal
                 appRoot={document.getElementById('root')}
+                maxWidth={600}
                 onClose={() => setShow(false)}
                 portalTarget={document.getElementById('modal-root')}
                 renderBody={renderBody}

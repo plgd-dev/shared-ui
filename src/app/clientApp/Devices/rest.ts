@@ -141,8 +141,8 @@ export const PLGD_BROWSER_USED = 'plgdBrowserUsed'
  * Returns an async function which resolves with a authorization code gathered from a rendered iframe, used for onboarding of a device.
  * @param {*} deviceId
  */
-export const getDeviceAuthCode = (deviceId: string, remoteClientId?: string) => {
-    return new Promise((resolve, reject) => {
+export const getDeviceAuthCode = (deviceId: string, remoteClientId?: string) =>
+    new Promise((resolve, reject) => {
         const wellKnownConfig = getWellKnowConfig()
 
         if (!wellKnownConfig.remoteProvisioning) {
@@ -214,4 +214,3 @@ export const getDeviceAuthCode = (deviceId: string, remoteClientId?: string) => 
             getCode()
         })
     })
-}

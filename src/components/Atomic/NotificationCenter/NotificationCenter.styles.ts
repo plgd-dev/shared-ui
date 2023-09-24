@@ -23,27 +23,28 @@ export const header = css`
     border-bottom: 1px solid #e6e9ed;
 `
 
-export const headline = css`
+export const headline = (theme: ThemeType) => css`
     font-family: ${commonStyles.fontSecondary};
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 140%;
     letter-spacing: -0.5px;
-    color: ${colors.primaryDarken};
+    color: ${get(theme, `NotificationCenter.Headline.color`)};
 `
 
-export const clearAll = css`
+export const clearAll = (theme: ThemeType) => css`
     font-family: ${commonStyles.fontPrimary};
     font-style: normal;
-    color: ${colors.primary};
+    color: ${get(theme, `NotificationCenter.ClearAll.color`)};
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     text-decoration: underline;
 
     &:hover {
-        text-decoration: none;
+        text-decoration: none !important;
+        color: ${get(theme, `NotificationCenter.ClearAll.color`)};
     }
 `
 
