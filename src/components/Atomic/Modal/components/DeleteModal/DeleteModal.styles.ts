@@ -22,7 +22,7 @@ export const deleteIcon = (theme: ThemeType) => css`
     margin-top: -84px;
 `
 
-export const deleteIconInner = css`
+export const deleteIconInner = (theme: ThemeType) => css`
     flex: 0 0 86px;
     width: 86px;
     height: 86px;
@@ -31,7 +31,7 @@ export const deleteIconInner = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: ${get(theme, 'DeleteModal.deleteIconInner.color')};
     box-shadow: 0 6px 12px rgba(215, 78, 58, 0.32);
 `
 
@@ -48,13 +48,13 @@ export const title = (theme: ThemeType, maxWidth?: number) => css`
     max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
 `
 
-export const subTitle = css`
+export const subTitle = (theme: ThemeType) => css`
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    color: ${colors.neutral800};
+    color: ${get(theme, 'DeleteModal.subTitle.color')};
     text-align: center;
 `
 
@@ -96,8 +96,8 @@ export const val = (theme: ThemeType) => css`
     color: ${get(theme, `DeleteModal.val.color`)};
 `
 
-export const emptyDeleteInformation = css`
+export const emptyDeleteInformation = (theme: ThemeType) => css`
     height: 2px;
     width: 100%;
-    background: ${colors.neutral200};
+    background: ${get(theme, `DeleteModal.emptyDeleteInformation.background`)};
 `

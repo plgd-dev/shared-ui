@@ -146,6 +146,15 @@ const theme = {
         item: {
             borderColor: colors.neutral500,
         },
+        deleteIconInner: {
+            color: '#fff',
+        },
+        subTitle: {
+            color: colors.neutral500,
+        },
+        emptyDeleteInformation: {
+            background: colors.neutral700,
+        },
     },
     Editor: {
         borderColor: '#000028',
@@ -407,6 +416,13 @@ const theme = {
         },
         row: {
             background: '#26233c',
+            selected: {
+                cell: {
+                    before: {
+                        background: colors.neutral700,
+                    },
+                },
+            },
         },
         selected: {
             background: '#26233c',

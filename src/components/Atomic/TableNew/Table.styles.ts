@@ -121,6 +121,7 @@ export const cell = styled.div`
         left: 0;
         right: 0;
         position: absolute;
+        transition: all 0.25s;
         background-color: ${(props) => get(props.theme, `Table.cell.before.background`)};
     }
 
@@ -170,6 +171,10 @@ export const row = (theme: ThemeType) => css`
     &:hover {
         ${cell} {
             background-color: ${get(theme, `Table.row.background`)};
+
+            &:before {
+                background-color: ${get(theme, `Table.row.selected.cell.before.background`)};
+            }
         }
     }
 `
@@ -178,5 +183,9 @@ export const row = (theme: ThemeType) => css`
 export const isSelected = (theme: ThemeType) => css`
     ${cell} {
         background-color: ${get(theme, `Table.selected.background`)};
+
+        &:before {
+            background-color: ${get(theme, `Table.row.selected.cell.before.background`)};
+        }
     }
 `

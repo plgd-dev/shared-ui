@@ -1,5 +1,6 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
 import { headline } from '../NotificationCenter/components/InnerToast/InnerToast.styles'
+import { emptyDeleteInformation } from '../Modal/components/DeleteModal/DeleteModal.styles'
 
 const theme = {
     Alert: {
@@ -111,6 +112,15 @@ const theme = {
         },
         item: {
             borderColor: colors.neutral200,
+        },
+        deleteIconInner: {
+            color: '#fff',
+        },
+        subTitle: {
+            color: colors.neutral800,
+        },
+        emptyDeleteInformation: {
+            background: colors.neutral200,
         },
     },
     Editor: {
@@ -408,6 +418,13 @@ const theme = {
         },
         row: {
             background: colors.neutral100,
+            selected: {
+                cell: {
+                    before: {
+                        background: colors.neutral200,
+                    },
+                },
+            },
         },
         selected: {
             background: colors.neutral100,
