@@ -28,12 +28,12 @@ class WebSocketEventClientClass {
         this.delayListenersMs = 0
     }
 
-    _connect = async () => {
+    _connect = async (url = undefined) => {
         const accessToken = await security.getAccessToken()
         const { host, protocol } = new URL(security.getGeneralConfig().httpGatewayAddress)
         const wsProtocol = protocol === 'https:' ? 'wss:' : 'ws:'
 
-        const wsUrl = `${wsProtocol}//${host}${this.api}`
+        const wsUrl = url ?? `${wsProtocol}//${host}${this.api}`
 
         // WS Instance
         this.ws = new WebSocket(wsUrl, ['Bearer', accessToken])

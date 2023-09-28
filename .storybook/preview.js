@@ -2,8 +2,9 @@ import { ThemeProvider } from '@emotion/react'
 import { addons } from '@storybook/addons'
 import { useEffect, useState } from 'react'
 import { CHANGE } from 'storybook-addon-themes/src/constants'
+
 import light from '../src/components/Atomic/_theme/light'
-import dark from '../src/components/Atomic/_theme/dark'
+import siemens from '../src/components/Atomic/_theme/siemens'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
@@ -14,9 +15,6 @@ import '../src/common/styles/colors.scss'
 import '../src/common/styles/default.scss'
 import '../src/common/styles/animations.scss'
 import '../src/common/styles/form.scss'
-
-import '../src/components/Atomic/Table/Table.scss'
-// import '../src/components/Atomic/TreeExpander/TreeExpander.scss'
 
 
 export const parameters = {
@@ -31,7 +29,8 @@ export const parameters = {
     default: 'light',
     list: [
       { name: 'light', class: ['theme-twt', 'light-mode'], color: '#00aced' },
-      { name: 'dark', class: ['theme-fb', 'dark-mode'], color: '#3b5998' },
+      // { name: 'dark', class: ['theme-fb', 'dark-mode'], color: '#3b5998' },
+      { name: 'siemens', class: ['theme-fb', 'siemens-mode'], color: '#000028' },
     ],
   },
 }
@@ -46,7 +45,7 @@ const withTheme = (StoryFn, context) => {
     return (lastValue && lastValue[0]) || themes.default
   })
 
-  const getThemeByKey = (themeName) => themeName === 'light' ? light : dark
+  const getThemeByKey = (themeName) => themeName === 'light' ? light : siemens
 
   useEffect(() => {
     channel.on(CHANGE, setThemeName);

@@ -1,6 +1,4 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
-import { headline } from '../NotificationCenter/components/InnerToast/InnerToast.styles'
-import { emptyDeleteInformation } from '../Modal/components/DeleteModal/DeleteModal.styles'
 
 const theme = {
     Alert: {

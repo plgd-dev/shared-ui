@@ -15,7 +15,7 @@ import { inputSizes } from '../FormInput/constants'
 const { INFINITE, NS } = commandTimeoutUnits
 
 const TimeoutControl: FC<Props> = (props) => {
-    const { defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, i18n } = props
+    const { defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, i18n, watchUnitChange } = props
     const closestUnit = useMemo(() => findClosestUnit(defaultValue), [defaultValue])
     const closestDefaultTtl = useMemo(() => {
         const unit = findClosestUnit(defaultTtlValue)
@@ -39,17 +39,18 @@ const TimeoutControl: FC<Props> = (props) => {
     const handleOnUnitChange = ({ value: unitValue }: { value: string }) => {
         if (unitValue === INFINITE) {
             !isDefault && setIsDefault(true)
-            setInputValue(closestDefaultTtl.value)
+            watchUnitChange && setInputValue(closestDefaultTtl.value)
             setUnit(closestDefaultTtl.unit)
 
-            onChange(convertValueToNs(closestDefaultTtl.value, closestDefaultTtl.unit))
-            isFunction(onTtlHasError) && onTtlHasError(false)
+            watchUnitChange && onChange(convertValueToNs(closestDefaultTtl.value, closestDefaultTtl.unit))
+            watchUnitChange && isFunction(onTtlHasError) && onTtlHasError(false)
         } else {
             isDefault && setIsDefault(false)
-            const newInputValue = convertAndNormalizeValueFromTo(inputValue, unit, unitValue)
-            setInputValue(newInputValue)
-            setUnit(unitValue)
 
+            const newInputValue = watchUnitChange ? convertAndNormalizeValueFromTo(inputValue, unit, unitValue) : (inputValue as number)
+            watchUnitChange && setInputValue(newInputValue)
+
+            setUnit(unitValue)
             onChange(convertValueToNs(newInputValue, unitValue))
         }
     }

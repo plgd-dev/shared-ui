@@ -85,5 +85,6 @@ export const useStreamApi = (url, options = {}) => {
             setState((prevState) => ({ ...prevState, data: updatedData }))
         },
         refresh: () => setRefreshIndex(Math.random),
+        setState,
     }
 }

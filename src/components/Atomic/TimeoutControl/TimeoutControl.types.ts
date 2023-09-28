@@ -12,4 +12,5 @@ export type Props = {
     onChange: (v: any) => void
     onTtlHasError?: (v: boolean) => void
     ttlHasError?: boolean
+    watchUnitChange?: boolean
 }
