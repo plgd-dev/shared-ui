@@ -1,5 +1,6 @@
 import { ResourcesType } from '../../Devices.types'
 import { BreadcrumbItem } from '../../../../../components/Layout/Header/Breadcrumbs/Breadcrumbs.types'
+import { RemoteClientType } from '../../../RemoteClients/RemoteClients.types'
 
 export type DpsDataType = {
     deviceId: string
@@ -8,6 +9,7 @@ export type DpsDataType = {
 
 export type Props = {
     breadcrumbs?: BreadcrumbItem[]
+    clientData: RemoteClientType
     detailLinkPrefix?: string
     httpGatewayAddress?: string
     title?: string
