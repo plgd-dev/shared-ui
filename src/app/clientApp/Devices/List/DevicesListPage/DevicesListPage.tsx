@@ -142,7 +142,6 @@ const DevicesListPage: FC<Props> = (props) => {
                     {
                         name: _(t.devices),
                         id: 0,
-                        dataTestId: testId.remoteClients.detail.tabInformation,
                         content: (
                             <Tab1
                                 data={dataToDisplay}
@@ -159,7 +158,6 @@ const DevicesListPage: FC<Props> = (props) => {
                     {
                         name: _(t.configuration),
                         id: 1,
-                        dataTestId: testId.remoteClients.detail.tabInformation,
                         content: <Tab2 clientData={clientData} />,
                     },
                 ]}

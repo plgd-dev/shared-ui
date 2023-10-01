@@ -55,7 +55,7 @@ type useWellKnownConfigurationReturnType = [
     wellKnownConfig: WellKnownConfigType | undefined,
     updateWellKnowConfig: (newConfig: WellKnownConfigType, mode?: string) => void,
     reFetchConfig: () => Promise<WellKnownConfigType>,
-    error: Error | undefined
+    error: Error | undefined,
 ]
 
 export const WellKnownConfigurationState = {

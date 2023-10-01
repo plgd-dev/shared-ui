@@ -9,16 +9,19 @@ const Tab1: FC<Props> = (props) => {
     const { clientData } = props
     const { formatMessage: _ } = useIntl()
 
-    const rows = [
-        {
-            attribute: _(t.deviceAuthenticationMode),
-            value: clientData.authenticationMode,
-        },
-        {
-            attribute: _(t.version),
-            value: clientData.version,
-        },
-    ]
+    const rows = clientData
+        ? [
+              {
+                  attribute: _(t.deviceAuthenticationMode),
+                  value: clientData.authenticationMode,
+              },
+              {
+                  attribute: _(t.version),
+                  value: clientData.version,
+              },
+          ]
+        : []
+
     return (
         <div
             style={{
