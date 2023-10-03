@@ -547,6 +547,12 @@ const theme = {
         image: {
             background: colors.primary,
         },
+        logout: {
+            color: colors.neutral300,
+            hover: {
+                color: colors.primary,
+            },
+        },
     },
     VersionMark: {
         link: {

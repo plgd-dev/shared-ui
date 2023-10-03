@@ -67,6 +67,30 @@ export const image = (theme: ThemeType) => css`
     }
 `
 
+export const logoutIcon = (theme: ThemeType) => css`
+    display: flex;
+    align-self: center;
+    margin-left: 36px;
+
+    color: ${get(theme, `UserWidget.logout.color`)};
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: ${get(theme, `UserWidget.logout.hover.color`)};
+    }
+`
+
+export const logoutIconBtn = (theme: ThemeType) => css`
+    color: ${get(theme, `UserWidget.logout.color`)};
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        color: ${get(theme, `UserWidget.logout.hover.color`)};
+    }
+`
+
 export const floatingMenu = (theme: ThemeType) => css`
     z-index: 10;
     background: ${get(theme, `UserWidget.floatingMenu.background`)};

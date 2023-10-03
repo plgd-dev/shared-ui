@@ -547,6 +547,12 @@ const theme = {
         image: {
             background: '#00002d',
         },
+        logout: {
+            color: colors.neutral600,
+            hover: {
+                color: colorsSiemens.primary,
+            },
+        },
     },
     VersionMark: {
         link: {

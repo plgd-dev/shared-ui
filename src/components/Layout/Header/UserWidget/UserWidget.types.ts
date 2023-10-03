@@ -7,11 +7,12 @@ export type DropdownItemType = {
 }
 
 export type Props = {
-    defaultOpen?: boolean
+    dataTestId?: string
     description?: string
     dropdownItems?: DropdownItemType[]
     image?: ReactNode
     loading?: boolean
+    logoutTitle?: string
     name: string
-    dataTestId?: string
+    onLogout?: () => void
 }
