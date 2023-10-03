@@ -27,10 +27,6 @@ export const icon = css`
     transition: all 0.3s;
 `
 
-export const iconActive = css`
-    transform: rotate(180deg);
-`
-
 export const name = (theme: ThemeType) => css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
