@@ -359,6 +359,11 @@ const theme = {
             background: '#fff',
             borderColor: '#e6e9ed',
         },
+        item: {
+            hover: {
+                color: colors.primary,
+            },
+        },
     },
     StatusPill: {
         statusLine: {
