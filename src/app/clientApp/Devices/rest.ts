@@ -2,7 +2,7 @@ import { fetchApi, security } from '../../../common/services'
 import { devicesApiEndpoints } from './constants'
 import { interfaceGetParam } from './utils'
 import { signIdentityCsr } from '../App/AppRest'
-import { DEVICE_AUTH_MODE, DEVICE_AUTH_CODE_SESSION_KEY, DEVICE_AUTH_CODE_REMOTE_CLIENT_ID } from '../constants'
+import { DEVICE_AUTH_MODE, DEVICE_AUTH_CODE_SESSION_KEY, DEVICE_AUTH_CODE_REMOTE_CLIENT_ID, DEVICE_AUTH_CODE_DEVICE_ID } from '../constants'
 import { getHttpGatewayAddress, getUseToken, getWebOAuthConfig, getWellKnowConfig } from '../utils'
 
 /**
@@ -159,6 +159,7 @@ export const getDeviceAuthCode = (deviceId: string, remoteClientId?: string) =>
             const audienceParam = audience ? `&audience=${audience}` : ''
 
             remoteClientId && localStorage.setItem(DEVICE_AUTH_CODE_REMOTE_CLIENT_ID, remoteClientId)
+            localStorage.setItem(DEVICE_AUTH_CODE_DEVICE_ID, deviceId)
 
             const win = window.open(
                 `${authorizationEndpoint}?response_type=code&client_id=${clientId}&scope=${scopes}${audienceParam}&redirect_uri=${window.location.origin}/devices&device_id=${deviceId}`,
