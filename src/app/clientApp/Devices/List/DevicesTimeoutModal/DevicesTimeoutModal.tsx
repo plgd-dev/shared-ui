@@ -9,8 +9,6 @@ import Button from '../../../../../components/Atomic/Button'
 import TimeoutControl from '../../../../../components/Atomic/TimeoutControl'
 import { getDevicesDiscoveryTimeout, setDiscoveryTimeout } from '../../slice'
 import { DISCOVERY_DEFAULT_TIMEOUT } from '../../constants'
-// import DeviceCommandTimeoutControl from '@shared-ui/components/organisms/DeviceCommandTimeoutControl'
-
 import { Props, defaultProps } from './DevicesTimeoutModal.types'
 
 const DevicesTimeoutModal: FC<Props> = (props) => {
@@ -23,20 +21,6 @@ const DevicesTimeoutModal: FC<Props> = (props) => {
     const [ttlHasError, setTtlHasError] = useState(false)
 
     const renderBody = () => (
-        // <DeviceCommandTimeoutControl
-        //     defaultTtlValue={DISCOVERY_DEFAULT_TIMEOUT}
-        //     defaultValue={discoveryTimeout}
-        //     disabled={false}
-        //     i18n={{
-        //         default: _(t.default),
-        //         minimalValueIs: _(t.minimalValueIs2) + '.',
-        //         commandTimeout: _(t.commandTimeout),
-        //     }}
-        //     onChange={(val) => setUserValue(val)}
-        //     onTtlHasError={setTtlHasError}
-        //     title={_(t.discoveryTimeout)}
-        //     ttlHasError={ttlHasError}
-        // />
         <ModalStrippedLine
             component={
                 <TimeoutControl

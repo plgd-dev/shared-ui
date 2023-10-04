@@ -96,7 +96,7 @@ const TimeoutControl: FC<Props> = (props) => {
                 <FormInput
                     css={styles.input}
                     disabled={disabled || isDefault}
-                    onBlur={handleOnValueBlur}
+                    onBlur={watchUnitChange ? handleOnValueBlur : undefined}
                     onChange={handleOnValueChange}
                     placeholder={i18n.placeholder}
                     size={inputSizes.NORMAL}
