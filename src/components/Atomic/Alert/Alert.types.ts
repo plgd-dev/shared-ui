@@ -5,5 +5,7 @@ export type AlertSeverityType = (typeof severities)[keyof typeof severities]
 
 export type Props = {
     children: ReactNode
+    className?: string
+    dataTestId?: string
     severity?: AlertSeverityType
 }

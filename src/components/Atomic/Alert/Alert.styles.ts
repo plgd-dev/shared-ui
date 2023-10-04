@@ -53,3 +53,9 @@ export const label = css`
     padding-left: 12px;
     color: ${colors.neutral600};
 `
+
+export const iconClose = (theme: ThemeType) => css`
+    flex: 0 0 32px;
+    padding-left: 12px;
+    color: ${get(theme, 'Alert.close.color')};
+`

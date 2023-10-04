@@ -4,11 +4,14 @@ const theme = {
     Alert: {
         background: '#23233c',
         borderColor: '#000028',
-        line: {
-            background: colorsSiemens.primary,
+        close: {
+            color: colors.neutral500,
         },
         icon: {
             color: colorsSiemens.primary,
+        },
+        line: {
+            background: colorsSiemens.primary,
         },
     },
     Button: {

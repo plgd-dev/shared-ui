@@ -1,13 +1,16 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { Props, AlertSeverityType } from './Alert.types'
 import { severities } from '../VersionMark/constants'
 import { convertSize, IconSuccess, IconWarning, IconError } from '../Icon'
 import IconInfo from '../Icon/components/IconInfo'
 import * as styles from './Alert.styles'
+import IconClose from '../Icon/components/IconClose'
 
 const Alert: FC<Props> = (props) => {
-    const { severity, children } = props
+    const { children, className, dataTestId, severity } = props
+    const [visible, setVisible] = useState(true)
 
     const getIcon = (severity?: AlertSeverityType) => {
         switch (severity) {
@@ -23,17 +26,45 @@ const Alert: FC<Props> = (props) => {
     }
 
     return (
-        <div
-            css={[
-                styles.alert,
-                severity === severities.SUCCESS && styles.success,
-                severity === severities.WARNING && styles.warning,
-                severity === severities.ERROR && styles.error,
-            ]}
-        >
-            <span css={styles.icon}>{getIcon(severity)}</span>
-            <span css={styles.label}>{children}</span>
-        </div>
+        <AnimatePresence initial={false} mode='wait' onExitComplete={() => null}>
+            {visible && (
+                <motion.div
+                    animate={{
+                        opacity: 1,
+                        scale: 1,
+                        transition: {
+                            ease: 'easeOut',
+                            duration: 0.15,
+                        },
+                    }}
+                    className={className}
+                    css={[
+                        styles.alert,
+                        severity === severities.SUCCESS && styles.success,
+                        severity === severities.WARNING && styles.warning,
+                        severity === severities.ERROR && styles.error,
+                    ]}
+                    data-test-id={dataTestId}
+                    exit={{
+                        opacity: 0,
+                        scale: 0.75,
+                        transition: {
+                            ease: 'easeIn',
+                            duration: 0.15,
+                        },
+                    }}
+                    initial={{
+                        opacity: 0,
+                        scale: 0.75,
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    <span css={styles.icon}>{getIcon(severity)}</span>
+                    <span css={styles.label}>{children}</span>
+                    <IconClose {...convertSize(20)} css={styles.iconClose} onClick={() => setVisible(false)} />
+                </motion.div>
+            )}
+        </AnimatePresence>
     )
 }
 

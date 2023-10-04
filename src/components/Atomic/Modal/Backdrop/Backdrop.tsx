@@ -7,14 +7,14 @@ const Backdrop: FC<Props> = (props) => {
     const { children, onClick } = props
     return (
         <motion.div
-            onClick={onClick}
-            initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
+            css={styles.blackDrop}
             exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+            onClick={onClick}
             transition={{
                 duration: 0.25,
             }}
-            css={styles.blackDrop}
         >
             {children}
         </motion.div>

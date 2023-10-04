@@ -82,3 +82,7 @@ export const icon = css`
     flex: 0 0 16px;
     cursor: pointer;
 `
+
+export const alert = css`
+    margin-bottom: 24px;
+`

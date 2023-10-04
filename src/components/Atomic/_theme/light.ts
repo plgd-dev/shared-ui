@@ -4,11 +4,14 @@ const theme = {
     Alert: {
         background: '#fff',
         borderColor: '#e6e9ed',
-        line: {
-            background: colors.primaryDarken,
+        close: {
+            color: colors.neutral500,
         },
         icon: {
             color: colors.primaryDarken,
+        },
+        line: {
+            background: colors.primaryDarken,
         },
     },
     Button: {
