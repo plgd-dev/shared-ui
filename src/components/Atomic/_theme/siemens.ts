@@ -359,6 +359,11 @@ const theme = {
             background: '#23233c',
             borderColor: '#000028',
         },
+        item: {
+            hover: {
+                color: colorsSiemens.primary,
+            },
+        },
     },
     StatusPill: {
         statusLine: {

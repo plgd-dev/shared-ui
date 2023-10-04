@@ -8,7 +8,6 @@ export const blackDrop = css`
     left: 0;
     background: rgba(25, 26, 26, 0.9);
     z-index: 1;
-    transition: all 0.25s;
     display: flex;
     align-items: center;
     justify-content: center;
