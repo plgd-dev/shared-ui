@@ -27,7 +27,7 @@ export const floatingMenu = (theme: ThemeType) => css`
     padding: 10px 20px;
 `
 
-export const item = css`
+export const item = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -38,7 +38,7 @@ export const item = css`
     cursor: pointer;
 
     &:hover {
-        color: ${colors.primary};
+        color: ${get(theme, `SplitButton.item.hover.color`)};
     }
 `
 
