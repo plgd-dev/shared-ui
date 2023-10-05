@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, useMemo, useState } from 'react'
 import isFunction from 'lodash/isFunction'
 import startCase from 'lodash/startCase'
+import debounce from 'lodash/debounce'
 
 import { Props } from './TimeoutControl.types'
 import * as styles from './TimeoutControl.styles'
@@ -11,8 +12,6 @@ import FormSelect from '../FormSelect'
 import { commandTimeoutUnits } from './constants'
 import { findClosestUnit, convertAndNormalizeValueFromTo, convertValueToNs, normalizeToFixedFloatValue, hasCommandTimeoutError } from './utils'
 import { inputSizes } from '../FormInput/constants'
-import { useDispatch } from 'react-redux'
-import debounce from 'lodash/debounce'
 
 const { INFINITE, NS } = commandTimeoutUnits
 
