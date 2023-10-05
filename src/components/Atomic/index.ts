@@ -99,6 +99,9 @@ export * from './Popup'
 export { default as Radio } from './Radio'
 export * from './Radio'
 
+export { default as Scrollbars } from './Scrollbars'
+export * from './Scrollbars'
+
 export { default as Select } from './Select'
 export * from './Select'
 
@@ -123,9 +126,6 @@ export * from './Swiper'
 export { default as Switch } from './Switch'
 export * from './Switch'
 
-export { default as Table } from './Table'
-export * from './Table'
-
 export { default as TableNew } from './TableNew'
 export * from './TableNew'
 
@@ -149,6 +149,9 @@ export * from './Tooltip'
 
 export { default as TreeExpander } from './TreeExpander'
 export * from './TreeExpander'
+
+export { default as TreeTable } from './TreeTable'
+export * from './TreeTable'
 
 export { default as VersionMark } from './VersionMark'
 export * from './VersionMark'

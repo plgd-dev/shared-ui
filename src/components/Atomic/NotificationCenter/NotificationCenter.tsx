@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FloatingPortal } from '@floating-ui/react-dom-interactions'
 import { useNotificationCenter } from 'react-toastify/addons/use-notification-center'
 import isFunction from 'lodash/isFunction'
-import { Scrollbars } from 'rc-scrollbars'
 
 import { Props, defaultProps } from './NotificationCenter.types'
 import Bell from './components/Bell'
 import * as styles from './NotificationCenter.styles'
 import { hasEventBlocker } from '../_utils/envets'
 import InnerToast from './components/InnerToast/InnerToast'
+import Scrollbars from '../Scrollbars'
 
 const NotificationCenter: FC<Props> = (props) => {
     const { defaultNotification, i18n, onNotification, readAllNotifications } = { ...defaultProps, ...props }
@@ -97,12 +97,7 @@ const NotificationCenter: FC<Props> = (props) => {
                                     )}
                                 </div>
                                 <AnimatePresence>
-                                    <Scrollbars
-                                        autoHeight
-                                        autoHeightMax={400}
-                                        autoHeightMin={50}
-                                        renderThumbVertical={({ style, ...props }) => <div {...props} css={styles.verticalScrollbar} style={style} />}
-                                    >
+                                    <Scrollbars autoHeight autoHeightMax={400} autoHeightMin={50}>
                                         <motion.section
                                             animate={open ? 'open' : 'closed'}
                                             css={styles.content}
