@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 
 import { messages as t } from './MockApp.i18n'
 import { getWellKnowConfig, getClientUrl } from '../utils'
-import { DEVICE_AUTH_CODE_REMOTE_CLIENT_ID, DEVICE_AUTH_CODE_SESSION_KEY } from '../constants'
+import { DEVICE_AUTH_CODE_DEVICE_ID, DEVICE_AUTH_CODE_REMOTE_CLIENT_ID, DEVICE_AUTH_CODE_SESSION_KEY } from '../constants'
 import { useClientAppPage } from '../RemoteClients/use-client-app-page'
 import { clientAppSettings, security } from '../../../common/services'
 import { useWellKnownConfiguration } from '../../../common/hooks'
@@ -16,6 +16,7 @@ const MockApp = () => {
     const code = searchParams.get('code')
 
     const remoteClientId = localStorage.getItem(DEVICE_AUTH_CODE_REMOTE_CLIENT_ID)
+    const deviceId = localStorage.getItem(DEVICE_AUTH_CODE_DEVICE_ID)
     const hubWellKnownConfig = security.getWellKnowConfig()
 
     const [clientData, error, errorElement] = useClientAppPage({
@@ -34,6 +35,11 @@ const MockApp = () => {
 
     if (code) {
         localStorage.setItem(DEVICE_AUTH_CODE_SESSION_KEY, code)
+    }
+
+    if (deviceId && remoteClientId) {
+        const url = `${window.location.origin}/remote-clients/${remoteClientId}/devices/${deviceId}`
+        window.location.replace(url)
     }
 
     clientAppSettings.setGeneralConfig({

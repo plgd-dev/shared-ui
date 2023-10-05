@@ -13,14 +13,14 @@ export const floatingPanel = (theme: ThemeType) => css`
     max-width: 600px;
 `
 
-export const header = css`
+export const header = (theme: ThemeType) => css`
     padding: 16px;
     display: flex;
     height: 56px;
     box-sizing: border-box;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #e6e9ed;
+    border-bottom: 1px solid ${get(theme, `NotificationCenter.Headline.borderColor`)};
 `
 
 export const headline = (theme: ThemeType) => css`
@@ -49,8 +49,8 @@ export const clearAll = (theme: ThemeType) => css`
 `
 
 export const content = css`
-    overflow: auto;
-    max-height: 400px;
+    //overflow: auto;
+    //max-height: 400px;
     padding: 0 16px;
 `
 
@@ -66,4 +66,8 @@ export const noNotifications = css`
     font-size: 14px;
     line-height: 22px;
     color: ${colors.neutral500};
+`
+
+export const verticalScrollbar = (theme: ThemeType) => css`
+    background: ${get(theme, `Scrollbar.color`)}!important;
 `

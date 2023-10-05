@@ -275,6 +275,7 @@ const theme = {
             borderColor: '#23233c',
         },
         Headline: {
+            borderColor: colors.neutral700,
             color: colorsSiemens.primary,
         },
         ClearAll: {
@@ -286,11 +287,12 @@ const theme = {
             },
         },
         InnerToast: {
-            unreadMark: {
-                borderColor: '#23233c',
-            },
+            borderColor: colors.neutral700,
             headline: {
                 color: '#fff',
+            },
+            unreadMark: {
+                borderColor: '#23233c',
             },
         },
         info: colorsSiemens.info,
@@ -325,6 +327,9 @@ const theme = {
         value: {
             color: colors.neutral500,
         },
+    },
+    Scrollbar: {
+        color: colorsSiemens.primary,
     },
     ShareDeviceModal: {
         headline: {

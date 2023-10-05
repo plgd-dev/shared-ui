@@ -275,9 +275,11 @@ const theme = {
             borderColor: '#e6e9ed',
         },
         Headline: {
+            borderColor: colors.neutral200,
             color: colors.primaryDarken,
         },
         ClearAll: {
+            borderColor: colors.neutral200,
             color: colors.primary,
         },
         Bell: {
@@ -286,11 +288,12 @@ const theme = {
             },
         },
         InnerToast: {
-            unreadMark: {
-                borderColor: '#fff',
-            },
+            borderColor: colors.neutral200,
             headline: {
                 color: colors.primaryDarken,
+            },
+            unreadMark: {
+                borderColor: '#fff',
             },
         },
         info: colors.primary,
@@ -325,6 +328,9 @@ const theme = {
         value: {
             color: colors.neutral800,
         },
+    },
+    Scrollbar: {
+        color: colors.neutral500,
     },
     ShareDeviceModal: {
         headline: {

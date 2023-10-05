@@ -8,8 +8,8 @@ export const item = css`
     padding: 16px 0;
 `
 
-export const borderTop = css`
-    border-top: 1px solid #e6e9ed;
+export const borderTop = (theme: ThemeType) => css`
+    border-top: 1px solid ${get(theme, `NotificationCenter.InnerToast.borderColor`)};
 `
 
 export const iconWrapper = css`
