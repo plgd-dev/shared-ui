@@ -11,6 +11,8 @@ import FormSelect from '../FormSelect'
 import { commandTimeoutUnits } from './constants'
 import { findClosestUnit, convertAndNormalizeValueFromTo, convertValueToNs, normalizeToFixedFloatValue, hasCommandTimeoutError } from './utils'
 import { inputSizes } from '../FormInput/constants'
+import { useDispatch } from 'react-redux'
+import debounce from 'lodash/debounce'
 
 const { INFINITE, NS } = commandTimeoutUnits
 
@@ -55,23 +57,6 @@ const TimeoutControl: FC<Props> = (props) => {
         }
     }
 
-    const handleOnValueChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const onlyZerosRegex = /^0+$/
-        const value = event.target.value.trim()
-        const floatValue = parseFloat(value)
-        const containsOneOrNoDot = (value.match(/./g) || []).length <= 1
-        const isValidNumber = isFinite(floatValue) || containsOneOrNoDot
-        const finiteFloatValue = isValidNumber ? value : 0
-        // @ts-ignore
-        const newInputValue = finiteFloatValue?.match?.(onlyZerosRegex) ? 0 : finiteFloatValue
-
-        if (value === '' || containsOneOrNoDot || newInputValue >= 0) {
-            setInputValue(newInputValue)
-        }
-
-        isFunction(onTtlHasError) && onTtlHasError(false)
-    }
-
     const handleOnValueBlur = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const value = event.target.value.trim()
         const floatValue = parseFloat(value)
@@ -87,6 +72,26 @@ const TimeoutControl: FC<Props> = (props) => {
                 onTtlHasError(true)
             }
         }
+    }
+
+    const debounceCallback = debounce(handleOnValueBlur, 300)
+
+    const handleOnValueChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const onlyZerosRegex = /^0+$/
+        const value = event.target.value.trim()
+        const floatValue = parseFloat(value)
+        const containsOneOrNoDot = (value.match(/./g) || []).length <= 1
+        const isValidNumber = isFinite(floatValue) || containsOneOrNoDot
+        const finiteFloatValue = isValidNumber ? value : 0
+        // @ts-ignore
+        const newInputValue = finiteFloatValue?.match?.(onlyZerosRegex) ? 0 : finiteFloatValue
+
+        if (value === '' || containsOneOrNoDot || newInputValue >= 0) {
+            setInputValue(newInputValue)
+        }
+
+        isFunction(onTtlHasError) && onTtlHasError(false)
+        debounceCallback(event)
     }
 
     return (
