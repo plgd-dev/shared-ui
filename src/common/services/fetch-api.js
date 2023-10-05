@@ -76,7 +76,7 @@ export const fetchApi = async (url, options = {}) => {
             .then((response) => {
                 clearTimeout(deadlineTimer)
 
-                if (response.status === 401 || response.status === 501) {
+                if (response.status === 401) {
                     isFunction(unauthorizedCallback) && unauthorizedCallback()
                     return reject(new Error(errorCodes.UNAUTHORIZED))
                 } else {
@@ -86,7 +86,7 @@ export const fetchApi = async (url, options = {}) => {
             .catch((error) => {
                 clearTimeout(deadlineTimer)
 
-                if (error?.response?.status === 401 || error?.response?.status === 501) {
+                if (error?.response?.status === 401) {
                     isFunction(unauthorizedCallback) && unauthorizedCallback()
                     return reject(new Error(errorCodes.UNAUTHORIZED))
                 }
