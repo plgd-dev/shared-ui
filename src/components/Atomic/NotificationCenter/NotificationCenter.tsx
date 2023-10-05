@@ -11,11 +11,10 @@ import Bell from './components/Bell'
 import * as styles from './NotificationCenter.styles'
 import { hasEventBlocker } from '../_utils/envets'
 import InnerToast from './components/InnerToast/InnerToast'
-import { verticalScrollbar } from './NotificationCenter.styles'
 
 const NotificationCenter: FC<Props> = (props) => {
     const { defaultNotification, i18n, onNotification, readAllNotifications } = { ...defaultProps, ...props }
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
     const ref = useRef(null)
     const { x, y, refs, strategy } = useFloating({
         placement: 'bottom-end',
