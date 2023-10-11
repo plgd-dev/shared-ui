@@ -1,9 +1,11 @@
-import { FC, useCallback, useMemo } from 'react'
+import React, { FC, useCallback, useMemo } from 'react'
+import ReactDOM from 'react-dom'
 
 import Button from '../../Atomic/Button'
 import Table, { TableSelectionPanel } from '../../Atomic/TableNew'
 import { DEVICES_DEFAULT_PAGE_SIZE } from '../../../common/constants'
 import { Props, defaultProps } from './DevicesList.types'
+import { useIsMounted } from '../../../common/hooks'
 
 const DevicesList: FC<Props> = (props) => {
     const {
@@ -22,6 +24,7 @@ const DevicesList: FC<Props> = (props) => {
 
     const validData = useCallback((data: any) => (!data || data[0] === undefined ? [] : data), [])
     const selectedCount = useMemo(() => Object.keys(selectedDevices).length, [selectedDevices])
+    const isMounted = useIsMounted()
 
     return (
         <>
@@ -47,19 +50,23 @@ const DevicesList: FC<Props> = (props) => {
                 primaryAttribute='id'
                 unselectRowsToken={unselectRowsToken}
             />
-            <TableSelectionPanel
-                actionPrimary={
-                    <Button onClick={() => onDeleteClick()} variant='primary'>
-                        {i18n.delete}
-                    </Button>
-                }
-                i18n={{
-                    select: i18n.select,
-                }}
-                leftPanelCollapsed={collapsed}
-                selectionInfo={`${selectedCount} device${selectedCount > 1 ? 's' : ''} `}
-                show={selectedCount > 0}
-            />
+            {isMounted &&
+                ReactDOM.createPortal(
+                    <TableSelectionPanel
+                        actionPrimary={
+                            <Button onClick={() => onDeleteClick()} variant='primary'>
+                                {i18n.delete}
+                            </Button>
+                        }
+                        i18n={{
+                            select: i18n.select,
+                        }}
+                        leftPanelCollapsed={collapsed}
+                        selectionInfo={`${selectedCount} device${selectedCount > 1 ? 's' : ''} `}
+                        show={selectedCount > 0}
+                    />,
+                    document.querySelector('#breadcrumbsPortalTarget') as Element
+                )}
             {customContent}
         </>
     )
