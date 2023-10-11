@@ -1,7 +1,6 @@
 import React from 'react'
 import FormInput from '../../components/Atomic/FormInput'
 import { ReactComponent as IconSlovakia } from '../assets/Slovakia.svg'
-import { inlineStyle } from '../../components/Atomic/FormInput/FormInput.styles'
 
 export default {
     title: 'Form/FormInput',
