@@ -67,6 +67,14 @@ export const control = (theme: ThemeType) => css`
     }
 `
 
+export const inlineStyle = (theme: ThemeType) => css`
+  border-color: transparent;
+  
+  &:hover{
+    border-color: ${get(theme, `FormSelect.control.borderColor`)};s
+  }
+`
+
 export const small = css`
     height: 36px;
     min-height: 36px;

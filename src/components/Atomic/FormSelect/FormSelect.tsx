@@ -1,4 +1,4 @@
-import { FC, forwardRef } from 'react'
+import { forwardRef } from 'react'
 import Select, {
     components,
     ContainerProps,
@@ -18,7 +18,10 @@ import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectSizes } from './constants'
 
 const FormSelect = forwardRef<any, Props>((props, ref) => {
-    const { className, defaultValue, error, disabled, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } = { ...defaultProps, ...props }
+    const { className, defaultValue, error, disabled, inlineStyle, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } = {
+        ...defaultProps,
+        ...props,
+    }
     const stylesOverride = {
         menu: (base: any) => ({
             ...base,
@@ -28,7 +31,10 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     }
 
     const Control = ({ children, ...props }: ControlProps<Option>) => (
-        <components.Control {...props} css={[styles.control, error && styles.error, size === selectSizes.SMALL && styles.small]}>
+        <components.Control
+            {...props}
+            css={[styles.control, error && styles.error, size === selectSizes.SMALL && styles.small, inlineStyle && styles.inlineStyle]}
+        >
             {children}
         </components.Control>
     )

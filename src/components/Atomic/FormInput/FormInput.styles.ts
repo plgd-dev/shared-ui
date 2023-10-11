@@ -41,6 +41,14 @@ export const input = (theme: ThemeType) => css`
     }
 `
 
+export const inlineStyle = (theme: ThemeType) => css`
+    border-color: transparent;
+
+    &:hover {
+        border-color: ${get(theme, `FormInput.borderColor`)};
+    }
+`
+
 export const big = css`
     height: 48px;
 `

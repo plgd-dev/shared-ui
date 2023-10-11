@@ -1,6 +1,7 @@
 import React from 'react'
 import FormInput from '../../components/Atomic/FormInput'
 import { ReactComponent as IconSlovakia } from '../assets/Slovakia.svg'
+import { inlineStyle } from '../../components/Atomic/FormInput/FormInput.styles'
 
 export default {
     title: 'Form/FormInput',
@@ -40,6 +41,9 @@ const Template = (args) => (
         <br />
         <h3>Normal size</h3>
         <FormInput {...args} defaultValue='Normal size' size='normal' />
+        <br />
+        <h3>inlineStyle</h3>
+        <FormInput {...args} inlineStyle defaultValue='Inline style' size='normal' />
     </div>
 )
 

@@ -1,6 +1,6 @@
 import { selectSizes } from './constants'
 
-export type FormSelectSizeType = typeof selectSizes[keyof typeof selectSizes]
+export type FormSelectSizeType = (typeof selectSizes)[keyof typeof selectSizes]
 
 export interface Option {
     readonly value: string
@@ -17,6 +17,7 @@ export type Props = {
     defaultValue?: any
     disabled?: boolean
     error?: boolean
+    inlineStyle?: boolean
     isSearchable?: boolean
     menuIsOpen?: boolean
     name?: string
