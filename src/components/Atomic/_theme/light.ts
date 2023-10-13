@@ -1,6 +1,26 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
 
 const theme = {
+    ActionButton: {
+        floatingMenu: {
+            background: '#fff',
+            borderColor: colors.neutral200,
+        },
+        item: {
+            borderColor: colors.neutral200,
+            hover: {
+                color: colors.primary,
+            },
+        },
+        icon: {
+            hover: {
+                color: colors.primaryBonus,
+            },
+            active: {
+                color: colors.primaryBonus,
+            },
+        },
+    },
     Alert: {
         background: '#fff',
         borderColor: '#e6e9ed',
