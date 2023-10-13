@@ -51,6 +51,7 @@ const DevicesList: FC<Props> = (props) => {
                 unselectRowsToken={unselectRowsToken}
             />
             {isMounted &&
+                document.querySelector('#modal-root') &&
                 ReactDOM.createPortal(
                     <TableSelectionPanel
                         actionPrimary={
@@ -65,7 +66,7 @@ const DevicesList: FC<Props> = (props) => {
                         selectionInfo={`${selectedCount} device${selectedCount > 1 ? 's' : ''} `}
                         show={selectedCount > 0}
                     />,
-                    document.querySelector('#breadcrumbsPortalTarget') as Element
+                    document.querySelector('#modal-root') as Element
                 )}
             {customContent}
         </>
