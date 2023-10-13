@@ -233,10 +233,16 @@ const theme = {
         control: {
             borderColor: '#23233c',
             background: '#000028',
+            hover: {
+                borderColor: colorsSiemens.primary,
+            },
         },
         menu: {
             borderColor: '#23233c',
             background: '#000028',
+            open: {
+                borderColor: colorsSiemens.primary,
+            },
         },
         optionSelected: {
             color: colorsSiemens.primary,
@@ -249,6 +255,11 @@ const theme = {
         },
         placeholder: {
             color: '#fff',
+        },
+        option: {
+            hover: {
+                color: colorsSiemens.primary,
+            },
         },
     },
     Header: {

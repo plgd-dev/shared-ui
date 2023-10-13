@@ -1,4 +1,5 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
+import { option } from '../FormSelect/FormSelect.styles'
 
 const theme = {
     ActionButton: {
@@ -198,10 +199,16 @@ const theme = {
         control: {
             borderColor: colors.neutral300,
             background: undefined,
+            hover: {
+                borderColor: colors.primaryBonus,
+            },
         },
         menu: {
             borderColor: colors.neutral200,
             background: undefined,
+            open: {
+                borderColor: colors.primaryBonus,
+            },
         },
         optionSelected: {
             color: colors.neutral800,
@@ -214,6 +221,11 @@ const theme = {
         },
         placeholder: {
             color: colors.neutral800,
+        },
+        option: {
+            hover: {
+                color: colors.primary,
+            },
         },
     },
     Header: {

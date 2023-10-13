@@ -30,7 +30,7 @@ export const select = (theme: ThemeType, size: FormSelectSizeType, disabled?: bo
         &.select__control--menu-is-open {
             ${!disabled &&
             css`
-                border: 1px solid ${colors.primaryBonus};
+                border: 1px solid ${get(theme, `FormSelect.menu.open.borderColor`)};
             `}
         }
 
@@ -63,16 +63,16 @@ export const control = (theme: ThemeType) => css`
 
     &:hover {
         outline: none;
-        border: 1px solid ${colors.primaryBonus};
+        border: 1px solid ${get(theme, `FormSelect.control.hover.borderColor`)};
     }
 `
 
 export const inlineStyle = (theme: ThemeType) => css`
-  border-color: transparent;
-  
-  &:hover{
-    border-color: ${get(theme, `FormSelect.control.borderColor`)};s
-  }
+    border-color: transparent;
+
+    &:hover {
+        border-color: ${get(theme, `FormSelect.control.borderColor`)};
+    }
 `
 
 export const small = css`
@@ -98,7 +98,7 @@ export const menuList = css`
     padding: 8px 0;
 `
 
-export const option = css`
+export const option = (theme: ThemeType) => css`
     color: ${colors.neutral500};
     font-family: ${fontPrimary};
     font-style: normal;
@@ -113,7 +113,7 @@ export const option = css`
     padding: 8px 16px;
 
     &:hover {
-        color: ${colors.primary};
+        color: ${get(theme, `FormSelect.option.hover.color`)};
         background: transparent;
     }
 
