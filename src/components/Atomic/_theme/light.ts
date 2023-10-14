@@ -100,6 +100,9 @@ const theme = {
     Breadcrumb: {
         link: {
             color: colors.primary,
+            hover: {
+                color: colors.primary,
+            },
         },
     },
     Content: {

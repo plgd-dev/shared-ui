@@ -99,6 +99,9 @@ const theme = {
     Breadcrumb: {
         link: {
             color: colorsSiemens.primary,
+            hover: {
+                color: colorsSiemens.primary,
+            },
         },
     },
     LeftPanel: {

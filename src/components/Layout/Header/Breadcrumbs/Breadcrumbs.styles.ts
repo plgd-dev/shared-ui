@@ -36,4 +36,8 @@ export const item = css`
 export const link = (theme: ThemeType) => css`
     color: ${get(theme, 'Breadcrumb.link.color')};
     text-decoration: none;
+
+    &:hover {
+        color: ${get(theme, 'Breadcrumb.link.hover.color')};
+    }
 `
