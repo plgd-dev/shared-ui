@@ -27,7 +27,12 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "deploy-storybook": "storybook-to-ghpages --dry-run",
-    "icons:create": "npx @svgr/cli --config-file ./config/.svgrrc.js  -d ./src/components/Atomic/Icon/components ./src/components/Atomic/Icon/assets"
+    "icons:create": "npx @svgr/cli --config-file ./config/.svgrrc.js  -d ./src/components/Atomic/Icon/components ./src/components/Atomic/Icon/assets",
+    ":generate:theme:raw": "NODE_ENV=production BABEL_ENV=production babel ./src/components/Atomic/_theme/ -d build/lib/theme --extensions .ts,.js,.tsx,.jsx,",
+    ":generate:theme:colors": "NODE_ENV=production BABEL_ENV=production babel ./src/components/Atomic/_utils/colors.ts --out-file build/lib/_utils/colors.js --extensions .ts,.js,.tsx,.jsx,",
+    ":generate:theme:build": "node ./scripts/build.theme.js",
+    ":generate:theme:clean": "rimraf ./build/lib",
+    ":generate:theme": "npm-run-all :generate:theme:raw :generate:theme:colors :generate:theme:build :generate:theme:clean"
   },
   "dependencies": {
     "@babel/core": "^7.22.15",

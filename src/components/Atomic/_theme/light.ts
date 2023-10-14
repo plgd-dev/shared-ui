@@ -1,5 +1,4 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
-import { option } from '../FormSelect/FormSelect.styles'
 
 const theme = {
     ActionButton: {
