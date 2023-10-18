@@ -10,15 +10,16 @@ import Select, {
     PlaceholderProps,
     SingleValueProps,
     ValueContainerProps,
+    InputProps,
 } from 'react-select'
 
 import { GroupedOption, Option, Props, defaultProps } from './FormSelect.types'
 import * as styles from './FormSelect.styles'
 import { convertSize, IconTableArrowDown } from '../Icon'
-import { selectSizes } from './constants'
+import { selectAligns, selectSizes } from './constants'
 
 const FormSelect = forwardRef<any, Props>((props, ref) => {
-    const { className, defaultValue, error, disabled, inlineStyle, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } = {
+    const { align, className, defaultValue, error, disabled, inlineStyle, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } = {
         ...defaultProps,
         ...props,
     }
@@ -78,24 +79,29 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     )
 
     const Option = (props: OptionProps<Option, false, GroupedOption>) => (
-        <components.Option {...props} css={[styles.option, props.isSelected && styles.optionSelected]}>
+        <components.Option {...props} css={[styles.option, props.isSelected && styles.optionSelected, align === selectAligns.RIGHT && styles.optionRight]}>
             {props.children}
         </components.Option>
     )
 
     const Placeholder = (props: PlaceholderProps<Option>) => (
-        <components.Placeholder {...props} css={[styles.placeholder, props.selectProps.isDisabled && styles.disabled]}>
+        <components.Placeholder
+            {...props}
+            css={[styles.placeholder, props.selectProps.isDisabled && styles.disabled, align === selectAligns.RIGHT && styles.placeholderRight]}
+        >
             {props.children}
         </components.Placeholder>
     )
+
+    const Input = (props: InputProps<Option, false>) => <components.Input {...props} css={styles.input} />
 
     return (
         <Select
             {...rest}
             className={className}
             classNamePrefix='select'
-            components={{ DropdownIndicator, Menu, MenuList, Option, SelectContainer, SingleValue, ValueContainer, Placeholder, Control }}
-            css={[(theme) => styles.select(theme, size, disabled)]}
+            components={{ DropdownIndicator, Menu, MenuList, Option, SelectContainer, SingleValue, ValueContainer, Placeholder, Control, Input }}
+            css={[(theme) => styles.select(theme, size!, disabled)]}
             defaultValue={defaultValue}
             isDisabled={disabled}
             isSearchable={isSearchable}

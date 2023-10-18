@@ -2,6 +2,7 @@ import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { useDispatch, useSelector } from 'react-redux'
 import ReactDOM from 'react-dom'
+import { useNavigate } from 'react-router-dom'
 
 import Notification from '../../../../../components/Atomic/Notification/Toast'
 import PageLayout from '../../../../../components/Atomic/PageLayout'
@@ -26,7 +27,7 @@ import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
 
 const DevicesListPage: FC<Props> = (props) => {
-    const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, clientData, title } = { ...defaultProps, ...props }
+    const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, clientData, defaultActiveTab, title } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
     const { data, loading, error: deviceError, refresh } = useDevicesList()
 
@@ -36,12 +37,13 @@ const DevicesListPage: FC<Props> = (props) => {
         deviceId: '',
         resources: undefined,
     })
-    const [activeTabItem, setActiveTabItem] = useState(0)
+    const [activeTabItem, setActiveTabItem] = useState(defaultActiveTab ?? 0)
     const [owning, setOwning] = useState(false)
     const [deleting, setDeleting] = useState(false)
 
     const dispatch = useDispatch()
     const dataToDisplay: DeviceDataType = useSelector(getDevices)
+    const navigate = useNavigate()
     const [isDomReady, setIsDomReady] = useState(false)
 
     useEffect(() => {
@@ -63,13 +65,15 @@ const DevicesListPage: FC<Props> = (props) => {
         setIsDomReady(true)
     }, [])
 
-    const handleTabChange = useCallback((i: number) => {
-        setActiveTabItem(i)
+    const handleTabChange = useCallback(
+        (i: number) => {
+            setActiveTabItem(i)
+            navigate(`/remote-clients/${clientData?.id}${i === 1 ? '/configuration' : ''}`, { replace: true })
 
-        // navigate(`/devices/${id}${i === 1 ? '/resources' : ''}`, { replace: true })
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+        },
+        [clientData]
+    )
 
     const handleRefresh = useCallback(() => {
         refresh()

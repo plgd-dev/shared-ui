@@ -122,6 +122,10 @@ export const option = (theme: ThemeType) => css`
     }
 `
 
+export const optionRight = css`
+    justify-content: flex-end;
+`
+
 export const optionSelected = (theme: ThemeType) => css`
     color: ${get(theme, `FormSelect.optionSelected.color`)};
     background: transparent;
@@ -167,6 +171,25 @@ export const placeholder = (theme: ThemeType) => css`
     line-height: 22px;
 `
 
+export const placeholderRight = css`
+    text-align: right;
+`
+
 export const disabled = css`
     color: ${colors.neutral500};
+`
+
+export const input = css`
+    display: flex;
+    justify-content: flex-end;
+
+    input {
+        text-align: right;
+        width: 100% !important;
+    }
+
+    &:after {
+        display: none !important;
+        content: '' !important;
+    }
 `

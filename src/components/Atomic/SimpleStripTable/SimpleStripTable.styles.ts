@@ -6,9 +6,6 @@ import { ThemeType, get } from '../_theme'
 export const table = css``
 
 export const row = (theme: ThemeType) => css`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
@@ -32,11 +29,11 @@ export const attribute = css`
 `
 
 export const value = (theme: ThemeType) => css`
-    padding: 16px 24px;
-    color: ${get(theme, `SimpleStripTable.value.color`)};
-    flex: 1 1 auto;
-    text-align: right;
     display: flex;
+    align-items: center;
+    padding: 0 24px;
+    color: ${get(theme, `SimpleStripTable.value.color`)};
+    text-align: right;
     justify-content: flex-end;
     height: 54px;
     box-sizing: border-box;

@@ -1,14 +1,16 @@
 import { forwardRef, useRef, useState } from 'react'
+import { detect } from 'detect-browser'
+import { mergeRefs } from 'react-merge-refs'
+
 import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.styles'
-import { mergeRefs } from 'react-merge-refs'
 import { convertSize, IconCopy, IconHidePassword, IconShowPassword } from '../Icon'
 import { copyToClipboard } from '../../../common/utils'
-import { inputSizes } from './constants'
-import { detect } from 'detect-browser'
+import { inputAligns, inputSizes } from './constants'
 
 const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const {
+        align,
         ariaInvalid,
         autoComplete,
         copy,
@@ -38,15 +40,16 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             aria-invalid={error || ariaInvalid ? true : undefined}
             autoComplete={autoComplete}
             css={(theme) => [
-                styles.input(theme),
+                styles.input(theme, error),
                 (defaultType === 'password' || copy) && !isEdge && styles.inputWithIcon,
                 defaultType === 'tel' && styles.inputTel,
                 disabled && styles.disabled(theme),
+                error && styles.error,
                 readOnly && styles.readOnly(theme),
                 inlineStyle && styles.inlineStyle(theme),
-                error && styles.error,
                 size === inputSizes.BIG && styles.big,
                 size === inputSizes.NORMAL && styles.normal,
+                align === inputAligns.RIGHT && styles.right,
             ]}
             data-endge-pass={isEdge ? 'true' : undefined}
             data-inline={inline?.toString()}

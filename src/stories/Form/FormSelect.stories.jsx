@@ -1,5 +1,5 @@
 import React from 'react'
-import FormSelect from '../../components/Atomic/FormSelect'
+import FormSelect, { selectAligns } from '../../components/Atomic/FormSelect'
 import '../global.css'
 
 export default {
@@ -26,7 +26,9 @@ const Template = (args) => {
             <br />
             <br />
             <br />
-            <FormSelect {...args} inlineStyle={true} name='form-select-1' options={options} />
+            <FormSelect {...args} inlineStyle={true} name='form-select-3' options={options} />
+            <br />
+            <FormSelect {...args} align={selectAligns.RIGHT} menuIsOpen={true} name='form-select-4' options={options} />
         </div>
     )
 }

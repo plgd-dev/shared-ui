@@ -596,7 +596,7 @@ const theme = {
             background: colors.primary,
         },
         logout: {
-            color: colors.neutral300,
+            color: colors.neutral500,
             hover: {
                 color: colors.primary,
             },

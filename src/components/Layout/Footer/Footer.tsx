@@ -1,6 +1,7 @@
 import { FC, memo } from 'react'
 import { motion } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
+
 import { Props } from './Footer.types'
 import * as styles from './Footer.styles'
 import { IconArrowTriangleFullUp } from '../../Atomic/Icon'

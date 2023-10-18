@@ -4,7 +4,7 @@ import * as styles from './FormGroup.styles'
 import Button from '../Button'
 
 const FormGroup: FC<Props> = (props) => {
-    const { children, className, error, id, inline, marginBottom, inlineJustifyContent } = { ...defaultProps, ...props }
+    const { children, className, error, id, inline, fullSize, marginBottom, inlineJustifyContent } = { ...defaultProps, ...props }
     const childrenWithProps = Children.map(children as ReactElement[], (child, key) => {
         if (isValidElement(child)) {
             if (child.type === Button) {
@@ -54,7 +54,7 @@ const FormGroup: FC<Props> = (props) => {
     }
 
     return (
-        <div className={className} css={[marginBottom && !inline && styles.formGroupMargin]}>
+        <div className={className} css={[marginBottom && !inline && styles.formGroupMargin, fullSize && styles.inlineItemFullSize]}>
             {getInputs()}
         </div>
     )

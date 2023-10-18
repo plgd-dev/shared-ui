@@ -5,7 +5,7 @@ import * as styles from './Column.styles'
 const Column: FC<Props> = (props) => {
     const { size, sm, md, lg, xl, className, id, style, children } = { ...defaultProps, ...props }
     return (
-        <div className={className} id={id} style={style} css={styles.column({ size, sm, md, lg, xl })}>
+        <div className={className} css={styles.column({ size, sm, md, lg, xl })} id={id} style={style}>
             {children}
         </div>
     )

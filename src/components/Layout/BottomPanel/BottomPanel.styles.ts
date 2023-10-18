@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
-import { COLLAPSE_ANIMATION_TIME } from '../../../Layout/constants'
-import { panelSizes } from '../../../Layout/LeftPanel/constants'
-import { colors } from '../../_utils/colors'
-import { ThemeType, get } from '../../_theme'
+import { COLLAPSE_ANIMATION_TIME } from '../constants'
+import { panelSizes } from '../LeftPanel/constants'
+import { ThemeType, get } from '../../Atomic/_theme'
+import { colors } from '../../Atomic/_utils/colors'
 
 export const selectionPanel = css`
     position: fixed;

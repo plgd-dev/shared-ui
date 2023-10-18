@@ -1,8 +1,7 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
 import { ThemeType, get } from '../_theme'
 
-export const input = (theme: ThemeType) => css`
+export const input = (theme: ThemeType, error?: boolean) => css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -31,7 +30,7 @@ export const input = (theme: ThemeType) => css`
     }
 
     &:focus {
-        border-color: ${get(theme, `FormInput.focus.borderColor`)};
+        border-color: ${error ? undefined : get(theme, `FormInput.focus.borderColor`)}!important;
         outline: none;
     }
 
@@ -136,5 +135,10 @@ export const readOnly = (theme: ThemeType) => css`
 `
 
 export const error = (theme: ThemeType) => css`
-    border-color: ${get(theme, `FormInput.error.red`)};
+    border-color: ${get(theme, `FormInput.error.red`)}!important;
+`
+
+export const right = css`
+    text-align: right;
+    cursor: text;
 `

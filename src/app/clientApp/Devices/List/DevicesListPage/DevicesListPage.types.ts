@@ -10,6 +10,7 @@ export type DpsDataType = {
 export type Props = {
     breadcrumbs?: BreadcrumbItem[]
     clientData?: RemoteClientType
+    defaultActiveTab?: number
     detailLinkPrefix?: string
     httpGatewayAddress?: string
     title?: string

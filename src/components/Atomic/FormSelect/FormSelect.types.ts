@@ -1,6 +1,7 @@
-import { selectSizes } from './constants'
+import { selectSizes, selectAligns } from './constants'
 
 export type FormSelectSizeType = (typeof selectSizes)[keyof typeof selectSizes]
+export type FormSelectAlignType = (typeof selectAligns)[keyof typeof selectAligns]
 
 export interface Option {
     readonly value: string
@@ -13,6 +14,7 @@ export interface GroupedOption {
 }
 
 export type Props = {
+    align?: FormSelectAlignType
     className?: string
     defaultValue?: any
     disabled?: boolean
@@ -27,6 +29,7 @@ export type Props = {
     value?: Option
 }
 
-export const defaultProps = {
+export const defaultProps: Partial<Props> = {
+    align: selectAligns.LEFT,
     size: selectSizes.NORMAL,
 }

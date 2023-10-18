@@ -1,10 +1,12 @@
 import { SerializedStyles } from '@emotion/react'
 import { ChangeEvent } from 'react'
-import { inputSizes } from './constants'
+import { inputSizes, inputAligns } from './constants'
 
 export type FormInputSizeType = (typeof inputSizes)[keyof typeof inputSizes]
+export type FormInputAlignType = (typeof inputAligns)[keyof typeof inputAligns]
 
 export type Props = {
+    align?: FormInputAlignType
     ariaInvalid?: boolean
     autoComplete?: string
     autoFocus?: boolean
@@ -34,7 +36,8 @@ export type Props = {
     value?: string | number
 }
 
-export const defaultProps = {
+export const defaultProps: Partial<Props> = {
+    align: inputAligns.LEFT,
     name: '',
     size: inputSizes.BIG,
     tabIndex: 1,
