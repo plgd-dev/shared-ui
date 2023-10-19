@@ -6,6 +6,8 @@ import { ThemeType, get } from '../_theme'
 export const modalWrapper = css`
     display: flex;
     justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
 `
 
 export const modal = (theme: ThemeType, minWidth: number | string, maxWidth: number | string) => css`
@@ -13,7 +15,11 @@ export const modal = (theme: ThemeType, minWidth: number | string, maxWidth: num
     padding: 24px;
     min-width: ${typeof minWidth === 'string' ? minWidth : `${minWidth}px`};
     max-width: ${typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`};
+    max-height: 90%;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
 `
 export const header = (theme: ThemeType) => css`
     display: flex;
@@ -57,6 +63,7 @@ export const close = (theme: ThemeType) => css`
 
 export const content = (theme: ThemeType) => css`
     background: ${get(theme, `Modal.content.background`)};
+    flex: 1 1 auto;
 `
 
 export const contentPadding = css`
@@ -88,4 +95,9 @@ export const fullSizeButtons = css`
     .modal-button {
         width: 100%;
     }
+`
+
+export const fullSize = css`
+    width: 100%;
+    height: 100%;
 `

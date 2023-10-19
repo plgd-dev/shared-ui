@@ -1,12 +1,13 @@
 import React, { FC, memo, useCallback, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { createPortal } from 'react-dom'
+import isFunction from 'lodash/isFunction'
+
 import { defaultProps, Props } from './Modal.types'
 import * as styles from './Modal.styles'
-import { createPortal } from 'react-dom'
 import Headline from '../Headline'
 import { convertSize, IconCloseCircle } from '../Icon'
-import isFunction from 'lodash/isFunction'
 import Button from '../Button'
-import { AnimatePresence, motion } from 'framer-motion'
 import Backdrop from './Backdrop'
 
 export const Modal: FC<Props> = memo((props) => {
@@ -20,6 +21,7 @@ export const Modal: FC<Props> = memo((props) => {
         contentPadding,
         dataTestId,
         footerActions,
+        fullSize,
         fullSizeButtons,
         id,
         maxWidth,
@@ -144,14 +146,14 @@ export const Modal: FC<Props> = memo((props) => {
                     <motion.div
                         animate='visible'
                         className={className}
-                        css={styles.modalWrapper}
+                        css={[styles.modalWrapper, fullSize && styles.fullSize]}
                         data-test-id={dataTestId}
                         id={id}
                         initial='hidden'
                         onClick={(e) => e.stopPropagation()}
                         variants={dropIn}
                     >
-                        <div css={[(theme) => styles.modal(theme, minWidth, maxWidth)]}>
+                        <div css={[(theme) => styles.modal(theme, minWidth, maxWidth), fullSize && styles.fullSize]}>
                             <Header />
                             {renderBody && (
                                 <div css={[styles.content, contentPadding && styles.contentPadding]}>{isFunction(renderBody) ? renderBody() : renderBody}</div>

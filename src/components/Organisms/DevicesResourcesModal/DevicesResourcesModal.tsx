@@ -1,17 +1,15 @@
-import React, { useEffect, useState, useRef, FC, useMemo } from 'react'
-import { Props, defaultProps } from './DevicesResourcesModal.types'
-import { resourceModalTypes } from '../../../common/constants'
+import React, { useEffect, useState, useRef, FC, useMemo, useCallback } from 'react'
 import isFunction from 'lodash/isFunction'
 import pick from 'lodash/pick'
+import isEmpty from 'lodash/isEmpty'
 
-// Components
+import { Props, defaultProps } from './DevicesResourcesModal.types'
+import { resourceModalTypes } from '../../../common/constants'
 import Editor from '../../Atomic/Editor'
 import FormSelect from '../../Atomic/FormSelect'
 import Button from '../../Atomic/Button'
 import Modal, { ModalStrippedLine } from '../../Atomic/Modal'
-
 import DevicesResourcesModalNotifications from './DevicesResourcesModalNotifications'
-import isEmpty from 'lodash/isEmpty'
 
 const { UPDATE_RESOURCE } = resourceModalTypes
 
@@ -38,6 +36,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
     const editor = useRef()
     const [jsonData, setJsonData] = useState<object | string | undefined>(undefined)
     const [interfaceJsonError, setInterfaceJsonError] = useState(false)
+    const [modalCode, setModalCode] = useState(false)
 
     const disabled = retrieving || loading
     const isUpdateModal = type === UPDATE_RESOURCE
@@ -112,56 +111,82 @@ const DevicesResourcesModal: FC<Props> = (props) => {
 
     const handleOnEditorError = (error: any) => setInterfaceJsonError(error.length > 0)
 
+    const handleModalContentViewChange = useCallback(() => {
+        setModalCode((prevState) => !prevState)
+    }, [])
+
     const renderBody = () => {
         const interfaces = data?.interfaces?.map?.((ifs) => ({ value: ifs, label: ifs })) || []
         interfaces.unshift(initialInterfaceValue)
 
+        const InnerContent = () => {
+            if (modalCode) {
+                return null
+            }
+
+            return (
+                <>
+                    {data && isUpdateModal && (
+                        <DevicesResourcesModalNotifications
+                            deviceId={deviceId as string}
+                            deviceName={deviceName}
+                            deviceResourceUpdateListener={props.deviceResourceUpdateListener}
+                            href={data?.href as string}
+                            i18n={pick(props.i18n, ['on', 'off', 'notifications'])}
+                            isNotificationActive={props.isNotificationActive}
+                            isUnregistered={isUnregistered}
+                            toggleActiveNotification={props.toggleActiveNotification}
+                        />
+                    )}
+
+                    <ModalStrippedLine component={deviceId} label={i18n.deviceId} />
+
+                    {(data?.types?.length || 0) > 0 ? (
+                        <ModalStrippedLine component={data?.types?.join(', ')} label={isUpdateModal ? i18n.types : i18n.supportedTypes} />
+                    ) : undefined}
+
+                    {isUpdateModal && <ModalStrippedLine component={data?.interfaces?.join(', ')} label={i18n.interfaces} />}
+
+                    <ModalStrippedLine component={ttlControl} label={i18n.commandTimeout} smallPadding={true} />
+
+                    {isUpdateModal && (
+                        <ModalStrippedLine
+                            component={
+                                <FormSelect
+                                    disabled={disabled || !isDeviceOnline}
+                                    onChange={setSelectedInterface}
+                                    options={interfaces}
+                                    value={selectedInterface}
+                                />
+                            }
+                            componentSize={200}
+                            label={i18n.resourceInterfaces}
+                            smallPadding={true}
+                        />
+                    )}
+                </>
+            )
+        }
+
         return (
             <>
-                {data && isUpdateModal && (
-                    <DevicesResourcesModalNotifications
-                        deviceId={deviceId as string}
-                        deviceName={deviceName}
-                        deviceResourceUpdateListener={props.deviceResourceUpdateListener}
-                        href={data?.href as string}
-                        i18n={pick(props.i18n, ['on', 'off', 'notifications'])}
-                        isNotificationActive={props.isNotificationActive}
-                        isUnregistered={isUnregistered}
-                        toggleActiveNotification={props.toggleActiveNotification}
-                    />
-                )}
+                <InnerContent />
 
-                <ModalStrippedLine component={deviceId} label={i18n.deviceId} />
-
-                {(data?.types?.length || 0) > 0 ? (
-                    <ModalStrippedLine component={data?.types?.join(', ')} label={isUpdateModal ? i18n.types : i18n.supportedTypes} />
-                ) : undefined}
-
-                {isUpdateModal && <ModalStrippedLine component={data?.interfaces?.join(', ')} label={i18n.interfaces} />}
-
-                <ModalStrippedLine component={ttlControl} label={i18n.commandTimeout} smallPadding={true} />
-
-                {isUpdateModal && (
-                    <ModalStrippedLine
-                        component={
-                            <FormSelect disabled={disabled || !isDeviceOnline} onChange={setSelectedInterface} options={interfaces} value={selectedInterface} />
-                        }
-                        componentSize={200}
-                        label={i18n.resourceInterfaces}
-                        smallPadding={true}
-                    />
-                )}
-
-                <div className='m-t-20 m-b-0'>
+                <div className='m-t-20'>
                     {jsonData && (
                         <Editor
                             disabled={disabled}
                             editorRef={(node: any) => {
                                 editor.current = node
                             }}
+                            height={modalCode ? '100%' : undefined}
+                            i18n={{
+                                viewText: modalCode ? i18n.compactView : i18n.fullView,
+                            }}
                             json={jsonData}
                             onChange={handleOnEditorChange}
                             onError={handleOnEditorError}
+                            onViewChange={handleModalContentViewChange}
                         />
                     )}
                 </div>
@@ -209,6 +234,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
             closeButtonText={i18n.close}
             closeOnBackdrop={false}
             contentPadding={false}
+            fullSize={modalCode}
             onClose={!disabled ? handleClose : undefined}
             portalTarget={document.getElementById('modal-root')}
             renderBody={renderBody}

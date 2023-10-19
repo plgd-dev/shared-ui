@@ -23,6 +23,7 @@ export type Props = {
     contentPadding?: boolean
     dataTestId?: string
     footerActions?: FooterAction[]
+    fullSize?: boolean
     fullSizeButtons?: boolean
     id?: string
     maxWidth?: number | string

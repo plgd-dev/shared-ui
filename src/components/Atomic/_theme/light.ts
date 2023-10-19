@@ -161,6 +161,9 @@ const theme = {
         indentGuide: {
             background: undefined,
         },
+        fullSizeBtn: {
+            background: '#fff',
+        },
     },
     Footer: {
         borderTop: '#e6e9ed',

@@ -6,23 +6,26 @@ import classNames from 'classnames'
 import JSONEditor from 'jsoneditor'
 import 'jsoneditor/dist/jsoneditor.css'
 import isFunction from 'lodash/isFunction'
+import IconShowPassword from '../Icon/components/IconShowPassword'
 
 const Editor: FC<Props> = (props) => {
     const {
         autofocus,
         className,
-        editorRef,
         containerRef,
+        disabled,
+        editorRef,
+        height: heightProp,
+        i18n,
+        json,
+        mode,
         onChange,
         onError,
-        json,
-        schema,
-        height: heightProp,
-        width,
-        style,
         onResize,
-        disabled,
-        mode,
+        onViewChange,
+        schema,
+        style,
+        width,
         ...rest
     } = props
 
@@ -98,7 +101,7 @@ const Editor: FC<Props> = (props) => {
         const numberOfLines = jsonEditor.current.aceEditor.env.document.doc.$lines.length || 0
         const lineHeight = jsonEditor.current.aceEditor.renderer.lineHeight || 0
 
-        setHeight(Math.max(numberOfLines * lineHeight + 5, 300))
+        heightProp === undefined && setHeight(Math.max(numberOfLines * lineHeight + 5, 300))
 
         // lineHeight
         jsonEditor.current.aceEditor.setOptions({
@@ -141,7 +144,20 @@ const Editor: FC<Props> = (props) => {
             css={styles.editor}
             ref={(ref) => handleContainerRef(ref)}
             style={{ ...style, width, height }}
-        />
+        >
+            {isFunction(onViewChange) && i18n?.viewText && (
+                <a
+                    css={styles.fullSizeBtn}
+                    href='#'
+                    onClick={(e) => {
+                        e.preventDefault()
+                        onViewChange()
+                    }}
+                >
+                    <IconShowPassword /> <span css={styles.text}>{i18n?.viewText}</span>
+                </a>
+            )}
+        </div>
     )
 }
 

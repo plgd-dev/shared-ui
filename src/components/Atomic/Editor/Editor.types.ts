@@ -1,7 +1,7 @@
 import { CSSProperties, Ref } from 'react'
 import { editorModes } from './constants'
 
-export type EditorModeType = typeof editorModes[keyof typeof editorModes]
+export type EditorModeType = (typeof editorModes)[keyof typeof editorModes]
 
 export type Props = {
     autofocus?: boolean
@@ -15,9 +15,13 @@ export type Props = {
     onChange?: (json: any) => void
     onError?: (error: any) => void
     onResize?: (width: number, height: number, callback: () => void) => void
+    onViewChange?: (fullview: boolean) => void
     schema?: [] | object
     style?: CSSProperties
     width?: string
+    i18n?: {
+        viewText?: string
+    }
 }
 
 export const defaultProps = {

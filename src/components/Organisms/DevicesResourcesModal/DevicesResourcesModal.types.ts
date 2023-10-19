@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { resourceModalTypes } from '../../../common/constants'
 import { ForwardProps, NotificationI18n } from './DevicesResourcesModalNotifications/DevicesResourcesModalNotifications.types'
 
-export type DevicesResourcesModalType = typeof resourceModalTypes[keyof typeof resourceModalTypes]
+export type DevicesResourcesModalType = (typeof resourceModalTypes)[keyof typeof resourceModalTypes]
 
 export type DevicesResourcesModalParamsType = {
     href: string
@@ -24,9 +24,11 @@ export type Props = {
     i18n: {
         close: string
         commandTimeout: string
+        compactView: string
         create: string
         creating: string
         deviceId: string
+        fullView: string
         interfaces: string
         resourceInterfaces: string
         retrieve: string

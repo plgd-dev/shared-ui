@@ -1,14 +1,16 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { ThemeType, get } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const editor = (theme: ThemeType) => css`
-    max-height: 80%;
+    //max-height: 80%;
 
     &.disabled:after {
         //display: none;
         background: rgba(255, 255, 255, 0);
     }
+
     .jsoneditor {
         border: 1px solid ${get(theme, `Editor.borderColor`)};
         border-radius: 8px;
@@ -18,6 +20,7 @@ export const editor = (theme: ThemeType) => css`
             .ace_scroller {
                 background: ${get(theme, `Editor.scroller.background`)};
             }
+
             .ace_gutter {
                 background: ${get(theme, `Editor.gutter.background`)};
                 //             //padding: 16px 0;
@@ -37,8 +40,9 @@ export const editor = (theme: ThemeType) => css`
             }
 
             .ace_gutter-active-line {
-                background: #000028;
+                background: ${get(theme, `Editor.gutterActiveLine.background`)};
             }
+
             .ace_indent-guide {
                 background: none;
             }
@@ -50,11 +54,6 @@ export const editor = (theme: ThemeType) => css`
             .ace_constant,
             .ace_paren,
             .ace_variable {
-                //font-family: 'Poppins', sans-serif;
-                //font-style: normal;
-                //font-weight: 400;
-                //             font-size: 14px;
-                //             //line-height: 22px;
                 color: ${colors.neutral600};
             }
 
@@ -73,4 +72,30 @@ export const editor = (theme: ThemeType) => css`
             }
         }
     }
+`
+
+export const fullSizeBtn = (theme: ThemeType) => css`
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    background: ${get(theme, `Editor.fullSizeBtn.background`)};
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #81868c;
+    transition: all 0.3s;
+
+    &:hover {
+        text-decoration: none !important;
+    }
+`
+
+export const text = css`
+    font-family: ${fontPrimary};
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    margin-left: 4px;
 `
