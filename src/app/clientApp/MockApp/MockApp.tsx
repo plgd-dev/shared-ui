@@ -1,6 +1,7 @@
 import { useIntl } from 'react-intl'
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
+import { detect } from 'detect-browser'
 
 import { messages as t } from './MockApp.i18n'
 import { getWellKnowConfig, getClientUrl } from '../utils'
@@ -14,10 +15,12 @@ const MockApp = () => {
     const wellKnowConfigHub = getWellKnowConfig()
     const [searchParams] = useSearchParams()
     const code = searchParams.get('code')
+    const browser = detect()
 
     const remoteClientId = localStorage.getItem(DEVICE_AUTH_CODE_REMOTE_CLIENT_ID)
     const deviceId = localStorage.getItem(DEVICE_AUTH_CODE_DEVICE_ID)
     const hubWellKnownConfig = security.getWellKnowConfig()
+    const isEdge = browser && browser.name === 'edge'
 
     const [clientData, error, errorElement] = useClientAppPage({
         i18n: {
@@ -37,7 +40,7 @@ const MockApp = () => {
         localStorage.setItem(DEVICE_AUTH_CODE_SESSION_KEY, code)
     }
 
-    if (deviceId && remoteClientId) {
+    if (deviceId && remoteClientId && !isEdge) {
         const url = `${window.location.origin}/remote-clients/${remoteClientId}/devices/${deviceId}`
         window.location.replace(url)
     }

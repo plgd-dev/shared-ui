@@ -195,7 +195,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
         if (deviceName && deviceName !== NO_DEVICE_NAME) {
             setBreadcrumbs([...breadcrumbBase, { label: deviceName }])
         }
-    }, [deviceName])
+    }, [breadcrumbBase, deviceName])
 
     if (deviceError) {
         return <NotFoundPage message={_(t.deviceNotFoundMessage, { id })} title={_(t.deviceNotFound)} />
