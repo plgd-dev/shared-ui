@@ -149,6 +149,7 @@ const DevicesListPage: FC<Props> = (props) => {
                             <Tab1
                                 data={dataToDisplay}
                                 detailLinkPrefix={detailLinkPrefix}
+                                isActiveTab={activeTabItem === 0}
                                 loading={loadingOrDeletingOrOwning}
                                 refresh={handleRefresh}
                                 setDeleting={setDeleting}

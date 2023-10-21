@@ -74,6 +74,12 @@ const Editor: FC<Props> = (props) => {
     }
 
     useEffect(() => {
+        if (heightProp !== height) {
+            setHeight(heightProp)
+        }
+    }, [heightProp])
+
+    useEffect(() => {
         // setTimeout(() => {
         const options = {
             mode,
@@ -100,6 +106,9 @@ const Editor: FC<Props> = (props) => {
 
         const numberOfLines = jsonEditor.current.aceEditor.env.document.doc.$lines.length || 0
         const lineHeight = jsonEditor.current.aceEditor.renderer.lineHeight || 0
+
+        console.log({ heightProp })
+        console.log({ height })
 
         heightProp === undefined && setHeight(Math.max(numberOfLines * lineHeight + 5, 300))
 

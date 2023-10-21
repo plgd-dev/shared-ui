@@ -24,7 +24,7 @@ import AppContext from '../../../../App/AppContext'
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
 const Tab1: FC<Props> = (props) => {
-    const { data, detailLinkPrefix, loading, refresh, setDpsData, setDeleting, setOwning, setShowDpsModal } = props
+    const { data, detailLinkPrefix, loading, refresh, setDpsData, setDeleting, setOwning, setShowDpsModal, isActiveTab } = props
     const { formatMessage: _ } = useIntl()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [selectedDevices, setSelectedDevices] = useState([])
@@ -221,6 +221,7 @@ const Tab1: FC<Props> = (props) => {
                     search: _(t.search),
                     select: _(t.select),
                 }}
+                isActiveTab={isActiveTab}
                 isAllSelected={isAllSelected}
                 loading={loading}
                 onDeleteClick={handleOpenDeleteModal}

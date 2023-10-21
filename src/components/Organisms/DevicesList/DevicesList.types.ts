@@ -11,6 +11,7 @@ export type Props = {
         search: string
         select: string
     }
+    isActiveTab?: boolean
     isAllSelected: boolean
     loading: boolean
     onDeleteClick: (deviceId?: string) => void

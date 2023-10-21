@@ -1,6 +1,7 @@
 export type Props = {
     data: any
     detailLinkPrefix?: string
+    isActiveTab?: boolean
     loading: boolean
     refresh: () => void
     setDeleting: (ownValue: boolean) => void

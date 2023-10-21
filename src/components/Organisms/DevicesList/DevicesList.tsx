@@ -14,6 +14,7 @@ const DevicesList: FC<Props> = (props) => {
         data,
         i18n,
         isAllSelected,
+        isActiveTab,
         columns,
         onDeleteClick,
         setIsAllSelected,
@@ -46,7 +47,7 @@ const DevicesList: FC<Props> = (props) => {
                     isAllRowsSelected !== isAllSelected && setIsAllSelected && setIsAllSelected(isAllRowsSelected)
                     setSelectedDevices(selection)
                 }}
-                paginationPortalTargetId='paginationPortalTarget'
+                paginationPortalTargetId={isActiveTab ? 'paginationPortalTarget' : undefined}
                 primaryAttribute='id'
                 unselectRowsToken={unselectRowsToken}
             />

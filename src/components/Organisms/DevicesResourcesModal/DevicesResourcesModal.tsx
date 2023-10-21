@@ -172,7 +172,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
             <>
                 <InnerContent />
 
-                <div className='m-t-20'>
+                <div className='m-t-20' style={{ height: 'calc(100% - 20px)' }}>
                     {jsonData && (
                         <Editor
                             disabled={disabled}

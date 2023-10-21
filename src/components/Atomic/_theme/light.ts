@@ -1,4 +1,5 @@
 import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
+import DetailHeadline from '../../Organisms/DetailHeadline/DetailHeadline'
 
 const theme = {
     ActionButton: {
@@ -146,6 +147,9 @@ const theme = {
         emptyDeleteInformation: {
             background: colors.neutral200,
         },
+    },
+    DetailHeadline: {
+        color: colors.primaryDarken,
     },
     Editor: {
         borderColor: '#e6e9ed',

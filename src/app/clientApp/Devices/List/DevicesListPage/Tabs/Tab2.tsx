@@ -18,6 +18,7 @@ import FormGroup from '../../../../../../components/Atomic/FormGroup'
 import { updateRemoteClient } from '../../../../../../../../../src/containers/RemoteClients/slice'
 import Notification from '../../../../../../components/Atomic/Notification/Toast'
 import notificationId from '../../../../../../../../../src/notificationId'
+import DetailHeadline from '../../../../../../components/Organisms/DetailHeadline/DetailHeadline'
 
 interface RowsType {
     attribute: string
@@ -112,13 +113,6 @@ const Tab1: FC<Props> = (props) => {
         )
     }
 
-    if (clientData && clientData.version) {
-        rows.push({
-            attribute: _(t.version),
-            value: clientData.version,
-        })
-    }
-
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         const touched = Object.keys(touchedFields)
 
@@ -133,6 +127,8 @@ const Tab1: FC<Props> = (props) => {
         )
     }
 
+    // 32 0 16 0
+
     return (
         <div
             style={{
@@ -141,6 +137,17 @@ const Tab1: FC<Props> = (props) => {
         >
             <form onSubmit={handleSubmit(onSubmit)}>
                 <SimpleStripTable rows={rows} />
+                <DetailHeadline>Client informations</DetailHeadline>
+                {clientData?.version && (
+                    <SimpleStripTable
+                        rows={[
+                            {
+                                attribute: _(t.version),
+                                value: clientData.version,
+                            },
+                        ]}
+                    />
+                )}
             </form>
             {isMounted &&
                 document.querySelector('#modal-root') &&

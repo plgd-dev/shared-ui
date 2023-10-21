@@ -120,7 +120,6 @@ export const Modal: FC<Props> = memo((props) => {
 
     const dropIn = {
         hidden: {
-            y: '-150px',
             opacity: 0,
         },
         visible: {
@@ -134,7 +133,6 @@ export const Modal: FC<Props> = memo((props) => {
             },
         },
         exit: {
-            y: '-150px',
             opacity: 0,
         },
     }

@@ -182,6 +182,9 @@ const theme = {
             background: colors.neutral700,
         },
     },
+    DetailHeadline: {
+        color: '#00c5c7',
+    },
     Editor: {
         borderColor: '#000028',
         scroller: {
