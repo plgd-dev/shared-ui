@@ -109,7 +109,7 @@ const theme = {
         collapseToggle: {
             color: '#fff',
             hover: {
-                color: colors.primary,
+                color: colorsSiemens.primary,
             },
         },
         logo: {
