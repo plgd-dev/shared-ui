@@ -7,7 +7,7 @@ import isFunction from 'lodash/isFunction'
 
 import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
-import { Logo, Close, Arrow, Feature } from './components'
+import { Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
 
@@ -125,7 +125,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 }
 
 const LeftPanel: FC<Props> = (props) => {
-    const { className, collapsed, id, logo, menu, newFeature, versionMark, onItemClick, setCollapsed } = props
+    const { className, collapsed, id, logo, menu, newFeature, versionMark, onItemClick, onLogoClick, setCollapsed } = props
     const [active, setActive] = useState<string | null>(props.activeId || null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
     const [domReady, setDomReady] = useState(false)
@@ -171,7 +171,11 @@ const LeftPanel: FC<Props> = (props) => {
                     document.getElementById('header-icon-collapse-portal-target') as Element
                 )}
             <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
-                {logo && cloneElement(logo as ReactElement, { css: [styles.logoSvg, collapsed && styles.logoSvgCollapsed] })}
+                {logo &&
+                    cloneElement(logo as ReactElement, {
+                        css: [styles.logoSvg, collapsed && styles.logoSvgCollapsed, isFunction(onLogoClick) && styles.clickHandler],
+                        onClick: onLogoClick,
+                    })}
             </div>
             <div css={[styles.menu, collapsed && styles.menuCollapsed]}>
                 <ul css={styles.menuList}>

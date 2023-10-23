@@ -68,6 +68,10 @@ export const logoSvgCollapsed = css`
     left: 17px;
 `
 
+export const clickHandler = css`
+    cursor: pointer;
+`
+
 export const menu = css`
     flex: 1 1 auto;
     overflow: auto;
