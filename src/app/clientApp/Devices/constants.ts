@@ -91,7 +91,7 @@ export const devicesProvisionStatuses = {
 }
 
 export const devicesStatusSeverities = {
-    GREY: 'grey',
+    GREY: 'normal',
     SUCCESS: 'success',
     WARNING: 'warning',
     ERROR: 'error',

@@ -7,7 +7,12 @@ describe('<Tag>', () => {
     it('render correctly - snapshot', () => {
         const { asFragment } = render(
             <div>
-                <TagGroup>
+                <TagGroup
+                    i18n={{
+                        more: 'more',
+                        types: 'types',
+                    }}
+                >
                     <Tag>oic.d.clouddevice</Tag>
                     <Tag>oic.wk.d</Tag>
                     <Tag>oic.wk.e</Tag>

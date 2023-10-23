@@ -7,6 +7,7 @@ import * as styles from './FormInput.styles'
 import { convertSize, IconCopy, IconHidePassword, IconShowPassword } from '../Icon'
 import { copyToClipboard } from '../../../common/utils'
 import { inputAligns, inputSizes } from './constants'
+import { isEdge } from '../_utils/browser'
 
 const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const {
@@ -31,8 +32,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         ...rest
     } = { ...defaultProps, ...props }
     const [type, setType] = useState(defaultType)
-    const browser = detect()
-    const isEdge = browser && browser.name === 'edge'
+    const isEdgeBrowser = isEdge(detect())
     const localInputRef = useRef<HTMLInputElement>(null)
     const inputBase = (
         <input
@@ -41,7 +41,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             autoComplete={autoComplete}
             css={(theme) => [
                 styles.input(theme, error),
-                (defaultType === 'password' || copy) && !isEdge && styles.inputWithIcon,
+                (defaultType === 'password' || copy) && !isEdgeBrowser && styles.inputWithIcon,
                 defaultType === 'tel' && styles.inputTel,
                 disabled && styles.disabled(theme),
                 error && styles.error,
@@ -51,7 +51,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 size === inputSizes.NORMAL && styles.normal,
                 align === inputAligns.RIGHT && styles.right,
             ]}
-            data-endge-pass={isEdge ? 'true' : undefined}
+            data-endge-pass={isEdgeBrowser ? 'true' : undefined}
             data-inline={inline?.toString()}
             data-test-id={dataTestId}
             disabled={disabled || false}
@@ -80,7 +80,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 )}
                 {defaultType === 'password' && !copy && (
                     <span
-                        css={[styles.inputIcon, isEdge && defaultType === 'password' && styles.passwordIcon]}
+                        css={[styles.inputIcon, isEdgeBrowser && defaultType === 'password' && styles.passwordIcon]}
                         onClick={() => setType(type === defaultType ? 'text' : defaultType)}
                     >
                         {type === 'text' ? <IconHidePassword {...convertSize(24)} /> : <IconShowPassword {...convertSize(24)} />}

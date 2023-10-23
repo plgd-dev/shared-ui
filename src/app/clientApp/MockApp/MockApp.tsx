@@ -9,18 +9,18 @@ import { DEVICE_AUTH_CODE_DEVICE_ID, DEVICE_AUTH_CODE_REMOTE_CLIENT_ID, DEVICE_A
 import { useClientAppPage } from '../RemoteClients/use-client-app-page'
 import { clientAppSettings, security } from '../../../common/services'
 import { useWellKnownConfiguration } from '../../../common/hooks'
+import { isEdge } from '../../../components/Atomic/_utils/browser'
 
 const MockApp = () => {
     const { formatMessage: _ } = useIntl()
     const wellKnowConfigHub = getWellKnowConfig()
     const [searchParams] = useSearchParams()
     const code = searchParams.get('code')
-    const browser = detect()
 
     const remoteClientId = localStorage.getItem(DEVICE_AUTH_CODE_REMOTE_CLIENT_ID)
     const deviceId = localStorage.getItem(DEVICE_AUTH_CODE_DEVICE_ID)
     const hubWellKnownConfig = security.getWellKnowConfig()
-    const isEdge = browser && browser.name === 'edge'
+    const isEdgeBrowser = isEdge(detect())
 
     const [clientData, error, errorElement] = useClientAppPage({
         i18n: {
@@ -40,9 +40,10 @@ const MockApp = () => {
         localStorage.setItem(DEVICE_AUTH_CODE_SESSION_KEY, code)
     }
 
-    if (deviceId && remoteClientId && !isEdge) {
-        const url = `${window.location.origin}/remote-clients/${remoteClientId}/devices/${deviceId}`
-        window.location.replace(url)
+    if (deviceId && remoteClientId && !isEdgeBrowser) {
+        setTimeout(() => {
+            window.location.replace(`${window.location.origin}/remote-clients/${remoteClientId}/devices/${deviceId}`)
+        }, 500)
     }
 
     clientAppSettings.setGeneralConfig({

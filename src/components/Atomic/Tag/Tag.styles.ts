@@ -16,6 +16,7 @@ export const tag = (theme: ThemeType) => css`
     color: ${colors.neutral500};
     padding: 3px 8px;
     border: 1px solid ${get(theme, `Tag.blue.borderColor`)};
+    white-space: nowrap;
 `
 
 export const clickable = css`

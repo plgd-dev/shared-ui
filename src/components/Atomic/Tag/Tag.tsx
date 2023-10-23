@@ -1,4 +1,4 @@
-import { cloneElement, FC, ReactElement, ReactNode } from 'react'
+import { cloneElement, FC, forwardRef, ReactElement, ReactNode } from 'react'
 import isFunction from 'lodash/isFunction'
 
 import { defaultProps, Props } from './Tag.types'
@@ -6,7 +6,7 @@ import * as styles from './Tag.styles'
 import { Icon } from '../Icon'
 import { tagVariants } from './constants'
 
-const Tag: FC<Props> = (props) => {
+const Tag = forwardRef<HTMLDivElement, Props>((props, ref) => {
     const { children, className, icon, id, onClick, variant } = { ...defaultProps, ...props }
     const getIcon = (icon?: ReactNode) => {
         if (icon) {
@@ -26,12 +26,13 @@ const Tag: FC<Props> = (props) => {
             ]}
             id={id}
             onClick={onClick}
+            ref={ref}
         >
             {getIcon(icon)}
             {children}
         </div>
     )
-}
+})
 
 Tag.displayName = 'Tag'
 Tag.defaultProps = defaultProps

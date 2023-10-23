@@ -2,12 +2,13 @@ import { FC, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
 
 import SimpleStripTable from '../../../../../../components/Atomic/SimpleStripTable'
-import TagGroup from '../../../../../../components/Atomic/TagGroup'
+import TagGroup, { justifyContent } from '../../../../../../components/Atomic/TagGroup'
 import Tag from '../../../../../../components/Atomic/Tag'
 import { DEVICE_PROVISION_STATUS_DELAY_MS } from '../../../constants'
 import { IconLoader } from '../../../../../../components/Atomic/Loader'
 import { getColorByOnboardingStatus, getColorByProvisionStatus, getDPSEndpoint, loadResourceData } from '../../../utils'
 import { messages as t } from '../../../Devices.i18n'
+import { messages as app } from '../../../../App/App.i18n'
 import { Props } from './Tab1.types'
 import testId from '../../../../testId'
 import StatusTag from '../../../../../../components/Atomic/StatusTag/StatusTag'
@@ -50,10 +51,14 @@ const Tab1: FC<Props> = (props) => {
         {
             attribute: _(t.types),
             value: data?.types ? (
-                <TagGroup>
-                    {data?.types.map((t, key) => (
-                        <Tag key={t}>{t}</Tag>
-                    ))}
+                <TagGroup
+                    i18n={{
+                        more: _(app.more),
+                        types: _(app.types),
+                    }}
+                    justifyContent={justifyContent.END}
+                >
+                    {data?.types.map((t, key) => <Tag key={key}>{t}</Tag>)}
                 </TagGroup>
             ) : (
                 <div>-</div>
@@ -88,10 +93,14 @@ const Tab1: FC<Props> = (props) => {
         {
             attribute: _(t.endpoints),
             value: data?.endpoints ? (
-                <TagGroup>
-                    {data?.endpoints?.map?.((endpoint: string) => (
-                        <Tag key={endpoint}>{endpoint}</Tag>
-                    ))}
+                <TagGroup
+                    i18n={{
+                        more: _(app.more),
+                        types: _(app.types),
+                    }}
+                    justifyContent={justifyContent.END}
+                >
+                    {data?.endpoints?.map?.((endpoint: string) => <Tag key={endpoint}>{endpoint}</Tag>)}
                 </TagGroup>
             ) : (
                 <div>-</div>

@@ -42,4 +42,12 @@ export const messages = defineMessages({
         id: 'app.clickHere',
         defaultMessage: 'Click here!',
     },
+    types: {
+        id: 'app.types',
+        defaultMessage: 'Types',
+    },
+    more: {
+        id: 'app.more',
+        defaultMessage: 'more',
+    },
 })

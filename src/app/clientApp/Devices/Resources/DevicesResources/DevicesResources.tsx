@@ -16,6 +16,7 @@ import { devicesStatuses, RESOURCE_TREE_DEPTH_SIZE } from '../../constants'
 import { canBeResourceEdited, canCreateResource, getLastPartOfAResourceHref } from '../../utils'
 import { messages as t } from '../../Devices.i18n'
 import { Props } from './DevicesResources.types'
+import { messages as app } from '../../../App/App.i18n'
 
 export const DevicesResources: FC<Props> = ({ data, deviceId, deviceStatus, isActiveTab, isOwned, loading, onCreate, onDelete, onUpdate, pageSize }) => {
     const { formatMessage: _ } = useIntl()
@@ -169,7 +170,12 @@ export const DevicesResources: FC<Props> = ({ data, deviceId, deviceStatus, isAc
                     }
 
                     return (
-                        <TagGroup>
+                        <TagGroup
+                            i18n={{
+                                more: _(app.more),
+                                types: _(app.types),
+                            }}
+                        >
                             {value?.map?.((type: string) => (
                                 <Tag key={type} variant={tagVariants.WHITE}>
                                     {type}
