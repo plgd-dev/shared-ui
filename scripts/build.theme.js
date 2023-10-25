@@ -13,5 +13,5 @@ themes.forEach((theme) => {
 
     fs.ensureDirSync(buildThemePath)
 
-    fs.writeJsonSync(path.join(buildThemePath, `${theme}.json`), { colors: d.default })
+    fs.writeJsonSync(path.join(buildThemePath, `${theme}.json`), d.default)
 })

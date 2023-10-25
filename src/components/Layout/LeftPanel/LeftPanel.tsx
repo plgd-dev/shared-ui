@@ -125,8 +125,8 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 }
 
 const LeftPanel: FC<Props> = (props) => {
-    const { className, collapsed, id, logo, menu, newFeature, versionMark, onItemClick, onLogoClick, setCollapsed } = props
-    const [active, setActive] = useState<string | null>(props.activeId || null)
+    const { className, collapsed, id, logo, menu, newFeature, versionMark, onItemClick, setCollapsed } = props
+    const [active, setActive] = useState<string | null>(props.activeId ?? null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
     const [domReady, setDomReady] = useState(false)
 
@@ -173,8 +173,7 @@ const LeftPanel: FC<Props> = (props) => {
             <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
                 {logo &&
                     cloneElement(logo as ReactElement, {
-                        css: [styles.logoSvg, collapsed && styles.logoSvgCollapsed, isFunction(onLogoClick) && styles.clickHandler],
-                        onClick: onLogoClick,
+                        css: [styles.logoSvg, collapsed && styles.logoSvgCollapsed],
                     })}
             </div>
             <div css={[styles.menu, collapsed && styles.menuCollapsed]}>

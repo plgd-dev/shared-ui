@@ -43,7 +43,6 @@ export type Props = {
         }
     }
     onItemClick?: (item: MenuItem, e: SyntheticEvent) => void
-    onLogoClick?: () => void
     setCollapsed?: (collapsed: boolean) => void
     versionMark?: ReactNode
 }

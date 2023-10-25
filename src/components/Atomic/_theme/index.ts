@@ -7,7 +7,7 @@ export type ThemeType = Partial<typeof light>
 export type PlgdThemeType = 'light' | 'siemens'
 
 export function get(from: object, key: string, def?: any): any {
-    const g = lGet(from, key, def)
+    const g = lGet(from, `colors.${key}`, def)
     return g === '' ? def : g
 }
 

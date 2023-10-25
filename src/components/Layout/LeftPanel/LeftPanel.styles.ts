@@ -57,6 +57,7 @@ export const logoSvg = css`
     left: 24px;
     top: 24px;
     transition: all ${COLLAPSE_ANIMATION_TIME};
+    cursor: pointer;
 `
 
 export const logoCollapsed = css`
@@ -66,10 +67,6 @@ export const logoCollapsed = css`
 
 export const logoSvgCollapsed = css`
     left: 17px;
-`
-
-export const clickHandler = css`
-    cursor: pointer;
 `
 
 export const menu = css`
