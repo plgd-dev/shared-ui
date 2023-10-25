@@ -1,10 +1,13 @@
 import React, { Children, cloneElement, FC, isValidElement, ReactElement } from 'react'
+
 import { defaultProps, Props } from './FormGroup.types'
 import * as styles from './FormGroup.styles'
-import Button from '../Button'
+import Button from '../Button/Button'
+import Tooltip from '../Tooltip/Tooltip'
+import { tooltipVariants } from '../Tooltip'
 
 const FormGroup: FC<Props> = (props) => {
-    const { children, className, error, id, inline, fullSize, marginBottom, inlineJustifyContent } = { ...defaultProps, ...props }
+    const { children, className, error, errorTooltip, id, inline, fullSize, marginBottom, inlineJustifyContent } = { ...defaultProps, ...props }
     const childrenWithProps = Children.map(children as ReactElement[], (child, key) => {
         if (isValidElement(child)) {
             if (child.type === Button) {
@@ -29,6 +32,12 @@ const FormGroup: FC<Props> = (props) => {
                     <div css={styles.inline(inlineJustifyContent)}>{childrenWithProps}</div>
                     {Error}
                 </>
+            )
+        } else if (errorTooltip && error) {
+            return (
+                <Tooltip content={error} id={`tooltip-group-${id}`} placement='left' variant={tooltipVariants.ERROR}>
+                    {childrenWithProps[0]}
+                </Tooltip>
             )
         } else if ((children as ReactElement[])?.length === 3) {
             return (

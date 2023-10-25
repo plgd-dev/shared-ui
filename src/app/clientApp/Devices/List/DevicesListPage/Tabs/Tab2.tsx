@@ -7,9 +7,9 @@ import { useDispatch } from 'react-redux'
 import { Props, Inputs } from './Tab2.types'
 import SimpleStripTable from '../../../../../../components/Atomic/SimpleStripTable'
 import { messages as t } from '../../../../RemoteClients/RemoteClients.i18n'
-import FormSelect from '../../../../../../components/Atomic/FormSelect'
+import FormSelect, { selectAligns } from '../../../../../../components/Atomic/FormSelect'
 import { DEVICE_AUTH_MODE } from '../../../../constants'
-import FormInput from '../../../../../../components/Atomic/FormInput'
+import FormInput, { inputAligns } from '../../../../../../components/Atomic/FormInput'
 import { useIsMounted } from '../../../../../../common/hooks'
 import AppContext from '../../../../App/AppContext'
 import BottomPanel from '../../../../../../components/Layout/BottomPanel/BottomPanel'
@@ -84,7 +84,15 @@ const Tab1: FC<Props> = (props) => {
                           control={control}
                           name='authMode'
                           render={({ field: { onChange, name, ref } }) => (
-                              <FormSelect inlineStyle defaultValue={defAuthMode} name={name} onChange={onChange} options={options} ref={ref} />
+                              <FormSelect
+                                  inlineStyle
+                                  align={selectAligns.RIGHT}
+                                  defaultValue={defAuthMode}
+                                  name={name}
+                                  onChange={onChange}
+                                  options={options}
+                                  ref={ref}
+                              />
                           )}
                       />
                   ),
@@ -97,9 +105,16 @@ const Tab1: FC<Props> = (props) => {
             {
                 attribute: _(t.subjectId),
                 value: (
-                    <FormGroup error={errors.preSharedSubjectId ? true : undefined} fullSize={true} id='subject-id' inline={true} marginBottom={false}>
+                    <FormGroup
+                        error={errors.preSharedSubjectId ? _(t.preSharedSubjectIdError) : undefined}
+                        errorTooltip={true}
+                        fullSize={true}
+                        id='subject-id'
+                        marginBottom={false}
+                    >
                         <FormInput
                             inlineStyle
+                            align={inputAligns.RIGHT}
                             placeholder={_(t.subjectId)}
                             {...register('preSharedSubjectId', { required: true, validate: (val) => val !== '' })}
                         />
@@ -108,7 +123,14 @@ const Tab1: FC<Props> = (props) => {
             },
             {
                 attribute: _(t.key),
-                value: <FormInput inlineStyle placeholder={_(t.key)} {...register('preSharedKey', { required: true, validate: (val) => val !== '' })} />,
+                value: (
+                    <FormInput
+                        inlineStyle
+                        align={inputAligns.RIGHT}
+                        placeholder={_(t.key)}
+                        {...register('preSharedKey', { required: true, validate: (val) => val !== '' })}
+                    />
+                ),
             }
         )
     }
@@ -143,7 +165,7 @@ const Tab1: FC<Props> = (props) => {
                         rows={[
                             {
                                 attribute: _(t.version),
-                                value: clientData.version,
+                                value: <div style={{ padding: '0 16px' }}>{clientData.version}</div>,
                             },
                         ]}
                     />

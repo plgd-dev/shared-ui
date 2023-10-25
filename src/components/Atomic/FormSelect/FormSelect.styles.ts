@@ -171,7 +171,7 @@ export const placeholder = (theme: ThemeType) => css`
     line-height: 22px;
 `
 
-export const placeholderRight = css`
+export const textRight = css`
     text-align: right;
 `
 

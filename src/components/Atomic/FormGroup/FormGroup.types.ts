@@ -4,6 +4,7 @@ export type Props = {
     children: ReactNode | ReactNode[]
     className?: string
     error?: string | boolean
+    errorTooltip?: boolean
     fullSize?: boolean
     id: string
     inline?: boolean

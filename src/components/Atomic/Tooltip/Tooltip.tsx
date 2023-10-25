@@ -1,12 +1,13 @@
-import { FC, ReactNode, useMemo, useRef } from 'react'
+import { FC, ReactNode, useMemo } from 'react'
 import { Props, defaultProps } from './Tooltip.types'
 import * as styles from './Tooltip.styles'
 import { Global } from '@emotion/react'
 import { FloatingDelayGroup, useDelayGroup, useDelayGroupContext } from '@floating-ui/react-dom-interactions'
 import { useTooltipState, TooltipAnchor, TooltipContent } from './TooltipUtils'
+import { tooltipVariants } from './constants'
 
 const Tooltip: FC<Props> = (props) => {
-    const { content, children, delay, id: propId, className, initialOpen, portalTarget } = { ...defaultProps, ...props }
+    const { content, children, delay, id: propId, placement, className, initialOpen, portalTarget, variant } = { ...defaultProps, ...props }
     const delayGroupContext = useDelayGroupContext()
     const id: string | ReactNode = useMemo(() => propId || content, [propId, content])
 
@@ -15,17 +16,18 @@ const Tooltip: FC<Props> = (props) => {
         delayGroupContext: { ...delayGroupContext, delay: delay || 200 },
         id,
         initialOpen,
+        placement,
     })
 
     useDelayGroup(state.context, { id })
 
     return (
         <div className={className} id={propId}>
-            <Global styles={styles.tooltip} />
+            <Global styles={[styles.tooltip, variant === tooltipVariants.ERROR && styles.error]} />
             <TooltipAnchor asChild state={state}>
                 {children}
             </TooltipAnchor>
-            <TooltipContent state={state} portalTarget={portalTarget}>
+            <TooltipContent portalTarget={portalTarget} state={state}>
                 {content}
                 <div className='tooltip-arrow' id={`${id}-arrow`} />
             </TooltipContent>

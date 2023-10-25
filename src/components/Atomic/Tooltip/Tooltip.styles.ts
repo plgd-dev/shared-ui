@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { colors } from '../_utils/colors'
 
 export const tooltip = css`
     .tooltip-bubble {
@@ -20,5 +21,15 @@ export const tooltip = css`
         width: 8px;
         height: 8px;
         transform: rotate(45deg);
+    }
+`
+
+export const error = css`
+    .tooltip-bubble {
+        background: ${colors.red} !important;
+    }
+
+    .tooltip-arrow {
+        background: ${colors.red} !important;
     }
 `
