@@ -180,16 +180,16 @@ export const disabled = css`
 `
 
 export const input = css`
-    //display: flex;
-    //justify-content: flex-end;
-    //
-    //input {
-    //    text-align: right;
-    //    width: 100% !important;
-    //}
-    //
-    //&:after {
-    //    display: none !important;
-    //    content: '' !important;
-    //}
+    display: flex;
+    justify-content: flex-end;
+
+    input {
+        text-align: right;
+        width: 100% !important;
+    }
+
+    &:after {
+        display: none !important;
+        content: '' !important;
+    }
 `

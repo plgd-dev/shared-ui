@@ -93,7 +93,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         </components.Placeholder>
     )
 
-    const Input = (props: InputProps<Option, false>) => <components.Input {...props} css={styles.input} />
+    const Input = (props: InputProps<Option, false>) => <components.Input {...props} css={align === selectAligns.RIGHT ? styles.input : undefined} />
 
     return (
         <Select

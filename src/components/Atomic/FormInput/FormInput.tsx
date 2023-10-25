@@ -55,6 +55,15 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
             data-inline={inline?.toString()}
             data-test-id={dataTestId}
             disabled={disabled || false}
+            onFocus={
+                align === inputAligns.RIGHT
+                    ? () => {
+                          setTimeout(() => {
+                              localInputRef.current?.select()
+                          }, 100)
+                      }
+                    : undefined
+            }
             pattern={telPattern}
             readOnly={readOnly}
             ref={mergeRefs([ref, localInputRef, inputRef]) as any}
