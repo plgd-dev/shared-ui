@@ -23,12 +23,12 @@ export const label = css`
     color: ${colors.neutral500};
 `
 
-export const component = css`
+export const component = (theme: ThemeType) => css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
     text-align: right;
-    color: ${colors.neutral800};
+    color: ${get(theme, `ModalStrippedLine.value.color`)};
 `

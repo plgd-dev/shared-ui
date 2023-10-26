@@ -53,6 +53,10 @@ export const uiColorMap = {
         red: '#ef0137',
         green: '#00d7a0',
         info: '#5FBDEB',
+        neutral900: '#000028',
+        neutral800: '#23233c',
+        neutral700: '#353640',
+        neutral500: '#81868D',
     },
 }
 

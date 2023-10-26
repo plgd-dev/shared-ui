@@ -4,11 +4,11 @@ const theme = {
     colors: {
         ActionButton: {
             floatingMenu: {
-                background: '#000028',
-                borderColor: '#23233c',
+                background: colorsSiemens.neutral900,
+                borderColor: colorsSiemens.neutral800,
             },
             item: {
-                borderColor: '#23233c',
+                borderColor: colorsSiemens.neutral800,
                 hover: {
                     color: colorsSiemens.primary,
                 },
@@ -23,8 +23,8 @@ const theme = {
             },
         },
         Alert: {
-            background: '#23233c',
-            borderColor: '#000028',
+            background: colorsSiemens.neutral800,
+            borderColor: colorsSiemens.neutral900,
             close: {
                 color: colors.neutral500,
             },
@@ -47,7 +47,7 @@ const theme = {
                 },
                 disabled: {
                     background: '#81868c',
-                    borderColor: '#23233c',
+                    borderColor: colorsSiemens.neutral800,
                     color: colors.neutral000,
                 },
             },
@@ -62,12 +62,12 @@ const theme = {
                 },
                 disabled: {
                     background: '#81868c',
-                    borderColor: '#23233c',
+                    borderColor: colorsSiemens.neutral800,
                     color: colors.disabled,
                 },
             },
             tertiary: {
-                background: '#23233c',
+                background: colorsSiemens.neutral800,
                 borderColor: colors.neutral500,
                 color: colors.neutral500,
                 hover: {
@@ -77,22 +77,22 @@ const theme = {
                 },
                 disabled: {
                     background: '#81868c',
-                    borderColor: '#23233c',
+                    borderColor: colorsSiemens.neutral800,
                     color: colors.neutral300,
                 },
             },
             filter: {
-                background: '#23233c',
-                borderColor: '#23233c',
+                background: colorsSiemens.neutral800,
+                borderColor: colorsSiemens.neutral800,
                 color: '#cacaca',
                 hover: {
-                    background: '#23233c',
-                    borderColor: '#23233c',
+                    background: colorsSiemens.neutral800,
+                    borderColor: colorsSiemens.neutral800,
                     color: '#fff',
                 },
                 disabled: {
                     background: '#81868c',
-                    borderColor: '#23233c',
+                    borderColor: colorsSiemens.neutral800,
                     color: colors.disabled,
                 },
             },
@@ -106,7 +106,7 @@ const theme = {
             },
         },
         LeftPanel: {
-            background: '#23233c',
+            background: colorsSiemens.neutral800,
             collapseToggle: {
                 color: '#fff',
                 hover: {
@@ -114,7 +114,7 @@ const theme = {
                 },
             },
             logo: {
-                background: '#23233c',
+                background: colorsSiemens.neutral800,
             },
             groupTitle: {
                 color: 'rgba(255, 255, 255, 0.8)',
@@ -132,7 +132,7 @@ const theme = {
                 },
             },
             versionItem: {
-                borderColor: '#000028',
+                borderColor: colorsSiemens.neutral900,
             },
             iconClose: {
                 hover: {
@@ -141,16 +141,16 @@ const theme = {
             },
         },
         Content: {
-            background: '#000028',
+            background: colorsSiemens.neutral900,
         },
         CopyElement: {
-            background: '#000028',
+            background: colorsSiemens.neutral900,
             hover: {
                 color: colorsSiemens.primary,
             },
         },
         Checkbox: {
-            borderColor: '#81868c',
+            borderColor: colorsSiemens.neutral500,
             background: colorsSiemens.primary,
             input: {
                 borderColor: colorsSiemens.primary,
@@ -165,7 +165,7 @@ const theme = {
                 color: colorsSiemens.primary,
             },
             body: {
-                background: '#000028',
+                background: colorsSiemens.neutral900,
             },
             val: {
                 color: colors.neutral500,
@@ -184,29 +184,32 @@ const theme = {
             },
         },
         DetailHeadline: {
-            color: '#00c5c7',
+            color: colorsSiemens.primary,
         },
         Editor: {
-            borderColor: '#000028',
+            borderColor: colorsSiemens.neutral900,
             scroller: {
-                background: '#000028',
+                background: colorsSiemens.neutral900,
             },
             gutter: {
-                background: '#000028',
+                background: colorsSiemens.neutral900,
             },
             gutterActiveLine: {
-                background: '#000028',
+                background: colorsSiemens.neutral900,
             },
             indentGuide: {
                 background: 'none',
             },
             fullSizeBtn: {
-                background: '#ccc',
+                background: colorsSiemens.neutral800,
+            },
+            hover: {
+                color: colorsSiemens.primary,
             },
         },
         Footer: {
-            borderTop: '#23233c',
-            background: '#000028',
+            borderTop: colorsSiemens.neutral800,
+            background: colorsSiemens.neutral900,
             recentTasks: {
                 color: colors.neutral500,
                 hover: {
@@ -214,13 +217,13 @@ const theme = {
                 },
             },
             footerMainLine: {
-                background: '#23233c',
+                background: colorsSiemens.neutral800,
             },
         },
         FormInput: {
-            borderColor: '#23233c',
-            background: '#000028',
-            color: '#ffffff',
+            borderColor: colorsSiemens.neutral800,
+            background: colorsSiemens.neutral900,
+            color: '#fff',
             error: {
                 red: colorsSiemens.red,
             },
@@ -228,9 +231,9 @@ const theme = {
                 borderColor: colorsSiemens.primary,
             },
             disabled: {
-                background: '#000028',
-                color: '#81868c',
-                borderColor: '#000028',
+                background: colorsSiemens.neutral900,
+                color: colorsSiemens.neutral500,
+                borderColor: colorsSiemens.neutral900,
             },
             readonly: {
                 color: '#ffffff',
@@ -241,15 +244,15 @@ const theme = {
                 color: '#fff',
             },
             control: {
-                borderColor: '#23233c',
-                background: '#000028',
+                borderColor: colorsSiemens.neutral800,
+                background: colorsSiemens.neutral900,
                 hover: {
                     borderColor: colorsSiemens.primary,
                 },
             },
             menu: {
-                borderColor: '#23233c',
-                background: '#000028',
+                borderColor: colorsSiemens.neutral800,
+                background: colorsSiemens.neutral900,
                 open: {
                     borderColor: colorsSiemens.primary,
                 },
@@ -273,26 +276,26 @@ const theme = {
             },
         },
         Header: {
-            background: '#23233c',
-            borderBottom: '#23233c',
+            background: colorsSiemens.neutral800,
+            borderBottom: colorsSiemens.neutral800,
         },
         Headline: {
-            color: '#00c5c7',
+            color: colorsSiemens.primary,
         },
         Layout: {
-            background: '#000028',
+            background: colorsSiemens.neutral900,
         },
         Modal: {
-            background: '#23233c',
+            background: colorsSiemens.neutral800,
             header: {
-                borderColor: '#000028',
+                borderColor: colorsSiemens.neutral900,
                 color: colorsSiemens.primary,
             },
             content: {
-                background: '#23233c',
+                background: colorsSiemens.neutral800,
             },
             footer: {
-                background: '#23233c',
+                background: colorsSiemens.neutral800,
             },
             close: {
                 hover: {
@@ -302,7 +305,10 @@ const theme = {
         },
         ModalStrippedLine: {
             strippedLine: {
-                borderColor: '#81868c',
+                borderColor: colorsSiemens.neutral700,
+            },
+            value: {
+                color: colors.neutral500,
             },
         },
         NotFound: {
@@ -312,8 +318,8 @@ const theme = {
         },
         NotificationCenter: {
             floatingPanel: {
-                background: '#000028',
-                borderColor: '#23233c',
+                background: colorsSiemens.neutral900,
+                borderColor: colorsSiemens.neutral800,
             },
             Headline: {
                 borderColor: colors.neutral700,
@@ -324,7 +330,7 @@ const theme = {
             },
             Bell: {
                 hasUnRead: {
-                    borderColor: '#23233c',
+                    borderColor: colorsSiemens.neutral800,
                 },
             },
             InnerToast: {
@@ -333,7 +339,7 @@ const theme = {
                     color: '#fff',
                 },
                 unreadMark: {
-                    borderColor: '#23233c',
+                    borderColor: colorsSiemens.neutral800,
                 },
             },
             info: colorsSiemens.info,
@@ -343,7 +349,7 @@ const theme = {
         },
         PageLayout: {
             headline: {
-                color: '#00c5c7',
+                color: colorsSiemens.primary,
             },
         },
         Pagination: {
@@ -360,7 +366,7 @@ const theme = {
         },
         ProvisionDeviceModal: {
             getCodeBox: {
-                background: '#000028',
+                background: colorsSiemens.neutral900,
             },
             title: {
                 color: '#00ADB4',
@@ -388,7 +394,7 @@ const theme = {
         },
         SimpleStripTable: {
             row: {
-                background: '#000028',
+                background: colorsSiemens.neutral900,
                 hover: {
                     background: '#23233d',
                 },
@@ -397,13 +403,13 @@ const theme = {
                 color: '#81868c',
             },
             border: {
-                background: '#23233c',
+                background: colorsSiemens.neutral800,
             },
         },
         SplitButton: {
             floatingMenu: {
-                background: '#23233c',
-                borderColor: '#000028',
+                background: colorsSiemens.neutral800,
+                borderColor: colorsSiemens.neutral900,
             },
             item: {
                 hover: {
@@ -432,7 +438,7 @@ const theme = {
             },
             normal: {
                 color: colors.neutral500,
-                background: '#23233c',
+                background: colorsSiemens.neutral800,
             },
         },
         Switch: {
@@ -449,7 +455,7 @@ const theme = {
         },
         Table: {
             headerItem: {
-                background: '#23233c',
+                background: colorsSiemens.neutral800,
                 hover: {
                     color: colorsSiemens.primary,
                 },
@@ -459,7 +465,7 @@ const theme = {
             },
             cell: {
                 before: {
-                    background: '#23233c',
+                    background: colorsSiemens.neutral800,
                 },
                 link: {
                     color: '#fff',
@@ -495,7 +501,7 @@ const theme = {
             },
         },
         TableSelectionPanel: {
-            background: '#23233c',
+            background: colorsSiemens.neutral800,
             selectionInfo: {
                 color: colorsSiemens.primary,
             },
@@ -507,7 +513,7 @@ const theme = {
                 },
             },
             list: {
-                borderColor: '#81868c',
+                borderColor: colorsSiemens.neutral800,
             },
             slider: {
                 background: colorsSiemens.primary,
@@ -517,23 +523,23 @@ const theme = {
             },
         },
         Tag: {
-            background: '#23233c',
+            background: colorsSiemens.neutral800,
             white: {
-                background: '#000028',
-                borderColor: '#000028',
+                background: colorsSiemens.neutral900,
+                borderColor: colorsSiemens.neutral900,
             },
             blue: {
                 color: colorsSiemens.primary,
-                background: '#23233c',
-                borderColor: '#000028',
+                background: colorsSiemens.neutral800,
+                borderColor: colorsSiemens.neutral900,
             },
         },
         Toast: {
-            background: '#000028',
-            borderColor: '#23233c',
+            background: colorsSiemens.neutral900,
+            borderColor: colorsSiemens.neutral800,
         },
         TileToggle: {
-            background: '#23233c',
+            background: colorsSiemens.neutral800,
             name: {
                 color: colorsSiemens.primary,
             },
@@ -561,37 +567,37 @@ const theme = {
                 color: '#fff',
             },
             removeBottomBorderRadius: {
-                backgroundColor: '#23233c',
+                backgroundColor: colorsSiemens.neutral800,
                 customTag: {
-                    background: '#23233c',
-                    color: '#81868D',
+                    background: colorsSiemens.neutral800,
+                    color: colorsSiemens.neutral500,
                 },
             },
             removeTopBorderRadius: {
-                backgroundColor: '#23233c',
+                backgroundColor: colorsSiemens.neutral800,
                 customTag: {
-                    background: '#23233c',
-                    color: '#81868D',
+                    background: colorsSiemens.neutral800,
+                    color: colorsSiemens.neutral500,
                 },
             },
             removeBorderRadius: {
-                backgroundColor: '#23233c',
+                backgroundColor: colorsSiemens.neutral800,
                 customTag: {
-                    background: '#23233c',
-                    color: '#81868D',
+                    background: colorsSiemens.neutral800,
+                    color: colorsSiemens.neutral500,
                 },
             },
         },
         UserWidget: {
             description: {
-                color: '#00002d',
+                color: colorsSiemens.neutral900,
             },
             name: {
                 color: colors.neutral500,
             },
             floatingMenu: {
-                background: '#23233c',
-                border: '#000028',
+                background: colorsSiemens.neutral800,
+                border: colorsSiemens.neutral900,
                 item: {
                     hover: {
                         color: colorsSiemens.primary,
@@ -599,7 +605,7 @@ const theme = {
                 },
             },
             image: {
-                background: '#00002d',
+                background: colorsSiemens.neutral900,
             },
             logout: {
                 color: colors.neutral600,

@@ -88,6 +88,7 @@ export const fullSizeBtn = (theme: ThemeType) => css`
 
     &:hover {
         text-decoration: none !important;
+        color: ${get(theme, `Editor.hover.color`)};
     }
 `
 

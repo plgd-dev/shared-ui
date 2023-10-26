@@ -1,4 +1,4 @@
-import { colors, colorsSiemens, colorsVariants } from '../_utils/colors'
+import { colors, colorsVariants } from '../_utils/colors'
 
 const theme = {
     colors: {
@@ -168,6 +168,9 @@ const theme = {
             fullSizeBtn: {
                 background: '#fff',
             },
+            hover: {
+                color: colors.primary,
+            },
         },
         Footer: {
             borderTop: '#e6e9ed',
@@ -303,6 +306,9 @@ const theme = {
         ModalStrippedLine: {
             strippedLine: {
                 borderColor: colors.neutral200,
+            },
+            value: {
+                color: colors.neutral800,
             },
         },
         NotFound: {
@@ -542,7 +548,7 @@ const theme = {
         TreeExpander: {
             hover: {
                 expanderIcon: {
-                    color: colorsSiemens.primary,
+                    color: colors.primary,
                 },
             },
             expanded: {
