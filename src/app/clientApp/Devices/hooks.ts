@@ -10,7 +10,7 @@ import { ResourcesType, StreamApiPropsType } from './Devices.types'
 import AppContext from '../App/AppContext'
 import { getHttpGatewayAddress } from '../utils'
 
-export const useDevicesList = () => {
+export const useDevicesList = (requestActive = true) => {
     const discoveryTimeout = useSelector(getDevicesDiscoveryTimeout)
     const { unauthorizedCallback } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()
@@ -18,14 +18,15 @@ export const useDevicesList = () => {
     // Fetch the data
     const { data, updateData, ...rest } = useStreamApi(`${httpGatewayAddress}${devicesApiEndpoints.DEVICES}?timeout=${discoveryTimeout}`, {
         unauthorizedCallback,
+        requestActive,
     })
 
     // Update the metadata when a WS event is emitted
-    // useEmitter(DEVICES_STATUS_WS_KEY, newDeviceStatus => {
-    //   if (data) {
-    //     // Update the data with the current device status and shadowSynchronization
-    //     updateData(updateDevicesDataStatus(data, newDeviceStatus))
-    //   }
+    // useEmitter(DEVICES_STATUS_WS_KEY, (newDeviceStatus) => {
+    //     if (data) {
+    //         // Update the data with the current device status and shadowSynchronization
+    //         updateData(updateDevicesDataStatus(data, newDeviceStatus))
+    //     }
     // })
 
     return { data, updateData, ...rest }

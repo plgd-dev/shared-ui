@@ -1,16 +1,18 @@
 import React, { FC } from 'react'
-import { Props } from './Pager.types'
-import * as styles from './Pager.styles'
 import { motion } from 'framer-motion'
 
+import { Props } from './Pager.types'
+import * as styles from './Pager.styles'
+
 const Pager: FC<Props> = (props) => {
-    const { children, fullHeight, value } = props
+    const { children, fullHeight, onAnimationComplete, value } = props
     return (
         <div css={[styles.container, fullHeight && styles.fullHeight]}>
             <motion.div
                 animate={{ x: value * -100 + '%' }}
                 css={styles.animatedContainer}
                 initial={false}
+                onAnimationComplete={onAnimationComplete}
                 transition={{
                     tension: 190,
                     friction: 70,

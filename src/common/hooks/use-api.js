@@ -29,9 +29,10 @@ const getData = async (method, url, options) => {
 
 export const useStreamApi = (url, options = {}) => {
     const isMounted = useIsMounted()
+    const requestActive = get(options, 'requestActive', true)
     const [state, setState] = useState({
         error: null,
-        loading: true,
+        loading: requestActive,
         data: null,
     })
 
@@ -45,24 +46,26 @@ export const useStreamApi = (url, options = {}) => {
         () => {
             ;(async () => {
                 try {
-                    // Set loading to true
-                    setState({ ...state, loading: true })
-                    let data = []
+                    if (requestActive) {
+                        // Set loading to true
+                        setState({ ...state, loading: true })
+                        let data = []
 
-                    if (process.env[`REACT_APP_MOCK_API_${mockKey}`]) {
-                        const mockUrl = `${process.env.REACT_APP_MOCK_BASE_URL}/api/${urlBase}`
-                        data = await getData(fetchApi, mockUrl, options)
-                    } else {
-                        data = await getData(apiMethod, url, options)
-                    }
+                        if (process.env[`REACT_APP_MOCK_API_${mockKey}`]) {
+                            const mockUrl = `${process.env.REACT_APP_MOCK_BASE_URL}/api/${urlBase}`
+                            data = await getData(fetchApi, mockUrl, options)
+                        } else {
+                            data = await getData(apiMethod, url, options)
+                        }
 
-                    if (isMounted.current) {
-                        setState({
-                            ...state,
-                            data,
-                            error: null,
-                            loading: false,
-                        })
+                        if (isMounted.current) {
+                            setState({
+                                ...state,
+                                data,
+                                error: null,
+                                loading: false,
+                            })
+                        }
                     }
                 } catch (error) {
                     if (isMounted.current) {

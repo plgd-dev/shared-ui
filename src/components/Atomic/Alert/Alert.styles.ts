@@ -4,17 +4,15 @@ import { hexToRgbA } from '../_utils/commonStyles'
 import { ThemeType, get } from '../_theme'
 
 export const alert = (theme: ThemeType) => css`
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-grid;
     padding: 12px 20px;
     border-radius: 8px;
     background: ${get(theme, 'Alert.background')};
-    color: ${colors.primary};
-    box-shadow: 0 30px 40px 0 rgba(28, 52, 99, 0.1);
+    box-shadow: 0 2px 10px 0 rgba(28, 52, 99, 0.1);
     border: 1px solid ${get(theme, 'Alert.borderColor')};
     position: relative;
     overflow: hidden;
+    grid: auto / auto auto auto;
 
     &:before {
         content: '';
@@ -56,6 +54,7 @@ export const label = css`
 
 export const iconClose = (theme: ThemeType) => css`
     flex: 0 0 32px;
+    width: 32px;
     padding-left: 12px;
     color: ${get(theme, 'Alert.close.color')};
 `

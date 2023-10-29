@@ -25,11 +25,12 @@ import notificationId from '../../../notificationId'
 import Tabs from '../../../../../components/Atomic/Tabs/Tabs'
 import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
+import { remoteClientStatuses } from '../../../RemoteClients/constants'
 
 const DevicesListPage: FC<Props> = (props) => {
     const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, clientData, defaultActiveTab, title } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
-    const { data, loading, error: deviceError, refresh } = useDevicesList()
+    const { data, loading, error: deviceError, refresh } = useDevicesList(clientData?.status === remoteClientStatuses.REACHABLE)
 
     const [timeoutModalOpen, setTimeoutModalOpen] = useState(false)
     const [showDpsModal, setShowDpsModal] = useState(false)
@@ -45,6 +46,8 @@ const DevicesListPage: FC<Props> = (props) => {
     const dataToDisplay: DeviceDataType = useSelector(getDevices)
     const navigate = useNavigate()
     const [isDomReady, setIsDomReady] = useState(false)
+    const [unselectRowsToken, setUnselectRowsToken] = useState(0)
+    const isReachable = useMemo(() => clientData?.status === remoteClientStatuses.REACHABLE, [clientData])
 
     useEffect(() => {
         deviceError &&
@@ -72,7 +75,7 @@ const DevicesListPage: FC<Props> = (props) => {
 
             // eslint-disable-next-line react-hooks/exhaustive-deps
         },
-        [clientData]
+        [clientData?.id, navigate]
     )
 
     const handleRefresh = useCallback(() => {
@@ -118,6 +121,14 @@ const DevicesListPage: FC<Props> = (props) => {
 
     const breadcrumbs = useMemo(() => breadcrumbsProp ?? [{ label: _(menuT.devices), link: '/' }], [breadcrumbsProp])
 
+    useEffect(() => {
+        if (!isReachable && activeTabItem === 0) {
+            setTimeout(() => {
+                handleTabChange(1)
+            }, 0)
+        }
+    }, [isReachable, activeTabItem, handleTabChange])
+
     return (
         <PageLayout
             footer={<Footer footerExpanded={false} paginationComponent={<div id='paginationPortalTarget'></div>} />}
@@ -127,7 +138,7 @@ const DevicesListPage: FC<Props> = (props) => {
                     i18n={{
                         flushCache: _(d.flushCache),
                     }}
-                    loading={loadingOrOwning}
+                    loading={loadingOrOwning || !isReachable}
                     openTimeoutModal={handleOpenTimeoutModal}
                     refresh={handleRefresh}
                 />
@@ -140,12 +151,13 @@ const DevicesListPage: FC<Props> = (props) => {
             <Tabs
                 activeItem={activeTabItem}
                 fullHeight={true}
+                onAnimationComplete={() => setUnselectRowsToken(Math.random())}
                 onItemChange={handleTabChange}
                 tabs={[
                     {
                         name: _(t.devices),
                         id: 0,
-                        content: (
+                        content: isReachable ? (
                             <Tab1
                                 data={dataToDisplay}
                                 detailLinkPrefix={detailLinkPrefix}
@@ -156,8 +168,12 @@ const DevicesListPage: FC<Props> = (props) => {
                                 setDpsData={setDpsData}
                                 setOwning={setOwning}
                                 setShowDpsModal={setShowDpsModal}
+                                unselectRowsToken={unselectRowsToken}
                             />
+                        ) : (
+                            <div />
                         ),
+                        disabled: !isReachable,
                     },
                     {
                         name: _(t.configuration),

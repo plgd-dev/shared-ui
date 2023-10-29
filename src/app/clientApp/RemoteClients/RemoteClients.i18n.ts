@@ -57,4 +57,13 @@ export const messages = defineMessages({
         id: 'remoteClients.clientsDeletedMessage',
         defaultMessage: 'The remote client was successfully updated.',
     },
+    clientInformations: {
+        id: 'remoteClients.clientInformations',
+        defaultMessage: 'Client Information',
+    },
+    certificateAcceptDescription: {
+        id: 'remoteClients.certificateAcceptDescription',
+        defaultMessage:
+            'Before adding a remote client, verify their TLS certificate for security. To proceed, open the URL in your browser, verify and accept the certificate. Adding a client involves sharing credentials, so ensure you trust them.',
+    },
 })

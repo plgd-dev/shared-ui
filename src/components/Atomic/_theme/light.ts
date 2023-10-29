@@ -522,6 +522,9 @@ const theme = {
             active: {
                 color: colors.primaryDarken,
             },
+            disabled: {
+                color: colors.disabled,
+            },
         },
         Tag: {
             background: colors.neutral100,

@@ -77,11 +77,15 @@ export const mergeConfig = (configOrigin: RemoteProvisioningDataType, configNew:
     return finalObject
 }
 
-export function useWellKnownConfiguration(
-    url: string,
-    defaultRemoteProvisioningData?: RemoteProvisioningDataType,
+export type OptionsType = {
+    defaultRemoteProvisioningData?: RemoteProvisioningDataType
     onConfigurationChange?: (newConfig: WellKnownConfigType) => void
-): useWellKnownConfigurationReturnType {
+    onError?: (e: any) => void
+    onSuccess?: () => void
+}
+
+export function useWellKnownConfiguration(url: string, options?: OptionsType): useWellKnownConfigurationReturnType {
+    const { defaultRemoteProvisioningData, onConfigurationChange, onError, onSuccess } = options as OptionsType
     const [wellKnownConfig, setWellKnownConfig] = useState<WellKnownConfigType | undefined>(undefined)
     const [error, setError] = useState<Error | undefined>(undefined)
 
@@ -98,10 +102,14 @@ export function useWellKnownConfiguration(
                 }
 
                 setWellKnownConfig(data)
+
+                isFunction(onSuccess) && onSuccess()
+
                 return data
             })
         } catch (e) {
             setError(new Error('Could not retrieve the well-known configuration.'))
+            isFunction(onError) && onError(e)
         }
     }
 

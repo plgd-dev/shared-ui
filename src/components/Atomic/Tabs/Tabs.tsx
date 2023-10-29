@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
 import isFunction from 'lodash/isFunction'
 import { motion } from 'framer-motion'
 
@@ -8,7 +8,7 @@ import { useMeasure } from '../../../common/hooks/use-measure'
 import Pager from './Pager'
 
 const Tabs: FC<Props> = (props) => {
-    const { activeItem, onItemChange, fullHeight, tabs } = { ...defaultProps, ...props }
+    const { activeItem, onAnimationComplete, onItemChange, fullHeight, tabs } = { ...defaultProps, ...props }
     const [value, setValue] = useState(activeItem)
     const childRefs = useRef(new Map())
     const tabListRef = useRef<HTMLDivElement | null>(null)
@@ -19,6 +19,12 @@ const Tabs: FC<Props> = (props) => {
         setValue(i)
         isFunction(onItemChange) && onItemChange(i)
     }
+
+    useEffect(() => {
+        if (value !== activeItem) {
+            setValue(activeItem)
+        }
+    }, [activeItem, value])
 
     // measure our elements
     useEffect(() => {
@@ -45,15 +51,19 @@ const Tabs: FC<Props> = (props) => {
         }
     }, [value, bounds])
 
+    const onAnimationCompleteCallback = useCallback(() => {
+        isFunction(onAnimationComplete) && onAnimationComplete()
+    }, [onAnimationComplete])
+
     return (
         <div css={[styles.container, fullHeight && styles.fullHeight]} ref={ref}>
             <div css={styles.tabList} ref={tabListRef}>
                 {tabs.map((tab, i) => (
                     <motion.button
-                        css={(theme) => [styles.tabItem(theme), i === value && styles.isActive]}
+                        css={[styles.tabItem, i === value && styles.isActive, tab.disabled && styles.isDisabled]}
                         data-test-id={tab.dataTestId}
                         key={i}
-                        onClick={() => handleTabChange(tab.id)}
+                        onClick={tab.disabled ? undefined : () => handleTabChange(tab.id)}
                         ref={(el) => childRefs.current.set(i, el)}
                         transition={{ duration: 0.25 }}
                     >
@@ -73,7 +83,7 @@ const Tabs: FC<Props> = (props) => {
                     />
                 )}
             </div>
-            <Pager fullHeight={fullHeight} value={value}>
+            <Pager fullHeight={fullHeight} onAnimationComplete={onAnimationCompleteCallback} value={value}>
                 {tabs.map((tab, i) => (
                     <div
                         css={styles.page}

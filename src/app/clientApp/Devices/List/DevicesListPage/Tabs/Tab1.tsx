@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useContext, useMemo, useState } from 'react'
+import React, { FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { useDispatch } from 'react-redux'
 
@@ -25,7 +25,7 @@ import { messages as app } from '../../../../App/App.i18n'
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
 const Tab1: FC<Props> = (props) => {
-    const { data, detailLinkPrefix, loading, refresh, setDpsData, setDeleting, setOwning, setShowDpsModal, isActiveTab } = props
+    const { data, detailLinkPrefix, loading, refresh, setDpsData, setDeleting, setOwning, setShowDpsModal, isActiveTab, unselectRowsToken } = props
     const { formatMessage: _ } = useIntl()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [selectedDevices, setSelectedDevices] = useState([])
@@ -37,6 +37,11 @@ const Tab1: FC<Props> = (props) => {
     const navigate = useNavigate()
     const { collapsed } = useContext(AppContext)
     const isMounted = useIsMounted()
+
+    useEffect(() => {
+        setSelectedDevices([])
+        setIsAllSelected(false)
+    }, [unselectRowsToken])
 
     const handleOpenDeleteModal = useCallback(
         (deviceId?: string) => {
@@ -234,6 +239,7 @@ const Tab1: FC<Props> = (props) => {
                 selectedDevices={selectedDevices}
                 setIsAllSelected={setIsAllSelected}
                 setSelectedDevices={setSelectedDevices}
+                unselectRowsToken={unselectRowsToken}
             />
 
             <ConfirmModal

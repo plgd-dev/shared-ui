@@ -19,6 +19,9 @@ import { updateRemoteClient } from '../../../../../../../../../src/containers/Re
 import Notification from '../../../../../../components/Atomic/Notification/Toast'
 import notificationId from '../../../../../../../../../src/notificationId'
 import DetailHeadline from '../../../../../../components/Organisms/DetailHeadline/DetailHeadline'
+import * as styles from '../../../../../../components/Atomic/Modal/components/ProvisionDeviceModal/ProvisionDeviceModal.styles'
+import Alert from '../../../../../../components/Atomic/Alert'
+import { remoteClientStatuses } from '../../../../RemoteClients/constants'
 
 interface RowsType {
     attribute: string
@@ -45,7 +48,7 @@ const Tab1: FC<Props> = (props) => {
     const {
         register,
         handleSubmit,
-        formState: { errors, isDirty, dirtyFields, touchedFields },
+        formState: { errors, isDirty, dirtyFields },
         getValues,
         reset,
         watch,
@@ -56,13 +59,13 @@ const Tab1: FC<Props> = (props) => {
         mode: 'all',
         reValidateMode: 'onSubmit',
         values: {
-            authMode: defAuthMode,
+            authenticationMode: defAuthMode,
             preSharedSubjectId: clientData?.preSharedSubjectId || '',
             preSharedKey: clientData?.preSharedKey || '',
         },
     })
 
-    const authMode = watch('authMode')
+    const authMode = watch('authenticationMode')
 
     useEffect(() => {
         trigger().then()
@@ -82,7 +85,7 @@ const Tab1: FC<Props> = (props) => {
                   value: (
                       <Controller
                           control={control}
-                          name='authMode'
+                          name='authenticationMode'
                           render={({ field: { onChange, name, ref } }) => (
                               <FormSelect
                                   inlineStyle
@@ -136,20 +139,18 @@ const Tab1: FC<Props> = (props) => {
     }
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
-        const touched = Object.keys(touchedFields)
+        const values = getValues()
 
-        // only touched fields
-        const dataForSave = Object.fromEntries(Object.entries(data).filter(([key]) => touched.includes(key)))
+        // convert select value
+        values.authenticationMode = values.authenticationMode.value as any
 
-        dispatch(updateRemoteClient({ ...dataForSave, id: clientData?.id }))
+        dispatch(updateRemoteClient({ ...values, id: clientData?.id }))
 
         Notification.success(
             { title: _(t.clientsUpdated), message: _(t.clientsUpdatedMessage) },
             { notificationId: notificationId.HUB_REMOTE_CLIENTS_UPDATE_REMOTE_CLIENT }
         )
     }
-
-    // 32 0 16 0
 
     return (
         <div
@@ -159,7 +160,8 @@ const Tab1: FC<Props> = (props) => {
         >
             <form onSubmit={handleSubmit(onSubmit)}>
                 <SimpleStripTable rows={rows} />
-                <DetailHeadline>Client informations</DetailHeadline>
+                <DetailHeadline>{_(t.clientInformations)}</DetailHeadline>
+                {clientData?.status === remoteClientStatuses.UNREACHABLE && <Alert css={styles.alert}>{_(t.certificateAcceptDescription)}</Alert>}
                 {clientData?.version && (
                     <SimpleStripTable
                         rows={[

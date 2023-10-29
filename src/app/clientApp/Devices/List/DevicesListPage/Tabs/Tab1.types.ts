@@ -8,4 +8,5 @@ export type Props = {
     setDpsData: any
     setOwning: (ownValue: boolean) => void
     setShowDpsModal: (modal: boolean) => void
+    unselectRowsToken?: number
 }

@@ -5,7 +5,7 @@ export type Props = {
 }
 
 export type Inputs = {
-    authMode: { value: string; label: string }
+    authenticationMode: { value: string; label: string }
     preSharedSubjectId?: string
     preSharedKey?: string
 }

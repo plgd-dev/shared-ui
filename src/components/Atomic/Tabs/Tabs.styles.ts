@@ -62,6 +62,15 @@ export const isActive = (theme: ThemeType) => css`
     color: ${get(theme, `Tabs.active.color`)};
 `
 
+export const isDisabled = (theme: ThemeType) => css`
+    color: ${get(theme, `Tabs.disabled.color`)};
+    cursor: not-allowed !important;
+
+    &:hover {
+        color: ${get(theme, `Tabs.disabled.color`)};
+    }
+`
+
 export const slider = (theme: ThemeType) => css`
     height: 3px;
     bottom: 0;

@@ -521,6 +521,9 @@ const theme = {
             active: {
                 color: '#00ADB4',
             },
+            disabled: {
+                color: colorsSiemens.neutral700,
+            },
         },
         Tag: {
             background: colorsSiemens.neutral800,

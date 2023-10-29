@@ -1,15 +1,17 @@
 import { ReactNode } from 'react'
 
 export type TabItem = {
-    id: number
-    name: string
     content: ReactNode
     dataTestId?: string
+    disabled?: boolean
+    id: number
+    name: string
 }
 
 export type Props = {
     activeItem?: number
     fullHeight?: boolean
+    onAnimationComplete?: () => void
     onItemChange?: (activeItem: number) => void
     tabs: TabItem[]
 }
