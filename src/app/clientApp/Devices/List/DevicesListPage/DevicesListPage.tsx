@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
+import React, { FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { useDispatch, useSelector } from 'react-redux'
 import ReactDOM from 'react-dom'
@@ -26,11 +26,13 @@ import Tabs from '../../../../../components/Atomic/Tabs/Tabs'
 import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
 import { remoteClientStatuses } from '../../../RemoteClients/constants'
+import AppContext from '../../../App/AppContext'
 
 const DevicesListPage: FC<Props> = (props) => {
     const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, clientData, defaultActiveTab, title } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
     const { data, loading, error: deviceError, refresh } = useDevicesList(clientData?.status === remoteClientStatuses.REACHABLE)
+    const { isHub } = useContext(AppContext)
 
     const [timeoutModalOpen, setTimeoutModalOpen] = useState(false)
     const [showDpsModal, setShowDpsModal] = useState(false)
@@ -47,7 +49,13 @@ const DevicesListPage: FC<Props> = (props) => {
     const navigate = useNavigate()
     const [isDomReady, setIsDomReady] = useState(false)
     const [unselectRowsToken, setUnselectRowsToken] = useState(0)
-    const isReachable = useMemo(() => clientData?.status === remoteClientStatuses.REACHABLE, [clientData])
+    const isReachable = useMemo(() => {
+        if (!isHub) {
+            return true
+        }
+
+        return clientData?.status === remoteClientStatuses.REACHABLE
+    }, [clientData?.status, isHub])
 
     useEffect(() => {
         deviceError &&
@@ -71,7 +79,8 @@ const DevicesListPage: FC<Props> = (props) => {
     const handleTabChange = useCallback(
         (i: number) => {
             setActiveTabItem(i)
-            navigate(`/remote-clients/${clientData?.id}${i === 1 ? '/configuration' : ''}`, { replace: true })
+            const base = isHub ? `/remote-clients/${clientData?.id}` : ''
+            navigate(`${base}${i === 1 ? '/configuration' : ''}`, { replace: true })
 
             // eslint-disable-next-line react-hooks/exhaustive-deps
         },

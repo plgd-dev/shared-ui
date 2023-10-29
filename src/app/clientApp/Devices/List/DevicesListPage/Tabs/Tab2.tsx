@@ -15,9 +15,7 @@ import AppContext from '../../../../App/AppContext'
 import BottomPanel from '../../../../../../components/Layout/BottomPanel/BottomPanel'
 import Button from '../../../../../../components/Atomic/Button'
 import FormGroup from '../../../../../../components/Atomic/FormGroup'
-import { updateRemoteClient } from '../../../../../../../../../src/containers/RemoteClients/slice'
 import Notification from '../../../../../../components/Atomic/Notification/Toast'
-import notificationId from '../../../../../../../../../src/notificationId'
 import DetailHeadline from '../../../../../../components/Organisms/DetailHeadline/DetailHeadline'
 import * as styles from '../../../../../../components/Atomic/Modal/components/ProvisionDeviceModal/ProvisionDeviceModal.styles'
 import Alert from '../../../../../../components/Atomic/Alert'
@@ -32,7 +30,7 @@ const Tab1: FC<Props> = (props) => {
     const { clientData } = props
     const { formatMessage: _ } = useIntl()
     const isMounted = useIsMounted()
-    const { collapsed } = useContext(AppContext)
+    const { collapsed, isHub, updateRemoteClient } = useContext(AppContext)
     const dispatch = useDispatch()
 
     const options = useMemo(
@@ -144,12 +142,11 @@ const Tab1: FC<Props> = (props) => {
         // convert select value
         values.authenticationMode = values.authenticationMode.value as any
 
-        dispatch(updateRemoteClient({ ...values, id: clientData?.id }))
+        if (isHub && updateRemoteClient) {
+            dispatch(updateRemoteClient({ ...values, id: clientData?.id }))
+        }
 
-        Notification.success(
-            { title: _(t.clientsUpdated), message: _(t.clientsUpdatedMessage) },
-            { notificationId: notificationId.HUB_REMOTE_CLIENTS_UPDATE_REMOTE_CLIENT }
-        )
+        Notification.success({ title: _(t.clientsUpdated), message: _(t.clientsUpdatedMessage) })
     }
 
     return (
