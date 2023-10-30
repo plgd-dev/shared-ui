@@ -26,7 +26,7 @@ import Tabs from '../../../../../components/Atomic/Tabs/Tabs'
 import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
 import { remoteClientStatuses } from '../../../RemoteClients/constants'
-import AppContext from '../../../App/AppContext'
+import AppContext from '../../../../share/AppContext'
 
 const DevicesListPage: FC<Props> = (props) => {
     const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, clientData, defaultActiveTab, title } = { ...defaultProps, ...props }

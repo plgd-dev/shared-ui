@@ -7,7 +7,7 @@ import { getDevicesDiscoveryTimeout } from './slice'
 import { devicesApiEndpoints, DEVICES_STATUS_WS_KEY, resourceEventTypes, DEVICE_PROVISION_STATUS_DELAY_MS } from './constants'
 import { getOnboardingEndpoint, getResourceRegistrationNotificationKey, hasOnboardingFeature, loadResourceData } from './utils'
 import { ResourcesType, StreamApiPropsType } from './Devices.types'
-import AppContext from '../App/AppContext'
+import AppContext from '../../share/AppContext'
 import { getHttpGatewayAddress } from '../utils'
 
 export const useDevicesList = (requestActive = true) => {

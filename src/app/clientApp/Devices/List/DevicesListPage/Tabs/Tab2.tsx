@@ -11,7 +11,7 @@ import FormSelect, { selectAligns } from '../../../../../../components/Atomic/Fo
 import { DEVICE_AUTH_MODE } from '../../../../constants'
 import FormInput, { inputAligns } from '../../../../../../components/Atomic/FormInput'
 import { useIsMounted } from '../../../../../../common/hooks'
-import AppContext from '../../../../App/AppContext'
+import AppContext from '../../../../../share/AppContext'
 import BottomPanel from '../../../../../../components/Layout/BottomPanel/BottomPanel'
 import Button from '../../../../../../components/Atomic/Button'
 import FormGroup from '../../../../../../components/Atomic/FormGroup'

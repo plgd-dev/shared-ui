@@ -19,7 +19,7 @@ import notificationId from '../../../../notificationId'
 import { disOwnDevice, flushDevices, ownDevice } from '../../../slice'
 import { handleDeleteDevicesErrors, handleOwnDevicesErrors, sleep } from '../../../utils'
 import { useIsMounted } from '../../../../../../common/hooks'
-import AppContext from '../../../../App/AppContext'
+import AppContext from '../../../../../share/AppContext'
 import { messages as app } from '../../../../App/App.i18n'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
