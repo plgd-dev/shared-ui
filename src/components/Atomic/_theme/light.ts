@@ -34,6 +34,33 @@ const theme = {
             line: {
                 background: colors.primaryDarken,
             },
+            error: {
+                background: colors.red,
+                icon: {
+                    color: colors.red,
+                },
+                line: {
+                    background: colors.red,
+                },
+            },
+            success: {
+                background: colors.green,
+                icon: {
+                    color: colors.green,
+                },
+                line: {
+                    background: colors.green,
+                },
+            },
+            warning: {
+                background: colors.yellow,
+                icon: {
+                    color: colors.yellow,
+                },
+                line: {
+                    background: colors.yellow,
+                },
+            },
         },
         Button: {
             primary: {

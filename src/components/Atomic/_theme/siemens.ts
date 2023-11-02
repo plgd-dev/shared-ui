@@ -34,6 +34,33 @@ const theme = {
             line: {
                 background: colorsSiemens.primary,
             },
+            error: {
+                background: colorsSiemens.red,
+                icon: {
+                    color: colorsSiemens.red,
+                },
+                line: {
+                    background: colorsSiemens.red,
+                },
+            },
+            success: {
+                background: colorsSiemens.green,
+                icon: {
+                    color: colorsSiemens.green,
+                },
+                line: {
+                    background: colorsSiemens.green,
+                },
+            },
+            warning: {
+                background: colorsSiemens.yellow,
+                icon: {
+                    color: colorsSiemens.yellow,
+                },
+                line: {
+                    background: colorsSiemens.yellow,
+                },
+            },
         },
         Button: {
             primary: {

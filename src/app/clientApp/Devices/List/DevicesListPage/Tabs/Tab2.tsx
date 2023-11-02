@@ -18,7 +18,7 @@ import FormGroup from '../../../../../../components/Atomic/FormGroup'
 import Notification from '../../../../../../components/Atomic/Notification/Toast'
 import DetailHeadline from '../../../../../../components/Organisms/DetailHeadline/DetailHeadline'
 import * as styles from '../../../../../../components/Atomic/Modal/components/ProvisionDeviceModal/ProvisionDeviceModal.styles'
-import Alert from '../../../../../../components/Atomic/Alert'
+import Alert, { severities } from '../../../../../../components/Atomic/Alert'
 import { remoteClientStatuses } from '../../../../RemoteClients/constants'
 
 interface RowsType {
@@ -27,7 +27,7 @@ interface RowsType {
 }
 
 const Tab1: FC<Props> = (props) => {
-    const { clientData } = props
+    const { clientData, initializedByAnother } = props
     const { formatMessage: _ } = useIntl()
     const isMounted = useIsMounted()
     const { collapsed, isHub, updateRemoteClient } = useContext(AppContext)
@@ -46,7 +46,7 @@ const Tab1: FC<Props> = (props) => {
     const {
         register,
         handleSubmit,
-        formState: { errors, isDirty, dirtyFields },
+        formState: { errors, dirtyFields },
         getValues,
         reset,
         watch,
@@ -158,6 +158,11 @@ const Tab1: FC<Props> = (props) => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <SimpleStripTable rows={rows} />
                 <DetailHeadline>{_(t.clientInformations)}</DetailHeadline>
+                {initializedByAnother && (
+                    <Alert css={styles.alert} severity={severities.WARNING}>
+                        {clientData?.authenticationMode === DEVICE_AUTH_MODE.X509 ? _(t.initializedByAnotherX509) : _(t.initializedByAnotherPreSharedKey)}
+                    </Alert>
+                )}
                 {clientData?.status === remoteClientStatuses.UNREACHABLE && <Alert css={styles.alert}>{_(t.certificateAcceptDescription)}</Alert>}
                 {clientData?.version && (
                     <SimpleStripTable
@@ -186,7 +191,7 @@ const Tab1: FC<Props> = (props) => {
                         }
                         attribute={_(t.changesMade)}
                         leftPanelCollapsed={collapsed}
-                        show={isDirty}
+                        show={Object.keys(dirtyFields).length > 0}
                         value={`${Object.keys(dirtyFields).length} ${Object.keys(dirtyFields).length > 1 ? _(t.settings) : _(t.setting)}`}
                     />,
                     document.querySelector('#modal-root') as Element

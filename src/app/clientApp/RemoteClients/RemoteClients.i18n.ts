@@ -66,4 +66,14 @@ export const messages = defineMessages({
         defaultMessage:
             'Before adding a remote client, verify their TLS certificate for security. To proceed, open the URL in your browser, verify and accept the certificate. Adding a client involves sharing credentials, so ensure you trust them.',
     },
+    initializedByAnotherX509: {
+        id: 'remoteClients.initializedByAnotherX509',
+        defaultMessage:
+            'Application Initialization Restricted. Please ensure the current user logs out before proceeding. Only after the different user has logged out, will you be able to utilize the application.',
+    },
+    initializedByAnotherPreSharedKey: {
+        id: 'remoteClients.initializedByAnotherPreSharedKey',
+        defaultMessage:
+            'Application initialization is restricted or misconfigured. Please make sure the current user logs out before proceeding or that you properly configure the credentials. You will only be able to utilize the application after a different user has logged out or the credentials have been properly configured.',
+    },
 })

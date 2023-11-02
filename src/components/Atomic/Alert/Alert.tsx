@@ -59,7 +59,16 @@ const Alert: FC<Props> = (props) => {
                     }}
                     onClick={(e) => e.stopPropagation()}
                 >
-                    <span css={styles.icon}>{getIcon(severity)}</span>
+                    <span
+                        css={[
+                            styles.icon,
+                            severity === severities.SUCCESS && styles.iconSuccess,
+                            severity === severities.WARNING && styles.iconWarning,
+                            severity === severities.ERROR && styles.iconError,
+                        ]}
+                    >
+                        {getIcon(severity)}
+                    </span>
                     <span css={styles.label}>{children}</span>
                     <IconClose {...convertSize(20)} css={styles.iconClose} onClick={() => setVisible(false)} />
                 </motion.div>

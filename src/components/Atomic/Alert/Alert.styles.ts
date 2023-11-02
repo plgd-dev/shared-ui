@@ -27,22 +27,44 @@ export const alert = (theme: ThemeType) => css`
     }
 `
 
-export const success = css`
-    background: ${hexToRgbA(colors.green, 0.15)};
-    color: ${colors.green};
+export const success = (theme: ThemeType) => css`
+    background: ${hexToRgbA(get(theme, 'Alert.success.background', colors.green), 0.15)};
+
+    &:before {
+        background: ${get(theme, 'Alert.success.line.background')};
+    }
 `
 
-export const warning = css`
-    background: ${hexToRgbA(colors.yellow, 0.15)};
-    color: ${colors.yellow};
+export const iconSuccess = (theme: ThemeType) => css`
+    color: ${get(theme, 'Alert.success.icon.color')};
 `
 
-export const error = css`
-    background: ${hexToRgbA(colors.red, 0.15)};
-    color: ${colors.red};
+export const warning = (theme: ThemeType) => css`
+    background: ${hexToRgbA(get(theme, 'Alert.warning.background', colors.yellow), 0.15)};
+
+    &:before {
+        background: ${get(theme, 'Alert.warning.line.background')};
+    }
+`
+
+export const iconWarning = (theme: ThemeType) => css`
+    color: ${get(theme, 'Alert.warning.icon.color')};
+`
+
+export const error = (theme: ThemeType) => css`
+    background: ${hexToRgbA(get(theme, 'Alert.error.background', colors.red), 0.15)};
+
+    &:before {
+        background: ${get(theme, 'Alert.error.line.background')};
+    }
+`
+
+export const iconError = (theme: ThemeType) => css`
+    color: ${get(theme, 'Alert.error.icon.color')};
 `
 
 export const icon = (theme: ThemeType) => css`
+    cursor: pointer;
     flex: 0 0 24px;
     color: ${get(theme, 'Alert.icon.color')};
 `

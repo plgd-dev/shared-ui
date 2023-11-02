@@ -1,19 +1,17 @@
-import React, { FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import React, { FC, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import ReactDOM from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 
 import Notification from '../../../../../components/Atomic/Notification/Toast'
 import PageLayout from '../../../../../components/Atomic/PageLayout'
 import { messages as menuT } from '../../../../../components/Atomic/Menu/Menu.i18n'
-import { getApiErrorMessage } from '../../../../../common/utils'
 import Footer from '../../../../../components/Layout/Footer'
 import { DevicesResourcesModalParamsType } from '../../../../../components/Organisms/DevicesResourcesModal/DevicesResourcesModal.types'
-import { getDevices, updateDevices, flushDevices } from '../../slice'
-import { DeviceDataType, ResourcesType } from '../../Devices.types'
+import { flushDevices } from '../../slice'
+import { ResourcesType } from '../../Devices.types'
 import { handleUpdateResourceErrors, updateResourceMethod } from '../../utils'
-import { useDevicesList } from '../../hooks'
 import { messages as t } from '../../../RemoteClients/RemoteClients.i18n'
 import { messages as d } from '../../../Devices/Devices.i18n'
 import DevicesListHeader from '../DevicesListHeader'
@@ -27,12 +25,13 @@ import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
 import { remoteClientStatuses } from '../../../RemoteClients/constants'
 import AppContext from '../../../../share/AppContext'
+import { Tab1RefType } from './Tabs/Tab1.types'
 
 const DevicesListPage: FC<Props> = (props) => {
-    const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, clientData, defaultActiveTab, title } = { ...defaultProps, ...props }
+    const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, clientData, defaultActiveTab, initializedByAnother, title } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
-    const { data, loading, error: deviceError, refresh } = useDevicesList(clientData?.status === remoteClientStatuses.REACHABLE)
     const { isHub } = useContext(AppContext)
+    const tab1Ref = useRef<Tab1RefType | null>(null)
 
     const [timeoutModalOpen, setTimeoutModalOpen] = useState(false)
     const [showDpsModal, setShowDpsModal] = useState(false)
@@ -42,10 +41,11 @@ const DevicesListPage: FC<Props> = (props) => {
     })
     const [activeTabItem, setActiveTabItem] = useState(defaultActiveTab ?? 0)
     const [owning, setOwning] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [deleting, setDeleting] = useState(false)
 
     const dispatch = useDispatch()
-    const dataToDisplay: DeviceDataType = useSelector(getDevices)
+
     const navigate = useNavigate()
     const [isDomReady, setIsDomReady] = useState(false)
     const [unselectRowsToken, setUnselectRowsToken] = useState(0)
@@ -56,21 +56,6 @@ const DevicesListPage: FC<Props> = (props) => {
 
         return clientData?.status === remoteClientStatuses.REACHABLE
     }, [clientData?.status, isHub])
-
-    useEffect(() => {
-        deviceError &&
-            Notification.error(
-                { title: _(d.deviceError), message: getApiErrorMessage(deviceError) },
-                {
-                    notificationId: notificationId.SU_CA_DEVICE_LIST_DEVICE_ERROR,
-                }
-            )
-    }, [deviceError])
-
-    useEffect(() => {
-        // @ts-ignore
-        data && dispatch(updateDevices(data))
-    }, [data, dispatch])
 
     useEffect(() => {
         setIsDomReady(true)
@@ -84,12 +69,11 @@ const DevicesListPage: FC<Props> = (props) => {
 
             // eslint-disable-next-line react-hooks/exhaustive-deps
         },
-        [clientData?.id, navigate]
+        [clientData?.id, isHub, navigate]
     )
 
     const handleRefresh = useCallback(() => {
-        refresh()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        tab1Ref?.current?.refresh()
     }, [])
 
     // Updates the resource through rest API
@@ -121,7 +105,7 @@ const DevicesListPage: FC<Props> = (props) => {
         dispatch(flushDevices())
     }
 
-    const loadingOrOwning = useMemo(() => loading || owning, [loading, owning])
+    const loadingOrOwning = useMemo(() => owning || loading, [owning, loading])
     const loadingOrDeletingOrOwning = useMemo(() => loadingOrOwning || deleting, [loadingOrOwning, deleting])
 
     const handleOpenTimeoutModal = useCallback(() => {
@@ -131,12 +115,12 @@ const DevicesListPage: FC<Props> = (props) => {
     const breadcrumbs = useMemo(() => breadcrumbsProp ?? [{ label: _(menuT.devices), link: '/' }], [breadcrumbsProp])
 
     useEffect(() => {
-        if (!isReachable && activeTabItem === 0) {
+        if (activeTabItem === 0 && (!isReachable || (initializedByAnother && isHub))) {
             setTimeout(() => {
                 handleTabChange(1)
             }, 0)
         }
-    }, [isReachable, activeTabItem, handleTabChange])
+    }, [isReachable, activeTabItem, handleTabChange, initializedByAnother, isHub])
 
     return (
         <PageLayout
@@ -147,12 +131,12 @@ const DevicesListPage: FC<Props> = (props) => {
                     i18n={{
                         flushCache: _(d.flushCache),
                     }}
-                    loading={loadingOrOwning || !isReachable}
+                    loading={loadingOrOwning || !isReachable || !!initializedByAnother || activeTabItem === 1}
                     openTimeoutModal={handleOpenTimeoutModal}
                     refresh={handleRefresh}
                 />
             }
-            loading={loading || owning}
+            loading={loadingOrOwning}
             title={title ?? _(menuT.devices)}
         >
             {isDomReady && ReactDOM.createPortal(<Breadcrumbs items={breadcrumbs} />, document.querySelector('#breadcrumbsPortalTarget') as Element)}
@@ -166,28 +150,30 @@ const DevicesListPage: FC<Props> = (props) => {
                     {
                         name: _(t.devices),
                         id: 0,
-                        content: isReachable ? (
-                            <Tab1
-                                data={dataToDisplay}
-                                detailLinkPrefix={detailLinkPrefix}
-                                isActiveTab={activeTabItem === 0}
-                                loading={loadingOrDeletingOrOwning}
-                                refresh={handleRefresh}
-                                setDeleting={setDeleting}
-                                setDpsData={setDpsData}
-                                setOwning={setOwning}
-                                setShowDpsModal={setShowDpsModal}
-                                unselectRowsToken={unselectRowsToken}
-                            />
-                        ) : (
-                            <div />
-                        ),
-                        disabled: !isReachable,
+                        content:
+                            isReachable && !initializedByAnother ? (
+                                <Tab1
+                                    clientData={clientData}
+                                    detailLinkPrefix={detailLinkPrefix}
+                                    isActiveTab={activeTabItem === 0}
+                                    loading={loadingOrDeletingOrOwning}
+                                    ref={tab1Ref}
+                                    setDeleting={setDeleting}
+                                    setDpsData={setDpsData}
+                                    setLoading={setLoading}
+                                    setOwning={setOwning}
+                                    setShowDpsModal={setShowDpsModal}
+                                    unselectRowsToken={unselectRowsToken}
+                                />
+                            ) : (
+                                <div />
+                            ),
+                        disabled: !isReachable || initializedByAnother,
                     },
                     {
                         name: _(t.configuration),
                         id: 1,
-                        content: <Tab2 clientData={clientData} />,
+                        content: <Tab2 clientData={clientData} initializedByAnother={initializedByAnother} />,
                     },
                 ]}
             />

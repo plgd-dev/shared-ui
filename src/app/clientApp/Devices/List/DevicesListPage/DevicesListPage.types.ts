@@ -13,6 +13,7 @@ export type Props = {
     defaultActiveTab?: number
     detailLinkPrefix?: string
     httpGatewayAddress?: string
+    initializedByAnother?: boolean
     title?: string
 }
 

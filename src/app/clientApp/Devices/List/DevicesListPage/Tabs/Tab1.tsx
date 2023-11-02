@@ -1,10 +1,10 @@
-import React, { FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import React, { FC, forwardRef, useCallback, useContext, useEffect, useImperativeHandle, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { Props } from './Tab1.types'
+import { Props, Tab1RefType } from './Tab1.types'
 import DevicesList from '../../../../../../components/Organisms/DevicesList'
-import { messages as t } from '../../../Devices.i18n'
+import { messages as d, messages as t } from '../../../Devices.i18n'
 import ConfirmModal from '../../../../../../components/Atomic/ConfirmModal'
 import { DEVICE_TYPE_OIC_WK_D, devicesOwnerships, NO_DEVICE_NAME } from '../../../constants'
 import { Link, useNavigate } from 'react-router-dom'
@@ -16,20 +16,26 @@ import { DpsDataType } from '../DevicesListPage.types'
 import { deleteDevicesApi, disownDeviceApi, ownDeviceApi } from '../../../rest'
 import Notification from '../../../../../../components/Atomic/Notification/Toast'
 import notificationId from '../../../../notificationId'
-import { disOwnDevice, flushDevices, ownDevice } from '../../../slice'
+import { disOwnDevice, flushDevices, getDevices, ownDevice, updateDevices } from '../../../slice'
 import { handleDeleteDevicesErrors, handleOwnDevicesErrors, sleep } from '../../../utils'
 import { useIsMounted } from '../../../../../../common/hooks'
 import AppContext from '../../../../../share/AppContext'
 import { messages as app } from '../../../../App/App.i18n'
+import { useDevicesList } from '../../../hooks'
+import { remoteClientStatuses } from '../../../../RemoteClients/constants'
+import { DeviceDataType } from '../../../Devices.types'
+import { getApiErrorMessage } from '../../../../../../common/utils'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
-const Tab1: FC<Props> = (props) => {
-    const { data, detailLinkPrefix, loading, refresh, setDpsData, setDeleting, setOwning, setShowDpsModal, isActiveTab, unselectRowsToken } = props
+const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
+    const { clientData, detailLinkPrefix, loading, setDpsData, setDeleting, setOwning, setShowDpsModal, isActiveTab, unselectRowsToken, setLoading } = props
     const { formatMessage: _ } = useIntl()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [selectedDevices, setSelectedDevices] = useState([])
     const [isAllSelected, setIsAllSelected] = useState(false)
+    const { data, loading: loadingData, error: deviceError, refresh } = useDevicesList(isActiveTab && clientData?.status === remoteClientStatuses.REACHABLE)
+    const dataToDisplay: DeviceDataType = useSelector(getDevices)
 
     const [singleDevice, setSingleDevice] = useState<null | string>(null)
 
@@ -37,6 +43,21 @@ const Tab1: FC<Props> = (props) => {
     const navigate = useNavigate()
     const { collapsed } = useContext(AppContext)
     const isMounted = useIsMounted()
+
+    useImperativeHandle(ref, () => ({
+        refresh: () => refresh(),
+    }))
+
+    useEffect(() => {
+        if (isActiveTab) {
+            refresh()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isActiveTab])
+
+    useEffect(() => {
+        setLoading(loadingData)
+    }, [loadingData])
 
     useEffect(() => {
         setSelectedDevices([])
@@ -221,12 +242,27 @@ const Tab1: FC<Props> = (props) => {
         [loading] // eslint-disable-line
     )
 
+    useEffect(() => {
+        deviceError &&
+            Notification.error(
+                { title: _(d.deviceError), message: getApiErrorMessage(deviceError) },
+                {
+                    notificationId: notificationId.SU_CA_DEVICE_LIST_DEVICE_ERROR,
+                }
+            )
+    }, [deviceError])
+
+    useEffect(() => {
+        // @ts-ignore
+        data && dispatch(updateDevices(data))
+    }, [data, dispatch])
+
     return (
         <div style={{ height: '100%' }}>
             <DevicesList
                 collapsed={collapsed ?? false}
                 columns={columns}
-                data={data}
+                data={dataToDisplay}
                 i18n={{
                     delete: _(t.delete),
                     search: _(t.search),
@@ -255,7 +291,7 @@ const Tab1: FC<Props> = (props) => {
             </ConfirmModal>
         </div>
     )
-}
+})
 
 Tab1.displayName = 'Tab1'
 
