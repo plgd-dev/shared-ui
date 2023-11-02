@@ -1,13 +1,13 @@
-import React, { FC, forwardRef, useCallback, useContext, useEffect, useImperativeHandle, useMemo, useState } from 'react'
+import React, { forwardRef, useCallback, useContext, useEffect, useImperativeHandle, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 
-import { Props, Tab1RefType } from './Tab1.types'
+import { Props, Tab1RefType, defaultProps } from './Tab1.types'
 import DevicesList from '../../../../../../components/Organisms/DevicesList'
 import { messages as d, messages as t } from '../../../Devices.i18n'
 import ConfirmModal from '../../../../../../components/Atomic/ConfirmModal'
 import { DEVICE_TYPE_OIC_WK_D, devicesOwnerships, NO_DEVICE_NAME } from '../../../constants'
-import { Link, useNavigate } from 'react-router-dom'
 import TagGroup from '../../../../../../components/Atomic/TagGroup'
 import Tag from '../../../../../../components/Atomic/Tag'
 import StatusTag from '../../../../../../components/Atomic/StatusTag'
@@ -22,19 +22,29 @@ import { useIsMounted } from '../../../../../../common/hooks'
 import AppContext from '../../../../../share/AppContext'
 import { messages as app } from '../../../../App/App.i18n'
 import { useDevicesList } from '../../../hooks'
-import { remoteClientStatuses } from '../../../../RemoteClients/constants'
 import { DeviceDataType } from '../../../Devices.types'
 import { getApiErrorMessage } from '../../../../../../common/utils'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
 const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
-    const { clientData, detailLinkPrefix, loading, setDpsData, setDeleting, setOwning, setShowDpsModal, isActiveTab, unselectRowsToken, setLoading } = props
+    const {
+        detailLinkPrefix,
+        loading,
+        setDpsData,
+        setDeleting,
+        setOwning,
+        setShowDpsModal,
+        isActiveTab,
+        unselectRowsToken,
+        setLoading,
+        useDevicesList: useDevicesListProp,
+    } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [selectedDevices, setSelectedDevices] = useState([])
     const [isAllSelected, setIsAllSelected] = useState(false)
-    const { data, loading: loadingData, error: deviceError, refresh } = useDevicesList(isActiveTab && clientData?.status === remoteClientStatuses.REACHABLE)
+    const { data, loading: loadingData, error: deviceError, refresh } = useDevicesList(useDevicesListProp)
     const dataToDisplay: DeviceDataType = useSelector(getDevices)
 
     const [singleDevice, setSingleDevice] = useState<null | string>(null)

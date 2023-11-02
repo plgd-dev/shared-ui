@@ -28,7 +28,16 @@ import AppContext from '../../../../share/AppContext'
 import { Tab1RefType } from './Tabs/Tab1.types'
 
 const DevicesListPage: FC<Props> = (props) => {
-    const { detailLinkPrefix, breadcrumbs: breadcrumbsProp, clientData, defaultActiveTab, initializedByAnother, title } = { ...defaultProps, ...props }
+    const {
+        detailLinkPrefix,
+        breadcrumbs: breadcrumbsProp,
+        clientData,
+        defaultActiveTab,
+        initializedByAnother,
+        reInitializationError,
+        reInitializationLoading,
+        title,
+    } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
     const { isHub } = useContext(AppContext)
     const tab1Ref = useRef<Tab1RefType | null>(null)
@@ -59,7 +68,11 @@ const DevicesListPage: FC<Props> = (props) => {
 
     useEffect(() => {
         setIsDomReady(true)
-    }, [])
+        if (defaultActiveTab === 1) {
+            const base = isHub ? `/remote-clients/${clientData?.id}` : ''
+            navigate(`${base}/configuration`, { replace: true })
+        }
+    }, [clientData?.id, defaultActiveTab, isHub, navigate])
 
     const handleTabChange = useCallback(
         (i: number) => {
@@ -105,22 +118,28 @@ const DevicesListPage: FC<Props> = (props) => {
         dispatch(flushDevices())
     }
 
-    const loadingOrOwning = useMemo(() => owning || loading, [owning, loading])
+    const loadingOrOwning = useMemo(() => owning || loading || reInitializationLoading, [owning, loading, reInitializationLoading])
     const loadingOrDeletingOrOwning = useMemo(() => loadingOrOwning || deleting, [loadingOrOwning, deleting])
 
     const handleOpenTimeoutModal = useCallback(() => {
         setTimeoutModalOpen(true)
     }, [])
 
+    useEffect(() => {
+        if ((initializedByAnother || reInitializationError) && loading) {
+            // setLoading(false)
+        }
+    }, [reInitializationError, loading, initializedByAnother])
+
     const breadcrumbs = useMemo(() => breadcrumbsProp ?? [{ label: _(menuT.devices), link: '/' }], [breadcrumbsProp])
 
     useEffect(() => {
-        if (activeTabItem === 0 && (!isReachable || (initializedByAnother && isHub))) {
+        if (activeTabItem === 0 && (!isReachable || (initializedByAnother && isHub) || reInitializationError)) {
             setTimeout(() => {
                 handleTabChange(1)
             }, 0)
         }
-    }, [isReachable, activeTabItem, handleTabChange, initializedByAnother, isHub])
+    }, [isReachable, activeTabItem, handleTabChange, initializedByAnother, isHub, reInitializationError])
 
     return (
         <PageLayout
@@ -153,7 +172,6 @@ const DevicesListPage: FC<Props> = (props) => {
                         content:
                             isReachable && !initializedByAnother ? (
                                 <Tab1
-                                    clientData={clientData}
                                     detailLinkPrefix={detailLinkPrefix}
                                     isActiveTab={activeTabItem === 0}
                                     loading={loadingOrDeletingOrOwning}
@@ -164,16 +182,22 @@ const DevicesListPage: FC<Props> = (props) => {
                                     setOwning={setOwning}
                                     setShowDpsModal={setShowDpsModal}
                                     unselectRowsToken={unselectRowsToken}
+                                    useDevicesList={
+                                        !reInitializationError &&
+                                        !reInitializationLoading &&
+                                        activeTabItem === 0 &&
+                                        clientData?.status === remoteClientStatuses.REACHABLE
+                                    }
                                 />
                             ) : (
                                 <div />
                             ),
-                        disabled: !isReachable || initializedByAnother,
+                        disabled: !isReachable || initializedByAnother || reInitializationError,
                     },
                     {
                         name: _(t.configuration),
                         id: 1,
-                        content: <Tab2 clientData={clientData} initializedByAnother={initializedByAnother} />,
+                        content: <Tab2 clientData={clientData} initializedByAnother={initializedByAnother || reInitializationError} />,
                     },
                 ]}
             />

@@ -160,7 +160,7 @@ const Tab1: FC<Props> = (props) => {
                 <DetailHeadline>{_(t.clientInformations)}</DetailHeadline>
                 {initializedByAnother && (
                     <Alert css={styles.alert} severity={severities.WARNING}>
-                        {clientData?.authenticationMode === DEVICE_AUTH_MODE.X509 ? _(t.initializedByAnotherX509) : _(t.initializedByAnotherPreSharedKey)}
+                        {authMode?.value === DEVICE_AUTH_MODE.X509 ? _(t.initializedByAnotherX509) : _(t.initializedByAnotherPreSharedKey)}
                     </Alert>
                 )}
                 {clientData?.status === remoteClientStatuses.UNREACHABLE && <Alert css={styles.alert}>{_(t.certificateAcceptDescription)}</Alert>}

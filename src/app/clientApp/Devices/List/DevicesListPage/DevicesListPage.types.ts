@@ -14,6 +14,8 @@ export type Props = {
     detailLinkPrefix?: string
     httpGatewayAddress?: string
     initializedByAnother?: boolean
+    reInitializationError?: boolean
+    reInitializationLoading?: boolean
     title?: string
 }
 

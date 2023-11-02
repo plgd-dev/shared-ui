@@ -1,11 +1,8 @@
-import { RemoteClientType } from '../../../../RemoteClients/RemoteClients.types'
-
 export type Tab1RefType = {
     refresh: () => void
 }
 
 export type Props = {
-    clientData?: RemoteClientType
     detailLinkPrefix?: string
     isActiveTab?: boolean
     loading: boolean
@@ -15,4 +12,9 @@ export type Props = {
     setOwning: (ownValue: boolean) => void
     setShowDpsModal: (modal: boolean) => void
     unselectRowsToken?: number
+    useDevicesList: boolean
+}
+
+export const defaultProps: Partial<Props> = {
+    useDevicesList: true,
 }
