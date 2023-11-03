@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { DEFAULT_ROW_HEIGHT } from './constants'
 
 export type ColumnsComponentType = string | ReactNode | Function
 
@@ -53,5 +54,5 @@ export const defaultProps = {
     getColumnProps: () => ({}),
     getRowProps: () => ({}),
     globalSearch: true,
-    rowHeight: 54,
+    rowHeight: DEFAULT_ROW_HEIGHT,
 }

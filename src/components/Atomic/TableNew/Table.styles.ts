@@ -4,7 +4,7 @@ import { colors } from '../_utils/colors'
 import { ThemeType, get } from '../_theme'
 
 export const tableComponent = css`
-    height: 100%;
+    //height: 100%;
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;

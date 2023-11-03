@@ -5,6 +5,7 @@ import { ThemeType, get } from '../../_theme'
 export const globalFilter = css`
     padding: 0 0 12px 0;
     display: flex;
+    flex: 0 0 50px;
 `
 
 export const left = css`

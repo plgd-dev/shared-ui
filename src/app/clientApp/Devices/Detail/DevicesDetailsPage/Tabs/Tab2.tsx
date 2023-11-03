@@ -265,6 +265,8 @@ const Tab2: FC<Props> = (props) => {
             ref={ref}
             style={{
                 height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
             }}
         >
             <DevicesResources
@@ -277,7 +279,7 @@ const Tab2: FC<Props> = (props) => {
                 onCreate={openCreateModal}
                 onDelete={openDeleteModal}
                 onUpdate={openUpdateModal}
-                pageSize={{ width, height: height ? height - 32 : 0 }} // tree switch
+                pageSize={{ width, height: height ? height - 44 : 0 }} // tree switch
             />
 
             <DevicesResourcesModal

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { ChangeEvent, FC, useEffect, useState } from 'react'
+import { ChangeEvent, FC, useEffect, useMemo, useState } from 'react'
 import { Props, defaultProps } from './Table.types'
 import * as styles from './Table.styles'
 import { usePagination, useRowSelect, useSortBy, useTable, useGlobalFilter } from 'react-table'
@@ -12,8 +12,7 @@ import Pagination from '../../Layout/Footer/Pagination/Pagination'
 import isEqual from 'lodash/isEqual'
 import isEmpty from 'lodash/isEmpty'
 import TableGlobalFilter from './TableGlobalFilter'
-
-const HEADER_HEIGHT = 62
+import { GLOBAL_FILTER_HEIGHT, HEADER_HEIGHT } from './constants'
 
 const Table: FC<Props> = (props) => {
     const {
@@ -47,6 +46,15 @@ const Table: FC<Props> = (props) => {
     // prevent re-rendering with same selection
     const [prevSelectedRowIds, setPrevSelectedRowIds] = useState(isEmpty(defaultSelectedRowIds) ? {} : defaultSelectedRowIds)
 
+    const globalFilterHeight = useMemo(() => (globalSearch ? GLOBAL_FILTER_HEIGHT : 0), [globalSearch])
+
+    const getPageSize = (defaultSize: number) => {
+        if (height) {
+            return Math.max(Math.floor((height - HEADER_HEIGHT - globalFilterHeight) / rowHeight), defaultSize)
+        }
+        return defaultSize
+    }
+
     const {
         getTableProps,
         getTableBodyProps,
@@ -74,7 +82,7 @@ const Table: FC<Props> = (props) => {
             data,
             initialState: {
                 sortBy: defaultSortBy,
-                pageSize: defaultPageSize,
+                pageSize: getPageSize(defaultPageSize),
                 selectedRowIds: isEmpty(defaultSelectedRowIds) ? {} : defaultSelectedRowIds,
             },
             sortTypes: {
@@ -119,6 +127,7 @@ const Table: FC<Props> = (props) => {
                 ])
         }
     )
+
     // so that the parent can store the current selection.
     useEffect(() => {
         if (onRowsSelect && selectedRowIds && !isEqual(prevSelectedRowIds, selectedRowIds)) {
@@ -142,8 +151,12 @@ const Table: FC<Props> = (props) => {
 
     // When the defaultPageSize is changed, update the pageSize in the table
     useEffect(() => {
-        setPageSize(defaultPageSize)
+        setPageSize(getPageSize(defaultPageSize))
     }, [defaultPageSize]) // eslint-disable-line
+
+    useEffect(() => {
+        setPageSize(getPageSize(defaultPageSize))
+    }, [defaultPageSize, height])
 
     const renderPagination = () => {
         let target = null
@@ -198,7 +211,7 @@ const Table: FC<Props> = (props) => {
             <div
                 css={styles.tableWrapper}
                 style={{
-                    height: height ? height - HEADER_HEIGHT : height,
+                    height: height ? height - globalFilterHeight : height,
                 }}
             >
                 <div style={calculateTableHeight()}>
@@ -259,7 +272,7 @@ const Table: FC<Props> = (props) => {
                             {page.map((row: any, key: number) => {
                                 prepareRow(row)
                                 return (
-                                    <tr {...row.getRowProps(getRowProps!(row))} css={[styles.row, row.isSelected && styles.isSelected]}>
+                                    <tr {...row.getRowProps(getRowProps!(row))} css={[styles.row, row.isSelected && styles.isSelected]} data-k={key}>
                                         {row.cells.map((cell: any, cellKey: number) => (
                                             <td
                                                 {...cell.getCellProps([
