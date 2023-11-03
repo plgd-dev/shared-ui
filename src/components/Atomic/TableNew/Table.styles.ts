@@ -20,6 +20,7 @@ export const table = css`
     border: 0;
     border-collapse: collapse;
     width: 100%;
+    overflow: hidden;
 
     th,
     td,

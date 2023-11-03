@@ -268,7 +268,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
     }, [data, dispatch])
 
     return (
-        <div style={{ height: '100%' }}>
+        <div style={{ height: '100%', display: 'flex' }}>
             <DevicesList
                 collapsed={collapsed ?? false}
                 columns={columns}

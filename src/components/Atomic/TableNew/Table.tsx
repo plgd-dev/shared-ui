@@ -13,6 +13,7 @@ import isEqual from 'lodash/isEqual'
 import isEmpty from 'lodash/isEmpty'
 import TableGlobalFilter from './TableGlobalFilter'
 import { GLOBAL_FILTER_HEIGHT, HEADER_HEIGHT } from './constants'
+import ConditionalWrapper from '../ConditionalWrapper'
 
 const Table: FC<Props> = (props) => {
     const {
@@ -214,7 +215,7 @@ const Table: FC<Props> = (props) => {
                     height: height ? height - globalFilterHeight : height,
                 }}
             >
-                <div style={calculateTableHeight()}>
+                <ConditionalWrapper condition={autoHeight} wrapper={(c) => <div style={calculateTableHeight()}>{c}</div>}>
                     <table {...getTableProps()} css={styles.table}>
                         <thead>
                             {headerGroups.map((headerGroup: any) => (
@@ -313,7 +314,7 @@ const Table: FC<Props> = (props) => {
                             {/*        })}*/}
                         </tbody>
                     </table>
-                </div>
+                </ConditionalWrapper>
             </div>
             {enablePagination && renderPagination()}
         </div>
