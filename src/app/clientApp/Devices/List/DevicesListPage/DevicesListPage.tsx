@@ -125,6 +125,12 @@ const DevicesListPage: FC<Props> = (props) => {
         setTimeoutModalOpen(true)
     }, [])
 
+    useEffect(() => {
+        if ((initializedByAnother || reInitializationError) && loading) {
+            setLoading(false)
+        }
+    }, [reInitializationError, loading, initializedByAnother])
+
     const breadcrumbs = useMemo(() => breadcrumbsProp ?? [{ label: _(menuT.devices), link: '/' }], [breadcrumbsProp])
 
     useEffect(() => {
