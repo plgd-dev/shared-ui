@@ -113,7 +113,7 @@ const DevicesListPage: FC<Props> = (props) => {
         )
     }
 
-    const handleFlashDevices = () => {
+    const handleFlushDevices = () => {
         // @ts-ignore
         dispatch(flushDevices())
     }
@@ -146,7 +146,7 @@ const DevicesListPage: FC<Props> = (props) => {
             footer={<Footer footerExpanded={false} paginationComponent={<div id='paginationPortalTarget'></div>} />}
             header={
                 <DevicesListHeader
-                    handleFlashDevices={handleFlashDevices}
+                    handleFlushDevices={handleFlushDevices}
                     i18n={{
                         flushCache: _(d.flushCache),
                     }}

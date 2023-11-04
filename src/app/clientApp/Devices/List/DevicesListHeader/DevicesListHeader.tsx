@@ -10,7 +10,7 @@ import FindNewDeviceByIp from '../FindNewDeviceByIp'
 import { Props } from './DevicesListHeader.types'
 
 const DevicesListHeader: FC<Props> = memo((props) => {
-    const { loading, refresh, openTimeoutModal, handleFlashDevices, i18n } = props
+    const { loading, refresh, openTimeoutModal, handleFlushDevices, i18n } = props
     const { formatMessage: _ } = useIntl()
 
     return (
@@ -30,7 +30,7 @@ const DevicesListHeader: FC<Props> = memo((props) => {
             >
                 {_(t.discovery)}
             </SplitButton>
-            <Button className='m-l-10' disabled={loading} icon={<IconTrash />} onClick={handleFlashDevices}>
+            <Button className='m-l-10' disabled={loading} icon={<IconTrash />} onClick={handleFlushDevices}>
                 {i18n.flushCache}
             </Button>
         </div>

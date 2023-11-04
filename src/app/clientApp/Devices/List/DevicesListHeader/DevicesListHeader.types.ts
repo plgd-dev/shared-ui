@@ -1,5 +1,5 @@
 export type Props = {
-    handleFlashDevices: () => void
+    handleFlushDevices: () => void
     i18n: {
         flushCache: string
     }
