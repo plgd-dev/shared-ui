@@ -448,6 +448,7 @@ const theme = {
             statusLine: {
                 green: colorsSiemens.green,
                 red: colorsSiemens.red,
+                occupied: colorsSiemens.yellow,
             },
         },
         StatusTag: {

@@ -1,7 +1,5 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
-import { StatusPillStatusType } from './StatusPill.types'
-import { states } from './constants'
 import { ThemeType, get } from '../_theme'
 
 export const statusPill = css`
@@ -9,11 +7,22 @@ export const statusPill = css`
     align-items: center;
 `
 
-export const statusLine = (theme: ThemeType, status: StatusPillStatusType) => css`
+export const statusLine = css`
     width: 4px;
     height: 24px;
     border-radius: 6px;
-    background-color: ${status === states.ONLINE ? get(theme, 'StatusPill.statusLine.green') : get(theme, 'StatusPill.statusLine.red')};
+`
+
+export const online = (theme: ThemeType) => css`
+    background-color: ${get(theme, 'StatusPill.statusLine.green')};
+`
+
+export const offline = (theme: ThemeType) => css`
+    background-color: ${get(theme, 'StatusPill.statusLine.red')};
+`
+
+export const occupied = (theme: ThemeType) => css`
+    background-color: ${get(theme, 'StatusPill.statusLine.occupied')};
 `
 
 export const label = css`

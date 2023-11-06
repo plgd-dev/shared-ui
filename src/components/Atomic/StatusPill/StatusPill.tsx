@@ -3,12 +3,20 @@ import { Props } from './StatusPill.types'
 import * as styles from './StatusPill.styles'
 import Tooltip from '../Tooltip'
 import ConditionalWrapper from '../ConditionalWrapper'
+import { states } from './constants'
 
 const StatusPill: FC<Props> = (props) => {
     const { label, pending, status, tooltipText } = props
     return (
         <div css={styles.statusPill}>
-            <div css={[(theme) => styles.statusLine(theme, status)]}></div>
+            <div
+                css={[
+                    styles.statusLine,
+                    status === states.ONLINE && styles.online,
+                    status === states.OFFLINE && styles.offline,
+                    status === states.OCCUPIED && styles.occupied,
+                ]}
+            ></div>
             <div css={styles.content}>
                 <ConditionalWrapper
                     condition={!!tooltipText}
