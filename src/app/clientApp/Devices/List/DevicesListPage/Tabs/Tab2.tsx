@@ -84,7 +84,7 @@ const Tab1: FC<Props> = (props) => {
                       <Controller
                           control={control}
                           name='authenticationMode'
-                          render={({ field: { onChange, name, ref } }) => (
+                          render={({ field: { onChange, name, ref, value } }) => (
                               <FormSelect
                                   inlineStyle
                                   align={selectAligns.RIGHT}
@@ -93,6 +93,7 @@ const Tab1: FC<Props> = (props) => {
                                   onChange={onChange}
                                   options={options}
                                   ref={ref}
+                                  value={value}
                               />
                           )}
                       />

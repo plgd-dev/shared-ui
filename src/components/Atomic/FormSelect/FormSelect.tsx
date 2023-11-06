@@ -17,7 +17,6 @@ import { GroupedOption, Option, Props, defaultProps } from './FormSelect.types'
 import * as styles from './FormSelect.styles'
 import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectAligns, selectSizes } from './constants'
-import { textRight } from './FormSelect.styles'
 
 const FormSelect = forwardRef<any, Props>((props, ref) => {
     const { align, className, defaultValue, error, disabled, inlineStyle, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } = {
