@@ -1,17 +1,22 @@
-import { clientAppSettings } from './client-app-settings'
-import { security } from './security'
 import jwtDecode from 'jwt-decode'
 import get from 'lodash/get'
+
+import { clientAppSettings } from './client-app-settings'
+import { security } from './security'
 import { DEVICE_AUTH_MODE } from '../../app/clientApp/constants'
 import { getWellKnowConfig } from '../../app/clientApp/utils'
 
 export const hasDifferentOwner = (wellKnownConfig = getWellKnowConfig(), clientData = clientAppSettings.getClientData()) => {
-    if (!wellKnownConfig || !wellKnownConfig?.isInitialized) {
+    if (!wellKnownConfig || !wellKnownConfig?.isInitialized || !clientData) {
         return false
     }
 
+    if (wellKnownConfig?.deviceAuthenticationMode !== clientData.authenticationMode) {
+        return true
+    }
+
     if (wellKnownConfig?.deviceAuthenticationMode === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
-        if (clientData && clientData.preSharedSubjectId && wellKnownConfig.owner !== clientData.preSharedSubjectId) {
+        if (clientData.preSharedSubjectId && wellKnownConfig.owner !== clientData.preSharedSubjectId) {
             return true
         }
     } else if (wellKnownConfig?.deviceAuthenticationMode === DEVICE_AUTH_MODE.X509) {
