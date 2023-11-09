@@ -45,7 +45,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
     const [selectedDevices, setSelectedDevices] = useState([])
     const [isAllSelected, setIsAllSelected] = useState(false)
     const { data, loading: loadingData, error: deviceError, refresh } = useDevicesList(useDevicesListProp)
-    const dataToDisplay: DeviceDataType = useSelector(getDevices)
+    // const dataToDisplay: DeviceDataType = useSelector(getDevices)
 
     const [singleDevice, setSingleDevice] = useState<null | string>(null)
 
@@ -267,12 +267,14 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
         data && dispatch(updateDevices(data))
     }, [data, dispatch])
 
+    const dataToDisplay = data || []
+
     return (
         <div style={{ height: '100%', display: 'flex' }}>
             <DevicesList
                 collapsed={collapsed ?? false}
                 columns={columns}
-                data={dataToDisplay}
+                data={loading ? [] : dataToDisplay}
                 i18n={{
                     delete: _(t.delete),
                     search: _(t.search),

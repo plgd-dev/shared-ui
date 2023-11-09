@@ -10,7 +10,16 @@ import { ResourcesType, StreamApiPropsType } from './Devices.types'
 import AppContext from '../../share/AppContext'
 import { getHttpGatewayAddress } from '../utils'
 
-export const useDevicesList = (requestActive = true) => {
+export type UseApiReturnType = {
+    data: any
+    error: any
+    loading: boolean
+    refresh: () => void
+    setState: (data: any) => void
+    updateData: (data: any) => void
+}
+
+export const useDevicesList = (requestActive = true): UseApiReturnType => {
     const discoveryTimeout = useSelector(getDevicesDiscoveryTimeout)
     const { unauthorizedCallback } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()

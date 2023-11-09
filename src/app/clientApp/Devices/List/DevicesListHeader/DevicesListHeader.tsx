@@ -30,9 +30,9 @@ const DevicesListHeader: FC<Props> = memo((props) => {
             >
                 {_(t.discovery)}
             </SplitButton>
-            <Button className='m-l-10' disabled={loading} icon={<IconTrash />} onClick={handleFlushDevices}>
-                {i18n.flushCache}
-            </Button>
+            {/*<Button className='m-l-10' disabled={loading} icon={<IconTrash />} onClick={handleFlushDevices}>*/}
+            {/*    {i18n.flushCache}*/}
+            {/*</Button>*/}
         </div>
     )
 })
