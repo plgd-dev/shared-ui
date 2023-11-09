@@ -146,10 +146,6 @@ const DevicesListPage: FC<Props> = (props) => {
             footer={<Footer footerExpanded={false} paginationComponent={<div id='paginationPortalTarget'></div>} />}
             header={
                 <DevicesListHeader
-                    handleFlushDevices={handleFlushDevices}
-                    i18n={{
-                        flushCache: _(d.flushCache),
-                    }}
                     loading={loadingOrOwning || !isReachable || !!initializedByAnother || activeTabItem === 1}
                     openTimeoutModal={handleOpenTimeoutModal}
                     refresh={handleRefresh}

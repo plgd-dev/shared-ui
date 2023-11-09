@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useContext, useEffect, useImperativeHandle, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { Props, Tab1RefType, defaultProps } from './Tab1.types'
@@ -16,13 +16,12 @@ import { DpsDataType } from '../DevicesListPage.types'
 import { deleteDevicesApi, disownDeviceApi, ownDeviceApi } from '../../../rest'
 import Notification from '../../../../../../components/Atomic/Notification/Toast'
 import notificationId from '../../../../notificationId'
-import { disOwnDevice, flushDevices, getDevices, ownDevice, updateDevices } from '../../../slice'
+import { disOwnDevice, flushDevices, ownDevice } from '../../../slice'
 import { handleDeleteDevicesErrors, handleOwnDevicesErrors, sleep } from '../../../utils'
 import { useIsMounted } from '../../../../../../common/hooks'
 import AppContext from '../../../../../share/AppContext'
 import { messages as app } from '../../../../App/App.i18n'
 import { useDevicesList } from '../../../hooks'
-import { DeviceDataType } from '../../../Devices.types'
 import { getApiErrorMessage } from '../../../../../../common/utils'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
@@ -45,7 +44,6 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
     const [selectedDevices, setSelectedDevices] = useState([])
     const [isAllSelected, setIsAllSelected] = useState(false)
     const { data, loading: loadingData, error: deviceError, refresh } = useDevicesList(useDevicesListProp)
-    // const dataToDisplay: DeviceDataType = useSelector(getDevices)
 
     const [singleDevice, setSingleDevice] = useState<null | string>(null)
 
@@ -261,11 +259,6 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
                 }
             )
     }, [deviceError])
-
-    useEffect(() => {
-        // @ts-ignore
-        data && dispatch(updateDevices(data))
-    }, [data, dispatch])
 
     const dataToDisplay = data || []
 
