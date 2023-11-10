@@ -21,7 +21,7 @@ import { handleDeleteDevicesErrors, handleOwnDevicesErrors, sleep } from '../../
 import { useIsMounted } from '../../../../../../common/hooks'
 import AppContext from '../../../../../share/AppContext'
 import { messages as app } from '../../../../App/App.i18n'
-import { useDevicesList } from '../../../hooks'
+import { useDevicesList, useDevicesListCache } from '../../../hooks'
 import { getApiErrorMessage } from '../../../../../../common/utils'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
@@ -43,8 +43,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [selectedDevices, setSelectedDevices] = useState([])
     const [isAllSelected, setIsAllSelected] = useState(false)
-    const { data, loading: loadingData, error: deviceError, refresh } = useDevicesList(useDevicesListProp)
-
+    const { data, loading: loadingData, error: deviceError, refresh, discovery } = useDevicesListCache(useDevicesListProp)
     const [singleDevice, setSingleDevice] = useState<null | string>(null)
 
     const dispatch = useDispatch()
@@ -53,7 +52,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
     const isMounted = useIsMounted()
 
     useImperativeHandle(ref, () => ({
-        refresh: () => refresh(),
+        refresh: () => discovery(),
     }))
 
     useEffect(() => {

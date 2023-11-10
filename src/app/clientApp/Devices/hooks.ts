@@ -2,13 +2,14 @@ import { useContext, useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash/debounce'
 import { useSelector } from 'react-redux'
 
-import { useStreamApi, useEmitter, WellKnownConfigType } from '../../../common/hooks'
+import { useStreamApi, useEmitter, WellKnownConfigType, useIsMounted, getData } from '../../../common/hooks'
 import { getDevicesDiscoveryTimeout } from './slice'
 import { devicesApiEndpoints, DEVICES_STATUS_WS_KEY, resourceEventTypes, DEVICE_PROVISION_STATUS_DELAY_MS } from './constants'
 import { getOnboardingEndpoint, getResourceRegistrationNotificationKey, hasOnboardingFeature, loadResourceData } from './utils'
 import { ResourcesType, StreamApiPropsType } from './Devices.types'
 import AppContext from '../../share/AppContext'
 import { getHttpGatewayAddress } from '../utils'
+import { streamApi } from '../../../common/services'
 
 export type UseApiReturnType = {
     data: any
@@ -17,6 +18,10 @@ export type UseApiReturnType = {
     refresh: () => void
     setState: (data: any) => void
     updateData: (data: any) => void
+}
+
+export type UseDevicesListCacheReturnType = UseApiReturnType & {
+    discovery: () => void
 }
 
 export const useDevicesList = (requestActive = true): UseApiReturnType => {
@@ -39,6 +44,85 @@ export const useDevicesList = (requestActive = true): UseApiReturnType => {
     // })
 
     return { data, updateData, ...rest }
+}
+
+export const useDevicesListCache = (requestActive: boolean): UseDevicesListCacheReturnType => {
+    const discoveryTimeout = useSelector(getDevicesDiscoveryTimeout)
+    const { unauthorizedCallback } = useContext(AppContext)
+    const httpGatewayAddress = getHttpGatewayAddress()
+    const isMounted = useIsMounted()
+
+    const [state, setState] = useState<{ error: any; loading: boolean; data: any }>({
+        error: null,
+        loading: requestActive,
+        data: null,
+    })
+
+    const [refreshIndex, setRefreshIndex] = useState(0)
+    const urlBase = `${httpGatewayAddress}${devicesApiEndpoints.DEVICES}`
+
+    const requestData = async (active: boolean, useCache: boolean) => {
+        if (active) {
+            // Set loading to true
+            setState({ ...state, loading: true })
+            let data = []
+
+            if (useCache) {
+                // cache mode
+                data = await getData(streamApi, `${urlBase}?useCache=true`, {
+                    unauthorizedCallback,
+                    requestActive: true,
+                })
+            }
+
+            if (data.length === 0) {
+                // discovery mode
+                data = await getData(streamApi, `${urlBase}?timeout=${discoveryTimeout}`, {
+                    unauthorizedCallback,
+                    requestActive: true,
+                })
+            }
+
+            if (isMounted.current) {
+                setState({
+                    ...state,
+                    data,
+                    error: null,
+                    loading: false,
+                })
+            }
+        }
+    }
+
+    useEffect(
+        () => {
+            ;(async () => {
+                try {
+                    await requestData(requestActive, refreshIndex >= 0)
+                } catch (error) {
+                    if (isMounted.current) {
+                        setState({
+                            ...state,
+                            data: null,
+                            error,
+                            loading: false,
+                        })
+                    }
+                }
+            })()
+        },
+        [refreshIndex] // eslint-disable-line
+    )
+
+    return {
+        ...state,
+        updateData: (updatedData) => {
+            setState((prevState) => ({ ...prevState, data: updatedData }))
+        },
+        refresh: () => setRefreshIndex(Math.abs(Math.random())),
+        discovery: () => setRefreshIndex(Math.random() * -1),
+        setState,
+    }
 }
 
 export const useDeviceDetails = (deviceId: string) => {

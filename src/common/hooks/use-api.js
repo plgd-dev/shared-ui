@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import { useIsMounted } from './use-is-mounted'
 import { fetchApi, streamApi } from '../services'
 
-const getData = async (method, url, options) => {
+export const getData = async (method, url, options) => {
     const { telemetrySpan, telemetryWebTracer, ...restOptions } = options
 
     if (telemetryWebTracer && telemetrySpan) {
