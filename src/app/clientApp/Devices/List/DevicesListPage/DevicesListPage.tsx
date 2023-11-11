@@ -127,7 +127,7 @@ const DevicesListPage: FC<Props> = (props) => {
     useEffect(() => {
         if (activeTabItem === 0 && (!isReachable || (initializedByAnother && isHub) || reInitializationError)) {
             setTimeout(() => {
-                // handleTabChange(1)
+                handleTabChange(1)
             }, 0)
         }
     }, [isReachable, activeTabItem, handleTabChange, initializedByAnother, isHub, reInitializationError])
