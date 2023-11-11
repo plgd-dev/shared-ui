@@ -1,6 +1,5 @@
 import React, { FC, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { useIntl } from 'react-intl'
-import { useDispatch } from 'react-redux'
 import ReactDOM from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -9,7 +8,6 @@ import PageLayout from '../../../../../components/Atomic/PageLayout'
 import { messages as menuT } from '../../../../../components/Atomic/Menu/Menu.i18n'
 import Footer from '../../../../../components/Layout/Footer'
 import { DevicesResourcesModalParamsType } from '../../../../../components/Organisms/DevicesResourcesModal/DevicesResourcesModal.types'
-import { flushDevices } from '../../slice'
 import { ResourcesType } from '../../Devices.types'
 import { handleUpdateResourceErrors, updateResourceMethod } from '../../utils'
 import { messages as t } from '../../../RemoteClients/RemoteClients.i18n'
@@ -35,7 +33,7 @@ const DevicesListPage: FC<Props> = (props) => {
         defaultActiveTab,
         initializedByAnother,
         reInitializationError,
-        reInitializationLoading,
+        loading: loadingProp,
         title,
     } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
@@ -52,8 +50,6 @@ const DevicesListPage: FC<Props> = (props) => {
     const [owning, setOwning] = useState(false)
     const [loading, setLoading] = useState(false)
     const [deleting, setDeleting] = useState(false)
-
-    const dispatch = useDispatch()
 
     const navigate = useNavigate()
     const [isDomReady, setIsDomReady] = useState(false)
@@ -113,12 +109,7 @@ const DevicesListPage: FC<Props> = (props) => {
         )
     }
 
-    const handleFlushDevices = () => {
-        // @ts-ignore
-        dispatch(flushDevices())
-    }
-
-    const loadingOrOwning = useMemo(() => owning || loading || reInitializationLoading, [owning, loading, reInitializationLoading])
+    const loadingOrOwning = useMemo(() => owning || loading || loadingProp, [owning, loading, loadingProp])
     const loadingOrDeletingOrOwning = useMemo(() => loadingOrOwning || deleting, [loadingOrOwning, deleting])
 
     const handleOpenTimeoutModal = useCallback(() => {
@@ -136,7 +127,7 @@ const DevicesListPage: FC<Props> = (props) => {
     useEffect(() => {
         if (activeTabItem === 0 && (!isReachable || (initializedByAnother && isHub) || reInitializationError)) {
             setTimeout(() => {
-                handleTabChange(1)
+                // handleTabChange(1)
             }, 0)
         }
     }, [isReachable, activeTabItem, handleTabChange, initializedByAnother, isHub, reInitializationError])
@@ -179,10 +170,7 @@ const DevicesListPage: FC<Props> = (props) => {
                                     setShowDpsModal={setShowDpsModal}
                                     unselectRowsToken={unselectRowsToken}
                                     useDevicesList={
-                                        !reInitializationError &&
-                                        !reInitializationLoading &&
-                                        activeTabItem === 0 &&
-                                        clientData?.status === remoteClientStatuses.REACHABLE
+                                        !reInitializationError && !loadingProp && activeTabItem === 0 && clientData?.status === remoteClientStatuses.REACHABLE
                                     }
                                 />
                             ) : (

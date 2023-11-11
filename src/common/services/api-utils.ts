@@ -6,12 +6,12 @@ import { security } from './security'
 import { DEVICE_AUTH_MODE } from '../../app/clientApp/constants'
 import { getWellKnowConfig } from '../../app/clientApp/utils'
 
-export const hasDifferentOwner = (wellKnownConfig = getWellKnowConfig(), clientData = clientAppSettings.getClientData()) => {
+export const hasDifferentOwner = (wellKnownConfig = getWellKnowConfig(), clientData = clientAppSettings.getClientData(), modeCheck = false) => {
     if (!wellKnownConfig || !wellKnownConfig?.isInitialized || !clientData) {
         return false
     }
 
-    if (wellKnownConfig?.deviceAuthenticationMode !== clientData.authenticationMode) {
+    if (wellKnownConfig?.deviceAuthenticationMode !== clientData.authenticationMode && modeCheck) {
         return true
     }
 

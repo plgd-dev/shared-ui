@@ -13,9 +13,9 @@ export type Props = {
     defaultActiveTab?: number
     detailLinkPrefix?: string
     httpGatewayAddress?: string
+    loading?: boolean
     initializedByAnother?: boolean
     reInitializationError?: boolean
-    reInitializationLoading?: boolean
     title?: string
 }
 
