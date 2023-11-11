@@ -75,8 +75,6 @@ const DevicesListPage: FC<Props> = (props) => {
             setActiveTabItem(i)
             const base = isHub ? `/remote-clients/${clientData?.id}` : ''
             navigate(`${base}${i === 1 ? '/configuration' : ''}`, { replace: true })
-
-            // eslint-disable-next-line react-hooks/exhaustive-deps
         },
         [clientData?.id, isHub, navigate]
     )
