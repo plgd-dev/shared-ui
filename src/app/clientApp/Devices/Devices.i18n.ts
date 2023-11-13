@@ -457,6 +457,10 @@ export const messages = defineMessages({
         defaultMessage: 'Failed to delete this device.',
         description: 'Title of the toast message on devices deleted failed.',
     },
+    deviceFlushError: {
+        id: 'devices.deviceFlushError',
+        defaultMessage: 'Failed to delete device.',
+    },
     default: {
         id: 'devices.default',
         defaultMessage: 'Default',

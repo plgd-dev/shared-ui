@@ -43,7 +43,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [selectedDevices, setSelectedDevices] = useState([])
     const [isAllSelected, setIsAllSelected] = useState(false)
-    const { data, loading: loadingData, error: deviceError, refresh, discovery } = useDevicesListCache(useDevicesListProp)
+    const { data, loading: loadingData, error: deviceError, refresh, discovery, setState } = useDevicesListCache(useDevicesListProp)
     const [singleDevice, setSingleDevice] = useState<null | string>(null)
 
     const dispatch = useDispatch()
@@ -53,6 +53,9 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
 
     useImperativeHandle(ref, () => ({
         refresh: () => discovery(),
+        flush: () => {
+            setState((prevState: any) => ({ ...prevState, data: [] }))
+        },
     }))
 
     useEffect(() => {

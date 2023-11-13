@@ -24,6 +24,7 @@ import Tab2 from './Tabs/Tab2'
 import { remoteClientStatuses } from '../../../RemoteClients/constants'
 import AppContext from '../../../../share/AppContext'
 import { Tab1RefType } from './Tabs/Tab1.types'
+import { deleteDevicesApi } from '../../rest'
 
 const DevicesListPage: FC<Props> = (props) => {
     const {
@@ -83,6 +84,35 @@ const DevicesListPage: FC<Props> = (props) => {
         tab1Ref?.current?.refresh()
     }, [])
 
+    const handleFlushDevices = useCallback(() => {
+        try {
+            deleteDevicesApi().then((r) => {
+                tab1Ref?.current?.flush()
+
+                Notification.success(
+                    {
+                        title: _(d.devicesDeleted),
+                        message: _(d.devicesDeletedMessage),
+                    },
+                    {
+                        notificationId: notificationId.SU_CA_DEVICE_LIST_FLUSH_DEVICES,
+                    }
+                )
+            })
+        } catch (e: any) {
+            console.log(e)
+            Notification.error(
+                {
+                    title: _(d.deviceFlushError),
+                    message: e.message,
+                },
+                {
+                    notificationId: notificationId.SU_CA_DEVICE_LIST_FLUSH_DEVICES_ERROR,
+                }
+            )
+        }
+    }, [])
+
     // Updates the resource through rest API
     const updateResource = async ({ href, currentInterface = '' }: DevicesResourcesModalParamsType, resourceDataUpdate: any) => {
         await updateResourceMethod(
@@ -135,6 +165,10 @@ const DevicesListPage: FC<Props> = (props) => {
             footer={<Footer footerExpanded={false} paginationComponent={<div id='paginationPortalTarget'></div>} />}
             header={
                 <DevicesListHeader
+                    handleFlushDevices={handleFlushDevices}
+                    i18n={{
+                        flushCache: _(d.flushCache),
+                    }}
                     loading={loadingOrOwning || !isReachable || !!initializedByAnother || activeTabItem === 1}
                     openTimeoutModal={handleOpenTimeoutModal}
                     refresh={handleRefresh}

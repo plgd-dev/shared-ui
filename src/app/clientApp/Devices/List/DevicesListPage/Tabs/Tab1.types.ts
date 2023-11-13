@@ -1,5 +1,6 @@
 export type Tab1RefType = {
     refresh: () => void
+    flush: () => void
 }
 
 export type Props = {
