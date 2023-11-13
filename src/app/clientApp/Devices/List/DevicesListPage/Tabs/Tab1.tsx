@@ -60,7 +60,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
 
     useEffect(() => {
         if (isActiveTab) {
-            refresh()
+            !loadingData && refresh()
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isActiveTab])
