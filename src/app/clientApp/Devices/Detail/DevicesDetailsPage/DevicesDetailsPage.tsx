@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useMemo, useState } from 'react'
+import { FC, useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import ReactDOM from 'react-dom'
 import { useIntl } from 'react-intl'
 import { useNavigate, useParams } from 'react-router-dom'
@@ -30,6 +30,7 @@ import Tab2 from './Tabs/Tab2'
 import { Props } from './DevicesDetailsPage.types'
 import { getWellKnowConfig } from '../../../utils'
 import notificationId from '../../../notificationId'
+import AppContext from '../../../../share/AppContext'
 
 const DevicesDetailsPage: FC<Props> = (props) => {
     const { defaultActiveTab, detailLinkPrefix, breadcrumbs: breadcrumbsProp, defaultDeviceId } = props
@@ -49,7 +50,8 @@ const DevicesDetailsPage: FC<Props> = (props) => {
     const [isDomReady, setIsDomReady] = useState(false)
 
     const isMounted = useIsMounted()
-    const { data, updateData, loading, error: deviceError } = useDeviceDetails(id)
+    const { isHub } = useContext(AppContext)
+    const { data, updateData, loading, error: deviceError } = useDeviceDetails(id, !isHub)
     const { data: resourcesData, loading: loadingResources, error: resourcesError, refresh: refreshResources } = useDevicesResources(id)
     const dispatch = useDispatch()
     const navigate = useNavigate()

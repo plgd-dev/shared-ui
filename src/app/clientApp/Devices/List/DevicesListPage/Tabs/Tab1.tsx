@@ -21,7 +21,7 @@ import { handleDeleteDevicesErrors, handleOwnDevicesErrors, sleep } from '../../
 import { useIsMounted } from '../../../../../../common/hooks'
 import AppContext from '../../../../../share/AppContext'
 import { messages as app } from '../../../../App/App.i18n'
-import { useDevicesList, useDevicesListCache } from '../../../hooks'
+import { useDevicesListCache } from '../../../hooks'
 import { getApiErrorMessage } from '../../../../../../common/utils'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships

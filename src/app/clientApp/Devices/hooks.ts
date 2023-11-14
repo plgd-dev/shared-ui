@@ -125,7 +125,7 @@ export const useDevicesListCache = (requestActive: boolean): UseDevicesListCache
     }
 }
 
-export const useDeviceDetails = (deviceId: string) => {
+export const useDeviceDetails = (deviceId: string, emitter = true) => {
     const { unauthorizedCallback } = useContext(AppContext)
     const httpGatewayAddress = getHttpGatewayAddress()
 
@@ -138,7 +138,7 @@ export const useDeviceDetails = (deviceId: string) => {
     useEmitter(
         `${DEVICES_STATUS_WS_KEY}.${deviceId}`,
         debounce(({ status, shadowSynchronization }) => {
-            if (data) {
+            if (data && emitter) {
                 updateData({
                     ...data,
                     metadata: {
