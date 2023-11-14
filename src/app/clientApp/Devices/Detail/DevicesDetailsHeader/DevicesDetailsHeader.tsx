@@ -7,7 +7,7 @@ import Button from '../../../../../components/Atomic/Button'
 import { IconClose, IconEdit, IconNetwork, IconPlus } from '../../../../../components/Atomic/Icon'
 import { isNotificationActive } from '../../slice'
 import { devicesOnboardingStatuses } from '../../constants'
-import { canChangeDeviceName, canSetDPSEndpoint, getDeviceNotificationKey } from '../../utils'
+import { canBeOwned, canChangeDeviceName, canSetDPSEndpoint, getDeviceNotificationKey } from '../../utils'
 import { messages as t } from '../../Devices.i18n'
 import { Props } from './DevicesDetailsHeader.types'
 import testId from '../../../testId'
@@ -37,6 +37,7 @@ export const DevicesDetailsHeader: FC<Props> = memo((props) => {
 
     const hasDPS = useMemo(() => canSetDPSEndpoint(resources), [resources])
     const canUpdate = useMemo(() => canChangeDeviceName(resources) && isOwned, [resources, isOwned])
+    const hasOwnButton = useMemo(() => canBeOwned(resources), [resources])
 
     const hasOnboardButton = deviceOnboardingResourceData?.content?.cps
     const isOnboarded = hasOnboardButton !== devicesOnboardingStatuses.UNINITIALIZED
@@ -93,7 +94,7 @@ export const DevicesDetailsHeader: FC<Props> = memo((props) => {
                     </SplitButton>
                 </div>
             )}
-            {!isUnsupported && (
+            {hasOwnButton && !isUnsupported && (
                 <Button
                     disabled={isUnregistered}
                     icon={isOwned ? <IconClose /> : <IconPlus />}

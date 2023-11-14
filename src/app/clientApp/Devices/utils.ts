@@ -40,6 +40,8 @@ export const canBeResourceEdited = (endpoints?: { endpoint: string }[]) =>
 // Returns true if a device has a resource oic.wk.con which holds the device name property
 export const canChangeDeviceName = (links: ResourcesType[]) => links.findIndex((link) => link.resourceTypes.includes(knownResourceTypes.OIC_WK_CON)) !== -1
 
+export const canBeOwned = (links: ResourcesType[]) => links.findIndex((link) => link.resourceTypes.includes(knownResourceTypes.OIC_R_DOMX)) !== -1
+
 export const canSetDPSEndpoint = (resources: ResourcesType[]) => !!getDPSEndpoint(resources)
 
 export const getDPSEndpoint = (resources: ResourcesType[]) => {

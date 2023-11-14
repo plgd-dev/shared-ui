@@ -50,6 +50,7 @@ export const knownResourceTypes = {
     OIC_WK_CON: 'oic.wk.con', // contains device name
     X_PLGD_DPS_CONF: 'x.plgd.dps.conf',
     OIC_R_COAP_CLOUD_CONF_RES_URI: 'oic.r.coapcloudconf',
+    OIC_R_DOMX: 'oic.r.doxm',
 }
 
 export const shadowSynchronizationStates = {
