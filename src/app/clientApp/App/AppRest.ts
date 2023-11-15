@@ -62,3 +62,8 @@ export const getParentAppWellKnownConfiguration = (wellKnowConfigUrl: string) =>
         useToken: false,
         cancelRequestDeadlineTimeout: 10000,
     })
+
+export const getTheme = (url: string) =>
+    fetchApi(`${url}/theme/theme.json`, {
+        useToken: false,
+    })
