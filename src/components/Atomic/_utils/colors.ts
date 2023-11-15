@@ -1,5 +1,5 @@
 export const uiColorMap = {
-    light: {
+    plgd: {
         primaryDarken: '#0A2965', // darken
         primary: '#2261AE',
         primaryHover: '#1D589F', // hover
@@ -60,7 +60,7 @@ export const uiColorMap = {
     },
 }
 
-export const colors = uiColorMap.light
+export const colors = uiColorMap.plgd
 
 export const colorsDark = uiColorMap.dark
 export const colorsSiemens = uiColorMap.siemens

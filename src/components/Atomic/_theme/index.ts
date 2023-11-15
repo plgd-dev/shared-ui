@@ -1,20 +1,9 @@
-import light from './light'
+import plgd from './plgd'
 import lGet from 'lodash/get'
-import siemens from './siemens'
 
-export type ThemeType = Partial<typeof light>
-
-export type PlgdThemeType = 'light' | 'siemens'
+export type ThemeType = Partial<typeof plgd>
 
 export function get(from: object, key: string, def?: any): any {
     const g = lGet(from, `colors.${key}`, def)
     return g === '' ? def : g
-}
-
-export const getTheme = (theme: PlgdThemeType) => {
-    if (theme === 'siemens') {
-        return siemens
-    }
-
-    return light
 }

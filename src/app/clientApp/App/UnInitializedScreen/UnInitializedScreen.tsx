@@ -7,7 +7,7 @@ import UnInitializedScreenStep1 from './steps/UnInitializedScreenStep1'
 import { DEVICE_AUTH_MODE } from '../../constants'
 import UnInitializedScreenStepX509 from './steps/UnInitializedScreenStepX509/UnInitializedScreenStepX509'
 import UnInitializedScreenStepPreShared from './steps/UnInitializedScreenStepPreShared/UnInitializedScreenStepPreShared'
-import light from '../../../../components/Atomic/_theme/light'
+import plgd from '../../../../components/Atomic/_theme/plgd'
 
 const UnInitializedScreen: FC<Props> = (props) => {
     const { wellKnownConfig } = props
@@ -31,7 +31,7 @@ const UnInitializedScreen: FC<Props> = (props) => {
     }, [])
 
     return (
-        <ThemeProvider theme={light}>
+        <ThemeProvider theme={plgd}>
             <div css={styles.unInitializedScreen}>
                 <div>
                     {step === 1 && <UnInitializedScreenStep1 setAuthMode={setAuthMode} />}
