@@ -23,6 +23,7 @@ import AppContext from '../../../../../share/AppContext'
 import { messages as app } from '../../../../App/App.i18n'
 import { useDevicesListCache } from '../../../hooks'
 import { getApiErrorMessage } from '../../../../../../common/utils'
+import { getWellKnowConfig } from '../../../../utils'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
@@ -40,10 +41,18 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
         useDevicesList: useDevicesListProp,
     } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
+    const wellKnownConfig = getWellKnowConfig()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [selectedDevices, setSelectedDevices] = useState([])
     const [isAllSelected, setIsAllSelected] = useState(false)
-    const { data, loading: loadingData, error: deviceError, refresh, discovery, setState } = useDevicesListCache(useDevicesListProp)
+    const {
+        data,
+        loading: loadingData,
+        error: deviceError,
+        refresh,
+        discovery,
+        setState,
+    } = useDevicesListCache(useDevicesListProp && wellKnownConfig.isInitialized)
     const [singleDevice, setSingleDevice] = useState<null | string>(null)
 
     const dispatch = useDispatch()
@@ -57,13 +66,6 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
             setState((prevState: any) => ({ ...prevState, data: [] }))
         },
     }))
-
-    useEffect(() => {
-        if (isActiveTab) {
-            !loadingData && refresh()
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isActiveTab])
 
     useEffect(() => {
         setLoading(loadingData)

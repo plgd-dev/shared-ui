@@ -111,7 +111,7 @@ export const useDevicesListCache = (requestActive: boolean): UseDevicesListCache
                 }
             })()
         },
-        [refreshIndex] // eslint-disable-line
+        [refreshIndex, requestActive] // eslint-disable-line
     )
 
     return {
