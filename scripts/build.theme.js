@@ -18,7 +18,7 @@ async function run(argv) {
     const cwd = path.resolve(__dirname, '../')
 
     // build theme babel
-    const commandThemeBabel = `babel ./src/components/Atomic/_theme/ -d build/lib/theme ${extensions}`
+    const commandThemeBabel = `yarn babel ./src/components/Atomic/_theme/ -d build/lib/theme ${extensions}`
     const { stderr, stdout } = await exec(commandThemeBabel, {
         env: { ...process.env, ...env },
         cwd,
@@ -33,7 +33,7 @@ async function run(argv) {
     }
 
     // build theme color
-    const commandThemeColors = `babel ./src/components/Atomic/_utils/colors.ts --out-file build/lib/_utils/colors.js ${extensions}`
+    const commandThemeColors = `yarn babel ./src/components/Atomic/_utils/colors.ts --out-file build/lib/_utils/colors.js ${extensions}`
     const { stderrColor, stdoutColor } = await exec(commandThemeColors, {
         env: { ...process.env, ...env },
         cwd,
