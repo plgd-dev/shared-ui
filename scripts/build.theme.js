@@ -77,7 +77,7 @@ async function run(argv) {
     fs.writeJsonSync(path.join(publicThemePath, `theme.json`), generalTheme)
 
     if (verbose) {
-        console.log('Theme generated!')
+        console.log('Themes generated!')
     }
 }
 

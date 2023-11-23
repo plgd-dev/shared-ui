@@ -202,13 +202,13 @@ const Tab2: FC<Props> = (props) => {
                     resourceData,
                 })
                 setResourceModal(true)
-                navigate(`${detailLinkPrefix}/devices/${id}/resources${href}`, { replace: true })
+                navigate(`${detailLinkPrefix || ''}/devices/${id}/resources${href}`, { replace: true })
             }
         } catch (error) {
             if (error && isMounted.current) {
                 setLoadingResource(false)
                 handleFetchResourceErrors(error, _)
-                navigate(`${detailLinkPrefix}/devices/${id}/resources`, { replace: true })
+                navigate(`${detailLinkPrefix || ''}/devices/${id}/resources`, { replace: true })
             }
         }
     }
@@ -252,12 +252,12 @@ const Tab2: FC<Props> = (props) => {
 
     const closeDeleteModal = () => {
         setDeleteResourceHref('')
-        navigate(`${detailLinkPrefix}/devices/${id}/resources`, { replace: true })
+        navigate(`${detailLinkPrefix || ''}/devices/${id}/resources`, { replace: true })
     }
 
     const handleCloseUpdateModal = () => {
         setResourceModal(false)
-        navigate(`${detailLinkPrefix}/devices/${id}/resources`, { replace: true })
+        navigate(`${detailLinkPrefix || ''}/devices/${id}/resources`, { replace: true })
     }
 
     return (

@@ -37,10 +37,7 @@ export const actions = css`
     display: flex;
 `
 
-export const actionItem = css`
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
+export const action = css`
     display: flex;
     justify-content: center;
     align-items: center;

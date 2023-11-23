@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react'
+import React, { FC, useCallback, useContext, useMemo } from 'react'
 import ReactDOM from 'react-dom'
 
 import Button from '../../Atomic/Button'
@@ -6,6 +6,7 @@ import Table, { TableSelectionPanel } from '../../Atomic/TableNew'
 import { DEVICES_DEFAULT_PAGE_SIZE } from '../../../common/constants'
 import { Props, defaultProps } from './DevicesList.types'
 import { useIsMounted } from '../../../common/hooks'
+import AppContext from '../../../app/share/AppContext'
 import { useResizeDetector } from 'react-resize-detector'
 
 const DevicesList: FC<Props> = (props) => {
@@ -30,6 +31,7 @@ const DevicesList: FC<Props> = (props) => {
     const { ref, height } = useResizeDetector({
         refreshRate: 500,
     })
+    const { isHub } = useContext(AppContext)
 
     return (
         <div
@@ -39,6 +41,7 @@ const DevicesList: FC<Props> = (props) => {
                 display: 'flex',
                 flexDirection: 'column',
                 overflow: 'hidden',
+                width: '100%',
             }}
         >
             <Table
@@ -75,6 +78,7 @@ const DevicesList: FC<Props> = (props) => {
                         i18n={{
                             select: i18n.select,
                         }}
+                        iframeMode={!isHub}
                         leftPanelCollapsed={collapsed}
                         selectionInfo={`${selectedCount} device${selectedCount > 1 ? 's' : ''} `}
                         show={selectedCount > 0}

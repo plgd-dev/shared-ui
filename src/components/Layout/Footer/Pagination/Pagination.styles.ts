@@ -32,9 +32,9 @@ export const item = (theme: ThemeType) => css`
 `
 
 export const active = (theme: ThemeType) => css`
-    color: ${colors.neutral900};
+    color: ${get(theme, `Pagination.item.active.color`)};
     font-weight: 600;
-    background: #f6f7f9;
+    background: ${get(theme, `Pagination.item.active.background`)};
     border-radius: 4px;
     cursor: default;
 
@@ -47,4 +47,8 @@ export const active = (theme: ThemeType) => css`
 export const disabled = css`
     color: ${colors.neutral300};
     cursor: not-allowed;
+
+    &:hover {
+        color: ${colors.neutral300};
+    }
 `

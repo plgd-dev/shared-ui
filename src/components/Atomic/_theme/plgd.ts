@@ -199,6 +199,22 @@ const theme = {
                 color: colors.primary,
             },
         },
+        FloatingPanel: {
+            Content: {
+                background: '#fff',
+                borderColor: '#e6e9ed',
+                Headline: {
+                    borderColor: colors.neutral200,
+                    color: colors.primaryDarken,
+                },
+            },
+            Icon: {
+                color: colors.neutral500,
+                hover: {
+                    color: colors.primary,
+                },
+            },
+        },
         Footer: {
             borderTop: '#e6e9ed',
             background: '#fff',
@@ -383,6 +399,8 @@ const theme = {
         Pagination: {
             item: {
                 active: {
+                    background: '#f6f7f9',
+                    color: colors.neutral900,
                     hover: {
                         color: colors.neutral900,
                     },

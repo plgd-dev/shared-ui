@@ -86,3 +86,7 @@ export const icon = css`
 export const alert = css`
     margin-bottom: 24px;
 `
+
+export const alertTopSpace = css`
+    margin-top: 16px;
+`

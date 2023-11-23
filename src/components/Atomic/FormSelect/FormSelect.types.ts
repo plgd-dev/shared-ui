@@ -3,8 +3,10 @@ import { selectSizes, selectAligns } from './constants'
 export type FormSelectSizeType = (typeof selectSizes)[keyof typeof selectSizes]
 export type FormSelectAlignType = (typeof selectAligns)[keyof typeof selectAligns]
 
+export type ValueType = string | number | boolean
+
 export interface Option {
-    readonly value: string
+    readonly value: ValueType
     readonly label: string
 }
 

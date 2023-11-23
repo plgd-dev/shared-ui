@@ -23,7 +23,6 @@ const NotificationCenter: FC<Props> = (props) => {
     })
 
     const notificationsCount = useRef<number>(defaultNotification?.length ?? 0)
-    // const notificationsCount = useRef(1)
     const { notifications, markAllAsRead, unreadCount } = useNotificationCenter({
         data: defaultNotification ?? [],
         sort: (l, r) => r.createdAt - l.createdAt,

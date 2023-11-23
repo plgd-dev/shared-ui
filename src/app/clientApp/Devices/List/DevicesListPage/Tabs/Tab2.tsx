@@ -2,7 +2,9 @@ import React, { FC, ReactNode, useContext, useEffect, useMemo } from 'react'
 import { useIntl } from 'react-intl'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import ReactDOM from 'react-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import isFunction from 'lodash/isFunction'
+import omit from 'lodash/omit'
 
 import { Props, Inputs } from './Tab2.types'
 import SimpleStripTable from '../../../../../../components/Atomic/SimpleStripTable'
@@ -10,7 +12,7 @@ import { messages as t } from '../../../../RemoteClients/RemoteClients.i18n'
 import FormSelect, { selectAligns } from '../../../../../../components/Atomic/FormSelect'
 import { DEVICE_AUTH_MODE } from '../../../../constants'
 import FormInput, { inputAligns } from '../../../../../../components/Atomic/FormInput'
-import { useIsMounted } from '../../../../../../common/hooks'
+import { mergeConfig, useIsMounted } from '../../../../../../common/hooks'
 import AppContext from '../../../../../share/AppContext'
 import BottomPanel from '../../../../../../components/Layout/BottomPanel/BottomPanel'
 import Button from '../../../../../../components/Atomic/Button'
@@ -20,18 +22,73 @@ import DetailHeadline from '../../../../../../components/Organisms/DetailHeadlin
 import * as styles from '../../../../../../components/Atomic/Modal/components/ProvisionDeviceModal/ProvisionDeviceModal.styles'
 import Alert, { severities } from '../../../../../../components/Atomic/Alert'
 import { remoteClientStatuses } from '../../../../RemoteClients/constants'
+import { security } from '../../../../../../common/services'
+import { CombinedStoreType } from '../../../../../../../../../src/store/store'
 
 interface RowsType {
     attribute: string
     value: ReactNode
 }
 
-const Tab1: FC<Props> = (props) => {
+const IGNORE_X509 = ['preSharedKey', 'preSharedSubjectId']
+const IGNORE_PRE_SHARED_KEY = ['audience', 'authority', 'clientId', 'scope']
+
+const Tab2: FC<Props> = (props) => {
     const { clientData, initializedByAnother } = props
     const { formatMessage: _ } = useIntl()
     const isMounted = useIsMounted()
-    const { collapsed, isHub, updateRemoteClient } = useContext(AppContext)
+    const { isHub, updateRemoteClient, updateAppWellKnownConfig } = useContext(AppContext)
     const dispatch = useDispatch()
+    const wellKnownConfig = security.getWellKnowConfig()
+    const appStore = useSelector((state: CombinedStoreType) => state.app)
+
+    const optionsBool = useMemo(
+        () => [
+            { value: false, label: _(t.no) },
+            { value: true, label: _(t.yes) },
+        ],
+        []
+    )
+
+    const mergedWellKnownConfig = useMemo(() => {
+        if (wellKnownConfig) {
+            return mergeConfig(wellKnownConfig, appStore.userWellKnownConfig)
+        }
+        return undefined
+    }, [appStore.userWellKnownConfig, wellKnownConfig])
+
+    const defaultData = useMemo(() => {
+        if (isHub) {
+            return {
+                authenticationMode: clientData?.authenticationMode,
+                preSharedSubjectId: clientData?.preSharedSubjectId || '',
+                preSharedKey: clientData?.preSharedKey || '',
+            }
+        } else {
+            return {
+                audience: mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.audience ?? optionsBool[0],
+                authenticationMode: mergedWellKnownConfig?.deviceAuthenticationMode || '',
+                authority: mergedWellKnownConfig?.remoteProvisioning?.authority,
+                clientId: mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.clientId || '',
+                preSharedSubjectId: mergedWellKnownConfig?.owner,
+                preSharedKey: mergedWellKnownConfig?.preSharedKey,
+                scopes: mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.scopes || '',
+            }
+        }
+    }, [
+        clientData?.authenticationMode,
+        clientData?.preSharedKey,
+        clientData?.preSharedSubjectId,
+        isHub,
+        optionsBool,
+        mergedWellKnownConfig?.deviceAuthenticationMode,
+        mergedWellKnownConfig?.owner,
+        mergedWellKnownConfig?.preSharedKey,
+        mergedWellKnownConfig?.remoteProvisioning?.authority,
+        mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.audience,
+        mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.clientId,
+        mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.scopes,
+    ])
 
     const options = useMemo(
         () => [
@@ -41,7 +98,12 @@ const Tab1: FC<Props> = (props) => {
         []
     )
 
-    const defAuthMode = useMemo(() => options.find((o) => o.value === clientData?.authenticationMode) || options[0], [clientData, options])
+    const defAuthMode = useMemo(
+        () => options.find((o) => o.value === defaultData?.authenticationMode) || options[0],
+        [defaultData?.authenticationMode, options]
+    )
+
+    const defAudience = useMemo(() => optionsBool.find((o) => o.value === defaultData?.audience) || optionsBool[0], [defaultData?.audience, optionsBool])
 
     const {
         register,
@@ -57,9 +119,8 @@ const Tab1: FC<Props> = (props) => {
         mode: 'all',
         reValidateMode: 'onSubmit',
         values: {
+            ...defaultData,
             authenticationMode: defAuthMode,
-            preSharedSubjectId: clientData?.preSharedSubjectId || '',
-            preSharedKey: clientData?.preSharedKey || '',
         },
     })
 
@@ -69,38 +130,39 @@ const Tab1: FC<Props> = (props) => {
         trigger().then()
 
         if (authMode?.value === DEVICE_AUTH_MODE.X509) {
-            setValue('preSharedSubjectId', '')
-            setValue('preSharedKey', '')
+            // @ts-ignore
+            IGNORE_X509.forEach((field) => setValue(field, ''))
+        } else if (authMode?.value === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
+            // @ts-ignore
+            IGNORE_PRE_SHARED_KEY.forEach((field) => setValue(field, ''))
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [authMode])
 
-    const rows: RowsType[] = clientData
-        ? [
-              {
-                  attribute: _(t.deviceAuthenticationMode),
-                  value: (
-                      <Controller
-                          control={control}
-                          name='authenticationMode'
-                          render={({ field: { onChange, name, ref, value } }) => (
-                              <FormSelect
-                                  inlineStyle
-                                  align={selectAligns.RIGHT}
-                                  defaultValue={defAuthMode}
-                                  name={name}
-                                  onChange={onChange}
-                                  options={options}
-                                  ref={ref}
-                                  value={value}
-                              />
-                          )}
-                      />
-                  ),
-              },
-          ]
-        : []
+    const rows: RowsType[] = [
+        {
+            attribute: _(t.deviceAuthenticationMode),
+            value: (
+                <Controller
+                    control={control}
+                    name='authenticationMode'
+                    render={({ field: { onChange, name, ref, value } }) => (
+                        <FormSelect
+                            inlineStyle
+                            align={selectAligns.RIGHT}
+                            defaultValue={defAuthMode}
+                            name={name}
+                            onChange={onChange}
+                            options={options}
+                            ref={ref}
+                            value={value}
+                        />
+                    )}
+                />
+            ),
+        },
+    ]
 
     if (authMode?.value === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
         rows.push(
@@ -126,11 +188,77 @@ const Tab1: FC<Props> = (props) => {
             {
                 attribute: _(t.key),
                 value: (
+                    <FormGroup
+                        error={errors.preSharedKey ? _(t.preSharedKeyError) : undefined}
+                        errorTooltip={true}
+                        fullSize={true}
+                        id='pre-shared-key'
+                        marginBottom={false}
+                    >
+                        <FormInput
+                            inlineStyle
+                            align={inputAligns.RIGHT}
+                            placeholder={_(t.key)}
+                            {...register('preSharedKey', { required: true, validate: (val) => val !== '' })}
+                        />
+                    </FormGroup>
+                ),
+            }
+        )
+    }
+
+    if (!isHub && authMode?.value === DEVICE_AUTH_MODE.X509) {
+        rows.push(
+            {
+                attribute: _(t.authority),
+                value: (
                     <FormInput
                         inlineStyle
                         align={inputAligns.RIGHT}
-                        placeholder={_(t.key)}
-                        {...register('preSharedKey', { required: true, validate: (val) => val !== '' })}
+                        placeholder={_(t.authority)}
+                        {...register('authority', { required: true, validate: (val) => val !== '' })}
+                    />
+                ),
+            },
+            {
+                attribute: _(t.scopes),
+                value: (
+                    <FormInput
+                        inlineStyle
+                        align={inputAligns.RIGHT}
+                        placeholder={_(t.scopes)}
+                        {...register('scopes', { required: true, validate: (val) => val !== '' })}
+                    />
+                ),
+            },
+            {
+                attribute: _(t.audience),
+                value: (
+                    <Controller
+                        control={control}
+                        name='audience'
+                        render={({ field: { onChange, name, ref } }) => (
+                            <FormSelect
+                                inlineStyle
+                                align={selectAligns.RIGHT}
+                                defaultValue={defAudience}
+                                name={name}
+                                onChange={onChange}
+                                options={optionsBool}
+                                ref={ref}
+                            />
+                        )}
+                    />
+                ),
+            },
+            {
+                attribute: _(t.clientId),
+                value: (
+                    <FormInput
+                        inlineStyle
+                        align={inputAligns.RIGHT}
+                        placeholder={_(t.clientId)}
+                        {...register('clientId', { required: true, validate: (val) => val !== '' })}
                     />
                 ),
             }
@@ -140,11 +268,33 @@ const Tab1: FC<Props> = (props) => {
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         const values = getValues()
 
-        // convert select value
-        values.authenticationMode = values.authenticationMode.value as any
+        if (isHub) {
+            // convert select value
+            values.authenticationMode = values.authenticationMode.value as any
 
-        if (isHub && updateRemoteClient) {
-            dispatch(updateRemoteClient({ ...values, id: clientData?.id }))
+            // remote client is in local browser store -> update config
+            isFunction(updateRemoteClient) && dispatch(updateRemoteClient({ ...values, id: clientData?.id }))
+        } else {
+            if (values.audience !== undefined) {
+                values.audience = values.audience?.value as any
+            }
+
+            let ignoredValues = ['authenticationMode']
+
+            if (values.authenticationMode.value === DEVICE_AUTH_MODE.X509) {
+                ignoredValues = ignoredValues.concat(IGNORE_X509)
+            } else if (values.authenticationMode.value === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
+                ignoredValues = ignoredValues.concat(IGNORE_PRE_SHARED_KEY)
+            }
+
+            // authenticationMode -> deviceAuthenticationMode
+            isFunction(updateAppWellKnownConfig) &&
+                dispatch(
+                    updateAppWellKnownConfig({
+                        ...omit(values, ignoredValues),
+                        deviceAuthenticationMode: values.authenticationMode.value,
+                    })
+                )
         }
 
         Notification.success({ title: _(t.clientsUpdated), message: _(t.clientsUpdatedMessage) })
@@ -158,14 +308,14 @@ const Tab1: FC<Props> = (props) => {
         >
             <form onSubmit={handleSubmit(onSubmit)}>
                 <SimpleStripTable rows={rows} />
-                <DetailHeadline>{_(t.clientInformations)}</DetailHeadline>
+                {isHub && <DetailHeadline>{_(t.clientInformations)}</DetailHeadline>}
                 {initializedByAnother && (
-                    <Alert css={styles.alert} severity={severities.WARNING}>
+                    <Alert css={[styles.alert, !isHub && styles.alertTopSpace]} severity={severities.WARNING}>
                         {authMode?.value === DEVICE_AUTH_MODE.X509 ? _(t.initializedByAnotherX509) : _(t.initializedByAnotherPreSharedKey)}
                     </Alert>
                 )}
-                {clientData?.status === remoteClientStatuses.UNREACHABLE && <Alert css={styles.alert}>{_(t.certificateAcceptDescription)}</Alert>}
-                {clientData?.version && (
+                {isHub && clientData?.status === remoteClientStatuses.UNREACHABLE && <Alert css={styles.alert}>{_(t.certificateAcceptDescription)}</Alert>}
+                {isHub && clientData?.version && (
                     <SimpleStripTable
                         rows={[
                             {
@@ -191,7 +341,8 @@ const Tab1: FC<Props> = (props) => {
                             </Button>
                         }
                         attribute={_(t.changesMade)}
-                        leftPanelCollapsed={collapsed}
+                        iframeMode={!isHub}
+                        leftPanelCollapsed={false}
                         show={Object.keys(dirtyFields).length > 0}
                         value={`${Object.keys(dirtyFields).length} ${Object.keys(dirtyFields).length > 1 ? _(t.settings) : _(t.setting)}`}
                     />,
@@ -201,6 +352,6 @@ const Tab1: FC<Props> = (props) => {
     )
 }
 
-Tab1.displayName = 'Tab2'
+Tab2.displayName = 'Tab2'
 
-export default Tab1
+export default Tab2

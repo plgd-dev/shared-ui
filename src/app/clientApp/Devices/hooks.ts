@@ -10,6 +10,9 @@ import { ResourcesType, StreamApiPropsType } from './Devices.types'
 import AppContext from '../../share/AppContext'
 import { getHttpGatewayAddress } from '../utils'
 import { streamApi } from '../../../common/services'
+import { DEVICE_AUTH_MODE } from '../constants'
+import { getJwksData, getOpenIdConfiguration, initializedByPreShared, initializeFinal, initializeJwksData, signIdentityCsr } from '../App/AppRest'
+import isFunction from 'lodash/isFunction'
 
 export type UseApiReturnType = {
     data: any
@@ -237,4 +240,80 @@ export function useOnboardingButton({ resources, isOwned, deviceId, isUnsupporte
     // deviceOnboardingResourceData - device resource data -> onboard / offboard
     // refetchDeviceOnboardingData
     return [incompleteOnboardingData, onboardResourceLoading, deviceOnboardingResourceData, refetchDeviceOnboardingData]
+}
+
+type ClientDataType = {
+    authenticationMode: string
+    preSharedSubjectId?: string
+    preSharedKey?: string
+}
+
+export function useAppInitialization(settings: {
+    wellKnownConfig: WellKnownConfigType
+    loading: boolean
+    clientData?: ClientDataType
+    onError?: (e: string) => void
+}) {
+    const { wellKnownConfig, loading, clientData, onError } = settings
+    const [initializationLoading, setInitializationLoading] = useState(false)
+    const [initialize, setInitialize] = useState(wellKnownConfig.isInitialized)
+
+    useEffect(() => {
+        if (wellKnownConfig && !wellKnownConfig.isInitialized && clientData && !initializationLoading && !loading) {
+            if (clientData?.authenticationMode === DEVICE_AUTH_MODE.X509) {
+                try {
+                    setInitializationLoading(true)
+                    getOpenIdConfiguration(wellKnownConfig.remoteProvisioning?.authority!).then((result) => {
+                        getJwksData(result.data.jwks_uri).then((result) => {
+                            initializeJwksData(result.data).then((result) => {
+                                const identityCertificateChallenge = result.data.identityCertificateChallenge
+
+                                signIdentityCsr(
+                                    wellKnownConfig.remoteProvisioning?.certificateAuthority as string,
+                                    identityCertificateChallenge.certificateSigningRequest
+                                ).then((result) => {
+                                    initializeFinal(identityCertificateChallenge.state, result.data.certificate).then(() => {
+                                        setInitialize(true)
+                                        setInitializationLoading(false)
+                                    })
+                                })
+                            })
+                        })
+                    })
+                } catch (e) {
+                    console.error(e)
+                    setInitializationLoading(false)
+                    isFunction(onError) && onError(e as string)
+                }
+            } else if (clientData?.authenticationMode === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
+                if (clientData?.preSharedSubjectId && clientData?.preSharedKey) {
+                    try {
+                        initializedByPreShared(clientData?.preSharedSubjectId, clientData?.preSharedKey).then((r) => {
+                            if (r.status === 200) {
+                                setInitialize(true)
+                                setInitializationLoading(false)
+                            }
+                        })
+                    } catch (e) {
+                        console.error(e)
+                        isFunction(onError) && onError(e as string)
+                        setInitializationLoading(false)
+                    }
+                } else {
+                    isFunction(onError) && onError('Wrong parameters for PRE_SHARED_KEY mode')
+                }
+            }
+        }
+    }, [
+        wellKnownConfig,
+        onError,
+        setInitialize,
+        loading,
+        initializationLoading,
+        clientData?.authenticationMode,
+        clientData?.preSharedSubjectId,
+        clientData?.preSharedKey,
+    ])
+
+    return [initialize, initializationLoading]
 }

@@ -1,26 +1,21 @@
 import { FC } from 'react'
 import { Props } from './Header.types'
 import * as styles from './Header.styles'
-// import { convertSize, IconSettings } from '../../Atomic/Icon'
 
 const Header: FC<Props> = (props) => {
-    const { breadcrumbs, configButton, notificationCenter, userWidget } = props
+    const { breadcrumbs, configButton, contentLeft, notificationCenter, userWidget } = props
 
     return (
         <div css={styles.header}>
             <div css={styles.left}>
+                {contentLeft}
                 <div id='header-icon-collapse-portal-target'></div>
                 {breadcrumbs && <div css={styles.breadcrumbs}>{breadcrumbs}</div>}
             </div>
             <div css={styles.right}>
                 <ul css={styles.actions}>
-                    {configButton && <li>{configButton}</li>}
-                    {/* <li>*/}
-                    {/*    <a css={styles.actionItem} href='#'>*/}
-                    {/*        <IconSettings {...convertSize(20)} />*/}
-                    {/*    </a>*/}
-                    {/* </li>*/}
-                    {notificationCenter && <li>{notificationCenter}</li>}
+                    {configButton && <li css={styles.action}>{configButton}</li>}
+                    {notificationCenter && <li css={styles.action}>{notificationCenter}</li>}
                 </ul>
                 {userWidget}
             </div>
