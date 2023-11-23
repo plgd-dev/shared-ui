@@ -6,6 +6,7 @@ import Table, { TableSelectionPanel } from '../../Atomic/TableNew'
 import { DEVICES_DEFAULT_PAGE_SIZE } from '../../../common/constants'
 import { Props, defaultProps } from './DevicesList.types'
 import { useIsMounted } from '../../../common/hooks'
+import { useResizeDetector } from 'react-resize-detector'
 
 const DevicesList: FC<Props> = (props) => {
     const {
@@ -26,9 +27,20 @@ const DevicesList: FC<Props> = (props) => {
     const validData = useCallback((data: any) => (!data || data[0] === undefined ? [] : data), [])
     const selectedCount = useMemo(() => Object.keys(selectedDevices).length, [selectedDevices])
     const isMounted = useIsMounted()
+    const { ref, height } = useResizeDetector({
+        refreshRate: 500,
+    })
 
     return (
-        <>
+        <div
+            ref={ref}
+            style={{
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                overflow: 'hidden',
+            }}
+        >
             <Table
                 columns={columns}
                 data={validData(data)}
@@ -39,6 +51,7 @@ const DevicesList: FC<Props> = (props) => {
                         desc: false,
                     },
                 ]}
+                height={height}
                 i18n={{
                     search: i18n.search,
                 }}
@@ -69,7 +82,7 @@ const DevicesList: FC<Props> = (props) => {
                     document.querySelector('#modal-root') as Element
                 )}
             {customContent}
-        </>
+        </div>
     )
 }
 
