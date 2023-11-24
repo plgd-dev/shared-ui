@@ -23,7 +23,6 @@ import * as styles from '../../../../../../components/Atomic/Modal/components/Pr
 import Alert, { severities } from '../../../../../../components/Atomic/Alert'
 import { remoteClientStatuses } from '../../../../RemoteClients/constants'
 import { security } from '../../../../../../common/services'
-import { CombinedStoreType } from '../../../../../../../../../src/store/store'
 
 interface RowsType {
     attribute: string
@@ -40,7 +39,7 @@ const Tab2: FC<Props> = (props) => {
     const { isHub, updateRemoteClient, updateAppWellKnownConfig } = useContext(AppContext)
     const dispatch = useDispatch()
     const wellKnownConfig = security.getWellKnowConfig()
-    const appStore = useSelector((state: CombinedStoreType) => state.app)
+    const appStore = useSelector((state: any) => state.app)
 
     const optionsBool = useMemo(
         () => [
