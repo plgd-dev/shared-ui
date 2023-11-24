@@ -156,7 +156,6 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
             setOwning(false)
         }
     }
-    console.log('TOTO')
 
     const columns = useMemo(
         () => [
