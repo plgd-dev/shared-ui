@@ -42,7 +42,6 @@ const DevicesList: FC<Props> = (props) => {
                 display: 'flex',
                 flexDirection: 'column',
                 overflow: 'hidden',
-                width: '100%',
             }}
         >
             <Table
