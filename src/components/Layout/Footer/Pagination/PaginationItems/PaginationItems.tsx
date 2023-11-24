@@ -22,7 +22,7 @@ const PaginationItems: FC<Props> = (props) => {
             <li key={page}>
                 <a
                     css={[styles.item, page === activePage && styles.active]}
-                    href='packages/shared-ui/src/components/Layout/Footer/Pagination/PaginationItems#'
+                    href='#'
                     onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
@@ -44,7 +44,7 @@ const PaginationItems: FC<Props> = (props) => {
             <li key={1}>
                 <a
                     css={styles.item}
-                    href='packages/shared-ui/src/components/Layout/Footer/Pagination/PaginationItems#'
+                    href='#'
                     onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
@@ -66,7 +66,7 @@ const PaginationItems: FC<Props> = (props) => {
             <li key={pageCount}>
                 <a
                     css={styles.item}
-                    href='packages/shared-ui/src/components/Layout/Footer/Pagination/PaginationItems#'
+                    href='#'
                     onClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()

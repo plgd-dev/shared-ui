@@ -189,7 +189,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
     const handleTabChange = useCallback((i: number) => {
         setActiveTabItem(i)
 
-        navigate(`${detailLinkPrefix}/devices/${id}${i === 1 ? '/resources' : ''}`, { replace: true })
+        navigate(`${detailLinkPrefix || ''}/devices/${id}${i === 1 ? '/resources' : '/'}`, { replace: true })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -237,7 +237,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                 certificateAuthorities: cleanUpOnboardData(onboardingData.certificateAuthorities || ''),
                 redirectUri: `${window.location.origin}/devices`,
             })
-                .then((r) => {
+                .then(() => {
                     setOnboarding(false)
                     refetchDeviceOnboardingData()
                 })

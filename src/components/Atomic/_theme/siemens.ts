@@ -234,6 +234,22 @@ const theme = {
                 color: colorsSiemens.primary,
             },
         },
+        FloatingPanel: {
+            Content: {
+                background: colorsSiemens.neutral900,
+                borderColor: colorsSiemens.neutral800,
+                Headline: {
+                    borderColor: colors.neutral700,
+                    color: colorsSiemens.primary,
+                },
+            },
+            Icon: {
+                color: colors.neutral500,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
+            },
+        },
         Footer: {
             borderTop: colorsSiemens.neutral800,
             background: colorsSiemens.neutral900,
@@ -382,8 +398,10 @@ const theme = {
         Pagination: {
             item: {
                 active: {
+                    background: colorsSiemens.neutral900,
+                    color: '#fff',
                     hover: {
-                        color: colors.neutral900,
+                        color: '#fff',
                     },
                 },
                 hover: {

@@ -21,7 +21,7 @@ const Pagination: FC<Props> = (props) => {
             <li>
                 <a
                     css={[styles.item, !canPreviousPage && styles.disabled]}
-                    href='packages/shared-ui/src/components/Layout/Footer/Pagination#'
+                    href='#'
                     onClick={(e) => {
                         e.stopPropagation()
                         e.preventDefault()
@@ -35,7 +35,7 @@ const Pagination: FC<Props> = (props) => {
             <li>
                 <a
                     css={[styles.item, !canNextPage && styles.disabled]}
-                    href='packages/shared-ui/src/components/Layout/Footer/Pagination#'
+                    href='#'
                     onClick={(e) => {
                         e.stopPropagation()
                         e.preventDefault()

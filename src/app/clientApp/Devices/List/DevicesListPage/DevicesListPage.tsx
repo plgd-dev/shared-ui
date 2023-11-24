@@ -24,9 +24,11 @@ import Tab2 from './Tabs/Tab2'
 import { remoteClientStatuses } from '../../../RemoteClients/constants'
 import AppContext from '../../../../share/AppContext'
 import { Tab1RefType } from './Tabs/Tab1.types'
+import FooterVersion from '../../FooterVersion/FooterVersion'
+
 import { deleteDevicesApi } from '../../rest'
 
-const DevicesListPage: FC<Props> = (props) => {
+export const DevicesListPage: FC<Props> = (props) => {
     const {
         detailLinkPrefix,
         breadcrumbs: breadcrumbsProp,
@@ -57,11 +59,11 @@ const DevicesListPage: FC<Props> = (props) => {
     const [unselectRowsToken, setUnselectRowsToken] = useState(0)
     const isReachable = useMemo(() => {
         if (!isHub) {
-            return true
+            return !initializedByAnother
         }
 
         return clientData?.status === remoteClientStatuses.REACHABLE
-    }, [clientData?.status, isHub])
+    }, [clientData?.status, initializedByAnother, isHub])
 
     useEffect(() => {
         setIsDomReady(true)
@@ -75,7 +77,7 @@ const DevicesListPage: FC<Props> = (props) => {
         (i: number) => {
             setActiveTabItem(i)
             const base = isHub ? `/remote-clients/${clientData?.id}` : ''
-            navigate(`${base}${i === 1 ? '/configuration' : ''}`, { replace: true })
+            navigate(`${base}${i === 1 ? '/configuration' : '/'}`, { replace: true })
         },
         [clientData?.id, isHub, navigate]
     )
@@ -153,16 +155,22 @@ const DevicesListPage: FC<Props> = (props) => {
     const breadcrumbs = useMemo(() => breadcrumbsProp ?? [{ label: _(menuT.devices), link: '/' }], [breadcrumbsProp])
 
     useEffect(() => {
-        if (activeTabItem === 0 && (!isReachable || (initializedByAnother && isHub) || reInitializationError)) {
+        if (activeTabItem === 0 && (!isReachable || initializedByAnother || reInitializationError)) {
             setTimeout(() => {
                 handleTabChange(1)
             }, 0)
         }
-    }, [isReachable, activeTabItem, handleTabChange, initializedByAnother, isHub, reInitializationError])
+    }, [isReachable, activeTabItem, handleTabChange, initializedByAnother, reInitializationError])
 
     return (
         <PageLayout
-            footer={<Footer footerExpanded={false} paginationComponent={<div id='paginationPortalTarget'></div>} />}
+            footer={
+                <Footer
+                    contentLeft={isHub ? undefined : <FooterVersion />}
+                    footerExpanded={false}
+                    paginationComponent={<div id='paginationPortalTarget'></div>}
+                />
+            }
             header={
                 <DevicesListHeader
                     handleFlushDevices={handleFlushDevices}
@@ -201,9 +209,7 @@ const DevicesListPage: FC<Props> = (props) => {
                                     setOwning={setOwning}
                                     setShowDpsModal={setShowDpsModal}
                                     unselectRowsToken={unselectRowsToken}
-                                    useDevicesList={
-                                        !reInitializationError && !loadingProp && activeTabItem === 0 && clientData?.status === remoteClientStatuses.REACHABLE
-                                    }
+                                    useDevicesList={!reInitializationError && !loadingProp && activeTabItem === 0 && isReachable}
                                 />
                             ) : (
                                 <div />

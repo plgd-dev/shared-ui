@@ -21,6 +21,11 @@ export const hasDifferentOwner = (wellKnownConfig = getWellKnowConfig(), clientD
         }
     } else if (wellKnownConfig?.deviceAuthenticationMode === DEVICE_AUTH_MODE.X509) {
         const accessToken = security.getAccessToken()
+
+        if (!accessToken) {
+            return true
+        }
+
         const parsedData = jwtDecode(accessToken)
         const ownerId = get(parsedData, wellKnownConfig?.remoteProvisioning?.jwtOwnerClaim as string, '')
 

@@ -65,23 +65,36 @@ export const WellKnownConfigurationState = {
     MERGED: 'MERGED',
 }
 
-export const mergeConfig = (configOrigin: RemoteProvisioningDataType, configNew: RemoteProvisioningDataType) => {
+export const mergeConfig = (configOrigin: WellKnownConfigType, userWellKnowConfig: any): any => {
     const finalObject = cloneDeep(configOrigin)
-    Object.keys(configNew).forEach((key) => {
-        if (configOrigin.hasOwnProperty(key)) {
-            // @ts-ignore
-            finalObject[key] = configNew[key]
-        }
-    })
 
-    return finalObject
+    if (!userWellKnowConfig) {
+        return configOrigin
+    }
+
+    return {
+        ...finalObject,
+        remoteProvisioning: {
+            ...finalObject.remoteProvisioning,
+            webOauthClient: {
+                ...finalObject.remoteProvisioning?.webOauthClient,
+                audience: userWellKnowConfig.audience ?? finalObject?.remoteProvisioning?.webOauthClient?.audience,
+                clientId: userWellKnowConfig.clientId ?? finalObject?.remoteProvisioning?.webOauthClient?.clientId,
+                scopes: userWellKnowConfig.scopes ?? finalObject?.remoteProvisioning?.webOauthClient?.scopes,
+            },
+            authority: userWellKnowConfig.authority ?? finalObject?.remoteProvisioning?.authority,
+        },
+        deviceAuthenticationMode: userWellKnowConfig.deviceAuthenticationMode ?? finalObject.deviceAuthenticationMode,
+        preSharedKey: userWellKnowConfig.preSharedKey ?? undefined,
+        owner: userWellKnowConfig.preSharedSubjectId ?? finalObject.owner,
+    }
 }
 
 export type OptionsType = {
     defaultRemoteProvisioningData?: RemoteProvisioningDataType
     onConfigurationChange?: (newConfig: WellKnownConfigType) => void
     onError?: (e: any) => void
-    onSuccess?: () => void
+    onSuccess?: (newConfig: WellKnownConfigType) => void
 }
 
 export function useWellKnownConfiguration(url: string, options?: OptionsType): useWellKnownConfigurationReturnType {
@@ -97,13 +110,12 @@ export function useWellKnownConfiguration(url: string, options?: OptionsType): u
                 let data = result.data
 
                 if (defaultRemoteProvisioningData) {
-                    // data.remoteProvisioning = mergeConfig(data.remoteProvisioning, defaultRemoteProvisioningData)
                     data.remoteProvisioning = mergeWith(data.remoteProvisioning, defaultRemoteProvisioningData)
                 }
 
                 setWellKnownConfig(data)
 
-                isFunction(onSuccess) && onSuccess()
+                isFunction(onSuccess) && onSuccess(data)
 
                 return data
             })

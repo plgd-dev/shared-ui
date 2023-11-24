@@ -6,7 +6,11 @@ export type Props = {
 }
 
 export type Inputs = {
+    audience?: { value: string; label: string }
     authenticationMode: { value: string; label: string }
+    authority?: string
+    clientId?: string
     preSharedSubjectId?: string
     preSharedKey?: string
+    scopes?: string
 }

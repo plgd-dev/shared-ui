@@ -9,6 +9,14 @@ export const messages = defineMessages({
         id: 'devices.configuration',
         defaultMessage: 'Configuration',
     },
+    yes: {
+        id: 'remoteClients.yes',
+        defaultMessage: 'Yes',
+    },
+    no: {
+        id: 'remoteClients.no',
+        defaultMessage: 'No',
+    },
     deviceAuthenticationMode: {
         id: 'devices.deviceAuthenticationMode',
         defaultMessage: 'Device Authentication Mode',
@@ -28,6 +36,26 @@ export const messages = defineMessages({
     preSharedSubjectIdError: {
         id: 'remoteClients.preSharedSubjectIdError',
         defaultMessage: 'SharedSubjectIdError error message',
+    },
+    preSharedKeyError: {
+        id: 'remoteClients.preSharedKeyError',
+        defaultMessage: 'preSharedKeyError error message',
+    },
+    authority: {
+        id: 'remoteClients.authority',
+        defaultMessage: 'Authority',
+    },
+    scopes: {
+        id: 'remoteClients.scopes',
+        defaultMessage: 'Scopes',
+    },
+    audience: {
+        id: 'remoteClients.audience',
+        defaultMessage: 'Audience',
+    },
+    clientId: {
+        id: 'remoteClients.clientId',
+        defaultMessage: 'Client Id',
     },
     changesMade: {
         id: 'remoteClients.changesMade',

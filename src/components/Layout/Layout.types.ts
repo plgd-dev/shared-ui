@@ -4,5 +4,5 @@ export type Props = {
     content: ReactNode
     header: ReactNode
     isIframeMode?: boolean
-    leftPanel: ReactNode
+    leftPanel?: ReactNode
 }

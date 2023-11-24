@@ -11,6 +11,7 @@ export type AppContextType = {
     setFooterExpanded?: (expand: boolean) => void
     telemetryWebTracer?: any
     updateRemoteClient?: (data: any) => AnyAction
+    updateAppWellKnownConfig?: (data: any) => AnyAction
     unauthorizedCallback?: () => void
     useToken?: boolean
 }

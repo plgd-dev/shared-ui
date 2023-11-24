@@ -64,7 +64,6 @@ export const iconError = (theme: ThemeType) => css`
 `
 
 export const icon = (theme: ThemeType) => css`
-    cursor: pointer;
     flex: 0 0 24px;
     color: ${get(theme, 'Alert.icon.color')};
 `
@@ -79,4 +78,5 @@ export const iconClose = (theme: ThemeType) => css`
     width: 32px;
     padding-left: 12px;
     color: ${get(theme, 'Alert.close.color')};
+    cursor: pointer;
 `

@@ -7,7 +7,7 @@ import * as styles from './Footer.styles'
 import { IconArrowTriangleFullUp } from '../../Atomic/Icon'
 
 const Footer: FC<Props> = memo((props) => {
-    const { paginationComponent, recentTasksPortal, recentTasksPortalTitle, footerExpanded, setFooterExpanded } = props
+    const { paginationComponent, contentLeft, recentTasksPortal, recentTasksPortalTitle, footerExpanded, setFooterExpanded } = props
 
     const handleToggle = (e: any) => {
         e.preventDefault()
@@ -21,6 +21,8 @@ const Footer: FC<Props> = memo((props) => {
                     {recentTasksPortalTitle} <IconArrowTriangleFullUp css={[styles.icon, footerExpanded && styles.panelOpen]} />
                 </a>
             )
+        } else if (contentLeft) {
+            return <div>{contentLeft}</div>
         } else {
             return <div />
         }
