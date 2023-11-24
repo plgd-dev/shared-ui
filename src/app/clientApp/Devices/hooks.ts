@@ -259,6 +259,12 @@ export function useAppInitialization(settings: {
     const [initialize, setInitialize] = useState(wellKnownConfig.isInitialized)
 
     useEffect(() => {
+        if (wellKnownConfig.isInitialized !== initialize) {
+            setInitialize(wellKnownConfig.isInitialized)
+        }
+    }, [wellKnownConfig.isInitialized])
+
+    useEffect(() => {
         if (wellKnownConfig && !wellKnownConfig.isInitialized && clientData && !initializationLoading && !loading) {
             if (clientData?.authenticationMode === DEVICE_AUTH_MODE.X509) {
                 try {

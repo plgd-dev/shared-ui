@@ -58,20 +58,20 @@ const TagGroup: FC<Props> = (props) => {
     )
 
     const calculate = useCallback(() => {
-        const parentWidth = parent.current?.clientWidth ?? 0
+        const parentWidth = parent?.current?.clientWidth ?? 0
         let totalChildWidth = 2
         const childArray: number[] = []
 
         tags.current.forEach((tag: any, key: number) => {
-            totalChildWidth += tag.clientWidth
+            totalChildWidth += tag?.clientWidth
             if (key !== 0) {
                 totalChildWidth += 4
             }
-            childArray.push(tag.clientWidth + 4)
+            childArray.push(tag?.clientWidth + 4)
         })
 
         if (totalChildWidth > parentWidth) {
-            let currentWidth = moreTags.current?.clientWidth ?? 0
+            let currentWidth = moreTags?.current?.clientWidth ?? 0
             let numbersToRender = 0
             let findingIsOver = false
 
@@ -118,7 +118,7 @@ const TagGroup: FC<Props> = (props) => {
                 </div>
             </div>
 
-            {tagsToDisplay && <Inner />}
+            {tagsToDisplay > 0 && <Inner />}
 
             <Modal
                 appRoot={document.getElementById('root')}
