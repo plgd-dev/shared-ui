@@ -156,6 +156,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
             setOwning(false)
         }
     }
+    console.log('TOTO')
 
     const columns = useMemo(
         () => [
@@ -170,12 +171,12 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
                         </Link>
                     )
                 },
-                style: { width: '100%' },
+                style: { width: '100%', maxWidth: '300px' },
             },
             {
                 Header: 'Types',
                 accessor: 'types',
-                style: { maxWidth: '350px', width: '100%' },
+                style: { maxWidth: '300px', width: '150px', minWidth: '150px' },
                 Cell: ({ value }: { value: any }) => {
                     if (!value) {
                         return null
@@ -199,7 +200,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
             {
                 Header: 'ID',
                 accessor: 'id',
-                style: { maxWidth: '350px', width: '100%' },
+                style: { maxWidth: '350px', minWidth: '200px' },
                 Cell: ({ value }: { value: any }) => {
                     return <span className='no-wrap-text'>{value}</span>
                 },
@@ -207,7 +208,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
             {
                 Header: _(t.ownershipStatus),
                 accessor: 'ownershipStatus',
-                style: { width: '250px' },
+                style: { width: '150px' },
                 Cell: ({ value }: { value: any }) => {
                     const isOwned = OWNED === value
 
@@ -267,7 +268,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
     const dataToDisplay = data || []
 
     return (
-        <div style={{ height: '100%', display: 'flex' }}>
+        <div style={{ height: '100%', display: 'flex', width: '100%' }}>
             <DevicesList
                 collapsed={collapsed ?? false}
                 columns={columns}

@@ -36,6 +36,7 @@ const DevicesList: FC<Props> = (props) => {
             ref={ref}
             style={{
                 height: '100%',
+                width: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 overflow: 'hidden',
