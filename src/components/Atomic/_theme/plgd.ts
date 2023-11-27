@@ -4,7 +4,7 @@ const theme = {
     colors: {
         ActionButton: {
             floatingMenu: {
-                background: '#fff',
+                background: colors.neutral000,
                 borderColor: colors.neutral200,
             },
             item: {
@@ -23,8 +23,8 @@ const theme = {
             },
         },
         Alert: {
-            background: '#fff',
-            borderColor: '#e6e9ed',
+            background: colors.neutral000,
+            borderColor: colors.neutral200,
             close: {
                 color: colors.neutral500,
             },
@@ -133,7 +133,7 @@ const theme = {
             },
         },
         Content: {
-            background: '#fff',
+            background: colors.neutral000,
         },
         CopyElement: {
             background: colors.neutral100,
@@ -142,7 +142,7 @@ const theme = {
             },
         },
         Checkbox: {
-            borderColor: '#d7d8da',
+            borderColor: colors.neutral300,
             background: colors.primary,
             input: {
                 borderColor: colors.primary,
@@ -154,7 +154,7 @@ const theme = {
         DeleteModal: {
             red: colors.red,
             body: {
-                background: '#f4f9fb',
+                background: colors.light,
             },
             title: {
                 color: colors.primaryDarken,
@@ -166,7 +166,7 @@ const theme = {
                 borderColor: colors.neutral200,
             },
             deleteIconInner: {
-                color: '#fff',
+                color: colors.neutral000,
             },
             subTitle: {
                 color: colors.neutral800,
@@ -179,12 +179,12 @@ const theme = {
             color: colors.primaryDarken,
         },
         Editor: {
-            borderColor: '#e6e9ed',
+            borderColor: colors.neutral200,
             scroller: {
-                background: '#f4f9fb',
+                background: colors.light,
             },
             gutter: {
-                background: '#e6e9ed',
+                background: colors.neutral200,
             },
             gutterActiveLine: {
                 background: undefined,
@@ -193,7 +193,7 @@ const theme = {
                 background: undefined,
             },
             fullSizeBtn: {
-                background: '#fff',
+                background: colors.neutral000,
             },
             hover: {
                 color: colors.primary,
@@ -201,8 +201,8 @@ const theme = {
         },
         FloatingPanel: {
             Content: {
-                background: '#fff',
-                borderColor: '#e6e9ed',
+                background: colors.neutral000,
+                borderColor: colors.neutral200,
                 Headline: {
                     borderColor: colors.neutral200,
                     color: colors.primaryDarken,
@@ -216,8 +216,8 @@ const theme = {
             },
         },
         Footer: {
-            borderTop: '#e6e9ed',
-            background: '#fff',
+            borderTop: colors.neutral200,
+            background: colors.neutral000,
             recentTasks: {
                 color: colors.neutral900,
                 hover: {
@@ -229,9 +229,9 @@ const theme = {
             },
         },
         FormInput: {
-            borderColor: '#e6e9ed',
+            borderColor: colors.neutral200,
             background: undefined,
-            color: '#252626',
+            color: colors.neutral800,
             error: {
                 red: colors.red,
             },
@@ -239,12 +239,12 @@ const theme = {
                 borderColor: colors.primary,
             },
             disabled: {
-                background: '#f6f7f9',
-                color: '#757676',
-                borderColor: '#e6e9ed',
+                background: colors.neutral100,
+                color: colors.neutral600,
+                borderColor: colors.neutral200,
             },
             readonly: {
-                color: '#757676',
+                color: colors.neutral600,
             },
         },
         FormSelect: {
@@ -284,14 +284,14 @@ const theme = {
             },
         },
         Header: {
-            background: '#fff',
-            borderBottom: '#e6e9ed',
+            background: colors.neutral000,
+            borderBottom: colors.neutral200,
         },
         Headline: {
             color: colors.neutral900,
         },
         Layout: {
-            background: '#fff',
+            background: colors.neutral000,
         },
         LeftPanel: {
             background: colors.light,
@@ -313,10 +313,10 @@ const theme = {
                     color: colors.neutral800,
                 },
                 active: {
-                    color: '#0a2965',
+                    color: colors.primaryDarken,
                 },
                 disabled: {
-                    color: '#d0d0d0',
+                    color: colors.neutral300,
                 },
             },
             versionItem: {
@@ -329,16 +329,16 @@ const theme = {
             },
         },
         Modal: {
-            background: '#fff',
+            background: colors.neutral000,
             header: {
-                borderColor: '#e6e9ed',
-                color: '#0a2965',
+                borderColor: colors.neutral200,
+                color: colors.primaryDarken,
             },
             content: {
-                background: '#fff',
+                background: colors.neutral000,
             },
             footer: {
-                background: '#fff',
+                background: colors.neutral000,
             },
             close: {
                 hover: {
@@ -356,13 +356,13 @@ const theme = {
         },
         NotFound: {
             title: {
-                color: '#0a2965',
+                color: colors.primaryDarken,
             },
         },
         NotificationCenter: {
             floatingPanel: {
-                background: '#fff',
-                borderColor: '#e6e9ed',
+                background: colors.neutral000,
+                borderColor: colors.neutral200,
             },
             Headline: {
                 borderColor: colors.neutral200,
@@ -373,8 +373,13 @@ const theme = {
                 color: colors.primary,
             },
             Bell: {
+                color: colors.neutral500,
+                hover: {
+                    color: colors.primary,
+                },
                 hasUnRead: {
-                    borderColor: '#fff',
+                    borderColor: colors.neutral000,
+                    background: colors.red,
                 },
             },
             InnerToast: {
@@ -383,7 +388,7 @@ const theme = {
                     color: colors.primaryDarken,
                 },
                 unreadMark: {
-                    borderColor: '#fff',
+                    borderColor: colors.neutral000,
                 },
             },
             info: colors.primary,
@@ -393,13 +398,13 @@ const theme = {
         },
         PageLayout: {
             headline: {
-                color: '#0a2965',
+                color: colors.primaryDarken,
             },
         },
         Pagination: {
             item: {
                 active: {
-                    background: '#f6f7f9',
+                    background: colors.neutral100,
                     color: colors.neutral900,
                     hover: {
                         color: colors.neutral900,
@@ -412,7 +417,7 @@ const theme = {
         },
         ProvisionDeviceModal: {
             getCodeBox: {
-                background: '#f4f9fb',
+                background: colors.light,
             },
             title: {
                 color: colors.primaryDarken,
@@ -440,7 +445,7 @@ const theme = {
         },
         SimpleStripTable: {
             row: {
-                background: '#fff',
+                background: colors.neutral000,
                 hover: {
                     background: colors.tertiary,
                 },
@@ -454,8 +459,8 @@ const theme = {
         },
         SplitButton: {
             floatingMenu: {
-                background: '#fff',
-                borderColor: '#e6e9ed',
+                background: colors.neutral000,
+                borderColor: colors.neutral200,
             },
             item: {
                 hover: {
@@ -485,11 +490,11 @@ const theme = {
             },
             normal: {
                 color: colors.neutral500,
-                background: '#f6f7f9',
+                background: colors.neutral100,
             },
         },
         Switch: {
-            background: '#ccc',
+            background: colors.neutral300,
             label: {
                 color: colors.neutral800,
             },
@@ -502,7 +507,7 @@ const theme = {
         },
         Table: {
             headerItem: {
-                background: '#f6f7f9',
+                background: colors.neutral100,
                 hover: {
                     color: colors.neutral800,
                 },
@@ -538,7 +543,7 @@ const theme = {
         TableActions: {
             icon: {
                 hover: {
-                    color: '#007bbf',
+                    color: colors.primaryBonus,
                 },
             },
         },
@@ -548,9 +553,9 @@ const theme = {
             },
         },
         TableSelectionPanel: {
-            background: '#fff',
+            background: colors.neutral000,
             selectionInfo: {
-                color: '#0a2965',
+                color: colors.primaryDarken,
             },
         },
         Tabs: {
@@ -575,7 +580,7 @@ const theme = {
         Tag: {
             background: colors.neutral100,
             white: {
-                background: '#fff',
+                background: colors.neutral000,
                 borderColor: 'transparent',
             },
             blue: {
@@ -591,7 +596,7 @@ const theme = {
             },
         },
         Toast: {
-            background: '#fff',
+            background: colors.neutral000,
             borderColor: colors.neutral200,
         },
         TreeExpander: {
@@ -608,8 +613,8 @@ const theme = {
             row: {
                 hover: {
                     customTag: {
-                        background: '#fff',
-                        color: '#1a1a1a',
+                        background: colors.neutral000,
+                        color: colors.neutral900,
                     },
                 },
             },
@@ -619,35 +624,35 @@ const theme = {
             removeBottomBorderRadius: {
                 backgroundColor: colors.neutral100,
                 customTag: {
-                    background: '#fff',
-                    color: '#81868D',
+                    background: colors.neutral000,
+                    color: colors.neutral500,
                 },
             },
             removeTopBorderRadius: {
                 backgroundColor: colors.neutral100,
                 customTag: {
-                    background: '#fff',
-                    color: '#81868D',
+                    background: colors.neutral000,
+                    color: colors.neutral500,
                 },
             },
             removeBorderRadius: {
                 backgroundColor: colors.neutral100,
                 customTag: {
-                    background: '#fff',
-                    color: '#81868D',
+                    background: colors.neutral000,
+                    color: colors.neutral500,
                 },
             },
         },
         UserWidget: {
             description: {
-                color: '#00002d',
+                color: colors.neutral900,
             },
             name: {
-                color: '#0a2965',
+                color: colors.primaryDarken,
             },
             floatingMenu: {
-                background: '#fff',
-                border: '#e6e9ed',
+                background: colors.neutral000,
+                border: colors.neutral200,
                 item: {
                     hover: {
                         color: colors.primary,

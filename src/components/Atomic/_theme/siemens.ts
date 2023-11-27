@@ -372,8 +372,13 @@ const theme = {
                 color: colorsSiemens.primary,
             },
             Bell: {
+                color: colors.neutral500,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
                 hasUnRead: {
                     borderColor: colorsSiemens.neutral800,
+                    background: colorsSiemens.red,
                 },
             },
             InnerToast: {
