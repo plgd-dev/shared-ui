@@ -243,7 +243,7 @@ export function useOnboardingButton({ resources, isOwned, deviceId, isUnsupporte
 }
 
 type ClientDataType = {
-    authenticationMode: string
+    deviceAuthenticationMode: string
     preSharedSubjectId?: string
     preSharedKey?: string
 }
@@ -266,7 +266,7 @@ export function useAppInitialization(settings: {
 
     useEffect(() => {
         if (wellKnownConfig && !wellKnownConfig.isInitialized && clientData && !initializationLoading && !loading) {
-            if (clientData?.authenticationMode === DEVICE_AUTH_MODE.X509) {
+            if (clientData?.deviceAuthenticationMode === DEVICE_AUTH_MODE.X509) {
                 try {
                     setInitializationLoading(true)
                     getOpenIdConfiguration(wellKnownConfig.remoteProvisioning?.authority!).then((result) => {
@@ -291,7 +291,7 @@ export function useAppInitialization(settings: {
                     setInitializationLoading(false)
                     isFunction(onError) && onError(e as string)
                 }
-            } else if (clientData?.authenticationMode === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
+            } else if (clientData?.deviceAuthenticationMode === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
                 if (clientData?.preSharedSubjectId && clientData?.preSharedKey) {
                     try {
                         initializedByPreShared(clientData?.preSharedSubjectId, clientData?.preSharedKey).then((r) => {
@@ -316,7 +316,7 @@ export function useAppInitialization(settings: {
         setInitialize,
         loading,
         initializationLoading,
-        clientData?.authenticationMode,
+        clientData?.deviceAuthenticationMode,
         clientData?.preSharedSubjectId,
         clientData?.preSharedKey,
     ])

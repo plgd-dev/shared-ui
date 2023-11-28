@@ -30,7 +30,7 @@ interface RowsType {
 }
 
 const IGNORE_X509 = ['preSharedKey', 'preSharedSubjectId']
-const IGNORE_PRE_SHARED_KEY = ['audience', 'authority', 'clientId', 'scope']
+const IGNORE_PRE_SHARED_KEY = ['audience', 'authority', 'clientId', 'scopes']
 
 const Tab2: FC<Props> = (props) => {
     const { clientData, initializedByAnother } = props
