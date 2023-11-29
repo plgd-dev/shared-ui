@@ -9,6 +9,7 @@ export type AppContextType = {
     isHub: boolean
     setCollapsed?: (collapsed: boolean) => void
     setFooterExpanded?: (expand: boolean) => void
+    setInitialize?: (initialize: boolean) => void
     telemetryWebTracer?: any
     updateRemoteClient?: (data: any) => AnyAction
     updateAppWellKnownConfig?: (data: any) => AnyAction

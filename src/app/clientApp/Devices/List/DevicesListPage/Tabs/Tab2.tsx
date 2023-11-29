@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext, useEffect, useMemo } from 'react'
+import React, { FC, ReactNode, useCallback, useContext, useEffect, useMemo } from 'react'
 import { useIntl } from 'react-intl'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import ReactDOM from 'react-dom'
@@ -9,6 +9,7 @@ import omit from 'lodash/omit'
 import { Props, Inputs } from './Tab2.types'
 import SimpleStripTable from '../../../../../../components/Atomic/SimpleStripTable'
 import { messages as t } from '../../../../RemoteClients/RemoteClients.i18n'
+import { messages as d } from '../../../Devices.i18n'
 import FormSelect, { selectAligns } from '../../../../../../components/Atomic/FormSelect'
 import { DEVICE_AUTH_MODE } from '../../../../constants'
 import FormInput, { inputAligns } from '../../../../../../components/Atomic/FormInput'
@@ -23,6 +24,7 @@ import * as styles from '../../../../../../components/Atomic/Modal/components/Pr
 import Alert, { severities } from '../../../../../../components/Atomic/Alert'
 import { remoteClientStatuses } from '../../../../RemoteClients/constants'
 import { security } from '../../../../../../common/services'
+import { reset as resetApp } from '../../../../App/AppRest'
 
 interface RowsType {
     attribute: string
@@ -30,13 +32,13 @@ interface RowsType {
 }
 
 const IGNORE_X509 = ['preSharedKey', 'preSharedSubjectId']
-const IGNORE_PRE_SHARED_KEY = ['audience', 'authority', 'clientId', 'scopes']
+const IGNORE_PRE_SHARED_KEY = ['audience', 'authority', 'clientId', 'scopes', 'certificateAuthority']
 
 const Tab2: FC<Props> = (props) => {
-    const { clientData, initializedByAnother } = props
+    const { clientData, initializedByAnother, setLoading } = props
     const { formatMessage: _ } = useIntl()
     const isMounted = useIsMounted()
-    const { isHub, updateRemoteClient, updateAppWellKnownConfig } = useContext(AppContext)
+    const { isHub, updateRemoteClient, updateAppWellKnownConfig, setInitialize } = useContext(AppContext)
     const dispatch = useDispatch()
     const wellKnownConfig = security.getWellKnowConfig()
     const appStore = useSelector((state: any) => state.app)
@@ -72,21 +74,23 @@ const Tab2: FC<Props> = (props) => {
                 preSharedSubjectId: mergedWellKnownConfig?.owner,
                 preSharedKey: mergedWellKnownConfig?.preSharedKey,
                 scopes: mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.scopes || '',
+                certificateAuthority: mergedWellKnownConfig?.remoteProvisioning?.certificateAuthority || '',
             }
         }
     }, [
-        clientData?.authenticationMode,
-        clientData?.preSharedKey,
-        clientData?.preSharedSubjectId,
         isHub,
-        optionsBool,
-        mergedWellKnownConfig?.deviceAuthenticationMode,
-        mergedWellKnownConfig?.owner,
-        mergedWellKnownConfig?.preSharedKey,
-        mergedWellKnownConfig?.remoteProvisioning?.authority,
+        clientData?.authenticationMode,
+        clientData?.preSharedSubjectId,
+        clientData?.preSharedKey,
         mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.audience,
         mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.clientId,
         mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.scopes,
+        mergedWellKnownConfig?.remoteProvisioning?.authority,
+        mergedWellKnownConfig?.remoteProvisioning?.certificateAuthority,
+        mergedWellKnownConfig?.deviceAuthenticationMode,
+        mergedWellKnownConfig?.owner,
+        mergedWellKnownConfig?.preSharedKey,
+        optionsBool,
     ])
 
     const options = useMemo(
@@ -125,9 +129,19 @@ const Tab2: FC<Props> = (props) => {
 
     const authMode = watch('authenticationMode')
 
-    useEffect(() => {
-        trigger().then()
+    const getIgnoredFields = useCallback((authValue: string) => {
+        let ignoredValues = ['authenticationMode']
 
+        if (authValue === DEVICE_AUTH_MODE.X509) {
+            ignoredValues = ignoredValues.concat(IGNORE_X509)
+        } else if (authValue === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
+            ignoredValues = ignoredValues.concat(IGNORE_PRE_SHARED_KEY)
+        }
+
+        return ignoredValues
+    }, [])
+
+    useEffect(() => {
         if (authMode?.value === DEVICE_AUTH_MODE.X509) {
             // @ts-ignore
             IGNORE_X509.forEach((field) => setValue(field, ''))
@@ -135,6 +149,12 @@ const Tab2: FC<Props> = (props) => {
             // @ts-ignore
             IGNORE_PRE_SHARED_KEY.forEach((field) => setValue(field, ''))
         }
+
+        if (defaultData.authenticationMode === authMode?.value) {
+            // @ts-ignore
+            Object.keys(omit(defaultData, getIgnoredFields(defaultData.authenticationMode))).forEach((field) => setValue(field, defaultData[field]))
+        }
+        trigger().then()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [authMode])
@@ -260,11 +280,22 @@ const Tab2: FC<Props> = (props) => {
                         {...register('clientId', { required: true, validate: (val) => val !== '' })}
                     />
                 ),
+            },
+            {
+                attribute: _(t.certificateAuthority),
+                value: (
+                    <FormInput
+                        inlineStyle
+                        align={inputAligns.RIGHT}
+                        placeholder={_(t.certificateAuthority)}
+                        {...register('certificateAuthority', { required: true, validate: (val) => val !== '' })}
+                    />
+                ),
             }
         )
     }
 
-    const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const onSubmit: SubmitHandler<Inputs> = () => {
         const values = getValues()
 
         if (isHub) {
@@ -272,31 +303,34 @@ const Tab2: FC<Props> = (props) => {
             values.authenticationMode = values.authenticationMode.value as any
 
             // remote client is in local browser store -> update config
-            isFunction(updateRemoteClient) && dispatch(updateRemoteClient({ ...values, id: clientData?.id }))
+            if (isFunction(updateRemoteClient)) {
+                dispatch(updateRemoteClient({ ...values, id: clientData?.id }))
+                Notification.success({ title: _(t.clientsUpdated), message: _(t.clientsUpdatedMessage) })
+            }
         } else {
             if (values.audience !== undefined) {
                 values.audience = values.audience?.value as any
             }
 
-            let ignoredValues = ['authenticationMode']
+            isFunction(setLoading) && setLoading(true)
 
-            if (values.authenticationMode.value === DEVICE_AUTH_MODE.X509) {
-                ignoredValues = ignoredValues.concat(IGNORE_X509)
-            } else if (values.authenticationMode.value === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
-                ignoredValues = ignoredValues.concat(IGNORE_PRE_SHARED_KEY)
-            }
+            resetApp()
+                .then(() => isFunction(setInitialize) && setInitialize(false))
+                .catch(() => console.log('error'))
+                .finally(() => {
+                    isFunction(setLoading) && setLoading(false)
+                    // authenticationMode -> deviceAuthenticationMode
+                    isFunction(updateAppWellKnownConfig) &&
+                        dispatch(
+                            updateAppWellKnownConfig({
+                                ...omit(values, getIgnoredFields(values.authenticationMode.value)),
+                                deviceAuthenticationMode: values.authenticationMode.value,
+                            })
+                        )
 
-            // authenticationMode -> deviceAuthenticationMode
-            isFunction(updateAppWellKnownConfig) &&
-                dispatch(
-                    updateAppWellKnownConfig({
-                        ...omit(values, ignoredValues),
-                        deviceAuthenticationMode: values.authenticationMode.value,
-                    })
-                )
+                    Notification.success({ title: _(d.configurationUpdate), message: _(d.configurationUpdateMessage) })
+                })
         }
-
-        Notification.success({ title: _(t.clientsUpdated), message: _(t.clientsUpdatedMessage) })
     }
 
     return (

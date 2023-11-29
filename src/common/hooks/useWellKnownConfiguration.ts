@@ -83,6 +83,7 @@ export const mergeConfig = (configOrigin: WellKnownConfigType, userWellKnowConfi
                 scopes: userWellKnowConfig.scopes ?? finalObject?.remoteProvisioning?.webOauthClient?.scopes,
             },
             authority: userWellKnowConfig.authority ?? finalObject?.remoteProvisioning?.authority,
+            certificateAuthority: userWellKnowConfig.certificateAuthority ?? finalObject?.remoteProvisioning?.certificateAuthority,
         },
         deviceAuthenticationMode: userWellKnowConfig.deviceAuthenticationMode ?? finalObject.deviceAuthenticationMode,
         preSharedKey: userWellKnowConfig.preSharedKey ?? undefined,

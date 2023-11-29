@@ -557,6 +557,14 @@ export const messages = defineMessages({
         id: 'devices.deviceProvisioningServiceEndpoint',
         defaultMessage: 'Device Provisioning Service Endpoint',
     },
+    configurationUpdate: {
+        id: 'devices.configurationUpdate',
+        defaultMessage: 'Configuration updated',
+    },
+    configurationUpdateMessage: {
+        id: 'devices.configurationUpdateMessage',
+        defaultMessage: 'Configuration was successfully updated.',
+    },
     dpsStatus: {
         id: 'devices.dpsStatus',
         defaultMessage: 'DPS status',

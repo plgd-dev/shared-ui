@@ -219,7 +219,7 @@ export const DevicesListPage: FC<Props> = (props) => {
                     {
                         name: _(t.configuration),
                         id: 1,
-                        content: <Tab2 clientData={clientData} initializedByAnother={initializedByAnother || reInitializationError} />,
+                        content: <Tab2 clientData={clientData} initializedByAnother={initializedByAnother || reInitializationError} setLoading={setLoading} />,
                     },
                 ]}
             />

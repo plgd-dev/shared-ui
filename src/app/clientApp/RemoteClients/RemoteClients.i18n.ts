@@ -57,6 +57,10 @@ export const messages = defineMessages({
         id: 'remoteClients.clientId',
         defaultMessage: 'Client Id',
     },
+    certificateAuthority: {
+        id: 'remoteClients.certificateAuthority',
+        defaultMessage: 'Certificate Authority',
+    },
     changesMade: {
         id: 'remoteClients.changesMade',
         defaultMessage: 'Changes made',

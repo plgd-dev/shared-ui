@@ -11,7 +11,7 @@ import AppContext from '../../share/AppContext'
 import { getHttpGatewayAddress } from '../utils'
 import { streamApi } from '../../../common/services'
 import { DEVICE_AUTH_MODE } from '../constants'
-import { getJwksData, getOpenIdConfiguration, initializedByPreShared, initializeFinal, initializeJwksData, signIdentityCsr } from '../App/AppRest'
+import { getJwksData, getOpenIdConfiguration, initializedByPreShared, initializeFinal, initializeJwksData, reset, signIdentityCsr } from '../App/AppRest'
 import isFunction from 'lodash/isFunction'
 
 export type UseApiReturnType = {
@@ -253,19 +253,32 @@ export function useAppInitialization(settings: {
     loading: boolean
     clientData?: ClientDataType
     onError?: (e: string) => void
+    reInitialize?: boolean
+    changeInitialize?: (initializeState: boolean) => void
 }) {
-    const { wellKnownConfig, loading, clientData, onError } = settings
+    const { wellKnownConfig, loading, clientData, onError, reInitialize, changeInitialize } = settings
     const [initializationLoading, setInitializationLoading] = useState(false)
-    const [initialize, setInitialize] = useState(wellKnownConfig.isInitialized)
+    const [reInitializeLoading, setReInitializeLoading] = useState(false)
+    const [reInitializeError, setReInitializeError] = useState(false)
 
+    // reset
     useEffect(() => {
-        if (wellKnownConfig.isInitialized !== initialize) {
-            setInitialize(wellKnownConfig.isInitialized)
+        if (wellKnownConfig.isInitialized && reInitialize && !reInitializeLoading && !reInitializeError) {
+            setReInitializeLoading(true)
+            reset()
+                .then(() => {
+                    isFunction(changeInitialize) && changeInitialize(false)
+                })
+                .catch(() => {
+                    setReInitializeError(true)
+                })
+                .finally(() => setReInitializeLoading(false))
         }
-    }, [wellKnownConfig.isInitialized])
+    }, [changeInitialize, reInitialize, reInitializeError, reInitializeLoading, wellKnownConfig.isInitialized])
 
+    // initialize
     useEffect(() => {
-        if (wellKnownConfig && !wellKnownConfig.isInitialized && clientData && !initializationLoading && !loading) {
+        if (wellKnownConfig && !wellKnownConfig.isInitialized && clientData && !initializationLoading && !loading && !reInitializeLoading) {
             if (clientData?.deviceAuthenticationMode === DEVICE_AUTH_MODE.X509) {
                 try {
                     setInitializationLoading(true)
@@ -279,8 +292,8 @@ export function useAppInitialization(settings: {
                                     identityCertificateChallenge.certificateSigningRequest
                                 ).then((result) => {
                                     initializeFinal(identityCertificateChallenge.state, result.data.certificate).then(() => {
-                                        setInitialize(true)
                                         setInitializationLoading(false)
+                                        isFunction(changeInitialize) && changeInitialize(true)
                                     })
                                 })
                             })
@@ -296,8 +309,8 @@ export function useAppInitialization(settings: {
                     try {
                         initializedByPreShared(clientData?.preSharedSubjectId, clientData?.preSharedKey).then((r) => {
                             if (r.status === 200) {
-                                setInitialize(true)
                                 setInitializationLoading(false)
+                                isFunction(changeInitialize) && changeInitialize(true)
                             }
                         })
                     } catch (e) {
@@ -313,13 +326,15 @@ export function useAppInitialization(settings: {
     }, [
         wellKnownConfig,
         onError,
-        setInitialize,
         loading,
         initializationLoading,
         clientData?.deviceAuthenticationMode,
         clientData?.preSharedSubjectId,
         clientData?.preSharedKey,
+        clientData,
+        reInitializeLoading,
+        changeInitialize,
     ])
 
-    return [initialize, initializationLoading]
+    return [initializationLoading, reInitializeLoading, reInitializeError]
 }
