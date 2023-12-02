@@ -3,7 +3,7 @@ import { remoteClientStatuses } from './constants'
 export type RemoteClientStatusType = (typeof remoteClientStatuses)[keyof typeof remoteClientStatuses]
 
 export type RemoteClientType = {
-    authenticationMode: string
+    deviceAuthenticationMode: string
     clientName: string
     clientUrl: string
     created: string

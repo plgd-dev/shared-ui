@@ -61,7 +61,7 @@ const Tab2: FC<Props> = (props) => {
     const defaultData = useMemo(() => {
         if (isHub) {
             return {
-                authenticationMode: clientData?.authenticationMode,
+                authenticationMode: clientData?.deviceAuthenticationMode,
                 preSharedSubjectId: clientData?.preSharedSubjectId || '',
                 preSharedKey: clientData?.preSharedKey || '',
             }
@@ -79,7 +79,7 @@ const Tab2: FC<Props> = (props) => {
         }
     }, [
         isHub,
-        clientData?.authenticationMode,
+        clientData?.deviceAuthenticationMode,
         clientData?.preSharedSubjectId,
         clientData?.preSharedKey,
         mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.audience,
@@ -123,14 +123,14 @@ const Tab2: FC<Props> = (props) => {
         reValidateMode: 'onSubmit',
         values: {
             ...defaultData,
-            authenticationMode: defAuthMode,
+            deviceAuthenticationMode: defAuthMode,
         },
     })
 
-    const authMode = watch('authenticationMode')
+    const authMode = watch('deviceAuthenticationMode')
 
     const getIgnoredFields = useCallback((authValue: string) => {
-        let ignoredValues = ['authenticationMode']
+        let ignoredValues = ['deviceAuthenticationMode']
 
         if (authValue === DEVICE_AUTH_MODE.X509) {
             ignoredValues = ignoredValues.concat(IGNORE_X509)
@@ -166,7 +166,7 @@ const Tab2: FC<Props> = (props) => {
             value: (
                 <Controller
                     control={control}
-                    name='authenticationMode'
+                    name='deviceAuthenticationMode'
                     render={({ field: { onChange, name, ref, value } }) => (
                         <FormSelect
                             inlineStyle
@@ -301,7 +301,7 @@ const Tab2: FC<Props> = (props) => {
 
         if (isHub) {
             // convert select value
-            values.authenticationMode = values.authenticationMode.value as any
+            values.deviceAuthenticationMode = values.deviceAuthenticationMode.value as any
 
             // remote client is in local browser store -> update config
             if (isFunction(updateRemoteClient)) {
@@ -324,8 +324,8 @@ const Tab2: FC<Props> = (props) => {
                     isFunction(updateAppWellKnownConfig) &&
                         dispatch(
                             updateAppWellKnownConfig({
-                                ...omit(values, getIgnoredFields(values.authenticationMode.value)),
-                                deviceAuthenticationMode: values.authenticationMode.value,
+                                ...omit(values, getIgnoredFields(values.deviceAuthenticationMode.value)),
+                                deviceAuthenticationMode: values.deviceAuthenticationMode.value,
                             })
                         )
 

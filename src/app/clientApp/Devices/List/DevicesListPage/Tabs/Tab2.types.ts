@@ -8,7 +8,7 @@ export type Props = {
 
 export type Inputs = {
     audience?: { value: string; label: string }
-    authenticationMode: { value: string; label: string }
+    deviceAuthenticationMode: { value: string; label: string }
     authority?: string
     certificateAuthority?: string
     clientId?: string
