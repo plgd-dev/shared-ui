@@ -11,7 +11,7 @@ export const hasDifferentOwner = (wellKnownConfig = getWellKnowConfig(), clientD
         return false
     }
 
-    if (wellKnownConfig?.deviceAuthenticationMode !== clientData.authenticationMode && modeCheck) {
+    if (wellKnownConfig?.deviceAuthenticationMode !== clientData.deviceAuthenticationMode && modeCheck) {
         return true
     }
 

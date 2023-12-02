@@ -143,7 +143,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                         )
 
                         setOwnLoading(false)
-                        navigate(`${detailLinkPrefix}/`)
+                        navigate(`${detailLinkPrefix || ''}/`, { replace: true })
                     }
                 })
             } else {

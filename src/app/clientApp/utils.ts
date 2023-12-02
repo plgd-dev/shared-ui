@@ -1,5 +1,6 @@
 import { clientAppSettings, security } from '../../common/services'
 import { WellKnownConfigType } from '../../common/hooks'
+import isEmpty from 'lodash/isEmpty'
 
 type SecurityConfig = {
     httpGatewayAddress: string
@@ -15,7 +16,10 @@ export const getHttpGatewayAddress = () => {
     return getClientAppConfig().httpGatewayAddress || getConfig().httpGatewayAddress
 }
 
-export const getWebOAuthConfig = () => clientAppSettings.getWebOAuthConfig() || security.getWebOAuthConfig()
+export const getWebOAuthConfig = () => {
+    const clientAppConfig = clientAppSettings.getWebOAuthConfig()
+    return isEmpty(clientAppConfig) ? security.getWebOAuthConfig() : clientAppConfig
+}
 
 export const getClientUrl = (clientUrl: string) => (clientUrl.endsWith('/') ? clientUrl.slice(0, -1) : clientUrl)
 

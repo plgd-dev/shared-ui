@@ -250,7 +250,7 @@ type ClientDataType = {
 
 export function useAppInitialization(settings: {
     wellKnownConfig: WellKnownConfigType
-    loading: boolean
+    loading?: boolean
     clientData?: ClientDataType
     onError?: (e: string) => void
     reInitialize?: boolean
@@ -278,7 +278,7 @@ export function useAppInitialization(settings: {
 
     // initialize
     useEffect(() => {
-        if (wellKnownConfig && !wellKnownConfig.isInitialized && clientData && !initializationLoading && !loading && !reInitializeLoading) {
+        if (wellKnownConfig && !wellKnownConfig.isInitialized && clientData && !initializationLoading && !loading) {
             if (clientData?.deviceAuthenticationMode === DEVICE_AUTH_MODE.X509) {
                 try {
                     setInitializationLoading(true)
@@ -307,6 +307,7 @@ export function useAppInitialization(settings: {
             } else if (clientData?.deviceAuthenticationMode === DEVICE_AUTH_MODE.PRE_SHARED_KEY) {
                 if (clientData?.preSharedSubjectId && clientData?.preSharedKey) {
                     try {
+                        setInitializationLoading(true)
                         initializedByPreShared(clientData?.preSharedSubjectId, clientData?.preSharedKey).then((r) => {
                             if (r.status === 200) {
                                 setInitializationLoading(false)
@@ -323,6 +324,7 @@ export function useAppInitialization(settings: {
                 }
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
         wellKnownConfig,
         onError,
@@ -332,8 +334,6 @@ export function useAppInitialization(settings: {
         clientData?.preSharedSubjectId,
         clientData?.preSharedKey,
         clientData,
-        reInitializeLoading,
-        changeInitialize,
     ])
 
     return [initializationLoading, reInitializeLoading, reInitializeError]

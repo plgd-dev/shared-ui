@@ -154,6 +154,7 @@ const Tab2: FC<Props> = (props) => {
             // @ts-ignore
             Object.keys(omit(defaultData, getIgnoredFields(defaultData.authenticationMode))).forEach((field) => setValue(field, defaultData[field]))
         }
+
         trigger().then()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
