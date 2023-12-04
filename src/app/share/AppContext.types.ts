@@ -7,6 +7,7 @@ export type AppContextType = {
     footerExpanded?: boolean
     iframeMode?: boolean
     isHub: boolean
+    reFetchConfig?: any
     setCollapsed?: (collapsed: boolean) => void
     setFooterExpanded?: (expand: boolean) => void
     setInitialize?: (initialize: boolean) => void

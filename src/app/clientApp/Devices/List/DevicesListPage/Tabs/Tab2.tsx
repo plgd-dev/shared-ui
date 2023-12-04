@@ -39,7 +39,7 @@ const Tab2: FC<Props> = (props) => {
     const { clientData, initializedByAnother, setLoading } = props
     const { formatMessage: _ } = useIntl()
     const isMounted = useIsMounted()
-    const { isHub, updateRemoteClient, updateAppWellKnownConfig, setInitialize } = useContext(AppContext)
+    const { isHub, updateRemoteClient, updateAppWellKnownConfig, reFetchConfig } = useContext(AppContext)
     const dispatch = useDispatch()
     const wellKnownConfig = security.getWellKnowConfig()
     const appStore = useSelector((state: any) => state.app)
@@ -340,7 +340,14 @@ const Tab2: FC<Props> = (props) => {
                 onFinish(dataForSave)
             } else {
                 resetApp()
-                    .then(() => isFunction(setInitialize) && setInitialize(false))
+                    .then(() => {
+                        if (isFunction(reFetchConfig)) {
+                            reFetchConfig()
+                                .then(() => {})
+                                .catch(() => console.log('error'))
+                                .finally(() => onFinish(dataForSave))
+                        }
+                    })
                     .catch(() => console.log('error'))
                     .finally(() => {
                         onFinish(dataForSave)

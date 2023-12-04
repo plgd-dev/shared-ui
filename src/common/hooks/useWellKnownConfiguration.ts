@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { fetchApi } from '../services'
 import isFunction from 'lodash/isFunction'
 import mergeWith from 'lodash/mergeWith'
 import cloneDeep from 'lodash/cloneDeep'
+
+import { fetchApi } from '../services'
 
 export type BuildInformationType = {
     buildDate: string

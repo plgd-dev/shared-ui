@@ -1,6 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash/debounce'
 import { useSelector } from 'react-redux'
+import isFunction from 'lodash/isFunction'
 
 import { useStreamApi, useEmitter, WellKnownConfigType, useIsMounted, getData } from '../../../common/hooks'
 import { getDevicesDiscoveryTimeout } from './slice'
@@ -9,10 +10,9 @@ import { getOnboardingEndpoint, getResourceRegistrationNotificationKey, hasOnboa
 import { ResourcesType, StreamApiPropsType } from './Devices.types'
 import AppContext from '../../share/AppContext'
 import { getHttpGatewayAddress } from '../utils'
-import { streamApi } from '../../../common/services'
+import { security, streamApi } from '../../../common/services'
 import { DEVICE_AUTH_MODE } from '../constants'
 import { getJwksData, getOpenIdConfiguration, initializedByPreShared, initializeFinal, initializeJwksData, reset, signIdentityCsr } from '../App/AppRest'
-import isFunction from 'lodash/isFunction'
 
 export type UseApiReturnType = {
     data: any
@@ -249,14 +249,14 @@ type ClientDataType = {
 }
 
 export function useAppInitialization(settings: {
-    wellKnownConfig: WellKnownConfigType
-    loading?: boolean
     clientData?: ClientDataType
+    loading?: boolean
     onError?: (e: string) => void
+    reFetchConfig?: any
     reInitialize?: boolean
-    changeInitialize?: (initializeState: boolean) => void
+    wellKnownConfig: WellKnownConfigType
 }) {
-    const { wellKnownConfig, loading, clientData, onError, reInitialize, changeInitialize } = settings
+    const { wellKnownConfig, loading, clientData, onError, reInitialize, reFetchConfig } = settings
     const [initializationLoading, setInitializationLoading] = useState(false)
     const [reInitializeLoading, setReInitializeLoading] = useState(false)
     const [reInitializeError, setReInitializeError] = useState(false)
@@ -267,19 +267,24 @@ export function useAppInitialization(settings: {
             setReInitializeLoading(true)
             reset()
                 .then(() => {
-                    isFunction(changeInitialize) && changeInitialize(false)
+                    if (isFunction(reFetchConfig)) {
+                        reFetchConfig()
+                            .then(() => {})
+                            .catch((e: any) => isFunction(onError) && onError(e as string))
+                            .finally(() => setInitializationLoading(false))
+                    }
                 })
                 .catch(() => {
                     setReInitializeError(true)
                 })
                 .finally(() => setReInitializeLoading(false))
         }
-    }, [changeInitialize, reInitialize, reInitializeError, reInitializeLoading, wellKnownConfig.isInitialized])
+    }, [reInitialize, reInitializeError, reInitializeLoading, wellKnownConfig.isInitialized, reFetchConfig, onError])
 
     // initialize
     useEffect(() => {
         if (wellKnownConfig && !wellKnownConfig.isInitialized && clientData && !initializationLoading && !loading) {
-            if (clientData?.deviceAuthenticationMode === DEVICE_AUTH_MODE.X509) {
+            if (clientData?.deviceAuthenticationMode === DEVICE_AUTH_MODE.X509 && security.getAccessToken()) {
                 try {
                     setInitializationLoading(true)
                     getOpenIdConfiguration(wellKnownConfig.remoteProvisioning?.authority!).then((result) => {
@@ -292,8 +297,12 @@ export function useAppInitialization(settings: {
                                     identityCertificateChallenge.certificateSigningRequest
                                 ).then((result) => {
                                     initializeFinal(identityCertificateChallenge.state, result.data.certificate).then(() => {
-                                        setInitializationLoading(false)
-                                        isFunction(changeInitialize) && changeInitialize(true)
+                                        if (isFunction(reFetchConfig)) {
+                                            reFetchConfig()
+                                                .then(() => {})
+                                                .catch((e: any) => isFunction(onError) && onError(e as string))
+                                                .finally(() => setInitializationLoading(false))
+                                        }
                                     })
                                 })
                             })
@@ -310,8 +319,12 @@ export function useAppInitialization(settings: {
                         setInitializationLoading(true)
                         initializedByPreShared(clientData?.preSharedSubjectId, clientData?.preSharedKey).then((r) => {
                             if (r.status === 200) {
-                                setInitializationLoading(false)
-                                isFunction(changeInitialize) && changeInitialize(true)
+                                if (isFunction(reFetchConfig)) {
+                                    reFetchConfig()
+                                        .then(() => {})
+                                        .catch((e: any) => isFunction(onError) && onError(e as string))
+                                        .finally(() => setInitializationLoading(false))
+                                }
                             }
                         })
                     } catch (e) {
