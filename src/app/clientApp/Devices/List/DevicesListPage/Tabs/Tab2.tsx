@@ -13,7 +13,7 @@ import { messages as d } from '../../../Devices.i18n'
 import FormSelect, { selectAligns } from '../../../../../../components/Atomic/FormSelect'
 import { DEVICE_AUTH_MODE } from '../../../../constants'
 import FormInput, { inputAligns } from '../../../../../../components/Atomic/FormInput'
-import { mergeConfig, useIsMounted } from '../../../../../../common/hooks'
+import { mergeConfig, useIsMounted, WellKnownConfigType } from '../../../../../../common/hooks'
 import AppContext from '../../../../../share/AppContext'
 import BottomPanel from '../../../../../../components/Layout/BottomPanel/BottomPanel'
 import Button from '../../../../../../components/Atomic/Button'
@@ -25,6 +25,7 @@ import Alert, { severities } from '../../../../../../components/Atomic/Alert'
 import { remoteClientStatuses } from '../../../../RemoteClients/constants'
 import { security } from '../../../../../../common/services'
 import { reset as resetApp } from '../../../../App/AppRest'
+import { hasDifferentOwner } from '../../../../../../common/services/api-utils'
 
 interface RowsType {
     attribute: string
@@ -296,6 +297,21 @@ const Tab2: FC<Props> = (props) => {
         )
     }
 
+    const differentOwner = useCallback(
+        (wellKnownConfig: WellKnownConfigType, userWellKnownConfig: any) => hasDifferentOwner(wellKnownConfig, userWellKnownConfig),
+        []
+    )
+
+    const onFinish = useCallback(
+        (dataForSave: any) => {
+            isFunction(setLoading) && setLoading(false)
+            isFunction(updateAppWellKnownConfig) && dispatch(updateAppWellKnownConfig(dataForSave))
+            Notification.success({ title: _(d.configurationUpdate), message: _(d.configurationUpdateMessage) })
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [setLoading, updateAppWellKnownConfig]
+    )
+
     const onSubmit: SubmitHandler<Inputs> = () => {
         const values = getValues()
 
@@ -313,24 +329,23 @@ const Tab2: FC<Props> = (props) => {
                 values.audience = values.audience?.value as any
             }
 
+            const dataForSave = {
+                ...omit(values, getIgnoredFields(values.deviceAuthenticationMode.value)),
+                deviceAuthenticationMode: values.deviceAuthenticationMode.value,
+            }
+
             isFunction(setLoading) && setLoading(true)
 
-            resetApp()
-                .then(() => isFunction(setInitialize) && setInitialize(false))
-                .catch(() => console.log('error'))
-                .finally(() => {
-                    isFunction(setLoading) && setLoading(false)
-                    // authenticationMode -> deviceAuthenticationMode
-                    isFunction(updateAppWellKnownConfig) &&
-                        dispatch(
-                            updateAppWellKnownConfig({
-                                ...omit(values, getIgnoredFields(values.deviceAuthenticationMode.value)),
-                                deviceAuthenticationMode: values.deviceAuthenticationMode.value,
-                            })
-                        )
-
-                    Notification.success({ title: _(d.configurationUpdate), message: _(d.configurationUpdateMessage) })
-                })
+            if (differentOwner(wellKnownConfig, dataForSave)) {
+                onFinish(dataForSave)
+            } else {
+                resetApp()
+                    .then(() => isFunction(setInitialize) && setInitialize(false))
+                    .catch(() => console.log('error'))
+                    .finally(() => {
+                        onFinish(dataForSave)
+                    })
+            }
         }
     }
 
