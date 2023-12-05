@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl'
 import { useDispatch } from 'react-redux'
 
 import Button from '../../../../../components/Atomic/Button'
-import Modal from '../../../../../components/Atomic/Modal'
+import Modal, { ModalFooter } from '../../../../../components/Atomic/Modal'
 import Notification from '../../../../../components/Atomic/Notification/Toast'
 import { convertSize, IconPlus } from '../../../../../components/Atomic/Icon'
 import FormGroup from '../../../../../components/Atomic/FormGroup'
@@ -17,7 +17,7 @@ import { Props } from './FindNewDeviceByIp.types'
 import * as styles from '../../Detail/IncompleteOnboardingDataModal/IncompleteOnboardingDataModal.styles'
 import notificationId from '../../../notificationId'
 
-const FindNewDeviceByIp: FC<Props> = ({ disabled }) => {
+const FindNewDeviceByIp: FC<Props> = ({ disabled, className }) => {
     const [fetching, setFetching] = useState<boolean>(false)
     const [show, setShow] = useState<boolean>(false)
     const [error, setError] = useState<boolean>(false)
@@ -102,10 +102,9 @@ const FindNewDeviceByIp: FC<Props> = ({ disabled }) => {
         }
     }
 
-    const renderFooter = () => {
-        return (
-            <div className='w-100 d-flex justify-content-between align-items-center'>
-                <div />
+    const renderFooter = () => (
+        <ModalFooter
+            right={
                 <div className='modal-buttons'>
                     <Button className='modal-button' disabled={fetching} onClick={onClose} variant='secondary'>
                         {_(t.cancel)}
@@ -115,13 +114,13 @@ const FindNewDeviceByIp: FC<Props> = ({ disabled }) => {
                         {_(t.addDevice)}
                     </Button>
                 </div>
-            </div>
-        )
-    }
+            }
+        />
+    )
 
     return (
         <>
-            <Button className='m-r-10' disabled={disabled} icon={<IconPlus {...convertSize(20)} />} onClick={() => setShow(true)}>
+            <Button className={className} disabled={disabled} icon={<IconPlus {...convertSize(20)} />} onClick={() => setShow(true)}>
                 {_(t.deviceByIp)}
             </Button>
 

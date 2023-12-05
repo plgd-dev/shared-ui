@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { useIntl } from 'react-intl'
 import isFunction from 'lodash/isFunction'
 
-import Modal from '../../../../../components/Atomic/Modal'
+import Modal, { ModalFooter } from '../../../../../components/Atomic/Modal'
 import Button from '../../../../../components/Atomic/Button'
 import { messages as t } from '../../Devices.i18n'
 import { Props, defaultProps } from './FirstTimeOnboardingModal.types'
@@ -19,11 +19,13 @@ const FirstTimeOnboardingModal: FC<Props> = (props) => {
     }
 
     const renderFooter = () => (
-        <div className='w-100 d-flex justify-content-end'>
-            <Button dataTestId={firstTimeModalButton} onClick={handleSubmit} variant='primary'>
-                {_(t.ok)}
-            </Button>
-        </div>
+        <ModalFooter
+            right={
+                <Button dataTestId={firstTimeModalButton} onClick={handleSubmit} variant='primary'>
+                    {_(t.ok)}
+                </Button>
+            }
+        />
     )
 
     return (

@@ -8,15 +8,17 @@ import { messages as t } from '../../Devices.i18n'
 
 import FindNewDeviceByIp from '../FindNewDeviceByIp'
 import { Props } from './DevicesListHeader.types'
+import * as styles from './DevicesListHeader.styles'
 
 const DevicesListHeader: FC<Props> = memo((props) => {
     const { loading, refresh, openTimeoutModal, handleFlushDevices, i18n } = props
     const { formatMessage: _ } = useIntl()
 
     return (
-        <div className='d-flex align-items-center'>
+        <div css={styles.list}>
             <FindNewDeviceByIp disabled={loading} />
             <SplitButton
+                css={styles.leftSpace}
                 disabled={loading}
                 icon={<IconRefresh />}
                 items={[
@@ -30,7 +32,7 @@ const DevicesListHeader: FC<Props> = memo((props) => {
             >
                 {_(t.discovery)}
             </SplitButton>
-            <Button className='m-l-10' disabled={loading} icon={<IconTrash />} onClick={handleFlushDevices}>
+            <Button css={styles.leftSpace} disabled={loading} icon={<IconTrash />} onClick={handleFlushDevices}>
                 {i18n.flushCache}
             </Button>
         </div>

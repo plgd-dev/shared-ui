@@ -102,9 +102,6 @@ export * from './Radio'
 export { default as Scrollbars } from './Scrollbars'
 export * from './Scrollbars'
 
-export { default as Select } from './Select'
-export * from './Select'
-
 export { default as SimpleStripTable } from './SimpleStripTable'
 export * from './SimpleStripTable'
 

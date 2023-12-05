@@ -1,6 +1,5 @@
 import { FC, useMemo } from 'react'
 import { useIntl } from 'react-intl'
-import classNames from 'classnames'
 
 import Switch from '../../../../../components/Atomic/Switch'
 import { useLocalStorage } from '../../../../../common/hooks'
@@ -17,14 +16,12 @@ import { canBeResourceEdited, canCreateResource, getLastPartOfAResourceHref } fr
 import { messages as t } from '../../Devices.i18n'
 import { Props } from './DevicesResources.types'
 import { messages as app } from '../../../App/App.i18n'
+import * as styles from './DevicesResources.styles'
 
 export const DevicesResources: FC<Props> = ({ data, deviceId, deviceStatus, isActiveTab, isOwned, loading, onCreate, onDelete, onUpdate, pageSize }) => {
     const { formatMessage: _ } = useIntl()
     const [treeViewActive, setTreeViewActive] = useLocalStorage('treeViewActive', false)
     const isUnregistered = devicesStatuses.UNREGISTERED === deviceStatus
-    const greyedOutClassName = classNames({
-        'grayed-out': isUnregistered,
-    })
 
     const columns = useMemo(
         () => [
@@ -235,17 +232,14 @@ export const DevicesResources: FC<Props> = ({ data, deviceId, deviceStatus, isAc
 
     return (
         <>
-            <div className={classNames('d-flex justify-content-between align-items-center', greyedOutClassName)}>
-                <div />
-                <div className='d-flex justify-content-end align-items-center' style={{ paddingBottom: 24 }}>
-                    <Switch
-                        checked={treeViewActive}
-                        disabled={isUnregistered}
-                        id='toggle-tree-view'
-                        label={_(t.treeView)}
-                        onChange={() => setTreeViewActive(!treeViewActive)}
-                    />
-                </div>
+            <div css={styles.switchRow}>
+                <Switch
+                    checked={treeViewActive}
+                    disabled={isUnregistered}
+                    id='toggle-tree-view'
+                    label={_(t.treeView)}
+                    onChange={() => setTreeViewActive(!treeViewActive)}
+                />
             </div>
 
             {treeViewActive ? (

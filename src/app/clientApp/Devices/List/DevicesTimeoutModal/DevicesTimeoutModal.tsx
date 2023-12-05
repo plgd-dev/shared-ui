@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl'
 import { useDispatch, useSelector } from 'react-redux'
 import isFunction from 'lodash/isFunction'
 
-import Modal, { ModalStrippedLine } from '../../../../../components/Atomic/Modal'
+import Modal, { ModalFooter, ModalStrippedLine } from '../../../../../components/Atomic/Modal'
 import { messages as t } from '../../Devices.i18n'
 import Button from '../../../../../components/Atomic/Button'
 import TimeoutControl from '../../../../../components/Atomic/TimeoutControl'
@@ -50,17 +50,19 @@ const DevicesTimeoutModal: FC<Props> = (props) => {
     }
 
     const renderFooter = () => (
-        <div className='w-100 d-flex justify-content-end'>
-            <div className='modal-buttons'>
-                <Button className='modal-button' onClick={() => (onClose ? onClose() : undefined)} variant='secondary'>
-                    {_(t.cancel)}
-                </Button>
+        <ModalFooter
+            right={
+                <div className='modal-buttons'>
+                    <Button className='modal-button' onClick={() => (onClose ? onClose() : undefined)} variant='secondary'>
+                        {_(t.cancel)}
+                    </Button>
 
-                <Button className='modal-button' disabled={ttlHasError} onClick={handleSubmit} variant='primary'>
-                    {_(t.save)}
-                </Button>
-            </div>
-        </div>
+                    <Button className='modal-button' disabled={ttlHasError} onClick={handleSubmit} variant='primary'>
+                        {_(t.save)}
+                    </Button>
+                </div>
+            }
+        />
     )
 
     return (

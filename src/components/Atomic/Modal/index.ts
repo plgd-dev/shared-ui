@@ -15,3 +15,6 @@ export * from './components/ProvisionDeviceModal'
 
 export { default as AddClientModal } from './components/AddClientModal'
 export * from './components/AddClientModal'
+
+export { default as ModalFooter } from './components/ModalFooter'
+export * from './components/ModalFooter'

@@ -1,10 +1,10 @@
 import { FC, memo } from 'react'
 import Avatar from 'react-avatar'
+import isFunction from 'lodash/isFunction'
 
 import { Props } from './UserWidget.types'
 import * as styles from './UserWidget.styles'
 import { convertSize } from '../../../Atomic/Icon'
-import isFunction from 'lodash/isFunction'
 import IconLogout from '../../../Atomic/Icon/components/IconLogout'
 
 const UserWidget: FC<Props> = memo((props) => {

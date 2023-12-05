@@ -49,7 +49,7 @@ const SplitButton: FC<Props> = (props) => {
 
     return (
         <div ref={ref}>
-            <div css={styles.splitButton} ref={refs.setReference}>
+            <div className={className} css={styles.splitButton} ref={refs.setReference}>
                 <Button
                     {...rest}
                     css={styles.leftButton}

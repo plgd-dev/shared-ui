@@ -2,7 +2,7 @@ import React, { FC, useMemo, useState } from 'react'
 import { useIntl } from 'react-intl'
 import isFunction from 'lodash/isFunction'
 
-import Modal from '../../../../components/Atomic/Modal'
+import Modal, { ModalFooter } from '../../../../components/Atomic/Modal'
 import Button from '../../../../components/Atomic/Button'
 import FormGroup from '../../../../components/Atomic/FormGroup'
 import FormLabel from '../../../../components/Atomic/FormLabel'
@@ -63,18 +63,19 @@ const DevicesDPSModal: FC<Props> = (props) => {
     }
 
     const renderFooter = () => (
-        <div className='w-100 d-flex justify-content-end'>
-            <div />
-            <div className='modal-buttons'>
-                <Button className='modal-button' onClick={handleClose} variant='secondary'>
-                    {_(t.cancel)}
-                </Button>
+        <ModalFooter
+            right={
+                <div className='modal-buttons'>
+                    <Button className='modal-button' onClick={handleClose} variant='secondary'>
+                        {_(t.cancel)}
+                    </Button>
 
-                <Button className='modal-button' disabled={hasError || inputValue === ''} onClick={handleSubmit} variant='primary'>
-                    {_(t.save)}
-                </Button>
-            </div>
-        </div>
+                    <Button className='modal-button' disabled={hasError || inputValue === ''} onClick={handleSubmit} variant='primary'>
+                        {_(t.save)}
+                    </Button>
+                </div>
+            }
+        />
     )
 
     return (

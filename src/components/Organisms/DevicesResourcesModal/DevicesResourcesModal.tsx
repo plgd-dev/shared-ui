@@ -10,6 +10,7 @@ import FormSelect from '../../Atomic/FormSelect'
 import Button from '../../Atomic/Button'
 import Modal, { ModalStrippedLine } from '../../Atomic/Modal'
 import DevicesResourcesModalNotifications from './DevicesResourcesModalNotifications'
+import ModalFooter from '../../Atomic/Modal/components/ModalFooter'
 
 const { UPDATE_RESOURCE } = resourceModalTypes
 
@@ -199,26 +200,27 @@ const DevicesResourcesModal: FC<Props> = (props) => {
         interfaces.unshift(initialInterfaceValue)
 
         return (
-            <div className='w-100 d-flex justify-content-between align-items-center'>
-                <div />
-                <div className='modal-buttons'>
-                    {isUpdateModal && (
-                        <Button className='modal-button' disabled={disabled} loading={retrieving} onClick={handleRetrieve} variant='secondary'>
-                            {!retrieving ? i18n.retrieve : i18n.retrieving}
-                        </Button>
-                    )}
+            <ModalFooter
+                right={
+                    <div className='modal-buttons'>
+                        {isUpdateModal && (
+                            <Button className='modal-button' disabled={disabled} loading={retrieving} onClick={handleRetrieve} variant='secondary'>
+                                {!retrieving ? i18n.retrieve : i18n.retrieving}
+                            </Button>
+                        )}
 
-                    <Button
-                        className='modal-button'
-                        disabled={disabled || interfaceJsonError || confirmDisabled}
-                        loading={loading}
-                        onClick={handleSubmit}
-                        variant='primary'
-                    >
-                        {isUpdateModal ? updateLabel : createLabel}
-                    </Button>
-                </div>
-            </div>
+                        <Button
+                            className='modal-button'
+                            disabled={disabled || interfaceJsonError || confirmDisabled}
+                            loading={loading}
+                            onClick={handleSubmit}
+                            variant='primary'
+                        >
+                            {isUpdateModal ? updateLabel : createLabel}
+                        </Button>
+                    </div>
+                }
+            />
         )
     }
 
