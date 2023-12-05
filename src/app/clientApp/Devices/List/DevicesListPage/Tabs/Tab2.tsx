@@ -62,14 +62,14 @@ const Tab2: FC<Props> = (props) => {
     const defaultData = useMemo(() => {
         if (isHub) {
             return {
-                authenticationMode: clientData?.deviceAuthenticationMode,
+                deviceAuthenticationMode: clientData?.deviceAuthenticationMode,
                 preSharedSubjectId: clientData?.preSharedSubjectId || '',
                 preSharedKey: clientData?.preSharedKey || '',
             }
         } else {
             return {
                 audience: mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.audience ?? optionsBool[0],
-                authenticationMode: mergedWellKnownConfig?.deviceAuthenticationMode || '',
+                deviceAuthenticationMode: mergedWellKnownConfig?.deviceAuthenticationMode || '',
                 authority: mergedWellKnownConfig?.remoteProvisioning?.authority,
                 clientId: mergedWellKnownConfig?.remoteProvisioning?.webOauthClient?.clientId || '',
                 preSharedSubjectId: mergedWellKnownConfig?.owner,
@@ -103,8 +103,8 @@ const Tab2: FC<Props> = (props) => {
     )
 
     const defAuthMode = useMemo(
-        () => options.find((o) => o.value === defaultData?.authenticationMode) || options[0],
-        [defaultData?.authenticationMode, options]
+        () => options.find((o) => o.value === defaultData?.deviceAuthenticationMode) || options[0],
+        [defaultData?.deviceAuthenticationMode, options]
     )
 
     const defAudience = useMemo(() => optionsBool.find((o) => o.value === defaultData?.audience) || optionsBool[0], [defaultData?.audience, optionsBool])
@@ -151,9 +151,9 @@ const Tab2: FC<Props> = (props) => {
             IGNORE_PRE_SHARED_KEY.forEach((field) => setValue(field, ''))
         }
 
-        if (defaultData.authenticationMode === authMode?.value) {
+        if (defaultData.deviceAuthenticationMode === authMode?.value) {
             // @ts-ignore
-            Object.keys(omit(defaultData, getIgnoredFields(defaultData.authenticationMode))).forEach((field) => setValue(field, defaultData[field]))
+            Object.keys(omit(defaultData, getIgnoredFields(defaultData.deviceAuthenticationMode))).forEach((field) => setValue(field, defaultData[field]))
         }
 
         trigger().then()
