@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AnyAction } from 'redux'
+import get from 'lodash/get'
 
 export type UseAppThemeType = {
     getTheme: (url: string) => any
@@ -47,5 +48,19 @@ export function useAppTheme(options: UseAppThemeType) {
         }
     }, [appStore.configuration?.theme, dispatch, appTheme, getTheme, setThemes, setTheme])
 
-    return [appTheme, themeError]
+    const getThemeData = useCallback(
+        (currentTheme: string) => {
+            if (appTheme) {
+                const index = appTheme.findIndex((i: any) => Object.keys(i)[0] === currentTheme)
+                if (index >= 0) {
+                    return get(appTheme[index], `${currentTheme}`, {})
+                }
+            }
+
+            return {}
+        },
+        [appTheme]
+    )
+
+    return [appTheme, themeError, getThemeData]
 }
