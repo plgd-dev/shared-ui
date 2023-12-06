@@ -1,7 +1,8 @@
 import axios from 'axios'
+import isFunction from 'lodash/isFunction'
+
 import { security } from './security'
 import { clientAppSettings } from './client-app-settings'
-import isFunction from 'lodash/isFunction'
 import { hasDifferentOwner } from './api-utils'
 
 // Time needed to cancel the request

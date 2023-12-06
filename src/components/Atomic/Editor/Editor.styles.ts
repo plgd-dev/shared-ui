@@ -1,10 +1,11 @@
 import { css } from '@emotion/react'
+
 import { colors } from '../_utils/colors'
 import { ThemeType, get } from '../_theme'
 import { fontPrimary } from '../_utils/commonStyles'
 
 export const editor = (theme: ThemeType) => css`
-    //max-height: 80%;
+    position: relative;
 
     &.disabled:after {
         //display: none;
@@ -75,6 +76,8 @@ export const editor = (theme: ThemeType) => css`
 `
 
 export const fullSizeBtn = (theme: ThemeType) => css`
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 12px;
     right: 12px;

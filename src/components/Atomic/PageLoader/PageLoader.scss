@@ -1,26 +1,7 @@
 @import '../../../common/styles/colors';
 @import '../../../common/styles/sizes';
 
-@keyframes increase {
-  from {
-    left: -5%;
-    width: 5%;
-  }
-  to {
-    left: 130%;
-    width: 100%;
-  }
-}
-@keyframes decrease {
-  from {
-    left: -80%;
-    width: 80%;
-  }
-  to {
-    left: 110%;
-    width: 10%;
-  }
-}
+
 
 #page-loader {
   position: fixed;

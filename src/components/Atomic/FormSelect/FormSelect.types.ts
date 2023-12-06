@@ -24,6 +24,7 @@ export type Props = {
     inlineStyle?: boolean
     isSearchable?: boolean
     menuIsOpen?: boolean
+    menuPortalTarget?: HTMLElement | null
     name?: string
     onChange?: (v: any) => void
     options: Option[]

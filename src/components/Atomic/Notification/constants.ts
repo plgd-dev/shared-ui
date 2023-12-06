@@ -11,7 +11,6 @@ export const toastVariants = {
 } as const
 
 export const DEFAULT_CONTAINER_ID = 'default-container'
-export const ERROR_CONTAINER_ID = 'error-container'
 
 export const TOAST_HIDE_TIME = 5000
 

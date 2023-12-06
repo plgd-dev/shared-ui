@@ -13,7 +13,7 @@ const ToastContainer = (props: Props) => {
             hideProgressBar
             newestOnTop
             autoClose={TOAST_HIDE_TIME}
-            css={styles.test}
+            css={styles.toastGlobal}
             icon={false}
             limit={MAX_NUMBER_OF_VISIBLE_TOASTS}
             pauseOnFocusLoss={false}

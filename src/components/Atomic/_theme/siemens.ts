@@ -80,11 +80,11 @@ const theme = {
             },
             secondary: {
                 background: 'rgba(82, 197, 162, 0.16)',
-                borderColor: '#00ADB4',
+                borderColor: colorsSiemens.primary,
                 color: '#fff',
                 hover: {
-                    background: '#00ADB4',
-                    borderColor: '#00ADB4',
+                    background: colorsSiemens.primary,
+                    borderColor: colorsSiemens.primary,
                     color: colors.neutral000,
                 },
                 disabled: {
@@ -147,7 +147,7 @@ const theme = {
                 color: 'rgba(255, 255, 255, 0.8)',
             },
             item: {
-                color: '#F4F9FB',
+                color: colors.light,
                 hover: {
                     color: '#fff',
                 },
@@ -279,7 +279,7 @@ const theme = {
                 borderColor: colorsSiemens.neutral900,
             },
             readonly: {
-                color: '#ffffff',
+                color: '#ffff',
             },
         },
         FormSelect: {
@@ -400,6 +400,11 @@ const theme = {
                 color: colorsSiemens.primary,
             },
         },
+        PageLoader: {
+            bar: {
+                background: colorsSiemens.primary,
+            },
+        },
         Pagination: {
             item: {
                 active: {
@@ -419,7 +424,7 @@ const theme = {
                 background: colorsSiemens.neutral900,
             },
             title: {
-                color: '#00ADB4',
+                color: colorsSiemens.primary,
             },
             value: {
                 color: colors.neutral500,
@@ -430,7 +435,7 @@ const theme = {
         },
         ShareDeviceModal: {
             headline: {
-                color: '#00ADB4',
+                color: colorsSiemens.primary,
             },
             sharedItem: {
                 color: '#1a1a1a',
@@ -570,7 +575,7 @@ const theme = {
                 background: colorsSiemens.primary,
             },
             active: {
-                color: '#00ADB4',
+                color: colorsSiemens.primary,
             },
             disabled: {
                 color: colorsSiemens.neutral700,

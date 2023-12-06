@@ -155,6 +155,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                             component={
                                 <FormSelect
                                     disabled={disabled || !isDeviceOnline}
+                                    menuPortalTarget={document.body}
                                     onChange={setSelectedInterface}
                                     options={interfaces}
                                     value={selectedInterface}

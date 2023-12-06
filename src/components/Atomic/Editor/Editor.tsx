@@ -1,11 +1,12 @@
 // @ts-nocheck
 import React, { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
-import { defaultProps, Props } from './Editor.types'
-import * as styles from './Editor.styles'
 import classNames from 'classnames'
 import JSONEditor from 'jsoneditor'
 import 'jsoneditor/dist/jsoneditor.css'
 import isFunction from 'lodash/isFunction'
+
+import { defaultProps, Props } from './Editor.types'
+import * as styles from './Editor.styles'
 import IconShowPassword from '../Icon/components/IconShowPassword'
 
 const Editor: FC<Props> = (props) => {

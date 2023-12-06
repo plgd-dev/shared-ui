@@ -1,13 +1,15 @@
 import { FC, memo } from 'react'
+
 import { Props } from './PageLoader.types'
+import * as styles from './PageLoader.styles'
 
 const PageLoader: FC<Props> = memo(({ loading, className }) =>
     loading ? (
-        <div id='page-loader' role='alert' aria-busy='true' className={className}>
-            <div className='bar'>
-                <div className='progress'>
-                    <div className='subline inc' />
-                    <div className='subline dec' />
+        <div aria-busy='true' className={className} css={styles.pageLoader} role='alert'>
+            <div css={styles.bar}>
+                <div css={styles.progress}>
+                    <div css={[styles.subline, styles.inc]} />
+                    <div css={[styles.subline, styles.dec]} />
                 </div>
             </div>
         </div>

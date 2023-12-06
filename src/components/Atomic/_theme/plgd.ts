@@ -401,6 +401,11 @@ const theme = {
                 color: colors.primaryDarken,
             },
         },
+        PageLoader: {
+            bar: {
+                background: colors.primary,
+            },
+        },
         Pagination: {
             item: {
                 active: {
