@@ -127,7 +127,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
 
             return (
                 <>
-                    {data && isUpdateModal && (
+                    {data && isUpdateModal && props.toggleActiveNotification && (
                         <DevicesResourcesModalNotifications
                             deviceId={deviceId as string}
                             deviceName={deviceName}
@@ -148,7 +148,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
 
                     {isUpdateModal && <ModalStrippedLine component={data?.interfaces?.join(', ')} label={i18n.interfaces} />}
 
-                    <ModalStrippedLine component={ttlControl} label={i18n.commandTimeout} smallPadding={true} />
+                    {ttlControl && <ModalStrippedLine component={ttlControl} label={i18n.commandTimeout} smallPadding={true} />}
 
                     {isUpdateModal && (
                         <ModalStrippedLine
