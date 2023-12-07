@@ -31,7 +31,7 @@ export function useAppTheme(options: UseAppThemeType) {
                             themes[Object.keys(t)[0]] = t
                         })
 
-                        if (appStore.configuration?.theme === '') {
+                        if (appStore.configuration?.theme === '' || appStore.configuration?.theme !== themeData.defaultTheme) {
                             dispatch(setTheme(themeData.defaultTheme))
                         }
 
