@@ -7,14 +7,14 @@ import Headline from '../Headline'
 import PageLoader from '../PageLoader'
 
 const PageLayout: FC<Props> = memo((props) => {
-    const { children, dataTestId, headlineStatusTag, title, header, footer, loading } = props
+    const { children, dataTestId, headlineStatusTag, title, header, footer, loading, collapsed } = props
     return (
         <div css={styles.pageLayout}>
             <Helmet>
                 <title>{title}</title>
             </Helmet>
             <div css={styles.top}>
-                <PageLoader className='auth-loader' loading={loading} />
+                <PageLoader className='auth-loader' collapsed={collapsed} loading={loading} />
                 <div css={styles.header}>
                     <div css={styles.left}>
                         <Headline css={styles.headline} dataTestId={dataTestId?.concat('-title')} type='h4'>

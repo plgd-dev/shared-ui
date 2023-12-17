@@ -158,6 +158,11 @@ const theme = {
                     color: colors.neutral600,
                 },
             },
+            subItem: {
+                active: {
+                    color: '#fff',
+                },
+            },
             versionItem: {
                 borderColor: colorsSiemens.neutral900,
             },
@@ -593,15 +598,61 @@ const theme = {
                 borderColor: colorsSiemens.neutral900,
             },
         },
-        Toast: {
-            background: colorsSiemens.neutral900,
-            borderColor: colorsSiemens.neutral800,
+        TileExpand: {
+            border: colorsSiemens.neutral700,
+            header: {
+                background: colorsSiemens.neutral900,
+                hover: {
+                    background: colorsSiemens.neutral800,
+                    expander: {
+                        color: colorsSiemens.primary,
+                    },
+                },
+            },
+            error: {
+                background: colors.redBackground,
+                message: {
+                    color: colorsSiemens.red,
+                },
+                title: {
+                    color: colorsSiemens.red,
+                },
+            },
+            expander: {
+                color: colors.neutral900,
+                background: colorsSiemens.neutral700,
+            },
+            info: {
+                background: colorsSiemens.neutral800,
+                attribute: {
+                    color: colors.neutral500,
+                },
+                value: {
+                    color: colors.neutral500,
+                    icon: {
+                        color: colors.neutral500,
+                        hover: {
+                            color: colorsSiemens.primary,
+                        },
+                    },
+                },
+            },
+            title: {
+                color: colorsSiemens.primary,
+            },
+            time: {
+                color: colors.neutral500,
+            },
         },
         TileToggle: {
             background: colorsSiemens.neutral800,
             name: {
                 color: colorsSiemens.primary,
             },
+        },
+        Toast: {
+            background: colorsSiemens.neutral900,
+            borderColor: colorsSiemens.neutral800,
         },
         TreeExpander: {
             hover: {

@@ -4,7 +4,7 @@ import isFunction from 'lodash/isFunction'
 
 import TableActionButton from '../../../../../components/Organisms/TableActionButton'
 import { ItemType } from '../../../../../components/Organisms/TableActionButton/TableActionButton.types'
-import { IconClose, IconNetwork, IconPlus, IconShowPassword } from '../../../../../components/Atomic/Icon'
+import { IconClose, IconNetwork, IconPlus, IconArrowDetail } from '../../../../../components/Atomic/Icon'
 import { devicesOwnerships } from '../../constants'
 import { canSetDPSEndpoint } from '../../utils'
 import { getDevicesResourcesAllApi } from '../../rest'
@@ -21,23 +21,7 @@ const DevicesListActionButton: FC<Props> = memo((props) => {
     const isUnsupported = useMemo(() => ownershipStatus === UNSUPPORTED, [ownershipStatus])
 
     const getDefaultItems = () => {
-        const defaultItems: ItemType[] = [
-            {
-                id: 'detail',
-                onClick: () => onView(deviceId),
-                label: _(t.details),
-                icon: <IconShowPassword />,
-            },
-        ]
-
-        if (!isUnsupported) {
-            defaultItems.push({
-                id: 'own',
-                onClick: () => onOwnChange(),
-                label: isOwned ? _(t.disOwnDevice) : _(t.ownDevice),
-                icon: isOwned ? <IconClose /> : <IconPlus />,
-            })
-        }
+        const defaultItems: ItemType[] = []
 
         if (isOwned) {
             defaultItems.push({
@@ -48,6 +32,22 @@ const DevicesListActionButton: FC<Props> = memo((props) => {
                 loading: true,
             })
         }
+
+        if (!isUnsupported) {
+            defaultItems.push({
+                id: 'own',
+                onClick: () => onOwnChange(),
+                label: isOwned ? _(t.disOwnDevice) : _(t.ownDevice),
+                icon: isOwned ? <IconClose /> : <IconPlus />,
+            })
+        }
+
+        defaultItems.push({
+            id: 'detail',
+            onClick: () => onView(deviceId),
+            label: _(t.details),
+            icon: <IconArrowDetail />,
+        })
 
         return defaultItems
     }

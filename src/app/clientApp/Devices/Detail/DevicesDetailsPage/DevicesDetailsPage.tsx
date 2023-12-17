@@ -12,7 +12,7 @@ import { messages as menuT } from '../../../../../components/Atomic/Menu/Menu.i1
 import Notification from '../../../../../components/Atomic/Notification/Toast'
 import StatusTag from '../../../../../components/Atomic/StatusTag'
 import Breadcrumbs from '../../../../../components/Layout/Header/Breadcrumbs'
-import EditDeviceNameModal from '../../../../../components/Organisms/EditDeviceNameModal'
+import EditNameModal from '../../../../../components/Organisms/EditNameModal'
 import Tabs from '../../../../../components/Atomic/Tabs'
 import { getApiErrorMessage } from '../../../../../common/utils'
 import { disOwnDevice, ownDevice } from '../../slice'
@@ -415,20 +415,20 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                 show={showFirstTimeOnboardingModal}
             />
 
-            <EditDeviceNameModal
-                deviceName={deviceName}
-                deviceNameLoading={deviceNameLoading}
+            <EditNameModal
                 handleClose={() => setShowEditNameModal(false)}
                 handleSubmit={updateDeviceName}
                 i18n={{
                     close: _(t.close),
-                    deviceName: _(t.deviceName),
+                    namePlaceholder: _(t.deviceName),
                     edit: _(t.edit),
                     name: _(t.name),
                     reset: _(t.reset),
                     saveChange: _(t.saveChange),
                     savingChanges: _(t.savingChanges),
                 }}
+                loading={deviceNameLoading}
+                name={deviceName}
                 show={showEditNameModal}
             />
         </PageLayout>

@@ -1,8 +1,8 @@
 import { ReactNode } from 'react'
 
 export type Props = {
-    breadcrumbs?: any
     children?: any
+    collapsed?: boolean
     dataTestId?: string
     footer?: ReactNode
     header?: any

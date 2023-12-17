@@ -4,6 +4,7 @@ import mergeWith from 'lodash/mergeWith'
 import cloneDeep from 'lodash/cloneDeep'
 
 import { fetchApi } from '../services'
+import { MenuItemVisibilityType } from '../../components/Layout/LeftPanel/LeftPanel.types'
 
 export type BuildInformationType = {
     buildDate: string
@@ -49,6 +50,11 @@ export type WellKnownConfigType = {
         commitHash: string
         releaseUrl: string
         version: string
+    }
+    ui: {
+        menu: {
+            [key: string]: MenuItemVisibilityType
+        }
     }
 } & BuildInformationType
 

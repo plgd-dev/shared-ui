@@ -1,5 +1,6 @@
 import { css, keyframes } from '@emotion/react'
 import { ThemeType, get } from '../_theme'
+import { panelSizes } from '../../Layout/LeftPanel/constants'
 
 const increase = keyframes`
   from {
@@ -23,12 +24,16 @@ const decrease = keyframes`
   }
 `
 
-export const pageLoader = css`
+export const pageLoader = (collapsed?: boolean) => css`
     position: fixed;
     top: 85px;
-    right: 0;
+    left: ${collapsed ? panelSizes.COLLAPSED : panelSizes.FULL}px;
     width: 100%;
     z-index: 9;
+`
+
+export const noOffset = css`
+    left: 0;
 `
 
 export const bar = css`

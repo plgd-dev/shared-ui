@@ -7,3 +7,9 @@ export const tagVariants = {
     SUCCESS: 'success',
     INFO: 'info',
 } as const
+
+export const itemVisibility = {
+    ENABLED: 'ENABLED',
+    DISABLED: 'DISABLED',
+    HIDDEN: 'HIDDEN',
+} as const

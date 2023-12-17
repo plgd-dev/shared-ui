@@ -8,6 +8,7 @@ export const uiColorMap = {
         light: '#F4F9FB',
         yellow: '#FEBF40',
         red: '#D74E3A',
+        redBackground: '#F9E3DF',
         green: '#52c5a2',
         neutral900: '#191A1A',
         neutral800: '#252626',

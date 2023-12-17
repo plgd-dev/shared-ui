@@ -319,6 +319,11 @@ const theme = {
                     color: colors.neutral300,
                 },
             },
+            subItem: {
+                active: {
+                    color: colors.neutral800,
+                },
+            },
             versionItem: {
                 borderColor: colors.neutral200,
             },
@@ -592,6 +597,52 @@ const theme = {
                 color: colors.primary,
                 background: 'rgba(135, 206, 242, 0.2)',
                 borderColor: 'transparent',
+            },
+        },
+        TileExpand: {
+            border: colors.neutral200,
+            header: {
+                background: '#fff',
+                hover: {
+                    background: colors.neutral100,
+                    expander: {
+                        color: colors.primary,
+                    },
+                },
+            },
+            error: {
+                background: colors.redBackground,
+                message: {
+                    color: colors.red,
+                },
+                title: {
+                    color: colors.red,
+                },
+            },
+            expander: {
+                color: colors.neutral900,
+                background: colors.neutral100,
+            },
+            info: {
+                background: colors.neutral100,
+                attribute: {
+                    color: colors.neutral500,
+                },
+                value: {
+                    color: colors.neutral800,
+                    icon: {
+                        color: colors.neutral500,
+                        hover: {
+                            color: colors.primary,
+                        },
+                    },
+                },
+            },
+            title: {
+                color: colors.primaryDarken,
+            },
+            time: {
+                color: colors.neutral800,
             },
         },
         TileToggle: {

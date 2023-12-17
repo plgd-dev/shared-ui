@@ -1,18 +1,20 @@
-import { tagVariants } from './constants'
+import { tagVariants, itemVisibility } from './constants'
 import { ReactNode, SyntheticEvent } from 'react'
 import { Strategy } from '@floating-ui/core/src/types'
 
 export type MenuTagVariantType = (typeof tagVariants)[keyof typeof tagVariants]
+export type MenuItemVisibilityType = (typeof itemVisibility)[keyof typeof itemVisibility]
 
 type MenuItemTag = {
     text: string
     variant: MenuTagVariantType | string
 }
 
+export type SubMenuItem = Omit<MenuItem, 'icon'>
+
 export type MenuItem = {
-    children?: Omit<MenuItem, 'icon'>[]
+    children?: SubMenuItem[]
     dataTestId?: string
-    disabled?: boolean
     exact?: boolean
     icon: ReactNode
     id: string
@@ -20,6 +22,8 @@ export type MenuItem = {
     paths?: string[]
     tag?: MenuItemTag
     title: any
+    visibility?: MenuItemVisibilityType
+    disabled?: boolean
 }
 
 export type MenuGroup = {
@@ -42,7 +46,7 @@ export type Props = {
             description: string
         }
     }
-    onItemClick?: (item: MenuItem, e: SyntheticEvent) => void
+    onItemClick?: (item: MenuItem | SubMenuItem, e: SyntheticEvent) => void
     setCollapsed?: (collapsed: boolean) => void
     versionMark?: ReactNode
 }
@@ -50,7 +54,7 @@ export type Props = {
 export type LeftPanelItemType = {
     active: string | null
     collapsed?: boolean
-    handleItemClick: (item: MenuItem, e: SyntheticEvent) => void
+    handleItemClick: (item: MenuItem | SubMenuItem, e: SyntheticEvent) => void
     item: MenuItem
     key: number
 }
@@ -59,7 +63,7 @@ export type LeftPanelSubItemsType = {
     active: string | null
     collapsed?: boolean
     floating: any
-    handleItemClick: (item: MenuItem, e: SyntheticEvent) => void
+    handleItemClick: (item: MenuItem | SubMenuItem, e: SyntheticEvent) => void
     isActive?: boolean
     item: MenuItem
     strategy: Strategy

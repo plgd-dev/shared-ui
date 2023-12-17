@@ -3,7 +3,7 @@ import { addons } from '@storybook/addons'
 import { useEffect, useState } from 'react'
 import { CHANGE } from 'storybook-addon-themes/src/constants'
 
-import light from '../src/components/Atomic/_theme/light'
+import plgd from '../src/components/Atomic/_theme/plgd'
 import siemens from '../src/components/Atomic/_theme/siemens'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -26,11 +26,11 @@ export const parameters = {
     },
   },
   themes: {
-    default: 'light',
+    default: 'plgd',
     list: [
-      { name: 'light', class: ['theme-twt', 'light-mode'], color: '#00aced' },
+      { name: 'plgd', class: ['theme-plgd', 'plgd-mode'], color: '#00aced' },
       // { name: 'dark', class: ['theme-fb', 'dark-mode'], color: '#3b5998' },
-      { name: 'siemens', class: ['theme-fb', 'siemens-mode'], color: '#000028' },
+      { name: 'siemens', class: ['theme-siemens', 'siemens-mode'], color: '#000028' },
     ],
   },
 }
@@ -45,7 +45,7 @@ const withTheme = (StoryFn, context) => {
     return (lastValue && lastValue[0]) || themes.default
   })
 
-  const getThemeByKey = (themeName) => themeName === 'light' ? light : siemens
+  const getThemeByKey = (themeName) => themeName === 'plgd' ? plgd : siemens
 
   useEffect(() => {
     channel.on(CHANGE, setThemeName);

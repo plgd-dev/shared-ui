@@ -11,7 +11,7 @@ export type ColumnSizesType = {
 }
 
 export type Props = {
-    children: ReactNode | ReactElement
+    children?: ReactNode | ReactElement
     id?: string
     className?: string
     style?: CSSProperties

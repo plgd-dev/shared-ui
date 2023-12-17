@@ -7,11 +7,6 @@ describe('<PageLayout>', () => {
     it('render correctly - snapshot', () => {
         const { asFragment } = render(
             <PageLayout
-                breadcrumbs={[
-                    {
-                        label: 'Breadcrumb label',
-                    },
-                ]}
                 footer={
                     <Footer
                         footerExpanded={false}

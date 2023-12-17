@@ -10,8 +10,8 @@ export * from './DevicesResourcesModal'
 export { default as DevicesResourcesTree } from './DevicesResourcesTree'
 export * from './DevicesResourcesTree'
 
-export { default as EditDeviceNameModal } from './EditDeviceNameModal'
-export * from './EditDeviceNameModal'
+export { default as EditDeviceNameModal } from './EditNameModal'
+export * from './EditNameModal'
 
 export { default as InitializedByDifferentUser } from './InitializedByDifferentUser'
 export * from './InitializedByDifferentUser'

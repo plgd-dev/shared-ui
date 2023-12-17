@@ -1,5 +1,5 @@
-import { DeviceDataType, ResourcesType } from '../../../common/types/Devices.types'
 import { ReactNode } from 'react'
+import { DeviceDataType } from '../../../common/types/Devices.types'
 
 export type Props = {
     collapsed: boolean

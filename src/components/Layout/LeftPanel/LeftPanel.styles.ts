@@ -167,10 +167,10 @@ export const activeItem = (theme: ThemeType) => css`
 
 export const disabled = (theme: ThemeType) => css`
     cursor: not-allowed;
-
     color: ${get(theme, 'LeftPanel.item.disabled.color')} !important;
 
     &:hover {
+        text-decoration: none !important;
         color: ${get(theme, 'LeftPanel.item.disabled.color')} !important;
     }
 `
@@ -181,11 +181,12 @@ export const itemTitle = css`
     font-weight: 400;
     font-size: 14px;
     line-height: 14px;
-    width: 100%;
     display: flex;
     align-items: center;
     position: absolute;
     top: 12px;
+    right: 12px;
+    bottom: 12px;
     left: 12px;
     height: 14px;
     text-overflow: ellipsis;
@@ -285,8 +286,8 @@ export const subItemLinkLast = css`
     margin-bottom: 0;
 `
 
-export const subItemLinkActive = css`
-    color: #0a2965;
+export const subItemLinkActive = (theme: ThemeType) => css`
+    color: ${get(theme, 'LeftPanel.subItem.active.color')} !important;
 `
 
 export const line = css`

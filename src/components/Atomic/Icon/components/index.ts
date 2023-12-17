@@ -1,4 +1,6 @@
 export { default as IconActions } from './IconActions'
+export { default as IconArrowDetail } from './IconArrowDetail'
+export { default as IconArrowDownNoPadding } from './IconArrowDownNoPadding'
 export { default as IconArrowDown } from './IconArrowDown'
 export { default as IconArrowLeft } from './IconArrowLeft'
 export { default as IconArrowRight } from './IconArrowRight'

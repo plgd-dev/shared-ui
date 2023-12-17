@@ -5,11 +5,16 @@ import { useFloating, shift, offset } from '@floating-ui/react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
-import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType } from './LeftPanel.types'
+import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType, SubMenuItem } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
 import { Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
+import { itemVisibility } from './constants'
+
+const { ENABLED, HIDDEN } = itemVisibility
+
+const isGroupVisible = (group: any) => !group.items.every((i: any) => i.visibility === HIDDEN)
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
@@ -21,11 +26,12 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 
     const isItemActive = (item: MenuItem) => item.id === active || item?.children?.some((subItem) => subItem.id === active)
     const isActive = isItemActive(item)
+    const isDisabled = item?.visibility !== ENABLED
 
     return (
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
             <a
-                css={(theme) => [styles.item(theme), isActive && styles.activeItem(theme), item.disabled && styles.disabled(theme)]}
+                css={(theme) => [styles.item(theme), isActive && styles.activeItem(theme), isDisabled && styles.disabled(theme)]}
                 data-test-id={item.dataTestId}
                 href={item.link}
                 id={item.id}
@@ -37,7 +43,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                     <span aria-label={item.title} css={styles.itemTitleText}>
                         {item.title}
                     </span>
-                    {item.children && (
+                    {item.children && !isDisabled && (
                         <span css={[styles.arrow, isActive && styles.activeArrow, collapsed && styles.arrowCollapsed]}>
                             <Arrow height={6} width={10} />
                         </span>
@@ -87,7 +93,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                             subItem.id === active && styles.subItemLinkActive,
                                             (item.children?.length || 0) - 1 === key && styles.subItemLinkLast,
                                         ]}
-                                        href='#'
+                                        href={subItem.link}
                                         onClick={(e) => handleItemClick(item, e)}
                                     >
                                         <img alt='line' css={styles.line} src={img} />
@@ -108,12 +114,16 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
             <CSSTransition appear={true} classNames='item' in={isActive} key={item.id} timeout={0}>
                 <div css={styles.subItems}>
                     <ul css={[styles.subItemsList]}>
-                        {item.children?.map((item, key) => (
+                        {item.children?.map((subItem, key) => (
                             <li key={key}>
-                                <a css={[styles.subItemLink, item.id === active && styles.subItemLinkActive]} href='#'>
+                                <a
+                                    css={[styles.subItemLink, subItem.id === active && styles.subItemLinkActive, subItem.disabled && styles.disabled]}
+                                    href={`${item.link}${subItem.link}`}
+                                    onClick={(e) => handleItemClick({ ...subItem, link: `${item.link}${subItem.link}` }, e)}
+                                >
                                     <img alt='line' css={styles.line} src={img} />
-                                    {item.title}
-                                    {item.tag && <span css={styles.tag(item.tag.variant)}>{item.tag.text}</span>}
+                                    {subItem.title}
+                                    {subItem.tag && <span css={styles.tag(subItem.tag.variant)}>{subItem.tag.text}</span>}
                                 </a>
                             </li>
                         ))}
@@ -134,7 +144,7 @@ const LeftPanel: FC<Props> = (props) => {
         setDomReady(true)
     }, [])
 
-    const handleItemClick = (item: MenuItem, e: SyntheticEvent) => {
+    const handleItemClick = (item: MenuItem | SubMenuItem, e: SyntheticEvent) => {
         if (item.disabled) {
             e.preventDefault()
             e.stopPropagation()
@@ -178,16 +188,21 @@ const LeftPanel: FC<Props> = (props) => {
             </div>
             <div css={[styles.menu, collapsed && styles.menuCollapsed]}>
                 <ul css={styles.menuList}>
-                    {menu?.map((group, key) => (
-                        <li className='menu-list-group' css={styles.group} key={key}>
-                            <div css={[styles.groupTitle, collapsed && styles.groupTitleCollapsed]}>{group.title}</div>
-                            <ul css={styles.menuList}>
-                                {group.items?.map((item, key) => (
-                                    <LeftPanelItem active={active} collapsed={collapsed} handleItemClick={handleItemClick} item={item} key={key} />
-                                ))}
-                            </ul>
-                        </li>
-                    ))}
+                    {menu?.map(
+                        (group, key) =>
+                            isGroupVisible(group) && (
+                                <li className='menu-list-group' css={styles.group} key={key}>
+                                    <div css={[styles.groupTitle, collapsed && styles.groupTitleCollapsed]}>{group.title}</div>
+                                    <ul css={styles.menuList}>
+                                        {group.items
+                                            ?.filter((i) => i.visibility !== HIDDEN)
+                                            .map((item, key) => (
+                                                <LeftPanelItem active={active} collapsed={collapsed} handleItemClick={handleItemClick} item={item} key={key} />
+                                            ))}
+                                    </ul>
+                                </li>
+                            )
+                    )}
                     {!collapsed && newFeature && (
                         <AnimatePresence>
                             {showFeature && (
