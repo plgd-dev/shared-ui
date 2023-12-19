@@ -27,6 +27,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
     const isItemActive = (item: MenuItem) => item.id === active || item?.children?.some((subItem) => subItem.id === active)
     const isActive = isItemActive(item)
     const isDisabled = item?.visibility !== ENABLED
+    const isExternal = item.link?.startsWith('//') || item.link?.startsWith('http')
 
     return (
         <li className='menu-list-item' css={[collapsed && styles.menuListItem]}>
@@ -35,8 +36,10 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                 data-test-id={item.dataTestId}
                 href={item.link}
                 id={item.id}
-                onClick={(e) => handleItemClick(item, e)}
+                onClick={isExternal ? undefined : (e) => handleItemClick(item, e)}
                 ref={refs.setReference}
+                rel={isExternal ? 'noreferrer' : undefined}
+                target={isExternal ? '_blank' : undefined}
             >
                 <div css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
                     {typeof item.icon === 'string' ? <Icon icon={item.icon} /> : cloneElement(item.icon as ReactElement, { css: styles.itemTitleIcon })}
