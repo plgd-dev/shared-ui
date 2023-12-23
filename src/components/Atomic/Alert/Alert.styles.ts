@@ -68,9 +68,9 @@ export const icon = (theme: ThemeType) => css`
     color: ${get(theme, 'Alert.icon.color')};
 `
 
-export const label = css`
+export const label = (theme: ThemeType) => css`
     padding-left: 12px;
-    color: ${colors.neutral600};
+    color: ${get(theme, 'Alert.label.color')};
 `
 
 export const iconClose = (theme: ThemeType) => css`

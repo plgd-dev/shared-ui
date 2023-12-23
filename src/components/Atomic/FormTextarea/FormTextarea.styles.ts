@@ -1,36 +1,36 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
 
-export const textarea = css`
-    font-family: 'Poppins', sans-serif;
+import { ThemeType, get } from '../_theme'
+
+export const textarea = (theme: ThemeType) => css`
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    border: 1px solid #e6e9ed;
+    border: 1px solid ${get(theme, `FormTextarea.borderColor`)};
     border-radius: 8px;
     display: block;
     width: 100%;
     padding: 8px 16px;
     transition: all 0.25s;
-    color: #252626;
+    color: ${get(theme, `FormTextarea.color`)};
     box-sizing: border-box;
     min-height: 120px;
 
     &::placeholder {
-        color: #81868c;
+        color: ${get(theme, `FormTextarea.placeholder.color`)};
         opacity: 1;
     }
 
     &:-ms-input-placeholder {
-        color: #81868c;
+        color: ${get(theme, `FormTextarea.placeholder.color`)};
     }
 
     &::-ms-input-placeholder {
-        color: #81868c;
+        color: ${get(theme, `FormTextarea.placeholder.color`)};
     }
 
     &:focus {
-        border-color: ${colors.primary};
+        border-color: ${get(theme, `FormTextarea.focus.borderColor`)};
         outline: none;
     }
 
@@ -40,15 +40,15 @@ export const textarea = css`
     }
 `
 
-export const disabled = css`
-    background: #f6f7f9;
-    color: #757676;
+export const disabled = (theme: ThemeType) => css`
+    background: ${get(theme, `FormTextarea.disabled.background`)};
+    color: ${get(theme, `FormTextarea.disabled.color`)};
 `
 
-export const readOnly = css`
-    color: #757676;
+export const readOnly = (theme: ThemeType) => css`
+    color: ${get(theme, `FormTextarea.readOnly.color`)};
 `
 
-export const error = css`
-    border-color: ${colors.red};
+export const error = (theme: ThemeType) => css`
+    border-color: ${get(theme, `FormTextarea.error.color`)};
 `

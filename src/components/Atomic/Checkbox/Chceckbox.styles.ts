@@ -1,5 +1,4 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
 import styled from '@emotion/styled'
 import { get, ThemeType } from '../_theme'
 
@@ -68,9 +67,9 @@ export const input = (theme: ThemeType) => css`
     }
 `
 
-export const label = css`
+export const label = (theme: ThemeType) => css`
     font-size: 12px;
-    color: #81868c;
+    color: ${get(theme, `Checkbox.label.color`)};
     padding-left: 8px;
     cursor: pointer;
     line-height: 18px;
@@ -79,6 +78,6 @@ export const label = css`
     font-weight: 400;
 `
 
-export const error = css`
-    border-color: ${colors.red};
+export const error = (theme: ThemeType) => css`
+    border-color: ${get(theme, `Checkbox.error.red`)};
 `

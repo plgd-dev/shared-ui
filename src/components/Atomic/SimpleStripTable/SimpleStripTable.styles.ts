@@ -21,6 +21,10 @@ export const row = (theme: ThemeType) => css`
     }
 `
 
+export const autoHeight = css`
+    height: 100%;
+`
+
 export const attribute = css`
     padding: 16px 24px;
     color: ${colors.neutral500};

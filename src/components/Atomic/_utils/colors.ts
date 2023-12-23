@@ -1,15 +1,16 @@
 export const uiColorMap = {
     plgd: {
-        primaryDarken: '#0A2965', // darken
         primary: '#2261AE',
-        primaryHover: '#1D589F', // hover
         primaryBonus: '#007BBF', // bonus
         primaryBright: '#87CEF2', // bright
+        primaryDarken: '#0A2965', // darken
+        primaryHover: '#1D589F', // hover
         light: '#F4F9FB',
         yellow: '#FEBF40',
         red: '#D74E3A',
         redBackground: '#F9E3DF',
         green: '#52c5a2',
+        info: undefined,
         neutral900: '#191A1A',
         neutral800: '#252626',
         neutral700: '#474747',
@@ -50,6 +51,7 @@ export const uiColorMap = {
     },
     siemens: {
         primary: '#00adb4',
+        primaryBonus: '#00BEDC',
         yellow: '#ffd732',
         red: '#ef0137',
         green: '#00d7a0',
@@ -58,12 +60,15 @@ export const uiColorMap = {
         neutral800: '#23233c',
         neutral700: '#353640',
         neutral500: '#81868D',
+        neutral000: '#FFFFFF',
+        disabled: '#D7D8DA',
     },
 }
 
 export const colors = uiColorMap.plgd
 
 export const colorsDark = uiColorMap.dark
+
 export const colorsSiemens = uiColorMap.siemens
 
 export const colorsVariants = {

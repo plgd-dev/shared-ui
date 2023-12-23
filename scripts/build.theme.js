@@ -33,18 +33,18 @@ async function run(argv) {
     }
 
     // build theme color
-    const commandThemeColors = `npx babel ./src/components/Atomic/_utils/colors.ts --out-file build/lib/_utils/colors.js ${extensions}`
-    const { stderrColor, stdoutColor } = await exec(commandThemeColors, {
+    const commandThemeUtils = `npx babel ./src/components/Atomic/_utils/ -d build/lib/_utils ${extensions}`
+    const { stderrUtils, stdoutUtils } = await exec(commandThemeUtils, {
         env: { ...process.env, ...env },
         cwd,
     })
 
-    if (stderrColor) {
-        throw new Error(`'${commandThemeColors}' failed with \n${stderrColor}`)
+    if (stderrUtils) {
+        throw new Error(`'${commandThemeUtils}' failed with \n${stderrUtils}`)
     }
 
-    if (verbose && stdoutColor) {
-        console.log(stdoutColor)
+    if (verbose && stdoutUtils) {
+        console.log(stdoutUtils)
     }
 
     const buildPath = path.join(cwd, './build')

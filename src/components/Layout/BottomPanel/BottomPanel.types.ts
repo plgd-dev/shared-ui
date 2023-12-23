@@ -3,9 +3,9 @@ import { ReactNode } from 'react'
 export type Props = {
     actionPrimary?: ReactNode
     actionSecondary?: ReactNode
-    attribute: string
+    attribute?: string
     iframeMode?: boolean
     leftPanelCollapsed?: boolean
-    value: string | number
+    value?: string | number
     show: boolean
 }

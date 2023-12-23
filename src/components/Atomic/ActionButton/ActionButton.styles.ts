@@ -1,5 +1,4 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
 import { get, ThemeType } from '../_theme'
 
 export const actionButton = css`
@@ -20,7 +19,7 @@ export const item = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: ${colors.neutral500};
+    color: ${get(theme, `ActionButton.item.color`)};
     transition: all 0.3s;
     padding: 8px 0;
     cursor: pointer;
@@ -50,7 +49,7 @@ export const icon = (theme: ThemeType) => css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: ${colors.neutral500};
+    color: ${get(theme, `ActionButton.icon.color`)};
     transition: all 0.3s;
     cursor: pointer;
 
@@ -60,5 +59,5 @@ export const icon = (theme: ThemeType) => css`
 `
 
 export const iconActive = (theme: ThemeType) => css`
-    color: ${get(theme, `ActionButton.icon.acive.color`)};
+    color: ${get(theme, `ActionButton.icon.active.color`)};
 `

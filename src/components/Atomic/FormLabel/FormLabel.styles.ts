@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
 
-export const label = css`
+import { ThemeType, get } from '../_theme'
+
+export const label = (theme: ThemeType) => css`
     font-family: 'Poppins', sans-serif;
     font-size: 12px;
     font-style: normal;
@@ -9,7 +10,7 @@ export const label = css`
     line-height: 160%;
     display: inline-block;
     margin-bottom: 10px;
-    color: #81868c;
+    color: ${get(theme, `FormLabel.color`)};
     cursor: pointer;
 `
 
@@ -19,6 +20,6 @@ export const inline = css`
     margin-right: 10px;
 `
 
-export const required = css`
-    color: ${colors.primary};
+export const required = (theme: ThemeType) => css`
+    color: ${get(theme, `FormLabel.required.color`)};
 `

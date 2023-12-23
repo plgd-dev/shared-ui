@@ -1,4 +1,5 @@
 import { colors, colorsSiemens } from '../_utils/colors'
+import { required } from '../FormLabel/FormLabel.styles'
 
 const theme = {
     colors: {
@@ -9,11 +10,13 @@ const theme = {
             },
             item: {
                 borderColor: colorsSiemens.neutral800,
+                color: colors.neutral500,
                 hover: {
                     color: colorsSiemens.primary,
                 },
             },
             icon: {
+                color: colors.neutral500,
                 hover: {
                     color: colorsSiemens.primary,
                 },
@@ -30,6 +33,9 @@ const theme = {
             },
             icon: {
                 color: colorsSiemens.primary,
+            },
+            label: {
+                color: colors.neutral600,
             },
             line: {
                 background: colorsSiemens.primary,
@@ -62,18 +68,35 @@ const theme = {
                 },
             },
         },
+        BottomPanel: {
+            background: colorsSiemens.neutral800,
+            attribute: {
+                color: colorsSiemens.neutral500,
+            },
+            value: {
+                color: colorsSiemens.primary,
+            },
+        },
+        Breadcrumb: {
+            link: {
+                color: colorsSiemens.primary,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
+            },
+        },
         Button: {
             primary: {
                 background: colorsSiemens.primary,
                 borderColor: colorsSiemens.primary,
-                color: '#fff',
+                color: colorsSiemens.neutral000,
                 hover: {
-                    background: '#00BEDC',
-                    borderColor: '#00BEDC',
-                    color: '#fff',
+                    background: colorsSiemens.primaryBonus,
+                    borderColor: colorsSiemens.primaryBonus,
+                    color: colorsSiemens.neutral000,
                 },
                 disabled: {
-                    background: '#81868c',
+                    background: colorsSiemens.neutral500,
                     borderColor: colorsSiemens.neutral800,
                     color: colors.neutral000,
                 },
@@ -81,7 +104,7 @@ const theme = {
             secondary: {
                 background: 'rgba(82, 197, 162, 0.16)',
                 borderColor: colorsSiemens.primary,
-                color: '#fff',
+                color: colorsSiemens.neutral000,
                 hover: {
                     background: colorsSiemens.primary,
                     borderColor: colorsSiemens.primary,
@@ -115,7 +138,7 @@ const theme = {
                 hover: {
                     background: colorsSiemens.neutral800,
                     borderColor: colorsSiemens.neutral800,
-                    color: '#fff',
+                    color: colorsSiemens.neutral000,
                 },
                 disabled: {
                     background: '#81868c',
@@ -124,52 +147,17 @@ const theme = {
                 },
             },
         },
-        Breadcrumb: {
-            link: {
-                color: colorsSiemens.primary,
-                hover: {
-                    color: colorsSiemens.primary,
-                },
+        Checkbox: {
+            borderColor: colorsSiemens.neutral500,
+            background: colorsSiemens.primary,
+            input: {
+                borderColor: colorsSiemens.primary,
             },
-        },
-        LeftPanel: {
-            background: colorsSiemens.neutral800,
-            collapseToggle: {
-                color: '#fff',
-                hover: {
-                    color: colorsSiemens.primary,
-                },
+            label: {
+                color: colors.neutral500,
             },
-            logo: {
-                background: colorsSiemens.neutral800,
-            },
-            groupTitle: {
-                color: 'rgba(255, 255, 255, 0.8)',
-            },
-            item: {
-                color: colors.light,
-                hover: {
-                    color: '#fff',
-                },
-                active: {
-                    color: colorsSiemens.primary,
-                },
-                disabled: {
-                    color: colors.neutral600,
-                },
-            },
-            subItem: {
-                active: {
-                    color: '#fff',
-                },
-            },
-            versionItem: {
-                borderColor: colorsSiemens.neutral900,
-            },
-            iconClose: {
-                hover: {
-                    color: colorsSiemens.primary,
-                },
+            error: {
+                red: colorsSiemens.red,
             },
         },
         Content: {
@@ -177,18 +165,14 @@ const theme = {
         },
         CopyElement: {
             background: colorsSiemens.neutral900,
+            copied: {
+                color: colorsSiemens.neutral000,
+                hover: {
+                    color: colorsSiemens.neutral000,
+                },
+            },
             hover: {
                 color: colorsSiemens.primary,
-            },
-        },
-        Checkbox: {
-            borderColor: colorsSiemens.neutral500,
-            background: colorsSiemens.primary,
-            input: {
-                borderColor: colorsSiemens.primary,
-            },
-            error: {
-                red: colorsSiemens.red,
             },
         },
         DeleteModal: {
@@ -206,7 +190,7 @@ const theme = {
                 borderColor: colors.neutral500,
             },
             deleteIconInner: {
-                color: '#fff',
+                color: colorsSiemens.neutral000,
             },
             subTitle: {
                 color: colors.neutral500,
@@ -218,25 +202,68 @@ const theme = {
         DetailHeadline: {
             color: colorsSiemens.primary,
         },
+        Dropzone: {
+            container: {
+                borderColor: colors.neutral300,
+            },
+            placeholder: {
+                color: colors.neutral500,
+                text: {
+                    color: colors.neutral800,
+                },
+                highlight: {
+                    color: colors.neutral800,
+                },
+                description: {
+                    color: colors.neutral500,
+                },
+            },
+            file: {
+                color: colors.neutral800,
+                close: {
+                    color: colors.neutral500,
+                },
+                size: {
+                    color: colors.neutral500,
+                },
+            },
+        },
         Editor: {
             borderColor: colorsSiemens.neutral900,
-            scroller: {
-                background: colorsSiemens.neutral900,
+            constant: {
+                boolean: {
+                    color: colorsSiemens.yellow,
+                },
+                numeric: {
+                    color: colorsSiemens.red,
+                },
+                string: {
+                    color: colorsSiemens.green,
+                },
+            },
+            fullSizeBtn: {
+                background: colorsSiemens.neutral800,
+                color: colors.neutral500,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
             },
             gutter: {
                 background: colorsSiemens.neutral900,
+                color: colors.neutral600,
             },
             gutterActiveLine: {
                 background: colorsSiemens.neutral900,
             },
+
             indentGuide: {
                 background: 'none',
             },
-            fullSizeBtn: {
-                background: colorsSiemens.neutral800,
+            scroller: {
+                background: colorsSiemens.neutral900,
             },
-            hover: {
-                color: colorsSiemens.primary,
+            variable: {
+                color: colors.neutral600,
             },
         },
         FloatingPanel: {
@@ -268,28 +295,51 @@ const theme = {
                 background: colorsSiemens.neutral800,
             },
         },
+        FormGroup: {
+            error: {
+                color: colorsSiemens.red,
+            },
+        },
         FormInput: {
-            borderColor: colorsSiemens.neutral800,
             background: colorsSiemens.neutral900,
-            color: '#fff',
+            borderColor: colorsSiemens.neutral800,
+            color: colorsSiemens.neutral000,
+            disabled: {
+                background: colorsSiemens.neutral900,
+                color: colorsSiemens.neutral500,
+                borderColor: colorsSiemens.neutral900,
+            },
             error: {
                 red: colorsSiemens.red,
             },
             focus: {
                 borderColor: colorsSiemens.primary,
             },
-            disabled: {
-                background: colorsSiemens.neutral900,
-                color: colorsSiemens.neutral500,
-                borderColor: colorsSiemens.neutral900,
+            icon: {
+                color: colors.neutral500,
+                hover: {
+                    color: colorsSiemens.primaryBonus,
+                },
+            },
+            passwordIcon: {
+                background: colors.neutral000,
+            },
+            placeholder: {
+                color: colors.neutral500,
             },
             readonly: {
-                color: '#ffff',
+                color: colorsSiemens.neutral000,
+            },
+        },
+        FormLabel: {
+            color: colors.neutral500,
+            required: {
+                color: colorsSiemens.primary,
             },
         },
         FormSelect: {
             input: {
-                color: '#fff',
+                color: colorsSiemens.neutral000,
             },
             control: {
                 borderColor: colorsSiemens.neutral800,
@@ -297,6 +347,9 @@ const theme = {
                 hover: {
                     borderColor: colorsSiemens.primary,
                 },
+            },
+            disabled: {
+                color: colors.neutral500,
             },
             menu: {
                 borderColor: colorsSiemens.neutral800,
@@ -309,18 +362,42 @@ const theme = {
                 color: colorsSiemens.primary,
             },
             value: {
-                color: '#fff',
+                color: colorsSiemens.neutral000,
             },
             indicator: {
-                color: '#fff',
+                color: colorsSiemens.neutral000,
             },
             placeholder: {
-                color: '#fff',
+                color: colorsSiemens.neutral000,
             },
             option: {
+                color: colorsSiemens.neutral000,
                 hover: {
                     color: colorsSiemens.primary,
                 },
+            },
+            error: {
+                color: colorsSiemens.red,
+            },
+        },
+        FormTextarea: {
+            borderColor: colors.neutral200,
+            color: colors.neutral800,
+            disabled: {
+                background: colors.neutral100,
+                color: colors.neutral600,
+            },
+            error: {
+                color: colorsSiemens.red,
+            },
+            focus: {
+                borderColor: colorsSiemens.primary,
+            },
+            placeholder: {
+                color: colorsSiemens.neutral500,
+            },
+            readOnly: {
+                color: colors.neutral600,
             },
         },
         Header: {
@@ -332,6 +409,46 @@ const theme = {
         },
         Layout: {
             background: colorsSiemens.neutral900,
+        },
+        LeftPanel: {
+            background: colorsSiemens.neutral800,
+            collapseToggle: {
+                color: colorsSiemens.neutral000,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
+            },
+            logo: {
+                background: colorsSiemens.neutral800,
+            },
+            groupTitle: {
+                color: 'rgba(255, 255, 255, 0.8)',
+            },
+            item: {
+                color: colors.light,
+                hover: {
+                    color: colorsSiemens.neutral000,
+                },
+                active: {
+                    color: colorsSiemens.primary,
+                },
+                disabled: {
+                    color: colors.neutral600,
+                },
+            },
+            subItem: {
+                active: {
+                    color: colorsSiemens.neutral000,
+                },
+            },
+            versionItem: {
+                borderColor: colorsSiemens.neutral900,
+            },
+            iconClose: {
+                hover: {
+                    color: colorsSiemens.primary,
+                },
+            },
         },
         Modal: {
             background: colorsSiemens.neutral800,
@@ -389,7 +506,7 @@ const theme = {
             InnerToast: {
                 borderColor: colors.neutral700,
                 headline: {
-                    color: '#fff',
+                    color: colorsSiemens.neutral000,
                 },
                 unreadMark: {
                     borderColor: colorsSiemens.neutral800,
@@ -414,9 +531,9 @@ const theme = {
             item: {
                 active: {
                     background: colorsSiemens.neutral900,
-                    color: '#fff',
+                    color: colorsSiemens.neutral000,
                     hover: {
-                        color: '#fff',
+                        color: colorsSiemens.neutral000,
                     },
                 },
                 hover: {
@@ -529,10 +646,10 @@ const theme = {
                     background: colorsSiemens.neutral800,
                 },
                 link: {
-                    color: '#fff',
+                    color: colorsSiemens.neutral000,
                 },
                 a: {
-                    color: '#fff',
+                    color: colorsSiemens.neutral000,
                 },
             },
             row: {
@@ -559,12 +676,6 @@ const theme = {
         TableGlobalFilter: {
             searchInput: {
                 background: 'transparent',
-            },
-        },
-        TableSelectionPanel: {
-            background: colorsSiemens.neutral800,
-            selectionInfo: {
-                color: colorsSiemens.primary,
             },
         },
         Tabs: {
@@ -657,11 +768,11 @@ const theme = {
         TreeExpander: {
             hover: {
                 expanderIcon: {
-                    color: '#fff',
+                    color: colorsSiemens.neutral000,
                 },
             },
             expanded: {
-                color: '#fff',
+                color: colorsSiemens.neutral000,
             },
         },
         TreeTable: {
@@ -674,7 +785,7 @@ const theme = {
                 },
             },
             cell: {
-                color: '#fff',
+                color: colorsSiemens.neutral000,
             },
             removeBottomBorderRadius: {
                 backgroundColor: colorsSiemens.neutral800,

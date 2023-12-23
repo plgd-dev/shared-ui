@@ -28,7 +28,6 @@ const Dropzone: FC<Props> = (props) => {
 
     const renderFile = useCallback(
         (file: any) => {
-            console.log(file)
             const nameArray = file.name.split('.')
             const format = nameArray[nameArray.length - 1]
             const index = customFileRenders?.findIndex((item) => item.format === format.toLowerCase())

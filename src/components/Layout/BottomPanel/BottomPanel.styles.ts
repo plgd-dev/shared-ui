@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { COLLAPSE_ANIMATION_TIME } from '../constants'
 import { panelSizes } from '../LeftPanel/constants'
 import { ThemeType, get } from '../../Atomic/_theme'
-import { colors } from '../../Atomic/_utils/colors'
+import { fontPrimary } from '../../Atomic/_utils/commonStyles'
 
 export const selectionPanel = css`
     position: fixed;
@@ -27,8 +27,8 @@ export const inner = (theme: ThemeType) => css`
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background: ${get(theme, `TableSelectionPanel.background`)};
-    box-shadow: 0px -30px 20px rgba(28, 52, 99, 0.05);
+    background: ${get(theme, `BottomPanel.background`)};
+    box-shadow: 0 -30px 20px rgba(28, 52, 99, 0.05);
     transition: all 0.35s;
 `
 
@@ -37,28 +37,31 @@ export const left = css`
     align-items: center;
 `
 
-export const label = css`
-    font-family: 'Poppins', sans-serif;
+export const label = (theme: ThemeType) => css`
+    font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: ${colors.neutral500};
+    color: ${get(theme, `BottomPanel.value.color`)};
 `
 
 export const selectionInfo = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    color: ${get(theme, `TableSelectionPanel.selectionInfo.color`)};
+    color: ${get(theme, `BottomPanel.value.color`)};
 `
 
 export const right = css`
     margin: 0 -4px;
+    display: flex;
+    align-items: center;
+
     & > button {
         margin: 0 4px;
     }

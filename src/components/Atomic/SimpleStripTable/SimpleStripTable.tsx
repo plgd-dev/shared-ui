@@ -11,14 +11,20 @@ const SimpleStripTable: FC<Props> = (props) => {
     return (
         <div className={className} id={id}>
             {rows.map((r, key) => (
-                <Row css={styles.row} gutters={false} key={key}>
+                <Row css={[styles.row, r.autoHeight && styles.autoHeight]} gutters={false} key={key}>
                     <Column size={leftColSize as ColumnSizeType}>
-                        <div css={[styles.attribute, styles.border, styles.borderLeft]} data-test-id={r.dataTestId?.concat('-attribute')}>
+                        <div
+                            css={[styles.attribute, styles.border, styles.borderLeft, r.autoHeight && styles.autoHeight]}
+                            data-test-id={r.dataTestId?.concat('-attribute')}
+                        >
                             {r.attribute}
                         </div>
                     </Column>
                     <Column size={rightColSize as ColumnSizeType}>
-                        <div css={[styles.value, styles.border, styles.borderRight]} data-test-id={r.dataTestId?.concat('-value')}>
+                        <div
+                            css={[styles.value, styles.border, styles.borderRight, r.autoHeight && styles.autoHeight]}
+                            data-test-id={r.dataTestId?.concat('-value')}
+                        >
                             {r.value}
                         </div>
                     </Column>

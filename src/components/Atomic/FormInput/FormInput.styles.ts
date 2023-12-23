@@ -17,16 +17,16 @@ export const input = (theme: ThemeType, error?: boolean) => css`
     box-sizing: border-box;
 
     &::placeholder {
-        color: #81868c;
+        color: ${get(theme, `FormInput.placeholder.color`)};
         opacity: 1;
     }
 
     &:-ms-input-placeholder {
-        color: #81868c;
+        color: ${get(theme, `FormInput.placeholder.color`)};
     }
 
     &::-ms-input-placeholder {
-        color: #81868c;
+        color: ${get(theme, `FormInput.placeholder.color`)};
     }
 
     &:focus {
@@ -37,6 +37,18 @@ export const input = (theme: ThemeType, error?: boolean) => css`
     &::-ms-reveal,
     &::-ms-clear {
         display: none;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    &[type='number'] {
+        -moz-appearance: textfield;
     }
 `
 
@@ -69,7 +81,7 @@ export const inputTel = css`
     padding-left: 100px;
 `
 
-export const inputIcon = css`
+export const inputIcon = (theme: ThemeType) => css`
     position: absolute;
     right: 12px;
     top: 12px;
@@ -79,12 +91,12 @@ export const inputIcon = css`
     align-items: center;
     justify-content: center;
     z-index: 2;
-    color: #81868c;
+    color: ${get(theme, `FormInput.icon.color`)};
     cursor: pointer;
     transition: all 0.25ms;
 
     &:hover {
-        color: #007bbf;
+        color: ${get(theme, `FormInput.icon.hover.color`)};
     }
 
     svg {
@@ -93,11 +105,11 @@ export const inputIcon = css`
     }
 `
 
-export const passwordIcon = css`
+export const passwordIcon = (theme: ThemeType) => css`
     top: 10px;
     right: 12px;
     padding: 2px 0 2px 4px;
-    background: #fff;
+    background: ${get(theme, `FormInput.passwordIcon.background`)};
     width: 28px;
     height: 28px;
     box-sizing: border-box;

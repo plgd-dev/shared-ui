@@ -1,8 +1,6 @@
 import { css } from '@emotion/react'
 
-import { colors } from '../_utils/colors'
 import { ThemeType, get } from '../_theme'
-import { fontPrimary } from '../_utils/commonStyles'
 
 export const editor = (theme: ThemeType) => css`
     position: relative;
@@ -24,19 +22,10 @@ export const editor = (theme: ThemeType) => css`
 
             .ace_gutter {
                 background: ${get(theme, `Editor.gutter.background`)};
-                //             //padding: 16px 0;
-                //
+
                 .ace_gutter-cell {
-                    //font-family: 'Poppins', sans-serif;
-                    //font-style: normal;
-                    //font-weight: 400;
-                    //font-size: 14px;
-                    //                 //line-height: 22px;
-                    //                 text-align: center;
-                    color: ${colors.neutral600};
+                    color: ${get(theme, `Editor.gutter.color`)};
                     padding: 0 16px;
-                    //                 display: flex;
-                    //                 align-items: center;
                 }
             }
 
@@ -55,21 +44,21 @@ export const editor = (theme: ThemeType) => css`
             .ace_constant,
             .ace_paren,
             .ace_variable {
-                color: ${colors.neutral600};
+                color: ${get(theme, `Editor.variable.color`)};
             }
 
             .ace_constant {
                 &.ace_boolean {
-                    color: ${colors.yellow};
+                    color: ${get(theme, `Editor.constant.boolean.color`)};
                 }
 
                 &.ace_numeric {
-                    color: ${colors.red};
+                    color: ${get(theme, `Editor.constant.numeric.color`)};
                 }
             }
 
             .ace_string {
-                color: ${colors.green};
+                color: ${get(theme, `Editor.constant.string.color`)};
             }
         }
     }
@@ -86,17 +75,16 @@ export const fullSizeBtn = (theme: ThemeType) => css`
     padding: 4px 8px;
     border-radius: 4px;
     cursor: pointer;
-    color: #81868c;
+    color: ${get(theme, `Editor.fullSizeBtn.color`)};
     transition: all 0.3s;
 
     &:hover {
         text-decoration: none !important;
-        color: ${get(theme, `Editor.hover.color`)};
+        color: ${get(theme, `Editor.fullSizeBtn.hover.color`)};
     }
 `
 
 export const text = css`
-    font-family: ${fontPrimary};
     font-size: 12px;
     font-style: normal;
     font-weight: 400;

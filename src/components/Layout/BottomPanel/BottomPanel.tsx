@@ -23,8 +23,8 @@ const BottomPanel: FC<Props> = (props) => {
                 >
                     <div css={styles.inner}>
                         <div css={styles.left}>
-                            <div css={styles.label}>{attribute}:&nbsp;</div>
-                            <div css={styles.selectionInfo}>{value}</div>
+                            {!!attribute && <div css={styles.label}>{attribute}:&nbsp;</div>}
+                            {!!value && <div css={styles.selectionInfo}>{value}</div>}
                         </div>
                         <div css={styles.right}>
                             {actionSecondary}

@@ -105,6 +105,9 @@ export * from './Scrollbars'
 export { default as SimpleStripTable } from './SimpleStripTable'
 export * from './SimpleStripTable'
 
+export { default as Spacer } from './Spacer'
+export * from './Spacer'
+
 export { default as SplitButton } from './SplitButton'
 export * from './SplitButton'
 

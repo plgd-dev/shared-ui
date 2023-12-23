@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 
 export type Row = {
     attribute: string
+    autoHeight?: boolean
     value: ReactNode
     dataTestId?: string
 }

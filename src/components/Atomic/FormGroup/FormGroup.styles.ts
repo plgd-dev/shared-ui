@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
+import { ThemeType, get } from '../_theme'
 
 export const formGroupMargin = css`
     margin-bottom: 20px;
@@ -11,14 +11,13 @@ export const inline = (inlineJustifyContent: string) => css`
     justify-content: ${inlineJustifyContent};
 `
 
-export const errorMessage = css`
-    font-family: 'Poppins', sans-serif;
+export const errorMessage = (theme: ThemeType) => css`
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 160%;
     text-align: right;
-    color: ${colors.red};
+    color: ${get(theme, `FormGroup.error.color`)};
     padding-top: 4px;
 `
 

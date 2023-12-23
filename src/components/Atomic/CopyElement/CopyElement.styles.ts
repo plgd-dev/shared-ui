@@ -36,7 +36,7 @@ export const text = css`
     line-height: 18px;
 `
 
-export const copied = css`
+export const copied = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,7 +45,7 @@ export const copied = css`
     padding: 0 8px;
     height: 24px;
     box-sizing: border-box;
-    color: #fff;
+    color: ${get(theme, 'CopyElement.copied.color')};
     text-decoration: none;
     transform: translateX(100%);
     position: absolute;
@@ -56,7 +56,7 @@ export const copied = css`
 
     &:hover {
         text-decoration: none;
-        color: #fff;
+        color: ${get(theme, 'CopyElement.hover.copied.color')};
     }
 `
 

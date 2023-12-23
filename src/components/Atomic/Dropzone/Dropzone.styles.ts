@@ -1,39 +1,35 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
-import { fontPrimary } from '../_utils/commonStyles'
+import { ThemeType, get } from '../_theme'
 
-export const dropzoneContainer = css`
+export const dropzoneContainer = (theme: ThemeType) => css`
     padding: 32px;
-    border: 1px dashed ${colors.neutral300};
+    border: 1px dashed ${get(theme, `Dropzone.container.borderColor`)};
     border-radius: 8px;
 `
 
-export const placeholder = css`
+export const placeholder = (theme: ThemeType) => css`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: ${colors.neutral500};
+    color: ${get(theme, `Dropzone.placeholder.color`)};
 `
 
-export const placeholderText = css`
-    font-family: ${fontPrimary};
-    color: ${colors.neutral800};
-    font-style: normal;
+export const placeholderText = (theme: ThemeType) => css`
+    color: ${get(theme, `Dropzone.placeholder.text.color`)};
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
     margin: 12px 0 0 0;
 
     span {
-        color: ${colors.primary};
+        color: ${get(theme, `Dropzone.placeholder.highlight.color`)};
         text-decoration: underline;
         cursor: pointer;
     }
 `
 
-export const placeholderDescription = css`
-    font-family: ${fontPrimary};
-    color: ${colors.neutral500};
+export const placeholderDescription = (theme: ThemeType) => css`
+    color: ${get(theme, `Dropzone.placeholder.description.color`)};
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
@@ -65,23 +61,20 @@ export const fileLine = css`
     padding-left: 12px;
 `
 
-export const fileName = css`
-    font-family: ${fontPrimary};
-    color: ${colors.neutral800};
-    font-style: normal;
+export const fileName = (theme: ThemeType) => css`
+    color: ${get(theme, `Dropzone.file.color`)};
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
 `
 
-export const closeIcon = css`
+export const closeIcon = (theme: ThemeType) => css`
     cursor: pointer;
-    color: ${colors.neutral500};
+    color: ${get(theme, `Dropzone.file.close.color`)};
 `
 
-export const fileSize = css`
-    font-family: ${fontPrimary};
-    color: ${colors.neutral500};
+export const fileSize = (theme: ThemeType) => css`
+    color: ${get(theme, `Dropzone.file.size.color`)};
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;

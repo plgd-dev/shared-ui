@@ -1,6 +1,5 @@
 import { css } from '@emotion/react'
-import { colors } from '../_utils/colors'
-import { fontPrimary } from '../_utils/commonStyles'
+
 import { FormSelectSizeType } from './FormSelect.types'
 import { ThemeType, get } from '../_theme'
 
@@ -80,8 +79,8 @@ export const small = css`
     min-height: 36px;
 `
 
-export const error = css`
-    border-color: ${colors.red}!important;
+export const error = (theme: ThemeType) => css`
+    border-color: ${get(theme, `FormSelect.error.color`)} !important;
 `
 
 export const menu = (theme: ThemeType) => css`
@@ -99,8 +98,7 @@ export const menuList = css`
 `
 
 export const option = (theme: ThemeType) => css`
-    color: ${colors.neutral500};
-    font-family: ${fontPrimary};
+    color: ${get(theme, `FormSelect.option.color`)};
     font-style: normal;
     font-weight: 400;
     line-height: 22px;
@@ -141,7 +139,6 @@ export const valueContainer = css`
 
 export const value = (theme: ThemeType) => css`
     color: ${get(theme, `FormSelect.value.color`)};
-    font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -164,7 +161,6 @@ export const indicatorOpen = css`
 
 export const placeholder = (theme: ThemeType) => css`
     color: ${get(theme, `FormSelect.placeholder.color`)};
-    font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -175,8 +171,8 @@ export const textRight = css`
     text-align: right;
 `
 
-export const disabled = css`
-    color: ${colors.neutral500};
+export const disabled = (theme: ThemeType) => css`
+    color: ${get(theme, `FormSelect.disabled.color`)};
 `
 
 export const input = css`
