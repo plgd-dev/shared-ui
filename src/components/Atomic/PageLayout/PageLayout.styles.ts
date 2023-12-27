@@ -27,6 +27,9 @@ export const header = css`
 export const padding = css`
     padding-left: 40px;
     padding-right: 40px;
+`
+
+export const contentPadding = css`
     height: 100%;
 `
 

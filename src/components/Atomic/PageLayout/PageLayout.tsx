@@ -25,7 +25,7 @@ const PageLayout: FC<Props> = memo((props) => {
                     </div>
                     <div css={styles.rightActions}>{header}</div>
                 </div>
-                <ConditionalWrapper condition={xPadding === true} wrapper={(c) => <div css={styles.padding}>{c}</div>}>
+                <ConditionalWrapper condition={xPadding === true} wrapper={(c) => <div css={[styles.padding, styles.contentPadding]}>{c}</div>}>
                     {children}
                 </ConditionalWrapper>
             </div>
