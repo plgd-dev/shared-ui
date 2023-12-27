@@ -20,6 +20,11 @@ export const tabList = (theme: ThemeType) => css`
     border-bottom: 1px solid ${get(theme, `Tabs.list.borderColor`)};
 `
 
+export const tabListInnerPadding = css`
+    margin-left: 40px;
+    margin-right: 40px;
+`
+
 export const tabItem = (theme: ThemeType) => css`
     white-space: nowrap;
     box-sizing: border-box;
@@ -79,5 +84,11 @@ export const slider = (theme: ThemeType) => css`
 `
 
 export const page = css`
-    padding: 24px 0 0 0;
+    padding-top: 24px;
+`
+
+export const pageXpadding = css`
+    padding-left: 40px;
+    padding-right: 40px;
+    overflow: auto;
 `

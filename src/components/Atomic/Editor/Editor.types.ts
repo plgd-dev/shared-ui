@@ -3,6 +3,10 @@ import { editorModes } from './constants'
 
 export type EditorModeType = (typeof editorModes)[keyof typeof editorModes]
 
+export type EditorRefType = {
+    setValue: (value: any) => void
+}
+
 export type Props = {
     autofocus?: boolean
     className?: boolean

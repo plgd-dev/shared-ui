@@ -6,9 +6,10 @@ import { defaultProps, Props } from './Tabs.types'
 import * as styles from './Tabs.styles'
 import { useMeasure } from '../../../common/hooks/use-measure'
 import Pager from './Pager'
+import { pageXpadding } from './Tabs.styles'
 
 const Tabs: FC<Props> = (props) => {
-    const { activeItem, onAnimationComplete, onItemChange, fullHeight, tabs } = { ...defaultProps, ...props }
+    const { activeItem, onAnimationComplete, onItemChange, fullHeight, innerPadding, tabs } = { ...defaultProps, ...props }
     const [value, setValue] = useState(activeItem)
     const childRefs = useRef(new Map())
     const tabListRef = useRef<HTMLDivElement | null>(null)
@@ -57,7 +58,7 @@ const Tabs: FC<Props> = (props) => {
 
     return (
         <div css={[styles.container, fullHeight && styles.fullHeight]} ref={ref}>
-            <div css={styles.tabList} ref={tabListRef}>
+            <div css={[styles.tabList, innerPadding && styles.tabListInnerPadding]} ref={tabListRef}>
                 {tabs.map((tab, i) => (
                     <motion.button
                         css={[styles.tabItem, i === value && styles.isActive, tab.disabled && styles.isDisabled]}
@@ -86,7 +87,7 @@ const Tabs: FC<Props> = (props) => {
             <Pager fullHeight={fullHeight} onAnimationComplete={onAnimationCompleteCallback} value={value}>
                 {tabs.map((tab, i) => (
                     <div
-                        css={styles.page}
+                        css={[styles.page, innerPadding && styles.pageXpadding]}
                         key={i}
                         style={{
                             width: '100%',

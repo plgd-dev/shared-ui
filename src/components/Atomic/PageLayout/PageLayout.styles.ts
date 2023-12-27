@@ -8,7 +8,7 @@ export const pageLayout = css`
 `
 
 export const top = css`
-    padding: 24px 40px 0 40px;
+    padding: 24px 0 0 0;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -22,6 +22,11 @@ export const header = css`
     align-items: center;
     padding-bottom: 16px;
     min-height: 72px;
+`
+
+export const padding = css`
+    padding-left: 40px;
+    padding-right: 40px;
 `
 
 export const left = css`

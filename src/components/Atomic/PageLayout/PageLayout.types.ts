@@ -9,4 +9,9 @@ export type Props = {
     headlineStatusTag?: ReactNode
     loading?: any
     title?: string
+    xPadding?: boolean
+}
+
+export const defaultProps: Partial<Props> = {
+    xPadding: true,
 }

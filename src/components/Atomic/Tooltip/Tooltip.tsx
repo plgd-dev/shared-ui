@@ -1,8 +1,9 @@
 import { FC, ReactNode, useMemo } from 'react'
-import { Props, defaultProps } from './Tooltip.types'
-import * as styles from './Tooltip.styles'
 import { Global } from '@emotion/react'
 import { FloatingDelayGroup, useDelayGroup, useDelayGroupContext } from '@floating-ui/react-dom-interactions'
+
+import { Props, defaultProps } from './Tooltip.types'
+import * as styles from './Tooltip.styles'
 import { useTooltipState, TooltipAnchor, TooltipContent } from './TooltipUtils'
 import { tooltipVariants } from './constants'
 
@@ -27,10 +28,12 @@ const Tooltip: FC<Props> = (props) => {
             <TooltipAnchor asChild state={state}>
                 {children}
             </TooltipAnchor>
-            <TooltipContent portalTarget={portalTarget} state={state}>
-                {content}
-                <div className='tooltip-arrow' id={`${id}-arrow`} />
-            </TooltipContent>
+            {!!content && (
+                <TooltipContent portalTarget={portalTarget} state={state}>
+                    {content}
+                    <div className='tooltip-arrow' id={`${id}-arrow`} />
+                </TooltipContent>
+            )}
         </div>
     )
 }

@@ -1,13 +1,14 @@
 import React, { FC, memo } from 'react'
 import { Helmet } from 'react-helmet'
 
-import { Props } from './PageLayout.types'
+import { Props, defaultProps } from './PageLayout.types'
 import * as styles from './PageLayout.styles'
 import Headline from '../Headline'
 import PageLoader from '../PageLoader'
+import ConditionalWrapper from '../ConditionalWrapper'
 
 const PageLayout: FC<Props> = memo((props) => {
-    const { children, dataTestId, headlineStatusTag, title, header, footer, loading, collapsed } = props
+    const { children, dataTestId, headlineStatusTag, title, header, footer, loading, collapsed, xPadding } = { ...defaultProps, ...props }
     return (
         <div css={styles.pageLayout}>
             <Helmet>
@@ -15,7 +16,7 @@ const PageLayout: FC<Props> = memo((props) => {
             </Helmet>
             <div css={styles.top}>
                 <PageLoader className='auth-loader' collapsed={collapsed} loading={loading} />
-                <div css={styles.header}>
+                <div css={[styles.header, styles.padding]}>
                     <div css={styles.left}>
                         <Headline css={styles.headline} dataTestId={dataTestId?.concat('-title')} type='h4'>
                             {title}
@@ -24,7 +25,9 @@ const PageLayout: FC<Props> = memo((props) => {
                     </div>
                     <div css={styles.rightActions}>{header}</div>
                 </div>
-                {children}
+                <ConditionalWrapper condition={xPadding === true} wrapper={(c) => <div css={styles.padding}>{c}</div>}>
+                    {children}
+                </ConditionalWrapper>
             </div>
             {footer}
         </div>
@@ -32,5 +35,6 @@ const PageLayout: FC<Props> = memo((props) => {
 })
 
 PageLayout.displayName = 'PageLayout'
+PageLayout.defaultProps = defaultProps
 
 export default PageLayout

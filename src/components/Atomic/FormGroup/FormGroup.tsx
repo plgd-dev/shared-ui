@@ -33,7 +33,7 @@ const FormGroup: FC<Props> = (props) => {
                     {Error}
                 </>
             )
-        } else if (errorTooltip && error) {
+        } else if (errorTooltip) {
             return (
                 <Tooltip content={error} id={`tooltip-group-${id}`} placement='left' variant={tooltipVariants.ERROR}>
                     {childrenWithProps[0]}

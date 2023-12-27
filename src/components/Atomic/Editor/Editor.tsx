@@ -1,15 +1,15 @@
 // @ts-nocheck
-import React, { FC, MutableRefObject, useEffect, useRef, useState } from 'react'
+import React, { FC, forwardRef, MutableRefObject, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import classNames from 'classnames'
 import JSONEditor from 'jsoneditor'
 import 'jsoneditor/dist/jsoneditor.css'
 import isFunction from 'lodash/isFunction'
 
-import { defaultProps, Props } from './Editor.types'
+import { defaultProps, EditorRefType, Props } from './Editor.types'
 import * as styles from './Editor.styles'
 import IconShowPassword from '../Icon/components/IconShowPassword'
 
-const Editor: FC<Props> = (props) => {
+const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
     const {
         autofocus,
         className,
@@ -81,7 +81,6 @@ const Editor: FC<Props> = (props) => {
     }, [heightProp])
 
     useEffect(() => {
-        // setTimeout(() => {
         const options = {
             mode,
             mainMenuBar: false,
@@ -125,7 +124,6 @@ const Editor: FC<Props> = (props) => {
         }
 
         handleEditorRef(jsonEditor)
-        // }, 1)
 
         return () => {
             if (jsonEditor && jsonEditor.current) {
@@ -140,6 +138,18 @@ const Editor: FC<Props> = (props) => {
             }
         }
     }, [])
+
+    useImperativeHandle(ref, () => ({
+        setValue: (value) => {
+            if (typeof json === 'object') {
+                // @ts-ignore
+                jsonEditor?.current?.set(value)
+            } else if (typeof json === 'string') {
+                // @ts-ignore
+                jsonEditor?.current?.setText(value)
+            }
+        },
+    }))
 
     return (
         <div
@@ -166,7 +176,7 @@ const Editor: FC<Props> = (props) => {
             )}
         </div>
     )
-}
+})
 
 Editor.displayName = 'Editor'
 Editor.defaultProps = defaultProps

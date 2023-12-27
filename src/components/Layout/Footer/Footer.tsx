@@ -1,4 +1,4 @@
-import { FC, memo } from 'react'
+import { FC, memo, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
@@ -7,7 +7,8 @@ import * as styles from './Footer.styles'
 import { IconArrowTriangleFullUp } from '../../Atomic/Icon'
 
 const Footer: FC<Props> = memo((props) => {
-    const { paginationComponent, contentLeft, recentTasksPortal, recentTasksPortalTitle, footerExpanded, setFooterExpanded } = props
+    const { id, className, innerPortalTarget, paginationComponent, contentLeft, recentTasksPortal, recentTasksPortalTitle, footerExpanded, setFooterExpanded } =
+        props
 
     const handleToggle = (e: any) => {
         e.preventDefault()
@@ -28,22 +29,35 @@ const Footer: FC<Props> = memo((props) => {
         }
     }
 
+    const footerHeight = useMemo(() => {
+        if (innerPortalTarget) {
+            return 88
+        } else if (footerExpanded) {
+            return 420
+        } else {
+            return 65
+        }
+    }, [innerPortalTarget, footerExpanded])
+
     return (
         <motion.div
             layout
             animate={{
-                height: footerExpanded ? 420 : 65,
-                flex: `0 0 ${footerExpanded ? 420 : 65}`,
+                height: footerHeight,
+                flex: `0 0 ${footerHeight}`,
             }}
+            className={className}
             css={styles.footer}
             exit={{
                 height: 65,
             }}
+            id={id}
             initial={false}
             transition={{
                 duration: 0.3,
             }}
         >
+            {innerPortalTarget}
             <div css={styles.footerInner}>
                 <div css={styles.footerMainLine}>
                     <LeftSide />
