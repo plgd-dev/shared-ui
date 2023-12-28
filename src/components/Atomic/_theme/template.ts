@@ -7,6 +7,7 @@ type LogoType = {
 }
 
 export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
+    colorPalette: colors,
     colors: {
         ActionButton: {
             floatingMenu: {

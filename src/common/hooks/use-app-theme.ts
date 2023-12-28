@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AnyAction } from 'redux'
 import get from 'lodash/get'
+import isEmpty from 'lodash/isEmpty'
 
 export type UseAppThemeType = {
     getTheme: (url: string) => any
@@ -50,8 +51,8 @@ export function useAppTheme(options: UseAppThemeType) {
 
     const getThemeData = useCallback(
         (currentTheme: string) => {
-            if (appStore.configuration.previewTheme) {
-                return appStore.configuration.previewTheme.theme
+            if (!isEmpty(appStore.configuration.previewTheme)) {
+                return appStore.configuration.previewTheme
             }
 
             if (appTheme) {

@@ -1,7 +1,7 @@
 import { colors, colorsSiemens } from '../_utils/colors'
-import { required } from '../FormLabel/FormLabel.styles'
 
 const theme = {
+    colorPalette: colorsSiemens,
     colors: {
         ActionButton: {
             floatingMenu: {

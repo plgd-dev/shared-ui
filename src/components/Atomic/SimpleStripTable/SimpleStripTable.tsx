@@ -1,4 +1,5 @@
 import { FC } from 'react'
+
 import { Props, defaultProps } from './SimpleStripTable.types'
 import * as styles from './SimpleStripTable.styles'
 import Row from '../Grid/Row'

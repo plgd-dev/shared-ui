@@ -62,15 +62,13 @@ async function run(argv) {
 
     themes.forEach((theme) => {
         const buildThemeSourcePath = path.join(buildPath, 'lib', 'theme', theme)
-        const buildColorsSourcePath = path.join(buildPath, 'lib', '_utils', 'colors.js')
 
         const d = require(buildThemeSourcePath)
-        const colors = require(buildColorsSourcePath)
 
-        fs.writeJsonSync(path.join(buildThemePath, `${theme}.json`), { ...d.default, colorPalette: colors.uiColorMap[theme] })
+        fs.writeJsonSync(path.join(buildThemePath, `${theme}.json`), { ...d.default })
 
         generalTheme.themes.push({
-            [theme]: { ...d.default, colorPalette: colors.uiColorMap[theme] },
+            [theme]: { ...d.default },
         })
     })
 
