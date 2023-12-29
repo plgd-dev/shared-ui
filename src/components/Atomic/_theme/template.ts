@@ -410,7 +410,14 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             borderBottom: colors.neutral200,
         },
         Headline: {
-            color: colors.neutral900,
+            color: colors.primaryDarken,
+            sizes: {
+                h6: {
+                    fontSize: '14px',
+                    lineHeight: '16px',
+                    fontWeight: 600,
+                },
+            },
         },
         Layout: {
             background: colors.neutral000,

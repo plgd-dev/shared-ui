@@ -70,3 +70,14 @@ export const headline = (theme: ThemeType, type: HeadlineType) => css`
     ${getSizes(type)};
     margin: 0;
 `
+
+export const getProps = (theme: { fontSize?: string; fontStyle?: string; fontWeight?: number; lineHeight?: string }) => css`
+    font-size: ${theme.fontSize};
+    font-style: ${theme.fontStyle ?? 'normal'};
+    font-weight: ${theme.fontWeight};
+    line-height: ${theme.lineHeight};
+`
+
+export const h6 = (theme: ThemeType) => css`
+    ${getProps(get(theme, `Headline.sizes.h6`))};
+`
