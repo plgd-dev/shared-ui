@@ -13,6 +13,7 @@ import Backdrop from './Backdrop'
 export const Modal: FC<Props> = memo((props) => {
     const {
         appRoot,
+        bodyStyle,
         className,
         closeButton,
         closeButtonText,
@@ -154,7 +155,9 @@ export const Modal: FC<Props> = memo((props) => {
                         <div css={[(theme) => styles.modal(theme, minWidth, maxWidth), fullSize && styles.fullSize]}>
                             <Header />
                             {renderBody && (
-                                <div css={[styles.content, contentPadding && styles.contentPadding]}>{isFunction(renderBody) ? renderBody() : renderBody}</div>
+                                <div css={[styles.content, contentPadding && styles.contentPadding]} style={bodyStyle}>
+                                    {isFunction(renderBody) ? renderBody() : renderBody}
+                                </div>
                             )}
                             {(renderFooter || footerActions) && (
                                 <div css={styles.footer}>

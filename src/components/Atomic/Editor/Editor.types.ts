@@ -16,6 +16,7 @@ export type Props = {
     height?: string
     json: string | [] | object
     mode?: EditorModeType
+    onBlur?: (value: any) => void
     onChange?: (json: any) => void
     onError?: (error: any) => void
     onResize?: (width: number, height: number, callback: () => void) => void

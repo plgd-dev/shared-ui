@@ -1,52 +1,26 @@
-import React from 'react'
-import FormSelect, { selectAligns } from '../../components/Atomic/FormSelect'
+import FormSelect from '../../components/Atomic/FormSelect'
 import '../global.css'
+import Example from './FormSelect.snip'
 
 export default {
     title: 'Form/FormSelect',
     component: FormSelect,
 }
 
-const Template = (args) => {
-    const options = [
-        { value: 'chocolate', label: 'Chocolate' },
-        { value: 'strawberry', label: 'Strawberry' },
-        { value: 'vanilla', label: 'Vanilla' },
-    ]
-    return (
-        <div style={{ width: 400 }}>
-            <FormSelect {...args} name='form-select-1' options={options} />
-            <br />
-            <FormSelect {...args} defaultValue={options[1]} menuIsOpen={true} name='form-select-2' options={options} />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <FormSelect {...args} inlineStyle={true} name='form-select-3' options={options} />
-            <br />
-            <FormSelect {...args} align={selectAligns.RIGHT} menuIsOpen={true} name='form-select-4' options={options} />
-        </div>
-    )
-}
-
-export const Default = Template.bind({})
+export const Default = Example.bind({})
 Default.args = {}
 
-export const Small = Template.bind({})
+export const Small = Example.bind({})
 Small.args = {
     size: 'small',
 }
 
-export const Disabled = Template.bind({})
+export const Disabled = Example.bind({})
 Disabled.args = {
     disabled: true,
 }
 
-export const Error = Template.bind({})
+export const Error = Example.bind({})
 Error.args = {
     error: true,
 }

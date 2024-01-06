@@ -166,6 +166,16 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 red: colors.red,
             },
         },
+        ColorPicker: {
+            background: colors.neutral000,
+            borderColor: colors.neutral200,
+            label: {
+                color: colors.neutral500,
+            },
+            floatingMenu: {
+                borderColor: colors.neutral200,
+            },
+        },
         Content: {
             background: colors.neutral000,
         },

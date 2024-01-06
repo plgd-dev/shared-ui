@@ -1,7 +1,7 @@
 import React from 'react'
 import ActionButton from '../../components/Atomic/ActionButton'
 import '../global.css'
-import { IconEdit, IconPlus, IconTrash } from '../../components/Atomic'
+import Example from './ActionButton.snip'
 
 export default {
     title: 'Form/ActionButton',
@@ -16,29 +16,7 @@ const Template = (args) => (
             display: 'inline-block',
         }}
     >
-        <ActionButton
-            {...args}
-            items={[
-                {
-                    onClick: () => console.log('Create'),
-                    label: 'Create',
-                    icon: <IconPlus />,
-                },
-                {
-                    onClick: () => console.log('Update'),
-                    label: 'Update',
-                    icon: <IconEdit />,
-                },
-                {
-                    onClick: () => console.log('Delete'),
-                    label: 'Delete',
-                    icon: <IconTrash />,
-                },
-            ]}
-            menuProps={{
-                placement: 'bottom-end',
-            }}
-        />
+        <Example {...args} />
     </div>
 )
 

@@ -2,13 +2,23 @@ import { FC, memo, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
-import { Props } from './Footer.types'
+import { Props, defaultProps } from './Footer.types'
 import * as styles from './Footer.styles'
 import { IconArrowTriangleFullUp } from '../../Atomic/Icon'
 
 const Footer: FC<Props> = memo((props) => {
-    const { id, className, innerPortalTarget, paginationComponent, contentLeft, recentTasksPortal, recentTasksPortalTitle, footerExpanded, setFooterExpanded } =
-        props
+    const {
+        id,
+        className,
+        innerPortalTarget,
+        paginationComponent,
+        contentLeft,
+        recentTasksPortal,
+        recentTasksPortalTitle,
+        footerExpanded,
+        setFooterExpanded,
+        size,
+    } = { ...defaultProps, ...props }
 
     const handleToggle = (e: any) => {
         e.preventDefault()
@@ -18,7 +28,7 @@ const Footer: FC<Props> = memo((props) => {
     const LeftSide = () => {
         if (recentTasksPortalTitle) {
             return (
-                <a css={styles.recentTasks} href='packages/shared-ui/src/components/Layout/Footer#' onClick={handleToggle}>
+                <a css={styles.recentTasks} href='#' onClick={handleToggle}>
                     {recentTasksPortalTitle} <IconArrowTriangleFullUp css={[styles.icon, footerExpanded && styles.panelOpen]} />
                 </a>
             )
@@ -30,14 +40,12 @@ const Footer: FC<Props> = memo((props) => {
     }
 
     const footerHeight = useMemo(() => {
-        if (innerPortalTarget) {
-            return 88
-        } else if (footerExpanded) {
+        if (footerExpanded) {
             return 420
         } else {
-            return 65
+            return size === 'medium' ? 88 : 65
         }
-    }, [innerPortalTarget, footerExpanded])
+    }, [size, footerExpanded])
 
     return (
         <motion.div
@@ -49,7 +57,7 @@ const Footer: FC<Props> = memo((props) => {
             className={className}
             css={styles.footer}
             exit={{
-                height: 65,
+                height: size === 'medium' ? 88 : 65,
             }}
             id={id}
             initial={false}
@@ -71,5 +79,6 @@ const Footer: FC<Props> = memo((props) => {
 })
 
 Footer.displayName = 'Footer'
+Footer.defaultProps = defaultProps
 
 export default Footer

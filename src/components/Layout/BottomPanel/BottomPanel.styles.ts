@@ -18,7 +18,11 @@ export const isLeftPanelCollapsed = css`
 `
 
 export const iframeMode = css`
-    left: 0;
+    //left: 0;
+`
+
+export const absolute = css`
+    position: absolute;
 `
 
 export const inner = (theme: ThemeType) => css`

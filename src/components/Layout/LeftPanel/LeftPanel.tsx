@@ -5,7 +5,7 @@ import { useFloating, shift, offset } from '@floating-ui/react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
-import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType, SubMenuItem } from './LeftPanel.types'
+import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType, SubMenuItem, defaultProps } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
 import { Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
@@ -138,7 +138,10 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
 }
 
 const LeftPanel: FC<Props> = (props) => {
-    const { className, collapsed, id, logo, menu, newFeature, versionMark, onItemClick, setCollapsed } = props
+    const { className, collapsed, id, logo, menu, newFeature, versionMark, onItemClick, setCollapsed, headerIconCollapsePortalTargetId } = {
+        ...defaultProps,
+        ...props,
+    }
     const [active, setActive] = useState<string | null>(props.activeId ?? null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
     const [domReady, setDomReady] = useState(false)
@@ -181,7 +184,7 @@ const LeftPanel: FC<Props> = (props) => {
                     >
                         <IconCollapse {...convertSize(24)} />
                     </a>,
-                    document.getElementById('header-icon-collapse-portal-target') as Element
+                    document.getElementById(headerIconCollapsePortalTargetId!) as Element
                 )}
             <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
                 {logo &&

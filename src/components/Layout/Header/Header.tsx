@@ -3,13 +3,13 @@ import { Props } from './Header.types'
 import * as styles from './Header.styles'
 
 const Header: FC<Props> = (props) => {
-    const { breadcrumbs, configButton, contentLeft, notificationCenter, userWidget } = props
+    const { breadcrumbs, configButton, headerIconCollapsePortalTarget, contentLeft, notificationCenter, userWidget } = props
 
     return (
         <div css={styles.header}>
             <div css={styles.left}>
                 {contentLeft}
-                <div id='header-icon-collapse-portal-target'></div>
+                {headerIconCollapsePortalTarget ?? <div id='header-icon-collapse-portal-target'></div>}
                 {breadcrumbs && <div css={styles.breadcrumbs}>{breadcrumbs}</div>}
             </div>
             <div css={styles.right}>

@@ -6,7 +6,7 @@ export type Props = {
     i18n: {
         select: string
     }
-    iframeMode?: boolean
+    iframeMode?: boolean | 'absolute'
     leftPanelCollapsed?: boolean
     selectionInfo: string
     show: boolean

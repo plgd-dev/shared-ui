@@ -11,7 +11,12 @@ const BottomPanel: FC<Props> = (props) => {
             {show && (
                 <motion.div
                     animate={{ opacity: 1, y: 0 }}
-                    css={[styles.selectionPanel, leftPanelCollapsed && styles.isLeftPanelCollapsed, iframeMode && styles.iframeMode]}
+                    css={[
+                        styles.selectionPanel,
+                        leftPanelCollapsed && styles.isLeftPanelCollapsed,
+                        iframeMode === true && styles.iframeMode,
+                        iframeMode === 'absolute' && styles.absolute,
+                    ]}
                     exit={{
                         opacity: 0,
                         y: 150,

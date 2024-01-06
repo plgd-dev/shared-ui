@@ -4,7 +4,7 @@ export type Props = {
     actionPrimary?: ReactNode
     actionSecondary?: ReactNode
     attribute?: string
-    iframeMode?: boolean
+    iframeMode?: boolean | string
     leftPanelCollapsed?: boolean
     value?: string | number
     show: boolean

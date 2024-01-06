@@ -51,9 +51,9 @@ export function useAppTheme(options: UseAppThemeType) {
 
     const getThemeData = useCallback(
         (currentTheme: string) => {
-            if (!isEmpty(appStore.configuration.previewTheme)) {
-                return appStore.configuration.previewTheme
-            }
+            // if (!isEmpty(appStore.configuration.previewTheme)) {
+            //     return appStore.configuration.previewTheme
+            // }
 
             if (appTheme) {
                 const index = appTheme.findIndex((i: any) => Object.keys(i)[0] === currentTheme)

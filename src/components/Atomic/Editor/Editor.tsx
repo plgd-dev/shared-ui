@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { FC, forwardRef, MutableRefObject, useEffect, useImperativeHandle, useRef, useState } from 'react'
+import React, { forwardRef, MutableRefObject, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import classNames from 'classnames'
 import JSONEditor from 'jsoneditor'
 import 'jsoneditor/dist/jsoneditor.css'
@@ -20,6 +20,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
         i18n,
         json,
         mode,
+        onBlur,
         onChange,
         onError,
         onResize,
@@ -139,6 +140,10 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
         }
     }, [])
 
+    const handleBlur = useCallback(() => {
+        isFunction(onBlur) && onBlur(jsonEditor?.current?.getText())
+    }, [onBlur])
+
     useImperativeHandle(ref, () => ({
         setValue: (value) => {
             if (typeof json === 'object') {
@@ -159,6 +164,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
                 resize: !!ResizeObserver,
             })}
             css={styles.editor}
+            onBlur={handleBlur}
             ref={(ref) => handleContainerRef(ref)}
             style={{ ...style, width, height }}
         >

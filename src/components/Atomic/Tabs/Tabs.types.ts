@@ -12,6 +12,7 @@ export type Props = {
     activeItem?: number
     fullHeight?: boolean
     innerPadding?: boolean
+    isAsync?: boolean
     onAnimationComplete?: () => void
     onItemChange?: (activeItem: number) => void
     tabs: TabItem[]

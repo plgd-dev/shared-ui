@@ -1,4 +1,4 @@
-import { MouseEvent, ReactNode } from 'react'
+import { CSSProperties, MouseEvent, ReactNode } from 'react'
 import { ButtonVariantsType } from '../Button/Button.types'
 
 type RenderType = () => ReactNode
@@ -15,6 +15,7 @@ type FooterAction = {
 
 export type Props = {
     appRoot?: ReactNode | Element | null
+    bodyStyle?: CSSProperties
     className?: string
     closeButton?: boolean
     closeButtonText?: string

@@ -35,6 +35,7 @@ export type Props = {
     activeId?: string
     className?: string
     collapsed?: boolean
+    headerIconCollapsePortalTargetId?: string
     id?: string
     logo: ReactNode
     menu?: MenuGroup[]
@@ -69,4 +70,8 @@ export type LeftPanelSubItemsType = {
     strategy: Strategy
     x: number | null
     y: number | null
+}
+
+export const defaultProps: Partial<Props> = {
+    headerIconCollapsePortalTargetId: 'header-icon-collapse-portal-target',
 }

@@ -6,6 +6,7 @@ import * as styles from './Pager.styles'
 
 const Pager: FC<Props> = (props) => {
     const { children, fullHeight, onAnimationComplete, value } = props
+
     return (
         <div css={[styles.container, fullHeight && styles.fullHeight]}>
             <motion.div

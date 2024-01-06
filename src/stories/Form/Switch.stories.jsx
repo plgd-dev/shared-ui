@@ -1,5 +1,5 @@
-import React from 'react'
 import Switch from '../../components/Atomic/Switch'
+import Example from './Switch.snip'
 
 export default {
     title: 'Form/Switch',
@@ -7,24 +7,15 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
-    <div>
-        <Switch {...args} size='small' />
-        <br />
-        <Switch {...args} size='big' />
-        <br />
-        <Switch {...args} defaultChecked={true} size='small' />
-        <br />
-        <Switch {...args} defaultChecked={true} size='big' />
-        <br />
-        <Switch {...args} defaultChecked={true} label='Label text' size='big' />
-    </div>
-)
-
-export const Default = Template.bind({})
+export const Default = Example.bind({})
 Default.args = {}
 
-export const Loading = Template.bind({})
+export const Loading = Example.bind({})
 Loading.args = {
     loading: true,
+}
+
+export const Disabled = Example.bind({})
+Loading.args = {
+    disabled: true,
 }

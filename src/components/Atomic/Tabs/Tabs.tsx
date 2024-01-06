@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useRef, useState } from 'react'
+import React, { FC, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import isFunction from 'lodash/isFunction'
 import { motion } from 'framer-motion'
 
@@ -6,10 +6,10 @@ import { defaultProps, Props } from './Tabs.types'
 import * as styles from './Tabs.styles'
 import { useMeasure } from '../../../common/hooks/use-measure'
 import Pager from './Pager'
-import { pageXpadding } from './Tabs.styles'
+import ConditionalWrapper from '../ConditionalWrapper'
 
 const Tabs: FC<Props> = (props) => {
-    const { activeItem, onAnimationComplete, onItemChange, fullHeight, innerPadding, tabs } = { ...defaultProps, ...props }
+    const { activeItem, onAnimationComplete, onItemChange, fullHeight, innerPadding, isAsync, tabs } = { ...defaultProps, ...props }
     const [value, setValue] = useState(activeItem)
     const childRefs = useRef(new Map())
     const tabListRef = useRef<HTMLDivElement | null>(null)
@@ -84,20 +84,27 @@ const Tabs: FC<Props> = (props) => {
                     />
                 )}
             </div>
-            <Pager fullHeight={fullHeight} onAnimationComplete={onAnimationCompleteCallback} value={value}>
-                {tabs.map((tab, i) => (
-                    <div
-                        css={[styles.page, innerPadding && styles.pageXpadding]}
-                        key={i}
-                        style={{
-                            width: '100%',
-                            height: fullHeight ? '100%' : undefined,
-                        }}
-                    >
-                        {tab.content}
-                    </div>
-                ))}
-            </Pager>
+            <ConditionalWrapper condition={isAsync} wrapper={(c) => <Suspense fallback={<div>...</div>}>{c} </Suspense>}>
+                <Pager fullHeight={fullHeight} onAnimationComplete={onAnimationCompleteCallback} value={value}>
+                    {tabs.map((tab, i) => {
+                        if (value !== i) {
+                            return null
+                        }
+                        return (
+                            <div
+                                css={[styles.page, innerPadding && styles.pageXpadding]}
+                                key={i}
+                                style={{
+                                    width: '100%',
+                                    height: fullHeight ? '100%' : undefined,
+                                }}
+                            >
+                                {tab.content}
+                            </div>
+                        )
+                    })}
+                </Pager>
+            </ConditionalWrapper>
         </div>
     )
 }

@@ -160,6 +160,16 @@ const theme = {
                 red: colorsSiemens.red,
             },
         },
+        ColorPicker: {
+            background: colorsSiemens.neutral900,
+            borderColor: colorsSiemens.neutral800,
+            label: {
+                color: colorsSiemens.neutral500,
+            },
+            floatingMenu: {
+                borderColor: colorsSiemens.neutral800,
+            },
+        },
         Content: {
             background: colorsSiemens.neutral900,
         },
