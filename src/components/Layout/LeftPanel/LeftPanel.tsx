@@ -10,11 +10,8 @@ import * as styles from './LeftPanel.styles'
 import { Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
-import { itemVisibility } from './constants'
 
-const { ENABLED, HIDDEN } = itemVisibility
-
-const isGroupVisible = (group: any) => !group.items.every((i: any) => i.visibility === HIDDEN)
+const isGroupVisible = (group: any) => !group.items.every((i: any) => i.visibility === false)
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, item, collapsed, handleItemClick } = props
@@ -26,7 +23,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 
     const isItemActive = (item: MenuItem) => item.id === active || item?.children?.some((subItem) => subItem.id === active)
     const isActive = isItemActive(item)
-    const isDisabled = item?.visibility !== ENABLED
+    const isDisabled = item?.visibility !== true
     const isExternal = item.link?.startsWith('//') || item.link?.startsWith('http')
 
     return (
@@ -201,7 +198,7 @@ const LeftPanel: FC<Props> = (props) => {
                                     <div css={[styles.groupTitle, collapsed && styles.groupTitleCollapsed]}>{group.title}</div>
                                     <ul css={styles.menuList}>
                                         {group.items
-                                            ?.filter((i) => i.visibility !== HIDDEN)
+                                            ?.filter((i) => i.visibility !== false)
                                             .map((item, key) => (
                                                 <LeftPanelItem active={active} collapsed={collapsed} handleItemClick={handleItemClick} item={item} key={key} />
                                             ))}

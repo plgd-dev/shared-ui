@@ -52,8 +52,10 @@ export type WellKnownConfigType = {
         version: string
     }
     ui: {
-        menu: {
-            [key: string]: MenuItemVisibilityType
+        visibility: {
+            mainSidebar: {
+                [key: string]: MenuItemVisibilityType
+            }
         }
     }
 } & BuildInformationType

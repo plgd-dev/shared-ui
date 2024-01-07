@@ -1,9 +1,9 @@
-import { tagVariants, itemVisibility } from './constants'
+import { tagVariants } from './constants'
 import { ReactNode, SyntheticEvent } from 'react'
 import { Strategy } from '@floating-ui/core/src/types'
 
 export type MenuTagVariantType = (typeof tagVariants)[keyof typeof tagVariants]
-export type MenuItemVisibilityType = (typeof itemVisibility)[keyof typeof itemVisibility]
+export type MenuItemVisibilityType = boolean | 'disabled'
 
 type MenuItemTag = {
     text: string
