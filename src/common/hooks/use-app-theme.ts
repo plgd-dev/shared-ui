@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { AnyAction } from 'redux'
 import get from 'lodash/get'
-import isEmpty from 'lodash/isEmpty'
 
 export type UseAppThemeType = {
     getTheme: (url: string) => any
@@ -32,7 +31,8 @@ export function useAppTheme(options: UseAppThemeType) {
                             themes[Object.keys(t)[0]] = t
                         })
 
-                        if (appStore.configuration?.theme === '' || appStore.configuration?.theme !== themeData.defaultTheme) {
+                        // if (appStore.configuration?.theme === '' || appStore.configuration?.theme !== themeData.defaultTheme) {
+                        if (appStore.configuration?.theme === '') {
                             dispatch(setTheme(themeData.defaultTheme))
                         }
 
@@ -51,10 +51,6 @@ export function useAppTheme(options: UseAppThemeType) {
 
     const getThemeData = useCallback(
         (currentTheme: string) => {
-            // if (!isEmpty(appStore.configuration.previewTheme)) {
-            //     return appStore.configuration.previewTheme
-            // }
-
             if (appTheme) {
                 const index = appTheme.findIndex((i: any) => Object.keys(i)[0] === currentTheme)
                 if (index >= 0) {
@@ -64,7 +60,7 @@ export function useAppTheme(options: UseAppThemeType) {
 
             return {}
         },
-        [appStore.configuration.previewTheme, appTheme]
+        [appTheme]
     )
 
     return [appTheme, themeError, getThemeData]

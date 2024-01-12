@@ -50,8 +50,11 @@ export const uiColorMap = {
         disabled: '#D7D8DA', // TODO
     },
     siemens: {
+        primaryDarken: '#00adb4',
         primary: '#00adb4',
+        primaryHover: '#00adb4',
         primaryBonus: '#00BEDC',
+        primaryBright: '#00adb4',
         yellow: '#ffd732',
         red: '#ef0137',
         green: '#00d7a0',
@@ -59,8 +62,15 @@ export const uiColorMap = {
         neutral900: '#000028',
         neutral800: '#23233c',
         neutral700: '#353640',
+        neutral600: '#000028',
         neutral500: '#81868D',
+        neutral400: '#000028',
+        neutral300: '#000028',
+        neutral200: '#000028',
+        neutral100: '#000028',
         neutral000: '#FFFFFF',
+        secondary: '#D7D8DA',
+        tertiary: '#D7D8DA',
         disabled: '#D7D8DA',
     },
 }
