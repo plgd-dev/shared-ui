@@ -8,7 +8,7 @@ const SvgIconArrowRight = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElemen
         <path
             fill='currentcolor'
             fillRule='evenodd'
-            d='M.244 11.756a.833.833 0 0 1 0-1.179l4.41-4.41-4.41-4.411A.833.833 0 1 1 1.423.577l5 5a.833.833 0 0 1 0 1.179l-5 5a.833.833 0 0 1-1.179 0Z'
+            d='M.244 11.756a.833.833 0 0 1 0-1.179l4.41-4.41-4.41-4.411A.833.833 0 1 1 1.423.577l5 5a.833.833 0 0 1 0 1.179l-5 5a.833.833 0 0 1-1.179 0'
             clipRule='evenodd'
         />
     </svg>

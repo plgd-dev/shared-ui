@@ -118,7 +118,7 @@ export const cell = styled.div`
         display: block;
         width: 100%;
         height: 1px;
-        top: 0;
+        bottom: 0;
         left: 0;
         right: 0;
         position: absolute;
@@ -141,7 +141,7 @@ export const cell = styled.div`
 
 export const firstRowCell = css`
     &:before {
-        display: none;
+        //display: none;
     }
 `
 
@@ -151,8 +151,8 @@ export const firstCell = css`
     padding-left: 24px;
 
     &:before {
-        left: 7px;
-        width: calc(100% - 7px);
+        left: 8px;
+        width: calc(100% - 8px);
     }
 `
 
@@ -162,8 +162,8 @@ export const lastCell = css`
     padding-right: 24px;
 
     &:before {
-        right: 7px;
-        width: calc(100% - 7px);
+        right: 8px;
+        width: calc(100% - 8px);
     }
 `
 

@@ -14,7 +14,7 @@ const SvgIconArrowTriangleFullUp = (props: SVGProps<SVGSVGElement>, ref: Ref<SVG
         <g clipPath='url(#icon-arrow-triangle-full-up_svg__a)'>
             <path
                 fill='currentcolor'
-                d='M2.576 3.196a.56.56 0 0 1 .85 0l2.4 2.666a.718.718 0 0 1 .129.727c-.094.25-.311.413-.555.413L.6 7c-.242 0-.461-.163-.555-.413a.723.723 0 0 1 .13-.727l2.4-2.666.001.002'
+                d='M2.576 3.196a.56.56 0 0 1 .85 0l2.4 2.666a.72.72 0 0 1 .129.727c-.094.25-.311.413-.555.413L.6 7c-.242 0-.461-.163-.555-.413a.72.72 0 0 1 .13-.727l2.4-2.666z'
             />
         </g>
         <defs>

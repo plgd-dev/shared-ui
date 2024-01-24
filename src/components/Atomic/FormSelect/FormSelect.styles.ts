@@ -84,6 +84,7 @@ export const error = (theme: ThemeType) => css`
 `
 
 export const menu = (theme: ThemeType) => css`
+    width: auto !important;
     margin-top: 4px;
     margin-bottom: 4px;
     border: 1px solid ${get(theme, `FormSelect.menu.borderColor`)};
@@ -133,8 +134,12 @@ export const selectContainer = css`
     width: 100%;
 `
 
+export const selectAutoWidthContainer = css`
+    display: inline-flex;
+`
+
 export const valueContainer = css`
-    padding: 0 15px; // -1 for border
+    padding: 0 0 0 15px; // -1 for border
 `
 
 export const value = (theme: ThemeType) => css`

@@ -6,7 +6,7 @@ import { IconSearch } from '../../Icon'
 import Button from '../../Button'
 
 const TableGlobalFilter: FC<Props> = (props) => {
-    const { globalFilter, setGlobalFilter, i18n } = { ...defaultProps, ...props }
+    const { globalFilter, setGlobalFilter, i18n, showFilterButton } = { ...defaultProps, ...props }
     const [value, setValue] = useState(globalFilter)
 
     const onChange = useAsyncDebounce((value) => {
@@ -27,11 +27,13 @@ const TableGlobalFilter: FC<Props> = (props) => {
                     value={value || ''}
                 />
             </div>
-            <div>
-                <Button onClick={() => onChange(value)} size='small' variant='filter'>
-                    {i18n.search}
-                </Button>
-            </div>
+            {showFilterButton && (
+                <div>
+                    <Button onClick={() => onChange(value)} size='small' variant='filter'>
+                        {i18n.search}
+                    </Button>
+                </div>
+            )}
         </div>
     )
 }

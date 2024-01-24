@@ -10,7 +10,7 @@ const SvgIconCollapse = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>
         <path
             fill='currentcolor'
             fillRule='evenodd'
-            d='M4.319 13.803a.5.5 0 0 0 .853-.353v-3.243a.5.5 0 0 0-.853-.354l-1.622 1.622a.5.5 0 0 0 0 .707l1.622 1.621'
+            d='M4.319 13.803a.5.5 0 0 0 .853-.353v-3.243a.5.5 0 0 0-.853-.354l-1.622 1.622a.5.5 0 0 0 0 .707z'
             clipRule='evenodd'
         />
     </svg>

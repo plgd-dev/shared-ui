@@ -11,12 +11,12 @@ import FormInput from '../FormInput'
 import FormSelect from '../FormSelect'
 import { commandTimeoutUnits } from './constants'
 import { findClosestUnit, convertAndNormalizeValueFromTo, convertValueToNs, normalizeToFixedFloatValue, hasCommandTimeoutError } from './utils'
-import { inputSizes } from '../FormInput/constants'
+import { inputSizes } from '../FormInput'
 
 const { INFINITE, NS } = commandTimeoutUnits
 
 const TimeoutControl: FC<Props> = (props) => {
-    const { defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, i18n, watchUnitChange } = props
+    const { align, defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, i18n, inlineStyle, smallMode, watchUnitChange } = props
     const closestUnit = useMemo(() => findClosestUnit(defaultValue), [defaultValue])
     const closestDefaultTtl = useMemo(() => {
         const unit = findClosestUnit(defaultTtlValue)
@@ -95,25 +95,32 @@ const TimeoutControl: FC<Props> = (props) => {
 
     return (
         <div css={styles.timeoutControl}>
-            <FormGroup error={ttlHasError ? '' : undefined} id='Command Timeout' inline={true}>
-                <FormLabel text={i18n.duration} />
-                <FormInput
-                    css={styles.input}
-                    disabled={disabled || isDefault}
-                    onBlur={watchUnitChange ? handleOnValueBlur : undefined}
-                    onChange={handleOnValueChange}
-                    placeholder={i18n.placeholder}
-                    size={inputSizes.NORMAL}
-                    value={!isDefault ? inputValue : `${closestDefaultTtl.value}${closestDefaultTtl.unit}`}
-                />
-            </FormGroup>
-            <div css={styles.right}>
+            <div css={styles.left}>
+                <FormGroup error={ttlHasError ? '' : undefined} fullSize={!!align} id='Command Timeout' inline={!align} marginBottom={!align}>
+                    {i18n.duration && <FormLabel text={i18n.duration} />}
+                    <FormInput
+                        align={align}
+                        css={[styles.input, smallMode && styles.inputSmall]}
+                        disabled={disabled || isDefault}
+                        inlineStyle={inlineStyle}
+                        onBlur={watchUnitChange ? handleOnValueBlur : undefined}
+                        onChange={handleOnValueChange}
+                        placeholder={i18n.placeholder}
+                        size={inputSizes.NORMAL}
+                        value={!isDefault ? inputValue : `${closestDefaultTtl.value}${closestDefaultTtl.unit}`}
+                    />
+                </FormGroup>
+            </div>
+            <div css={[styles.right, smallMode && styles.rightSmall]}>
                 <FormGroup id='Unit' inline={true}>
-                    <FormLabel text={startCase(i18n.unit)} />
+                    {i18n.unit && <FormLabel text={startCase(i18n.unit)} />}
                     <FormSelect
-                        css={styles.input}
+                        align={align}
+                        autoWidth={align === 'right'}
+                        css={[smallMode && styles.selectSmall]}
                         defaultValue={units.filter((option) => option.value === unit)}
                         disabled={disabled}
+                        inlineStyle={inlineStyle}
                         name='unit'
                         onChange={handleOnUnitChange}
                         options={units}

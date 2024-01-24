@@ -17,6 +17,7 @@ export interface GroupedOption {
 
 export type Props = {
     align?: FormSelectAlignType
+    autoWidth?: boolean
     className?: string
     defaultValue?: any
     disabled?: boolean

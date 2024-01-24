@@ -79,6 +79,7 @@ export const icon = (position: ButtonIconPositionType) => css`
 
 export const fullWidth = css`
     flex: 1 1 auto;
+    width: 100%;
 `
 
 export const loadingWrapper = css`

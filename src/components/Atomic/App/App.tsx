@@ -1,8 +1,8 @@
 import React from 'react'
 import { Global } from '@emotion/react'
+import 'react-toastify/dist/ReactToastify.css'
 
 import { Props, defaultProps } from './App.types'
-import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from '../Notification'
 import * as styles from './App.styles'
 

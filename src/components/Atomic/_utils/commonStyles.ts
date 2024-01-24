@@ -37,3 +37,7 @@ export const rgbToHex = (r: number, g: number, b: number) =>
             return hex.length === 1 ? '0' + hex : hex
         })
         .join('')
+
+export const getSizeInPx = (size: string | number) => (typeof size === 'string' ? size : `${size}px`)
+
+export const getNumberFromPx = (size: string) => parseInt(size.replace('px', ''), 10)

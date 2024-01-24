@@ -41,3 +41,10 @@ export const loadingIcon = (size: number, type: IconLoaderType) => css`
     animation: 0.75s linear 0s infinite normal both running ${spin};
     ${getColorByType(type)};
 `
+
+export const center = css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+`

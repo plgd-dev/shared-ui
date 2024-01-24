@@ -23,6 +23,33 @@ export default (args?: any) => {
             <FormSelect {...args} inlineStyle={true} name='form-select-3' options={options} />
             <br />
             <FormSelect {...args} align={selectAligns.RIGHT} name='form-select-4' options={options} />
+            <br />
+            <FormSelect
+                {...args}
+                autoWidth
+                defaultValue={{ value: 's', label: 's' }}
+                name='form-select-4'
+                options={[
+                    { value: 'ms', label: 'ms' },
+                    { value: 's', label: 's' },
+                    { value: 'min', label: 'min' },
+                    { value: 'h', label: 'h' },
+                ]}
+            />
+            <br />
+            <FormSelect
+                {...args}
+                autoWidth
+                align={selectAligns.RIGHT}
+                defaultValue={{ value: 's', label: 's' }}
+                name='form-select-4'
+                options={[
+                    { value: 'ms', label: 'ms' },
+                    { value: 's', label: 's' },
+                    { value: 'min', label: 'min' },
+                    { value: 'h', label: 'h' },
+                ]}
+            />
         </div>
     )
 }

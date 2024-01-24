@@ -1,10 +1,10 @@
 import { FC, memo } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import isFunction from 'lodash/isFunction'
 
 import ActionButton from '../../Atomic/ActionButton'
 import { Props, ItemType } from './TableActionButton.types'
 import TableActions from '../../Atomic/TableNew/TableActions'
-import isFunction from 'lodash/isFunction'
 
 const TableActionButton: FC<Props> = memo((props) => {
     const { disabled, items, onToggle } = props

@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import TreeTable from '../../components/Atomic/TreeTable'
 import TreeExpander from '../../components/Atomic/TreeExpander'
-import Badge from '../../components/Atomic/Badge'
 import TableActionButton from '../../components/Organisms/TableActionButton'
 import { IconEdit, IconPlus, IconTrash } from '../../components/Atomic'
 
@@ -86,7 +85,7 @@ const Template = (args) => {
                     return (
                         <div className='badges-box-horizontal'>
                             {value?.map?.((type) => (
-                                <Badge key={type}>{type}</Badge>
+                                <div>{type}</div>
                             ))}
                         </div>
                     )

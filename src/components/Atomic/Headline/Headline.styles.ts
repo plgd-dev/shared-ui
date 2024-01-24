@@ -76,6 +76,7 @@ export const getProps = (theme: { fontSize?: string; fontStyle?: string; fontWei
     font-style: ${theme.fontStyle ?? 'normal'};
     font-weight: ${theme.fontWeight};
     line-height: ${theme.lineHeight};
+    letter-spacing: -0.5px;
 `
 
 export const h6 = (theme: ThemeType) => css`

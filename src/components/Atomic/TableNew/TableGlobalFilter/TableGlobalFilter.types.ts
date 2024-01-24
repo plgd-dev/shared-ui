@@ -5,10 +5,12 @@ export type Props = {
     i18n: {
         search: string
     }
+    showFilterButton?: boolean
 }
 
-export const defaultProps = {
+export const defaultProps: Partial<Props> = {
     i18n: {
         search: 'Search',
     },
+    showFilterButton: true,
 }

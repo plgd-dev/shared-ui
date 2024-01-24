@@ -37,6 +37,7 @@ export type Props = {
     renderHeader?: RenderType | ReactNode
     show: boolean
     title?: ReactNode
+    width?: string | number
 }
 
 export const defaultProps = {

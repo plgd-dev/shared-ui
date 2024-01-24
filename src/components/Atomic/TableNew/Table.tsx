@@ -27,6 +27,7 @@ const Table: FC<Props> = (props) => {
         defaultSortBy,
         enablePagination,
         height,
+        hideHeader,
         i18n,
         id,
         getCellProps,
@@ -207,6 +208,7 @@ const Table: FC<Props> = (props) => {
                     }}
                     preGlobalFilteredRows={preGlobalFilteredRows}
                     setGlobalFilter={setGlobalFilter}
+                    showFilterButton={props.showFilterButton}
                 />
             )}
             <div
@@ -217,58 +219,60 @@ const Table: FC<Props> = (props) => {
             >
                 <ConditionalWrapper condition={autoHeight} wrapper={(c) => <div style={calculateTableHeight()}>{c}</div>}>
                     <table {...getTableProps()} css={styles.table}>
-                        <thead>
-                            {headerGroups.map((headerGroup: any) => (
-                                <tr {...headerGroup.getHeaderGroupProps()}>
-                                    {headerGroup.headers.map((column: any, key: number) => (
-                                        // Sorting props to control sorting
-                                        <th
-                                            {...column.getHeaderProps(column.getSortByToggleProps())}
-                                            className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
-                                            css={styles.headerTh}
-                                            style={{
-                                                ...column.getHeaderProps(column.getSortByToggleProps()).style,
-                                                ...column.style,
-                                            }}
-                                        >
-                                            <div
-                                                css={(theme) => [
-                                                    styles.headerItem(theme),
-                                                    key === 0 && styles.headerItemFirst,
-                                                    key === headerGroup.headers.length - 1 && styles.headerItemLast,
-                                                ]}
+                        {hideHeader !== true && (
+                            <thead>
+                                {headerGroups.map((headerGroup: any) => (
+                                    <tr {...headerGroup.getHeaderGroupProps()}>
+                                        {headerGroup.headers.map((column: any, key: number) => (
+                                            // Sorting props to control sorting
+                                            <th
+                                                {...column.getHeaderProps(column.getSortByToggleProps())}
+                                                className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
+                                                css={styles.headerTh}
+                                                style={{
+                                                    ...column.getHeaderProps(column.getSortByToggleProps()).style,
+                                                    ...column.style,
+                                                }}
                                             >
-                                                <HeaderTitle>{column.render('Header')}</HeaderTitle>
-                                                {column.canSort && (
-                                                    <span
-                                                        className={classNames('sort-arrows', {
-                                                            desc: column.isSorted && column.isSortedDesc,
-                                                            asc: column.isSorted && !column.isSortedDesc,
-                                                        })}
-                                                        css={styles.sortArrows}
-                                                    >
-                                                        <IconTableArrowUp
-                                                            {...convertSize(6)}
-                                                            css={(theme) => [
-                                                                styles.sortArrow,
-                                                                column.isSorted && !column.isSortedDesc && styles.sortActive(theme),
-                                                            ]}
-                                                        />
-                                                        <IconTableArrowDown
-                                                            {...convertSize(6)}
-                                                            css={(theme) => [
-                                                                styles.sortArrow,
-                                                                column.isSorted && column.isSortedDesc && styles.sortActive(theme),
-                                                            ]}
-                                                        />
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </th>
-                                    ))}
-                                </tr>
-                            ))}
-                        </thead>
+                                                <div
+                                                    css={(theme) => [
+                                                        styles.headerItem(theme),
+                                                        key === 0 && styles.headerItemFirst,
+                                                        key === headerGroup.headers.length - 1 && styles.headerItemLast,
+                                                    ]}
+                                                >
+                                                    <HeaderTitle>{column.render('Header')}</HeaderTitle>
+                                                    {column.canSort && (
+                                                        <span
+                                                            className={classNames('sort-arrows', {
+                                                                desc: column.isSorted && column.isSortedDesc,
+                                                                asc: column.isSorted && !column.isSortedDesc,
+                                                            })}
+                                                            css={styles.sortArrows}
+                                                        >
+                                                            <IconTableArrowUp
+                                                                {...convertSize(6)}
+                                                                css={(theme) => [
+                                                                    styles.sortArrow,
+                                                                    column.isSorted && !column.isSortedDesc && styles.sortActive(theme),
+                                                                ]}
+                                                            />
+                                                            <IconTableArrowDown
+                                                                {...convertSize(6)}
+                                                                css={(theme) => [
+                                                                    styles.sortArrow,
+                                                                    column.isSorted && column.isSortedDesc && styles.sortActive(theme),
+                                                                ]}
+                                                            />
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </th>
+                                        ))}
+                                    </tr>
+                                ))}
+                            </thead>
+                        )}
                         <tbody {...getTableBodyProps()}>
                             {page.map((row: any, key: number) => {
                                 prepareRow(row)

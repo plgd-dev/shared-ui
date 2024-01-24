@@ -9,7 +9,7 @@ import Pager from './Pager'
 import ConditionalWrapper from '../ConditionalWrapper'
 
 const Tabs: FC<Props> = (props) => {
-    const { activeItem, onAnimationComplete, onItemChange, fullHeight, innerPadding, isAsync, tabs } = { ...defaultProps, ...props }
+    const { activeItem, className, onAnimationComplete, onItemChange, fullHeight, innerPadding, isAsync, style, tabs } = { ...defaultProps, ...props }
     const [value, setValue] = useState(activeItem)
     const childRefs = useRef(new Map())
     const tabListRef = useRef<HTMLDivElement | null>(null)
@@ -57,7 +57,7 @@ const Tabs: FC<Props> = (props) => {
     }, [onAnimationComplete])
 
     return (
-        <div css={[styles.container, fullHeight && styles.fullHeight]} ref={ref}>
+        <div className={className} css={[styles.container, fullHeight && styles.fullHeight]} ref={ref} style={style}>
             <div css={[styles.tabList, innerPadding && styles.tabListInnerPadding]} ref={tabListRef}>
                 {tabs.map((tab, i) => (
                     <motion.button
@@ -84,7 +84,7 @@ const Tabs: FC<Props> = (props) => {
                     />
                 )}
             </div>
-            <ConditionalWrapper condition={isAsync} wrapper={(c) => <Suspense fallback={<div>...</div>}>{c} </Suspense>}>
+            <ConditionalWrapper condition={isAsync} wrapper={(c) => <Suspense fallback={<div />}>{c} </Suspense>}>
                 <Pager fullHeight={fullHeight} onAnimationComplete={onAnimationCompleteCallback} value={value}>
                     {tabs.map((tab, i) => {
                         if (value !== i) {

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 
 export type TabItem = {
     content: ReactNode
@@ -10,11 +10,13 @@ export type TabItem = {
 
 export type Props = {
     activeItem?: number
+    className?: string
     fullHeight?: boolean
     innerPadding?: boolean
     isAsync?: boolean
     onAnimationComplete?: () => void
     onItemChange?: (activeItem: number) => void
+    style?: CSSProperties
     tabs: TabItem[]
 }
 

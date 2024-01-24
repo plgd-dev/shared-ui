@@ -24,6 +24,9 @@ export * from './ConfirmButton'
 export { default as ConfirmModal } from './ConfirmModal'
 export * from './ConfirmModal'
 
+export { default as ContentMenu } from './ContentMenu'
+export * from './ContentMenu'
+
 export { default as CopyBox } from './CopyBox'
 export * from './CopyBox'
 
@@ -71,6 +74,9 @@ export * from './LanguageSwitcher'
 
 export { default as Link } from './Link'
 export * from './Link'
+
+export { default as Loadable } from './Loadable'
+export * from './Loadable'
 
 export { default as IconLoader } from './Loader/IconLoader'
 export * from './Loader'

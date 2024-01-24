@@ -1,12 +1,12 @@
-import { createElement, FC } from 'react'
+import { createElement, forwardRef } from 'react'
 import classNames from 'classnames'
 
 import { Props, defaultProps } from './Headline.types'
 import * as styles from './Headline.styles'
 
-const Headline: FC<Props> = (props) => {
+const Headline = forwardRef<HTMLHeadingElement, Props>((props, ref) => {
     const mergedProps = { ...defaultProps, ...props }
-    const HeadlineElement = ({ type, children, ...props }: Props) => createElement(type as string, props, children)
+    const HeadlineElement = ({ type, children, ...props }: Props) => createElement(type as string, { ...props, ref: ref }, children)
 
     const { dataTestId, className, type, ...rest } = mergedProps
 
@@ -20,7 +20,7 @@ const Headline: FC<Props> = (props) => {
             type={mergedProps.type}
         />
     )
-}
+})
 
 Headline.displayName = 'Headline'
 

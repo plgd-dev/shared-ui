@@ -1,9 +1,9 @@
 import { hexToRgbA } from '../_utils/commonStyles'
 
 type LogoType = {
-    height: string
+    height: number
     source: string
-    width: string
+    width: number
 }
 
 export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
@@ -166,6 +166,11 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 red: colors.red,
             },
         },
+        CodeEditor: {
+            background: colors.light,
+            lineHighlight: 'rgba(37, 88, 151, 0.1)',
+            selection: colors.neutral200,
+        },
         ColorPicker: {
             background: colors.neutral000,
             borderColor: colors.neutral200,
@@ -178,6 +183,38 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         },
         Content: {
             background: colors.neutral000,
+        },
+        ContentMenu: {
+            background: colors.neutral000,
+            borderColor: colors.neutral200,
+            item: {
+                active: {
+                    background: colors.light,
+                    color: colors.primaryDarken,
+                    icon: {
+                        color: colors.primaryBonus,
+                    },
+                },
+                color: colors.neutral500,
+                hover: {
+                    color: colors.primaryDarken,
+                    icon: {
+                        color: colors.primaryBonus,
+                    },
+                },
+            },
+            subItem: {
+                active: {
+                    color: colors.neutral900,
+                },
+                color: colors.neutral500,
+                hover: {
+                    color: colors.neutral900,
+                },
+            },
+            title: {
+                color: colors.neutral500,
+            },
         },
         CopyElement: {
             background: colors.neutral100,
@@ -423,9 +460,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             color: colors.primaryDarken,
             sizes: {
                 h6: {
-                    fontSize: '14px',
-                    lineHeight: '16px',
-                    fontWeight: 600,
+                    fontSize: '16px',
+                    lineHeight: '24px',
+                    fontWeight: 700,
                 },
             },
         },
@@ -460,6 +497,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
             subItem: {
                 active: {
+                    color: colors.neutral800,
+                },
+                hover: {
                     color: colors.neutral800,
                 },
             },
@@ -868,5 +908,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         fontPrimary: undefined,
         fontSecondary: undefined,
     },
-    logo: logoProps,
+    logo: {
+        ...logoProps,
+        height: `${logoProps.height}px`,
+        width: `${logoProps.width}px`,
+    },
 })

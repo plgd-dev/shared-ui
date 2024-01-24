@@ -7,7 +7,7 @@ export const parseActiveItem = (pathname: string, menuItems: MenuGroup[], matche
         let subItem = undefined
         const menuItem = group.items?.find((item) => {
             if (item.children && item.children.length) {
-                const f = item.children.find((subItem) => subItem.visibility === true && subItem.paths?.find((p) => matcher(pathname, p)))
+                const f = item.children.find((subItem) => subItem.paths?.find((p) => matcher(pathname, p)))
                 if (f) {
                     subItem = f.id
                 }

@@ -30,6 +30,7 @@ export type Props = {
     }[]
     enablePagination?: boolean
     height?: number
+    hideHeader?: boolean
     i18n: {
         search: string
     }
@@ -43,6 +44,7 @@ export type Props = {
     paginationPortalTargetId?: any
     primaryAttribute?: string
     rowHeight?: number
+    showFilterButton?: boolean
     unselectRowsToken?: string | number
 }
 

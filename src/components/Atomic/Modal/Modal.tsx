@@ -35,6 +35,7 @@ export const Modal: FC<Props> = memo((props) => {
         renderHeader,
         show,
         title,
+        width,
     } = {
         ...defaultProps,
         ...props,
@@ -150,9 +151,10 @@ export const Modal: FC<Props> = memo((props) => {
                         id={id}
                         initial='hidden'
                         onClick={(e) => e.stopPropagation()}
+                        style={{ width }}
                         variants={dropIn}
                     >
-                        <div css={[(theme) => styles.modal(theme, minWidth, maxWidth), fullSize && styles.fullSize]}>
+                        <div css={[(theme) => styles.modal(theme, minWidth, maxWidth), fullSize && styles.fullSize]} style={{ width }}>
                             <Header />
                             {renderBody && (
                                 <div css={[styles.content, contentPadding && styles.contentPadding]} style={bodyStyle}>

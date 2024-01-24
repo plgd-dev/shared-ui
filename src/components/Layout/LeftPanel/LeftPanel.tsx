@@ -183,12 +183,15 @@ const LeftPanel: FC<Props> = (props) => {
                     </a>,
                     document.getElementById(headerIconCollapsePortalTargetId!) as Element
                 )}
-            <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
-                {logo &&
-                    cloneElement(logo as ReactElement, {
-                        css: [styles.logoSvg, collapsed && styles.logoSvgCollapsed],
-                    })}
-            </div>
+            {logo && (
+                <div css={[styles.logo, collapsed && styles.logoCollapsed]}>
+                    {logo}
+                    {/* {logo &&*/}
+                    {/*    cloneElement(logo as ReactElement, {*/}
+                    {/*        css: [styles.logoSvg, collapsed && styles.logoSvgCollapsed],*/}
+                    {/*    })}*/}
+                </div>
+            )}
             <div css={[styles.menu, collapsed && styles.menuCollapsed]}>
                 <ul css={styles.menuList}>
                     {menu?.map(

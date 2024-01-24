@@ -450,6 +450,9 @@ const theme = {
                 active: {
                     color: colorsSiemens.neutral000,
                 },
+                hover: {
+                    color: colorsSiemens.neutral000,
+                },
             },
             versionItem: {
                 borderColor: colorsSiemens.neutral900,

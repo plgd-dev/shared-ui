@@ -37,7 +37,7 @@ export type Props = {
     collapsed?: boolean
     headerIconCollapsePortalTargetId?: string
     id?: string
-    logo: ReactNode
+    logo?: ReactNode
     menu?: MenuGroup[]
     newFeature?: {
         onClick: () => void

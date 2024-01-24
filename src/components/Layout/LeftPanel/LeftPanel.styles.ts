@@ -34,7 +34,7 @@ export const logo = (theme: ThemeType) => css`
     display: flex;
     margin-bottom: 24px;
     box-sizing: border-box;
-    justify-content: center;
+    justify-content: flex-start;
     overflow: hidden;
     position: relative;
     transition: all ${COLLAPSE_ANIMATION_TIME};
@@ -262,7 +262,7 @@ export const subItemsFloatingPadding = css`
     box-sizing: border-box;
 `
 
-export const subItemLink = css`
+export const subItemLink = (theme: ThemeType) => css`
     display: block;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -278,7 +278,7 @@ export const subItemLink = css`
     white-space: nowrap;
 
     &:hover {
-        color: ${colors.neutral800};
+        color: ${get(theme, 'LeftPanel.subItem.hover.color')} !important;
     }
 `
 

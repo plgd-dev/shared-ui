@@ -19,10 +19,11 @@ import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectAligns, selectSizes } from './constants'
 
 const FormSelect = forwardRef<any, Props>((props, ref) => {
-    const { align, className, defaultValue, error, disabled, inlineStyle, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } = {
-        ...defaultProps,
-        ...props,
-    }
+    const { align, autoWidth, className, defaultValue, error, disabled, inlineStyle, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } =
+        {
+            ...defaultProps,
+            ...props,
+        }
     const stylesOverride = {
         menu: (base: any) => ({
             ...base,
@@ -47,7 +48,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     )
 
     const SelectContainer = ({ children, ...props }: ContainerProps<Option>) => (
-        <components.SelectContainer {...props} css={styles.selectContainer}>
+        <components.SelectContainer {...props} css={[autoWidth ? styles.selectAutoWidthContainer : styles.selectContainer]}>
             {children}
         </components.SelectContainer>
     )
@@ -96,7 +97,9 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         </components.Placeholder>
     )
 
-    const Input = (props: InputProps<Option, false>) => <components.Input {...props} css={align === selectAligns.RIGHT ? styles.input : undefined} />
+    const Input = (props: InputProps<Option, false>) => (
+        <components.Input {...props} css={align === selectAligns.RIGHT && !autoWidth ? styles.input : undefined} />
+    )
 
     return (
         <Select
