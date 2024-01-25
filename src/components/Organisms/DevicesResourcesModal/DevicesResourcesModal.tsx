@@ -72,9 +72,10 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                 // @ts-ignore
                 editor?.current?.current?.set(newJsonData)
             } else if (typeof dataToDisplay === 'string' || typeof dataToDisplay === 'number' || typeof dataToDisplay === 'boolean') {
+                const dataString = typeof dataToDisplay === 'string' ? `"${dataToDisplay.toString()}"` : dataToDisplay.toString()
                 // @ts-ignore
-                editor?.current?.current?.setText(dataToDisplay.toString())
-                setJsonData(dataToDisplay.toString())
+                editor?.current?.current?.setText(dataString)
+                setJsonData(dataString)
             }
         } else {
             setJsonData(defaultData)
@@ -93,11 +94,12 @@ const DevicesResourcesModal: FC<Props> = (props) => {
             href: data?.href as string,
             currentInterface: selectedInterface.value,
         }
+        const dataForSend = typeof jsonData === 'string' && jsonData.startsWith('"') && jsonData.endsWith('"') ? jsonData.replace(/"/g, '') : jsonData
 
         if (isUpdateModal) {
-            updateResource(params, jsonData)
+            updateResource(params, dataForSend)
         } else {
-            createResource(params, jsonData)
+            createResource(params, dataForSend)
         }
     }
 

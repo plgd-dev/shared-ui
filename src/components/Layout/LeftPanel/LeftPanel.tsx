@@ -23,7 +23,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 
     const isItemActive = (item: MenuItem) => item.id === active || item?.children?.some((subItem) => subItem.id === active)
     const isActive = isItemActive(item)
-    const isDisabled = item?.visibility !== true
+    const isDisabled = item?.visibility === 'disabled'
     const isExternal = item.link?.startsWith('//') || item.link?.startsWith('http')
 
     return (
@@ -31,9 +31,9 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
             <a
                 css={(theme) => [styles.item(theme), isActive && styles.activeItem(theme), isDisabled && styles.disabled(theme)]}
                 data-test-id={item.dataTestId}
-                href={item.link}
+                href={isDisabled ? undefined : item.link}
                 id={item.id}
-                onClick={isExternal ? undefined : (e) => handleItemClick(item, e)}
+                onClick={isExternal || isDisabled ? undefined : (e) => handleItemClick(item, e)}
                 ref={refs.setReference}
                 rel={isExternal ? 'noreferrer' : undefined}
                 target={isExternal ? '_blank' : undefined}
@@ -94,7 +94,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                             (item.children?.length || 0) - 1 === key && styles.subItemLinkLast,
                                         ]}
                                         href={subItem.link}
-                                        onClick={(e) => handleItemClick(item, e)}
+                                        onClick={subItem.disabled ? undefined : (e) => handleItemClick(item, e)}
                                     >
                                         <img alt='line' css={styles.line} src={img} />
                                         {subItem.title}
@@ -119,7 +119,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                 <a
                                     css={[styles.subItemLink, subItem.id === active && styles.subItemLinkActive, subItem.disabled && styles.disabled]}
                                     href={`${item.link}${subItem.link}`}
-                                    onClick={(e) => handleItemClick({ ...subItem, link: `${item.link}${subItem.link}` }, e)}
+                                    onClick={subItem.disabled ? undefined : (e) => handleItemClick({ ...subItem, link: `${item.link}${subItem.link}` }, e)}
                                 >
                                     <img alt='line' css={styles.line} src={img} />
                                     {subItem.title}
