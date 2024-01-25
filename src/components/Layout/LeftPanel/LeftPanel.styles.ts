@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+
 import { MenuTagVariantType } from './LeftPanel.types'
 import { panelSizes, tagVariants } from './constants'
 import { colors } from '../../Atomic/_utils/colors'
@@ -9,7 +10,6 @@ export const leftPanel = (theme: ThemeType) => css`
     background: ${get(theme, `LeftPanel.background`)};
     display: flex;
     flex-direction: column;
-    //height: 100%;
     transition: all ${COLLAPSE_ANIMATION_TIME};
     flex: 0 0 ${panelSizes.FULL}px;
     transition: all ${COLLAPSE_ANIMATION_TIME};
@@ -50,23 +50,23 @@ export const logo = (theme: ThemeType) => css`
         width: 17px;
         background: ${get(theme, `LeftPanel.logo.background`)};
     }
-`
 
-export const logoSvg = css`
-    position: absolute;
-    left: 24px;
-    top: 24px;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
-    cursor: pointer;
+    #main-app-logo {
+        position: absolute;
+        left: 24px;
+        top: 24px;
+        transition: all ${COLLAPSE_ANIMATION_TIME};
+        cursor: pointer;
+    }
 `
 
 export const logoCollapsed = css`
     justify-content: flex-start;
     padding: 24px 17px;
-`
 
-export const logoSvgCollapsed = css`
-    left: 17px;
+    #main-app-logo {
+        left: 17px;
+    }
 `
 
 export const menu = css`

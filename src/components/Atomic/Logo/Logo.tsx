@@ -6,7 +6,7 @@ import { Props } from './Logo.types'
 import { getNumberFromPx } from '../_utils/commonStyles'
 
 const Logo: FC<Props> = (props) => {
-    const { css, logo, className, onClick, onResized, title } = props
+    const { collapsed, css, logo, className, onClick, onResized, title } = props
 
     const mHeight = useMotionValue(typeof logo.height === 'string' ? getNumberFromPx(logo.height) : logo.height)
     const mWidth = useMotionValue(typeof logo.width === 'string' ? getNumberFromPx(logo.width) : logo.width)
@@ -26,8 +26,19 @@ const Logo: FC<Props> = (props) => {
         [mHeight, mWidth]
     )
 
-    if (!isFunction(onResized)) {
-        return <img alt={title || ''} className={className} css={css} height={logo.height} onClick={onClick} src={logo.source} width={logo.width} />
+    if (!isFunction(onResized) || collapsed) {
+        return (
+            <img
+                alt={title || ''}
+                className={className}
+                css={css}
+                height={logo.height}
+                id='main-app-logo'
+                onClick={onClick}
+                src={logo.source}
+                width={logo.width}
+            />
+        )
     }
 
     return (
@@ -41,6 +52,7 @@ const Logo: FC<Props> = (props) => {
             dragMomentum={false}
             dragPropagation={false}
             dragSnapToOrigin={true}
+            id='main-app-logo'
             onClick={onClick}
             onDrag={handleDrag}
             onDragEnd={() => {
