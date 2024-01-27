@@ -68,6 +68,10 @@ export const normal = css`
     height: 44px;
 `
 
+export const small = css`
+    height: 36px;
+`
+
 export const inputWithIconWrapper = css`
     position: relative;
     width: 100%;

@@ -11,7 +11,7 @@ export const left = css`
 
 export const right = css`
     padding-left: 16px;
-    max-width: 100px;
+    max-width: 130px;
 `
 
 export const rightSmall = css`

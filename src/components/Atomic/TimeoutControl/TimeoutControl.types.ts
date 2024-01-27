@@ -17,4 +17,4 @@ export type Props = {
     smallMode?: boolean
     ttlHasError?: boolean
     watchUnitChange?: boolean
-} & Pick<InputProps, 'inlineStyle' | 'align'>
+} & Pick<InputProps, 'inlineStyle' | 'align' | 'size'>

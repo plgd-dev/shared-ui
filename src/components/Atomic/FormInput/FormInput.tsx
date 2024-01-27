@@ -49,6 +49,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                 inlineStyle && styles.inlineStyle(theme),
                 size === inputSizes.BIG && styles.big,
                 size === inputSizes.NORMAL && styles.normal,
+                size === inputSizes.SMALL && styles.small,
                 align === inputAligns.RIGHT && styles.right,
             ]}
             data-endge-pass={isEdgeBrowser ? 'true' : undefined}

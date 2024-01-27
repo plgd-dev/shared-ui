@@ -8,7 +8,7 @@ import * as styles from './TimeoutControl.styles'
 import FormGroup from '../FormGroup'
 import FormLabel from '../FormLabel'
 import FormInput from '../FormInput'
-import FormSelect from '../FormSelect'
+import FormSelect, { selectSizes } from '../FormSelect'
 import { commandTimeoutUnits } from './constants'
 import { findClosestUnit, convertAndNormalizeValueFromTo, convertValueToNs, normalizeToFixedFloatValue, hasCommandTimeoutError } from './utils'
 import { inputSizes } from '../FormInput'
@@ -16,7 +16,7 @@ import { inputSizes } from '../FormInput'
 const { INFINITE, NS } = commandTimeoutUnits
 
 const TimeoutControl: FC<Props> = (props) => {
-    const { align, defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, i18n, inlineStyle, smallMode, watchUnitChange } = props
+    const { align, defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, i18n, inlineStyle, size, smallMode, watchUnitChange } = props
     const closestUnit = useMemo(() => findClosestUnit(defaultValue), [defaultValue])
     const closestDefaultTtl = useMemo(() => {
         const unit = findClosestUnit(defaultTtlValue)
@@ -106,7 +106,7 @@ const TimeoutControl: FC<Props> = (props) => {
                         onBlur={watchUnitChange ? handleOnValueBlur : undefined}
                         onChange={handleOnValueChange}
                         placeholder={i18n.placeholder}
-                        size={inputSizes.NORMAL}
+                        size={size || inputSizes.NORMAL}
                         value={!isDefault ? inputValue : `${closestDefaultTtl.value}${closestDefaultTtl.unit}`}
                     />
                 </FormGroup>
@@ -124,6 +124,7 @@ const TimeoutControl: FC<Props> = (props) => {
                         name='unit'
                         onChange={handleOnUnitChange}
                         options={units}
+                        size={size === inputSizes.SMALL ? selectSizes.SMALL : undefined}
                     />
                 </FormGroup>
             </div>
