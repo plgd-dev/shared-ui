@@ -99,7 +99,7 @@ export const TooltipAnchor = forwardRef(function TooltipAnchor(
 })
 
 export const TooltipContent = forwardRef(function TooltipContent(
-    { state, ...props }: { state: TooltipState; portalTarget?: HTMLElement } & React.HTMLProps<HTMLDivElement>,
+    { state, ...props }: { state: TooltipState; portalTarget?: HTMLElement; error: boolean } & React.HTMLProps<HTMLDivElement>,
     propRef
 ) {
     const { delay } = useDelayGroupContext()
@@ -133,7 +133,7 @@ export const TooltipContent = forwardRef(function TooltipContent(
         arrowElement.current.style[staticSide] = '-4px'
     }
 
-    const { portalTarget, ...rest } = props
+    const { portalTarget, error, ...rest } = props
 
     return (
         <ConditionalWrapper condition={!!portalTarget} wrapper={(c) => <FloatingPortal root={portalTarget}>{c}</FloatingPortal>}>
@@ -141,7 +141,7 @@ export const TooltipContent = forwardRef(function TooltipContent(
                 {state.open && (
                     <motion.div
                         animate={{ opacity: 1, scale: 1 }}
-                        className='tooltip-bubble'
+                        className={`tooltip-bubble${error ? 'tooltip-bubble-error' : ''}`}
                         exit={{ opacity: 0 }}
                         initial={{ opacity: 0, scale: 0.85 }}
                         ref={ref}

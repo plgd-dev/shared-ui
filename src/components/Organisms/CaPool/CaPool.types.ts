@@ -1,7 +1,7 @@
 import { RefObject } from 'react'
 
 export type Props = {
-    data: { id: number; name: string }[]
+    data: { id: string; name: string }[]
     headline: string
     headlineRef?: RefObject<HTMLHeadingElement>
     i18n: {

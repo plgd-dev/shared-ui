@@ -10,12 +10,12 @@ export const modalWrapper = css`
     transition: all 0.3s;
 `
 
-export const modal = (theme: ThemeType, minWidth: number | string, maxWidth: number | string) => css`
+export const modal = (theme: ThemeType, minWidth: number | string, maxWidth: number | string, maxHeight: number | string) => css`
     background: ${get(theme, `Modal.background`)};
     padding: 24px;
     min-width: ${typeof minWidth === 'string' ? minWidth : `${minWidth}px`};
     max-width: ${typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`};
-    max-height: 90%;
+    max-height: ${typeof maxHeight === 'string' ? maxHeight : `${maxHeight}px`};
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -38,6 +38,14 @@ export const headline = (theme: ThemeType, maxWidth?: number) => css`
     letter-spacing: -0.5px;
     color: ${get(theme, `Modal.header.color`)};
     max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
+`
+
+export const subTitle = (theme: ThemeType) => css`
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: ${get(theme, `Modal.header.subtitle.color`)};
+    padding-top: 4px;
 `
 
 export const close = (theme: ThemeType) => css`

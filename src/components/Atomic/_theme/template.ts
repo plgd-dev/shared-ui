@@ -203,6 +203,10 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                     },
                 },
             },
+            search: {
+                background: colors.light,
+                color: colors.neutral500,
+            },
             subItem: {
                 active: {
                     color: colors.neutral900,
@@ -517,6 +521,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             header: {
                 borderColor: colors.neutral200,
                 color: colors.primaryDarken,
+                subtitle: {
+                    color: colors.neutral500,
+                },
             },
             content: {
                 background: colors.neutral000,

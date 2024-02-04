@@ -15,6 +15,35 @@ export const title = (theme: ThemeType) => css`
     padding: 0 12px;
 `
 
+export const searchWrapper = css`
+    position: relative;
+`
+
+export const searchIcon = css`
+    position: absolute;
+    top: 15px;
+    left: 12px;
+`
+
+export const search = (theme: ThemeType) => css`
+    background: ${get(theme, `ContentMenu.search.background`)};
+    border: none;
+    padding: 12px 12px 12px 40px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    background: ${get(theme, `ContentMenu.search.color`)};
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 8px;
+
+    &:focus {
+        outline: none;
+        border: none;
+    }
+`
+
 export const menuList = css`
     list-style: none;
     padding: 0;
@@ -47,6 +76,10 @@ export const itemTitleIcon = css`
 export const itemTitleText = css`
     margin-left: 12px;
     font-weight: bold;
+`
+
+export const titleNoMargin = css`
+    margin-left: 0;
 `
 
 export const item = (theme: ThemeType) => css`

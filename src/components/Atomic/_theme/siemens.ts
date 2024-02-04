@@ -468,6 +468,9 @@ const theme = {
             header: {
                 borderColor: colorsSiemens.neutral900,
                 color: colorsSiemens.primary,
+                subtitle: {
+                    color: colorsSiemens.neutral500,
+                },
             },
             content: {
                 background: colorsSiemens.neutral800,

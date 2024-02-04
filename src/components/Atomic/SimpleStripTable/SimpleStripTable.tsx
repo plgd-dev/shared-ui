@@ -5,12 +5,20 @@ import * as styles from './SimpleStripTable.styles'
 import Row from '../Grid/Row'
 import Column from '../Grid/Column'
 import { ColumnSizeType } from '../Grid/Column/Column.types'
+import ConditionalWrapper from '../ConditionalWrapper'
 
 const SimpleStripTable: FC<Props> = (props) => {
     const { className, id, leftColSize, rightColSize, rows } = { ...defaultProps, ...props }
 
     return (
-        <div className={className} id={id}>
+        <ConditionalWrapper
+            condition={!!id || !!className}
+            wrapper={(c) => (
+                <div className={className} id={id}>
+                    {c}
+                </div>
+            )}
+        >
             {rows.map((r, key) => (
                 <Row css={[styles.row, r.autoHeight && styles.autoHeight]} gutters={false} key={key}>
                     <Column size={leftColSize as ColumnSizeType}>
@@ -31,7 +39,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                     </Column>
                 </Row>
             ))}
-        </div>
+        </ConditionalWrapper>
     )
 }
 

@@ -27,6 +27,7 @@ export type Props = {
     fullSize?: boolean
     fullSizeButtons?: boolean
     id?: string
+    maxHeight?: number | string
     maxWidth?: number | string
     maxWidthTitle?: number
     minWidth?: number | string
@@ -36,6 +37,7 @@ export type Props = {
     renderFooter?: RenderType | ReactNode
     renderHeader?: RenderType | ReactNode
     show: boolean
+    subTitle?: string
     title?: ReactNode
     width?: string | number
 }
@@ -46,6 +48,7 @@ export const defaultProps = {
     closeOnBackdrop: true,
     closeOnEsc: true,
     contentPadding: true,
+    maxHeight: '90%',
     maxWidth: '90%',
     minWidth: 600,
 }

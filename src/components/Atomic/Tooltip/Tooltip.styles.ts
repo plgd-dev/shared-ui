@@ -25,11 +25,11 @@ export const tooltip = css`
 `
 
 export const error = css`
-    .tooltip-bubble {
+    .tooltip-bubble-error {
         background: ${colors.red} !important;
     }
 
-    .tooltip-arrow {
+    .tooltip-arrow-error {
         background: ${colors.red} !important;
     }
 `

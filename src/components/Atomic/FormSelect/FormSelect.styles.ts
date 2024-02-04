@@ -152,7 +152,8 @@ export const value = (theme: ThemeType) => css`
 `
 
 export const dropdownIndicator = css`
-    padding-right: 16px;
+    //padding-right: 16px;
+    padding: 4px 16px 4px 4px;
 `
 
 export const indicator = (theme: ThemeType) => css`

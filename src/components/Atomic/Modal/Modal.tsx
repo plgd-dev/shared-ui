@@ -25,6 +25,7 @@ export const Modal: FC<Props> = memo((props) => {
         fullSize,
         fullSizeButtons,
         id,
+        maxHeight,
         maxWidth,
         maxWidthTitle,
         minWidth,
@@ -34,6 +35,7 @@ export const Modal: FC<Props> = memo((props) => {
         renderFooter,
         renderHeader,
         show,
+        subTitle,
         title,
         width,
     } = {
@@ -74,9 +76,12 @@ export const Modal: FC<Props> = memo((props) => {
         }
         return (
             <div css={styles.header}>
-                <Headline css={[(theme) => styles.headline(theme, maxWidthTitle)]} type='h4'>
-                    {title}
-                </Headline>
+                <div>
+                    <Headline css={[(theme) => styles.headline(theme, maxWidthTitle)]} type='h4'>
+                        {title}
+                    </Headline>
+                    {subTitle && <div css={styles.subTitle}>{subTitle}</div>}
+                </div>
 
                 {closeButton && (
                     <a
@@ -154,7 +159,7 @@ export const Modal: FC<Props> = memo((props) => {
                         style={{ width }}
                         variants={dropIn}
                     >
-                        <div css={[(theme) => styles.modal(theme, minWidth, maxWidth), fullSize && styles.fullSize]} style={{ width }}>
+                        <div css={[(theme) => styles.modal(theme, minWidth, maxWidth, maxHeight), fullSize && styles.fullSize]} style={{ width }}>
                             <Header />
                             {renderBody && (
                                 <div css={[styles.content, contentPadding && styles.contentPadding]} style={bodyStyle}>

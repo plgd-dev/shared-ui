@@ -29,7 +29,7 @@ const Tooltip: FC<Props> = (props) => {
                 {children}
             </TooltipAnchor>
             {!!content && (
-                <TooltipContent portalTarget={portalTarget} state={state}>
+                <TooltipContent error={variant === tooltipVariants.ERROR} portalTarget={portalTarget} state={state}>
                     {content}
                     <div className='tooltip-arrow' id={`${id}-arrow`} />
                 </TooltipContent>

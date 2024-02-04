@@ -1,18 +1,50 @@
-import React, { cloneElement, FC, ReactElement } from 'react'
+import React, { cloneElement, FC, ReactElement, useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import isFunction from 'lodash/isFunction'
 
 import * as styles from './ContentMenu.styles'
-import { Props } from './ContentMenu.types'
+import { ItemType, Props } from './ContentMenu.types'
 import { Icon } from '../Icon'
 import { Arrow } from '../../Layout/LeftPanel/components'
 import img from '../../Layout/LeftPanel/assets/line.png'
+import IconSearch from '../Icon/components/IconSearch'
 
 const ContentMenu: FC<Props> = (props) => {
-    const { activeItem, className, handleItemClick, handleSubItemClick, id, menu, title } = props
+    const { activeItem, className, handleItemClick, handleSubItemClick, id, menu: menuProp, menuSearch, title } = props
+
+    const [search, setSearch] = useState('')
+    const [menu, setMenu] = useState(menuProp)
+
+    const getIcon = (item: ItemType) => {
+        if (!item.icon) {
+            return null
+        }
+
+        if (typeof item.icon === 'string') {
+            return <Icon icon={item.icon} />
+        } else {
+            return cloneElement(item.icon as ReactElement, {
+                css: [styles.itemTitleIcon],
+                className: 'icon',
+            })
+        }
+    }
+
+    useEffect(() => {
+        setMenu(menuProp.filter((item) => item.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())))
+    }, [search, menuProp])
+
     return (
         <div className={className} css={styles.contentMenu} id={id}>
             <div css={styles.title}>{title}</div>
+            {menuSearch && (
+                <div css={styles.searchWrapper}>
+                    <span css={styles.searchIcon}>
+                        <IconSearch />
+                    </span>
+                    <input css={styles.search} onChange={(e) => setSearch(e.target.value)} type='search' value={search} />
+                </div>
+            )}
             <ul css={styles.menuList}>
                 {menu.map((item, key) => {
                     const isItemActive = item.id === activeItem || item?.children?.some((subItem) => subItem.id === activeItem)
@@ -27,15 +59,8 @@ const ContentMenu: FC<Props> = (props) => {
                                     handleItemClick(item, e)
                                 }}
                             >
-                                {typeof item.icon === 'string' ? (
-                                    <Icon icon={item.icon} />
-                                ) : (
-                                    cloneElement(item.icon as ReactElement, {
-                                        css: [styles.itemTitleIcon],
-                                        className: 'icon',
-                                    })
-                                )}
-                                <span aria-label={item.title} css={styles.itemTitleText}>
+                                {getIcon(item)}
+                                <span aria-label={item.title} css={[styles.itemTitleText, !item.icon && styles.titleNoMargin]}>
                                     {item.title}
                                 </span>
                                 {item.children && (

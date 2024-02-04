@@ -12,6 +12,8 @@ import Spacer from '../../Atomic/Spacer'
 import isFunction from 'lodash/isFunction'
 import IconEdit from '../../Atomic/Icon/components/IconEdit'
 
+export const CA_BASE64_PREFIX = 'data:;base64,'
+
 const CaPool: FC<Props> = (props) => {
     const { data, headline, headlineRef, i18n, onAdd, onDelete, onUpdate, onView, tableSearch } = props
     const [defaultPageSize, setDefaultPageSize] = useState(10)
@@ -21,7 +23,12 @@ const CaPool: FC<Props> = (props) => {
             {
                 Header: '',
                 accessor: 'name',
-                Cell: ({ value }: { value: string | number }) => <span className='no-wrap-text'>{value}</span>,
+                Cell: ({ value }: { value: string | number }) => (
+                    <span className='no-wrap-text' style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {typeof value === 'string' ? value.replace(CA_BASE64_PREFIX, '') : value}
+                    </span>
+                ),
+                style: { maxWidth: '300px' },
             },
             {
                 Header: '',

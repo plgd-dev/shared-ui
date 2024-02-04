@@ -2,7 +2,7 @@ import { ReactNode, SyntheticEvent } from 'react'
 
 export type ItemType = {
     children?: SubItemItem[]
-    icon: ReactNode
+    icon?: ReactNode
     id: string
     link: string
     title: string
@@ -19,5 +19,6 @@ export type Props = {
     handleSubItemClick?: (subItem: SubItemItem, item: ItemType, e: SyntheticEvent) => void
     id?: string
     menu: ItemType[]
+    menuSearch?: boolean
     title: string
 }

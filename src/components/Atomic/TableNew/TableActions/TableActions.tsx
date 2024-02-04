@@ -14,7 +14,12 @@ const TableActions: FC<Props> = memo((props) => {
                         .filter((item) => !item.hidden)
                         .map((item, key) => (
                             <div css={styles.actionItem} key={key}>
-                                <Tooltip content={item.tooltipText} id={item.id} portalTarget={document.getElementById('modal-root') as HTMLDivElement}>
+                                <Tooltip
+                                    content={item.tooltipText}
+                                    id={item.id}
+                                    portalTarget={document.getElementById('modal-root') as HTMLDivElement}
+                                    variant='default'
+                                >
                                     {typeof item.icon === 'string' ? (
                                         <Icon css={styles.icon} icon={item.icon} onClick={item.onClick} size={item.size || 20} />
                                     ) : (
