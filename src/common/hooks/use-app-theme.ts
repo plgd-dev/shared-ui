@@ -20,7 +20,7 @@ export function useAppTheme(options: UseAppThemeType) {
         if (!appTheme) {
             const getThemeData = async () => {
                 try {
-                    const { data: themeData } = await getTheme(process.env.REACT_APP_HTTP_GATEWAY_ADDRESS || window.location.origin)
+                    const { data: themeData } = await getTheme(process.env.REACT_APP_HTTP_WELL_KNOW_CONFIGURATION_ADDRESS || window.location.origin)
 
                     if (themeData) {
                         let themeNames: string[] = []
