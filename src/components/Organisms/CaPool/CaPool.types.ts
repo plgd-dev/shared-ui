@@ -15,5 +15,6 @@ export type Props = {
     onDelete?: (id: string) => void
     onUpdate?: (id: string) => void
     onView?: (id: string) => void
+    singleItemMode?: boolean
     tableSearch?: boolean
 }
