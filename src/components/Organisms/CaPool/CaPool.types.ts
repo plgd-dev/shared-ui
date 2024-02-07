@@ -1,6 +1,7 @@
-import { RefObject } from 'react'
+import { ReactNode, RefObject } from 'react'
 
 export type Props = {
+    customComponent?: ReactNode
     data: { id: string; name: string }[]
     headline: string
     headlineRef?: RefObject<HTMLHeadingElement>
@@ -15,6 +16,5 @@ export type Props = {
     onDelete?: (id: string) => void
     onUpdate?: (id: string) => void
     onView?: (id: string) => void
-    singleItemMode?: boolean
     tableSearch?: boolean
 }

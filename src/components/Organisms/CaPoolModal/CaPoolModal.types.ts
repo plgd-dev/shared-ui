@@ -1,7 +1,8 @@
 import { Props as ModalProps } from '../../Atomic/Modal/Modal.types'
 
 export type Props = {
-    data: any
+    data?: string | {}[]
+    dataChain?: any
     i18n: {
         menuTitle: string
         commonName: string
@@ -27,5 +28,21 @@ export type Props = {
         extendedKeyUsages: string
         subjectKeyID: string
         authorityKeyID: string
+        miscellaneous: string
+        version: string
+        serialNumber: string
+        signatureAlgorithm: string
+        download: string
+        authorityInfoAIA: string
+        location: string
+        method: string
+        certificatePolicies: string
+        policy: string
+        value: string
+        embeddedSCTs: string
+        logID: string
+        timestamp: string
+        subjectAltNames: string
+        dNSName: string
     }
 } & ModalProps

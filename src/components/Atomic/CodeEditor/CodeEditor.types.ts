@@ -1,4 +1,5 @@
 export type Props = {
+    disabled?: boolean
     height?: string | number
     onChange?: (value: string) => void
     value: string

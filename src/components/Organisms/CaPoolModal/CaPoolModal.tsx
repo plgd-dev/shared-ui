@@ -11,9 +11,11 @@ import { Row as SimpleStripTableRowType } from '../../Atomic/SimpleStripTable/Si
 import Spacer from '../../Atomic/Spacer'
 import ContentSwitch from '../../Atomic/ContentSwitch'
 import useWindowDimensions from '../../../common/hooks/useWindowDimensions'
+import CodeEditor from '../../Atomic/CodeEditor'
+import { CA_BASE64_PREFIX } from '../CaPool'
 
 const CaPoolModal: FC<Props> = (props) => {
-    const { data, i18n, ...rest } = props
+    const { data, dataChain, i18n, ...rest } = props
 
     const [activeItem, setActiveItem] = useState('0')
 
@@ -25,11 +27,13 @@ const CaPoolModal: FC<Props> = (props) => {
 
     const menu = useMemo(
         () =>
-            data?.map((i: any, key: number) => ({
-                id: key.toString(),
-                title: i.subject.cn || i.subject.o || 'EMPTY',
-                link: '',
-            })),
+            typeof data === 'string'
+                ? []
+                : data?.map((i: any, key: number) => ({
+                      id: key.toString(),
+                      title: i.subject.cn || i.subject.ou || i.subject.o || 'EMPTY',
+                      link: '',
+                  })),
         [data]
     )
 
@@ -43,6 +47,25 @@ const CaPoolModal: FC<Props> = (props) => {
         return '-'
     }
 
+    const getCommonNameElement = (name: string) => {
+        const R3Item = menu?.find((item) => item.title === 'R3')
+
+        if (name === 'R3' && R3Item) {
+            return (
+                <a
+                    href='#'
+                    onClick={(e) => {
+                        e.preventDefault()
+                        handleItemClick(R3Item)
+                    }}
+                >
+                    {name}
+                </a>
+            )
+        }
+        return name
+    }
+
     const body = (
         <Row style={{ width: 'calc(100% + 16px)', height: '100%', overflow: 'hidden' }}>
             <Column size={3}>
@@ -54,12 +77,12 @@ const CaPoolModal: FC<Props> = (props) => {
                         _item.contentRef?.current?.scrollIntoView({ behavior: 'smooth' })
                         setActiveItem(parentItem.id)
                     }}
-                    menu={menu}
+                    menu={menu!}
                     title={i18n.menuTitle}
                 />
             </Column>
             <Column size={9} style={{ height: '100%', overflow: 'auto', maxHeight: height - 40 - 48 - 98 - 24 }}>
-                {data && (
+                {data && Array.isArray(data) && (
                     <ContentSwitch activeItem={parseInt(activeItem)}>
                         {data?.map((item: any, key: number) => (
                             <div key={key}>
@@ -78,7 +101,10 @@ const CaPoolModal: FC<Props> = (props) => {
                                             rows={[
                                                 { attribute: i18n.country, value: findInEntries(item?.issuer?.entries, 'Country') },
                                                 { attribute: i18n.organization, value: findInEntries(item?.issuer?.entries, 'Organization') },
-                                                { attribute: i18n.commonName, value: findInEntries(item?.issuer?.entries, 'Common Name') },
+                                                {
+                                                    attribute: i18n.commonName,
+                                                    value: getCommonNameElement(findInEntries(item?.issuer?.entries, 'Common Name')),
+                                                },
                                             ]}
                                         />
                                     </>
@@ -94,6 +120,18 @@ const CaPoolModal: FC<Props> = (props) => {
                                         { attribute: i18n.notAfter, value: item?.notAfterUTC },
                                     ]}
                                 />
+                                {item?.ext?.san?.altNames && (
+                                    <>
+                                        <Spacer type='mt-8 mb-4'>
+                                            <Headline type='h6'>{i18n.subjectAltNames}</Headline>
+                                        </Spacer>
+                                        <SimpleStripTable
+                                            leftColSize={6}
+                                            rightColSize={6}
+                                            rows={[{ attribute: i18n.dNSName, value: findInEntries(item?.ext?.san?.altNames, 'DNS Name') }]}
+                                        />
+                                    </>
+                                )}
                                 {item?.subjectPublicKeyInfo && (
                                     <>
                                         <Spacer type='mt-8 mb-4'>
@@ -122,6 +160,60 @@ const CaPoolModal: FC<Props> = (props) => {
                                         />
                                     </>
                                 )}
+                                <Spacer type='mt-8 mb-4'>
+                                    <Headline type='h6'>{i18n.miscellaneous}</Headline>
+                                </Spacer>
+                                <SimpleStripTable
+                                    leftColSize={6}
+                                    rightColSize={6}
+                                    rows={
+                                        [
+                                            item?.serialNumber
+                                                ? {
+                                                      attribute: i18n.serialNumber,
+                                                      value: item?.serialNumber,
+                                                  }
+                                                : undefined,
+                                            item?.signature?.name
+                                                ? {
+                                                      attribute: i18n.signatureAlgorithm,
+                                                      value: item?.signature?.name,
+                                                  }
+                                                : undefined,
+                                            { attribute: i18n.version, value: item?.version },
+                                            item?.files
+                                                ? {
+                                                      attribute: i18n.download,
+                                                      value: (
+                                                          <span>
+                                                              <a
+                                                                  download='PEM (cert).pem'
+                                                                  href={window.URL.createObjectURL(
+                                                                      new Blob([item.files.pem.replace(/%0D%0A/g, '\n')], {
+                                                                          type: 'application/x-pem-file',
+                                                                      })
+                                                                  )}
+                                                              >
+                                                                  PEM (cert)
+                                                              </a>
+                                                              ,&nbsp;
+                                                              <a
+                                                                  download='PEM (chain).pem'
+                                                                  href={window.URL.createObjectURL(
+                                                                      new Blob([atob(dataChain.replace(CA_BASE64_PREFIX, ''))], {
+                                                                          type: 'application/x-pem-file',
+                                                                      })
+                                                                  )}
+                                                              >
+                                                                  PEM (chain)
+                                                              </a>
+                                                          </span>
+                                                      ),
+                                                  }
+                                                : undefined,
+                                        ].filter((i) => !!i) as SimpleStripTableRowType[]
+                                    }
+                                />
                                 {item?.fingerprint && (item?.fingerprint?.sha256 || item?.fingerprint?.sha1) && (
                                     <>
                                         <Spacer type='mt-8 mb-4'>
@@ -242,6 +334,92 @@ const CaPoolModal: FC<Props> = (props) => {
                                         />
                                     </>
                                 )}
+                                {item?.ext?.aia?.descriptions && (
+                                    <>
+                                        <Spacer type='mt-8'>
+                                            <Headline type='h6'>{i18n.authorityInfoAIA}</Headline>
+                                        </Spacer>
+                                        {Object.values(item?.ext?.aia?.descriptions).map((aiaItem: any, key) => (
+                                            <Spacer key={key} type={`mt-${key === 0 ? 4 : 6}`}>
+                                                <SimpleStripTable
+                                                    headerLeft={'#' + `${key + 1}`.padStart(2, '0')}
+                                                    leftColSize={6}
+                                                    rightColSize={6}
+                                                    rows={[
+                                                        {
+                                                            attribute: i18n.location,
+                                                            value: aiaItem.location,
+                                                        },
+                                                        {
+                                                            attribute: i18n.method,
+                                                            value: aiaItem.method,
+                                                        },
+                                                    ]}
+                                                />
+                                            </Spacer>
+                                        ))}
+                                    </>
+                                )}
+                                {item?.ext?.cp?.policies && (
+                                    <>
+                                        <Spacer type='mt-8'>
+                                            <Headline type='h6'>{i18n.certificatePolicies}</Headline>
+                                        </Spacer>
+                                        {Object.values(item?.ext?.cp?.policies).map((policy: any, key) => (
+                                            <Spacer key={key} type={`mt-${key === 0 ? 4 : 6}`}>
+                                                <SimpleStripTable
+                                                    headerLeft={'#' + `${key + 1}`.padStart(2, '0')}
+                                                    leftColSize={6}
+                                                    rightColSize={6}
+                                                    rows={[
+                                                        {
+                                                            attribute: i18n.policy,
+                                                            value: policy.name,
+                                                        },
+                                                        {
+                                                            attribute: i18n.value,
+                                                            value: policy.value,
+                                                        },
+                                                    ]}
+                                                />
+                                            </Spacer>
+                                        ))}
+                                    </>
+                                )}
+                                {item?.ext?.scts?.timestamps && (
+                                    <>
+                                        <Spacer type='mt-8'>
+                                            <Headline type='h6'>{i18n.embeddedSCTs}</Headline>
+                                        </Spacer>
+                                        {item?.ext?.scts?.timestamps.map((timestampItem: any, key: number) => (
+                                            <Spacer key={key} type={`mt-${key === 0 ? 4 : 6}`}>
+                                                <SimpleStripTable
+                                                    headerLeft={'#' + `${key + 1}`.padStart(2, '0')}
+                                                    leftColSize={6}
+                                                    rightColSize={6}
+                                                    rows={[
+                                                        {
+                                                            attribute: i18n.logID,
+                                                            value: <span style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>{timestampItem.logId}</span>,
+                                                        },
+                                                        {
+                                                            attribute: i18n.signatureAlgorithm,
+                                                            value: timestampItem.signatureAlgorithm,
+                                                        },
+                                                        {
+                                                            attribute: i18n.version,
+                                                            value: timestampItem.version,
+                                                        },
+                                                        {
+                                                            attribute: i18n.timestamp,
+                                                            value: timestampItem.timestampUTC,
+                                                        },
+                                                    ]}
+                                                />
+                                            </Spacer>
+                                        ))}
+                                    </>
+                                )}
                             </div>
                         ))}
                     </ContentSwitch>
@@ -249,6 +427,8 @@ const CaPoolModal: FC<Props> = (props) => {
             </Column>
         </Row>
     )
+
+    const bodyRelative = <CodeEditor disabled value={data as string} />
 
     return (
         <Modal
@@ -262,7 +442,7 @@ const CaPoolModal: FC<Props> = (props) => {
             maxHeight={height ? height - 40 : undefined}
             maxWidth={1100}
             portalTarget={document.getElementById('modal-root')}
-            renderBody={body}
+            renderBody={typeof data === 'string' ? bodyRelative : body}
             width='100%'
         />
     )

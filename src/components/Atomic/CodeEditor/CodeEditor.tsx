@@ -12,7 +12,7 @@ import { getSizeInPx } from '../_utils/commonStyles'
 import { ThemeType } from '../_theme'
 
 const CodeEditor: FC<Props> = (props) => {
-    const { height, onChange, value } = { ...defaultProps, ...props }
+    const { disabled, height, onChange, value } = { ...defaultProps, ...props }
     const globalTheme: ThemeType = useTheme()
 
     const handleChange = useCallback(
@@ -68,6 +68,7 @@ const CodeEditor: FC<Props> = (props) => {
                 drawSelection: true,
             }}
             css={styles.editor}
+            editable={disabled === true ? false : undefined}
             extensions={extensions}
             height={getSizeInPx(height!)}
             onChange={(v) => handleChange(v)}

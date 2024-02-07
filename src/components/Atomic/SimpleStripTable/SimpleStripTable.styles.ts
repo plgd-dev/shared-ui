@@ -25,6 +25,10 @@ export const autoHeight = css`
     height: 100%;
 `
 
+export const headerRow = (theme: ThemeType) => css`
+    background: ${get(theme, `SimpleStripTable.row.hover.background`)};
+`
+
 export const attribute = css`
     padding: 16px 24px;
     color: ${colors.neutral500};

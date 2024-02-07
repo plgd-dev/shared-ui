@@ -15,7 +15,7 @@ import IconEdit from '../../Atomic/Icon/components/IconEdit'
 export const CA_BASE64_PREFIX = 'data:;base64,'
 
 const CaPool: FC<Props> = (props) => {
-    const { data, headline, headlineRef, i18n, onAdd, onDelete, onUpdate, onView, singleItemMode, tableSearch } = props
+    const { customComponent, data, headline, headlineRef, i18n, onAdd, onDelete, onUpdate, onView, tableSearch } = props
     const [defaultPageSize, setDefaultPageSize] = useState(10)
 
     const columns = useMemo(
@@ -49,7 +49,7 @@ const CaPool: FC<Props> = (props) => {
                         })
                     }
 
-                    if (isFunction(onView) && (!name?.startsWith('/') || singleItemMode)) {
+                    if (isFunction(onView)) {
                         items.push({
                             onClick: () => onView(id),
                             label: i18n.view,
@@ -86,6 +86,7 @@ const CaPool: FC<Props> = (props) => {
                     </Button>
                 )}
             </div>
+            {!!customComponent && <Spacer type='pb-4'>{customComponent}</Spacer>}
             <Table
                 columns={columns}
                 data={data}

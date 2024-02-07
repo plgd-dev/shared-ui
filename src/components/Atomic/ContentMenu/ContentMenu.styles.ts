@@ -33,7 +33,7 @@ export const search = (theme: ThemeType) => css`
     font-style: normal;
     font-weight: 400;
     line-height: 22px;
-    background: ${get(theme, `ContentMenu.search.color`)};
+    color: ${get(theme, `ContentMenu.search.color`)};
     width: 100%;
     margin-bottom: 12px;
     border-radius: 8px;
