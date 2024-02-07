@@ -315,6 +315,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             indentGuide: {
                 background: undefined,
             },
+            selection: {
+                background: undefined,
+            },
             scroller: {
                 background: colors.light,
             },
@@ -468,6 +471,11 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                     lineHeight: '24px',
                     fontWeight: 700,
                 },
+            },
+        },
+        IncompleteOnboardingDataModal: {
+            row: {
+                background: colors.neutral000,
             },
         },
         Layout: {

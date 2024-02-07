@@ -60,6 +60,10 @@ export const editor = (theme: ThemeType) => css`
             .ace_string {
                 color: ${get(theme, `Editor.constant.string.color`)};
             }
+
+            .ace_selection {
+                background-color: ${get(theme, `Editor.selection.background`)};
+            }
         }
     }
 `

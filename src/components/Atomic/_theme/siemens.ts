@@ -1,4 +1,5 @@
 import { colors, colorsSiemens } from '../_utils/colors'
+import { hexToRgbA } from '../_utils/commonStyles'
 
 const theme = {
     colorPalette: colorsSiemens,
@@ -265,9 +266,11 @@ const theme = {
             gutterActiveLine: {
                 background: colorsSiemens.neutral900,
             },
-
             indentGuide: {
                 background: 'none',
+            },
+            selection: {
+                background: hexToRgbA(colorsSiemens.neutral800, 0.8),
             },
             scroller: {
                 background: colorsSiemens.neutral900,
@@ -416,6 +419,11 @@ const theme = {
         },
         Headline: {
             color: colorsSiemens.primary,
+        },
+        IncompleteOnboardingDataModal: {
+            row: {
+                background: colorsSiemens.neutral800,
+            },
         },
         Layout: {
             background: colorsSiemens.neutral900,

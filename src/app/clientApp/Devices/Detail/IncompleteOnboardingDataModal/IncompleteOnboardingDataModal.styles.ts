@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { ThemeType, get } from '../../../../../components/Atomic/_theme'
 
 export const topLine = css`
     display: flex;
@@ -6,9 +7,9 @@ export const topLine = css`
     padding: 0 0 12px 0;
 `
 
-export const row = css`
+export const row = (theme: ThemeType) => css`
     padding: 6px 0;
-    background: #fff;
+    background: ${get(theme, `IncompleteOnboardingDataModal.row.background`)};
 `
 
 export const inputWrapper = css`

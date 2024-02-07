@@ -210,14 +210,6 @@ export function useOnboardingButton({ resources, isOwned, deviceId, isUnsupporte
     const deviceOnboardingEndpoint = useMemo(() => getOnboardingEndpoint(resources), [resources])
     const incompleteOnboardingData = !hasOnboardingFeature()
 
-    useEffect(() => {
-        if (deviceOnboardingEndpoint && (isOwned || isUnsupported)) {
-            setOnboardResourceLoading(true)
-            setTimeout(() => fetchDeviceOnboardingData(), DEVICE_PROVISION_STATUS_DELAY_MS)
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [deviceOnboardingEndpoint, isOwned])
-
     const refetchDeviceOnboardingData = () => fetchDeviceOnboardingData()
 
     const fetchDeviceOnboardingData = () => {
@@ -234,6 +226,13 @@ export function useOnboardingButton({ resources, isOwned, deviceId, isUnsupporte
             })
         }
     }
+
+    useEffect(() => {
+        if (deviceOnboardingEndpoint && (isOwned || isUnsupported)) {
+            setOnboardResourceLoading(true)
+            setTimeout(() => fetchDeviceOnboardingData(), DEVICE_PROVISION_STATUS_DELAY_MS)
+        }
+    }, [deviceOnboardingEndpoint, fetchDeviceOnboardingData, isOwned, isUnsupported])
 
     // incompleteOnboardingData - show modal after click on button ( data are incomplete )
     // onboardResourceLoading - loading resource data
