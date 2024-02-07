@@ -57,6 +57,7 @@ export type WellKnownConfigType = {
                 [key: string]: MenuItemVisibilityType
             }
         }
+        defaultDiscoveryTimeout?: string
     }
 } & BuildInformationType
 
