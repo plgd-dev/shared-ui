@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useState } from 'react'
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash/debounce'
 import { useSelector } from 'react-redux'
 import isFunction from 'lodash/isFunction'
@@ -210,29 +210,32 @@ export function useOnboardingButton({ resources, isOwned, deviceId, isUnsupporte
     const deviceOnboardingEndpoint = useMemo(() => getOnboardingEndpoint(resources), [resources])
     const incompleteOnboardingData = !hasOnboardingFeature()
 
-    const refetchDeviceOnboardingData = () => fetchDeviceOnboardingData()
+    const refetchDeviceOnboardingData = () => fetchDeviceOnboardingData(isOwned, isUnsupported)
 
-    const fetchDeviceOnboardingData = () => {
-        if (deviceOnboardingEndpoint && (isOwned || isUnsupported)) {
-            loadResourceData({
-                href: deviceOnboardingEndpoint.href,
-                deviceId,
-                errorCallback: () => {
+    const fetchDeviceOnboardingData = useCallback(
+        (isOwned: boolean, isUnsupported: boolean) => {
+            if (deviceOnboardingEndpoint && (isOwned || isUnsupported)) {
+                loadResourceData({
+                    href: deviceOnboardingEndpoint.href,
+                    deviceId,
+                    errorCallback: () => {
+                        setOnboardResourceLoading(false)
+                    },
+                }).then((rData) => {
+                    setDeviceOnboardingResourceData(rData)
                     setOnboardResourceLoading(false)
-                },
-            }).then((rData) => {
-                setDeviceOnboardingResourceData(rData)
-                setOnboardResourceLoading(false)
-            })
-        }
-    }
+                })
+            }
+        },
+        [deviceId, deviceOnboardingEndpoint]
+    )
 
     useEffect(() => {
         if (deviceOnboardingEndpoint && (isOwned || isUnsupported)) {
             setOnboardResourceLoading(true)
-            setTimeout(() => fetchDeviceOnboardingData(), DEVICE_PROVISION_STATUS_DELAY_MS)
+            setTimeout(() => fetchDeviceOnboardingData(isOwned, isUnsupported), DEVICE_PROVISION_STATUS_DELAY_MS)
         }
-    }, [deviceOnboardingEndpoint, fetchDeviceOnboardingData, isOwned, isUnsupported])
+    }, [deviceOnboardingEndpoint, isOwned, isUnsupported])
 
     // incompleteOnboardingData - show modal after click on button ( data are incomplete )
     // onboardResourceLoading - loading resource data
