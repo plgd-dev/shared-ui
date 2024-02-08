@@ -235,7 +235,7 @@ export function useOnboardingButton({ resources, isOwned, deviceId, isUnsupporte
             setOnboardResourceLoading(true)
             setTimeout(() => fetchDeviceOnboardingData(isOwned, isUnsupported), DEVICE_PROVISION_STATUS_DELAY_MS)
         }
-    }, [deviceOnboardingEndpoint, isOwned, isUnsupported])
+    }, [deviceOnboardingEndpoint, fetchDeviceOnboardingData, isOwned, isUnsupported])
 
     // incompleteOnboardingData - show modal after click on button ( data are incomplete )
     // onboardResourceLoading - loading resource data
