@@ -8,6 +8,7 @@ export type Props = {
     i18n: {
         download: string
         delete: string
+        edit: string
         search: string
         showMore: string
         update: string
@@ -16,6 +17,7 @@ export type Props = {
     onAdd?: () => void
     onDownload?: (id: string) => void
     onDelete?: (id: string) => void
+    onEdit?: (id: string) => void
     onUpdate?: (id: string) => void
     onView?: (id: string) => void
     tableSearch?: boolean

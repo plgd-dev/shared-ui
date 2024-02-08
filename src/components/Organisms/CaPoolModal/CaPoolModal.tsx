@@ -12,7 +12,6 @@ import Spacer from '../../Atomic/Spacer'
 import ContentSwitch from '../../Atomic/ContentSwitch'
 import useWindowDimensions from '../../../common/hooks/useWindowDimensions'
 import CodeEditor from '../../Atomic/CodeEditor'
-import { CA_BASE64_PREFIX } from '../CaPool'
 
 const CaPoolModal: FC<Props> = (props) => {
     const { data, dataChain, i18n, ...rest } = props
@@ -50,7 +49,7 @@ const CaPoolModal: FC<Props> = (props) => {
     const getCommonNameElement = (name: string) => {
         const itemFromMenu = menu?.find((item) => item.title === name)
 
-        if (itemFromMenu) {
+        if (itemFromMenu && activeItem !== itemFromMenu.id) {
             return (
                 <a
                     href='#'
@@ -67,22 +66,26 @@ const CaPoolModal: FC<Props> = (props) => {
         return name
     }
 
+    const hasContentMenu = useMemo(() => data && Array.isArray(data) && data.length > 1, [])
+
     const body = (
         <Row style={{ width: 'calc(100% + 16px)', height: '100%', overflow: 'hidden' }}>
-            <Column size={3}>
-                <ContentMenu
-                    menuSearch
-                    activeItem={activeItem}
-                    handleItemClick={handleItemClick}
-                    handleSubItemClick={(_item, parentItem) => {
-                        _item.contentRef?.current?.scrollIntoView({ behavior: 'smooth' })
-                        setActiveItem(parentItem.id)
-                    }}
-                    menu={menu!}
-                    title={i18n.menuTitle}
-                />
-            </Column>
-            <Column size={9} style={{ height: '100%', overflow: 'auto', maxHeight: height - 40 - 48 - 98 - 24 }}>
+            {hasContentMenu && (
+                <Column size={3}>
+                    <ContentMenu
+                        menuSearch
+                        activeItem={activeItem}
+                        handleItemClick={handleItemClick}
+                        handleSubItemClick={(_item, parentItem) => {
+                            _item.contentRef?.current?.scrollIntoView({ behavior: 'smooth' })
+                            setActiveItem(parentItem.id)
+                        }}
+                        menu={menu!}
+                        title={i18n.menuTitle}
+                    />
+                </Column>
+            )}
+            <Column size={hasContentMenu ? 9 : 12} style={{ height: '100%', overflow: 'auto', maxHeight: height - 40 - 48 - 98 - 24 }}>
                 {data && Array.isArray(data) && (
                     <ContentSwitch activeItem={parseInt(activeItem)}>
                         {data?.map((item: any, key: number) => (
@@ -376,7 +379,7 @@ const CaPoolModal: FC<Props> = (props) => {
                                         ))}
                                     </>
                                 )}
-                                {item?.ext?.scts?.timestamps && (
+                                {item?.ext?.scts?.timestamps?.length > 0 && (
                                     <>
                                         <Spacer type='mt-8'>
                                             <Headline type='h6'>{i18n.embeddedSCTs}</Headline>

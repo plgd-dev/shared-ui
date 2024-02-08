@@ -31,6 +31,7 @@ const data = [
     { name: 'icon-device-update' },
     { name: 'icon-devices' },
     { name: 'icon-docs' },
+    { name: 'icon-download' },
     { name: 'icon-edit' },
     { name: 'icon-error' },
     { name: 'icon-file-pem' },

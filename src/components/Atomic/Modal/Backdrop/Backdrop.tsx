@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import { motion } from 'framer-motion'
-import { Props } from './Backdrop.types'
+import { Props, defaultProps } from './Backdrop.types'
 import * as styles from './Backdrop.styles'
 
 const Backdrop: FC<Props> = (props) => {
-    const { children, onClick } = props
+    const { children, onClick, zIndex } = { ...defaultProps, ...props }
     return (
         <motion.div
             animate={{ opacity: 1 }}
-            css={styles.blackDrop}
+            css={styles.blackDrop(zIndex)}
             exit={{ opacity: 0 }}
             initial={{ opacity: 0 }}
             onClick={onClick}
@@ -22,5 +22,6 @@ const Backdrop: FC<Props> = (props) => {
 }
 
 Backdrop.displayName = 'Backdrop'
+Backdrop.defaultProps = defaultProps
 
 export default Backdrop

@@ -38,6 +38,7 @@ export const Modal: FC<Props> = memo((props) => {
         subTitle,
         title,
         width,
+        zIndex,
     } = {
         ...defaultProps,
         ...props,
@@ -147,7 +148,7 @@ export const Modal: FC<Props> = memo((props) => {
     const ModalBase = (
         <AnimatePresence initial={false} mode='wait' onExitComplete={() => null}>
             {show && (
-                <Backdrop onClick={() => isFunction(onClose) && closeOnBackdrop && onClose()}>
+                <Backdrop onClick={() => isFunction(onClose) && closeOnBackdrop && onClose()} zIndex={zIndex}>
                     <motion.div
                         animate='visible'
                         className={className}

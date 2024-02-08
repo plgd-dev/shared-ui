@@ -11,12 +11,12 @@ import { IconArrowDetail, IconTrash } from '../../Atomic'
 import Spacer from '../../Atomic/Spacer'
 import isFunction from 'lodash/isFunction'
 import IconEdit from '../../Atomic/Icon/components/IconEdit'
-import IconArrowDown from '../../Atomic/Icon/components/IconArrowDown'
+import IconDownload from '../../Atomic/Icon/components/IconDownload'
 
 export const CA_BASE64_PREFIX = 'data:;base64,'
 
 const CaPool: FC<Props> = (props) => {
-    const { customComponent, data, headline, headlineRef, i18n, onAdd, onDelete, onDownload, onUpdate, onView, tableSearch } = props
+    const { customComponent, data, headline, headlineRef, i18n, onAdd, onDelete, onEdit, onDownload, onUpdate, onView, tableSearch } = props
     const [defaultPageSize, setDefaultPageSize] = useState(10)
 
     const columns = useMemo(
@@ -46,7 +46,15 @@ const CaPool: FC<Props> = (props) => {
                         items.push({
                             onClick: () => onDownload(id),
                             label: i18n.download,
-                            icon: <IconArrowDown />,
+                            icon: <IconDownload />,
+                        })
+                    }
+
+                    if (isFunction(onEdit) && !name.startsWith('/')) {
+                        items.push({
+                            onClick: () => onEdit(id),
+                            label: i18n.edit,
+                            icon: <IconEdit />,
                         })
                     }
 

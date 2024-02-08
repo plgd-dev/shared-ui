@@ -40,6 +40,7 @@ export type Props = {
     subTitle?: string
     title?: ReactNode
     width?: string | number
+    zIndex?: number
 }
 
 export const defaultProps = {
