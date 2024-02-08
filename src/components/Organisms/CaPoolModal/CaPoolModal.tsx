@@ -48,21 +48,22 @@ const CaPoolModal: FC<Props> = (props) => {
     }
 
     const getCommonNameElement = (name: string) => {
-        const R3Item = menu?.find((item) => item.title === 'R3')
+        const itemFromMenu = menu?.find((item) => item.title === name)
 
-        if (name === 'R3' && R3Item) {
+        if (itemFromMenu) {
             return (
                 <a
                     href='#'
                     onClick={(e) => {
                         e.preventDefault()
-                        handleItemClick(R3Item)
+                        handleItemClick(itemFromMenu)
                     }}
                 >
                     {name}
                 </a>
             )
         }
+
         return name
     }
 
@@ -187,25 +188,14 @@ const CaPoolModal: FC<Props> = (props) => {
                                                       value: (
                                                           <span>
                                                               <a
-                                                                  download='PEM (cert).pem'
+                                                                  download='PEM(cert).pem'
                                                                   href={window.URL.createObjectURL(
-                                                                      new Blob([item.files.pem.replace(/%0D%0A/g, '\n')], {
+                                                                      new Blob([item.files.pem.replace(/%0D%0A/g, '\n').replace(/%20/g, ' ')], {
                                                                           type: 'application/x-pem-file',
                                                                       })
                                                                   )}
                                                               >
                                                                   PEM (cert)
-                                                              </a>
-                                                              ,&nbsp;
-                                                              <a
-                                                                  download='PEM (chain).pem'
-                                                                  href={window.URL.createObjectURL(
-                                                                      new Blob([atob(dataChain.replace(CA_BASE64_PREFIX, ''))], {
-                                                                          type: 'application/x-pem-file',
-                                                                      })
-                                                                  )}
-                                                              >
-                                                                  PEM (chain)
                                                               </a>
                                                           </span>
                                                       ),

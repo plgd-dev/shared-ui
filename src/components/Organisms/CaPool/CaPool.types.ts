@@ -6,6 +6,7 @@ export type Props = {
     headline: string
     headlineRef?: RefObject<HTMLHeadingElement>
     i18n: {
+        download: string
         delete: string
         search: string
         showMore: string
@@ -13,6 +14,7 @@ export type Props = {
         view: string
     }
     onAdd?: () => void
+    onDownload?: (id: string) => void
     onDelete?: (id: string) => void
     onUpdate?: (id: string) => void
     onView?: (id: string) => void
