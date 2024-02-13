@@ -6,6 +6,7 @@ export type Props = {
     dataTestId?: string
     footer?: ReactNode
     header?: any
+    headerBorder?: boolean
     headlineStatusTag?: ReactNode
     loading?: any
     title?: string

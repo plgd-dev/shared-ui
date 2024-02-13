@@ -36,6 +36,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             borderColor: colors.neutral200,
             close: {
                 color: colors.neutral500,
+                hover: {
+                    color: colors.primary,
+                },
             },
             icon: {
                 color: colors.primaryDarken,
@@ -280,6 +283,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 close: {
                     color: colors.neutral500,
                 },
+                progressBar: {
+                    background: colors.primary,
+                },
                 size: {
                     color: colors.neutral500,
                 },
@@ -361,12 +367,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         },
         FormInput: {
             background: undefined,
-            borderColor: colors.neutral200,
+            borderColor: colors.neutral300,
             color: colors.neutral800,
             disabled: {
                 background: colors.neutral100,
                 color: colors.neutral600,
-                borderColor: colors.neutral200,
+                borderColor: colors.neutral300,
             },
             error: {
                 red: colors.red,
@@ -418,7 +424,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
             menu: {
                 borderColor: colors.neutral200,
-                background: undefined,
+                background: colors.neutral000,
+                footer: {
+                    link: {
+                        color: colors.primary,
+                    },
+                },
                 open: {
                     borderColor: colors.primaryBonus,
                 },
@@ -524,6 +535,17 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 },
             },
         },
+        Link: {
+            big: {
+                color: colors.primary,
+            },
+            normal: {
+                color: colors.neutral500,
+            },
+        },
+        LinkExpander: {
+            background: colors.light,
+        },
         Modal: {
             background: colors.neutral000,
             header: {
@@ -598,6 +620,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         PageLayout: {
             headline: {
                 color: colors.primaryDarken,
+                border: {
+                    color: colors.neutral200,
+                },
             },
         },
         PageLoader: {
@@ -843,6 +868,14 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             background: colors.neutral000,
             borderColor: colors.neutral200,
         },
+        Tooltip: {
+            icon: {
+                color: colors.neutral500,
+                hover: {
+                    color: colors.primary,
+                },
+            },
+        },
         TreeExpander: {
             hover: {
                 expanderIcon: {
@@ -919,9 +952,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
         },
     },
-    global: {
+    Global: {
         fontPrimary: undefined,
         fontSecondary: undefined,
+        iconColor: colors.neutral500,
+        fontSize: '14px',
+        lineHeight: '22px',
     },
     logo: {
         ...logoProps,

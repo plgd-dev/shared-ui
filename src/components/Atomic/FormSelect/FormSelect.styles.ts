@@ -83,7 +83,7 @@ export const error = (theme: ThemeType) => css`
     border-color: ${get(theme, `FormSelect.error.color`)} !important;
 `
 
-export const menu = (theme: ThemeType) => css`
+export const menu = (theme: ThemeType, zIndex?: number) => css`
     width: auto !important;
     margin-top: 4px;
     margin-bottom: 4px;
@@ -91,6 +91,7 @@ export const menu = (theme: ThemeType) => css`
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     background: ${get(theme, `FormSelect.menu.background`)};
+    z-index: ${zIndex};
 `
 
 export const menuList = css`
@@ -98,8 +99,29 @@ export const menuList = css`
     padding: 8px 0;
 `
 
+export const footerComponent = (theme: ThemeType) => css`
+    height: 54px;
+    border-top: 1px solid ${get(theme, `FormSelect.menu.borderColor`)};
+    background: ${get(theme, `FormSelect.menu.background`)};
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 16px;
+`
+
+export const footerLink = (theme: ThemeType) => css`
+    text-decoration: underline;
+    color: ${get(theme, `FormSelect.menu.footer.link.color`)};
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: none;
+    }
+`
+
 export const option = (theme: ThemeType) => css`
     color: ${get(theme, `FormSelect.option.color`)};
+    background: ${get(theme, `FormSelect.menu.background`)};
     font-style: normal;
     font-weight: 400;
     line-height: 22px;
@@ -127,7 +149,7 @@ export const optionRight = css`
 
 export const optionSelected = (theme: ThemeType) => css`
     color: ${get(theme, `FormSelect.optionSelected.color`)};
-    background: transparent;
+    background: ${get(theme, `FormSelect.menu.background`)};
 `
 
 export const selectContainer = css`

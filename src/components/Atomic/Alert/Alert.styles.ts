@@ -8,7 +8,7 @@ export const alert = (theme: ThemeType) => css`
     padding: 12px 20px;
     border-radius: 8px;
     background: ${get(theme, 'Alert.background')};
-    box-shadow: 0 2px 10px 0 rgba(28, 52, 99, 0.1);
+    box-shadow: 0 30px 40px 0 rgba(28, 52, 99, 0.1);
     border: 1px solid ${get(theme, 'Alert.borderColor')};
     position: relative;
     overflow: hidden;
@@ -66,11 +66,16 @@ export const iconError = (theme: ThemeType) => css`
 export const icon = (theme: ThemeType) => css`
     flex: 0 0 24px;
     color: ${get(theme, 'Alert.icon.color')};
+    position: relative;
+    top: 2px;
 `
 
 export const label = (theme: ThemeType) => css`
     padding-left: 12px;
     color: ${get(theme, 'Alert.label.color')};
+    line-height: 18px;
+    display: flex;
+    align-items: center;
 `
 
 export const iconClose = (theme: ThemeType) => css`
@@ -79,4 +84,15 @@ export const iconClose = (theme: ThemeType) => css`
     padding-left: 12px;
     color: ${get(theme, 'Alert.close.color')};
     cursor: pointer;
+    position: relative;
+    top: 4px;
+    transition: all 0.3s;
+
+    &:hover {
+        color: ${get(theme, 'Alert.close.hover.color')};
+    }
+`
+
+export const noSeverityBg = (theme: ThemeType) => css`
+    background: ${get(theme, 'Alert.background')}!important;
 `

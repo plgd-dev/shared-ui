@@ -6,7 +6,7 @@ import { Props } from './ContentSwitch.types'
 import ConditionalWrapper from '../ConditionalWrapper/ConditionalWrapper'
 
 const ContentSwitch: FC<Props> = (props) => {
-    const { activeItem, children, isAsync, onAnimationComplete } = props
+    const { activeItem, children, isAsync, onAnimationComplete, style } = props
 
     const onAnimationCompleteCallback = useCallback(() => {
         isFunction(onAnimationComplete) && onAnimationComplete()
@@ -25,6 +25,7 @@ const ContentSwitch: FC<Props> = (props) => {
                             exit={{ opacity: 0 }}
                             initial={{ opacity: 0 }}
                             onAnimationComplete={onAnimationCompleteCallback}
+                            style={style}
                             transition={{
                                 duration: 0.3,
                             }}

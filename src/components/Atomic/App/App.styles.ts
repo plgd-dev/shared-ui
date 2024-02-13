@@ -9,5 +9,8 @@ export const global = (theme: ThemeType) => css`
     body {
         margin: 0;
         font-family: ${get(theme, `Global.fontPrimary`, fontPrimary)};
+        font-size: ${get(theme, `Global.fontSize`, '14px')};
+        line-height: ${get(theme, `Global.lineHeight`, '22px')};
+        font-weight: 400;
     }
 `

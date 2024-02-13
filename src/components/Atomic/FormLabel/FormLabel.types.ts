@@ -4,4 +4,6 @@ export type Props = {
     inline?: boolean
     required?: boolean
     text: string
+    tooltipMaxWidth?: number
+    tooltipText?: string
 }

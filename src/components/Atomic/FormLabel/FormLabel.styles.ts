@@ -20,6 +20,16 @@ export const inline = css`
     margin-right: 10px;
 `
 
+export const w100 = css`
+    width: 100%;
+`
+
 export const required = (theme: ThemeType) => css`
     color: ${get(theme, `FormLabel.required.color`)};
+`
+
+export const flex = css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `

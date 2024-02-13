@@ -7,6 +7,10 @@ export const dropzoneContainer = (theme: ThemeType) => css`
     border-radius: 8px;
 `
 
+export const smallPadding = css`
+    padding: 16px;
+`
+
 export const placeholder = (theme: ThemeType) => css`
     display: flex;
     flex-direction: column;
@@ -78,4 +82,11 @@ export const fileSize = (theme: ThemeType) => css`
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
+`
+
+export const progressBar = (theme: ThemeType) => css`
+    margin-top: 8px;
+    background: ${get(theme, `Dropzone.file.progressBar.background`)};
+    height: 4px;
+    border-radius: 52px;
 `

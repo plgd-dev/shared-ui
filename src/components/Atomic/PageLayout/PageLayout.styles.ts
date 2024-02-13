@@ -24,6 +24,22 @@ export const header = css`
     min-height: 72px;
 `
 
+export const headerBorder = (theme: ThemeType) => css`
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 40px;
+        right: 40px;
+        bottom: 0;
+        width: calc(100% - 80px);
+        height: 1px;
+        background: ${get(theme, 'PageLayout.headline.border.color')};
+    }
+`
+
 export const padding = css`
     padding-left: 40px;
     padding-right: 40px;

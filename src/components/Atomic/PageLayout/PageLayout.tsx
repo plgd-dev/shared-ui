@@ -8,7 +8,7 @@ import PageLoader from '../PageLoader'
 import ConditionalWrapper from '../ConditionalWrapper'
 
 const PageLayout: FC<Props> = memo((props) => {
-    const { children, dataTestId, headlineStatusTag, title, header, footer, loading, collapsed, xPadding } = { ...defaultProps, ...props }
+    const { children, dataTestId, headlineStatusTag, title, header, headerBorder, footer, loading, collapsed, xPadding } = { ...defaultProps, ...props }
     return (
         <div css={styles.pageLayout}>
             <Helmet>
@@ -16,7 +16,7 @@ const PageLayout: FC<Props> = memo((props) => {
             </Helmet>
             <div css={styles.top}>
                 <PageLoader className='auth-loader' collapsed={collapsed} loading={loading} />
-                <div css={[styles.header, styles.padding]}>
+                <div css={[styles.header, styles.padding, headerBorder && styles.headerBorder]}>
                     <div css={styles.left}>
                         <Headline css={styles.headline} dataTestId={dataTestId?.concat('-title')} type='h4'>
                             {title}

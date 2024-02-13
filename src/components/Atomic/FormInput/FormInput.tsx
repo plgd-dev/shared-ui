@@ -8,6 +8,7 @@ import { convertSize, IconCopy, IconHidePassword, IconShowPassword } from '../Ic
 import { copyToClipboard } from '../../../common/utils'
 import { inputAligns, inputSizes } from './constants'
 import { isEdge } from '../_utils/browser'
+import { rightContent } from './FormInput.styles'
 
 const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const {
@@ -23,6 +24,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         inlineStyle,
         inputWrapperStyle,
         inputRef,
+        rightContent,
         size,
         readOnly,
         telPattern,
@@ -73,7 +75,7 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
         />
     )
 
-    if (defaultType === 'password' || defaultType === 'tel' || copy || icon) {
+    if (defaultType === 'password' || defaultType === 'tel' || copy || icon || rightContent) {
         return (
             <div css={[styles.inputWithIconWrapper, inputWrapperStyle]}>
                 {defaultType === 'tel' && (
@@ -96,7 +98,8 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
                         {type === 'text' ? <IconHidePassword {...convertSize(24)} /> : <IconShowPassword {...convertSize(24)} />}
                     </span>
                 )}
-                {defaultType !== 'password' && defaultType !== 'tel' && !copy && <span css={styles.inputIcon}>{icon}</span>}
+                {defaultType !== 'password' && defaultType !== 'tel' && !copy && icon && <span css={[styles.inputIcon, styles.rightContent]}>{icon}</span>}
+                {defaultType !== 'password' && defaultType !== 'tel' && !copy && !icon && <span css={styles.rightContent}>{rightContent}</span>}
             </div>
         )
     }

@@ -31,6 +31,9 @@ const theme = {
             borderColor: colorsSiemens.neutral900,
             close: {
                 color: colors.neutral500,
+                close: {
+                    color: colorsSiemens.primary,
+                },
             },
             icon: {
                 color: colorsSiemens.primary,
@@ -232,10 +235,13 @@ const theme = {
             file: {
                 color: colors.neutral800,
                 close: {
-                    color: colors.neutral500,
+                    color: colorsSiemens.neutral500,
+                },
+                progressBar: {
+                    background: colorsSiemens.primary,
                 },
                 size: {
-                    color: colors.neutral500,
+                    color: colorsSiemens.neutral500,
                 },
             },
         },
@@ -367,6 +373,11 @@ const theme = {
             menu: {
                 borderColor: colorsSiemens.neutral800,
                 background: colorsSiemens.neutral900,
+                footer: {
+                    link: {
+                        color: colorsSiemens.primary,
+                    },
+                },
                 open: {
                     borderColor: colorsSiemens.primary,
                 },
@@ -471,6 +482,17 @@ const theme = {
                 },
             },
         },
+        Link: {
+            big: {
+                color: colorsSiemens.primary,
+            },
+            normal: {
+                color: colorsSiemens.neutral500,
+            },
+        },
+        LinkExpander: {
+            background: colorsSiemens.tertiary,
+        },
         Modal: {
             background: colorsSiemens.neutral800,
             header: {
@@ -544,6 +566,9 @@ const theme = {
         PageLayout: {
             headline: {
                 color: colorsSiemens.primary,
+                border: {
+                    color: colorsSiemens.neutral800,
+                },
             },
         },
         PageLoader: {
@@ -788,6 +813,14 @@ const theme = {
         Toast: {
             background: colorsSiemens.neutral900,
             borderColor: colorsSiemens.neutral800,
+        },
+        Tooltip: {
+            icon: {
+                color: colorsSiemens.neutral500,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
+            },
         },
         TreeExpander: {
             hover: {

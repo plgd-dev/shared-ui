@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { get, ThemeType } from '../_theme'
 
 export const tooltip = css`
     .tooltip-bubble {
@@ -13,6 +14,7 @@ export const tooltip = css`
         line-height: 18px;
         color: #fff;
         padding: 6px 8px;
+        text-align: center;
     }
 
     .tooltip-arrow {
@@ -31,5 +33,13 @@ export const error = css`
 
     .tooltip-arrow-error {
         background: ${colors.red} !important;
+    }
+`
+
+export const iconTooltip = (theme: ThemeType) => css`
+    color: ${get(theme, `Tooltip.icon.color`)};
+
+    &:hover {
+        color: ${get(theme, `Tooltip.icon.hover.color`)};
     }
 `

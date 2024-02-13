@@ -63,7 +63,7 @@ export const uiColorMap = {
         neutral800: '#23233c',
         neutral700: '#353640',
         neutral600: '#000028',
-        neutral500: '#81868D',
+        neutral500: '#81868C',
         neutral400: '#000028',
         neutral300: '#000028',
         neutral200: '#000028',

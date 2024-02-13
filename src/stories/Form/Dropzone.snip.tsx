@@ -8,7 +8,7 @@ export default (args?: any) => (
             // accept={{
             //     cert: ['.pem', '.cer'],
             // }}
-            customFileRenders={[{ format: 'pem', icon: 'file-pem' }]}
+            customFileRenders={[{ format: 'pem', icon: 'icon-file-pem' }]}
             description='Supported formats:  PEM or CER (max 1 MB)'
             maxFiles={1}
             title='Drag & Drop or Choose file to upload'

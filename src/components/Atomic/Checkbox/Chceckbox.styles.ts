@@ -19,6 +19,7 @@ export const check = styled.span`
     transition: all 0.25s;
     position: relative;
     box-sizing: border-box;
+    top: 2px; // 22px LH
 
     &:before,
     &:after {
@@ -68,14 +69,9 @@ export const input = (theme: ThemeType) => css`
 `
 
 export const label = (theme: ThemeType) => css`
-    font-size: 12px;
     color: ${get(theme, `Checkbox.label.color`)};
     padding-left: 8px;
     cursor: pointer;
-    line-height: 18px;
-    font-family: 'Poppins', sans-serif;
-    font-style: normal;
-    font-weight: 400;
 `
 
 export const error = (theme: ThemeType) => css`

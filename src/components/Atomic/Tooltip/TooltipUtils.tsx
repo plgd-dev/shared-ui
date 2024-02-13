@@ -99,7 +99,7 @@ export const TooltipAnchor = forwardRef(function TooltipAnchor(
 })
 
 export const TooltipContent = forwardRef(function TooltipContent(
-    { state, ...props }: { state: TooltipState; portalTarget?: HTMLElement; error: boolean } & React.HTMLProps<HTMLDivElement>,
+    { state, ...props }: { state: TooltipState; portalTarget?: HTMLElement; error: boolean; maxWidth?: number } & React.HTMLProps<HTMLDivElement>,
     propRef
 ) {
     const { delay } = useDelayGroupContext()
@@ -133,7 +133,7 @@ export const TooltipContent = forwardRef(function TooltipContent(
         arrowElement.current.style[staticSide] = '-4px'
     }
 
-    const { portalTarget, error, ...rest } = props
+    const { portalTarget, error, maxWidth, ...rest } = props
 
     return (
         <ConditionalWrapper condition={!!portalTarget} wrapper={(c) => <FloatingPortal root={portalTarget}>{c}</FloatingPortal>}>
@@ -149,6 +149,7 @@ export const TooltipContent = forwardRef(function TooltipContent(
                             position: state.strategy,
                             top: state.y ?? 0,
                             left: state.x ?? 0,
+                            maxWidth: maxWidth,
                             ...rest.style,
                         }}
                         transition={

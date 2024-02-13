@@ -1,5 +1,5 @@
 import { SerializedStyles } from '@emotion/react'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, ReactNode } from 'react'
 import { inputSizes, inputAligns } from './constants'
 
 export type FormInputSizeType = (typeof inputSizes)[keyof typeof inputSizes]
@@ -28,6 +28,7 @@ export type Props = {
     onKeyPress?: (e: any) => void
     placeholder?: string
     readOnly?: boolean
+    rightContent?: ReactNode
     size?: FormInputSizeType
     tabIndex?: number
     telPattern?: string
@@ -39,7 +40,7 @@ export type Props = {
 export const defaultProps: Partial<Props> = {
     align: inputAligns.LEFT,
     name: '',
-    size: inputSizes.BIG,
+    size: inputSizes.NORMAL,
     tabIndex: 1,
     type: 'text',
 }

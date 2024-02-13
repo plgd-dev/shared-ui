@@ -13,6 +13,7 @@ export type Props = {
     disabled?: boolean
     maxFiles?: number
     maxSize?: number
+    smallPadding?: boolean
     title: string
     validator?: <T extends File>(file: T) => FileError | FileError[] | null
 }

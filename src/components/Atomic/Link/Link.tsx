@@ -1,9 +1,11 @@
 import { FC, MouseEvent } from 'react'
+
 import { defaultProps, Props } from './Link.types'
 import * as styles from './Link.styles'
+import { linkSizes } from './constants'
 
 const Link: FC<Props> = (props) => {
-    const { children, dataTestId, disabled, href, onClick, preventDefault, target } = { ...defaultProps, ...props }
+    const { children, dataTestId, disabled, href, onClick, preventDefault, size, target } = { ...defaultProps, ...props }
 
     const handleOnClick = (e: MouseEvent<HTMLElement>) => {
         if (!disabled && onClick) {
@@ -13,7 +15,13 @@ const Link: FC<Props> = (props) => {
     }
 
     return (
-        <a css={styles.link} href={href || '#'} onClick={handleOnClick} target={target} data-test-id={dataTestId}>
+        <a
+            css={[size === linkSizes.NORMAL && styles.link, size === linkSizes.BIG && styles.big]}
+            data-test-id={dataTestId}
+            href={href || '#'}
+            onClick={handleOnClick}
+            target={target}
+        >
             {children}
         </a>
     )

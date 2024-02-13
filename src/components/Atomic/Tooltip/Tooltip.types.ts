@@ -11,6 +11,7 @@ export type Props = {
     delay?: number
     id?: string
     initialOpen?: boolean
+    maxWidth?: number
     placement?: Placement
     portalTarget?: HTMLElement
     variant?: TooltipVariantsType
@@ -19,4 +20,8 @@ export type Props = {
 export const defaultProps: Partial<Props> = {
     placement: 'top',
     portalTarget: document.getElementById('modal-floating')!,
+}
+
+export type TooltipIconProps = Omit<Props, 'children'> & {
+    iconSize?: number
 }

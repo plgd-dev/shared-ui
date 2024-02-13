@@ -8,7 +8,7 @@ import { useTooltipState, TooltipAnchor, TooltipContent } from './TooltipUtils'
 import { tooltipVariants } from './constants'
 
 const Tooltip: FC<Props> = (props) => {
-    const { content, children, delay, id: propId, placement, className, initialOpen, portalTarget, variant } = { ...defaultProps, ...props }
+    const { content, children, delay, id: propId, placement, className, initialOpen, maxWidth, portalTarget, variant } = { ...defaultProps, ...props }
     const delayGroupContext = useDelayGroupContext()
     const id: string | ReactNode = useMemo(() => propId || content, [propId, content])
 
@@ -29,7 +29,7 @@ const Tooltip: FC<Props> = (props) => {
                 {children}
             </TooltipAnchor>
             {!!content && (
-                <TooltipContent error={variant === tooltipVariants.ERROR} portalTarget={portalTarget} state={state}>
+                <TooltipContent error={variant === tooltipVariants.ERROR} maxWidth={maxWidth} portalTarget={portalTarget} state={state}>
                     {content}
                     <div className='tooltip-arrow' id={`${id}-arrow`} />
                 </TooltipContent>

@@ -6,7 +6,7 @@ import * as styles from './Dropzone.styles'
 import { convertSize, Icon, IconClose, IconFileUpload } from '../Icon'
 
 const Dropzone: FC<Props> = (props) => {
-    const { accept, customFileRenders, description, disabled, maxFiles, maxSize, title, validator } = props
+    const { accept, customFileRenders, description, disabled, maxFiles, maxSize, smallPadding, title, validator } = props
     const [files, setFiles] = useState<any>([])
 
     const { getRootProps, getInputProps } = useDropzone({
@@ -66,25 +66,29 @@ const Dropzone: FC<Props> = (props) => {
         for (i = 0; num >= 1024 && i < 4; i++) {
             num /= 1024
         }
-        return [`${num} `, [' Bytes', ' kB', 'MB', 'GB', 'TB'][i]]
+        return [`${num.toFixed(2)} `, [' Bytes', ' kB', 'MB', 'GB', 'TB'][i]]
     }
 
     const thumbs = useMemo(
         () =>
             files.map((file: any) => (
-                <div css={styles.imageRow} key={file.name}>
-                    <div css={styles.imageWrapper}>{renderFile(file)}</div>
+                <>
+                    <div css={styles.imageRow} key={file.name}>
+                        <div css={styles.imageWrapper}>{renderFile(file)}</div>
 
-                    <div css={styles.contentWrapper}>
-                        <div css={styles.fileLine}>
-                            <div css={styles.fileName}>{file.name}</div>
-                            <IconClose css={styles.closeIcon} onClick={(e) => removeFile(file, e)} />
-                        </div>
-                        <div css={styles.fileLine}>
-                            <div css={styles.fileSize}>{bytesFormatter(file.size)}</div>
+                        <div css={styles.contentWrapper}>
+                            <div css={styles.fileLine}>
+                                <div css={styles.fileName}>{file.name}</div>
+                                <IconClose css={styles.closeIcon} onClick={(e) => removeFile(file, e)} />
+                            </div>
+                            <div css={styles.fileLine}>
+                                <div css={styles.fileSize}>{bytesFormatter(file.size)}</div>
+                                <div css={styles.fileSize}>100%</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div css={styles.progressBar}></div>
+                </>
             )),
         [files, renderFile]
     )
@@ -96,7 +100,7 @@ const Dropzone: FC<Props> = (props) => {
 
     return (
         <div>
-            <div {...getRootProps({ className: 'dropzone' })} css={styles.dropzoneContainer}>
+            <div {...getRootProps({ className: 'dropzone' })} css={[styles.dropzoneContainer, smallPadding && styles.smallPadding]}>
                 <input {...getInputProps()} />
                 {thumbs.length === 0 && (
                     <div css={styles.placeholder}>

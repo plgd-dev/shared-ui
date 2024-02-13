@@ -1,4 +1,5 @@
 import { selectSizes, selectAligns } from './constants'
+import { ReactNode } from 'react'
 
 export type FormSelectSizeType = (typeof selectSizes)[keyof typeof selectSizes]
 export type FormSelectAlignType = (typeof selectAligns)[keyof typeof selectAligns]
@@ -22,10 +23,12 @@ export type Props = {
     defaultValue?: any
     disabled?: boolean
     error?: boolean
+    footerLinks?: [{ onClick: () => void; title: string }]
     inlineStyle?: boolean
     isSearchable?: boolean
     menuIsOpen?: boolean
     menuPortalTarget?: HTMLElement | null
+    menuZIndex?: number
     name?: string
     onChange?: (v: any) => void
     options: Option[]

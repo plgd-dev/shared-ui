@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useRef } from 'react'
 import Select, {
     components,
     ContainerProps,
@@ -17,19 +17,41 @@ import { GroupedOption, Option, Props, defaultProps } from './FormSelect.types'
 import * as styles from './FormSelect.styles'
 import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectAligns, selectSizes } from './constants'
+import { mergeRefs } from 'react-merge-refs'
 
 const FormSelect = forwardRef<any, Props>((props, ref) => {
-    const { align, autoWidth, className, defaultValue, error, disabled, inlineStyle, isSearchable, options, name, menuIsOpen, onChange, size, value, ...rest } =
-        {
-            ...defaultProps,
-            ...props,
-        }
+    const {
+        align,
+        autoWidth,
+        className,
+        defaultValue,
+        error,
+        disabled,
+        inlineStyle,
+        footerLinks,
+        isSearchable,
+        options,
+        name,
+        menuIsOpen,
+        menuZIndex,
+        onChange,
+        size,
+        value,
+        ...rest
+    } = {
+        ...defaultProps,
+        ...props,
+    }
+
+    const localRef = useRef<any>(null)
+
     const stylesOverride = {
         menu: (base: any) => ({
             ...base,
             width: 'max-content',
             minWidth: '100%',
         }),
+        menuPortal: (base: any) => ({ ...base, zIndex: menuZIndex || 1 }),
     }
 
     const Control = ({ children, ...props }: ControlProps<Option>) => (
@@ -71,13 +93,32 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     )
 
     const Menu = (props: MenuProps<Option, false, GroupedOption>) => (
-        <components.Menu<Option, false, GroupedOption> {...props} css={styles.menu}>
+        <components.Menu<Option, false, GroupedOption> {...props} css={(theme) => styles.menu(theme, menuZIndex || 1)}>
             {props.children}
+            {!!footerLinks && (
+                <div css={styles.footerComponent}>
+                    {footerLinks.map((link, key) => (
+                        <a
+                            css={styles.footerLink}
+                            href='#'
+                            key={key}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                props.clearValue()
+                                localRef.current.blur()
+                                link.onClick()
+                            }}
+                        >
+                            {link.title}
+                        </a>
+                    ))}
+                </div>
+            )}
         </components.Menu>
     )
 
     const MenuList = (props: MenuListProps<Option, false, GroupedOption>) => (
-        <components.MenuList {...props} css={styles.menuList}>
+        <components.MenuList {...props} css={styles.menuList} maxHeight={footerLinks ? props.maxHeight - 54 : props.maxHeight}>
             {props.children}
         </components.MenuList>
     )
@@ -106,6 +147,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
             {...rest}
             className={className}
             classNamePrefix='select'
+            closeMenuOnScroll={true}
             components={{ DropdownIndicator, Menu, MenuList, Option, SelectContainer, SingleValue, ValueContainer, Placeholder, Control, Input }}
             css={[(theme) => styles.select(theme, size!, disabled)]}
             defaultValue={defaultValue}
@@ -115,7 +157,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
             name={name}
             onChange={onChange}
             options={options}
-            ref={ref}
+            ref={mergeRefs([ref, localRef]) as any}
             styles={stylesOverride}
             value={value}
         />

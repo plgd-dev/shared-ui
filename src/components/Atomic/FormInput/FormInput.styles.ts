@@ -85,16 +85,20 @@ export const inputTel = css`
     padding-left: 100px;
 `
 
-export const inputIcon = (theme: ThemeType) => css`
+export const rightContent = css`
     position: absolute;
     right: 12px;
-    top: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     width: 24px;
     height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
+`
+
+export const inputIcon = (theme: ThemeType) => css`
     color: ${get(theme, `FormInput.icon.color`)};
     cursor: pointer;
     transition: all 0.25ms;

@@ -35,9 +35,12 @@ const FormGroup: FC<Props> = (props) => {
             )
         } else if (errorTooltip) {
             return (
-                <Tooltip content={error} id={`tooltip-group-${id}`} placement='left' variant={tooltipVariants.ERROR}>
-                    {childrenWithProps[0]}
-                </Tooltip>
+                <>
+                    <Tooltip content={error} id={`tooltip-group-${id}`} placement='left' variant={tooltipVariants.ERROR}>
+                        {childrenWithProps[0]}
+                    </Tooltip>
+                    {childrenWithProps[1]}
+                </>
             )
         } else if ((children as ReactElement[])?.length === 3) {
             return (
