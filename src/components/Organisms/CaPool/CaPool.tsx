@@ -50,7 +50,7 @@ const CaPool: FC<Props> = (props) => {
                         })
                     }
 
-                    if (isFunction(onEdit) && !name.startsWith('/')) {
+                    if (isFunction(onEdit)) {
                         items.push({
                             onClick: () => onEdit(id),
                             label: i18n.edit,
