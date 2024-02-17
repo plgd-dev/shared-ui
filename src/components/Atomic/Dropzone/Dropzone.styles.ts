@@ -16,6 +16,20 @@ export const placeholder = (theme: ThemeType) => css`
     flex-direction: column;
     align-items: center;
     color: ${get(theme, `Dropzone.placeholder.color`)};
+    export const placeholderText = (
+    theme: ThemeType) = > css \` color: ${get(theme, `Dropzone.placeholder.text.color`)};
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 12px 0 0 0;
+
+    span {
+        color: ${get(theme, `Dropzone.placeholder.highlight.color`)};
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    \`
 `
 
 export const placeholderText = (theme: ThemeType) => css`

@@ -9,6 +9,10 @@ export const checkbox = css`
     overflow: hidden;
 `
 
+export const noTopOffset = css`
+    top: 0;
+`
+
 export const check = styled.span`
     width: 16px;
     height: 16px;

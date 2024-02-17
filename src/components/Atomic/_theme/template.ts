@@ -171,7 +171,16 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         },
         CodeEditor: {
             background: colors.light,
+            borderColor: colors.neutral200,
+            color: colors.neutral600,
+            gutters: {
+                background: colors.neutral200,
+                color: colors.neutral600,
+            },
             lineHighlight: 'rgba(37, 88, 151, 0.1)',
+            placeholder: {
+                color: colors.neutral500,
+            },
             selection: colors.neutral200,
         },
         ColorPicker: {

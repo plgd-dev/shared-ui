@@ -7,12 +7,13 @@ import { createTheme } from '@uiw/codemirror-themes'
 import { useTheme } from '@emotion/react'
 
 import { Props, defaultProps } from './CodeEditor.types'
-import * as styles from './CodeMirror.styles'
+import * as styles from './CodeEditor.styles'
 import { getSizeInPx } from '../_utils/commonStyles'
 import { ThemeType } from '../_theme'
+import { convertSize, IconFileUpload } from '../Icon'
 
 const CodeEditor: FC<Props> = (props) => {
-    const { disabled, height, onChange, value } = { ...defaultProps, ...props }
+    const { disabled, height, onChange, placeholderText, value } = { ...defaultProps, ...props }
     const globalTheme: ThemeType = useTheme()
 
     const handleChange = useCallback(
@@ -61,20 +62,32 @@ const CodeEditor: FC<Props> = (props) => {
         []
     )
 
+    const showPlaceholder = useMemo(() => value === '', [value])
+
     return (
-        <CodeMirror
-            basicSetup={{
-                foldGutter: false,
-                drawSelection: true,
-            }}
-            css={styles.editor}
-            editable={disabled === true ? false : undefined}
-            extensions={extensions}
-            height={getSizeInPx(height!)}
-            onChange={(v) => handleChange(v)}
-            theme={theme}
-            value={value}
-        />
+        <div css={styles.wrapper}>
+            <CodeMirror
+                basicSetup={{
+                    foldGutter: false,
+                    drawSelection: true,
+                }}
+                css={[styles.editor, !showPlaceholder && styles.background]}
+                editable={disabled === true ? false : undefined}
+                extensions={extensions}
+                height={getSizeInPx(height!)}
+                onChange={(v) => handleChange(v)}
+                theme={theme}
+                value={value}
+            />
+            {placeholderText && (
+                <div css={styles.placeholder}>
+                    <div css={[styles.flex, !showPlaceholder && styles.noPlaceholder]}>
+                        <IconFileUpload {...convertSize(50)} />
+                        <p css={styles.placeholderText}>{placeholderText}</p>
+                    </div>
+                </div>
+            )}
+        </div>
     )
 }
 

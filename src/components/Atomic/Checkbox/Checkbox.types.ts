@@ -12,6 +12,7 @@ export type Props = {
     label?: ReactNode
     name: string
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+    topOffset?: boolean
     type?: 'checkbox' | 'radio'
     value?: string
 }

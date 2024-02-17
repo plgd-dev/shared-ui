@@ -116,12 +116,13 @@ const Table: FC<Props> = (props) => {
                                             headerCheckboxProps.onChange(e)
                                         }
                                     }}
+                                    topOffset={false}
                                 />
                             )
                         },
                         Cell: ({ row }: any) => {
                             const { indeterminate, ...rest } = row.getToggleRowSelectedProps()
-                            return <Checkbox {...rest} name={`row-${row.id}`} />
+                            return <Checkbox {...rest} name={`row-${row.id}`} topOffset={false} />
                         },
                         style: { width: '60px' },
                     },

@@ -84,6 +84,7 @@ export const titleNoMargin = css`
 
 export const item = (theme: ThemeType) => css`
     display: flex;
+    align-items: center;
     padding: 10px 12px;
     text-decoration: none;
     min-height: 40px;

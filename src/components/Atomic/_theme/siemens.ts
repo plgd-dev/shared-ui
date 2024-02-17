@@ -164,6 +164,20 @@ const theme = {
                 red: colorsSiemens.red,
             },
         },
+        CodeEditor: {
+            background: colorsSiemens.neutral900,
+            borderColor: colorsSiemens.neutral600,
+            color: colorsSiemens.neutral600,
+            gutters: {
+                background: colorsSiemens.neutral700,
+                color: colorsSiemens.neutral500,
+            },
+            lineHighlight: 'rgba(125, 125, 125, 0.3)',
+            placeholder: {
+                color: colorsSiemens.neutral500,
+            },
+            selection: colorsSiemens.neutral600,
+        },
         ColorPicker: {
             background: colorsSiemens.neutral900,
             borderColor: colorsSiemens.neutral800,
@@ -176,6 +190,42 @@ const theme = {
         },
         Content: {
             background: colorsSiemens.neutral900,
+        },
+        ContentMenu: {
+            background: colorsSiemens.neutral800,
+            borderColor: colorsSiemens.neutral800,
+            item: {
+                active: {
+                    background: colorsSiemens.neutral900,
+                    color: colorsSiemens.neutral000,
+                    icon: {
+                        color: colorsSiemens.neutral000,
+                    },
+                },
+                color: colorsSiemens.neutral500,
+                hover: {
+                    color: colorsSiemens.neutral000,
+                    icon: {
+                        color: colorsSiemens.neutral000,
+                    },
+                },
+            },
+            search: {
+                background: colors.light,
+                color: colorsSiemens.neutral500,
+            },
+            subItem: {
+                active: {
+                    color: colorsSiemens.neutral000,
+                },
+                color: colorsSiemens.neutral500,
+                hover: {
+                    color: colorsSiemens.neutral000,
+                },
+            },
+            title: {
+                color: colorsSiemens.neutral500,
+            },
         },
         CopyElement: {
             background: colorsSiemens.neutral900,
@@ -210,7 +260,7 @@ const theme = {
                 color: colors.neutral500,
             },
             emptyDeleteInformation: {
-                background: colors.neutral700,
+                background: colors.neutral600,
             },
         },
         DetailHeadline: {
@@ -290,7 +340,7 @@ const theme = {
                 background: colorsSiemens.neutral900,
                 borderColor: colorsSiemens.neutral800,
                 Headline: {
-                    borderColor: colors.neutral700,
+                    borderColor: colors.neutral600,
                     color: colorsSiemens.primary,
                 },
             },
@@ -430,6 +480,13 @@ const theme = {
         },
         Headline: {
             color: colorsSiemens.primary,
+            sizes: {
+                h6: {
+                    fontSize: '16px',
+                    lineHeight: '24px',
+                    fontWeight: 700,
+                },
+            },
         },
         IncompleteOnboardingDataModal: {
             row: {
@@ -516,7 +573,7 @@ const theme = {
         },
         ModalStrippedLine: {
             strippedLine: {
-                borderColor: colorsSiemens.neutral700,
+                borderColor: colorsSiemens.neutral600,
             },
             value: {
                 color: colors.neutral500,
@@ -533,7 +590,7 @@ const theme = {
                 borderColor: colorsSiemens.neutral800,
             },
             Headline: {
-                borderColor: colors.neutral700,
+                borderColor: colors.neutral600,
                 color: colorsSiemens.primary,
             },
             ClearAll: {
@@ -550,7 +607,7 @@ const theme = {
                 },
             },
             InnerToast: {
-                borderColor: colors.neutral700,
+                borderColor: colors.neutral600,
                 headline: {
                     color: colorsSiemens.neutral000,
                 },
@@ -706,7 +763,7 @@ const theme = {
                 selected: {
                     cell: {
                         before: {
-                            background: colors.neutral700,
+                            background: colors.neutral600,
                         },
                     },
                 },
@@ -743,7 +800,7 @@ const theme = {
                 color: colorsSiemens.primary,
             },
             disabled: {
-                color: colorsSiemens.neutral700,
+                color: colorsSiemens.neutral600,
             },
         },
         Tag: {
@@ -759,7 +816,7 @@ const theme = {
             },
         },
         TileExpand: {
-            border: colorsSiemens.neutral700,
+            border: colorsSiemens.neutral600,
             header: {
                 background: colorsSiemens.neutral900,
                 hover: {
@@ -780,7 +837,7 @@ const theme = {
             },
             expander: {
                 color: colors.neutral900,
-                background: colorsSiemens.neutral700,
+                background: colorsSiemens.neutral600,
             },
             info: {
                 background: colorsSiemens.neutral800,
@@ -897,6 +954,13 @@ const theme = {
                 color: colorsSiemens.primary,
             },
         },
+    },
+    Global: {
+        fontPrimary: undefined,
+        fontSecondary: undefined,
+        iconColor: colorsSiemens.neutral500,
+        fontSize: '14px',
+        lineHeight: '22px',
     },
     logo: {
         height: '48px',
