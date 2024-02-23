@@ -10,4 +10,6 @@ export type FormContextType = {
     commonInputProps: Pick<InputProps, 'inlineStyle' | 'align' | 'size'>
     commonTimeoutControlProps: Pick<TimeoutControlProps, 'align' | 'i18n' | 'inlineStyle' | 'size' | 'watchUnitChange' | 'smallMode'>
     i18n?: any
+    setStep?: (step: number) => void
+    onSubmit?: () => void
 }

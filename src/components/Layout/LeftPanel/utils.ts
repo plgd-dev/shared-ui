@@ -37,3 +37,5 @@ export const getFirstActiveItemFromMenu = (menu: MenuGroup[]) => {
 
     return firstActivePage
 }
+
+export const findRouteMatch = (routes: string[], pathname: string, mather: any) => routes.find((i) => mather(pathname, i))

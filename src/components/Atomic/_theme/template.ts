@@ -1,4 +1,5 @@
 import { hexToRgbA } from '../_utils/commonStyles'
+import { rejectedFile } from '../Dropzone/Dropzone.styles'
 
 type LogoType = {
     height: number
@@ -156,6 +157,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 },
             },
         },
+        CaList: {
+            item: {
+                color: colors.neutral800,
+                boxShadow: '0 -5px 0 -4px #e6e9ed inset',
+            },
+        },
         Checkbox: {
             borderColor: colors.neutral300,
             background: colors.primary,
@@ -298,6 +305,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 size: {
                     color: colors.neutral500,
                 },
+            },
+            rejectedFile: {
+                color: colors.red,
             },
         },
         Editor: {
@@ -477,6 +487,29 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
             readOnly: {
                 color: colors.neutral600,
+            },
+        },
+        FullPageWizard: {
+            background: colors.neutral000,
+            close: {
+                color: colors.neutral500,
+            },
+            leftCol: {
+                background: colors.light,
+            },
+            navigation: {
+                link: {
+                    color: colors.primaryDarken,
+                },
+                line: {
+                    background: colors.neutral300,
+                    visited: {
+                        background: colors.primary,
+                    },
+                },
+                description: {
+                    color: colors.neutral500,
+                },
             },
         },
         Header: {
@@ -962,8 +995,8 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         },
     },
     Global: {
-        fontPrimary: undefined,
-        fontSecondary: undefined,
+        fontPrimary: "'Poppins', sans-serif",
+        fontSecondary: "'Circular Pro', sans-serif",
         iconColor: colors.neutral500,
         fontSize: '14px',
         lineHeight: '22px',

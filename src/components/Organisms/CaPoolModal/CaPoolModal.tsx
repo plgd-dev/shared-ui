@@ -66,7 +66,7 @@ const CaPoolModal: FC<Props> = (props) => {
         return name
     }
 
-    const hasContentMenu = useMemo(() => data && Array.isArray(data) && data.length > 1, [])
+    const hasContentMenu = useMemo(() => data && Array.isArray(data) && data.length > 1, [data])
 
     const body = (
         <Row style={{ width: 'calc(100% + 16px)', height: '100%', overflow: 'hidden' }}>

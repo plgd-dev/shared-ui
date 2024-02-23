@@ -27,12 +27,12 @@ const KeycloakTemplate: FC<Props> = (props) => {
                             <Steps active={activeStep || 0} steps={steps} />
                         </div>
                     )}
-                    <a css={styles.rightMobileLogoLink} href='packages/shared-ui/src/components/Templates/KeycloakTemplate#'>
+                    <a css={styles.rightMobileLogoLink} href='#'>
                         <MobileLogo height={32} width={140} />
                     </a>
                     <a
                         css={styles.close}
-                        href='packages/shared-ui/src/components/Templates/KeycloakTemplate#'
+                        href='#'
                         onClick={(e) => {
                             e.preventDefault()
                             window.location.replace('https://plgd.dev')

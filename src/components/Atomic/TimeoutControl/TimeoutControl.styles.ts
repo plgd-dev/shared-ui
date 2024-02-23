@@ -19,7 +19,7 @@ export const rightSmall = css`
 `
 
 export const input = css`
-    width: 100px;
+    //width: 100px;
 `
 
 export const inputSmall = css`

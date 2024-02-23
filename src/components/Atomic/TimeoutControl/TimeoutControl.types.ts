@@ -1,4 +1,5 @@
 import { Props as InputProps } from '../FormInput/FormInput.types'
+import { CSSProperties } from 'react'
 
 export type Props = {
     defaultTtlValue: number
@@ -14,7 +15,9 @@ export type Props = {
     isDelete?: boolean
     onChange: (v: any) => void
     onTtlHasError?: (v: boolean) => void
+    rightStyle?: CSSProperties
     smallMode?: boolean
     ttlHasError?: boolean
+    unitClassName?: string
     watchUnitChange?: boolean
 } & Pick<InputProps, 'inlineStyle' | 'align' | 'size'>

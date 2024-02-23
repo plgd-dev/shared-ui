@@ -10,7 +10,7 @@ const FormGroup: FC<Props> = (props) => {
     const { children, className, error, errorTooltip, id, inline, fullSize, marginBottom, inlineJustifyContent } = { ...defaultProps, ...props }
     const childrenWithProps = Children.map(children as ReactElement[], (child, key) => {
         if (isValidElement(child)) {
-            if (child.type === Button) {
+            if (child.type === Button || child.type === 'ul') {
                 return child
             }
 

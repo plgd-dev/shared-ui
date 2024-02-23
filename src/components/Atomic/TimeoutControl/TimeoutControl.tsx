@@ -16,7 +16,22 @@ import { inputSizes } from '../FormInput'
 const { INFINITE, NS } = commandTimeoutUnits
 
 const TimeoutControl: FC<Props> = (props) => {
-    const { align, defaultValue, defaultTtlValue, onChange, disabled, ttlHasError, onTtlHasError, i18n, inlineStyle, size, smallMode, watchUnitChange } = props
+    const {
+        align,
+        defaultValue,
+        defaultTtlValue,
+        onChange,
+        disabled,
+        ttlHasError,
+        onTtlHasError,
+        i18n,
+        inlineStyle,
+        rightStyle,
+        size,
+        smallMode,
+        unitClassName,
+        watchUnitChange,
+    } = props
     const closestUnit = useMemo(() => findClosestUnit(defaultValue), [defaultValue])
     const closestDefaultTtl = useMemo(() => {
         const unit = findClosestUnit(defaultTtlValue)
@@ -111,12 +126,13 @@ const TimeoutControl: FC<Props> = (props) => {
                     />
                 </FormGroup>
             </div>
-            <div css={[styles.right, smallMode && styles.rightSmall]}>
-                <FormGroup id='Unit' inline={true}>
+            <div css={[styles.right, smallMode && styles.rightSmall]} style={rightStyle}>
+                <FormGroup id='Unit' inline={!align} marginBottom={!align}>
                     {i18n.unit && <FormLabel text={startCase(i18n.unit)} />}
                     <FormSelect
                         align={align}
                         autoWidth={align === 'right'}
+                        className={unitClassName}
                         css={[smallMode && styles.selectSmall]}
                         defaultValue={units.filter((option) => option.value === unit)}
                         disabled={disabled}

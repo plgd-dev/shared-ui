@@ -13,7 +13,14 @@ export type Props = {
     disabled?: boolean
     maxFiles?: number
     maxSize?: number
+    onFileDrop?: (fileContent: string) => void
+    onFilesDrop?: (files: string[]) => void
+    renderThumbs?: boolean
     smallPadding?: boolean
     title: string
     validator?: <T extends File>(file: T) => FileError | FileError[] | null
+}
+
+export const defaultProps: Partial<Props> = {
+    renderThumbs: true,
 }

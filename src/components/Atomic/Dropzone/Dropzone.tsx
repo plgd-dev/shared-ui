@@ -1,28 +1,64 @@
-import { cloneElement, FC, ReactElement, SyntheticEvent, useCallback, useEffect, useMemo, useState } from 'react'
+import { cloneElement, FC, Fragment, ReactElement, SyntheticEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
+import isFunction from 'lodash/isFunction'
 
-import { Props } from './Dropzone.types'
+import { defaultProps, Props } from './Dropzone.types'
 import * as styles from './Dropzone.styles'
 import { convertSize, Icon, IconClose, IconFileUpload } from '../Icon'
 
 const Dropzone: FC<Props> = (props) => {
-    const { accept, customFileRenders, description, disabled, maxFiles, maxSize, smallPadding, title, validator } = props
+    const { accept, customFileRenders, description, disabled, maxFiles, maxSize, onFileDrop, onFilesDrop, renderThumbs, smallPadding, title, validator } = {
+        ...defaultProps,
+        ...props,
+    }
     const [files, setFiles] = useState<any>([])
 
-    const { getRootProps, getInputProps } = useDropzone({
+    const onDrop = useCallback(
+        (acceptedFiles: any) => {
+            setFiles([
+                ...files,
+                ...acceptedFiles.map((file: any) =>
+                    Object.assign(file, {
+                        preview: URL.createObjectURL(file),
+                    })
+                ),
+            ])
+
+            const droppedProm = acceptedFiles.map(
+                (file: any) =>
+                    new Promise(function (resolve, reject) {
+                        const reader = new FileReader()
+
+                        reader.onabort = () => {
+                            console.log('file reading was aborted')
+                            reject('file reading was aborted')
+                        }
+                        reader.onerror = () => {
+                            console.log('file reading has failed')
+                            reject('file reading has failed')
+                        }
+                        reader.onload = () => {
+                            isFunction(onFileDrop) && onFileDrop(reader.result)
+                            resolve(reader.result)
+                        }
+
+                        reader.readAsText(file)
+                    })
+            )
+
+            Promise.all(droppedProm).then((loadedFiles) => {
+                isFunction(onFilesDrop) && onFilesDrop(loadedFiles)
+            })
+        },
+        [files, onFileDrop, onFilesDrop]
+    )
+
+    const { getRootProps, getInputProps, fileRejections } = useDropzone({
         accept,
         disabled,
         maxFiles,
         maxSize,
-        onDrop: (acceptedFiles, fileRejections) => {
-            setFiles(
-                acceptedFiles.map((file) =>
-                    Object.assign(file, {
-                        preview: URL.createObjectURL(file),
-                    })
-                )
-            )
-        },
+        onDrop,
         validator,
     })
 
@@ -71,8 +107,8 @@ const Dropzone: FC<Props> = (props) => {
 
     const thumbs = useMemo(
         () =>
-            files.map((file: any) => (
-                <>
+            files.map((file: any, key: number) => (
+                <Fragment key={key}>
                     <div css={styles.imageRow} key={file.name}>
                         <div css={styles.imageWrapper}>{renderFile(file)}</div>
 
@@ -88,7 +124,7 @@ const Dropzone: FC<Props> = (props) => {
                         </div>
                     </div>
                     <div css={styles.progressBar}></div>
-                </>
+                </Fragment>
             )),
         [files, renderFile]
     )
@@ -96,13 +132,13 @@ const Dropzone: FC<Props> = (props) => {
     useEffect(() => {
         // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
         return () => files.forEach((file: any) => URL.revokeObjectURL(file.preview))
-    }, [])
+    }, [files])
 
     return (
         <div>
             <div {...getRootProps({ className: 'dropzone' })} css={[styles.dropzoneContainer, smallPadding && styles.smallPadding]}>
                 <input {...getInputProps()} />
-                {thumbs.length === 0 && (
+                {thumbs.length !== maxFiles && (
                     <div css={styles.placeholder}>
                         <IconFileUpload {...convertSize(50)} />
 
@@ -111,8 +147,20 @@ const Dropzone: FC<Props> = (props) => {
                     </div>
                 )}
 
-                {thumbs && <aside>{thumbs}</aside>}
+                {renderThumbs && thumbs && <aside>{thumbs}</aside>}
             </div>
+            {fileRejections.length > 0 && (
+                <div css={styles.fileRejections}>
+                    {fileRejections.map((file, key) => (
+                        <div css={styles.rejectedFile} key={key}>
+                            {file.file.name}:
+                            {file.errors.map((e, j) => (
+                                <span key={j}>{e.message}</span>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }
