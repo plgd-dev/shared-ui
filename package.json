@@ -100,7 +100,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.48.2",
     "react-hook-form-persist": "^3.0.0",
-    "react-intl": "^5.25.1",
+    "react-intl": "^6.0.0",
     "react-merge-refs": "^2.1.1",
     "react-resize-detector": "^9.1.0",
     "react-responsive": "^9.0.2",
