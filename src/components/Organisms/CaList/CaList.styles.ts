@@ -25,4 +25,6 @@ export const row = (theme: ThemeType) => css`
 
 export const name = (theme: ThemeType) => css`
     color: ${get(theme, `CaList.item.color`)};
+    overflow: hidden;
+    text-overflow: ellipsis;
 `

@@ -3,7 +3,7 @@ import isFunction from 'lodash/isFunction'
 
 import { CA_BASE64_PREFIX } from '../../components/Organisms/CaPool'
 import { parse, pemToDER } from '../utils/cert-decoder.mjs'
-import { findCertName, formatCertName } from '../../components/Organisms/CaPool/utils'
+import { formatCertName, parseCertificate } from '../services/certificates'
 
 type Options = {
     data: string[]
@@ -13,10 +13,11 @@ type Options = {
 }
 
 export function useCaData(options: Options) {
-    const { data, onError, onSuccess } = options
+    const { data, onError, onSuccess, singleMode } = options
 
     const [loading, setLoading] = useState(false)
     const [parsedData, setParsedData] = useState<any>([])
+    const [error, setError] = useState<boolean>(false)
 
     const parseCaPool = async (certs: any, singleMode = false) => {
         const parsed = certs?.map(async (p: string, key: number) => {
@@ -31,11 +32,7 @@ export function useCaData(options: Options) {
                     const data = await parse(pemToDER(certsData.replace(/(-----(BEGIN|END) CERTIFICATE-----|[\n\r])/g, ''))).then((c) => c)
                     return { id: key, name: formatCertName(data), data: data, dataChain: p }
                 } else {
-                    const groups = [...certsData.matchAll(/(-----[BEGIN \S]+?-----[\S\s]+?-----[END \S]+?-----)/g)]
-                    const certs = groups.map((g) => parse(pemToDER(g[0].replace(/(-----(BEGIN|END) CERTIFICATE-----|[\n\r])/g, ''))).then((c) => c))
-                    const data = await Promise.all(certs)
-
-                    return { id: key, name: findCertName(data), data, dataChain: p }
+                    return await parseCertificate(certsData, key)
                 }
             } catch (e: any) {
                 let error = e
@@ -44,6 +41,7 @@ export function useCaData(options: Options) {
                 }
 
                 isFunction(onError) && onError(error.message)
+                setError(true)
             }
         })
 
@@ -51,20 +49,22 @@ export function useCaData(options: Options) {
     }
 
     useEffect(() => {
-        if (data && data.length > 0) {
-            setLoading(true)
-            parseCaPool(data)
-                .catch(console.error)
-                .then((c) => {
+        if (data.length > 0 && !error) {
+            parseCaPool(data, singleMode)
+                .catch((e) => {
+                    console.error(e)
+                    setError(true)
                     setLoading(false)
+                })
+                .then((c) => {
                     isFunction(onSuccess) && onSuccess(c)
                     setParsedData(c)
                 })
-        } else if (parsedData.length > 0 && data.length === 0) {
+        } else if (parsedData.length > 0 && data.length === 0 && setParsedData.length > 0) {
             setParsedData([])
             setLoading(false)
         }
-    }, [data, onSuccess, parsedData.length])
+    }, [data.length, parsedData.length])
 
     return { loading, parsedData }
 }

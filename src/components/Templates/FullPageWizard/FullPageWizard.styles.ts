@@ -18,10 +18,22 @@ export const row = css`
 export const leftCol = (theme: ThemeType) => css`
     background: ${get(theme, `FullPageWizard.leftCol.background`)};
     flex: 0 0 500px;
+
+    @media (max-width: 1199px) {
+        flex: 0 0 400px;
+    }
+
+    @media (max-width: 991px) {
+        flex: 0 0 320px;
+    }
 `
 
 export const leftInner = css`
     padding: 32px 48px;
+
+    @media (max-width: 991px) {
+        padding: 16px;
+    }
 `
 
 export const navigation = (theme: ThemeType) => css`
@@ -95,19 +107,35 @@ export const rightInner = css`
     padding: 32px 48px;
     position: relative;
     overflow: auto;
+
+    @media (max-width: 991px) {
+        padding: 16px;
+    }
 `
 
 export const close = (theme: ThemeType) => css`
     position: fixed;
-    top: 32px;
-    right: 48px;
+    top: 28px;
+    right: 44px;
     color: ${get(theme, `FullPageWizard.close.color`)};
     transition: all 0.3s;
     display: flex;
     align-items: center;
+    background: ${get(theme, `FullPageWizard.background`)};
+    padding: 4px;
+    z-index: 2;
+    border-radius: 8px;
 
     span {
         padding-right: 8px;
+
+        @media (max-width: 991px) {
+            display: none;
+        }
+    }
+
+    &:hover: {
+        text-decoration: none;
     }
 `
 

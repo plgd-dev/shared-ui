@@ -151,6 +151,9 @@ const theme = {
                 },
             },
         },
+        ButtonBox: {
+            background: colorsSiemens.neutral900,
+        },
         Checkbox: {
             borderColor: colorsSiemens.neutral500,
             background: colorsSiemens.primary,

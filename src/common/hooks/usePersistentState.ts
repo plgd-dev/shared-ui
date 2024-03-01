@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 
-export default function usePersistentState<T>(key: string, initialValue: T): [T, (value: T) => void] {
+export default function usePersistentState<T>(key: string, initialValue: T): [T, (value: T) => void, boolean] {
     const [state, setInternalState] = useState<T>(initialValue)
+    const [rehydrated, setRehydrate] = useState<boolean>(false)
 
     useEffect(() => {
         const value = localStorage.getItem(key)
@@ -9,6 +10,7 @@ export default function usePersistentState<T>(key: string, initialValue: T): [T,
         if (!value) return
 
         setInternalState(JSON.parse(value))
+        setRehydrate(true)
     }, [key])
 
     const setState = (value: T) => {
@@ -16,5 +18,5 @@ export default function usePersistentState<T>(key: string, initialValue: T): [T,
         setInternalState(value)
     }
 
-    return [state, setState]
+    return [state, setState, rehydrated]
 }

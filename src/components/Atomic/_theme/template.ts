@@ -157,6 +157,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 },
             },
         },
+        ButtonBox: {
+            background: colors.light,
+        },
         CaList: {
             item: {
                 color: colors.neutral800,

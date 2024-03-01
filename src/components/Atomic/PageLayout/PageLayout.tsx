@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react'
+import React, { forwardRef } from 'react'
 import { Helmet } from 'react-helmet'
 
 import { Props, defaultProps } from './PageLayout.types'
@@ -7,10 +7,10 @@ import Headline from '../Headline'
 import PageLoader from '../PageLoader'
 import ConditionalWrapper from '../ConditionalWrapper'
 
-const PageLayout: FC<Props> = memo((props) => {
+const PageLayout = forwardRef<HTMLDivElement, Props>((props, ref) => {
     const { children, dataTestId, headlineStatusTag, title, header, headerBorder, footer, loading, collapsed, xPadding } = { ...defaultProps, ...props }
     return (
-        <div css={styles.pageLayout}>
+        <div css={styles.pageLayout} ref={ref}>
             <Helmet>
                 <title>{title}</title>
             </Helmet>

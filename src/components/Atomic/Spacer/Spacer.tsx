@@ -1,9 +1,9 @@
-import { FC } from 'react'
+import { forwardRef } from 'react'
 
 import { Props } from './Spacer.types'
 import * as styles from './Spacer.styles'
 
-const Spacer: FC<Props> = (props) => {
+const Spacer = forwardRef<HTMLDivElement, Props>((props, ref) => {
     const { children, className, id, style, type } = props
     const typeRegex = /^(([mp][tblrxy]?-[0-10]|m[tblrxy]?-(auto))\s?)+$/
 
@@ -12,11 +12,11 @@ const Spacer: FC<Props> = (props) => {
     }
 
     return (
-        <div className={className} css={(theme) => styles.spacer(props.type, theme)} id={id} style={style}>
+        <div className={className} css={(theme) => styles.spacer(props.type, theme)} id={id} ref={ref} style={style}>
             {children}
         </div>
     )
-}
+})
 
 Spacer.displayName = 'Spacer'
 

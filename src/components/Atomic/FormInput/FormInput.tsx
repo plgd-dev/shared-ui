@@ -8,7 +8,6 @@ import { convertSize, IconCopy, IconHidePassword, IconShowPassword } from '../Ic
 import { copyToClipboard } from '../../../common/utils'
 import { inputAligns, inputSizes } from './constants'
 import { isEdge } from '../_utils/browser'
-import { rightContent } from './FormInput.styles'
 
 const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const {
