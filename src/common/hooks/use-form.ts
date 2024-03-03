@@ -21,7 +21,9 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
 
     const data = useFormData.watch()
 
-    const onChange = (data: any) => updateData(data)
+    const onChange = (data: any) => {
+        updateData(data)
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const debounceOnChange = useCallback(debounce(onChange, 500), [])
@@ -33,7 +35,13 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
         const fieldValue = get(data, field)
 
         if (get(defaultFormData, field) !== fieldValue) {
-            debounceOnChange(setProperty(copy, field, fieldValue))
+            // convert back to array
+            if (field.includes('.')) {
+                debounceOnChange(setProperty(copy, field.split('.')[0], get(data, field.split('.')[0])))
+                // debounceOnChange(setProperty(copy, field, { value: fieldValue }))
+            } else {
+                debounceOnChange(setProperty(copy, field, fieldValue))
+            }
         }
     }, [data, debounceOnChange, defaultFormData, updateData, useFormData.formState.dirtyFields])
 

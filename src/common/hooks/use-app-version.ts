@@ -5,6 +5,7 @@ import { getVersionNumberFromGithub } from '../../app/clientApp/App/AppRest'
 
 type SettingsType = {
     requestedDatetime?: string
+    githubVersionUrl?: string
 }
 
 type VersionObject = {
@@ -14,11 +15,11 @@ type VersionObject = {
 }
 
 export function useAppVersion(settings: SettingsType) {
-    const { requestedDatetime } = settings
+    const { requestedDatetime, githubVersionUrl } = settings
     const [version, setVersion] = useState<VersionObject | null>(null)
 
     const requestVersion = useCallback((now: Date) => {
-        getVersionNumberFromGithub().then((ret) => {
+        getVersionNumberFromGithub(githubVersionUrl).then((ret) => {
             setVersion({
                 requestedDatetime: now,
                 latest: ret.data.tag_name.replace('v', ''),
