@@ -9,7 +9,7 @@ export type Props = {
     id?: string
     i18n: {
         more: string
-        types: string
+        modalHeadline: string
     }
     justifyContent?: TagGroupJustifyContentType
 }

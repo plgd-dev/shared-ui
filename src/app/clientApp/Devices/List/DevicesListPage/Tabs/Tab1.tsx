@@ -184,7 +184,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
                         <TagGroup
                             i18n={{
                                 more: _(app.more),
-                                types: _(app.types),
+                                modalHeadline: _(app.types),
                             }}
                         >
                             {value

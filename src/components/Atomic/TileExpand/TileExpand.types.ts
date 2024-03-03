@@ -4,7 +4,7 @@ export type Information = {
     attribute: string
     certFormat?: boolean
     copyValue?: string
-    value: string
+    value: ReactNode
 }
 
 export type Props = {

@@ -127,7 +127,7 @@ const TagGroup: FC<Props> = (props) => {
                 portalTarget={document.getElementById('modal-root')}
                 renderBody={renderBody}
                 show={show}
-                title={i18n.types}
+                title={i18n.modalHeadline}
             />
         </div>
     )

@@ -10,7 +10,7 @@ describe('<Tag>', () => {
                 <TagGroup
                     i18n={{
                         more: 'more',
-                        types: 'types',
+                        modalHeadline: 'types',
                     }}
                 >
                     <Tag>oic.d.clouddevice</Tag>

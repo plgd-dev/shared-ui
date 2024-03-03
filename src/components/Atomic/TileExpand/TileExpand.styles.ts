@@ -149,6 +149,8 @@ export const valueRaw = (theme: ThemeType) => css`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    width: 100%;
+    text-align: right;
 `
 
 export const icon = (theme: ThemeType) => css`
