@@ -141,7 +141,7 @@ export const TooltipContent = forwardRef(function TooltipContent(
                 {state.open && (
                     <motion.div
                         animate={{ opacity: 1, scale: 1 }}
-                        className={`tooltip-bubble${error ? 'tooltip-bubble-error' : ''}`}
+                        className={`tooltip-bubble ${error ? 'tooltip-bubble-error' : ''}`}
                         exit={{ opacity: 0 }}
                         initial={{ opacity: 0, scale: 0.85 }}
                         ref={ref}

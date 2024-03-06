@@ -6,6 +6,7 @@ import { Props, defaultProps } from './Tooltip.types'
 import * as styles from './Tooltip.styles'
 import { useTooltipState, TooltipAnchor, TooltipContent } from './TooltipUtils'
 import { tooltipVariants } from './constants'
+import classNames from 'classnames'
 
 const Tooltip: FC<Props> = (props) => {
     const { content, children, delay, id: propId, placement, className, initialOpen, maxWidth, portalTarget, variant } = { ...defaultProps, ...props }
@@ -31,7 +32,7 @@ const Tooltip: FC<Props> = (props) => {
             {!!content && (
                 <TooltipContent error={variant === tooltipVariants.ERROR} maxWidth={maxWidth} portalTarget={portalTarget} state={state}>
                     {content}
-                    <div className='tooltip-arrow' id={`${id}-arrow`} />
+                    <div className={classNames('tooltip-arrow', variant === tooltipVariants.ERROR && 'tooltip-arrow-error')} id={`${id}-arrow`} />
                 </TooltipContent>
             )}
         </div>

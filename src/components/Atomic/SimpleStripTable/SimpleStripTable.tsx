@@ -31,7 +31,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                     </Row>
                 )}
                 {rows.map((r, key) => (
-                    <Row css={[styles.row, r.autoHeight && styles.autoHeight]} gutters={false} key={key}>
+                    <Row css={[styles.row, r.autoHeight && styles.autoHeight]} gutters={false} key={r.key || key}>
                         <Column size={leftColSize as ColumnSizeType}>
                             <div
                                 css={[styles.attribute, styles.border, styles.borderLeft, r.autoHeight && styles.autoHeight]}

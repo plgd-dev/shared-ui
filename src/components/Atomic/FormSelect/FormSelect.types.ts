@@ -31,6 +31,7 @@ export type Props = {
     menuZIndex?: number
     name?: string
     onChange?: (v: any) => void
+    onBlur?: (v: any) => void
     options: Option[]
     size?: FormSelectSizeType
     value?: Option

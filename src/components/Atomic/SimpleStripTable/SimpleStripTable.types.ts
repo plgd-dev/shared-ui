@@ -5,6 +5,7 @@ export type Row = {
     autoHeight?: boolean
     value: ReactNode | ReactElement
     dataTestId?: string
+    key?: string
 }
 
 export type Props = {

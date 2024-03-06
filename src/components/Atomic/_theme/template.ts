@@ -1,5 +1,4 @@
 import { hexToRgbA } from '../_utils/commonStyles'
-import { rejectedFile } from '../Dropzone/Dropzone.styles'
 
 type LogoType = {
     height: number

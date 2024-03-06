@@ -13,6 +13,7 @@ export type Props = {
     }
     inlineStyle?: boolean
     isDelete?: boolean
+    onBlur?: (v: any) => void
     onChange: (v: any) => void
     onTtlHasError?: (v: boolean) => void
     rightStyle?: CSSProperties

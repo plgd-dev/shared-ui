@@ -60,6 +60,7 @@ const TimeoutControl: FC<Props> = (props) => {
 
             watchUnitChange && onChange(convertValueToNs(closestDefaultTtl.value, closestDefaultTtl.unit))
             watchUnitChange && isFunction(onTtlHasError) && onTtlHasError(false)
+            watchUnitChange && isFunction(props.onBlur) && props.onBlur(convertValueToNs(closestDefaultTtl.value, closestDefaultTtl.unit))
         } else {
             isDefault && setIsDefault(false)
 
@@ -68,6 +69,7 @@ const TimeoutControl: FC<Props> = (props) => {
 
             setUnit(unitValue)
             onChange(convertValueToNs(newInputValue, unitValue))
+            watchUnitChange && isFunction(props.onBlur) && props.onBlur(convertValueToNs(newInputValue, unitValue))
         }
     }
 
@@ -81,6 +83,7 @@ const TimeoutControl: FC<Props> = (props) => {
             const newValue = normalizeToFixedFloatValue(floatValue)
             setInputValue(newValue)
             onChange(convertValueToNs(newValue, unit))
+            // isFunction(props.onBlur) && props.onBlur(convertValueToNs(newValue, unit))
 
             if (hasCommandTimeoutError(newValue, unit) && isFunction(onTtlHasError)) {
                 onTtlHasError(true)
@@ -108,6 +111,10 @@ const TimeoutControl: FC<Props> = (props) => {
         debounceCallback(event)
     }
 
+    const onBlur = () => {
+        isFunction(props.onBlur) && props.onBlur(convertValueToNs(typeof inputValue === 'string' ? parseInt(inputValue, 10) : inputValue, unit))
+    }
+
     return (
         <div css={styles.timeoutControl}>
             <div css={styles.left}>
@@ -118,7 +125,14 @@ const TimeoutControl: FC<Props> = (props) => {
                         css={[styles.input, smallMode && styles.inputSmall]}
                         disabled={disabled || isDefault}
                         inlineStyle={inlineStyle}
-                        onBlur={watchUnitChange ? handleOnValueBlur : undefined}
+                        onBlur={
+                            watchUnitChange
+                                ? (e) => {
+                                      handleOnValueBlur(e)
+                                      onBlur()
+                                  }
+                                : onBlur
+                        }
                         onChange={handleOnValueChange}
                         placeholder={i18n.placeholder}
                         size={size || inputSizes.NORMAL}
@@ -138,7 +152,10 @@ const TimeoutControl: FC<Props> = (props) => {
                         disabled={disabled}
                         inlineStyle={inlineStyle}
                         name='unit'
-                        onChange={handleOnUnitChange}
+                        onChange={(e) => {
+                            handleOnUnitChange(e)
+                            // onBlur()
+                        }}
                         options={units}
                         size={size === inputSizes.SMALL ? selectSizes.SMALL : undefined}
                     />
