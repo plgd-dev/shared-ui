@@ -6,12 +6,16 @@ export type Row = {
     value: ReactNode | ReactElement
     dataTestId?: string
     key?: string
+    copyValue?: string | boolean
 }
 
 export type Props = {
     className?: string
     headerLeft?: string
     headerRight?: string
+    i18n?: {
+        copy: string
+    }
     id?: string
     leftColSize?: number
     rightColSize?: number

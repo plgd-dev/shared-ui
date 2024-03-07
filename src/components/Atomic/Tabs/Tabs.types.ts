@@ -1,4 +1,7 @@
 import { CSSProperties, ReactNode } from 'react'
+import { statuses } from './constants'
+
+export type StatusType = (typeof statuses)[keyof typeof statuses]
 
 export type TabItem = {
     content: ReactNode
@@ -6,6 +9,7 @@ export type TabItem = {
     disabled?: boolean
     id: number
     name: string
+    status?: StatusType
 }
 
 export type Props = {

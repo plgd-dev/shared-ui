@@ -14,7 +14,7 @@ export const formatCertName = (cert: any) => {
 }
 
 export const getCertType = (cert: CerType) => {
-    if (cert.ext.basicConstraints?.cA === false) {
+    if (!cert.ext.basicConstraints || cert.ext.basicConstraints?.cA === false) {
         return `Leaf Certificate`
     } else if (cert.issuer.cn === cert.subject.cn) {
         return `Root Certificate`
@@ -51,7 +51,7 @@ export const findCertData = (data: CerType[]) => {
 
     if (notBeforeUTC && notAfterUTC) {
         const now = new Date()
-        status = Date.parse(notAfterUTC) <= now.valueOf() && now.valueOf() <= Date.parse(notBeforeUTC)
+        status = Date.parse(notBeforeUTC) <= now.valueOf() && now.valueOf() <= Date.parse(notAfterUTC)
     }
 
     return { name, serialNumber, notBeforeUTC, notAfterUTC, status, type }
@@ -63,5 +63,5 @@ export const parseCertificate = async (cert: string, id: number, customData?: an
     const data = await Promise.all(certs)
     const parsedData = findCertData(data as CerType[])
 
-    return { id, data, dataChain: cert, ...parsedData, ...customData }
+    return { id, data, dataChain: cert, ...parsedData, origin: customData }
 }

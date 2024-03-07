@@ -77,3 +77,15 @@ export const borderRight = css`
         width: calc(100% - 7px);
     }
 `
+
+export const copy = (theme: ThemeType) => css`
+    display: inline-flex;
+    color: ${get(theme, `SimpleStripTable.value.copy.color`)};
+    transition: all 0.3s;
+    margin-left: 8px;
+    cursor: pointer;
+
+    &:hover {
+        color: ${get(theme, `SimpleStripTable.value.copy.hover.color`)};
+    }
+`

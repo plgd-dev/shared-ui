@@ -20,6 +20,7 @@ const data = [
     { name: 'icon-bell' },
     { name: 'icon-certificate' },
     { name: 'icon-chat' },
+    { name: 'icon-check' },
     { name: 'icon-close' },
     { name: 'icon-close-circle' },
     { name: 'icon-cloud-error' },

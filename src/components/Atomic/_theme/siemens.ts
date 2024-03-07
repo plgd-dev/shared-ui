@@ -679,6 +679,9 @@ const theme = {
             },
         },
         SimpleStripTable: {
+            border: {
+                background: colorsSiemens.neutral800,
+            },
             row: {
                 background: colorsSiemens.neutral900,
                 hover: {
@@ -687,9 +690,12 @@ const theme = {
             },
             value: {
                 color: '#81868c',
-            },
-            border: {
-                background: colorsSiemens.neutral800,
+                copy: {
+                    color: colors.neutral500,
+                    hover: {
+                        color: colorsSiemens.primary,
+                    },
+                },
             },
         },
         SplitButton: {

@@ -717,6 +717,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
         },
         SimpleStripTable: {
+            border: {
+                background: colors.neutral200,
+            },
             row: {
                 background: colors.neutral000,
                 hover: {
@@ -725,9 +728,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
             value: {
                 color: colors.neutral800,
-            },
-            border: {
-                background: colors.neutral200,
+                copy: {
+                    color: colors.neutral500,
+                    hover: {
+                        color: colors.primary,
+                    },
+                },
             },
         },
         SplitButton: {
@@ -842,6 +848,14 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
             disabled: {
                 color: colors.disabled,
+            },
+            icon: {
+                success: {
+                    color: colors.green,
+                },
+                error: {
+                    color: colors.red,
+                },
             },
         },
         Tag: {

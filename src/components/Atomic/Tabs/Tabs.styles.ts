@@ -53,6 +53,8 @@ export const tabItem = (theme: ThemeType) => css`
     background: transparent;
     margin: 0 24px 0 0;
     transition: all 0.25s;
+    display: inline-flex;
+    align-items: center;
 
     &:hover {
         color: ${get(theme, 'Tabs.item.hover.color')};
@@ -92,4 +94,16 @@ export const pageXpadding = css`
     padding-left: 40px;
     padding-right: 40px;
     overflow: auto;
+`
+
+export const icon = css`
+    margin-left: 8px;
+`
+
+export const iconSuccess = (theme: ThemeType) => css`
+    color: ${get(theme, `Tabs.icon.success.color`)};
+`
+
+export const iconError = (theme: ThemeType) => css`
+    color: ${get(theme, `Tabs.icon.error.color`)};
 `

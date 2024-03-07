@@ -7,6 +7,9 @@ import * as styles from './Tabs.styles'
 import { useMeasure } from '../../../common/hooks/use-measure'
 import Pager from './Pager'
 import ConditionalWrapper from '../ConditionalWrapper'
+import { statuses } from './constants'
+import IconCheck from '../Icon/components/IconCheck'
+import IconWarningCircle from '../Icon/components/IconWarningCircle'
 
 const Tabs: FC<Props> = (props) => {
     const { activeItem, className, onAnimationComplete, onItemChange, fullHeight, innerPadding, isAsync, style, tabs } = { ...defaultProps, ...props }
@@ -69,6 +72,8 @@ const Tabs: FC<Props> = (props) => {
                         transition={{ duration: 0.25 }}
                     >
                         {tab.name}
+                        {tab.status === statuses.SUCCESS && <IconCheck css={[styles.icon, styles.iconSuccess]} />}
+                        {tab.status === statuses.ERROR && <IconWarningCircle css={[styles.icon, styles.iconError]} />}
                     </motion.button>
                 ))}
                 {slider.hasValue && (
