@@ -15,7 +15,7 @@ export const labelBefore = css`
 
 const getSwitcherSize = (size: SwitcherSizeType) => css`
     width: ${size === 'big' ? '32px' : '24px'};
-    height: ${size === 'big' ? '20px' : '15px'};
+    height: ${size === 'big' ? '20px' : '16px'};
     border-radius: ${size === 'big' ? '26.6667px' : '20px'};
     overflow: hidden;
 `
@@ -44,12 +44,13 @@ export const slider = styled.span`
         background-color: white;
         transition: 0.4s;
         border-radius: 50%;
-        width: ${(props: any) => (props.size === 'big' ? '16px' : '11px')};
-        height: ${(props: any) => (props.size === 'big' ? '16px' : '11px')};
+        width: ${(props: any) => (props.size === 'big' ? '16px' : '12px')};
+        height: ${(props: any) => (props.size === 'big' ? '16px' : '12px')};
     }
 `
 
 export const input = (theme: ThemeType, size: SwitcherSizeType, disabled: boolean) => css`
+    position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
@@ -73,8 +74,8 @@ export const sliderStyle = (size: SwitcherSizeType) => css`
     ${getSwitcherSize(size)};
 
     &:before {
-        width: ${size === 'big' ? '16px' : '11px'};
-        height: ${size === 'big' ? '16px' : '11px'};
+        width: ${size === 'big' ? '16px' : '12px'};
+        height: ${size === 'big' ? '16px' : '12px'};
     }
 `
 

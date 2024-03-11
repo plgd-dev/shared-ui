@@ -3,4 +3,5 @@ export const tagVariants = {
     WARNING: 'warning',
     ERROR: 'error',
     NORMAL: 'normal',
+    INFO: 'info',
 } as const

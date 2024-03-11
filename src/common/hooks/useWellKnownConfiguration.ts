@@ -59,6 +59,7 @@ export type WellKnownConfigType = {
         }
         defaultDiscoveryTimeout?: string
     }
+    id?: string
 } & BuildInformationType
 
 type useWellKnownConfigurationReturnType = [

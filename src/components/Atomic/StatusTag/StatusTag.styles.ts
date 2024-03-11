@@ -24,6 +24,11 @@ const getColorByVariant = (theme: ThemeType, variant: TagTypeType) => {
             color: ${get(theme, 'StatusTag.normal.color')};
             background: ${get(theme, 'StatusTag.normal.background')};
         `
+    } else if (variant === tagVariants.INFO) {
+        return css`
+            color: ${get(theme, 'StatusTag.info.color')};
+            background: ${get(theme, 'StatusTag.info.background')};
+        `
     }
 }
 
@@ -40,5 +45,8 @@ export const tag = (theme: ThemeType, variant: TagTypeType) => css`
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
+`
+
+export const lowercase = css`
     text-transform: lowercase;
 `

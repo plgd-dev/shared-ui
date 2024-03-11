@@ -7,10 +7,10 @@ import Tooltip from '../Tooltip/Tooltip'
 import { tooltipVariants } from '../Tooltip'
 
 const FormGroup: FC<Props> = (props) => {
-    const { children, className, error, errorTooltip, id, inline, fullSize, marginBottom, inlineJustifyContent } = { ...defaultProps, ...props }
+    const { children, className, error, errorTooltip, id, inline, fullSize, marginBottom, inlineJustifyContent, renderProps } = { ...defaultProps, ...props }
     const childrenWithProps = Children.map(children as ReactElement[], (child, key) => {
         if (isValidElement(child)) {
-            if (child.type === Button || child.type === 'ul') {
+            if (child.type === Button || child.type === 'ul' || child.type === 'div') {
                 return child
             }
 
@@ -33,7 +33,7 @@ const FormGroup: FC<Props> = (props) => {
                     {Error}
                 </>
             )
-        } else if (errorTooltip) {
+        } else if (errorTooltip && error) {
             return (
                 <>
                     <Tooltip content={error} id={`tooltip-group-${id}`} placement='left' variant={tooltipVariants.ERROR}>
@@ -55,6 +55,8 @@ const FormGroup: FC<Props> = (props) => {
                     </div>
                 </>
             )
+        } else if (renderProps) {
+            return
         } else {
             return (
                 <>

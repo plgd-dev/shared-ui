@@ -767,6 +767,10 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 color: colors.red,
                 background: hexToRgbA(colors.red, 0.16),
             },
+            info: {
+                color: colors.primary,
+                background: hexToRgbA(colors.primary, 0.16),
+            },
             normal: {
                 color: colors.neutral500,
                 background: colors.neutral100,

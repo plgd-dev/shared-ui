@@ -3,9 +3,9 @@ import { Props, defaultProps } from './StatusTag.types'
 import * as styles from './StatusTag.styles'
 
 const StatusTag: FC<Props> = (props) => {
-    const { children, onClick, variant } = { ...defaultProps, ...props }
+    const { children, lowercase, onClick, variant } = { ...defaultProps, ...props }
     return (
-        <div css={(theme) => styles.tag(theme, variant)} onClick={onClick}>
+        <div css={(theme) => [styles.tag(theme, variant), lowercase && styles.lowercase]} onClick={onClick}>
             {children}
         </div>
     )

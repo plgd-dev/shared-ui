@@ -733,6 +733,10 @@ const theme = {
                 color: colors.neutral500,
                 background: colorsSiemens.neutral800,
             },
+            info: {
+                color: colorsSiemens.info,
+                background: hexToRgbA(colorsSiemens.info, 0.16),
+            },
         },
         Switch: {
             background: '#6c6c6c',

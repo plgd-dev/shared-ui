@@ -10,6 +10,7 @@ export type Props = {
     inline?: boolean
     inlineJustifyContent?: string
     marginBottom?: boolean
+    renderProps?: boolean
 }
 
 export const defaultProps = {
