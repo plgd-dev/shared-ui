@@ -242,6 +242,12 @@ const theme = {
                 color: colorsSiemens.primary,
             },
         },
+        CopyIcon: {
+            color: colors.neutral500,
+            hover: {
+                color: colorsSiemens.primary,
+            },
+        },
         DeleteModal: {
             red: colorsSiemens.red,
             title: {
@@ -690,12 +696,6 @@ const theme = {
             },
             value: {
                 color: '#81868c',
-                copy: {
-                    color: colors.neutral500,
-                    hover: {
-                        color: colorsSiemens.primary,
-                    },
-                },
             },
         },
         SplitButton: {

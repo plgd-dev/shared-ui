@@ -253,6 +253,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 color: colors.primaryDarken,
             },
         },
+        CopyIcon: {
+            color: colors.neutral500,
+            hover: {
+                color: colors.primary,
+            },
+        },
         DeleteModal: {
             red: colors.red,
             body: {
@@ -728,12 +734,6 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
             value: {
                 color: colors.neutral800,
-                copy: {
-                    color: colors.neutral500,
-                    hover: {
-                        color: colors.primary,
-                    },
-                },
             },
         },
         SplitButton: {

@@ -6,9 +6,7 @@ import Row from '../Grid/Row'
 import Column from '../Grid/Column'
 import { ColumnSizeType } from '../Grid/Column/Column.types'
 import ConditionalWrapper from '../ConditionalWrapper'
-import IconCopy from '../Icon/components/IconCopy'
-import Tooltip from '../Tooltip'
-import { copyToClipboard } from '../../../common/utils'
+import CopyIcon from '../CopyIcon'
 
 const SimpleStripTable: FC<Props> = (props) => {
     const { className, headerLeft, headerRight, id, i18n, leftColSize, rightColSize, rows } = { ...defaultProps, ...props }
@@ -49,11 +47,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                 data-test-id={r.dataTestId?.concat('-value')}
                             >
                                 {r.value}
-                                {r.copyValue && (
-                                    <Tooltip content={i18n?.copy || ''} css={styles.copy}>
-                                        <IconCopy onClick={() => copyToClipboard(typeof r.copyValue === 'string' ? r.copyValue : r.value)} />
-                                    </Tooltip>
-                                )}
+                                {r.copyValue && <CopyIcon i18n={{ content: i18n?.copy }} value={typeof r.copyValue === 'string' ? r.copyValue : r.value} />}
                             </div>
                         </Column>
                     </Row>
