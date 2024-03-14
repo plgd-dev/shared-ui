@@ -11,13 +11,18 @@ import Select, {
     SingleValueProps,
     ValueContainerProps,
     InputProps,
+    MultiValueProps,
+    MultiValueRemoveProps,
+    GroupBase,
+    MultiValueGenericProps,
 } from 'react-select'
+import { mergeRefs } from 'react-merge-refs'
 
-import { GroupedOption, Option, Props, defaultProps } from './FormSelect.types'
+import { Props, defaultProps, OptionType } from './FormSelect.types'
 import * as styles from './FormSelect.styles'
 import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectAligns, selectSizes } from './constants'
-import { mergeRefs } from 'react-merge-refs'
+import IconCloseX from '../Icon/components/IconCloseX'
 
 const FormSelect = forwardRef<any, Props>((props, ref) => {
     const {
@@ -29,6 +34,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         disabled,
         inlineStyle,
         footerLinks,
+        isMulti,
         isSearchable,
         options,
         name,
@@ -54,37 +60,73 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         menuPortal: (base: any) => ({ ...base, zIndex: menuZIndex || 1 }),
     }
 
-    const Control = ({ children, ...props }: ControlProps<Option>) => (
+    const Control = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: ControlProps<Option, IsMulti, Group>) => (
         <components.Control
             {...props}
             css={[styles.control, error && styles.error, size === selectSizes.SMALL && styles.small, inlineStyle && styles.inlineStyle]}
         >
-            {children}
+            {props.children}
         </components.Control>
     )
 
-    const ValueContainer = ({ children, ...props }: ValueContainerProps<Option>) => (
-        <components.ValueContainer {...props} css={styles.valueContainer}>
-            {children}
+    const ValueContainer = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
+        props: ValueContainerProps<Option, IsMulti, Group>
+    ) => (
+        <components.ValueContainer {...props} css={[styles.valueContainer, props.isMulti && styles.valueContainerMulti]}>
+            {props.children}
         </components.ValueContainer>
     )
 
-    const SelectContainer = ({ children, ...props }: ContainerProps<Option>) => (
+    const SelectContainer = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
+        props: ContainerProps<Option, IsMulti, Group>
+    ) => (
         <components.SelectContainer {...props} css={[autoWidth ? styles.selectAutoWidthContainer : styles.selectContainer]}>
-            {children}
+            {props.children}
         </components.SelectContainer>
     )
 
-    const SingleValue = ({ children, ...props }: SingleValueProps<Option>) => (
+    const SingleValue = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
+        props: SingleValueProps<Option, IsMulti, Group>
+    ) => (
         <components.SingleValue
             {...props}
             css={[styles.value, props.selectProps.isDisabled && styles.disabled, align === selectAligns.RIGHT && styles.textRight]}
         >
-            {children}
+            {props.children}
         </components.SingleValue>
     )
 
-    const DropdownIndicator = (props: DropdownIndicatorProps) => (
+    const MultiValue = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
+        props: MultiValueProps<Option, IsMulti, Group>
+    ) => (
+        <components.MultiValue
+            {...props}
+            css={[
+                props.selectProps.isDisabled && styles.disabled,
+                align === selectAligns.RIGHT && styles.textRight,
+                props.isMulti && styles.multiValue,
+                align === selectAligns.RIGHT && props.isMulti && styles.multiValueRight,
+            ]}
+        >
+            {props.children}
+        </components.MultiValue>
+    )
+
+    const MultiValueLabel = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
+        props: MultiValueGenericProps<Option, IsMulti, Group>
+    ) => <div css={styles.multiValueLabel}>{props.children}</div>
+
+    const MultiValueRemove = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
+        props: MultiValueRemoveProps<Option, IsMulti, Group>
+    ) => (
+        <div css={styles.multiValueRemove}>
+            <IconCloseX />
+        </div>
+    )
+
+    const DropdownIndicator = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
+        props: DropdownIndicatorProps<Option, IsMulti, Group>
+    ) => (
         <components.DropdownIndicator {...props} css={styles.dropdownIndicator}>
             <div css={[styles.indicator, props.selectProps.menuIsOpen && styles.indicatorOpen]}>
                 <IconTableArrowDown {...convertSize(10)} />
@@ -92,8 +134,8 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         </components.DropdownIndicator>
     )
 
-    const Menu = (props: MenuProps<Option, false, GroupedOption>) => (
-        <components.Menu<Option, false, GroupedOption> {...props} css={(theme) => styles.menu(theme, menuZIndex || 1)}>
+    const Menu = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: MenuProps<Option, IsMulti, Group>) => (
+        <components.Menu {...props} css={(theme) => styles.menu(theme, menuZIndex || 1)}>
             {props.children}
             {!!footerLinks && (
                 <div css={styles.footerComponent}>
@@ -117,19 +159,21 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         </components.Menu>
     )
 
-    const MenuList = (props: MenuListProps<Option, false, GroupedOption>) => (
+    const MenuList = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: MenuListProps<Option, IsMulti, Group>) => (
         <components.MenuList {...props} css={styles.menuList} maxHeight={footerLinks ? props.maxHeight - 54 : props.maxHeight}>
             {props.children}
         </components.MenuList>
     )
 
-    const Option = (props: OptionProps<Option, false, GroupedOption>) => (
+    const Option = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: OptionProps<Option, IsMulti, Group>) => (
         <components.Option {...props} css={[styles.option, props.isSelected && styles.optionSelected, align === selectAligns.RIGHT && styles.optionRight]}>
             {props.children}
         </components.Option>
     )
 
-    const Placeholder = (props: PlaceholderProps<Option>) => (
+    const Placeholder = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
+        props: PlaceholderProps<Option, IsMulti, Group>
+    ) => (
         <components.Placeholder
             {...props}
             css={[styles.placeholder, props.selectProps.isDisabled && styles.disabled, align === selectAligns.RIGHT && styles.textRight]}
@@ -138,7 +182,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         </components.Placeholder>
     )
 
-    const Input = (props: InputProps<Option, false>) => (
+    const Input = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: InputProps<Option, IsMulti, Group>) => (
         <components.Input {...props} css={align === selectAligns.RIGHT && !autoWidth ? styles.input : undefined} />
     )
 
@@ -148,10 +192,25 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
             className={className}
             classNamePrefix='select'
             closeMenuOnScroll={true}
-            components={{ DropdownIndicator, Menu, MenuList, Option, SelectContainer, SingleValue, ValueContainer, Placeholder, Control, Input }}
+            components={{
+                DropdownIndicator,
+                Menu,
+                MenuList,
+                Option,
+                SelectContainer,
+                SingleValue,
+                MultiValue,
+                ValueContainer,
+                Placeholder,
+                Control,
+                Input,
+                MultiValueLabel,
+                MultiValueRemove,
+            }}
             css={[(theme) => styles.select(theme, size!, disabled)]}
             defaultValue={defaultValue}
             isDisabled={disabled}
+            isMulti={isMulti}
             isSearchable={isSearchable}
             menuIsOpen={menuIsOpen}
             name={name}

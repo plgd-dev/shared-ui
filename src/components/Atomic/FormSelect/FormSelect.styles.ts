@@ -164,6 +164,11 @@ export const valueContainer = css`
     padding: 0 0 0 15px; // -1 for border
 `
 
+export const valueContainerMulti = css`
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+`
+
 export const value = (theme: ThemeType) => css`
     color: ${get(theme, `FormSelect.value.color`)};
     font-style: normal;
@@ -171,6 +176,45 @@ export const value = (theme: ThemeType) => css`
     font-size: 14px;
     line-height: 22px;
     text-align: left;
+`
+
+export const multiValue = (theme: ThemeType) => css`
+    font-size: 12px;
+    line-height: 18px;
+    flex: 0 0 auto;
+    color: ${get(theme, `FormSelect.multi.value.color`)};
+    border: 1px solid ${get(theme, `FormSelect.multi.value.borderColor`)};
+    background: ${get(theme, `FormSelect.multi.value.background`)};
+`
+
+export const multiValueLabel = (theme: ThemeType) => css`
+    border: none !important;
+    padding: 3px 8px;
+`
+
+export const multiValueRemove = (theme: ThemeType) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    padding: 0 2px;
+    box-sizing: border-box;
+    text-align: right;
+    font-size: 12px;
+    line-height: 18px;
+    border: 1px solid transparent;
+    background: ${get(theme, `FormSelect.multi.value.background`)};
+    transition: all 0.3s;
+    color: ${get(theme, `FormSelect.multi.value.color`)};
+
+    &:hover {
+        color: ${get(theme, `FormSelect.multi.value.remove.hover.color`)};
+        background: ${get(theme, `FormSelect.multi.value.remove.hover.background`)};
+    }
+`
+
+export const multiValueRight = css`
+    order: 2;
 `
 
 export const dropdownIndicator = css`

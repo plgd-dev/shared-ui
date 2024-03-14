@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { tagVariants } from './constants'
 
-export type TagVariantType = typeof tagVariants[keyof typeof tagVariants]
+export type TagVariantType = (typeof tagVariants)[keyof typeof tagVariants]
 
 export type Props = {
     className?: string

@@ -1,19 +1,18 @@
 import { selectSizes, selectAligns } from './constants'
-import { ReactNode } from 'react'
 
 export type FormSelectSizeType = (typeof selectSizes)[keyof typeof selectSizes]
 export type FormSelectAlignType = (typeof selectAligns)[keyof typeof selectAligns]
 
 export type ValueType = string | number | boolean
 
-export interface Option {
+export interface OptionType {
     readonly value: ValueType
     readonly label: string
 }
 
 export interface GroupedOption {
     readonly label: string
-    readonly options: Option[]
+    readonly options: OptionType[]
 }
 
 export type Props = {
@@ -25,6 +24,7 @@ export type Props = {
     error?: boolean
     footerLinks?: [{ onClick: () => void; title: string }]
     inlineStyle?: boolean
+    isMulti?: boolean
     isSearchable?: boolean
     menuIsOpen?: boolean
     menuPortalTarget?: HTMLElement | null
@@ -32,12 +32,13 @@ export type Props = {
     name?: string
     onChange?: (v: any) => void
     onBlur?: (v: any) => void
-    options: Option[]
+    options: OptionType[]
     size?: FormSelectSizeType
-    value?: Option
+    value?: OptionType
 }
 
 export const defaultProps: Partial<Props> = {
     align: selectAligns.LEFT,
+    isMulti: false,
     size: selectSizes.NORMAL,
 }

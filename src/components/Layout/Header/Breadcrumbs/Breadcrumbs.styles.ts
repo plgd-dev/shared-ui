@@ -31,11 +31,17 @@ export const item = css`
     font-size: 12px;
     line-height: 18px;
     color: ${colors.neutral500};
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `
 
 export const link = (theme: ThemeType) => css`
     color: ${get(theme, 'Breadcrumb.link.color')};
     text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     &:hover {
         color: ${get(theme, 'Breadcrumb.link.hover.color')};

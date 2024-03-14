@@ -462,6 +462,19 @@ const theme = {
             error: {
                 color: colorsSiemens.red,
             },
+            multi: {
+                value: {
+                    background: colorsSiemens.neutral800,
+                    borderColor: 'transparent',
+                    color: colorsSiemens.neutral500,
+                    remove: {
+                        hover: {
+                            color: colorsSiemens.red,
+                            background: hexToRgbA(colorsSiemens.red, 0.16),
+                        },
+                    },
+                },
+            },
         },
         FormTextarea: {
             borderColor: colors.neutral200,

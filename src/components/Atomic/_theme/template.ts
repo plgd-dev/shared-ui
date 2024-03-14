@@ -476,6 +476,19 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             value: {
                 color: colors.neutral800,
             },
+            multi: {
+                value: {
+                    background: colors.neutral100,
+                    borderColor: 'transparent',
+                    color: colors.neutral500,
+                    remove: {
+                        hover: {
+                            color: colors.red,
+                            background: hexToRgbA(colors.red, 0.16),
+                        },
+                    },
+                },
+            },
         },
         FormTextarea: {
             borderColor: colors.neutral200,

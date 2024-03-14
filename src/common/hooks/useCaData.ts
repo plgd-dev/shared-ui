@@ -49,7 +49,7 @@ export function useCaData(options: Options) {
     }
 
     useEffect(() => {
-        if (data.length > 0 && !error) {
+        if (data && data.length > 0 && !error) {
             parseCaPool(data, singleMode)
                 .catch((e) => {
                     console.error(e)
@@ -64,7 +64,7 @@ export function useCaData(options: Options) {
             setParsedData([])
             setLoading(false)
         }
-    }, [data.length, parsedData.length])
+    }, [data, parsedData])
 
     return { loading, parsedData }
 }
