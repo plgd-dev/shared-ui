@@ -64,7 +64,7 @@ export function useCaData(options: Options) {
             setParsedData([])
             setLoading(false)
         }
-    }, [data, parsedData])
+    }, [data?.length, parsedData?.length])
 
     return { loading, parsedData }
 }

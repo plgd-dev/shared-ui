@@ -34,7 +34,7 @@ export type Props = {
     onBlur?: (v: any) => void
     options: OptionType[]
     size?: FormSelectSizeType
-    value?: OptionType
+    value?: OptionType | OptionType[]
 }
 
 export const defaultProps: Partial<Props> = {

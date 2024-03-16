@@ -7,7 +7,6 @@ import { convertSize, IconSuccess, IconWarning, IconError } from '../Icon'
 import IconInfo from '../Icon/components/IconInfo'
 import * as styles from './Alert.styles'
 import IconClose from '../Icon/components/IconClose'
-import { noSeverityBg } from './Alert.styles'
 
 const Alert: FC<Props> = (props) => {
     const { children, className, dataTestId, noSeverityBg, severity } = props

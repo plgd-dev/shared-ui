@@ -25,7 +25,7 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
     }, [useFormData.formState.errors, setFormError, errorKey])
 
     useEffect(() => {
-        // useFormData.formState.isDirty && console.log('dirty fields:', errorKey, useFormData.formState.dirtyFields, useFormData.formState.isDirty)
+        useFormData.formState.isDirty && console.log('dirty fields:', errorKey, useFormData.formState.dirtyFields, useFormData.formState.isDirty)
         isFunction(setFormDirty) && setFormDirty((prevState: any) => ({ ...prevState, [errorKey]: useFormData.formState.isDirty }))
     }, [useFormData.formState.dirtyFields, setFormDirty, errorKey, useFormData.formState.isDirty])
 

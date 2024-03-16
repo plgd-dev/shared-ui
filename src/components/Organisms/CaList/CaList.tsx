@@ -1,16 +1,18 @@
-import React, { FC, useCallback } from 'react'
+import React, { FC, useCallback, useMemo } from 'react'
+import isFunction from 'lodash/isFunction'
+import { v5 } from 'uuid'
 
 import FormLabel from '../../Atomic/FormLabel'
 import FormGroup from '../../Atomic/FormGroup'
 import { DataType, Props } from './CaList.types'
 import * as styles from './CaList.styles'
-import isFunction from 'lodash/isFunction'
 import IconDownload from '../../Atomic/Icon/components/IconDownload'
 import { IconArrowDetail, IconTrash } from '../../Atomic'
 import TableActionButton from '../TableActionButton'
+import Spacer from '../../Atomic/Spacer'
 
 const CaList: FC<Props> = (props) => {
-    const { actions, data, i18n } = props
+    const { actions, data, formGroupProps, i18n, largePadding } = props
 
     const getButtons = useCallback(
         (item: DataType, index: number) => {
@@ -45,16 +47,22 @@ const CaList: FC<Props> = (props) => {
         [actions, i18n.delete, i18n.download, i18n.view]
     )
 
+    const id = useMemo(() => formGroupProps?.id || v5('Uploaded CA Pools', v5.URL), [formGroupProps])
+
     if (!data || data.length === 0) {
         return null
     }
 
     return (
-        <FormGroup css={styles.list} id='1'>
-            <FormLabel text='Uploaded CA Pools' />
+        <FormGroup css={styles.list} {...formGroupProps} id={id}>
+            {i18n.title && (
+                <Spacer type={largePadding ? 'pl-6' : ''}>
+                    <FormLabel marginBottom={!largePadding} text={i18n.title} />
+                </Spacer>
+            )}
             <ul>
                 {data?.map((d, key) => (
-                    <li css={styles.row} key={key}>
+                    <li css={[styles.row, largePadding && styles.largePadding]} key={key}>
                         <span css={styles.name}>{d.name}</span>
                         <div>{getButtons(d, key)}</div>
                     </li>

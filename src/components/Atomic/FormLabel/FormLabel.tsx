@@ -7,9 +7,14 @@ import Tooltip from '../Tooltip'
 import IconQuestion from '../Icon/components/IconQuestion'
 
 const FormLabel = forwardRef<HTMLLabelElement, Props>((props, ref) => {
-    const { className, id, inline, required, text, tooltipText, tooltipMaxWidth } = props
+    const { className, id, inline, marginBottom, required, text, tooltipText, tooltipMaxWidth } = props
     return (
-        <label className={className} css={[styles.label, inline && styles.inline, tooltipText && styles.w100]} htmlFor={id} ref={ref}>
+        <label
+            className={className}
+            css={[styles.label, inline && styles.inline, tooltipText && styles.w100, marginBottom === false && styles.noMargin]}
+            htmlFor={id}
+            ref={ref}
+        >
             <ConditionalWrapper
                 condition={!!tooltipText}
                 wrapper={(c) => (

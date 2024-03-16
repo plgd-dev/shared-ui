@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import { Props, defaultProps, AlreadySharedItemType, Inputs } from './ShareDeviceModal.types'
 import Modal from '../../Modal'
 import * as styles from './ShareDeviceModal.styles'

@@ -24,6 +24,10 @@ export const w100 = css`
     width: 100%;
 `
 
+export const noMargin = css`
+    margin-bottom: 0 !important;
+`
+
 export const required = (theme: ThemeType) => css`
     color: ${get(theme, `FormLabel.required.color`)};
 `
