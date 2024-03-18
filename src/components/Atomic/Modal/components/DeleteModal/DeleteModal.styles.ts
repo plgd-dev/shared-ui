@@ -18,7 +18,7 @@ export const deleteIcon = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${hexToRgbA(get(theme, `DeleteModal.red`), 0.1)};
+    background: ${hexToRgbA(get(theme, `DeleteModal.icon.color`), 0.1)};
     margin-top: -84px;
 `
 
@@ -26,12 +26,12 @@ export const deleteIconInner = (theme: ThemeType) => css`
     flex: 0 0 86px;
     width: 86px;
     height: 86px;
-    background: ${colors.red};
+    background: ${get(theme, 'DeleteModal.icon.background')};
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: ${get(theme, 'DeleteModal.deleteIconInner.color')};
+    color: ${get(theme, 'DeleteModal.icon.color')};
     box-shadow: 0 6px 12px rgba(215, 78, 58, 0.32);
 `
 

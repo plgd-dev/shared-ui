@@ -262,8 +262,9 @@ const theme = {
             item: {
                 borderColor: colors.neutral500,
             },
-            deleteIconInner: {
+            icon: {
                 color: colorsSiemens.neutral000,
+                background: colorsSiemens.red,
             },
             subTitle: {
                 color: colors.neutral500,

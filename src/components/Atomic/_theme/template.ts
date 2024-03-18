@@ -273,8 +273,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             item: {
                 borderColor: colors.neutral200,
             },
-            deleteIconInner: {
+            icon: {
                 color: colors.neutral000,
+                background: colors.red,
             },
             subTitle: {
                 color: colors.neutral800,
@@ -705,6 +706,16 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 hover: {
                     color: colors.primary,
                 },
+            },
+        },
+        Prompt: {
+            icon: {
+                background: colors.primaryBonus,
+                color: colors.neutral000,
+            },
+            text: {
+                color: colors.neutral800,
+                borderColor: colors.neutral200,
             },
         },
         ProvisionDeviceModal: {

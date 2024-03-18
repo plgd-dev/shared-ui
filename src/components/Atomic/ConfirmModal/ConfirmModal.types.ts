@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Props as ModalProps } from '../Modal/Modal.types'
 
 export type Props = {
     body: ReactNode
@@ -12,7 +13,7 @@ export type Props = {
     onConfirm: (onClose: () => void, data?: {}) => void
     show: boolean
     title: ReactNode
-}
+} & Pick<ModalProps, 'zIndex'>
 
 export const defaultProps = {
     show: false,

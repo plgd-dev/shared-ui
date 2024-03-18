@@ -44,6 +44,7 @@ const DeleteModal: FC<Props> = (props) => {
             portalTarget={document.getElementById('modal-root')}
             renderBody={renderBody}
             renderHeader={renderHeader}
+            zIndex={25}
         />
     )
 }
