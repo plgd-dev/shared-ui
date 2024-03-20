@@ -134,7 +134,7 @@ export const close = (theme: ThemeType) => css`
         }
     }
 
-    &:hover: {
+    &:hover {
         text-decoration: none;
     }
 `

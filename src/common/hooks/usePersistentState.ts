@@ -7,7 +7,10 @@ export default function usePersistentState<T>(key: string, initialValue: T): [T,
     useEffect(() => {
         const value = localStorage.getItem(key)
 
-        if (!value) return
+        if (!value) {
+            setRehydrate(true)
+            return
+        }
 
         setInternalState(JSON.parse(value))
         setRehydrate(true)

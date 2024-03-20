@@ -24,7 +24,7 @@ export const row = (theme: ThemeType) => css`
 `
 
 export const largePadding = css`
-    padding: 16px 24px;
+    padding: 14px 24px;
 `
 
 export const name = (theme: ThemeType) => css`

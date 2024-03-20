@@ -165,8 +165,11 @@ export const valueContainer = css`
 `
 
 export const valueContainerMulti = css`
-    justify-content: flex-end;
     flex-wrap: nowrap;
+`
+
+export const valueContainerMultiRight = css`
+    justify-content: flex-end;
 `
 
 export const value = (theme: ThemeType) => css`
@@ -185,11 +188,13 @@ export const multiValue = (theme: ThemeType) => css`
     color: ${get(theme, `FormSelect.multi.value.color`)};
     border: 1px solid ${get(theme, `FormSelect.multi.value.borderColor`)};
     background: ${get(theme, `FormSelect.multi.value.background`)};
+    padding: 0;
+    cursor: pointer;
 `
 
 export const multiValueLabel = (theme: ThemeType) => css`
     border: none !important;
-    padding: 3px 8px;
+    padding: 3px 4px;
 `
 
 export const multiValueRemove = (theme: ThemeType) => css`
@@ -197,7 +202,7 @@ export const multiValueRemove = (theme: ThemeType) => css`
     align-items: center;
     justify-content: center;
     border-radius: 2px;
-    padding: 0 2px;
+    padding: 0 !important;
     box-sizing: border-box;
     text-align: right;
     font-size: 12px;

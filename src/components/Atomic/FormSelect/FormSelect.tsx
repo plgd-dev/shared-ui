@@ -72,7 +72,14 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     const ValueContainer = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
         props: ValueContainerProps<Option, IsMulti, Group>
     ) => (
-        <components.ValueContainer {...props} css={[styles.valueContainer, props.isMulti && styles.valueContainerMulti]}>
+        <components.ValueContainer
+            {...props}
+            css={[
+                styles.valueContainer,
+                props.isMulti && styles.valueContainerMulti,
+                align === selectAligns.RIGHT && props.isMulti && styles.valueContainerMultiRight,
+            ]}
+        >
             {props.children}
         </components.ValueContainer>
     )
@@ -119,9 +126,9 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     const MultiValueRemove = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
         props: MultiValueRemoveProps<Option, IsMulti, Group>
     ) => (
-        <div css={styles.multiValueRemove}>
+        <components.MultiValueRemove {...props} css={styles.multiValueRemove}>
             <IconCloseX />
-        </div>
+        </components.MultiValueRemove>
     )
 
     const DropdownIndicator = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(

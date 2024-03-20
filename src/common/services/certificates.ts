@@ -1,13 +1,13 @@
 import { parse, pemToDER } from '../utils/cert-decoder.mjs'
 import { CerType } from '../../components/Organisms/CaPoolModal/components/CaPoolModalContent.types'
 
-export const formatCertName = (cert: any) => {
+export const formatCertName = (cert: any, raw = false) => {
     if (cert.subject.cn) {
-        return `CN: ${cert.subject.cn}`
+        return `${raw ? '' : 'CN: '}${cert.subject.cn}`
     } else if (cert.subject.ou) {
-        return `OU: ${cert.subject.ou}`
+        return `${raw ? '' : 'OU:'}${cert.subject.ou}`
     } else if (cert.subject.o) {
-        return `O: ${cert.subject.o}`
+        return `${raw ? '' : 'O: '}${cert.subject.o}`
     }
 
     return ''
