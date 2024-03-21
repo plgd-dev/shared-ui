@@ -50,7 +50,6 @@ export function useCaData(options: Options) {
 
     useEffect(() => {
         if (data && data.length > 0 && !error) {
-            console.log('data', data)
             parseCaPool(data, singleMode)
                 .catch((e) => {
                     console.error(e)
