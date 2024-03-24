@@ -1,7 +1,7 @@
 import React, { Children, FC, useCallback, useEffect, useRef, useState } from 'react'
 import debounce from 'lodash/debounce'
 
-import { Props } from './TagGroup.types'
+import { Props, defaultProps } from './TagGroup.types'
 import * as styles from './TagGroup.styles'
 import Tag from '../Tag'
 import { tagVariants } from '../Tag/constants'
@@ -119,6 +119,11 @@ const TagGroup: FC<Props> = (props) => {
             </div>
 
             {tagsToDisplay > 0 && <Inner />}
+            {tagsToDisplay === 0 && (
+                <Tag onClick={() => setShow(true)} ref={moreTags} variant={tagVariants.BLUE}>
+                    {childrenArray.length} {i18n.more}
+                </Tag>
+            )}
 
             <Modal
                 appRoot={document.getElementById('root')}
@@ -134,5 +139,6 @@ const TagGroup: FC<Props> = (props) => {
 }
 
 TagGroup.displayName = 'TagGroup'
+TagGroup.defaultProps = defaultProps
 
 export default TagGroup
