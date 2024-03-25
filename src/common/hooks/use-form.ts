@@ -29,10 +29,16 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
     }, [useFormData.formState.dirtyFields, setFormDirty, errorKey, useFormData.formState.isDirty])
 
     const updateField = useCallback(
-        (field: string, fieldValue: any) => {
+        (field: string, fieldValue: any, asArray = false) => {
             const copy = cloneDeep(data)
 
-            updateData(setProperty(copy, field, fieldValue))
+            if (asArray) {
+                // @ts-ignore
+                copy[field] = fieldValue
+                updateData(copy)
+            } else {
+                updateData(setProperty(copy, field, fieldValue))
+            }
         },
         [data, updateData]
     )

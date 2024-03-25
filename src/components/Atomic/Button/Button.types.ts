@@ -1,9 +1,9 @@
 import { CSSProperties, MouseEvent, ReactNode } from 'react'
 import { iconPositions, buttonVariants, buttonSizes } from './constants'
 
-export type ButtonIconPositionType = typeof iconPositions[keyof typeof iconPositions]
-export type ButtonVariantsType = typeof buttonVariants[keyof typeof buttonVariants]
-export type ButtonSizesType = typeof buttonSizes[keyof typeof buttonSizes]
+export type ButtonIconPositionType = (typeof iconPositions)[keyof typeof iconPositions]
+export type ButtonVariantsType = (typeof buttonVariants)[keyof typeof buttonVariants]
+export type ButtonSizesType = (typeof buttonSizes)[keyof typeof buttonSizes]
 
 export type Props = {
     children: ReactNode

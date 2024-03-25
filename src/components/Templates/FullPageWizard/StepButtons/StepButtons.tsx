@@ -7,7 +7,7 @@ import Spacer from '../../../Atomic/Spacer'
 import Button from '../../../Atomic/Button'
 
 const StepButtons: FC<Props> = (props) => {
-    const { i18n, onClickBack, onClickNext } = props
+    const { disableNext, i18n, onClickBack, onClickNext } = props
 
     return (
         <Spacer css={commonStyles.buttons} type='mt-10'>
@@ -25,6 +25,7 @@ const StepButtons: FC<Props> = (props) => {
             )}
             <Button
                 fullWidth
+                disabled={disableNext}
                 onClick={(e) => {
                     e.preventDefault()
                     isFunction(onClickNext) && onClickNext()

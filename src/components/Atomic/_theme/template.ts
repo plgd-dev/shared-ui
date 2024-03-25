@@ -1032,6 +1032,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 },
             },
         },
+        ValidationMessage: {
+            color: colors.red,
+        },
         VersionMark: {
             link: {
                 color: colors.primary,

@@ -976,6 +976,9 @@ const theme = {
                 },
             },
         },
+        ValidationMessage: {
+            colors: colorsSiemens.red,
+        },
         VersionMark: {
             link: {
                 color: colorsSiemens.primary,

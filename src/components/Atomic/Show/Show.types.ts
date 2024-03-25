@@ -1,4 +1,4 @@
-import { FC, ReactElement, ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 
 export type Props = {
     children: ReactNode
@@ -15,6 +15,6 @@ export type WhenProps = {
 }
 
 export type ElseProps = {
-    render: ReactNode
+    render?: ReactNode
     children: any
 }
