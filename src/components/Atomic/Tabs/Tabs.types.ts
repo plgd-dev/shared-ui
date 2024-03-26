@@ -8,6 +8,7 @@ export type TabItem = {
     dataTestId?: string
     disabled?: boolean
     id: number
+    innerPadding?: boolean
     name: string
     status?: StatusType
 }

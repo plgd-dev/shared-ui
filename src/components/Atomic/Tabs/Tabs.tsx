@@ -97,7 +97,7 @@ const Tabs: FC<Props> = (props) => {
                         }
                         return (
                             <div
-                                css={[styles.page, innerPadding && styles.pageXpadding]}
+                                css={[styles.page, innerPadding && tab.innerPadding !== false && styles.pageXpadding]}
                                 key={i}
                                 style={{
                                     width: '100%',
