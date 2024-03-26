@@ -515,6 +515,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             background: colors.neutral000,
             close: {
                 color: colors.neutral500,
+                hover: {
+                    color: colors.primary,
+                },
+            },
+            description: {
+                color: colors.neutral900,
             },
             leftCol: {
                 background: colors.light,
@@ -522,6 +528,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             navigation: {
                 link: {
                     color: colors.primaryDarken,
+                    hover: {
+                        color: colors.primary,
+                    },
                 },
                 line: {
                     background: colors.neutral300,
@@ -532,6 +541,10 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 description: {
                     color: colors.neutral500,
                 },
+            },
+            subHeadline: {
+                color: colors.primaryDarken,
+                borderColor: colors.neutral200,
             },
         },
         Header: {
@@ -946,6 +959,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         },
         TileToggle: {
             background: colors.neutral100,
+            darkBg: {
+                background: undefined,
+            },
             name: {
                 color: colors.primaryDarken,
             },

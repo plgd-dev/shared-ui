@@ -80,6 +80,10 @@ export const link = (theme: ThemeType) => css`
     font-weight: 600;
     opacity: 0.6;
     transition: all 0.3s;
+
+    &:hover {
+        color: ${get(theme, `FullPageWizard.navigation.link.hover.color`)};
+    }
 `
 
 export const description = (theme: ThemeType) => css`
@@ -136,6 +140,7 @@ export const close = (theme: ThemeType) => css`
 
     &:hover {
         text-decoration: none;
+        color: ${get(theme, `FullPageWizard.close.hover.color`)};
     }
 `
 

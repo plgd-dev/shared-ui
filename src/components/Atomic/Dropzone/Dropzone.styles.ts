@@ -4,6 +4,7 @@ import { ThemeType, get } from '../_theme'
 export const dropzoneContainer = (theme: ThemeType) => css`
     padding: 32px;
     border: 1px dashed ${get(theme, `Dropzone.container.borderColor`)};
+    background: ${get(theme, `Dropzone.container.background`)};
     border-radius: 8px;
     cursor: pointer;
 `

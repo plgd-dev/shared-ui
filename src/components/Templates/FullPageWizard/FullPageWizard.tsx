@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useTheme } from '@emotion/react'
 import isFunction from 'lodash/isFunction'
@@ -10,9 +10,10 @@ import IconCircle from './assets/IconCircle'
 import IconDone from './assets/IconDone'
 import IconCloseCircle from '../../Atomic/Icon/components/IconCloseCircle'
 import { convertSize } from '../../Atomic'
-import { Props } from './FullPageWizard.types'
+import { ComponentType, Props } from './FullPageWizard.types'
+import { Description, SubHeadline } from './Components'
 
-const FullPageWizard: FC<Props> = (props) => {
+const FullPageWizard: ComponentType<Props> = (props) => {
     const { children, title, i18n, steps, activeStep, onStepChange, onClose } = props
 
     const theme: ThemeType = useTheme()
@@ -73,5 +74,7 @@ const FullPageWizard: FC<Props> = (props) => {
 }
 
 FullPageWizard.displayName = 'FullPageWizard'
+FullPageWizard.Description = Description
+FullPageWizard.SubHeadline = SubHeadline
 
 export default FullPageWizard

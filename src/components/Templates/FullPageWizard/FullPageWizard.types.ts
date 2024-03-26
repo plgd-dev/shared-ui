@@ -1,4 +1,10 @@
-import { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
+import { DescriptionProps, SubHeadlineProps } from './Components'
+
+export interface ComponentType<P> extends FC<P> {
+    Description: FC<DescriptionProps>
+    SubHeadline: FC<SubHeadlineProps>
+}
 
 export type Props = {
     activeStep: number

@@ -12,6 +12,10 @@ export const tileToggle = (theme: ThemeType) => css`
     align-items: center;
 `
 
+export const darkBg = (theme: ThemeType) => css`
+    background: ${get(theme, `TileToggle.darkBg.background`)};
+`
+
 export const name = (theme: ThemeType) => css`
     font-family: ${fontPrimary};
     font-style: normal;

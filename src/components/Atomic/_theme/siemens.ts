@@ -278,12 +278,13 @@ const theme = {
         },
         Dropzone: {
             container: {
-                borderColor: colors.neutral300,
+                borderColor: colors.neutral800,
+                background: colorsSiemens.neutral900,
             },
             placeholder: {
                 color: colors.neutral500,
                 text: {
-                    color: colors.neutral800,
+                    color: colors.neutral500,
                 },
                 highlight: {
                     color: colors.neutral800,
@@ -495,6 +496,41 @@ const theme = {
             },
             readOnly: {
                 color: colors.neutral600,
+            },
+        },
+        FullPageWizard: {
+            background: colorsSiemens.neutral800,
+            close: {
+                color: colorsSiemens.neutral500,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
+            },
+            description: {
+                color: colorsSiemens.neutral500,
+            },
+            leftCol: {
+                background: colorsSiemens.neutral900,
+            },
+            navigation: {
+                link: {
+                    color: colorsSiemens.primary,
+                    hover: {
+                        color: colorsSiemens.primary,
+                    },
+                },
+                description: {
+                    color: colorsSiemens.neutral500,
+                },
+                line: {
+                    visited: {
+                        background: colorsSiemens.primary,
+                    },
+                },
+            },
+            subHeadline: {
+                color: colorsSiemens.primary,
+                borderColor: colorsSiemens.neutral500,
             },
         },
         Header: {
@@ -890,6 +926,9 @@ const theme = {
         },
         TileToggle: {
             background: colorsSiemens.neutral800,
+            darkBg: {
+                background: colorsSiemens.neutral900,
+            },
             name: {
                 color: colorsSiemens.primary,
             },
@@ -977,7 +1016,7 @@ const theme = {
             },
         },
         ValidationMessage: {
-            colors: colorsSiemens.red,
+            color: colorsSiemens.red,
         },
         VersionMark: {
             link: {
