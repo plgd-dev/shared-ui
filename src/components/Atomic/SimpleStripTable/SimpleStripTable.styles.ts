@@ -89,3 +89,7 @@ export const copy = (theme: ThemeType) => css`
         color: ${get(theme, `SimpleStripTable.value.copy.hover.color`)};
     }
 `
+
+export const required = (theme: ThemeType) => css`
+    color: ${get(theme, `FormLabel.required.color`)};
+`

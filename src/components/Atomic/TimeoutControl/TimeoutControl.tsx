@@ -21,6 +21,7 @@ const TimeoutControl: FC<Props> = (props) => {
         defaultValue,
         defaultTtlValue,
         error,
+        errorTooltip,
         onChange,
         disabled,
         ttlHasError,
@@ -131,8 +132,8 @@ const TimeoutControl: FC<Props> = (props) => {
     return (
         <div css={styles.timeoutControl}>
             <div css={styles.left}>
-                <FormGroup error={getError()} fullSize={!!align} id='Command Timeout' inline={!align} marginBottom={!align}>
-                    {i18n.duration && <FormLabel required={required} text={i18n.duration} />}
+                <FormGroup error={getError()} errorTooltip={errorTooltip} fullSize={!!align} id='Command Timeout' inline={!align} marginBottom={!align}>
+                    {i18n.duration ? <FormLabel required={required} text={i18n.duration} /> : undefined}
                     <FormInput
                         align={align}
                         css={[styles.input, smallMode && styles.inputSmall]}

@@ -9,7 +9,7 @@ export type FormContextType = {
     setFormDirty?: Dispatch<SetStateAction<any>>
     commonFormGroupProps: Pick<FormGroupProps, 'errorTooltip' | 'fullSize' | 'marginBottom'>
     commonInputProps: Pick<InputProps, 'inlineStyle' | 'align' | 'size'>
-    commonTimeoutControlProps: Pick<TimeoutControlProps, 'align' | 'i18n' | 'inlineStyle' | 'size' | 'watchUnitChange' | 'smallMode'>
+    commonTimeoutControlProps: Pick<TimeoutControlProps, 'align' | 'i18n' | 'inlineStyle' | 'size' | 'watchUnitChange' | 'smallMode' | 'errorTooltip'>
     i18n?: any
     setStep?: (step: number) => void
     onSubmit?: () => void

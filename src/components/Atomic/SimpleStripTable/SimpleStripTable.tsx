@@ -39,6 +39,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                 data-test-id={r.dataTestId?.concat('-attribute')}
                             >
                                 {r.attribute}
+                                {r.required && <span css={styles.required}> *</span>}
                             </div>
                         </Column>
                         <Column size={rightColSize as ColumnSizeType}>

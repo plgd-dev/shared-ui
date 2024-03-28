@@ -16,6 +16,7 @@ export const getFormContextDefault = (i18nDefault = '') => ({
     },
     commonTimeoutControlProps: {
         align: inputAligns.RIGHT,
+        errorTooltip: true,
         i18n: {
             default: i18nDefault,
             duration: '',

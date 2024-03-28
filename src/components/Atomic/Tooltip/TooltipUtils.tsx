@@ -92,9 +92,9 @@ export const TooltipAnchor = forwardRef(function TooltipAnchor(
     }
 
     return (
-        <button ref={ref} {...state.getReferenceProps(props)}>
+        <div ref={ref} {...state.getReferenceProps(props)}>
             {children}
-        </button>
+        </div>
     )
 })
 

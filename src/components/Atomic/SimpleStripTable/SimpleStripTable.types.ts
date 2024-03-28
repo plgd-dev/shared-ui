@@ -3,10 +3,11 @@ import { ReactElement, ReactNode } from 'react'
 export type Row = {
     attribute: string
     autoHeight?: boolean
-    value: ReactNode | ReactElement
+    copyValue?: string | boolean
     dataTestId?: string
     key?: string
-    copyValue?: string | boolean
+    required?: boolean
+    value: ReactNode | ReactElement
 }
 
 export type Props = {

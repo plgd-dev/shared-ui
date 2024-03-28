@@ -6,6 +6,7 @@ export type Props = {
     defaultValue: number
     disabled?: boolean
     error?: string
+    errorTooltip?: boolean
     i18n: {
         default: string
         duration?: string
