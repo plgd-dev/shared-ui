@@ -427,7 +427,7 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         FormLabel: {
             color: colors.neutral500,
             required: {
-                color: colors.primary,
+                color: colors.red,
             },
         },
         FormSelect: {

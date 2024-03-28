@@ -5,6 +5,7 @@ export type Props = {
     defaultTtlValue: number
     defaultValue: number
     disabled?: boolean
+    error?: string
     i18n: {
         default: string
         duration?: string
@@ -16,6 +17,7 @@ export type Props = {
     onBlur?: (v: any) => void
     onChange: (v: any) => void
     onTtlHasError?: (v: boolean) => void
+    required?: boolean
     rightStyle?: CSSProperties
     smallMode?: boolean
     ttlHasError?: boolean

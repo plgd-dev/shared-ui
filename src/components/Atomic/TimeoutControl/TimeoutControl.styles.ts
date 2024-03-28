@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 
 export const timeoutControl = css`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 `
 
 export const left = css`

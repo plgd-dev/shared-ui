@@ -20,12 +20,14 @@ const TimeoutControl: FC<Props> = (props) => {
         align,
         defaultValue,
         defaultTtlValue,
+        error,
         onChange,
         disabled,
         ttlHasError,
         onTtlHasError,
         i18n,
         inlineStyle,
+        required,
         rightStyle,
         size,
         smallMode,
@@ -115,11 +117,22 @@ const TimeoutControl: FC<Props> = (props) => {
         isFunction(props.onBlur) && props.onBlur(convertValueToNs(typeof inputValue === 'string' ? parseInt(inputValue, 10) : inputValue, unit))
     }
 
+    const getError = () => {
+        if (ttlHasError) {
+            return ''
+        }
+        if (error) {
+            return error
+        }
+
+        return undefined
+    }
+
     return (
         <div css={styles.timeoutControl}>
             <div css={styles.left}>
-                <FormGroup error={ttlHasError ? '' : undefined} fullSize={!!align} id='Command Timeout' inline={!align} marginBottom={!align}>
-                    {i18n.duration && <FormLabel text={i18n.duration} />}
+                <FormGroup error={getError()} fullSize={!!align} id='Command Timeout' inline={!align} marginBottom={!align}>
+                    {i18n.duration && <FormLabel required={required} text={i18n.duration} />}
                     <FormInput
                         align={align}
                         css={[styles.input, smallMode && styles.inputSmall]}

@@ -3,6 +3,7 @@ import { useForm as useFormLib } from 'react-hook-form'
 import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
 import isFunction from 'lodash/isFunction'
 import cloneDeep from 'lodash/cloneDeep'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import { setProperty } from '../../components/Atomic/_utils/utils'
 
@@ -11,12 +12,18 @@ type UseFormOptionsType = {
     errorKey: string
     setFormError?: Dispatch<SetStateAction<any>>
     setFormDirty?: Dispatch<SetStateAction<any>>
+    schema?: any
     updateData: (newData: any) => void
 }
 
 export function useForm<TFieldValues extends FieldValues = FieldValues>(options: UseFormOptionsType) {
-    const { defaultFormData, setFormError, setFormDirty, updateData, errorKey } = options
-    const useFormData = useFormLib<TFieldValues>({ mode: 'all', reValidateMode: 'onSubmit', defaultValues: defaultFormData })
+    const { defaultFormData, setFormError, setFormDirty, updateData, errorKey, schema } = options
+    const useFormData = useFormLib<TFieldValues>({
+        mode: 'all',
+        reValidateMode: 'onSubmit',
+        defaultValues: defaultFormData,
+        resolver: schema ? zodResolver(schema) : undefined,
+    })
 
     const data = useFormData.watch()
 

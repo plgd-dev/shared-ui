@@ -28,7 +28,7 @@ const FormLabel = forwardRef<HTMLLabelElement, Props>((props, ref) => {
             >
                 <>
                     {text}
-                    {required && <span css={styles.required}>*</span>}
+                    {required && <span css={styles.required}> *</span>}
                 </>
             </ConditionalWrapper>
         </label>

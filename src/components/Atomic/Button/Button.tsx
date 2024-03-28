@@ -66,7 +66,7 @@ const Button: FC<Props> = (props) => {
                 fullWidth && styles.fullWidth,
             ]}
             data-test-id={dataTestId}
-            onClick={disabled ? undefined : handleOnClick}
+            onClick={disabled ? (e) => e.preventDefault() : handleOnClick}
             type={htmlType}
         >
             {typeof loading === 'boolean' || icon ? getButtonContent() : children}

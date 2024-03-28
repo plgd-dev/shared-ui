@@ -7,6 +7,7 @@ import * as styles from './Tooltip.styles'
 import { useTooltipState, TooltipAnchor, TooltipContent } from './TooltipUtils'
 import { tooltipVariants } from './constants'
 import classNames from 'classnames'
+import ConditionalWrapper from '../ConditionalWrapper'
 
 const Tooltip: FC<Props> = (props) => {
     const { content, children, delay, id: propId, placement, className, initialOpen, maxWidth, portalTarget, variant } = { ...defaultProps, ...props }
@@ -24,18 +25,27 @@ const Tooltip: FC<Props> = (props) => {
     useDelayGroup(state.context, { id })
 
     return (
-        <div className={className} id={propId}>
-            <Global styles={[styles.tooltip, variant === tooltipVariants.ERROR && styles.error]} />
-            <TooltipAnchor asChild state={state}>
-                {children}
-            </TooltipAnchor>
-            {!!content && (
-                <TooltipContent error={variant === tooltipVariants.ERROR} maxWidth={maxWidth} portalTarget={portalTarget} state={state}>
-                    {content}
-                    <div className={classNames('tooltip-arrow', variant === tooltipVariants.ERROR && 'tooltip-arrow-error')} id={`${id}-arrow`} />
-                </TooltipContent>
+        <ConditionalWrapper
+            condition={!!className || !!propId}
+            wrapper={(c) => (
+                <div className={className} id={propId}>
+                    {c}
+                </div>
             )}
-        </div>
+        >
+            <>
+                <Global styles={[styles.tooltip, variant === tooltipVariants.ERROR && styles.error]} />
+                <TooltipAnchor asChild state={state}>
+                    {children}
+                </TooltipAnchor>
+                {!!content && (
+                    <TooltipContent error={variant === tooltipVariants.ERROR} maxWidth={maxWidth} portalTarget={portalTarget} state={state}>
+                        {content}
+                        <div className={classNames('tooltip-arrow', variant === tooltipVariants.ERROR && 'tooltip-arrow-error')} id={`${id}-arrow`} />
+                    </TooltipContent>
+                )}
+            </>
+        </ConditionalWrapper>
     )
 }
 
