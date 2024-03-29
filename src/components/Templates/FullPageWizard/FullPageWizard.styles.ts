@@ -148,3 +148,7 @@ export const content = css`
     max-width: 600px;
     margin: auto;
 `
+
+export const requiredStar = (theme: ThemeType) => css`
+    color: ${get(theme, `FormLabel.required.color`)};
+`

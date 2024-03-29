@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import isFunction from 'lodash/isFunction'
 
 import * as commonStyles from '../FullPageWizardCommon.styles'
+import * as styles from '../FullPageWizard.styles'
 import { Props } from './StepButtons.types'
 import Spacer from '../../../Atomic/Spacer'
 import Button from '../../../Atomic/Button'
@@ -9,10 +10,13 @@ import Tooltip from '../../../Atomic/Tooltip'
 
 const StepButtons: FC<Props> = (props) => {
     const { disableNext, i18n, onClickBack, onClickNext } = props
+    const requiredMessageSplit = i18n.requiredMessage.split('(*)')
 
     return (
         <>
-            <Spacer type='mt-10'>{i18n.requiredMessage}</Spacer>
+            <Spacer css={commonStyles.description} type='mt-10'>
+                {requiredMessageSplit[0]}(<span css={styles.requiredStar}>*</span>){requiredMessageSplit[1]}
+            </Spacer>
             <Spacer css={commonStyles.buttons} type='mt-4'>
                 {isFunction(onClickBack) && (
                     <Button
