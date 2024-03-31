@@ -8,6 +8,7 @@ export type ColumnSizesType = {
     md?: ColumnSizeType
     lg?: ColumnSizeType
     xl?: ColumnSizeType
+    xxl?: ColumnSizeType
 }
 
 export type Props = {

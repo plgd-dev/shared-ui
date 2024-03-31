@@ -74,6 +74,8 @@ export const itemTitleIcon = css`
 `
 
 export const itemTitleText = css`
+    display: flex;
+    align-items: center;
     margin-left: 12px;
     font-weight: bold;
 `
@@ -171,4 +173,16 @@ export const line = css`
     position: absolute;
     left: 0;
     bottom: 50%;
+`
+
+export const icon = css`
+    margin-left: 8px;
+`
+
+export const iconSuccess = (theme: ThemeType) => css`
+    color: ${get(theme, `ContentMenu.item.icon.success.color`)};
+`
+
+export const iconError = (theme: ThemeType) => css`
+    color: ${get(theme, `ContentMenu.item.icon.error.color`)};
 `

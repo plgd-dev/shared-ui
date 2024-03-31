@@ -88,11 +88,11 @@ const TagGroup: FC<Props> = (props) => {
         } else {
             setTagsToDisplay(childArray.length)
         }
-    }, [])
+    }, [parent, tags, moreTags])
 
     const debouncedCallback = debounce(() => {
         calculate()
-    }, 1000)
+    }, 500)
 
     useEffect(() => {
         window.addEventListener('resize', debouncedCallback)
@@ -120,7 +120,7 @@ const TagGroup: FC<Props> = (props) => {
 
             {tagsToDisplay > 0 && <Inner />}
             {tagsToDisplay === 0 && (
-                <Tag onClick={() => setShow(true)} ref={moreTags} variant={tagVariants.BLUE}>
+                <Tag onClick={() => setShow(true)} variant={tagVariants.BLUE}>
                     {childrenArray.length} {i18n.more}
                 </Tag>
             )}

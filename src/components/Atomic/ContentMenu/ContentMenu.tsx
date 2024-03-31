@@ -8,6 +8,9 @@ import { Icon } from '../Icon'
 import { Arrow } from '../../Layout/LeftPanel/components'
 import img from '../../Layout/LeftPanel/assets/line.png'
 import IconSearch from '../Icon/components/IconSearch'
+import { statuses } from '../Tabs/constants'
+import IconCheck from '../Icon/components/IconCheck'
+import IconWarningCircle from '../Icon/components/IconWarningCircle'
 
 const ContentMenu: FC<Props> = (props) => {
     const { activeItem, className, handleItemClick, handleSubItemClick, id, menu: menuProp, menuSearch, title } = props
@@ -36,7 +39,7 @@ const ContentMenu: FC<Props> = (props) => {
 
     return (
         <div className={className} css={styles.contentMenu} id={id}>
-            <div css={styles.title}>{title}</div>
+            {title && <div css={styles.title}>{title}</div>}
             {menuSearch && (
                 <div css={styles.searchWrapper}>
                     <span css={styles.searchIcon}>
@@ -62,6 +65,8 @@ const ContentMenu: FC<Props> = (props) => {
                                 {getIcon(item)}
                                 <span aria-label={item.title} css={[styles.itemTitleText, !item.icon && styles.titleNoMargin]}>
                                     {item.title}
+                                    {item.status === statuses.SUCCESS && <IconCheck css={[styles.icon, styles.iconSuccess]} />}
+                                    {item.status === statuses.ERROR && <IconWarningCircle css={[styles.icon, styles.iconError]} />}
                                 </span>
                                 {item.children && (
                                     <span css={[styles.arrow, isItemActive && styles.activeArrow]}>

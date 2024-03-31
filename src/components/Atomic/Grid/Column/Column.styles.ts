@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import { ColumnSizesType, ColumnSizeType } from './Column.types'
 
 const comparePropName = (props: ColumnSizesType, name: string) =>
-    props.size === name || props.sm === name || props.md === name || props.lg === name || props.lg === name
+    props.size === name || props.sm === name || props.md === name || props.lg === name || props.xl === name || props.xxl === name
 
 const getColEqual = css`
     flex: 1 0 0;
@@ -57,5 +57,9 @@ export const column = (props: ColumnSizesType) => css`
 
     @media (min-width: 1200px) {
         ${props.xl && getColSize(props.xl)};
+    }
+
+    @media (min-width: 1400px) {
+        ${props.xxl && getColSize(props.xxl)};
     }
 `

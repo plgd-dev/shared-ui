@@ -223,6 +223,14 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                         color: colors.primaryBonus,
                     },
                 },
+                icon: {
+                    success: {
+                        color: colors.green,
+                    },
+                    error: {
+                        color: colors.red,
+                    },
+                },
             },
             search: {
                 background: colors.light,

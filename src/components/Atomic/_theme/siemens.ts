@@ -212,6 +212,14 @@ const theme = {
                         color: colorsSiemens.neutral000,
                     },
                 },
+                icon: {
+                    success: {
+                        color: colorsSiemens.green,
+                    },
+                    error: {
+                        color: colorsSiemens.red,
+                    },
+                },
             },
             search: {
                 background: colors.light,

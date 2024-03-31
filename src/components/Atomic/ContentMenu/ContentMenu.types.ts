@@ -1,4 +1,7 @@
 import { ReactNode, SyntheticEvent } from 'react'
+import { statuses } from './constants'
+
+export type StatusType = (typeof statuses)[keyof typeof statuses]
 
 export type ItemType = {
     children?: SubItemItem[]
@@ -6,6 +9,7 @@ export type ItemType = {
     id: string
     link: string
     title: string
+    status?: StatusType
 }
 
 export type SubItemItem = Omit<ItemType, 'icon' | 'link'> & {
@@ -20,5 +24,5 @@ export type Props = {
     id?: string
     menu: ItemType[]
     menuSearch?: boolean
-    title: string
+    title?: string
 }
