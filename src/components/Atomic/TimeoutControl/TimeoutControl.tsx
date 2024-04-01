@@ -1,9 +1,9 @@
-import { ChangeEvent, FC, useMemo, useState } from 'react'
+import { ChangeEvent, FC, useContext, useMemo, useState } from 'react'
 import isFunction from 'lodash/isFunction'
 import startCase from 'lodash/startCase'
 import debounce from 'lodash/debounce'
 
-import { Props } from './TimeoutControl.types'
+import { i18nType, Props } from './TimeoutControl.types'
 import * as styles from './TimeoutControl.styles'
 import FormGroup from '../FormGroup'
 import FormLabel from '../FormLabel'
@@ -12,10 +12,11 @@ import FormSelect, { selectSizes } from '../FormSelect'
 import { commandTimeoutUnits } from './constants'
 import { findClosestUnit, convertAndNormalizeValueFromTo, convertValueToNs, normalizeToFixedFloatValue, hasCommandTimeoutError } from './utils'
 import { inputSizes } from '../FormInput'
+import { FormContext } from '../../../common/context/FormContext'
 
 const { INFINITE, NS } = commandTimeoutUnits
 
-const TimeoutControl: FC<Props> = (props) => {
+export const TimeoutControlCore: FC<Props> = (props) => {
     const {
         align,
         defaultValue,
@@ -176,6 +177,27 @@ const TimeoutControl: FC<Props> = (props) => {
                 </FormGroup>
             </div>
         </div>
+    )
+}
+
+// make i18n optional
+const TimeoutControl: FC<Omit<Props, 'i18n'> & { i18n?: i18nType }> = (props) => {
+    const { commonTimeoutControlProps, compactFormComponentsView } = useContext(FormContext)
+
+    return (
+        <TimeoutControlCore
+            {...props}
+            {...(compactFormComponentsView
+                ? commonTimeoutControlProps
+                : {
+                      i18n: {
+                          default: props.i18n?.default || '',
+                          duration: props.i18n?.duration || '',
+                          unit: props.i18n?.unit || '',
+                          placeholder: props.i18n?.placeholder || '',
+                      },
+                  })}
+        />
     )
 }
 

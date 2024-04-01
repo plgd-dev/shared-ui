@@ -1,12 +1,13 @@
-import React, { Children, cloneElement, FC, isValidElement, ReactElement } from 'react'
+import React, { Children, cloneElement, FC, isValidElement, ReactElement, useContext } from 'react'
 
 import { defaultProps, Props } from './FormGroup.types'
 import * as styles from './FormGroup.styles'
 import Button from '../Button/Button'
 import Tooltip from '../Tooltip/Tooltip'
 import { tooltipVariants } from '../Tooltip'
+import { FormContext } from '../../../common/context/FormContext'
 
-const FormGroup: FC<Props> = (props) => {
+export const FormGroupCore: FC<Props> = (props) => {
     const { children, className, error, errorTooltip, id, inline, fullSize, marginBottom, inlineJustifyContent, renderProps } = { ...defaultProps, ...props }
     const childrenWithProps = Children.map(children as ReactElement[], (child, key) => {
         if (isValidElement(child)) {
@@ -72,6 +73,11 @@ const FormGroup: FC<Props> = (props) => {
             {getInputs()}
         </div>
     )
+}
+
+const FormGroup: FC<Props> = (props) => {
+    const { commonFormGroupProps, compactFormComponentsView } = useContext(FormContext)
+    return <FormGroupCore {...props} {...(compactFormComponentsView ? commonFormGroupProps : {})} />
 }
 
 FormGroup.displayName = 'FormGroup'

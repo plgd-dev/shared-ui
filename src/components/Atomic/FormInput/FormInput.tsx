@@ -1,4 +1,4 @@
-import { forwardRef, useRef, useState } from 'react'
+import { forwardRef, useContext, useRef, useState } from 'react'
 import { detect } from 'detect-browser'
 import { mergeRefs } from 'react-merge-refs'
 
@@ -8,8 +8,9 @@ import { convertSize, IconCopy, IconHidePassword, IconShowPassword } from '../Ic
 import { copyToClipboard } from '../../../common/utils'
 import { inputAligns, inputSizes } from './constants'
 import { isEdge } from '../_utils/browser'
+import { FormContext } from '../../../common/context/FormContext'
 
-const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const {
         align,
         ariaInvalid,
@@ -104,6 +105,11 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     }
 
     return inputBase
+})
+
+const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
+    const { commonInputProps, compactFormComponentsView } = useContext(FormContext)
+    return <FormInputCore {...props} ref={ref} {...(compactFormComponentsView ? commonInputProps : {})} />
 })
 
 FormInput.displayName = 'FormInput'

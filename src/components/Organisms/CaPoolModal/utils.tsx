@@ -33,11 +33,7 @@ export const getCommonNameElement = (name: string, activeItem: string, setActive
 export const findInEntries = (entries: any, name: string) => {
     const index = entries.findIndex((item: any) => item[0] === name)
 
-    if (index >= 0) {
-        return entries[index][1]
-    }
-
-    return '-'
+    return index >= 0 ? entries[index][1] : '-'
 }
 
 export const buildCATranslations = (_: any, t: any, g: any) => ({

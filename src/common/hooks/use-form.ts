@@ -1,23 +1,24 @@
 import { FieldValues } from 'react-hook-form/dist/types'
 import { useForm as useFormLib } from 'react-hook-form'
-import { Dispatch, SetStateAction, useCallback, useEffect } from 'react'
+import { useCallback, useContext, useEffect } from 'react'
 import isFunction from 'lodash/isFunction'
 import cloneDeep from 'lodash/cloneDeep'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { setProperty } from '../../components/Atomic/_utils/utils'
+import { FormContext } from '../context/FormContext'
 
 type UseFormOptionsType = {
     defaultFormData: any
     errorKey: string
-    setFormError?: Dispatch<SetStateAction<any>>
-    setFormDirty?: Dispatch<SetStateAction<any>>
     schema?: any
-    updateData: (newData: any) => void
 }
 
 export function useForm<TFieldValues extends FieldValues = FieldValues>(options: UseFormOptionsType) {
-    const { defaultFormData, setFormError, setFormDirty, updateData, errorKey, schema } = options
+    const { defaultFormData, errorKey, schema } = options
+
+    const { setFormDirty, setFormError, updateData } = useContext(FormContext)
+
     const useFormData = useFormLib<TFieldValues>({
         mode: 'all',
         reValidateMode: 'onSubmit',

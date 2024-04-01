@@ -7,6 +7,7 @@ export type FormContextType = {
     updateData: (newData: any) => void
     setFormError?: Dispatch<SetStateAction<any>>
     setFormDirty?: Dispatch<SetStateAction<any>>
+    compactFormComponentsView: boolean
     commonFormGroupProps: Pick<FormGroupProps, 'errorTooltip' | 'fullSize' | 'marginBottom'>
     commonInputProps: Pick<InputProps, 'inlineStyle' | 'align' | 'size'>
     commonTimeoutControlProps: Pick<TimeoutControlProps, 'align' | 'i18n' | 'inlineStyle' | 'size' | 'watchUnitChange' | 'smallMode' | 'errorTooltip'>

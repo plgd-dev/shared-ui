@@ -28,6 +28,7 @@ export const getFormContextDefault = (i18nDefault = '') => ({
         smallMode: true,
         watchUnitChange: true,
     },
+    compactFormComponentsView: false,
 })
 
 export const FormContext = createContext<FormContextType>(getFormContextDefault(''))
