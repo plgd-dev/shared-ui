@@ -68,8 +68,8 @@ const TileExpand: FC<Props> = (props) => {
                             {!!information && (
                                 <div css={styles.group}>
                                     <div css={styles.groupHeadline}>{information.groupTitle}</div>
-                                    {information.rows.map((info: Information) => (
-                                        <div css={styles.infoLine} key={info.attribute}>
+                                    {information.rows.map((info: Information, k) => (
+                                        <div css={styles.infoLine} key={info.attribute || k}>
                                             <Row>
                                                 <Column size={5}>
                                                     <div css={styles.attribute}>{info.attribute}</div>
