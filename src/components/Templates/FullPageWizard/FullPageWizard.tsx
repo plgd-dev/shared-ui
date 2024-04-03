@@ -14,7 +14,7 @@ import { ComponentType, Props } from './FullPageWizard.types'
 import { Description, SubHeadline } from './Components'
 
 const FullPageWizard: ComponentType<Props> = (props) => {
-    const { children, title, i18n, steps, activeStep, onStepChange, onClose } = props
+    const { children, title, i18n, steps, activeStep, onStepChange, onClose, visitedStep } = props
 
     const theme: ThemeType = useTheme()
 
@@ -39,11 +39,14 @@ const FullPageWizard: ComponentType<Props> = (props) => {
                                         )}
                                     </div>
                                     <a
-                                        css={[styles.link, activeStep >= key && styles.visited]}
+                                        css={[styles.link, activeStep >= key && styles.visited, visitedStep && visitedStep >= key && styles.activeLink]}
                                         href='#'
                                         onClick={(e) => {
                                             e.preventDefault()
-                                            isFunction(onStepChange) && onStepChange(key)
+
+                                            if (visitedStep && visitedStep >= key) {
+                                                isFunction(onStepChange) && onStepChange(key)
+                                            }
                                         }}
                                     >
                                         {step.name}
