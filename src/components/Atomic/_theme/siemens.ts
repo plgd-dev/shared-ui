@@ -517,6 +517,12 @@ const theme = {
             description: {
                 color: colorsSiemens.neutral500,
             },
+            groupHeadline: {
+                color: colorsSiemens.primary,
+            },
+            headline: {
+                color: colorsSiemens.primary,
+            },
             leftCol: {
                 background: colorsSiemens.neutral900,
             },

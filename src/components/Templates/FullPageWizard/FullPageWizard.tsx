@@ -11,7 +11,7 @@ import IconDone from './assets/IconDone'
 import IconCloseCircle from '../../Atomic/Icon/components/IconCloseCircle'
 import { convertSize } from '../../Atomic'
 import { ComponentType, Props } from './FullPageWizard.types'
-import { Description, SubHeadline } from './Components'
+import { Description, SubHeadline, Headline, GroupHeadline } from './Components'
 
 const FullPageWizard: ComponentType<Props> = (props) => {
     const { children, title, i18n, steps, activeStep, onStepChange, onClose, visitedStep } = props
@@ -79,5 +79,7 @@ const FullPageWizard: ComponentType<Props> = (props) => {
 FullPageWizard.displayName = 'FullPageWizard'
 FullPageWizard.Description = Description
 FullPageWizard.SubHeadline = SubHeadline
+FullPageWizard.Headline = Headline
+FullPageWizard.GroupHeadline = GroupHeadline
 
 export default FullPageWizard

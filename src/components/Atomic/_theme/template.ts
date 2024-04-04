@@ -530,6 +530,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             description: {
                 color: colors.neutral900,
             },
+            groupHeadline: {
+                color: colors.primaryDarken,
+            },
+            headline: {
+                color: colors.primaryDarken,
+            },
             leftCol: {
                 background: colors.light,
             },

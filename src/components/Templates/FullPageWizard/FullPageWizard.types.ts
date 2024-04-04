@@ -1,9 +1,11 @@
 import { FC, ReactNode } from 'react'
-import { DescriptionProps, SubHeadlineProps } from './Components'
+import { DescriptionProps, HeadlineProps, SubHeadlineProps, GroupHeadlineProps } from './Components'
 
 export interface ComponentType<P> extends FC<P> {
     Description: FC<DescriptionProps>
+    Headline: FC<HeadlineProps>
     SubHeadline: FC<SubHeadlineProps>
+    GroupHeadline: FC<GroupHeadlineProps>
 }
 
 export type Props = {

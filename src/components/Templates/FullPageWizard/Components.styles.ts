@@ -32,3 +32,25 @@ export const subHeadline = (theme: ThemeType) => css`
 export const noBorder = css`
     border-top: none;
 `
+
+export const headline = (theme: ThemeType) => css`
+    font-family: ${get(theme, `Global.fontSecondary`)};
+    color: ${getTheme(theme, `FullPageWizard.headline.color`)};
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 54px;
+    letter-spacing: -1.5px;
+    margin: 0 0 24px 0;
+`
+
+export const groupHeadline = (theme: ThemeType) => css`
+    font-family: ${get(theme, `Global.fontSecondary`)};
+    color: ${getTheme(theme, `FullPageWizard.groupHeadline.color`)};
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -0.5px;
+    margin: 32px 0 16px 0;
+`
