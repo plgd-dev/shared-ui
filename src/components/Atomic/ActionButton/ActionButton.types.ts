@@ -2,7 +2,7 @@ import { ReactNode, SyntheticEvent } from 'react'
 import { dropdownTypes } from './constants'
 import { Placement } from '@floating-ui/react-dom-interactions'
 
-export type ActionButtonTypeType = typeof dropdownTypes[keyof typeof dropdownTypes]
+export type ActionButtonTypeType = (typeof dropdownTypes)[keyof typeof dropdownTypes]
 
 export type ActionButtonItemType = {
     component?: ReactNode

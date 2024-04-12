@@ -17,7 +17,6 @@ exports[`<StatusPill> render correctly - snapshot 1`] = `
   width: 4px;
   height: 24px;
   border-radius: 6px;
-  background-color: #52c5a2;
 }
 
 .emotion-2 {
@@ -38,7 +37,6 @@ exports[`<StatusPill> render correctly - snapshot 1`] = `
   width: 4px;
   height: 24px;
   border-radius: 6px;
-  background-color: #D74E3A;
 }
 
 .emotion-12 {
@@ -63,12 +61,10 @@ exports[`<StatusPill> render correctly - snapshot 1`] = `
       <div
         class="emotion-2"
       >
-        <div>
-          <div
-            class="emotion-3"
-          >
-            Online
-          </div>
+        <div
+          class="emotion-3"
+        >
+          Online
         </div>
       </div>
     </div>
@@ -81,12 +77,10 @@ exports[`<StatusPill> render correctly - snapshot 1`] = `
       <div
         class="emotion-2"
       >
-        <div>
-          <div
-            class="emotion-3"
-          >
-            Offline
-          </div>
+        <div
+          class="emotion-3"
+        >
+          Offline
         </div>
       </div>
     </div>
@@ -99,12 +93,10 @@ exports[`<StatusPill> render correctly - snapshot 1`] = `
       <div
         class="emotion-2"
       >
-        <div>
-          <div
-            class="emotion-3"
-          >
-            Online
-          </div>
+        <div
+          class="emotion-3"
+        >
+          Online
         </div>
         <div
           class="emotion-12"
@@ -122,12 +114,10 @@ exports[`<StatusPill> render correctly - snapshot 1`] = `
       <div
         class="emotion-2"
       >
-        <div>
-          <div
-            class="emotion-3"
-          >
-            Offline
-          </div>
+        <div
+          class="emotion-3"
+        >
+          Offline
         </div>
         <div
           class="emotion-12"

@@ -2,7 +2,7 @@ import React from 'react'
 import NotificationCenter from '../../components/Atomic/NotificationCenter'
 import App from '../../components/Atomic/App'
 import Notification from '../../components/Atomic/Notification'
-import { IntlProvider } from '../../components/Atomic'
+import IntlProvider from '../../components/Atomic/IntlProvider'
 
 export default {
     title: 'Notification/NotificationCenter',

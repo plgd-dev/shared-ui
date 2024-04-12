@@ -24,14 +24,14 @@ describe('<SimpleStripTable>', () => {
         ]
         const { asFragment } = render(
             <div>
-                <SplitButton children='Primary' variant='primary' items={items} />
-                <SplitButton children='Secondary' variant='secondary' items={items} />
-                <SplitButton children='Primary' variant='primary' items={items} disabled={true} />
-                <SplitButton children='Secondary' variant='secondary' items={items} disabled={true} />
-                <SplitButton children='Primary' variant='primary' items={items} icon={<IconPlus />} />
-                <SplitButton children='Secondary' variant='secondary' items={items} icon={<IconPlus />} />
-                <SplitButton children='Primary' variant='primary' items={items} loading={true} />
-                <SplitButton children='Secondary' variant='secondary' items={items} loading={true} />
+                <SplitButton children='Primary' items={items} variant='primary' />
+                <SplitButton children='Secondary' items={items} variant='secondary' />
+                <SplitButton children='Primary' disabled={true} items={items} variant='primary' />
+                <SplitButton children='Secondary' disabled={true} items={items} variant='secondary' />
+                <SplitButton children='Primary' icon={<IconPlus />} items={items} variant='primary' />
+                <SplitButton children='Secondary' icon={<IconPlus />} items={items} variant='secondary' />
+                <SplitButton children='Primary' items={items} loading={true} variant='primary' />
+                <SplitButton children='Secondary' items={items} loading={true} variant='secondary' />
             </div>
         )
 

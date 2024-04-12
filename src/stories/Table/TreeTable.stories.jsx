@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import TreeTable from '../../components/Atomic/TreeTable'
 import TreeExpander from '../../components/Atomic/TreeExpander'
 import TableActionButton from '../../components/Organisms/TableActionButton'
-import { IconEdit, IconPlus, IconTrash } from '../../components/Atomic'
+import { IconEdit, IconPlus, IconTrash } from '../../components/Atomic/Icon'
 
 const RESOURCE_TREE_DEPTH_SIZE = 15
 
@@ -32,7 +32,7 @@ const Template = (args) => {
                 accessor: 'href',
                 Cell: ({ value, row }) => {
                     const {
-                        original: { href, endpointInformations },
+                        original: { endpointInformations },
                     } = row
 
                     const lastValue = getLastPartOfAResourceHref(value)

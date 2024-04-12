@@ -69,7 +69,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
 
     useEffect(() => {
         setLoading(loadingData)
-    }, [loadingData])
+    }, [loadingData, setLoading])
 
     useEffect(() => {
         setSelectedDevices([])
@@ -262,7 +262,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
                     notificationId: notificationId.SU_CA_DEVICE_LIST_DEVICE_ERROR,
                 }
             )
-    }, [deviceError])
+    }, [deviceError, _])
 
     const dataToDisplay = data || []
 

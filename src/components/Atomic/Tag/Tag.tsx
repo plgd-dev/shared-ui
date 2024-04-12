@@ -1,4 +1,4 @@
-import { cloneElement, FC, forwardRef, ReactElement, ReactNode } from 'react'
+import { cloneElement, forwardRef, ReactElement, ReactNode } from 'react'
 import isFunction from 'lodash/isFunction'
 
 import { defaultProps, Props } from './Tag.types'

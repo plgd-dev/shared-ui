@@ -1,4 +1,4 @@
 export const editorModes = {
-  CODE: 'code',
-  VIEW: 'view',
+    CODE: 'code',
+    VIEW: 'view',
 }

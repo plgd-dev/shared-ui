@@ -1,4 +1,4 @@
-import React, { cloneElement, createRef, forwardRef, Fragment, MutableRefObject, ReactElement, RefObject, useEffect, useMemo, useState } from 'react'
+import React, { cloneElement, forwardRef, useMemo, useState } from 'react'
 import { mergeRefs } from 'react-merge-refs'
 import {
     useFloating,
@@ -14,8 +14,9 @@ import {
     FloatingPortal,
     useDelayGroupContext,
     arrow,
+    UseFloatingReturn,
+    Placement,
 } from '@floating-ui/react-dom-interactions'
-import type { UseFloatingReturn, Placement } from '@floating-ui/react-dom-interactions'
 import { motion, AnimatePresence } from 'framer-motion'
 import ConditionalWrapper from '../ConditionalWrapper'
 

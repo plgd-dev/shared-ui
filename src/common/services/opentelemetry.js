@@ -1,8 +1,5 @@
 import { WebTracerProvider } from '@opentelemetry/sdk-trace-web'
-import {
-    ConsoleSpanExporter,
-    SimpleSpanProcessor,
-} from '@opentelemetry/sdk-trace-base'
+import { ConsoleSpanExporter, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base'
 import { ZoneContextManager } from '@opentelemetry/context-zone'
 import { W3CTraceContextPropagator } from '@opentelemetry/core'
 import { registerInstrumentations } from '@opentelemetry/instrumentation'
@@ -40,10 +37,8 @@ export const withTelemetry = (restMethod, telemetrySpan) => {
         const singleSpan = webTracer.startSpan(telemetrySpan)
 
         return context.with(trace.setSpan(context.active(), singleSpan), () =>
-            restMethod().then(result => {
-                trace
-                    .getSpan(context.active())
-                    .addEvent('fetching-single-span-completed')
+            restMethod().then((result) => {
+                trace.getSpan(context.active()).addEvent('fetching-single-span-completed')
                 singleSpan.end()
 
                 return result
@@ -55,7 +50,7 @@ export const withTelemetry = (restMethod, telemetrySpan) => {
 }
 
 export const openTelemetry = {
-    init: appName => init(appName),
+    init: (appName) => init(appName),
     getWebTracer: () => webTracer,
     withTelemetry,
 }

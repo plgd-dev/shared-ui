@@ -15,9 +15,9 @@ const CopyElement: FC<Props> = (props) => {
         }
     }
     useEffect(() => {
-        let timer: number = 0
+        let timer: any = 0
         if (copied) {
-            let timer = setTimeout(() => setCopied(false), 3000)
+            timer = setTimeout(() => setCopied(false), 3000)
         }
 
         return () => {

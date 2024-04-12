@@ -49,7 +49,7 @@ const Tab2: FC<Props> = (props) => {
             { value: false, label: _(t.no) },
             { value: true, label: _(t.yes) },
         ],
-        []
+        [_]
     )
 
     const mergedWellKnownConfig = useMemo(() => {

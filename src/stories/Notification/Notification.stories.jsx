@@ -1,7 +1,7 @@
 import React from 'react'
 import Notification from '../../components/Atomic/Notification'
 import App from '../../components/Atomic/App'
-import { IntlProvider } from '../../components/Atomic'
+import IntlProvider from '../../components/Atomic/IntlProvider'
 
 export default {
     title: 'Notification/Notification',

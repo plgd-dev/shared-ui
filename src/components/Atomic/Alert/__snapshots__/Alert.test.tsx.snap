@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Alert> snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: inline-grid;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 30px 40px 0 rgba(28, 52, 99, 0.1);
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+  grid: auto/auto auto auto;
+}
+
+.emotion-0:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  height: 100%;
+}
+
+.emotion-1 {
+  -webkit-flex: 0 0 24px;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+  position: relative;
+  top: 2px;
+}
+
+.emotion-2 {
+  padding-left: 12px;
+  line-height: 18px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  -webkit-flex: 0 0 32px;
+  -ms-flex: 0 0 32px;
+  flex: 0 0 32px;
+  width: 32px;
+  padding-left: 12px;
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+<div
+    class="emotion-0"
+    style="opacity: 1; transform: none;"
+  >
+    <span
+      class="emotion-1"
+    >
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10m-.938-5.964c0 .534.418.964.937.964s.938-.43.938-.964v-4.5a.95.95 0 0 0-.938-.965c-.52 0-.937.43-.937.965zm.937-6.75c.692 0 1.25-.575 1.25-1.286S12.691 6.714 12 6.714c-.691 0-1.25.575-1.25 1.286s.559 1.286 1.25 1.286"
+          fill="currentcolor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <span
+      class="emotion-2"
+    >
+      Alert component
+    </span>
+    <svg
+      class="emotion-3"
+      fill="none"
+      height="20"
+      viewBox="0 0 32 32"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 29.333c7.365 0 13.333-5.97 13.333-13.334S23.365 2.666 16 2.666c-7.364 0-13.333 5.969-13.333 13.333 0 7.365 5.969 13.334 13.333 13.334M11.781 11.78c.49-.49 1.282-.49 1.766 0l2.448 2.448 2.448-2.448a1.25 1.25 0 0 1 1.766 1.766l-2.448 2.447 2.447 2.448a1.25 1.25 0 0 1-1.766 1.766l-2.447-2.448-2.448 2.448a1.25 1.25 0 0 1-1.766-1.766l2.448-2.448-2.448-2.448a1.245 1.245 0 0 1 0-1.765"
+        fill="currentcolor"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;

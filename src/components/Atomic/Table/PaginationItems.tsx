@@ -19,7 +19,7 @@ const PaginationItems: FC<Props> = (props) => {
 
     for (let page = startPage; page <= endPage; ++page) {
         pageButtons.push(
-            <BPagination.Item onClick={() => onItemClick(page - 1)} key={page} active={page === activePage}>
+            <BPagination.Item active={page === activePage} key={page} onClick={() => onItemClick(page - 1)}>
                 {page}
             </BPagination.Item>
         )
@@ -27,11 +27,11 @@ const PaginationItems: FC<Props> = (props) => {
 
     if (startPage > 1) {
         if (startPage > 2) {
-            pageButtons.unshift(<BPagination.Ellipsis key='ellipsisFirst' disabled />)
+            pageButtons.unshift(<BPagination.Ellipsis disabled key='ellipsisFirst' />)
         }
 
         pageButtons.unshift(
-            <BPagination.Item onClick={() => onItemClick(1)} key={1} active={false}>
+            <BPagination.Item active={false} key={1} onClick={() => onItemClick(1)}>
                 {'1'}
             </BPagination.Item>
         )
@@ -39,11 +39,11 @@ const PaginationItems: FC<Props> = (props) => {
 
     if (endPage < pageCount) {
         if (endPage < pageCount - 1) {
-            pageButtons.push(<BPagination.Ellipsis key='ellipsis' disabled />)
+            pageButtons.push(<BPagination.Ellipsis disabled key='ellipsis' />)
         }
 
         pageButtons.push(
-            <BPagination.Item onClick={() => onItemClick(pageCount - 1)} key={pageCount} active={false}>
+            <BPagination.Item active={false} key={pageCount} onClick={() => onItemClick(pageCount - 1)}>
                 {pageCount}
             </BPagination.Item>
         )

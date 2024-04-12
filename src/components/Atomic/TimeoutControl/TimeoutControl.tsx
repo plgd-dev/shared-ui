@@ -7,11 +7,10 @@ import { i18nType, Props } from './TimeoutControl.types'
 import * as styles from './TimeoutControl.styles'
 import FormGroup from '../FormGroup'
 import FormLabel from '../FormLabel'
-import FormInput from '../FormInput'
+import FormInput, { inputSizes } from '../FormInput'
 import FormSelect, { selectSizes } from '../FormSelect'
 import { commandTimeoutUnits } from './constants'
 import { findClosestUnit, convertAndNormalizeValueFromTo, convertValueToNs, normalizeToFixedFloatValue, hasCommandTimeoutError } from './utils'
-import { inputSizes } from '../FormInput'
 import { FormContext } from '../../../common/context/FormContext'
 
 const { INFINITE, NS } = commandTimeoutUnits

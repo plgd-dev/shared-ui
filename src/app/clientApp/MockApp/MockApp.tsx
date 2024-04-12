@@ -31,6 +31,7 @@ const MockApp = () => {
     })
     const [httpGatewayAddress] = useState(clientData ? getClientUrl(clientData?.clientUrl) : '')
     const hubWellKnowConfigUrl = useMemo(() => process.env.REACT_APP_HTTP_WELL_KNOW_CONFIGURATION_ADDRESS || window.location.origin, [])
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [wellKnownConfig, _setWellKnownConfig, _reFetchConfig, wellKnownConfigError] = useWellKnownConfiguration(
         httpGatewayAddress || hubWellKnowConfigUrl,
         hubWellKnownConfig

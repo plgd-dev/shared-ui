@@ -15,6 +15,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
+  color: !important;
 }
 
 .emotion-0 .select__control .select__value-container .select__placeholder input,
@@ -24,11 +25,11 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   font-weight: 400!important;
   font-size: 14px!important;
   line-height: 22px!important;
-  color: #252626!important;
+  color: !important;
 }
 
 .emotion-0 .select__control.select__control--menu-is-open {
-  border: 1px solid #007BBF;
+  border: 1px solid;
 }
 
 .emotion-0 .select__control.select__control--is-focused {
@@ -89,7 +90,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   box-shadow: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid #D7D8DA;
+  border: 1px solid;
 }
 
 .emotion-3:hover {
@@ -102,7 +103,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 
 .emotion-3:hover {
   outline: none;
-  border: 1px solid #007BBF;
+  border: 1px solid;
 }
 
 .emotion-4 {
@@ -123,7 +124,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   overflow: hidden;
   padding: 2px 8px;
   box-sizing: border-box;
-  padding: 0 15px;
+  padding: 0 0 0 15px;
 }
 
 .emotion-5 {
@@ -132,8 +133,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   margin-left: 2px;
   margin-right: 2px;
   box-sizing: border-box;
-  color: #252626;
-  font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -207,7 +206,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   color: hsl(0, 0%, 80%);
   padding: 8px;
   box-sizing: border-box;
-  padding-right: 16px;
+  padding: 4px 16px 4px 4px;
 }
 
 .emotion-9:hover {
@@ -217,7 +216,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 .emotion-10 {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  color: #81868C;
 }
 
 .emotion-16 {
@@ -230,8 +228,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   margin-left: 2px;
   margin-right: 2px;
   box-sizing: border-box;
-  color: #252626;
-  font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -242,7 +238,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 .emotion-21 {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  color: #81868C;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -263,11 +258,13 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   margin-top: 8px;
   box-sizing: border-box;
   min-width: 100%;
+  width: auto!important;
   margin-top: 4px;
   margin-bottom: 4px;
-  border: 1px solid #E6E9ED;
+  border: 1px solid;
   box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
   border-radius: 8px;
+  z-index: 1;
 }
 
 .emotion-23 {
@@ -296,8 +293,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   color: inherit;
   padding: 8px 12px;
   box-sizing: border-box;
-  color: #81868C;
-  font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
@@ -322,7 +317,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 }
 
 .emotion-24:hover {
-  color: #2261AE;
   background: transparent;
 }
 
@@ -344,8 +338,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   color: hsl(0, 0%, 100%);
   padding: 8px 12px;
   box-sizing: border-box;
-  color: #81868C;
-  font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
@@ -363,8 +355,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   transition: all 0.3s;
   cursor: pointer;
   padding: 8px 16px;
-  color: #252626;
-  background: transparent;
 }
 
 .emotion-25:active {
@@ -372,7 +362,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 }
 
 .emotion-25:hover {
-  color: #2261AE;
   background: transparent;
 }
 
@@ -393,6 +382,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
         aria-live="polite"
         aria-relevant="additions text"
         class="emotion-1"
+        role="log"
       />
       <div
         class="select__control emotion-3"
@@ -411,6 +401,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
             data-value=""
           >
             <input
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-describedby="react-select-2-placeholder"
               aria-expanded="false"
@@ -450,7 +441,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m2.576 3.805-2.4-2.666a.718.718 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.722.722 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0Z"
+                  d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
                   fill="currentcolor"
                 />
               </svg>
@@ -477,6 +468,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
         aria-live="polite"
         aria-relevant="additions text"
         class="emotion-1"
+        role="log"
       />
       <div
         class="select__control select__control--menu-is-open emotion-3"
@@ -494,11 +486,11 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
             data-value=""
           >
             <input
+              aria-activedescendant="react-select-3-option-1"
               aria-autocomplete="list"
               aria-controls="react-select-3-listbox"
               aria-expanded="true"
               aria-haspopup="true"
-              aria-owns="react-select-3-listbox"
               autocapitalize="none"
               autocomplete="off"
               autocorrect="off"
@@ -534,7 +526,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="m2.576 3.805-2.4-2.666a.718.718 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.722.722 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0Z"
+                  d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
                   fill="currentcolor"
                 />
               </svg>
@@ -544,31 +536,39 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
       </div>
       <div
         class="select__menu emotion-22"
-        id="react-select-3-listbox"
       >
         <div
+          aria-multiselectable="false"
           class="select__menu-list emotion-23"
+          id="react-select-3-listbox"
+          role="listbox"
         >
           <div
             aria-disabled="false"
+            aria-selected="false"
             class="select__option emotion-24"
             id="react-select-3-option-0"
+            role="option"
             tabindex="-1"
           >
             Chocolate
           </div>
           <div
             aria-disabled="false"
+            aria-selected="true"
             class="select__option select__option--is-focused select__option--is-selected emotion-25"
             id="react-select-3-option-1"
+            role="option"
             tabindex="-1"
           >
             Strawberry
           </div>
           <div
             aria-disabled="false"
+            aria-selected="false"
             class="select__option emotion-24"
             id="react-select-3-option-2"
+            role="option"
             tabindex="-1"
           >
             Vanilla

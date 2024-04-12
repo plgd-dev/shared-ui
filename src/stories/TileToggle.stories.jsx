@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import TileToggle from '../components/Atomic/TileToggle'
-import Tag from '../components/Atomic/Tag'
-import Switch from '../components/Atomic/Switch'
 import TileToggleRow from '../components/Atomic/TileToggle/TileToggleRow'
 
 export default {

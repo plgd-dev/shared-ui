@@ -40,7 +40,6 @@ const ShareDeviceModal: FC<Props> = (props) => {
     const {
         register,
         handleSubmit,
-        watch,
         setValue,
         formState: { errors },
     } = useForm<Inputs>({
@@ -61,6 +60,7 @@ const ShareDeviceModal: FC<Props> = (props) => {
     useEffect(() => {
         // @ts-ignore
         !errors.Email && inputRef.current?.focus()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const renderBody = () => (

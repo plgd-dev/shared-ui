@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 import { redirect } from 'react-router-dom'
 
 import { Emitter } from '../../../common/services/emitter'

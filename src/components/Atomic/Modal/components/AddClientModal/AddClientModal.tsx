@@ -21,8 +21,6 @@ const AddClientModal: FC<Props> = (props) => {
     const {
         register,
         handleSubmit,
-        watch,
-        setValue,
         formState: { errors },
     } = useForm<Inputs>({
         mode: 'all',
@@ -56,9 +54,7 @@ const AddClientModal: FC<Props> = (props) => {
                         <CopyElement textToCopy={JSON.stringify(dataForCopy)} />
                     </div>
                     <div css={[styles.getCodeBox, styles.codeBoxWithLines]}>
-                        {deviceInformation?.map((info: DeviceInformationLineType, key) => (
-                            <DeviceInformationLine key={key} {...info} />
-                        ))}
+                        {deviceInformation?.map((info: DeviceInformationLineType, key) => <DeviceInformationLine key={key} {...info} />)}
                     </div>
                 </div>
             )

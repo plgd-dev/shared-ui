@@ -22,16 +22,8 @@ exports[`<Checkbox> render correctly - snapshot 1`] = `
   left: -10px;
 }
 
-.emotion-1:indeterminate~.emotion-3 {
-  border-color: #2261AE;
-}
-
 .emotion-1:indeterminate~.emotion-3:before {
   opacity: 1;
-}
-
-.emotion-1:checked~.emotion-3 {
-  border-color: #2261AE;
 }
 
 .emotion-1:checked~.emotion-3:after {
@@ -44,13 +36,14 @@ exports[`<Checkbox> render correctly - snapshot 1`] = `
   -webkit-flex: 0 0 16px;
   -ms-flex: 0 0 16px;
   flex: 0 0 16px;
-  border: 1px solid #d7d8da;
+  border: 1px solid;
   border-radius: 4px;
   cursor: pointer;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   box-sizing: border-box;
+  top: 2px;
 }
 
 .emotion-2:before,
@@ -68,7 +61,6 @@ exports[`<Checkbox> render correctly - snapshot 1`] = `
   transform: translate(-50%, -50%);
   width: 10px;
   border-radius: 2px;
-  background: #2261AE;
   opacity: 0;
 }
 
@@ -81,14 +73,8 @@ exports[`<Checkbox> render correctly - snapshot 1`] = `
 }
 
 .emotion-16 {
-  font-size: 12px;
-  color: #81868c;
   padding-left: 8px;
   cursor: pointer;
-  line-height: 18px;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 400;
 }
 
 <div>

@@ -10,7 +10,6 @@ exports[`<FormLabel> render correctly - snapshot 1`] = `
   line-height: 160%;
   display: inline-block;
   margin-bottom: 10px;
-  color: #81868c;
   cursor: pointer;
 }
 

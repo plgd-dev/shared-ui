@@ -136,6 +136,10 @@ describe('<LeftPanel>', () => {
                 versionMark={<VersionMark severity={severities.SUCCESS} versionText='Version 2.02' />}
             />
         )
+
+        await waitFor(() => {
+            expect(asFragment()).toMatchSnapshot()
+        })
     })
 
     it('render correctly - snapshot', async () => {

@@ -3,8 +3,7 @@
 exports[`<Footer> render correctly - snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  border-top: 1px solid #e6e9ed;
-  background: #fff;
+  border-top: 1px solid;
   padding: 0 40px;
   box-sizing: border-box;
   -webkit-flex-shrink: 0;
@@ -42,8 +41,9 @@ exports[`<Footer> render correctly - snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 16px 40px;
   min-height: 64px;
+  margin: 0 -40px;
 }
 
 .emotion-3 {
@@ -53,7 +53,6 @@ exports[`<Footer> render correctly - snapshot 1`] = `
   font-size: 12px;
   line-height: 18px;
   text-align: center;
-  color: #191A1A;
   -webkit-text-decoration: none;
   text-decoration: none;
   display: -webkit-box;
@@ -66,6 +65,8 @@ exports[`<Footer> render correctly - snapshot 1`] = `
   align-items: center;
   padding-right: 22px;
   position: relative;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 .emotion-4 {
@@ -93,7 +94,7 @@ exports[`<Footer> render correctly - snapshot 1`] = `
       >
         <a
           class="emotion-3"
-          href="packages/shared-ui/src/components/Layout/Footer#"
+          href="#"
         >
           <span
             id="recentTasksPortalTitleTarget"
@@ -111,7 +112,7 @@ exports[`<Footer> render correctly - snapshot 1`] = `
           >
             <path
               clip-rule="evenodd"
-              d="M.126 6.854a.387.387 0 0 0 .606 0L3 4.207l2.268 2.647a.387.387 0 0 0 .606 0 .56.56 0 0 0 0-.708l-2.571-3a.387.387 0 0 0-.606 0l-2.571 3a.56.56 0 0 0 0 .708Z"
+              d="M.126 6.854a.387.387 0 0 0 .606 0L3 4.207l2.268 2.647a.387.387 0 0 0 .606 0 .56.56 0 0 0 0-.708l-2.571-3a.387.387 0 0 0-.606 0l-2.571 3a.56.56 0 0 0 0 .708"
               fill="currentcolor"
               fill-rule="evenodd"
             />
@@ -119,7 +120,7 @@ exports[`<Footer> render correctly - snapshot 1`] = `
               clip-path="url(#icon-arrow-triangle-full-up_svg__a)"
             >
               <path
-                d="M2.576 3.196a.56.56 0 0 1 .85 0l2.4 2.666a.718.718 0 0 1 .129.727c-.094.25-.311.413-.555.413L.6 7c-.242 0-.461-.163-.555-.413a.723.723 0 0 1 .13-.727l2.4-2.666.001.002Z"
+                d="M2.576 3.196a.56.56 0 0 1 .85 0l2.4 2.666a.72.72 0 0 1 .129.727c-.094.25-.311.413-.555.413L.6 7c-.242 0-.461-.163-.555-.413a.72.72 0 0 1 .13-.727l2.4-2.666z"
                 fill="currentcolor"
               />
             </g>
@@ -128,9 +129,8 @@ exports[`<Footer> render correctly - snapshot 1`] = `
                 id="icon-arrow-triangle-full-up_svg__a"
               >
                 <path
-                  d="M0 0h6v10.667H0z"
+                  d="M0 11h6V.333H0z"
                   fill="#fff"
-                  transform="matrix(1 0 0 -1 0 11)"
                 />
               </clippath>
             </defs>

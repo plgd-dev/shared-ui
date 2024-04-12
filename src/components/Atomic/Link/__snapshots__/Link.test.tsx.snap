@@ -5,7 +5,6 @@ exports[`<Headline> render correctly - snapshot 1`] = `
   .emotion-0 {
   font-family: 'Poppins',sans-serif;
   text-decoration-line: underline;
-  color: #81868c;
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;

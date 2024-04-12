@@ -21,10 +21,10 @@ describe('<Headline>', () => {
 
         const { container } = render(
             <div>
-                <Link href='//www.plgd.dev' onClick={callback1} dataTestId='link-test'>
+                <Link dataTestId='link-test' href='//www.plgd.dev' onClick={callback1}>
                     Link with href
                 </Link>
-                <Link href='//www.plgd.dev' disabled={true} onClick={callback2} dataTestId='link-test'>
+                <Link dataTestId='link-test' disabled={true} href='//www.plgd.dev' onClick={callback2}>
                     disabled
                 </Link>
             </div>

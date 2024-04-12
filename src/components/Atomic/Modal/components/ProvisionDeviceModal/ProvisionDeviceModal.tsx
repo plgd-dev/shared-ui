@@ -53,9 +53,7 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
                         <CopyElement textToCopy={JSON.stringify(dataForCopy)} />
                     </div>
                     <div css={[styles.getCodeBox, styles.codeBoxWithLines]}>
-                        {deviceInformation?.map((info: DeviceInformationLineType) => (
-                            <DeviceInformationLine key={info.attributeKey} {...info} />
-                        ))}
+                        {deviceInformation?.map((info: DeviceInformationLineType) => <DeviceInformationLine key={info.attributeKey} {...info} />)}
                     </div>
                 </div>
             )

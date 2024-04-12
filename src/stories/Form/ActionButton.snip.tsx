@@ -1,5 +1,5 @@
 import React from 'react'
-import { IconEdit, IconPlus, IconTrash } from '../../components/Atomic'
+import { IconEdit, IconPlus, IconTrash } from '../../components/Atomic/Icon'
 import ActionButton from '../../components/Atomic/ActionButton'
 
 export default (args?: any) => (

@@ -25,7 +25,7 @@
     "sourceMap": true,
     "importHelpers": true,
     "downlevelIteration": true,
-    "types": ["@emotion/react/types/css-prop", "jest", "node"],
+    "types": ["@emotion/react/types/css-prop", "@testing-library/jest-dom", "jest", "node"],
   },
   "include": ["src/**/*"],
   "exclude": [

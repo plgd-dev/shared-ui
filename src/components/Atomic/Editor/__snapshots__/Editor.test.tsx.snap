@@ -2,49 +2,26 @@
 
 exports[`<ConditionalWrapper> render correctly - snapshot 1`] = `
 <DocumentFragment>
-  .emotion-0.disabled:after {
+  .emotion-0 {
+  position: relative;
+}
+
+.emotion-0.disabled:after {
   background: rgba(255, 255, 255, 0);
 }
 
 .emotion-0 .jsoneditor {
-  border: 1px solid #e6e9ed;
+  border: 1px solid;
   border-radius: 8px;
   overflow: hidden;
 }
 
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_scroller {
-  background: #f4f9fb;
-}
-
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_gutter {
-  background: #e6e9ed;
-}
-
 .emotion-0 .jsoneditor .ace-jsoneditor .ace_gutter .ace_gutter-cell {
-  color: #757676;
   padding: 0 16px;
 }
 
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_bracket,
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_punctuation,
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_operator,
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_string,
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_constant,
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_paren,
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_variable {
-  color: #757676;
-}
-
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_constant.ace_boolean {
-  color: #FEBF40;
-}
-
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_constant.ace_numeric {
-  color: #D74E3A;
-}
-
-.emotion-0 .jsoneditor .ace-jsoneditor .ace_string {
-  color: #52c5a2;
+.emotion-0 .jsoneditor .ace-jsoneditor .ace_indent-guide {
+  background: none;
 }
 
 <div>

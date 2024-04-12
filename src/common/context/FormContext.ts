@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 import { FormContextType } from './FormContext.types'
-import { inputAligns, inputSizes } from '../../components/Atomic'
+import { inputAligns, inputSizes } from '../../components/Atomic/FormInput/constants'
 
 export const getFormContextDefault = (i18nDefault = '') => ({
     updateData: (newData: any) => {},

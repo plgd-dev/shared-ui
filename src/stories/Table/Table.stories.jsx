@@ -7,7 +7,7 @@ import StatusPill from '../../components/Atomic/StatusPill'
 import sample from 'lodash/sample'
 import '../global.css'
 import TableSelectionPanel from '../../components/Atomic/TableNew/TableSelectionPanel/TableSelectionPanel'
-import { IconEdit, IconLink, IconShowPassword, IconTrash } from '../../components/Atomic'
+import { IconEdit, IconLink, IconShowPassword, IconTrash } from '../../components/Atomic/IntlProvider'
 import { generate } from 'random-words'
 
 export default {

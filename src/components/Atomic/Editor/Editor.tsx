@@ -79,6 +79,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
         if (heightProp !== height) {
             setHeight(heightProp)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [heightProp])
 
     useEffect(() => {
@@ -138,6 +139,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
                 resizeObserver?.current?.unobserve(container.current)
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handleBlur = useCallback(() => {

@@ -4,23 +4,23 @@
 import * as React from 'react'
 import { SVGProps } from 'react'
 const SvgLeftBar = (props: SVGProps<SVGSVGElement>) => (
-    <svg width={props.width || 16} height={props.height || 16} viewBox='0 0 537 435' fill='none' xmlns='http://www.w3.org/2000/svg' role='img' {...props}>
+    <svg fill='none' height={props.height || 16} role='img' viewBox='0 0 537 435' width={props.width || 16} xmlns='http://www.w3.org/2000/svg' {...props}>
         <path d='M0 0h537v435H0z' />
         <g clipPath='url(#left-bar_svg__a)'>
             <mask
+                height={830}
                 id='left-bar_svg__b'
+                maskUnits='userSpaceOnUse'
                 style={{
                     maskType: 'alpha',
                 }}
-                maskUnits='userSpaceOnUse'
+                width={495}
                 x={0}
                 y={-395}
-                width={495}
-                height={830}
             >
-                <path fill='#F5F9FB' d='M0-395h495v830H0z' />
+                <path d='M0-395h495v830H0z' fill='#F5F9FB' />
             </mask>
-            <g mask='url(#left-bar_svg__b)' fillRule='evenodd' clipRule='evenodd'>
+            <g clipRule='evenodd' fillRule='evenodd' mask='url(#left-bar_svg__b)'>
                 <path
                     d='M501.183 383.498C523.63 353.324 537 315.598 537 274.641c0-98.971-77.915-179.212-174.018-179.212-7.815 0-15.49.581-23.025 1.615l-.007.008c-6.211-10.224-11.126-17.877-14.138-21.818C291.815 30.638 238.995 2 179.658 2 91.76 2 18.146 64.94-1.094 149.437c0-.114-.105-.251-.077-.358-1.38-.044-2.746-.13-4.134-.13-81.56 0-147.695 68.109-147.695 152.111 0 83.989 66.134 152.097 147.695 152.097 54.326 0 128.058.661 179.128.661 30.456 0 46.957-.367 172.68 0 1.038.007 2.021-.029 3.046-.029 16.333.782 51.446.158 84.823-15.665 5.354-2.599 37.874-16.605 66.825-54.604-.007-.007-.007-.015-.014-.022Z'
                     fill='#FEBF40'
@@ -31,27 +31,27 @@ const SvgLeftBar = (props: SVGProps<SVGSVGElement>) => (
                 />
             </g>
             <path
-                fillRule='evenodd'
                 clipRule='evenodd'
                 d='M495.041 371.195c-28.273-51.821-147.15-269.203-169.009-297.762C291.994 28.903 239.105.314 179.698.314 77.048.314-6.222 85.798-6.222 191.267c0 105.477 77.393 260.186 180.078 260.186 30.5 0 47.013-.359 172.883 0 1.04.007 2.024-.029 3.05-.029 16.352.789 51.514.165 84.923-15.634 5.367-2.602 37.533-16.067 66.511-54.009l-6.182-10.586Z'
                 fill='#2261AE'
+                fillRule='evenodd'
             />
             <path
-                fillRule='evenodd'
                 clipRule='evenodd'
                 d='M495.041 371.978c-28.273-51.82-147.15-269.203-169.009-297.762-34.038-44.53-86.927-73.118-146.334-73.118-102.65 0-185.92 85.483-185.92 190.952 0 105.477 77.393 260.186 180.078 260.186 30.5 0 47.013-.358 172.883 0 1.04.007 2.024-.029 3.05-.029 16.352.789 51.514.165 84.923-15.634 5.367-2.602 37.533-16.459 66.511-54.401l-6.182-10.194Z'
                 fill='#2261AE'
+                fillRule='evenodd'
             />
             <path
-                fillRule='evenodd'
                 clipRule='evenodd'
                 d='M538.595 449.828C515.347 407.2 417.599 228.379 399.626 204.886c-27.988-36.631-71.476-60.148-120.324-60.148-84.405 0-152.874 70.32-152.874 157.08 0 86.765 63.637 214.031 148.071 214.031 25.078 0 38.656-.295 142.154 0 .855.005 1.664-.024 2.507-.024 13.446.649 42.358.136 69.829-12.861 4.413-2.141 31.184-13.645 55.011-44.857l-5.405-8.279Z'
                 fill='#2261AE'
+                fillRule='evenodd'
             />
         </g>
         <defs>
             <clipPath id='left-bar_svg__a'>
-                <path fill='#fff' d='M0 0h531v435H0z' />
+                <path d='M0 0h531v435H0z' fill='#fff' />
             </clipPath>
         </defs>
     </svg>

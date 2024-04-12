@@ -1,8 +1,8 @@
 import { devicesStatuses, shadowSynchronizationStates } from '../constants'
 
-export type DevicesDetailMetaDataStatusValueType = typeof devicesStatuses[keyof typeof devicesStatuses]
+export type DevicesDetailMetaDataStatusValueType = (typeof devicesStatuses)[keyof typeof devicesStatuses]
 
-export type DevicesDetailMetaDataStatusShadowSynchronizationType = typeof shadowSynchronizationStates[keyof typeof shadowSynchronizationStates]
+export type DevicesDetailMetaDataStatusShadowSynchronizationType = (typeof shadowSynchronizationStates)[keyof typeof shadowSynchronizationStates]
 
 export type ResourcesType = {
     deviceId: string

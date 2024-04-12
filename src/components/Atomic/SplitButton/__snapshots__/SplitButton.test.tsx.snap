@@ -123,7 +123,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   cursor: pointer;
   border: 1px solid;
   border: 1px solid;
-  cursor: not-allowed;
+  cursor: not-allowed!important;
   padding: 10px 24px;
   font-size: 14px;
   line-height: 16px;
@@ -157,7 +157,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   cursor: pointer;
   border: 1px solid;
   border: 1px solid;
-  cursor: not-allowed;
+  cursor: not-allowed!important;
   padding: 10px 24px;
   font-size: 14px;
   line-height: 16px;
@@ -246,7 +246,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586z"
                 fill="currentcolor"
               />
             </svg>
@@ -281,7 +281,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586z"
                 fill="currentcolor"
               />
             </svg>
@@ -316,7 +316,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586z"
                 fill="currentcolor"
               />
             </svg>
@@ -351,7 +351,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586z"
                 fill="currentcolor"
               />
             </svg>
@@ -379,7 +379,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10 18.333A8.333 8.333 0 0 0 18.333 10 8.333 8.333 0 0 0 10 1.667 8.333 8.333 0 0 0 1.667 10 8.333 8.333 0 0 0 10 18.333Zm-.781-5.468V10.78H7.135a.78.78 0 0 1-.78-.78.78.78 0 0 1 .78-.782H9.22V7.136A.78.78 0 0 1 10 6.354a.78.78 0 0 1 .781.782v2.083h2.084a.78.78 0 0 1 .78.781.78.78 0 0 1-.78.781H10.78v2.084a.78.78 0 0 1-.781.78.78.78 0 0 1-.781-.78Z"
+                d="M10 18.333A8.333 8.333 0 0 0 18.333 10 8.333 8.333 0 0 0 10 1.667 8.333 8.333 0 0 0 1.667 10 8.333 8.333 0 0 0 10 18.333m-.781-5.468V10.78H7.135a.78.78 0 0 1-.78-.78.78.78 0 0 1 .78-.782H9.22V7.136A.78.78 0 0 1 10 6.354a.78.78 0 0 1 .781.782v2.083h2.084a.78.78 0 0 1 .78.781.78.78 0 0 1-.78.781H10.78v2.084a.78.78 0 0 1-.781.78.78.78 0 0 1-.781-.78"
                 fill="currentcolor"
               />
             </svg>
@@ -402,7 +402,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586z"
                 fill="currentcolor"
               />
             </svg>
@@ -430,7 +430,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M10 18.333A8.333 8.333 0 0 0 18.333 10 8.333 8.333 0 0 0 10 1.667 8.333 8.333 0 0 0 1.667 10 8.333 8.333 0 0 0 10 18.333Zm-.781-5.468V10.78H7.135a.78.78 0 0 1-.78-.78.78.78 0 0 1 .78-.782H9.22V7.136A.78.78 0 0 1 10 6.354a.78.78 0 0 1 .781.782v2.083h2.084a.78.78 0 0 1 .78.781.78.78 0 0 1-.78.781H10.78v2.084a.78.78 0 0 1-.781.78.78.78 0 0 1-.781-.78Z"
+                d="M10 18.333A8.333 8.333 0 0 0 18.333 10 8.333 8.333 0 0 0 10 1.667 8.333 8.333 0 0 0 1.667 10 8.333 8.333 0 0 0 10 18.333m-.781-5.468V10.78H7.135a.78.78 0 0 1-.78-.78.78.78 0 0 1 .78-.782H9.22V7.136A.78.78 0 0 1 10 6.354a.78.78 0 0 1 .781.782v2.083h2.084a.78.78 0 0 1 .78.781.78.78 0 0 1-.78.781H10.78v2.084a.78.78 0 0 1-.781.78.78.78 0 0 1-.781-.78"
                 fill="currentcolor"
               />
             </svg>
@@ -453,7 +453,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586z"
                 fill="currentcolor"
               />
             </svg>
@@ -482,7 +482,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A10 10 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.15 7.15 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416"
                 fill="currentcolor"
               />
             </svg>
@@ -505,7 +505,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586z"
                 fill="currentcolor"
               />
             </svg>
@@ -534,7 +534,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A9.998 9.998 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.148 7.148 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416Z"
+                d="M18.575 10c.787 0 1.435-.641 1.324-1.42A10 10 0 0 0 9.682.005a10 10 0 0 0-5.173 18.353c.658.432 1.514.117 1.848-.595.335-.713.016-1.551-.616-2.02a7.15 7.15 0 0 1-2.114-8.985A7.15 7.15 0 0 1 17.01 8.584c.155.772.779 1.416 1.566 1.416"
                 fill="currentcolor"
               />
             </svg>
@@ -557,7 +557,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586 1.707.293Z"
+                d="M1.707.293A1 1 0 0 0 .293 1.707l6 6a1 1 0 0 0 1.414 0l6-6A1 1 0 0 0 12.293.293L7 5.586z"
                 fill="currentcolor"
               />
             </svg>

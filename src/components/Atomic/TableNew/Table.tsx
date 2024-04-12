@@ -18,7 +18,6 @@ import ConditionalWrapper from '../ConditionalWrapper'
 const Table: FC<Props> = (props) => {
     const {
         autoHeight,
-        autoFillEmptyRows,
         className,
         columns,
         data,
@@ -65,7 +64,6 @@ const Table: FC<Props> = (props) => {
         page,
         canPreviousPage,
         canNextPage,
-        pageOptions,
         pageCount,
         gotoPage,
         nextPage,
@@ -159,7 +157,7 @@ const Table: FC<Props> = (props) => {
 
     useEffect(() => {
         setPageSize(getPageSize(defaultPageSize))
-    }, [defaultPageSize, height])
+    }, [defaultPageSize, height]) // eslint-disable-line
 
     const renderPagination = () => {
         let target = null

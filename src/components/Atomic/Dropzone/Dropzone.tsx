@@ -126,6 +126,7 @@ const Dropzone: FC<Props> = (props) => {
                     <div css={styles.progressBar}></div>
                 </Fragment>
             )),
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [files, renderFile]
     )
 

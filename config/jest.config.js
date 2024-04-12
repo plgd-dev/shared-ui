@@ -6,8 +6,11 @@ module.exports = {
     moduleNameMapper: {
         'react-merge-refs': '<rootDir>/config/jest.reactMergeRefMock.js',
         '\\.svg$': '<rootDir>/config/jest.svgMock.js',
+        // '\\.(css|less)$': 'identity-obj-proxy',
+        '\\.(gif|ttf|eot|svg)$': '<rootDir>/config/fileMock.js',
         '\\.(css|less|jpg|jpeg|png)$': '<rootDir>/config/styleMock.js',
         'units-converter': '<rootDir>/config/moduleMock.js',
+        'typeface-nunito': 'identity-obj-proxy',
     },
     clearMocks: true,
     collectCoverage: false,
@@ -27,6 +30,7 @@ module.exports = {
     testResultsProcessor: 'jest-sonar-reporter',
     transform: {
         '^.+.(js|jsx|ts|tsx)$': ['babel-jest'],
+        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/config/fileTransformer.js',
     },
     verbose: true,
     watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],

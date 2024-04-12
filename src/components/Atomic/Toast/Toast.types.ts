@@ -11,7 +11,7 @@ export type ToastOptionType = {
     isNotification?: boolean
 }
 
-export type ToastTypesType = typeof toastTypes[keyof typeof toastTypes]
+export type ToastTypesType = (typeof toastTypes)[keyof typeof toastTypes]
 
 export type Props = {
     message: string

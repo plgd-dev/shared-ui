@@ -2,3 +2,4 @@ build/*
 node_modules/*
 src/react-app-env.d.ts
 src/declarations.d.ts
+src/components/Atomic/Icon/components/*

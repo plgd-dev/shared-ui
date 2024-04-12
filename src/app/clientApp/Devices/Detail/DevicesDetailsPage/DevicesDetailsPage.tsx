@@ -67,7 +67,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
                     label: _(menuT.devices),
                 },
             ],
-        [breadcrumbsProp]
+        [breadcrumbsProp, _]
     )
     const [breadcrumbs, setBreadcrumbs] = useState(breadcrumbBase)
 

@@ -12,26 +12,26 @@ describe('<Radio>', () => {
                         { value: '1', label: '1' },
                         { value: '2', label: '2' },
                     ]}
-                    onChange={() => {}}
                     name='radio1'
+                    onChange={() => {}}
                 />
                 <Radio
                     defaultValue='2'
-                    onChange={() => {}}
                     items={[
                         { value: '1', label: '1' },
                         { value: '2', label: '2' },
                     ]}
                     name='radio1'
+                    onChange={() => {}}
                 />
                 <Radio
                     error={true}
-                    onChange={() => {}}
                     items={[
                         { value: '1', label: '1' },
                         { value: '2', label: '2' },
                     ]}
                     name='radio1'
+                    onChange={() => {}}
                 />
             </div>
         )

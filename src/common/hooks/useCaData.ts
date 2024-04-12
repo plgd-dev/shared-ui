@@ -64,6 +64,7 @@ export function useCaData(options: Options) {
             setParsedData([])
             setLoading(false)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data?.length, parsedData?.length])
 
     return { loading, parsedData }

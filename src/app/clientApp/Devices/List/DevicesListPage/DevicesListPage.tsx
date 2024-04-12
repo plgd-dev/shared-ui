@@ -113,7 +113,7 @@ export const DevicesListPage: FC<Props> = (props) => {
                 }
             )
         }
-    }, [])
+    }, [_])
 
     // Updates the resource through rest API
     const updateResource = async ({ href, currentInterface = '' }: DevicesResourcesModalParamsType, resourceDataUpdate: any) => {
@@ -152,7 +152,7 @@ export const DevicesListPage: FC<Props> = (props) => {
         }
     }, [reInitializationError, loading, initializedByAnother])
 
-    const breadcrumbs = useMemo(() => breadcrumbsProp ?? [{ label: _(menuT.devices), link: '/' }], [breadcrumbsProp])
+    const breadcrumbs = useMemo(() => breadcrumbsProp ?? [{ label: _(menuT.devices), link: '/' }], [_, breadcrumbsProp])
 
     useEffect(() => {
         if (activeTabItem === 0 && (!isReachable || initializedByAnother || reInitializationError)) {

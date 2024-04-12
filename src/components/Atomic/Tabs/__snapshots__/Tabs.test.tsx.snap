@@ -10,7 +10,7 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
 .emotion-1 {
   display: block;
   position: relative;
-  border-bottom: 1px solid #E6E9ED;
+  border-bottom: 1px solid;
 }
 
 .emotion-2 {
@@ -48,11 +48,17 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
   margin: 0 24px 0 0;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
-  color: #0A2965;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-2:hover {
-  color: #2261AE;
   background: transparent;
 }
 
@@ -95,10 +101,17 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
   margin: 0 24px 0 0;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .emotion-3:hover {
-  color: #2261AE;
   background: transparent;
 }
 
@@ -159,7 +172,7 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
 }
 
 .emotion-7 {
-  padding: 24px 0 0 0;
+  padding-top: 24px;
 }
 
 <div>
@@ -207,18 +220,7 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
             aria-hidden="true"
             class="emotion-6"
             tabindex="-1"
-          >
-            <div
-              class="emotion-7"
-              style="width: 100%;"
-            >
-              <div
-                style="height: 300px; background: rgb(229, 229, 229);"
-              >
-                Resources content
-              </div>
-            </div>
-          </div>
+          />
         </div>
       </div>
     </div>

@@ -17,7 +17,8 @@ export default {
 const Template = (args) => {
     const defaultCommandTimeToLive = 10000000000 // 10s
     const [ttl, setTtl] = useState(defaultCommandTimeToLive)
-    const [error, setError] = useState(false)
+    // eslint-disable-next-line no-unused-vars
+    const [_, setError] = useState(false)
     const [show, setShow] = useState(true)
     const [notification, setNotification] = useState(true)
 

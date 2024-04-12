@@ -18,15 +18,18 @@ export function useAppVersion(settings: SettingsType) {
     const { requestedDatetime, githubVersionUrl } = settings
     const [version, setVersion] = useState<VersionObject | null>(null)
 
-    const requestVersion = useCallback((now: Date) => {
-        getVersionNumberFromGithub(githubVersionUrl).then((ret) => {
-            setVersion({
-                requestedDatetime: now,
-                latest: ret.data.tag_name.replace('v', ''),
-                latest_url: ret.data.html_url,
+    const requestVersion = useCallback(
+        (now: Date) => {
+            getVersionNumberFromGithub(githubVersionUrl).then((ret) => {
+                setVersion({
+                    requestedDatetime: now,
+                    latest: ret.data.tag_name.replace('v', ''),
+                    latest_url: ret.data.html_url,
+                })
             })
-        })
-    }, [])
+        },
+        [githubVersionUrl]
+    )
 
     useEffect(() => {
         const now: Date = new Date()

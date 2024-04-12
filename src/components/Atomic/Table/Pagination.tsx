@@ -7,7 +7,7 @@ import PaginationItems from './PaginationItems'
 import { messages as t } from './Table.i18n'
 
 const Pagination: FC<Props> = (props) => {
-    const { className, disabled, canPreviousPage, canNextPage, pageCount, gotoPage, nextPage, previousPage, pageIndex, pageLength } = props
+    const { className, canPreviousPage, canNextPage, pageCount, gotoPage, nextPage, previousPage, pageIndex, pageLength } = props
     const { formatMessage: _ } = useIntl()
 
     // If the last item is removed from the list, and we are on the last page (pageLength === 0), update the last page with (pageCount - 1)
@@ -22,11 +22,11 @@ const Pagination: FC<Props> = (props) => {
     return (
         <BPagination className={classNames('plgd-pagination', className)}>
             {/* <BPagination.First onClick={() => gotoPage(0)} disabled={!canPreviousPage} /> */}
-            <BPagination.Prev className='step' onClick={() => previousPage()} disabled={!canPreviousPage}>
+            <BPagination.Prev className='step' disabled={!canPreviousPage} onClick={() => previousPage()}>
                 {_(t.prev)}
             </BPagination.Prev>
-            <PaginationItems activePage={pageIndex + 1} pageCount={pageCount} maxButtons={10} onItemClick={gotoPage} />
-            <BPagination.Next className='step' onClick={() => nextPage()} disabled={!canNextPage}>
+            <PaginationItems activePage={pageIndex + 1} maxButtons={10} onItemClick={gotoPage} pageCount={pageCount} />
+            <BPagination.Next className='step' disabled={!canNextPage} onClick={() => nextPage()}>
                 {_(t.next)}
             </BPagination.Next>
             {/* <BPagination.Last onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage} /> */}

@@ -9,7 +9,7 @@ import Logo from '../../Atomic/Logo'
 import IconCircle from './assets/IconCircle'
 import IconDone from './assets/IconDone'
 import IconCloseCircle from '../../Atomic/Icon/components/IconCloseCircle'
-import { convertSize } from '../../Atomic'
+import { convertSize } from '../../Atomic/Icon'
 import { ComponentType, Props } from './FullPageWizard.types'
 import { Description, SubHeadline, Headline, GroupHeadline } from './Components'
 

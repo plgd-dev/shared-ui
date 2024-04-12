@@ -110,7 +110,7 @@ class WSManagerClass {
         Object.keys(this.wsClientList).forEach((id) => {
             // Register only if not registered already.
             if (!this.ws[id]) {
-                const { api, listener, delayMessage = this.defaultDelayMessageTimeMs, onOpen = null, onError = null } = this.wsClientList[id]
+                const { api, listener, delayMessage = this.defaultDelayMessageTimeMs } = this.wsClientList[id]
 
                 // Reset the reconnect attempts on register
                 let reconnectAttempts = 0

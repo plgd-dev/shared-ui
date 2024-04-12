@@ -1,6 +1,5 @@
 import { ReactElement, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import { useIntl } from 'react-intl'
 import { useSelector } from 'react-redux'
 
 import NotFoundPage from '../../../components/Templates/NotFoundPage'
@@ -19,7 +18,6 @@ export type useClientAppPageReturnType = [clientData: RemoteClientType, error: b
 
 export const useClientAppPage = (props: useClientAppPageTypes): useClientAppPageReturnType => {
     const { clientId, i18n } = props
-    const { formatMessage: _ } = useIntl()
     const { id: routerId } = useParams()
     const id = clientId || routerId || ''
 

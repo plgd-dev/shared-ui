@@ -1,7 +1,5 @@
 import React from 'react'
 import Content from '../../components/Layout/Content'
-import Button from '../../components/Atomic/Button'
-import Icon from '../../components/Atomic/Icon'
 import StatusTag from '../../components/Atomic/StatusTag'
 
 export default {

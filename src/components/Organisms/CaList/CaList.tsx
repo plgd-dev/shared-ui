@@ -7,7 +7,7 @@ import FormGroup from '../../Atomic/FormGroup'
 import { DataType, Props } from './CaList.types'
 import * as styles from './CaList.styles'
 import IconDownload from '../../Atomic/Icon/components/IconDownload'
-import { IconArrowDetail, IconTrash } from '../../Atomic'
+import { IconArrowDetail, IconTrash } from '../../Atomic/Icon'
 import TableActionButton from '../TableActionButton'
 import Spacer from '../../Atomic/Spacer'
 

@@ -2,23 +2,82 @@
 
 exports[`<PageLoader> render correctly - snapshot 1`] = `
 <DocumentFragment>
-  <div>
+  @keyframes animation-0 {
+  from {
+    left: -5%;
+    width: 5%;
+  }
+
+  to {
+    left: 130%;
+    width: 100%;
+  }
+}
+
+@keyframes animation-1 {
+  from {
+    left: -80%;
+    width: 80%;
+  }
+
+  to {
+    left: 110%;
+    width: 10%;
+  }
+}
+
+.emotion-0 {
+  position: fixed;
+  top: 85px;
+  left: 280px;
+  width: 100%;
+  z-index: 9;
+}
+
+.emotion-1 {
+  width: 100%;
+  height: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.emotion-2 {
+  width: 100%;
+  height: 5px;
+  background-color: transparent;
+}
+
+.emotion-3 {
+  position: absolute;
+  height: 5px;
+  -webkit-animation: animation-0 2s infinite;
+  animation: animation-0 2s infinite;
+}
+
+.emotion-4 {
+  position: absolute;
+  height: 5px;
+  -webkit-animation: animation-1 2s 0.5s infinite;
+  animation: animation-1 2s 0.5s infinite;
+}
+
+<div>
     <div
       aria-busy="true"
-      id="page-loader"
+      class="emotion-0"
       role="alert"
     >
       <div
-        class="bar"
+        class="emotion-1"
       >
         <div
-          class="progress"
+          class="emotion-2"
         >
           <div
-            class="subline inc"
+            class="emotion-3"
           />
           <div
-            class="subline dec"
+            class="emotion-4"
           />
         </div>
       </div>

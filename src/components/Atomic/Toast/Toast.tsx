@@ -42,13 +42,12 @@ export const ToastContainer = (props: ToastContainerProps) => {
         <Toastr
             hideProgressBar
             newestOnTop
+            autoClose={TOAST_HIDE_TIME}
             containerId={containerId}
+            icon={false}
             limit={MAX_NUMBER_OF_VISIBLE_TOASTS}
             pauseOnFocusLoss={false}
             style={{ display: showNotifications ? 'block' : 'none' }}
-            autoClose={TOAST_HIDE_TIME}
-            // closeButton={({ closeToast }: { closeToast: any }) => <i className='fas fa-times close-toast' onClick={closeToast} />}
-            icon={false}
         />
     )
 

@@ -59,7 +59,7 @@ const CodeEditor: FC<Props> = (props) => {
                     { tag: t.attributeName, color: '#5c6166' },
                 ],
             }),
-        []
+        [globalTheme?.colors?.CodeEditor.background, globalTheme?.colors?.CodeEditor.lineHighlight, globalTheme?.colors?.CodeEditor.selection]
     )
 
     const showPlaceholder = useMemo(() => value === '', [value])

@@ -14,7 +14,7 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
 }
 
 .emotion-1 {
-  padding: 24px 40px 0 40px;
+  padding: 24px 0 0 0;
   height: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -42,6 +42,9 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding-bottom: 16px;
+  min-height: 72px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .emotion-3 {
@@ -61,7 +64,6 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
 }
 
 .emotion-4 {
-  color: #191A1A;
   font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -69,7 +71,6 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
   line-height: 30px;
   letter-spacing: -0.5px;
   margin: 0;
-  color: #0a2965;
 }
 
 @media (max-width: 767px) {
@@ -80,8 +81,13 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
 }
 
 .emotion-6 {
-  border-top: 1px solid #e6e9ed;
-  background: #fff;
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 100%;
+}
+
+.emotion-7 {
+  border-top: 1px solid;
   padding: 0 40px;
   box-sizing: border-box;
   -webkit-flex-shrink: 0;
@@ -101,13 +107,13 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
   overflow: hidden;
 }
 
-.emotion-7 {
+.emotion-8 {
   -webkit-flex: 0 0 420px;
   -ms-flex: 0 0 420px;
   flex: 0 0 420px;
 }
 
-.emotion-8 {
+.emotion-9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -119,18 +125,18 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  padding: 16px 0;
+  padding: 16px 40px;
   min-height: 64px;
+  margin: 0 -40px;
 }
 
-.emotion-9 {
+.emotion-10 {
   font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
   text-align: center;
-  color: #191A1A;
   -webkit-text-decoration: none;
   text-decoration: none;
   display: -webkit-box;
@@ -143,9 +149,11 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
   align-items: center;
   padding-right: 22px;
   position: relative;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
-.emotion-10 {
+.emotion-11 {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -184,27 +192,30 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
           </div>
         </div>
       </div>
+      <div
+        class="emotion-6"
+      />
     </div>
     <div
-      class="emotion-6"
+      class="emotion-7"
       style="height: 65px;"
     >
       <div
-        class="emotion-7"
+        class="emotion-8"
       >
         <div
-          class="emotion-8"
+          class="emotion-9"
         >
           <a
-            class="emotion-9"
-            href="packages/shared-ui/src/components/Layout/Footer#"
+            class="emotion-10"
+            href="#"
           >
             <span>
               recentTasksPortalTitle
             </span>
              
             <svg
-              class="emotion-10"
+              class="emotion-11"
               fill="none"
               height="16"
               viewBox="0 0 6 11"
@@ -213,7 +224,7 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
             >
               <path
                 clip-rule="evenodd"
-                d="M.126 6.854a.387.387 0 0 0 .606 0L3 4.207l2.268 2.647a.387.387 0 0 0 .606 0 .56.56 0 0 0 0-.708l-2.571-3a.387.387 0 0 0-.606 0l-2.571 3a.56.56 0 0 0 0 .708Z"
+                d="M.126 6.854a.387.387 0 0 0 .606 0L3 4.207l2.268 2.647a.387.387 0 0 0 .606 0 .56.56 0 0 0 0-.708l-2.571-3a.387.387 0 0 0-.606 0l-2.571 3a.56.56 0 0 0 0 .708"
                 fill="currentcolor"
                 fill-rule="evenodd"
               />
@@ -221,7 +232,7 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
                 clip-path="url(#icon-arrow-triangle-full-up_svg__a)"
               >
                 <path
-                  d="M2.576 3.196a.56.56 0 0 1 .85 0l2.4 2.666a.718.718 0 0 1 .129.727c-.094.25-.311.413-.555.413L.6 7c-.242 0-.461-.163-.555-.413a.723.723 0 0 1 .13-.727l2.4-2.666.001.002Z"
+                  d="M2.576 3.196a.56.56 0 0 1 .85 0l2.4 2.666a.72.72 0 0 1 .129.727c-.094.25-.311.413-.555.413L.6 7c-.242 0-.461-.163-.555-.413a.72.72 0 0 1 .13-.727l2.4-2.666z"
                   fill="currentcolor"
                 />
               </g>
@@ -230,9 +241,8 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
                   id="icon-arrow-triangle-full-up_svg__a"
                 >
                   <path
-                    d="M0 0h6v10.667H0z"
+                    d="M0 11h6V.333H0z"
                     fill="#fff"
-                    transform="matrix(1 0 0 -1 0 11)"
                   />
                 </clippath>
               </defs>

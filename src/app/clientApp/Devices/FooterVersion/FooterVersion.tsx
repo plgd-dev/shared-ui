@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { useIntl } from 'react-intl'
 
-import { getVersionMarkData } from '../../../../components/Atomic'
+import { getVersionMarkData } from '../../../../components/Atomic/VersionMark/utils'
 import VersionMark from '../../../../components/Atomic/VersionMark'
 import { severities } from '../../../../components/Atomic/VersionMark/constants'
 import { security } from '../../../../common/services'
