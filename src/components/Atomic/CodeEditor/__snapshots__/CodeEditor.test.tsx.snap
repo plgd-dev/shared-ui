@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CodeEditor> displays placeholder text when value is empty 1`] = `
+exports[`<CodeEditor> renders without crashing 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: relative;
@@ -85,6 +85,7 @@ exports[`<CodeEditor> displays placeholder text when value is empty 1`] = `
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   opacity: 1;
+  opacity: 0;
 }
 
 .emotion-4 {
@@ -100,7 +101,7 @@ exports[`<CodeEditor> displays placeholder text when value is empty 1`] = `
       class="cm-theme emotion-1"
     >
       <div
-        class="cm-editor ͼ1 ͼ2 ͼ4 ͼ26 ͼ1p"
+        class="cm-editor ͼ1 ͼ2 ͼ4 ͼ1n ͼ16"
       >
         <div
           aria-live="polite"
@@ -218,126 +219,7 @@ exports[`<CodeEditor> displays placeholder text when value is empty 1`] = `
         </svg>
         <p
           class="emotion-4"
-        >
-          Placeholder
-        </p>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`<CodeEditor> renders without crashing 1`] = `
-<DocumentFragment>
-  .emotion-0 {
-  position: relative;
-}
-
-.emotion-1 {
-  border: 1px solid;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-}
-
-.emotion-1 .cm-editor {
-  background: transparent;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
-.emotion-1 .cm-gutters {
-  border: 0;
-}
-
-.emotion-1 .cm-lineNumbers .cm-gutterElement {
-  text-align: center;
-  padding: 0 16px 0 16px;
-}
-
-.emotion-1 .cm-gutterElement {
-  color: !important;
-}
-
-.emotion-1 .cm-content {
-  padding: 16px 0;
-}
-
-.emotion-1 .cm-line {
-  padding: 0 16px;
-  line-height: 1.6;
-}
-
-<div
-    class="emotion-0"
-  >
-    <div
-      class="cm-theme emotion-1"
-    >
-      <div
-        class="cm-editor ͼ1 ͼ2 ͼ4 ͼ1n ͼ16"
-      >
-        <div
-          aria-live="polite"
-          class="cm-announced"
         />
-        <div
-          class="cm-scroller"
-          tabindex="-1"
-        >
-          <div
-            aria-hidden="true"
-            class="cm-gutters"
-            style="min-height: 14px; position: sticky;"
-          >
-            <div
-              class="cm-gutter cm-lineNumbers"
-            >
-              <div
-                class="cm-gutterElement"
-                style="height: 0px; visibility: hidden; pointer-events: none;"
-              >
-                9
-              </div>
-              <div
-                class="cm-gutterElement cm-activeLineGutter"
-                style="height: 14px;"
-              >
-                1
-              </div>
-            </div>
-          </div>
-          <div
-            aria-autocomplete="list"
-            aria-multiline="true"
-            autocapitalize="off"
-            autocorrect="off"
-            class="cm-content"
-            contenteditable="true"
-            data-language="markdown"
-            role="textbox"
-            spellcheck="false"
-            style="tab-size: 4;"
-            translate="no"
-          >
-            <div
-              class="cm-activeLine cm-line"
-            >
-              <br />
-            </div>
-          </div>
-          <div
-            aria-hidden="true"
-            class="cm-layer cm-layer-above cm-cursorLayer"
-            style="z-index: 150; animation-duration: 1200ms;"
-          />
-          <div
-            aria-hidden="true"
-            class="cm-layer cm-selectionLayer"
-            style="z-index: -2;"
-          />
-        </div>
       </div>
     </div>
   </div>
