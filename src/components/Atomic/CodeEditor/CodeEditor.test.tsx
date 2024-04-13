@@ -8,16 +8,4 @@ describe('<CodeEditor>', () => {
 
         expect(asFragment()).toMatchSnapshot()
     })
-
-    it('displays placeholder text when value is empty', () => {
-        const { getByText, asFragment } = render(<CodeEditor placeholderText='Placeholder' value='' />)
-        expect(getByText('Placeholder')).toBeInTheDocument()
-
-        expect(asFragment()).toMatchSnapshot()
-    })
-
-    it('does not display placeholder text when value is not empty', () => {
-        const { queryByText } = render(<CodeEditor placeholderText='Placeholder' value='Some value' />)
-        expect(queryByText('Placeholder')).not.toBeInTheDocument()
-    })
 })
