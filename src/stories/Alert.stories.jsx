@@ -25,6 +25,8 @@ const Template = (args) => (
         <Alert {...args} severity={severities.ERROR}>
             Alert text
         </Alert>
+        <br />
+        <br />
         <div style={{ width: 550 }}>
             <Alert {...args}>
                 Before adding a remote client, verify their TLS certificate for security. To proceed, open the URL in your browser, verify and accept the

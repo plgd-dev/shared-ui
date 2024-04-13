@@ -1,113 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/ButtonBox/ButtonBox.test.tsx">
-    <testCase name="&lt;ButtonBox&gt; snapshot" duration="177"/>
-    <testCase name="&lt;ButtonBox&gt; renders button with provided props" duration="212"/>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormGroup/FormGroup.test.tsx">
+    <testCase name="&lt;FormGroup&gt; render correctly - snapshot" duration="458"/>
   </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/SplitButton/SplitButton.test.tsx">
-    <testCase name="&lt;SimpleStripTable&gt; render correctly - snapshot" duration="494"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormGroup/FormGroup.test.tsx">
-    <testCase name="&lt;FormGroup&gt; render correctly - snapshot" duration="404"/>
+    <testCase name="&lt;SimpleStripTable&gt; render correctly - snapshot" duration="657"/>
   </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Layout/Header/Header.test.tsx">
-    <testCase name="&lt;Header&gt; render correctly - snapshot" duration="330"/>
+    <testCase name="&lt;Header&gt; render correctly - snapshot" duration="317"/>
   </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Tag/Tag.test.tsx">
-    <testCase name="&lt;Tag&gt; render correctly - snapshot" duration="313"/>
+    <testCase name="&lt;Tag&gt; render correctly - snapshot" duration="321"/>
   </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Alert/Alert.test.tsx">
-    <testCase name="&lt;Alert&gt; snapshot" duration="133"/>
-    <testCase name="&lt;Alert&gt; renders alert message when provided" duration="12"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Editor/Editor.test.tsx">
-    <testCase name="&lt;ConditionalWrapper&gt; render correctly - snapshot" duration="407"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormSelect/FormSelect.test.tsx">
-    <testCase name="&lt;FormSelect&gt; render correctly - snapshot" duration="708"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/PageLayout/PageLayout.test.tsx">
-    <testCase name="&lt;PageLayout&gt; render correctly - snapshot" duration="290"/>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/CodeEditor/CodeEditor.test.tsx">
+    <testCase name="&lt;CodeEditor&gt; renders without crashing" duration="448"/>
+    <testCase name="&lt;CodeEditor&gt; displays placeholder text when value is empty" duration="123"/>
+    <testCase name="&lt;CodeEditor&gt; does not display placeholder text when value is not empty" duration="138"/>
   </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Modal/Modal.test.tsx">
-    <testCase name="&lt;Modal&gt; render correctly - snapshot" duration="428"/>
+    <testCase name="&lt;Modal&gt; render correctly - snapshot" duration="435"/>
   </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/SimpleStripTable/SimpleStripTable.test.tsx">
-    <testCase name="&lt;SimpleStripTable&gt; render correctly - snapshot" duration="141"/>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/StatusPill/StatusPill.test.tsx">
+    <testCase name="&lt;StatusPill&gt; render correctly - snapshot" duration="464"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/PageLayout/PageLayout.test.tsx">
+    <testCase name="&lt;PageLayout&gt; render correctly - snapshot" duration="452"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormSelect/FormSelect.test.tsx">
+    <testCase name="&lt;FormSelect&gt; render correctly - snapshot" duration="993"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormTextarea/FormTextarea.test.tsx">
+    <testCase name="&lt;FormInput&gt; render correctly - snapshot" duration="304"/>
   </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Layout/LeftPanel/LeftPanel.test.tsx">
-    <testCase name="&lt;LeftPanel&gt; render correctly - snapshot" duration="991"/>
-    <testCase name="&lt;LeftPanel&gt; render correctly - snapshot" duration="634"/>
-    <testCase name="&lt;LeftPanel&gt; render correctly - snapshot" duration="644"/>
-    <testCase name="&lt;LeftPanel&gt; render correctly - snapshot" duration="466"/>
+    <testCase name="&lt;LeftPanel&gt; render correctly - snapshot" duration="1136"/>
+    <testCase name="&lt;LeftPanel&gt; render correctly - snapshot" duration="903"/>
+    <testCase name="&lt;LeftPanel&gt; render correctly - snapshot" duration="930"/>
+    <testCase name="&lt;LeftPanel&gt; render correctly - snapshot" duration="388"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormInput/FormInput.test.tsx">
+    <testCase name="&lt;FormInput&gt; render correctly - snapshot" duration="233"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/SimpleStripTable/SimpleStripTable.test.tsx">
+    <testCase name="&lt;SimpleStripTable&gt; render correctly - snapshot" duration="157"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/ActionButton/ActionButton.test.tsx">
+    <testCase name="&lt;ActionButton&gt; render correctly - snapshot" duration="310"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Button/Button.test.tsx">
+    <testCase name="&lt;Button&gt; render correctly - snapshot" duration="153"/>
+    <testCase name="&lt;Button&gt; render correctly - loading" duration="127"/>
+    <testCase name="&lt;Button&gt; onCLick" duration="39"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Radio/Radio.test.tsx">
+    <testCase name="&lt;Radio&gt; render correctly - snapshot" duration="354"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Tabs/Tabs.test.tsx">
+    <testCase name="&lt;Tabs&gt; render correctly - snapshot" duration="393"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Editor/Editor.test.tsx">
+    <testCase name="&lt;ConditionalWrapper&gt; render correctly - snapshot" duration="363"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/ButtonBox/ButtonBox.test.tsx">
+    <testCase name="&lt;ButtonBox&gt; snapshot" duration="48"/>
+    <testCase name="&lt;ButtonBox&gt; renders button with provided props" duration="331"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Grid/Grid.test.tsx">
+    <testCase name="&lt;Grid&gt; render correctly - snapshot" duration="361"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/TileToggle/TileToggle.test.tsx">
+    <testCase name="&lt;TileToggle&gt; render correctly - snapshot" duration="115"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormLabel/FormLabel.test.tsx">
+    <testCase name="&lt;FormLabel&gt; render correctly - snapshot" duration="35"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Alert/Alert.test.tsx">
+    <testCase name="&lt;Alert&gt; snapshot" duration="98"/>
+    <testCase name="&lt;Alert&gt; renders alert message when provided" duration="20"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Layout/Footer/Footer.test.tsx">
+    <testCase name="&lt;Footer&gt; render correctly - snapshot" duration="101"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Loader/IconLoader/IconLoader.test.tsx">
+    <testCase name="&lt;IconLoader&gt; render correctly - snapshot" duration="65"/>
   </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Switch/Switch.test.tsx">
     <testCase name="&lt;Switch&gt; render correctly - snapshot" duration="129"/>
   </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Button/Button.test.tsx">
-    <testCase name="&lt;Button&gt; render correctly - snapshot" duration="165"/>
-    <testCase name="&lt;Button&gt; render correctly - loading" duration="79"/>
-    <testCase name="&lt;Button&gt; onCLick" duration="27"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Grid/Grid.test.tsx">
-    <testCase name="&lt;Grid&gt; render correctly - snapshot" duration="210"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Radio/Radio.test.tsx">
-    <testCase name="&lt;Radio&gt; render correctly - snapshot" duration="272"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/TileToggle/TileToggle.test.tsx">
-    <testCase name="&lt;TileToggle&gt; render correctly - snapshot" duration="126"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Layout/Footer/Footer.test.tsx">
-    <testCase name="&lt;Footer&gt; render correctly - snapshot" duration="75"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/VersionMark/VersionMark.test.tsx">
-    <testCase name="&lt;VersionMark&gt; render correctly - snapshot" duration="77"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Link/Link.test.tsx">
-    <testCase name="&lt;Headline&gt; render correctly - snapshot" duration="49"/>
-    <testCase name="&lt;Headline&gt; onCLick" duration="25"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormInput/FormInput.test.tsx">
-    <testCase name="&lt;FormInput&gt; render correctly - snapshot" duration="285"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Headline/Headline.test.tsx">
-    <testCase name="&lt;Headline&gt; render correctly - snapshot" duration="127"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormTextarea/FormTextarea.test.tsx">
-    <testCase name="&lt;FormInput&gt; render correctly - snapshot" duration="308"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Tabs/Tabs.test.tsx">
-    <testCase name="&lt;Tabs&gt; render correctly - snapshot" duration="163"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/PageLoader/PageLoader.test.tsx">
-    <testCase name="&lt;PageLoader&gt; render correctly - snapshot" duration="34"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/StatusPill/StatusPill.test.tsx">
-    <testCase name="&lt;StatusPill&gt; render correctly - snapshot" duration="163"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/ActionButton/ActionButton.test.tsx">
-    <testCase name="&lt;ActionButton&gt; render correctly - snapshot" duration="389"/>
-  </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Dropzone/Dropzone.test.tsx">
-    <testCase name="&lt;ConditionalWrapper&gt; render correctly - snapshot" duration="84"/>
-  </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Checkbox/Checkbox.test.tsx">
-    <testCase name="&lt;Checkbox&gt; render correctly - snapshot" duration="174"/>
+    <testCase name="&lt;ConditionalWrapper&gt; render correctly - snapshot" duration="150"/>
   </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/StatusTag/StatusTag.test.tsx">
-    <testCase name="&lt;StatusTag&gt; render correctly - snapshot" duration="86"/>
+    <testCase name="&lt;StatusTag&gt; render correctly - snapshot" duration="57"/>
   </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/ConditionalWrapper/ConditionalWrapper.test.tsx">
-    <testCase name="&lt;ConditionalWrapper&gt; render correctly - snapshot" duration="12"/>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Headline/Headline.test.tsx">
+    <testCase name="&lt;Headline&gt; render correctly - snapshot" duration="116"/>
   </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/FormLabel/FormLabel.test.tsx">
-    <testCase name="&lt;FormLabel&gt; render correctly - snapshot" duration="32"/>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/PageLoader/PageLoader.test.tsx">
+    <testCase name="&lt;PageLoader&gt; render correctly - snapshot" duration="107"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Checkbox/Checkbox.test.tsx">
+    <testCase name="&lt;Checkbox&gt; render correctly - snapshot" duration="63"/>
   </file>
   <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Display/Display.test.tsx">
+    <testCase name="&lt;ConditionalWrapper&gt; render correctly - snapshot" duration="6"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Link/Link.test.tsx">
+    <testCase name="&lt;Headline&gt; render correctly - snapshot" duration="74"/>
+    <testCase name="&lt;Headline&gt; onCLick" duration="46"/>
+  </file>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/ConditionalWrapper/ConditionalWrapper.test.tsx">
     <testCase name="&lt;ConditionalWrapper&gt; render correctly - snapshot" duration="9"/>
   </file>
-  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/Loader/IconLoader/IconLoader.test.tsx">
-    <testCase name="&lt;IconLoader&gt; render correctly - snapshot" duration="19"/>
+  <file path="/Users/patrik/Dev/plgd/hub/http-gateway/web/packages/shared-ui/src/components/Atomic/VersionMark/VersionMark.test.tsx">
+    <testCase name="&lt;VersionMark&gt; render correctly - snapshot" duration="66"/>
   </file>
 </testExecutions>

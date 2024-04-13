@@ -76,6 +76,7 @@ const CodeEditor: FC<Props> = (props) => {
                 extensions={extensions}
                 height={getSizeInPx(height!)}
                 onChange={(v) => handleChange(v)}
+                readOnly={disabled === true}
                 theme={theme}
                 value={value}
             />
@@ -83,7 +84,7 @@ const CodeEditor: FC<Props> = (props) => {
                 <div css={styles.placeholder}>
                     <div css={[styles.flex, !showPlaceholder && styles.noPlaceholder]}>
                         <IconFileUpload {...convertSize(50)} />
-                        <p css={styles.placeholderText}>{placeholderText}</p>
+                        {showPlaceholder && <p css={styles.placeholderText}>{placeholderText}</p>}
                     </div>
                 </div>
             )}

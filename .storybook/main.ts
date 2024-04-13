@@ -1,54 +1,45 @@
-import { dirname, join } from "path";
-import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { StorybookConfig } from '@storybook/react-webpack5'
 
-const config: StorybookConfig = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: [
-    getAbsolutePath("@storybook/preset-scss"),
-    getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-interactions"),
-    {
-      name: '@storybook/addon-styling',
-      options: {
-        sass: {
-          // Require your Sass preprocessor here
-          implementation: require('sass'),
-        },
-      },
-    },
-    getAbsolutePath("storybook-addon-themes")
-  ],
-  framework: {
-    name: getAbsolutePath("@storybook/react-webpack5"),
+import { join, dirname } from 'path'
 
-    options: {
-      builder: {
-        fsCache: true,
-        lazyCompilation: true
-      }
-    }
-  },
-  babel: async (options:any) => {
-    options.plugins.push('babel-plugin-inline-react-svg')
-    return options;
-  },
-  // webpackFinal: async config => {
-  //   config.resolve.alias = {
-  //     ...(config.resolve.alias || [])
-  //   };
-  //   config.resolve.extensions.push('.ts', '.tsx')
-  //   return config
-  // },
-  core: {},
-  staticDirs: ['../public'],
-  docs: {
-    autodocs: false
-  }
-}
-
-export default config
-
+/**
+ * This function is used to resolve the absolute path of a package.
+ * It is needed in projects that use Yarn PnP or are set up within a monorepo.
+ */
 function getAbsolutePath(value: string): any {
-  return dirname(require.resolve(join(value, "package.json")));
+    return dirname(require.resolve(join(value, 'package.json')))
 }
+const config: StorybookConfig = {
+    stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+    addons: [
+        getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
+        getAbsolutePath('@storybook/addon-onboarding'),
+        getAbsolutePath('@storybook/addon-links'),
+        getAbsolutePath('@storybook/addon-essentials'),
+        getAbsolutePath('@chromatic-com/storybook'),
+        getAbsolutePath('@storybook/addon-interactions'),
+        getAbsolutePath('@storybook/addon-themes'),
+    ],
+    framework: {
+        name: getAbsolutePath('@storybook/react-webpack5'),
+        options: {},
+    },
+    babel: async (options:any) => {
+        options.plugins.push('babel-plugin-inline-react-svg')
+        return options;
+    },
+    swc: () => ({
+        jsc: {
+            transform: {
+                react: {
+                    runtime: 'automatic',
+                },
+            },
+        },
+    }),
+    staticDirs: ['../public'],
+    docs: {
+        autodocs: false,
+    },
+}
+export default config

@@ -93,7 +93,18 @@ module.exports = {
       'no-useless-constructor': 'off',
       '@typescript-eslint/no-useless-constructor': 'warn'
     }
-  }],
+  },
+  {
+    // or whatever matches stories specified in .storybook/main.js
+    "files": ['*.stories.@(ts|tsx|js|jsx|mjs|cjs)'],
+    "rules": {
+      // example of overriding a rule
+      'storybook/hierarchy-separator': 'error',
+      // example of disabling a rule
+      'storybook/default-exports': 'off',
+    }
+  }
+  ],
   rules: {
     // http://eslint.org/docs/rules/
     'array-callback-return': 'warn',
