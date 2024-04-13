@@ -1,5 +1,6 @@
 import React from 'react'
 import Alert, { severities } from '../components/Atomic/Alert'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Alert',
@@ -7,7 +8,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <Alert {...args}>Alert text</Alert>
         <br />
@@ -36,5 +37,5 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

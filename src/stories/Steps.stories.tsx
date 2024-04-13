@@ -1,5 +1,6 @@
 import React from 'react'
 import Steps from '../components/Templates/Steps'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Templates/Steps',
@@ -7,7 +8,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <Steps {...args} active={0} steps={['Email', 'Basic info', 'Password']} />
         <br />
@@ -17,5 +18,5 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

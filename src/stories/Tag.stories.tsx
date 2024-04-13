@@ -2,6 +2,7 @@ import React from 'react'
 import Tag from '../components/Atomic/Tag'
 import TagGroup from '../components/Atomic/TagGroup'
 import { tagVariants } from '../components/Atomic/Tag/constants'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Tag',
@@ -9,7 +10,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <Tag {...args}>status</Tag>
         <br />
@@ -27,10 +28,10 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}
 
-const TemplateGroup = (args) => (
+const TemplateGroup = (args: any) => (
     <TagGroup>
         <Tag {...args}>oic.d.clouddevice</Tag>
         <Tag {...args}>oic.wk.d</Tag>
@@ -40,5 +41,5 @@ const TemplateGroup = (args) => (
     </TagGroup>
 )
 
-export const Group = TemplateGroup.bind({})
+export const Group: StoryFn = TemplateGroup.bind({})
 Group.args = {}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TimeoutControl from '../components/Atomic/TimeoutControl'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/TimeoutControl',
@@ -7,7 +8,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => {
+const Template = (args: any) => {
     const defaultCommandTimeToLive = 10000000000 // 10s
     const [ttl, setTtl] = useState(defaultCommandTimeToLive)
     const [ttl2, setTtl2] = useState(defaultCommandTimeToLive)
@@ -59,5 +60,5 @@ const Template = (args) => {
     )
 }
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

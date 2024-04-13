@@ -1,6 +1,7 @@
 import React from 'react'
 import Tooltip, { FloatingDelayGroup } from '../components/Atomic/Tooltip'
 import { convertSize, IconTrash } from '../components/Atomic/Icon'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Tooltip',
@@ -8,7 +9,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <Tooltip {...args} content='Tooltip label 1' delay={200}>
             <IconTrash {...convertSize(24)} />
@@ -40,5 +41,5 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

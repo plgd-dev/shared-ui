@@ -1,5 +1,6 @@
 import React from 'react'
 import Headline from '../components/Atomic/Headline'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Headline',
@@ -7,7 +8,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <Headline {...args}>Headline 01</Headline>
         <Headline {...args} type='h2'>
@@ -25,5 +26,5 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

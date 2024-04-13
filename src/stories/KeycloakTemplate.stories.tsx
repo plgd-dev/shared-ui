@@ -16,6 +16,7 @@ import Button from '../components/Atomic/Button'
 import FormLabel from '../components/Atomic/FormLabel'
 import FormInput from '../components/Atomic/FormInput'
 import SignInForm from '../components/Templates/SignInForm'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Keycloakify/KeycloakTemplate',
@@ -23,15 +24,15 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => <KeycloakTemplate {...args} description='%Description text%' formNode={<div>%Form content%</div>} headline='%Headline text%' />
+const Template = (args: any) => <KeycloakTemplate {...args} description='%Description text%' formNode={<div>%Form content%</div>} headline='%Headline text%' />
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}
 Default.parameters = {
     layout: 'fullscreen',
 }
 
-const TemplateSwiperTestimonials = (args) => (
+const TemplateSwiperTestimonials = (args: any) => (
     <KeycloakTemplate
         {...args}
         description='%Description text%'
@@ -70,13 +71,13 @@ const TemplateSwiperTestimonials = (args) => (
     />
 )
 
-export const SwiperTestimonials = TemplateSwiperTestimonials.bind({})
+export const SwiperTestimonials: StoryFn = TemplateSwiperTestimonials.bind({})
 SwiperTestimonials.args = {}
 SwiperTestimonials.parameters = {
     layout: 'fullscreen',
 }
 
-const TemplateSwiperFeature = (args) => (
+const TemplateSwiperFeature = (args: any) => (
     <KeycloakTemplate
         {...args}
         description='%Description text%'
@@ -112,13 +113,13 @@ const TemplateSwiperFeature = (args) => (
     />
 )
 
-export const SwiperFeature = TemplateSwiperFeature.bind({})
+export const SwiperFeature: StoryFn = TemplateSwiperFeature.bind({})
 SwiperFeature.args = {}
 SwiperFeature.parameters = {
     layout: 'fullscreen',
 }
 
-const TemplateSignIn = (args) => (
+const TemplateSignIn = (args: any) => (
     <KeycloakTemplate
         {...args}
         description={
@@ -203,13 +204,13 @@ const TemplateSignIn = (args) => (
     />
 )
 
-export const SignIn = TemplateSignIn.bind({})
+export const SignIn: StoryFn = TemplateSignIn.bind({})
 SignIn.args = {}
 SignIn.parameters = {
     layout: 'fullscreen',
 }
 
-const TemplateUpdatePassword = (args) => (
+const TemplateUpdatePassword = (args: any) => (
     <KeycloakTemplate
         {...args}
         activeStep={2}
@@ -267,7 +268,7 @@ const TemplateUpdatePassword = (args) => (
     />
 )
 
-export const UpdatePassword = TemplateUpdatePassword.bind({})
+export const UpdatePassword: StoryFn = TemplateUpdatePassword.bind({})
 UpdatePassword.args = {}
 UpdatePassword.parameters = {
     layout: 'fullscreen',

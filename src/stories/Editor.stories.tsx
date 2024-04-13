@@ -1,5 +1,6 @@
 import React from 'react'
 import Editor from '../components/Atomic/Editor'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Editor',
@@ -7,11 +8,11 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <Editor json={{ state: false, power: 0, name: 'Light' }} />
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

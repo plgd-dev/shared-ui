@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TileToggle from '../components/Atomic/TileToggle'
 import TileToggleRow from '../components/Atomic/TileToggle/TileToggleRow'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/TileToggle',
@@ -8,7 +9,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => {
+const Template = (args: any) => {
     const [state, setState] = useState({
         tile1: false,
         tile2: false,
@@ -23,10 +24,10 @@ const Template = (args) => {
     )
 }
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}
 
-const TemplateTileRow = (args) => {
+const TemplateTileRow = (args: any) => {
     const [state, setState] = useState({
         tile1: false,
         tile2: false,
@@ -43,5 +44,5 @@ const TemplateTileRow = (args) => {
     )
 }
 
-export const TilesToggleRow = TemplateTileRow.bind({})
+export const TilesToggleRow: StoryFn = TemplateTileRow.bind({})
 TilesToggleRow.args = {}

@@ -3,6 +3,7 @@ import TileExpand from '../components/Atomic/TileExpand/TileExpand'
 import StatusTag from '../components/Atomic/StatusTag'
 import Row from '../components/Atomic/Grid/Row'
 import Column from '../components/Atomic/Grid/Column'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/TileExpand',
@@ -10,7 +11,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div style={{ padding: '0 20px' }}>
         <Row>
             <Column size={4}>
@@ -74,5 +75,5 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

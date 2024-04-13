@@ -1,6 +1,7 @@
 import React from 'react'
 import { Icon } from '../components/Atomic/Icon'
 import './global.css'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Assets/Icon',
@@ -66,7 +67,7 @@ const data = [
     { name: 'icon-warning' },
 ]
 
-const chunkify = (a, n = 4, balanced = true) => {
+const chunkify = (a: any, n = 4, balanced = true) => {
     if (n < 2) return [a]
 
     let len = a.length,
@@ -97,14 +98,14 @@ const chunkify = (a, n = 4, balanced = true) => {
     return out
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <>
         <div className='custom-row'>
             {chunkify(data).map((chunk, key) => (
                 <div className='custom-cell' key={key}>
                     <table className='custom-table'>
                         <tbody>
-                            {chunk.map((icon, innerKey) => {
+                            {chunk.map((icon: { name: string; size?: string }, innerKey: string) => {
                                 const { name, ...rest } = icon
                                 return (
                                     <tr key={innerKey}>
@@ -126,5 +127,5 @@ const Template = (args) => (
     </>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

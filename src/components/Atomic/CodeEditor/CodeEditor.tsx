@@ -62,7 +62,7 @@ const CodeEditor: FC<Props> = (props) => {
         [globalTheme?.colors?.CodeEditor.background, globalTheme?.colors?.CodeEditor.lineHighlight, globalTheme?.colors?.CodeEditor.selection]
     )
 
-    const showPlaceholder = useMemo(() => value === '', [value])
+    const showPlaceholder = useMemo(() => value === '' && placeholderText, [value, placeholderText])
 
     return (
         <div css={styles.wrapper}>
@@ -80,14 +80,13 @@ const CodeEditor: FC<Props> = (props) => {
                 theme={theme}
                 value={value}
             />
-            {placeholderText && (
-                <div css={styles.placeholder}>
-                    <div css={[styles.flex, !showPlaceholder && styles.noPlaceholder]}>
-                        <IconFileUpload {...convertSize(50)} />
-                        {showPlaceholder && <p css={styles.placeholderText}>{placeholderText}</p>}
-                    </div>
+
+            <div css={styles.placeholder}>
+                <div css={[styles.flex, !showPlaceholder && styles.noPlaceholder]}>
+                    <IconFileUpload {...convertSize(50)} />
+                    <p css={styles.placeholderText}>{placeholderText}</p>
                 </div>
-            )}
+            </div>
         </div>
     )
 }

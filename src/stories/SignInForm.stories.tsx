@@ -7,6 +7,7 @@ import Checkbox from '../components/Atomic/Checkbox'
 import Button from '../components/Atomic/Button'
 import SignInForm from '../components/Templates/SignInForm'
 import './global.css'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Keycloakify/SignInForm',
@@ -14,7 +15,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div id='center'>
         <div
             style={{
@@ -52,10 +53,10 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}
 
-const TemplateSocial = (args) => (
+const TemplateSocial = (args: any) => (
     <div id='center'>
         <div
             style={{
@@ -113,10 +114,10 @@ const TemplateSocial = (args) => (
     </div>
 )
 
-export const Social = TemplateSocial.bind({})
+export const Social: StoryFn = TemplateSocial.bind({})
 Social.args = {}
 
-const RegistrationTemplate1 = (args) => (
+const RegistrationTemplate1 = (args: any) => (
     <div id='center'>
         <div
             style={{
@@ -149,10 +150,10 @@ const RegistrationTemplate1 = (args) => (
     </div>
 )
 
-export const RegistrationStep1 = RegistrationTemplate1.bind({})
+export const RegistrationStep1: StoryFn = RegistrationTemplate1.bind({})
 RegistrationStep1.args = {}
 
-const RegistrationTemplate2 = (args) => (
+const RegistrationTemplate2 = (args: any) => (
     <div id='center'>
         <div
             style={{
@@ -193,10 +194,10 @@ const RegistrationTemplate2 = (args) => (
     </div>
 )
 
-export const RegistrationStep2 = RegistrationTemplate2.bind({})
+export const RegistrationStep2: StoryFn = RegistrationTemplate2.bind({})
 RegistrationStep2.args = {}
 
-const ResetPasswordTemplate = (args) => (
+const ResetPasswordTemplate = (args: any) => (
     <div id='center'>
         <div
             style={{
@@ -228,5 +229,5 @@ const ResetPasswordTemplate = (args) => (
     </div>
 )
 
-export const ResetPassword = ResetPasswordTemplate.bind({})
+export const ResetPassword: StoryFn = ResetPasswordTemplate.bind({})
 ResetPassword.args = {}

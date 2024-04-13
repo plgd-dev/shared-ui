@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from '../components/Atomic/Link'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Link',
@@ -7,7 +8,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => <Link {...args}>Link text</Link>
+const Template = (args: any) => <Link {...args}>Link text</Link>
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

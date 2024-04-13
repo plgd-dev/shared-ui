@@ -1,5 +1,6 @@
 import React from 'react'
 import StatusPill from '../components/Atomic/StatusPill'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/StatusPill',
@@ -7,7 +8,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <StatusPill {...args} label='Online' status='online' tooltipText='Connected at: xxxxx'>
             Tag text
@@ -61,5 +62,5 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

@@ -4,6 +4,7 @@ import FormGroup from '../components/Atomic/FormGroup'
 import FormLabel from '../components/Atomic/FormLabel'
 import FormInput from '../components/Atomic/FormInput'
 import Button from '../components/Atomic/Button'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Popup',
@@ -11,7 +12,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <Popup
             {...args}
@@ -41,13 +42,13 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}
 Default.parameters = {
     layout: 'fullscreen',
 }
 
-const TemplateRight = (args) => (
+const TemplateRight = (args: any) => (
     <div>
         <Popup
             {...args}
@@ -85,7 +86,7 @@ const TemplateRight = (args) => (
     </div>
 )
 
-export const Right = TemplateRight.bind({})
+export const Right: StoryFn = TemplateRight.bind({})
 Right.args = {}
 Right.parameters = {
     layout: 'fullscreen',

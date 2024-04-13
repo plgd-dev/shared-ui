@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Tabs from '../components/Atomic/Tabs'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Tabs',
@@ -7,7 +8,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => {
+const Template = (args: any) => {
     const [activeItem, setActiveItem] = useState(0)
     return (
         <div>
@@ -24,5 +25,5 @@ const Template = (args) => {
     )
 }
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

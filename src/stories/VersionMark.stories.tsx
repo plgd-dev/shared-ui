@@ -1,6 +1,7 @@
 import React from 'react'
 import VersionMark from '../components/Atomic/VersionMark'
 import { severities } from '../components/Atomic/VersionMark/constants'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/VersionMark',
@@ -8,7 +9,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02' />
         <br />
@@ -36,5 +37,5 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

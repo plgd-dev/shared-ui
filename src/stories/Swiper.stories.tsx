@@ -8,6 +8,7 @@ import image2 from './assets/feature-2.jpeg'
 import image3 from './assets/feature-3.jpeg'
 import { colors } from '../components/Atomic/_utils/colors'
 import image from './assets/testimonial-author-image.png'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/Swiper',
@@ -15,7 +16,7 @@ export default {
     argTypes: {},
 }
 
-const TemplateFeature = (args) => (
+const TemplateFeature = (args: any) => (
     <div id='center'>
         <div
             style={{
@@ -61,10 +62,10 @@ const TemplateFeature = (args) => (
     </div>
 )
 
-export const Feature = TemplateFeature.bind({})
+export const Feature: StoryFn = TemplateFeature.bind({})
 Feature.args = {}
 
-const TemplateTestimonial = (args) => (
+const TemplateTestimonial = (args: any) => (
     <div id='center'>
         <div
             style={{
@@ -113,5 +114,5 @@ const TemplateTestimonial = (args) => (
     </div>
 )
 
-export const Testimonial = TemplateTestimonial.bind({})
+export const Testimonial: StoryFn = TemplateTestimonial.bind({})
 Testimonial.args = {}

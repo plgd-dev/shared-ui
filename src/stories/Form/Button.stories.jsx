@@ -1,8 +1,8 @@
 import React from 'react'
 import Button from '../../components/Atomic/Button'
-import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
 import '../global.css'
 import Example, { LoadingTemplate } from './Button.snip'
+import IconPlus from '../../components/Atomic/Icon/components/IconPlus'
 
 export default {
     title: 'Form/Button',

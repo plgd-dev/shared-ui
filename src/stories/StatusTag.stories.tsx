@@ -1,5 +1,6 @@
 import React from 'react'
 import StatusTag from '../components/Atomic/StatusTag'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/StatusTag',
@@ -7,7 +8,7 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
         <StatusTag {...args} variant='success'>
             status
@@ -30,5 +31,5 @@ const Template = (args) => (
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}

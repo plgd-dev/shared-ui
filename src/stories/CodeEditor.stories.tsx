@@ -1,5 +1,6 @@
 import React from 'react'
 import CodeEditor from '../components/Atomic/CodeEditor'
+import { StoryFn } from '@storybook/react'
 
 export default {
     title: 'Example/CodeEditor',
@@ -7,11 +8,11 @@ export default {
     argTypes: {},
 }
 
-const Template = (args) => (
+const Template = (args: any) => (
     <div>
-        <CodeEditor value='' />
+        <CodeEditor placeholderText='' value='' />
     </div>
 )
 
-export const Default = Template.bind({})
+export const Default: StoryFn = Template.bind({})
 Default.args = {}
