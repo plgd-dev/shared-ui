@@ -27,5 +27,5 @@ jobs:
         with:
           path: storybook-static
           checkout: false
-          env:
-            GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
