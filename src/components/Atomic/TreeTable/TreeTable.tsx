@@ -9,7 +9,7 @@ import { Props, defaultProps } from './TreeTable.types'
 import { compareIgnoreCase } from '../TableNew/Utils'
 import { convertSize, IconTableArrowDown, IconTableArrowUp } from '../Icon'
 import ConditionalWrapper from '../ConditionalWrapper'
-import { ReactComponent as IconSubLine } from './assets/sub-line.svg'
+import IconSubLine from './assets/IconSubLine'
 
 const defaultPropGetter = () => ({})
 

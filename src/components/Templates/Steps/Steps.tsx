@@ -3,9 +3,9 @@ import { Props } from './Steps.types'
 import * as styles from './Steps.styles'
 
 // assets
-import { ReactComponent as IconDone } from './assets/done.svg'
-import { ReactComponent as IconActive } from './assets/active.svg'
-import { ReactComponent as IconDisabled } from './assets/disabled.svg'
+import IconDone from './assets/IconDone'
+import IconActive from './assets/IconActive'
+import IconDisabled from './assets/IconDisabled'
 
 export const Steps: FC<Props> = (props) => {
     const { steps, active, className, id } = props

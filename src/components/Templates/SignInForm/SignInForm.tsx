@@ -2,9 +2,10 @@ import React, { FC } from 'react'
 import { Props, defaultProps } from './SignInForm.types'
 import * as styles from './SignInForm.styles'
 import Button from '../../Atomic/Button'
-import { ReactComponent as IconApple } from './assets/icon-apple.svg'
-import { ReactComponent as IconGoogle } from './assets/icon-google.svg'
-import { ReactComponent as IconGithub } from './assets/icon-github.svg'
+
+import IconApple from './assets/IconApple'
+import IconGoogle from './assets/IconGoogle'
+import IconGitHub from './assets/IconGitHub'
 
 const SignInForm: FC<Props> = (props) => {
     const { action, autoComplete, className, id, inputs, actions, cta, socialProviders, method, terms, onSubmit } = { ...defaultProps, ...props }
@@ -16,7 +17,7 @@ const SignInForm: FC<Props> = (props) => {
             case 'google':
                 return <IconGoogle />
             case 'github':
-                return <IconGithub />
+                return <IconGitHub />
         }
     }
 

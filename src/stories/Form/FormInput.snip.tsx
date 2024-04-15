@@ -1,6 +1,6 @@
 import React from 'react'
 import FormInput, { inputAligns } from '../../components/Atomic/FormInput'
-import { ReactComponent as IconSlovakia } from '../assets/Slovakia.svg'
+import IconSlovakia from '../assets/IconSlovakia'
 
 export default (args?: any) => (
     <div>

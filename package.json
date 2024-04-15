@@ -21,7 +21,8 @@
     "build:stable:watch": "node ./scripts/build stable --watch",
     "build:copy-files": "node ./scripts/copy-files.js",
     "lint": "npm-run-all :lint:eslint :lint:prettier",
-    ":lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx -c .eslintrc.js --max-warnings 0 --fix --format=pretty ./src",
+    ":lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx -c .eslintrc.js --max-warnings 0 ./src",
+    ":lint:eslint:gh": "eslint --ext .js,.jsx,.ts,.tsx -c .eslintrc.js --max-warnings 0 --format @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif ./src",
     ":lint:prettier": "prettier ./src --check",
     "prebuild": "rimraf build",
     "icons:create": "npx @svgr/cli --config-file ./config/.svgrrc.js -d ./src/components/Atomic/Icon/components ./src/components/Atomic/Icon/assets",
@@ -29,8 +30,7 @@
     ":generate:theme:clean": "rimraf ./build/lib",
     ":generate:theme": "npm-run-all :generate:theme:build :generate:theme:clean",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "deploy-storybook": "storybook-to-ghpages --dry-run"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@babel/core": "^7.23.3",
@@ -50,6 +50,7 @@
     "@floating-ui/react-dom-interactions": "^0.13.3",
     "@lezer/highlight": "^1.2.0",
     "@mdx-js/react": "^2.3.0",
+    "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "@opentelemetry/api": "^1.7.0",
     "@opentelemetry/context-zone": "^1.18.1",
     "@opentelemetry/core": "^1.18.1",

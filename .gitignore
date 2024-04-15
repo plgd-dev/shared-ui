@@ -29,3 +29,4 @@ yarn-error.log*
 
 *storybook.log
 test-report.xml
+eslint-results.sarif
