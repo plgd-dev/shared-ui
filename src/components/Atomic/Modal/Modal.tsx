@@ -157,6 +157,7 @@ export const Modal: FC<Props> = memo((props) => {
                         id={id}
                         initial='hidden'
                         onClick={(e) => e.stopPropagation()}
+                        role='dialog'
                         style={{ width }}
                         variants={dropIn}
                     >

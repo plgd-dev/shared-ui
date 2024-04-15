@@ -4,6 +4,7 @@ import { RGBColor } from 'react-color'
 
 export type Props = {
     className?: string
+    dataTestId?: string
     defaultColor?: RGBColor | string
     id?: string
     menuProps?: {

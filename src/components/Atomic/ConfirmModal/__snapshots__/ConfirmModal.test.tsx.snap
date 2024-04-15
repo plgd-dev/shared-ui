@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Modal> render correctly - snapshot 1`] = `
+exports[`<ConfirmModal> renders without crashing 1`] = `
 <DocumentFragment>
   .emotion-0 {
   position: fixed;
@@ -158,64 +158,129 @@ exports[`<Modal> render correctly - snapshot 1`] = `
   margin: 0 4px;
 }
 
-<div>
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.emotion-9 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+}
+
+<div
+    class="emotion-0"
+    style="opacity: 1;"
+  >
     <div
-      class="emotion-0"
-      style="opacity: 1;"
+      class="emotion-1"
+      role="dialog"
+      style="opacity: 1; transform: none;"
     >
       <div
-        class="emotion-1"
-        role="dialog"
-        style="opacity: 1; transform: none;"
+        class="emotion-2"
       >
         <div
-          class="emotion-2"
+          class="emotion-3"
+        >
+          <div>
+            <h4
+              class="h4 emotion-4"
+            >
+              Title
+            </h4>
+          </div>
+          <a
+            class="emotion-5"
+            href="#"
+          >
+            <span>
+              Close
+            </span>
+             
+            <svg
+              fill="none"
+              height="26"
+              viewBox="0 0 32 32"
+              width="26"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 29.333c7.333 0 13.333-6 13.333-13.333S23.333 2.667 16 2.667 2.667 8.667 2.667 16s6 13.333 13.333 13.333M12.227 19.773l7.546-7.546M19.773 19.773l-7.546-7.546"
+                stroke="currentcolor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+              />
+            </svg>
+          </a>
+        </div>
+        <div
+          class="emotion-6"
+        >
+          <div>
+            ConfirmModal
+          </div>
+        </div>
+        <div
+          class="emotion-7"
         >
           <div
-            class="emotion-3"
+            class="emotion-8"
           >
-            <div>
-              <h4
-                class="h4 emotion-4"
-              />
-            </div>
-            <a
-              class="emotion-5"
-              href="#"
+            <div />
+            <div
+              class="modal-buttons"
             >
-              <span>
-                Close
-              </span>
-               
-              <svg
-                fill="none"
-                height="26"
-                viewBox="0 0 32 32"
-                width="26"
-                xmlns="http://www.w3.org/2000/svg"
+              <button
+                class="modal-button emotion-9"
+                tabindex="1"
+                type="submit"
               >
-                <path
-                  d="M16 29.333c7.333 0 13.333-6 13.333-13.333S23.333 2.667 16 2.667 2.667 8.667 2.667 16s6 13.333 13.333 13.333M12.227 19.773l7.546-7.546M19.773 19.773l-7.546-7.546"
-                  stroke="currentcolor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                />
-              </svg>
-            </a>
-          </div>
-          <div
-            class="emotion-6"
-          >
-            <div>
-              Modal Content
-            </div>
-          </div>
-          <div
-            class="emotion-7"
-          >
-            <div>
-              Modal Footer
+                Cancel
+              </button>
+              <button
+                class="modal-button emotion-9"
+                tabindex="1"
+                type="submit"
+              >
+                Confirm
+              </button>
             </div>
           </div>
         </div>

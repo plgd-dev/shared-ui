@@ -32,7 +32,7 @@ export const Default: StoryFn = Template.bind({})
 Default.args = {}
 
 const TemplateGroup = (args: any) => (
-    <TagGroup>
+    <TagGroup i18n={{ more: 'more', modalHeadline: 'Headine' }}>
         <Tag {...args}>oic.d.clouddevice</Tag>
         <Tag {...args}>oic.wk.d</Tag>
         <Tag {...args}>oic.wk.e</Tag>

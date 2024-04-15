@@ -1,22 +1,19 @@
 import React, { FC } from 'react'
-import { useIntl } from 'react-intl'
 
 import Button from '../Button'
 import Modal from '../Modal'
-import { messages as t } from './ConfirmModal.i18n'
 import { defaultProps, Props } from './ConfirmModal.types'
 import ModalFooter from '../Modal/components/ModalFooter'
 
 const ConfirmModal: FC<Props> = (props) => {
     const { onConfirm, confirmButtonText, cancelButtonText, title, body, loading, show, onClose, data, confirmDisabled, ...rest } = props
-    const { formatMessage: _ } = useIntl()
 
     const renderFooter = (
         <ModalFooter
             right={
                 <div className='modal-buttons'>
                     <Button className='modal-button' disabled={loading} onClick={onClose} variant='secondary'>
-                        {cancelButtonText || _(t.cancel)}
+                        {cancelButtonText}
                     </Button>
                     <Button
                         className='modal-button'
@@ -25,7 +22,7 @@ const ConfirmModal: FC<Props> = (props) => {
                         onClick={() => onConfirm(onClose, data)}
                         variant='primary'
                     >
-                        {confirmButtonText || _(t.confirm)}
+                        {confirmButtonText}
                     </Button>
                 </div>
             }

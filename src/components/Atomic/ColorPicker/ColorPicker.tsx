@@ -12,7 +12,7 @@ import { rgbToHex, hexToRgbA } from '../_utils/commonStyles'
 import { colors } from '../_utils/colors'
 
 const ColorPicker: FC<Props> = (props) => {
-    const { defaultColor: defaultColorProps, className, id, menuProps, portalTarget, onToggle, onColorChange } = { ...defaultProps, ...props }
+    const { defaultColor: defaultColorProps, className, dataTestId, id, menuProps, portalTarget, onToggle, onColorChange } = { ...defaultProps, ...props }
     const defaultColor: RGBColor = useMemo(() => {
         if (typeof defaultColorProps === 'string') {
             if (defaultColorProps.length === 7) {
@@ -89,6 +89,7 @@ const ColorPicker: FC<Props> = (props) => {
             }}
         >
             <ChromePicker
+                className='color-picker'
                 color={color}
                 onChange={handleChange}
                 styles={{
@@ -106,8 +107,8 @@ const ColorPicker: FC<Props> = (props) => {
         <div className={className} id={id} ref={ref}>
             <div
                 css={[styles.colorPicker, getValue(color).startsWith('#') ? styles.hex : styles.rgba]}
+                data-test-id={dataTestId}
                 onClick={() => setOpen((prev) => !prev)}
-                ref={refs.setReference}
             >
                 <div
                     css={styles.color}

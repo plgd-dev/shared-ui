@@ -17,7 +17,7 @@ const ConfirmButton: FC<Props> = (props) => {
 
     return (
         <>
-            <Button {...rest} loading={loading} onClick={(e) => setShow(true)}>
+            <Button {...rest} loading={loading} onClick={() => setShow(true)}>
                 {children}
             </Button>
             <ConfirmModal
