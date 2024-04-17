@@ -23,6 +23,7 @@ exports[`<Radio> render correctly - snapshot 1`] = `
   align-items: flex-start;
   position: relative;
   overflow: hidden;
+  padding-bottom: 2px;
   margin: 0 12px;
 }
 
