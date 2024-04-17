@@ -1,12 +1,12 @@
 import { FC, ReactNode, useMemo } from 'react'
 import { Global } from '@emotion/react'
 import { FloatingDelayGroup, useDelayGroup, useDelayGroupContext } from '@floating-ui/react-dom-interactions'
+import classNames from 'classnames'
 
 import { Props, defaultProps } from './Tooltip.types'
 import * as styles from './Tooltip.styles'
 import { useTooltipState, TooltipAnchor, TooltipContent } from './TooltipUtils'
 import { tooltipVariants } from './constants'
-import classNames from 'classnames'
 import ConditionalWrapper from '../ConditionalWrapper'
 
 const Tooltip: FC<Props> = (props) => {

@@ -11,7 +11,7 @@ export const message = css`
     left: ${panelSizes.FULL}px;
     right: 0;
     bottom: 65px;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
+    transition: all ${COLLAPSE_ANIMATION_TIME}ms;
     z-index: 999;
 `
 

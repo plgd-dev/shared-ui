@@ -54,6 +54,7 @@ export type Props = {
 
 export type LeftPanelItemType = {
     active: string | null
+    animationDone?: boolean
     collapsed?: boolean
     handleItemClick: (item: MenuItem | SubMenuItem, e: SyntheticEvent) => void
     item: MenuItem
@@ -62,6 +63,7 @@ export type LeftPanelItemType = {
 
 export type LeftPanelSubItemsType = {
     active: string | null
+    animationDone?: boolean
     collapsed?: boolean
     floating: any
     handleItemClick: (item: MenuItem | SubMenuItem, e: SyntheticEvent) => void

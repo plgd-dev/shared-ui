@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import TimeoutControl from '../components/Atomic/TimeoutControl'
+import TimeoutControl from '../../components/Atomic/TimeoutControl'
 import { StoryFn } from '@storybook/react'
 
 export default {
-    title: 'Example/TimeoutControl',
+    title: 'Form/TimeoutControl',
     component: TimeoutControl,
     argTypes: {},
 }

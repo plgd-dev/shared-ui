@@ -3,6 +3,8 @@ import LeftPanel from '../../components/Layout/LeftPanel'
 import VersionMark from '../../components/Atomic/VersionMark'
 import { severities } from '../../components/Atomic/VersionMark/constants'
 import { leftPanelMenu } from '../data'
+import { useTheme } from '@emotion/react'
+import Logo from '../../components/Atomic/Logo'
 
 export default {
     title: 'Layout/LeftPanel',
@@ -13,8 +15,8 @@ export default {
 const Template = (args) => {
     const [active, setActive] = useState('')
     return (
-        <div>
-            <div id='header-icon-collapse-portal-target'></div>
+        <div style={{ width: 300 }}>
+            <div id='header-icon-collapse-portal-target' style={{ display: 'none' }}></div>
             <LeftPanel
                 {...args}
                 activeId={active}
@@ -41,7 +43,7 @@ Default.args = {}
 const TemplateActive = (args) => (
     <div style={{ display: 'flex', margin: -10 }}>
         <div style={{ padding: 10 }}>
-            <div id='header-icon-collapse-portal-target'></div>
+            <div id='header-icon-collapse-portal-target' style={{ display: 'none' }}></div>
             <LeftPanel
                 {...args}
                 activeId='1'
@@ -81,12 +83,16 @@ export const ActiveItem = TemplateActive.bind({})
 Default.args = {}
 
 const TemplateFeature = (args) => (
-    <div>
-        <div id='header-icon-collapse-portal-target'></div>
+    <div style={{ width: 300 }}>
+        <div id='header-icon-collapse-portal-target' style={{ display: 'none' }}></div>
         <LeftPanel
             {...args}
             menu={leftPanelMenu}
             newFeature={{
+                i18n: {
+                    headline: 'New feature',
+                    description: 'This is a new feature',
+                },
                 onClick: () => console.log('click'),
                 onClose: () => console.log('close'),
             }}
@@ -110,42 +116,31 @@ const TemplateFeature = (args) => (
 export const NewFeature = TemplateFeature.bind({})
 Default.args = {}
 
-const TemplateCollapsed = (args) => (
-    <div style={{ display: 'flex', margin: '-10px -120px' }}>
-        <div style={{ padding: '10px 120px' }}>
+const TemplateCollapsed = (args) => {
+    const [collapsed, setCollapsed] = useState(false)
+
+    const theme = useTheme()
+    return (
+        <div style={{ display: 'flex' }}>
             <div id='header-icon-collapse-portal-target'></div>
             <LeftPanel
-                {...args}
-                collapsed={true}
+                collapsed={collapsed}
+                logo={theme.logo && <Logo logo={theme.logo} onClick={() => console.log()} />}
                 menu={leftPanelMenu}
+                setCollapsed={setCollapsed}
                 versionMark={
                     <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02'>
                         Tag text
                     </VersionMark>
                 }
             />
-        </div>
-        <div style={{ padding: '10px 120px' }}>
-            <div id='header-icon-collapse-portal-target'></div>
-            <LeftPanel
-                {...args}
-                activeId='1'
-                collapsed={true}
-                menu={leftPanelMenu}
-                versionMark={
-                    <VersionMark {...args} severity={severities.SUCCESS} versionText='Version 2.02'>
-                        Tag text
-                    </VersionMark>
-                }
-            />
-        </div>
-        <div style={{ padding: '10px 120px' }}>
-            <div id='header-icon-collapse-portal-target'></div>
+            <div style={{ flex: '0 0 40px' }}></div>
             <LeftPanel
                 {...args}
                 activeId='10'
-                collapsed={true}
+                collapsed={collapsed}
                 menu={leftPanelMenu}
+                setCollapsed={setCollapsed}
                 versionMark={
                     <VersionMark
                         {...args}
@@ -161,8 +156,8 @@ const TemplateCollapsed = (args) => (
                 }
             />
         </div>
-    </div>
-)
+    )
+}
 
 export const Collapsed = TemplateCollapsed.bind({})
 Default.args = {}

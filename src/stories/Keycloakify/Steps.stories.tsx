@@ -1,9 +1,9 @@
 import React from 'react'
-import Steps from '../components/Templates/Steps'
+import Steps from '../../components/Templates/Steps'
 import { StoryFn } from '@storybook/react'
 
 export default {
-    title: 'Templates/Steps',
+    title: 'Keycloakify/Steps',
     component: Steps,
     argTypes: {},
 }

@@ -1,13 +1,13 @@
 import React from 'react'
-import Popup from '../components/Atomic/Popup/Popup'
-import FormGroup from '../components/Atomic/FormGroup'
-import FormLabel from '../components/Atomic/FormLabel'
-import FormInput from '../components/Atomic/FormInput'
-import Button from '../components/Atomic/Button'
+import Popup from '../../components/Atomic/Popup/Popup'
+import FormGroup from '../../components/Atomic/FormGroup'
+import FormLabel from '../../components/Atomic/FormLabel'
+import FormInput from '../../components/Atomic/FormInput'
+import Button from '../../components/Atomic/Button'
 import { StoryFn } from '@storybook/react'
 
 export default {
-    title: 'Example/Popup',
+    title: 'Keycloakify/Popup',
     component: Popup,
     argTypes: {},
 }

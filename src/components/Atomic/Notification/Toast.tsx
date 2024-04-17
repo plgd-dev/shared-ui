@@ -1,12 +1,10 @@
 import { toast as toastify } from 'react-toastify'
 import { TypeOptions } from 'react-toastify/dist/types'
-import { useIntl } from 'react-intl'
 import classNames from 'classnames'
 import pick from 'lodash/pick'
 
 import * as styles from './Toast.styles'
 import { toastTypes, DEFAULT_CONTAINER_ID, TOAST_HIDE_TIME, toastVariants } from './constants'
-import { translateToastString } from './utils'
 import { convertSize, IconError, IconInfo, IconSuccess, IconToastClose, IconWarning } from '../Icon'
 import { MessageType, ToastSettings, ToastTypesType } from './Toast.types'
 
@@ -24,7 +22,6 @@ const commonSettings: Partial<ToastSettings> = {
 const ToastComponent = (props: any) => {
     const { closeToast, toastProps } = props
 
-    const { formatMessage: _ } = useIntl()
     const { message, type } = toastProps
 
     const handleClose = (e: any) => {
@@ -32,9 +29,6 @@ const ToastComponent = (props: any) => {
         e.stopPropagation()
         closeToast()
     }
-
-    const toastTitle = translateToastString(message.title, _)
-    const toastMessage = translateToastString(message.message, _)
 
     const getIcon = (type: ToastTypesType) => {
         switch (type) {
@@ -53,8 +47,8 @@ const ToastComponent = (props: any) => {
         <div css={styles.toastInner}>
             {getIcon(type)}
             <div css={styles.content}>
-                <div css={styles.headline(type)}>{toastTitle}</div>
-                <div css={styles.text}>{toastMessage}</div>
+                <div css={styles.headline(type)}>{message.title}</div>
+                <div css={styles.text}>{message.message}</div>
             </div>
             <a className='close-button' css={styles.closeButton} href='#' onClick={handleClose}>
                 <IconToastClose {...convertSize(20)} />

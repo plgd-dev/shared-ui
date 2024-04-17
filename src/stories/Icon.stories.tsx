@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon } from '../components/Atomic/Icon'
+import { Icon, IconsRaw } from '../components/Atomic/Icon'
 import './global.css'
 import { StoryFn } from '@storybook/react'
 
@@ -9,65 +9,7 @@ export default {
     argTypes: {},
 }
 
-const data = [
-    { name: 'icon-actions' },
-    { name: 'icon-arrow-detail' },
-    { name: 'icon-arrow-down' },
-    { name: 'icon-arrow-down-no-padding' },
-    { name: 'icon-arrow-left' },
-    { name: 'icon-arrow-right' },
-    { name: 'icon-arrow-triangle-full-up' },
-    { name: 'icon-arrow-up' },
-    { name: 'icon-bell' },
-    { name: 'icon-certificate' },
-    { name: 'icon-chat' },
-    { name: 'icon-check' },
-    { name: 'icon-close' },
-    { name: 'icon-close-circle' },
-    { name: 'icon-cloud-error' },
-    { name: 'icon-cloud-success' },
-    { name: 'icon-cloud-warning' },
-    { name: 'icon-collapse' },
-    { name: 'icon-copy' },
-    { name: 'icon-dashboard' },
-    { name: 'icon-device-update' },
-    { name: 'icon-devices' },
-    { name: 'icon-docs' },
-    { name: 'icon-download' },
-    { name: 'icon-edit' },
-    { name: 'icon-error' },
-    { name: 'icon-file-pem' },
-    { name: 'icon-file-upload' },
-    { name: 'icon-hide-password' },
-    { name: 'icon-show-password' },
-    { name: 'icon-info' },
-    { name: 'icon-integrations' },
-    { name: 'icon-link' },
-    { name: 'icon-loader' },
-    { name: 'icon-lock' },
-    { name: 'icon-log' },
-    { name: 'icon-net' },
-    { name: 'icon-network' },
-    { name: 'icon-notification' },
-    { name: 'icon-pending-commands' },
-    { name: 'icon-plus' },
-    { name: 'icon-refresh' },
-    { name: 'icon-remote-clients' },
-    { name: 'icon-search' },
-    { name: 'icon-settings' },
-    { name: 'icon-shield' },
-    { name: 'icon-show-password' },
-    { name: 'icon-sort-down' },
-    { name: 'icon-sort-up' },
-    { name: 'icon-success' },
-    { name: 'icon-table-arrow-down' },
-    { name: 'icon-table-arrow-up' },
-    { name: 'icon-toast-close' },
-    { name: 'icon-trash' },
-    { name: 'icon-warning' },
-]
-
-const chunkify = (a: any, n = 4, balanced = true) => {
+const chunkify = (a: any, n = 5, balanced = true) => {
     if (n < 2) return [a]
 
     let len = a.length,
@@ -101,20 +43,16 @@ const chunkify = (a: any, n = 4, balanced = true) => {
 const Template = (args: any) => (
     <>
         <div className='custom-row'>
-            {chunkify(data).map((chunk, key) => (
+            {chunkify(IconsRaw).map((chunk, key) => (
                 <div className='custom-cell' key={key}>
                     <table className='custom-table'>
                         <tbody>
-                            {chunk.map((icon: { name: string; size?: string }, innerKey: string) => {
-                                const { name, ...rest } = icon
+                            {chunk.map((icon: string, innerKey: string) => {
                                 return (
                                     <tr key={innerKey}>
+                                        <td>{icon}</td>
                                         <td>
-                                            {icon.name}
-                                            {icon.size ? ` (size: ${icon.size}px)` : ''}
-                                        </td>
-                                        <td>
-                                            <Icon {...args} {...rest} icon={icon.name} size={icon?.size || 32} />
+                                            <Icon {...args} icon={icon} size={32} />
                                         </td>
                                     </tr>
                                 )

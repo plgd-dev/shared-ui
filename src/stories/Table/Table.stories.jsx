@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import Table from '../../components/Atomic/TableNew'
 import TableActions from '../../components/Atomic/TableNew/TableActions'
 import Button from '../../components/Atomic/Button'
@@ -17,7 +17,6 @@ export default {
 }
 
 const Template = (args) => {
-    const ref = useRef()
     const columns = useMemo(
         () => [
             {
@@ -114,6 +113,7 @@ const Template = (args) => {
     return (
         <div>
             <Table
+                {...args}
                 columns={columns}
                 data={data}
                 defaultPageSize={10}
@@ -131,9 +131,9 @@ const Template = (args) => {
                     isAllRowsSelected !== isAllSelected && setIsAllSelected(isAllRowsSelected)
                     setSelected(selection)
                 }}
-                paginationPortalTarget={ref}
+                paginationPortalTargetId='paginationPortalTarget'
             />
-            <div id='paginationPortalTarget' ref={ref} style={{ border: '1px solid red', marginTop: '20px' }}></div>
+            <div id='paginationPortalTarget' style={{ border: '1px solid red', marginTop: '20px' }}></div>
             <TableSelectionPanel
                 actionPrimary={<Button variant='primary'>Main Action</Button>}
                 actionSecondary={
@@ -141,6 +141,7 @@ const Template = (args) => {
                         Secondary Action
                     </Button>
                 }
+                i18n={{ select: 'select' }}
                 selectionInfo={`${selectedCount} device${selectedCount > 1 ? 's' : ''} `}
                 show={selectedCount > 0}
             />
@@ -152,7 +153,6 @@ export const Default = Template.bind({})
 Default.args = {}
 
 const TemplateSmall = (args) => {
-    const ref = useRef()
     const columns = useMemo(
         () => [
             {
@@ -201,6 +201,7 @@ const TemplateSmall = (args) => {
     return (
         <div>
             <Table
+                {...args}
                 columns={columns}
                 data={data}
                 defaultPageSize={10}
@@ -214,9 +215,9 @@ const TemplateSmall = (args) => {
                 i18n={{
                     search: 'search',
                 }}
-                paginationPortalTarget={ref}
+                paginationPortalTargetId='paginationPortalTarget'
             />
-            <div id='paginationPortalTarget' ref={ref} style={{ border: '1px solid red', marginTop: '20px' }}></div>
+            <div id='paginationPortalTarget' style={{ border: '1px solid red', marginTop: '20px' }}></div>
         </div>
     )
 }

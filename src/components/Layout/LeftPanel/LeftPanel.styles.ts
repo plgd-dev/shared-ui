@@ -10,9 +10,8 @@ export const leftPanel = (theme: ThemeType) => css`
     background: ${get(theme, `LeftPanel.background`)};
     display: flex;
     flex-direction: column;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
+    transition: all ${COLLAPSE_ANIMATION_TIME}ms;
     flex: 0 0 ${panelSizes.FULL}px;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
 `
 
 export const collapsed = css`
@@ -37,7 +36,7 @@ export const logo = (theme: ThemeType) => css`
     justify-content: flex-start;
     overflow: hidden;
     position: relative;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
+    transition: all ${COLLAPSE_ANIMATION_TIME}ms;
     height: 80px;
 
     &:after {
@@ -55,7 +54,7 @@ export const logo = (theme: ThemeType) => css`
         position: absolute;
         left: 24px;
         top: 24px;
-        transition: all ${COLLAPSE_ANIMATION_TIME};
+        transition: all ${COLLAPSE_ANIMATION_TIME}ms;
         cursor: pointer;
     }
 `
@@ -76,7 +75,7 @@ export const menu = css`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
+    transition: all ${COLLAPSE_ANIMATION_TIME}ms;
 
     .menu-list-group {
         & + .menu-list-group {

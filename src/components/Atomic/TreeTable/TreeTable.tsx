@@ -161,6 +161,7 @@ const TreeTable: FC<Props> = (props) => {
                                                                         row.depth
                                                                     ),
                                                             ]}
+                                                            key={`${key}-${cellKey}`}
                                                         >
                                                             {c}
                                                             {row.depth > 0 && <IconSubLine css={styles.icoSubLine(row.depth)} />}

@@ -10,7 +10,7 @@ export const selectionPanel = css`
     bottom: 0;
     right: 0;
     z-index: 20;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
+    transition: all ${COLLAPSE_ANIMATION_TIME}ms;
 `
 
 export const isLeftPanelCollapsed = css`

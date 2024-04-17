@@ -15,10 +15,13 @@ const Template = (args: any) => (
             <IconTrash {...convertSize(24)} />
         </Tooltip>
 
+        <Tooltip {...args} initialOpen content='Tooltip label 2' delay={200}>
+            <IconTrash {...convertSize(24)} />
+        </Tooltip>
+
         <br />
         <br />
         <hr />
-        <br />
         <br />
 
         <FloatingDelayGroup delay={200}>

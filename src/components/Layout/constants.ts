@@ -8,4 +8,4 @@ export const layoutTypes = {
     SPLIT: 'split',
 }
 
-export const COLLAPSE_ANIMATION_TIME = '0.3s'
+export const COLLAPSE_ANIMATION_TIME = 300

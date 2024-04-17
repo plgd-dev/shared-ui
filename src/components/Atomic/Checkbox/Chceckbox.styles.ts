@@ -7,6 +7,7 @@ export const checkbox = css`
     align-items: flex-start;
     position: relative;
     overflow: hidden;
+    padding-bottom: 2px;
 `
 
 export const noTopOffset = css`

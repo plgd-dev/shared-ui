@@ -2,7 +2,7 @@ import React from 'react'
 import SimpleStripTable from '../../components/Atomic/SimpleStripTable'
 import TagGroup from '../../components/Atomic/TagGroup'
 import Tag from '../../components/Atomic/Tag'
-import { Icon } from '../../components/Atomic/Icon'
+import IconCloudSuccess from '../../components/Atomic/Icon/components/IconCloudSuccess'
 
 export default {
     title: 'Table/SimpleStripTable',
@@ -20,7 +20,12 @@ const Template = (args) => {
                     {
                         attribute: 'Types',
                         value: (
-                            <TagGroup>
+                            <TagGroup
+                                i18n={{
+                                    modalHeadline: 'Tags',
+                                    more: 'more',
+                                }}
+                            >
                                 <Tag {...args}>oic.d.clouddevice</Tag>
                                 <Tag {...args}>oic.d.clouddevice</Tag>
                                 <Tag {...args}>oic.d.clouddevice</Tag>
@@ -32,7 +37,7 @@ const Template = (args) => {
                         attribute: 'Firmware',
                         value: (
                             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <span style={{ marginRight: 6 }}>0.22.1</span> <Icon icon='cloud-success' size={24} />
+                                <span style={{ marginRight: 6 }}>0.22.1</span> <IconCloudSuccess />
                             </div>
                         ),
                     },

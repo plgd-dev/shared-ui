@@ -51,6 +51,7 @@ export const formSeparatorText = css`
 export const formAltLogins = css`
     display: flex;
     margin: -6px;
+    flex-wrap: wrap;
 
     .formAltLogin {
         margin: 6px;

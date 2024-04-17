@@ -7,10 +7,12 @@
         "typescript": true,
         "helpers": false
       }
-    ]
+    ],
+    "@babel/preset-env"
   ],
   "plugins": [
     "@emotion/babel-plugin",
+    "@babel/plugin-transform-runtime",
     [
       "@babel/plugin-transform-react-jsx",
       {

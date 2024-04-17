@@ -26,7 +26,7 @@ export const smallerLayout = css`
 
 export const left = css`
     flex: 0 0 ${panelSizes.FULL}px;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
+    transition: all ${COLLAPSE_ANIMATION_TIME}ms;
 `
 
 export const collapsed = css`
@@ -37,7 +37,7 @@ export const right = css`
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
-    transition: all ${COLLAPSE_ANIMATION_TIME};
+    transition: all ${COLLAPSE_ANIMATION_TIME}ms;
     overflow: hidden;
 `
 

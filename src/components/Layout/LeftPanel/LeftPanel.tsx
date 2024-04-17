@@ -10,11 +10,12 @@ import * as styles from './LeftPanel.styles'
 import { Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
+import { COLLAPSE_ANIMATION_TIME } from '../constants'
 
 const isGroupVisible = (group: any) => !group.items.every((i: any) => i.visibility === false)
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
-    const { active, item, collapsed, handleItemClick } = props
+    const { active, animationDone, item, collapsed, handleItemClick } = props
     const { x, y, refs, strategy } = useFloating({
         placement: 'bottom-start',
         strategy: 'fixed',
@@ -53,6 +54,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
             {item.children && (
                 <LeftPanelSubItems
                     active={active}
+                    animationDone={animationDone}
                     collapsed={collapsed}
                     floating={refs.setFloating}
                     handleItemClick={handleItemClick}
@@ -68,10 +70,10 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 }
 
 const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
-    const { active, item, isActive, collapsed, floating, strategy, x, y, handleItemClick } = props
+    const { active, animationDone, item, isActive, collapsed, floating, strategy, x, y, handleItemClick } = props
 
     if (collapsed) {
-        if (isActive) {
+        if (isActive && animationDone) {
             return (
                 <div
                     css={styles.subItemsFloating}
@@ -142,10 +144,18 @@ const LeftPanel: FC<Props> = (props) => {
     const [active, setActive] = useState<string | null>(props.activeId ?? null)
     const [showFeature, setShowFeature] = useState(!!newFeature)
     const [domReady, setDomReady] = useState(false)
+    const [animationDone, setAnimationDone] = useState(true)
 
     useEffect(() => {
         setDomReady(true)
     }, [])
+
+    useEffect(() => {
+        setAnimationDone(false)
+        setTimeout(() => {
+            setAnimationDone(true)
+        }, COLLAPSE_ANIMATION_TIME)
+    }, [collapsed])
 
     const handleItemClick = (item: MenuItem | SubMenuItem, e: SyntheticEvent) => {
         if (item.disabled) {
@@ -203,7 +213,14 @@ const LeftPanel: FC<Props> = (props) => {
                                         {group.items
                                             ?.filter((i) => i.visibility !== false)
                                             .map((item, key) => (
-                                                <LeftPanelItem active={active} collapsed={collapsed} handleItemClick={handleItemClick} item={item} key={key} />
+                                                <LeftPanelItem
+                                                    active={active}
+                                                    animationDone={animationDone}
+                                                    collapsed={collapsed}
+                                                    handleItemClick={handleItemClick}
+                                                    item={item}
+                                                    key={key}
+                                                />
                                             ))}
                                     </ul>
                                 </li>

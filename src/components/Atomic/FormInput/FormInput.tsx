@@ -86,13 +86,13 @@ export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) =>
                 )}
                 {inputBase}
                 {copy && (
-                    <span css={styles.inputIcon} onClick={() => copyToClipboard(localInputRef.current?.value || '')}>
+                    <span css={[styles.inputIcon, styles.rightContent]} onClick={() => copyToClipboard(localInputRef.current?.value || '')}>
                         <IconCopy {...convertSize(24)} />
                     </span>
                 )}
                 {defaultType === 'password' && !copy && (
                     <span
-                        css={[styles.inputIcon, isEdgeBrowser && defaultType === 'password' && styles.passwordIcon]}
+                        css={[styles.inputIcon, isEdgeBrowser && defaultType === 'password' && styles.passwordIcon, styles.rightContent]}
                         onClick={() => setType(type === defaultType ? 'text' : defaultType)}
                     >
                         {type === 'text' ? <IconHidePassword {...convertSize(24)} /> : <IconShowPassword {...convertSize(24)} />}

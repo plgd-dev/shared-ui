@@ -4,6 +4,7 @@ module.exports = {
     memo: true,
     typescript: true,
     template: require('./svg-template'),
+    indexTemplate: require('./svgr-index-template'),
     removeViewBox: false,
     replaceAttrValues: {
         'white': '{props.color || `#FFFFFF`}',

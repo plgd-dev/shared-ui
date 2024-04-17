@@ -5,7 +5,7 @@ import { withThemeByClassName } from '@storybook/addon-themes'
 
 import plgd from '../src/components/Atomic/_theme/plgd'
 import siemens from "../src/components/Atomic/_theme/siemens";
-import Aoo from "../src/components/Atomic/App/App";
+import App from "../src/components/Atomic/App/App";
 
 const preview: Preview = {
     parameters: {
@@ -20,15 +20,14 @@ const preview: Preview = {
 
 export default preview
 
-
 const withTheme = (StoryFn: any, context: any) => {
-    const getThemeByKey = (themeName: string) => themeName === 'plgd' ? plgd : siemens
+    const getThemeByKey = (themeName: string) => themeName === 'siemens' ? siemens : plgd
 
     return (
         <ThemeProvider theme={getThemeByKey(context.globals.theme)}>
-            <Aoo>
+            <App>
                 <StoryFn/>
-            </Aoo>
+            </App>
             <div id="modal-root"></div>
             <div id="modal-floating"></div>
         </ThemeProvider>
