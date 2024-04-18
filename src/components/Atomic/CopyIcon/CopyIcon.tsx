@@ -4,13 +4,14 @@ import * as styles from '../SimpleStripTable/SimpleStripTable.styles'
 import IconCopy from '../Icon/components/IconCopy'
 import { copyToClipboard } from '../../../common/utils'
 import Tooltip from '../Tooltip'
+import { Props } from './CopyIcon.types'
 
-const CopyIcon: FC<any> = (props) => {
-    const { i18n, value } = props
+const CopyIcon: FC<Props> = (props) => {
+    const { dataTestId, i18n, value } = props
 
     return (
         <Tooltip content={i18n.content} css={styles.copy}>
-            <IconCopy onClick={() => copyToClipboard(value)} />
+            <IconCopy data-test-id={dataTestId} onClick={() => copyToClipboard(value)} />
         </Tooltip>
     )
 }

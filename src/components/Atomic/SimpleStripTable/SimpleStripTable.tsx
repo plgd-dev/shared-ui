@@ -48,7 +48,12 @@ const SimpleStripTable: FC<Props> = (props) => {
                                 data-test-id={r.dataTestId?.concat('-value')}
                             >
                                 {r.value}
-                                {r.copyValue && <CopyIcon i18n={{ content: i18n?.copy }} value={typeof r.copyValue === 'string' ? r.copyValue : r.value} />}
+                                {r.copyValue && (
+                                    <CopyIcon
+                                        i18n={{ content: i18n?.copy || '' }}
+                                        value={typeof r.copyValue === 'string' ? r.copyValue : (r.value as string)}
+                                    />
+                                )}
                             </div>
                         </Column>
                     </Row>

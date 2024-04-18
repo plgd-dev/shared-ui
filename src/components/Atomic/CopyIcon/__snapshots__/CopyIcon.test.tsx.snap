@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CopyIcon renders without crashing 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+<div
+    class="emotion-0"
+  >
+    <svg
+      fill="none"
+      height="16"
+      viewBox="0 0 24 24"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.75 2a2.5 2.5 0 0 0-2.5 2.5v8.75c0 1.379 1.121 2.5 2.5 2.5h8.75c1.379 0 2.5-1.121 2.5-2.5V4.5C22 3.121 20.879 2 19.5 2zM4.5 8.25a2.5 2.5 0 0 0-2.5 2.5v8.75C2 20.879 3.121 22 4.5 22h8.75c1.379 0 2.5-1.121 2.5-2.5V17h-2.5v2.5H4.5v-8.75H7v-2.5z"
+        fill="currentcolor"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;

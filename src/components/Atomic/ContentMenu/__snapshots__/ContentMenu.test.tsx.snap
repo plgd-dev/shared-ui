@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContentMenu> renders without crashing 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  padding: 16px 12px 12px 12px;
+  border-radius: 16px;
+  border: 1px solid;
+  box-shadow: 0 1px 2px 0 rgba(228, 229, 231, 0.24);
+}
+
+.emotion-1 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emotion-1 .item-enter-done {
+  max-height: 200px;
+}
+
+.emotion-1 .item-enter-active {
+  max-height: 200px;
+}
+
+.emotion-1 .item-exit {
+  max-height: 0;
+}
+
+.emotion-1 .item-exit-active {
+  max-height: 0;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px 12px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.emotion-2:hover {
+  -webkit-text-decoration: none!important;
+  text-decoration: none!important;
+}
+
+.emotion-2 .icon {
+  color: !important;
+}
+
+.emotion-2:hover {
+  -webkit-text-decoration: none!important;
+  text-decoration: none!important;
+}
+
+.emotion-3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 12px;
+  font-weight: bold;
+  margin-left: 0;
+}
+
+.emotion-4 {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  -webkit-transform: translateY(-50%) rotate(180deg);
+  -moz-transform: translateY(-50%) rotate(180deg);
+  -ms-transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.emotion-5 {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.45s;
+  transition: all 0.45s;
+}
+
+.emotion-6 {
+  margin: 0;
+  padding: 10px 0 0 20px;
+  list-style: none;
+}
+
+.emotion-7 {
+  display: block;
+  position: relative;
+  padding: 8px 8px 8px 20px;
+  white-space: nowrap;
+  margin: 4px 0 4px 0;
+}
+
+.emotion-8 {
+  width: 14px;
+  height: 55px;
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+}
+
+.emotion-9 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 10px 12px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  min-height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.emotion-9:hover {
+  -webkit-text-decoration: none!important;
+  text-decoration: none!important;
+}
+
+<div
+    class="emotion-0"
+    id="test-menu"
+  >
+    <ul
+      class="emotion-1"
+    >
+      <li>
+        <a
+          class="emotion-2"
+          href="#"
+        >
+          <span
+            aria-label="Item 1"
+            class="emotion-3"
+          >
+            Item 1
+          </span>
+          <span
+            class="emotion-4"
+          >
+            <svg
+              fill="none"
+              height="6"
+              role="img"
+              viewBox="0 0 10 6"
+              width="10"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M.21.22a.69.69 0 0 1 1.01 0L5 4.19 8.78.22a.69.69 0 0 1 1.01 0 .777.777 0 0 1 0 1.06l-4.285 4.5a.69.69 0 0 1-1.01 0L.209 1.28a.777.777 0 0 1 0-1.06Z"
+                fill="#81868C"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
+        </a>
+        <div
+          class="emotion-5 item-appear item-appear-active"
+        >
+          <ul
+            class="emotion-6"
+          >
+            <li>
+              <a
+                class="emotion-7"
+                href="#"
+              >
+                <img
+                  alt="line"
+                  class="emotion-8"
+                  src="[object Object]"
+                />
+                Subitem 1
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a
+          class="emotion-9"
+          href="#"
+        >
+          <span
+            aria-label="Item 2"
+            class="emotion-3"
+          >
+            Item 2
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

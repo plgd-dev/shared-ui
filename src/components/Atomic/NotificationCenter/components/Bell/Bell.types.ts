@@ -1,6 +1,6 @@
 export type Props = {
     hasUnRead: boolean
-    innerRef: any
+    innerRef?: any
     notificationsCount: number
     onClick: () => void
 }

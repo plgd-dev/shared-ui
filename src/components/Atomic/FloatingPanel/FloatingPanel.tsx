@@ -8,7 +8,7 @@ import * as styles from './FloatingPanel.styles'
 import { hasEventBlocker } from '../_utils/envets'
 
 const FloatingPanel: FC<Props> = (props) => {
-    const { children, reference, title } = props
+    const { children, reference } = props
     const [open, setOpen] = useState(false)
     const ref = useRef(null)
     const { x, y, refs, strategy } = useFloating({
@@ -63,13 +63,8 @@ const FloatingPanel: FC<Props> = (props) => {
                                 { type: 'spring', damping: 20, stiffness: 300 }
                             }
                         >
-                            <div ref={ref}>
-                                {title ? (
-                                    <div css={styles.header}>
-                                        <div css={styles.headline}>{title}</div>
-                                    </div>
-                                ) : null}
-                                <div css={styles.content}>{children}</div>
+                            <div css={styles.content} ref={ref}>
+                                {children}
                             </div>
                         </motion.div>
                     )}

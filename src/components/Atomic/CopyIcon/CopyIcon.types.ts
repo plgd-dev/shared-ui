@@ -3,4 +3,5 @@ export type Props = {
         content: string
     }
     value: string | number
+    dataTestId?: string
 }

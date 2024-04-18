@@ -45,7 +45,7 @@ const ContentMenu: FC<Props> = (props) => {
                     <span css={styles.searchIcon}>
                         <IconSearch />
                     </span>
-                    <input css={styles.search} onChange={(e) => setSearch(e.target.value)} type='search' value={search} />
+                    <input css={styles.search} onChange={(e) => setSearch(e.target.value)} role='search' type='search' value={search} />
                 </div>
             )}
             <ul css={styles.menuList}>

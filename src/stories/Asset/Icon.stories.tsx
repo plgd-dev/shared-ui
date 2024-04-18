@@ -1,6 +1,6 @@
 import React from 'react'
-import { Icon, IconsRaw } from '../components/Atomic/Icon'
-import './global.css'
+import { Icon, IconsRaw } from '../../components/Atomic/Icon'
+import '../global.css'
 import { StoryFn } from '@storybook/react'
 
 export default {

@@ -1,7 +1,5 @@
 import { FC, useCallback, useEffect, useRef, useState } from 'react'
-import { offset, shift, useFloating } from '@floating-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FloatingPortal } from '@floating-ui/react-dom-interactions'
 import { useNotificationCenter } from 'react-toastify/addons/use-notification-center'
 import isFunction from 'lodash/isFunction'
 
@@ -11,16 +9,12 @@ import * as styles from './NotificationCenter.styles'
 import { hasEventBlocker } from '../_utils/envets'
 import InnerToast from './components/InnerToast/InnerToast'
 import Scrollbars from '../Scrollbars'
+import FloatingPanel from '../FloatingPanel'
 
 const NotificationCenter: FC<Props> = (props) => {
     const { defaultNotification, i18n, onNotification, readAllNotifications } = { ...defaultProps, ...props }
     const [open, setOpen] = useState(false)
     const ref = useRef(null)
-    const { x, y, refs, strategy } = useFloating({
-        placement: 'bottom-end',
-        strategy: 'fixed',
-        middleware: [shift(), offset(4)],
-    })
 
     const notificationsCount = useRef<number>(defaultNotification?.length ?? 0)
     const { notifications, markAllAsRead, unreadCount } = useNotificationCenter({
@@ -56,75 +50,45 @@ const NotificationCenter: FC<Props> = (props) => {
     }, [notifications, onNotification])
 
     return (
-        <div>
-            <Bell hasUnRead={unreadCount > 0} innerRef={refs.setReference} notificationsCount={notifications.length} onClick={() => setOpen(!open)} />
-            <FloatingPortal>
-                <AnimatePresence>
-                    {open && (
-                        <motion.div
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            css={styles.floatingPanel}
-                            exit={{ opacity: 0, y: 0 }}
-                            initial={{ opacity: 0, scale: 0.85, y: -100 }}
-                            ref={refs.setFloating}
-                            style={{
-                                position: strategy,
-                                top: y ?? 0,
-                                left: x ?? 0,
-                                width: 'max-content',
-                            }}
-                            transition={
-                                // When in "grouped phase", make the transition faster
-                                // The open delay becomes 1ms during this phase.
-                                { type: 'spring', damping: 20, stiffness: 300 }
-                            }
-                        >
-                            <div ref={ref}>
-                                <div css={styles.header}>
-                                    <div css={styles.headline}>{i18n.notifications}</div>
-                                    {notifications.length > 0 && (
-                                        <a
-                                            css={styles.clearAll}
-                                            href='#'
-                                            onClick={(e) => {
-                                                e.preventDefault()
-                                                readAll()
-                                            }}
-                                        >
-                                            {i18n.markAllAsRead}
-                                        </a>
-                                    )}
-                                </div>
-                                <AnimatePresence>
-                                    <Scrollbars autoHeight autoHeightMax={400} autoHeightMin={50}>
-                                        <motion.section
-                                            animate={open ? 'open' : 'closed'}
-                                            css={styles.content}
-                                            variants={{
-                                                open: {
-                                                    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
-                                                },
-                                                closed: {
-                                                    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-                                                },
-                                            }}
-                                        >
-                                            <AnimatePresence>
-                                                {notifications.length === 0 && <div css={styles.noNotifications}>{i18n.noNotifications}</div>}
-                                                {notifications.length > 0 &&
-                                                    notifications.map((notification: any, i) => (
-                                                        <InnerToast borderTop={i !== 0} key={i} notification={notification} />
-                                                    ))}
-                                            </AnimatePresence>
-                                        </motion.section>
-                                    </Scrollbars>
-                                </AnimatePresence>
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </FloatingPortal>
-        </div>
+        <FloatingPanel reference={<Bell hasUnRead={unreadCount > 0} notificationsCount={notifications.length} onClick={() => setOpen(!open)} />}>
+            <div css={styles.header}>
+                <div css={styles.headline}>{i18n.notifications}</div>
+                {notifications.length > 0 && (
+                    <a
+                        css={styles.clearAll}
+                        href='#'
+                        onClick={(e) => {
+                            e.preventDefault()
+                            readAll()
+                        }}
+                    >
+                        {i18n.markAllAsRead}
+                    </a>
+                )}
+            </div>
+            <AnimatePresence>
+                <Scrollbars autoHeight autoHeightMax={400} autoHeightMin={50}>
+                    <motion.section
+                        animate={open ? 'open' : 'closed'}
+                        css={styles.content}
+                        variants={{
+                            open: {
+                                transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+                            },
+                            closed: {
+                                transition: { staggerChildren: 0.05, staggerDirection: -1 },
+                            },
+                        }}
+                    >
+                        <AnimatePresence>
+                            {notifications.length === 0 && <div css={styles.noNotifications}>{i18n.noNotifications}</div>}
+                            {notifications.length > 0 &&
+                                notifications.map((notification: any, i) => <InnerToast borderTop={i !== 0} key={i} notification={notification} />)}
+                        </AnimatePresence>
+                    </motion.section>
+                </Scrollbars>
+            </AnimatePresence>
+        </FloatingPanel>
     )
 }
 

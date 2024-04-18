@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContentSwitch> renders without crashing 1`] = `
+<DocumentFragment>
+  <div
+    style="opacity: 1;"
+  >
+    <div>
+      Item 1
+    </div>
+  </div>
+</DocumentFragment>
+`;

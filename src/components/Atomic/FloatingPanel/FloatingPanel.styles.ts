@@ -1,7 +1,6 @@
 import { css } from '@emotion/react'
 
 import { ThemeType, get } from '../_theme'
-import { commonStyles } from '../_utils/commonStyles'
 
 export const referenceItem = (theme: ThemeType) => css`
     display: flex;
@@ -29,26 +28,6 @@ export const floatingPanel = (theme: ThemeType) => css`
     max-width: 600px;
 `
 
-export const header = (theme: ThemeType) => css`
-    padding: 16px;
-    display: flex;
-    height: 56px;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid ${get(theme, `FloatingPanel.Content.Headline.borderColor`)};
-`
-
-export const headline = (theme: ThemeType) => css`
-    font-family: ${commonStyles.fontSecondary};
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 140%;
-    letter-spacing: -0.5px;
-    color: ${get(theme, `FloatingPanel.Content.Headline.color`)};
-`
-
 export const content = css`
-    padding: 0 16px;
+    padding: 0;
 `
