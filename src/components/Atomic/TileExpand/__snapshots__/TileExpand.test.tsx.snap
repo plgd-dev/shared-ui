@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TileExpand> renders title and status tag when provided 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-radius: 8px;
+  border: 1px solid;
+  overflow: hidden;
+}
+
+.emotion-1 {
+  padding: 16px 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.emotion-3 {
+  font: 'Circular Pro',sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-4 {
+  padding-left: 6px;
+}
+
+.emotion-5 {
+  -webkit-flex: 0 0 32px;
+  -ms-flex: 0 0 32px;
+  flex: 0 0 32px;
+}
+
+.emotion-6 {
+  padding: 6px;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 32px;
+  height: 32px;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          Test Title
+          <span
+            class="emotion-4"
+          >
+            Test Status
+          </span>
+        </div>
+      </div>
+      <div
+        class="emotion-5"
+      >
+        <div
+          class="expander emotion-6"
+        >
+          <svg
+            fill="none"
+            height="20"
+            viewBox="0 0 20 20"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5.59 6.912a.833.833 0 1 0-1.18 1.179l5 5a.833.833 0 0 0 1.18 0l5-5a.833.833 0 0 0-1.18-1.179L10 11.322z"
+              fill="currentcolor"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

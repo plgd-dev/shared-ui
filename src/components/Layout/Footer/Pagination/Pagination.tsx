@@ -20,6 +20,7 @@ const Pagination: FC<Props> = (props) => {
         <ul className={className} css={styles.pagination}>
             <li>
                 <a
+                    className={!canPreviousPage ? 'disabled arrow-left' : 'arrow-left'}
                     css={[styles.item, !canPreviousPage && styles.disabled]}
                     href='#'
                     onClick={(e) => {
@@ -27,6 +28,7 @@ const Pagination: FC<Props> = (props) => {
                         e.preventDefault()
                         previousPage()
                     }}
+                    role='button'
                 >
                     <IconArrowLeft {...convertSize(12)} />
                 </a>
@@ -34,6 +36,7 @@ const Pagination: FC<Props> = (props) => {
             <PaginationItems activePage={pageIndex + 1} maxButtons={10} onItemClick={gotoPage} pageCount={pageCount} />
             <li>
                 <a
+                    className={!canNextPage ? 'disabled arrow-right' : 'arrow-right'}
                     css={[styles.item, !canNextPage && styles.disabled]}
                     href='#'
                     onClick={(e) => {
@@ -41,6 +44,7 @@ const Pagination: FC<Props> = (props) => {
                         e.preventDefault()
                         nextPage()
                     }}
+                    role='button'
                 >
                     <IconArrowRight {...convertSize(12)} />
                 </a>

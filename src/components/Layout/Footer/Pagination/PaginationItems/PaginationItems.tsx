@@ -28,6 +28,7 @@ const PaginationItems: FC<Props> = (props) => {
                         e.stopPropagation()
                         onItemClick(page - 1)
                     }}
+                    role='button'
                 >
                     {page}
                 </a>
@@ -50,6 +51,7 @@ const PaginationItems: FC<Props> = (props) => {
                         e.stopPropagation()
                         onItemClick(1)
                     }}
+                    role='button'
                 >
                     1
                 </a>
@@ -72,6 +74,7 @@ const PaginationItems: FC<Props> = (props) => {
                         e.stopPropagation()
                         onItemClick(pageCount - 1)
                     }}
+                    role='button'
                 >
                     {pageCount}
                 </a>
