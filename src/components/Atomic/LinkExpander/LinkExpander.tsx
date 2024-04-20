@@ -3,8 +3,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 
 import Link from '../Link'
 import * as styles from './LinkExpander.styles'
+import { Props } from './LinkExpander.types'
 
-const LinkExpander: FC<any> = (props) => {
+const LinkExpander: FC<Props> = (props) => {
     const { children, i18n, show, toggleView } = props
 
     const AnimatedLink = () => (

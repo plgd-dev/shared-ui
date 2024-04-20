@@ -15,4 +15,21 @@ describe('<Headline>', () => {
 
         expect(asFragment()).toMatchSnapshot()
     })
+
+    it('renders correct text', () => {
+        const { getByText } = render(<Headline type='h1'>Test</Headline>)
+        expect(getByText('Test')).toBeInTheDocument()
+    })
+
+    it('applies correct class based on type', () => {
+        const { container } = render(<Headline type='h1'>Test</Headline>)
+        const headline = container.querySelector('h1')
+        expect(headline).toHaveClass('h1')
+    })
+
+    it('applies h6 style when type is h6', () => {
+        const { container } = render(<Headline type='h2'>Test</Headline>)
+        const headline = container.querySelector('h2')
+        expect(headline).toHaveClass('h2')
+    })
 })

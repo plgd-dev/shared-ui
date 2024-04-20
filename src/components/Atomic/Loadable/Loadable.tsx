@@ -5,7 +5,7 @@ import { Props } from './Loadable.types'
 
 const Loadable: FC<Props> = (props) => {
     const { condition, children } = props
-    return condition ? children : <IconLoader center size={20} type='secondary' />
+    return condition ? children : <IconLoader center className='loader-icon' size={20} type='secondary' />
 }
 
 Loadable.displayName = 'Loadable'

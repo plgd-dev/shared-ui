@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Show Component renders the "when" child when condition is true 1`] = `
+<DocumentFragment>
+  When Content
+</DocumentFragment>
+`;
