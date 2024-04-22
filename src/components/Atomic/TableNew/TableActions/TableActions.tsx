@@ -21,9 +21,20 @@ const TableActions: FC<Props> = memo((props) => {
                                     variant='default'
                                 >
                                     {typeof item.icon === 'string' ? (
-                                        <Icon css={styles.icon} icon={item.icon} onClick={item.onClick} size={item.size || 20} />
+                                        <Icon
+                                            className={`icon-${item.tooltipText}`}
+                                            css={styles.icon}
+                                            icon={item.icon}
+                                            onClick={item.onClick}
+                                            size={item.size || 20}
+                                        />
                                     ) : (
-                                        cloneElement(item.icon as ReactElement, { onClick: item.onClick, ...convertSize(item.size || 20), css: styles.icon })
+                                        cloneElement(item.icon as ReactElement, {
+                                            onClick: item.onClick,
+                                            ...convertSize(item.size || 20),
+                                            css: styles.icon,
+                                            className: `icon-${item.tooltipText}`,
+                                        })
                                     )}
                                 </Tooltip>
                             </div>

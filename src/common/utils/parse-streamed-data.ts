@@ -1,5 +1,5 @@
 // Return an array of objects which came in as a text stream of results
-export const parseStreamedData = (stream) => {
+export const parseStreamedData = (stream: string) => {
     try {
         return stream
             ? stream
@@ -14,4 +14,4 @@ export const parseStreamedData = (stream) => {
 }
 
 // Convert Uint8Array to text
-export const binArrayToJson = (binArray) => new TextDecoder().decode(binArray)
+export const binArrayToJson = (binArray: any) => new TextDecoder().decode(binArray)

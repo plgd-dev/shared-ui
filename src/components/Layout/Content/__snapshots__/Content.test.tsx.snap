@@ -36,7 +36,6 @@ exports[`Content Component renders headline correctly 1`] = `
 }
 
 .emotion-3 {
-  font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 24px;

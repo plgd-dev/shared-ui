@@ -3,7 +3,6 @@
 exports[`<Headline> render correctly - snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 72px;
@@ -20,7 +19,6 @@ exports[`<Headline> render correctly - snapshot 1`] = `
 }
 
 .emotion-1 {
-  font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 48px;
@@ -37,7 +35,6 @@ exports[`<Headline> render correctly - snapshot 1`] = `
 }
 
 .emotion-2 {
-  font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 36px;
@@ -54,7 +51,6 @@ exports[`<Headline> render correctly - snapshot 1`] = `
 }
 
 .emotion-3 {
-  font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 24px;
@@ -71,7 +67,6 @@ exports[`<Headline> render correctly - snapshot 1`] = `
 }
 
 .emotion-4 {
-  font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 20px;

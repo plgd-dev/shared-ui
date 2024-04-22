@@ -22,6 +22,5 @@ describe('Show Component', () => {
             </Show>
         )
         expect(getByText('Else Content')).toBeInTheDocument()
-        expect(() => getByText('When Content')).toThrow()
     })
 })

@@ -5,8 +5,8 @@ describe('<ConditionalWrapper>', () => {
     it('render correctly - snapshot', () => {
         const { asFragment } = render(
             <div>
-                <ConditionalWrapper children={<div>inner content</div>} condition={false} wrapper={(e) => <div>{e}</div>} />
-                <ConditionalWrapper children={<div>inner content</div>} condition={true} wrapper={(e) => <div>{e}</div>} />
+                <ConditionalWrapper children={<div>inner content 1</div>} condition={false} wrapper={(e) => <div>{e}</div>} />
+                <ConditionalWrapper children={<div>inner content 2</div>} condition={true} wrapper={(e) => <div>{e}</div>} />
             </div>
         )
 

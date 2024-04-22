@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagGroup Component renders children when there is enough space 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  width: 100%;
+  position: relative;
+}
+
+.emotion-1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+}
+
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3 {
+  margin: 2px;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #81868C;
+  padding: 3px 8px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.emotion-7 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #81868C;
+  padding: 3px 8px;
+  border: 1px solid;
+  white-space: nowrap;
+  border: 1px solid;
+}
+
+.emotion-8 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #81868C;
+  padding: 3px 8px;
+  border: 1px solid;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+<div
+    class="emotion-0"
+  >
+    <div
+      class="emotion-1"
+    >
+      <div
+        class="emotion-2"
+      >
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="emotion-4"
+          >
+            Tag 1
+          </div>
+        </div>
+        <div
+          class="emotion-3"
+        >
+          <div
+            class="emotion-4"
+          >
+            Tag 2
+          </div>
+        </div>
+        <div
+          class="emotion-7"
+        >
+          2 more
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-8"
+    >
+      2 more
+    </div>
+  </div>
+</DocumentFragment>
+`;

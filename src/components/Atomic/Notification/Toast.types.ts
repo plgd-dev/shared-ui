@@ -6,7 +6,7 @@ export type ToastVariantsType = (typeof toastVariants)[keyof typeof toastVariant
 
 export type MessageType = {
     title: string
-    message: string
+    message?: string
 }
 
 export type ToastSettings = {

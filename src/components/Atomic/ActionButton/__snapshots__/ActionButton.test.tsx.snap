@@ -90,8 +90,9 @@ exports[`<ActionButton> render correctly - snapshot 1`] = `
       style="position: fixed; top: 0px; left: 0px;"
     >
       <div
-        class="emotion-3"
+        class="icon-Create emotion-3"
         data-close-dropdown="false"
+        role="button"
       >
         <svg
           class="emotion-4"
@@ -115,8 +116,9 @@ exports[`<ActionButton> render correctly - snapshot 1`] = `
         </span>
       </div>
       <div
-        class="emotion-3"
+        class="icon-Update emotion-3"
         data-close-dropdown="false"
+        role="button"
       >
         <svg
           class="emotion-4"
@@ -140,8 +142,9 @@ exports[`<ActionButton> render correctly - snapshot 1`] = `
         </span>
       </div>
       <div
-        class="emotion-3"
+        class="icon-Delete emotion-3"
         data-close-dropdown="false"
+        role="button"
       >
         <svg
           class="emotion-4"

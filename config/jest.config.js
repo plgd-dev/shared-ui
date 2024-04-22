@@ -22,7 +22,7 @@ module.exports = {
     modulePaths: ['<rootDir>'],
     moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
     resetMocks: true,
-    setupFiles: ['react-app-polyfill/jsdom'],
+    setupFiles: ['react-app-polyfill/jsdom', '<rootDir>/config/setup-tests.js'],
     setupFilesAfterEnv: ['<rootDir>/config/jest.setup.ts'],
     snapshotSerializers: ['@emotion/jest/serializer'],
     testMatch: ['<rootDir>/src/**/*.test.{js,jsx,ts,tsx}'],

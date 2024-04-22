@@ -4,11 +4,11 @@ exports[`<ConditionalWrapper> render correctly - snapshot 1`] = `
 <DocumentFragment>
   <div>
     <div>
-      inner content
+      inner content 1
     </div>
     <div>
       <div>
-        inner content
+        inner content 2
       </div>
     </div>
   </div>

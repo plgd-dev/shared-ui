@@ -83,7 +83,9 @@ const TileExpand: FC<Props> = (props) => {
                                                             id={`tooltip-group-${info.attribute}`}
                                                             portalTarget={undefined}
                                                         >
-                                                            <IconCopy onClick={() => copyToClipboard(info?.copyValue || info.value, info.certFormat)} />
+                                                            <IconCopy
+                                                                onClick={() => copyToClipboard(info?.copyValue || (info.value as string), info.certFormat)}
+                                                            />
                                                         </Tooltip>
                                                     </div>
                                                 </Column>

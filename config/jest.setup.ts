@@ -3,6 +3,8 @@ import '@testing-library/jest-dom'
 import { matchers } from '@emotion/jest'
 import ReactDOM from 'react-dom'
 
+import 'regenerator-runtime/runtime'
+import { cleanup } from '@testing-library/react'
 expect.extend(matchers)
 
 const ResizeObserverOrigin = window.ResizeObserver
@@ -30,4 +32,5 @@ beforeEach(() => {
 afterEach(() => {
     window.ResizeObserver = ResizeObserverOrigin
     jest.resetAllMocks()
+    cleanup()
 })

@@ -6,8 +6,8 @@ export type Props = {
     headline: string
     headlineRef?: RefObject<HTMLHeadingElement>
     i18n: {
-        download: string
         delete: string
+        download: string
         edit: string
         search: string
         showMore: string

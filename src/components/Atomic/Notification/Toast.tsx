@@ -48,7 +48,7 @@ const ToastComponent = (props: any) => {
             {getIcon(type)}
             <div css={styles.content}>
                 <div css={styles.headline(type)}>{message.title}</div>
-                <div css={styles.text}>{message.message}</div>
+                {message.message && <div css={styles.text}>{message.message}</div>}
             </div>
             <a className='close-button' css={styles.closeButton} href='#' onClick={handleClose}>
                 <IconToastClose {...convertSize(20)} />

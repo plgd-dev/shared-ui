@@ -1,9 +1,6 @@
-// @ts-ignore
-import * as converter from 'units-converter/dist/es/index'
 import { DEVICES_RESOURCE_UPDATE_WS_KEY, knownInterfaces, commandTimeoutUnits, MINIMAL_TTL_VALUE_MS } from '../constants'
 import { compareIgnoreCase } from '../../components/Atomic/Table/Utils'
-
-const time = converter.time
+import time from './time'
 
 const { INFINITE, NS, MS, S, M, H } = commandTimeoutUnits
 
@@ -85,6 +82,7 @@ export const createNestedResourceData = (data: any) => {
         return compareIgnoreCase(a.href, b.href)
     })
 }
+
 const deDensisfy = (objectToDeDensify: any) => {
     const { href, ...rest } = objectToDeDensify
 

@@ -69,6 +69,7 @@ const ActionButton: FC<Props> = (props) => {
                     return (
                         item.component || (
                             <div
+                                className={`icon-${item.label}`}
                                 css={styles.item}
                                 data-close-dropdown={false}
                                 key={item.id || item.label}
@@ -77,6 +78,7 @@ const ActionButton: FC<Props> = (props) => {
                                     isFunction(onToggle) && onToggle(false)
                                     isFunction(item.onClick) && item.onClick(e)
                                 }}
+                                role='button'
                             >
                                 {getIcon(item)}
                                 <span css={styles.itemLabel} data-close-dropdown={false}>

@@ -11,7 +11,7 @@ const CopyIcon: FC<Props> = (props) => {
 
     return (
         <Tooltip content={i18n.content} css={styles.copy}>
-            <IconCopy data-test-id={dataTestId} onClick={() => copyToClipboard(value)} />
+            <IconCopy data-test-id={dataTestId} onClick={() => copyToClipboard(value.toString())} />
         </Tooltip>
     )
 }

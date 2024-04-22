@@ -64,7 +64,7 @@ const getSizes = (type: HeadlineType) => {
 
 export const headline = (theme: ThemeType, type: HeadlineType) => css`
     color: ${get(theme, `Headline.color`)};
-    font-family: 'Circular Pro', sans-serif;
+    font-family: ${get(theme, `Global.fontSecondary`)};
     font-weight: 700;
     font-style: normal;
     ${getSizes(type)};

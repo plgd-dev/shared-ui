@@ -21,7 +21,7 @@ const CopyBox: FC<Props> = (props) => {
         )
 
     const handleCopyToClipboard = () => {
-        if (copyToClipboard(textToCopy || text, certFormat)) {
+        if (copyToClipboard(textToCopy || (text as string), certFormat)) {
             setCopied(true)
         }
     }
