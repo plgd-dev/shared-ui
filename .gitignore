@@ -30,3 +30,8 @@ yarn-error.log*
 *storybook.log
 test-report.xml
 eslint-results.sarif
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+storageState.json

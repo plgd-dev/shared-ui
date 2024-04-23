@@ -14,3 +14,5 @@
 !config/**/*.ts
 
 !scripts/**/*.js
+
+!tests/**/*.ts
