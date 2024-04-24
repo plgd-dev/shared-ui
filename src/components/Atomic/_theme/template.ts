@@ -530,6 +530,12 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             description: {
                 color: colors.neutral900,
             },
+            expander: {
+                color: colors.neutral500,
+                hover: {
+                    color: colors.primary,
+                },
+            },
             groupHeadline: {
                 color: colors.primaryDarken,
             },

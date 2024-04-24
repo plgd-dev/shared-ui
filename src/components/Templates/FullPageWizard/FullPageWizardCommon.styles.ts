@@ -19,7 +19,7 @@ export const description = (theme: ThemeType) => css`
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
-    color: ${get(theme, `colorPalette.neutral900`)};
+    color: ${get(theme, `colorPalette.neutral500`)};
     margin: 0 0 32px 0;
 `
 

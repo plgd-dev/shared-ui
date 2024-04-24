@@ -3,9 +3,9 @@ import { useForm as useFormLib } from 'react-hook-form'
 import { useCallback, useContext, useEffect } from 'react'
 import isFunction from 'lodash/isFunction'
 import cloneDeep from 'lodash/cloneDeep'
+import set from 'lodash/set'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { setProperty } from '../../components/Atomic/_utils/utils'
 import { FormContext } from '../context/FormContext'
 
 type UseFormOptionsType = {
@@ -42,10 +42,10 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
 
             if (asArray) {
                 // @ts-ignore
-                copy[field] = fieldValue
-                updateData(copy)
+
+                updateData(set(copy, field, fieldValue))
             } else {
-                updateData(setProperty(copy, field, fieldValue))
+                updateData(set(copy, field, fieldValue))
             }
         },
         [data, updateData]

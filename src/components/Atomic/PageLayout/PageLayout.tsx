@@ -1,19 +1,22 @@
 import React, { forwardRef } from 'react'
-import { Helmet } from 'react-helmet'
 
 import { Props, defaultProps } from './PageLayout.types'
 import * as styles from './PageLayout.styles'
 import Headline from '../Headline'
 import PageLoader from '../PageLoader'
 import ConditionalWrapper from '../ConditionalWrapper'
+import { useDocumentTitle } from '../../../common/hooks'
 
 const PageLayout = forwardRef<HTMLDivElement, Props>((props, ref) => {
-    const { children, dataTestId, headlineStatusTag, title, header, headerBorder, footer, loading, collapsed, xPadding } = { ...defaultProps, ...props }
+    const { children, dataTestId, headlineStatusTag, title, header, headerBorder, footer, loading, collapsed, xPadding } = {
+        ...defaultProps,
+        ...props,
+    }
+
+    useDocumentTitle(title || '')
+
     return (
         <div css={styles.pageLayout} ref={ref}>
-            <Helmet>
-                <title>{title}</title>
-            </Helmet>
             <div css={styles.top}>
                 <PageLoader className='auth-loader' collapsed={collapsed} loading={loading} />
                 <div css={[styles.header, styles.padding, headerBorder && styles.headerBorder]}>

@@ -52,5 +52,31 @@ export const groupHeadline = (theme: ThemeType) => css`
     font-weight: 700;
     line-height: 150%;
     letter-spacing: -0.5px;
+`
+
+export const groupHeadlineMargin = css`
     margin: 32px 0 16px 0;
+`
+
+export const flex = css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+
+export const expander = (theme: ThemeType) => css`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: ${getTheme(theme, `FullPageWizard.expander.color`)};
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+        color: ${getTheme(theme, `FullPageWizard.expander.hover.color`)};
+    }
+`
+
+export const expanderMargin = css`
+    margin-top: 20px;
 `

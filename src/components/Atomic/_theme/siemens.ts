@@ -517,6 +517,12 @@ const theme = {
             description: {
                 color: colorsSiemens.neutral500,
             },
+            expander: {
+                color: colorsSiemens.neutral500,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
+            },
             groupHeadline: {
                 color: colorsSiemens.primary,
             },

@@ -24,11 +24,22 @@ const CaPool: FC<Props> = (props) => {
             {
                 Header: '',
                 accessor: 'name',
-                Cell: ({ value }: { value: string | number }) => (
-                    <span className='no-wrap-text' style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                        {typeof value === 'string' ? value.replace(CA_BASE64_PREFIX, '') : value}
-                    </span>
-                ),
+                Cell: ({ value }: { value: string | number }) => {
+                    if (isFunction(onView)) {
+                        return (
+                            <a href='#' onClick={(e) => onView(value)}>
+                                <span className='no-wrap-text' style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                    {value}
+                                </span>
+                            </a>
+                        )
+                    }
+                    return (
+                        <span className='no-wrap-text' style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {typeof value === 'string' ? value.replace(CA_BASE64_PREFIX, '') : value}
+                        </span>
+                    )
+                },
                 style: { maxWidth: '300px' },
             },
             {

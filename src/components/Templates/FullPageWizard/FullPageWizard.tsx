@@ -1,5 +1,4 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { useTheme } from '@emotion/react'
 import isFunction from 'lodash/isFunction'
 
@@ -11,18 +10,18 @@ import IconDone from './assets/IconDone'
 import IconCloseCircle from '../../Atomic/Icon/components/IconCloseCircle'
 import { convertSize } from '../../Atomic/Icon'
 import { ComponentType, Props } from './FullPageWizard.types'
-import { Description, SubHeadline, Headline, GroupHeadline } from './Components'
+import { Description, SubHeadline, Headline, GroupHeadline, ToggleConfiguration } from './Components'
+import { useDocumentTitle } from '../../../common/hooks'
 
 const FullPageWizard: ComponentType<Props> = (props) => {
     const { children, title, i18n, steps, activeStep, onStepChange, onClose, visitedStep } = props
 
     const theme: ThemeType = useTheme()
 
+    useDocumentTitle(title)
+
     return (
         <div css={styles.wizard}>
-            <Helmet>
-                <title>{title}</title>
-            </Helmet>
             <div css={styles.row}>
                 <div css={styles.leftCol}>
                     <div css={styles.leftInner}>
@@ -81,5 +80,6 @@ FullPageWizard.Description = Description
 FullPageWizard.SubHeadline = SubHeadline
 FullPageWizard.Headline = Headline
 FullPageWizard.GroupHeadline = GroupHeadline
+FullPageWizard.ToggleConfiguration = ToggleConfiguration
 
 export default FullPageWizard
