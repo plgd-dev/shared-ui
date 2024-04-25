@@ -59,12 +59,12 @@ export default defineConfig({
     //   },
     // },
     //
-    // {
-    //   name: 'Google Chrome',
-    //   use: {
-    //     channel: 'chrome',
-    //   },
-    // },
+    {
+      name: 'Google Chrome',
+      use: {
+        channel: 'chrome',
+      },
+    },
   ],
 
   outputDir: 'test-results/',
