@@ -4,11 +4,9 @@ import TableActions from '../../components/Atomic/TableNew/TableActions'
 import Button from '../../components/Atomic/Button'
 import Tag from '../../components/Atomic/Tag'
 import StatusPill from '../../components/Atomic/StatusPill'
-import sample from 'lodash/sample'
 import '../global.css'
 import TableSelectionPanel from '../../components/Atomic/TableNew/TableSelectionPanel/TableSelectionPanel'
 import { IconEdit, IconLink, IconShowPassword, IconTrash } from '../../components/Atomic/Icon'
-import { generate } from 'random-words'
 
 export default {
     title: 'Table/Table',
@@ -91,13 +89,13 @@ const Template = (args) => {
     const data = useMemo(
         () =>
             Array.from(Array(100).keys()).map((item) => ({
-                col1: generate({ exactly: 3 }).join(' '),
+                col1: `row-${item}`,
                 col2: '376ee947-4801-5cfe-3a8f-49103697f7d1',
                 col3: {
-                    state: sample(['online', 'offline']),
+                    state: item % 2 === 0 ? 'online' : 'offline',
                     pending: {
-                        show: sample([0, 0, 0, 1]),
-                        number: Math.floor(Math.random() * 8) + 1,
+                        show: item % 2 === 0,
+                        number: item,
                     },
                 },
                 col4: 'tcp',

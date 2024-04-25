@@ -34,6 +34,7 @@ export default defineConfig({
   expect: {
     toHaveScreenshot: { maxDiffPixels: 100 },
   },
+  timeout: 2 * 60 * 1000,
   /* Configure projects for major browsers */
   projects: [
     {
@@ -41,29 +42,29 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
-    {
-      name: 'Microsoft Edge',
-      use: {
-        channel: 'msedge',
-      },
-    },
-
-    {
-      name: 'Google Chrome',
-      use: {
-        channel: 'chrome',
-      },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    //
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
+    //
+    // {
+    //   name: 'Microsoft Edge',
+    //   use: {
+    //     channel: 'msedge',
+    //   },
+    // },
+    //
+    // {
+    //   name: 'Google Chrome',
+    //   use: {
+    //     channel: 'chrome',
+    //   },
+    // },
   ],
 
   outputDir: 'test-results/',

@@ -7,6 +7,8 @@ async function globalSetup() {
     const response = await page.request.get('http://localhost:6006/')
     await expect(response).toBeOK()
 
+    await page.waitForSelector('#preview-loader', { state: 'detached' })
+
     await page.context().storageState({ path: 'storageState.json' })
     await browser.close()
 }

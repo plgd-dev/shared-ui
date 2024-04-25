@@ -31,7 +31,10 @@
     ":generate:theme": "npm-run-all :generate:theme:build :generate:theme:clean",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:storybook": "npx playwright test --ui"
+    "test:storybook": "npx playwright test",
+    "test:storybook:ui": "npx playwright test --ui",
+    "test:storybook:debug": "npx playwright test --debug",
+    "test:storybook:report": "npx playwright show-report"
   },
   "dependencies": {
     "@babel/core": "^7.23.3",
@@ -175,14 +178,14 @@
     "prop-types": "^15.8.1",
     "resize-observer-polyfill": "^1.5.1",
     "rimraf": "^5.0.5",
-    "sass": "^1.69.5",
+    "sass": "^1.75.0",
     "sass-loader": "^13.3.2",
-    "storybook": "^8.0.8",
+    "storybook": "^8.0.9",
     "style-loader": "^3.3.3",
-    "ts-jest": "^29.1.1",
+    "ts-jest": "^29.1.2",
     "util": "^0.12.5",
     "uuid": "^9.0.1",
-    "webpack": "^5.89.0",
+    "webpack": "^5.91.0",
     "yargs": "^17.7.2"
   },
   "sideEffects": false

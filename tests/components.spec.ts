@@ -1,34 +1,122 @@
-import { test, expect } from '@playwright/test'
+import { test, expect, Page } from '@playwright/test'
+
+type ComponentType = {
+    name: string
+    views?: string[]
+    default?: boolean
+}
 
 const components = [
-    { name: 'Alert' },
-    { name: 'CaPool' },
-    { name: 'CodeEditor' },
-    { name: 'Editor' },
-    { name: 'Headline' },
-    { name: 'Link' },
-    { name: 'StatusPill' },
-    { name: 'StatusTag' },
-    { name: 'Swiper' },
-    { name: 'Tabs' },
-    { name: 'Tag' },
-    { name: 'TileExpand' },
-    { name: 'TileToggle' },
-    { name: 'Tooltip' },
-    { name: 'VersionMark' },
+    {
+        group: 'Example',
+        items: [
+            { name: 'Alert' },
+            { name: 'CaPool' },
+            { name: 'CodeEditor' },
+            { name: 'Editor' },
+            { name: 'Headline' },
+            { name: 'Link' },
+            { name: 'StatusPill' },
+            { name: 'StatusTag' },
+            { name: 'Swiper', views: ['feature', 'testimonial'] },
+            { name: 'Tabs' },
+            { name: 'Tag' },
+            { name: 'TileExpand' },
+            { name: 'TileToggle' },
+            { name: 'Tooltip' },
+            { name: 'VersionMark' },
+        ],
+    },
+    {
+        group: 'Assets',
+        items: [{ name: 'CopyIcon' }, { name: 'Icon' }],
+    },
+    {
+        group: 'Form',
+        items: [
+            { name: 'ActionButton', views: ['variants'] },
+            { name: 'Button' },
+            { name: 'Checkbox' },
+            { name: 'ColorPicker' },
+            { name: 'ConfirmButton' },
+            { name: 'Dropzone' },
+            { name: 'FormGroup' },
+            { name: 'FormInput' },
+            { name: 'FormSelect' },
+            { name: 'Radio' },
+            { name: 'SplitButton' },
+            { name: 'Switch' },
+            { name: 'TimeoutControl' },
+        ],
+    },
+    {
+        group: 'Pages',
+        items: [{ name: 'InitializedByDifferentUser' }],
+    },
+    {
+        group: 'Keycloak',
+        items: [
+            { name: 'KeycloakTemplate', views: ['default', 'swiper-testimonials', 'swiper-feature', 'sign-in', 'update-password'] },
+            { name: 'Popup', views: ['default', 'right'] },
+            { name: 'SignInForm', views: ['default', 'social', 'registration-step-1', 'registration-step-2', 'reset-password'] },
+            { name: 'Step' },
+        ],
+    },
+    {
+        group: 'Layout',
+        items: [
+            { name: 'Content', views: ['default', 'headline-status-tag'] },
+            { name: 'ContentMenu' },
+            { name: 'Footer' },
+            { name: 'Header', views: ['default', 'breadcrumb'] },
+            { name: 'Layout' },
+            { name: 'LeftPanel', views: ['default', 'active-item', 'new-feature', 'collapsed'] },
+            { name: 'PageLayout' },
+        ],
+    },
+    {
+        group: 'Loader',
+        items: [{ name: 'IconLoader' }],
+    },
+    {
+        group: 'Modal',
+        items: [{ name: 'AddClientModal' }, { name: 'DeleteModal' }, { name: 'ProvisionDeviceModal' }, { name: 'ShareDeviceModal' }],
+    },
+    {
+        group: 'Notification',
+        items: [{ name: 'Notification' }, { name: 'NotificationCenter' }, { name: 'NotificationMessage' }],
+    },
+    {
+        group: 'Table',
+        items: [{ name: 'SimpleStripTable' }, { name: 'Table' }, { name: 'TreeTable' }],
+    },
 ]
 
-components.forEach((component) => {
-    test(`${component.name}`, async ({ page }) => {
-        await page.goto(`http://localhost:6006/?path=/story/example-${component.name.toLowerCase()}--default`)
+const testMethod = async (page: Page, group: string, name: string, view: string) => {
+    await page.goto(`http://localhost:6006/?path=/story/${group}-${name.toLowerCase()}--${view}`)
 
-        await page.click("button[aria-label='Shortcuts']")
-        await page.click('a#list-item-F')
+    await page.waitForSelector('#preview-loader', { state: 'detached', timeout: 90000 })
 
-        // secure interval for animations
-        await page.waitForTimeout(5000)
-        await page.locator('#storybook-preview-iframe').focus()
+    await page.click("button[aria-label='Shortcuts']")
+    await page.click('a#list-item-F')
 
-        await expect(page).toHaveScreenshot({ fullPage: true, omitBackground: true })
+    // secure interval for animations
+    await page.waitForTimeout(5000)
+    await page.locator('#storybook-preview-iframe').focus()
+
+    await expect(page).toHaveScreenshot({ fullPage: true, omitBackground: true })
+}
+
+components.forEach((group) => {
+    test.describe(group.group, () => {
+        group.items.forEach((component) => {
+            const views = component.views || ['default']
+
+            views.forEach((view) => {
+                test(`${component.name} | ${view}`, async ({ page }) => {
+                    await testMethod(page, group.group, component.name, view)
+                })
+            })
+        })
     })
 })
