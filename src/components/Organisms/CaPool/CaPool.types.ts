@@ -9,6 +9,7 @@ export type Props = {
         delete: string
         download: string
         edit: string
+        placeholder?: string
         search: string
         showMore: string
         update: string

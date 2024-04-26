@@ -317,6 +317,7 @@ const Table: FC<Props> = (props) => {
                             {/*        })}*/}
                         </tbody>
                     </table>
+                    {i18n.placeholder && data.length === 0 && <div css={styles.placeholder}>{i18n.placeholder}</div>}
                 </ConditionalWrapper>
             </div>
             {enablePagination && renderPagination()}

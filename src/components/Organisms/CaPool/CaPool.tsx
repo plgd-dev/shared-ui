@@ -123,6 +123,7 @@ const CaPool: FC<Props> = (props) => {
                 hideHeader={true}
                 i18n={{
                     search: i18n.search,
+                    placeholder: i18n?.placeholder,
                 }}
                 showFilterButton={false}
             />

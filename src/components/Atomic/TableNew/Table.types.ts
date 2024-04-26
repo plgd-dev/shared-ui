@@ -33,6 +33,7 @@ export type Props = {
     hideHeader?: boolean
     i18n: {
         search: string
+        placeholder?: string
     }
     id?: string
     getCellProps?: (data: any) => void

@@ -190,3 +190,5 @@ export const isSelected = (theme: ThemeType) => css`
         }
     }
 `
+
+export const placeholder = css``
