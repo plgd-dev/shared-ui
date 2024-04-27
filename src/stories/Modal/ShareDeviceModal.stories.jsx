@@ -3,7 +3,7 @@ import Button from '../../components/Atomic/Button'
 import ShareDeviceModal from '../../components/Atomic/Modal/components/ShareDeviceModal'
 
 export default {
-    title: 'Modal/ShareDeviceModal',
+    title: 'Modals/ShareDeviceModal',
     component: ShareDeviceModal,
     argTypes: {
         layout: 'fullscreen',

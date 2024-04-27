@@ -1,17 +1,10 @@
 import { test, expect, Page } from '@playwright/test'
 
-type ComponentType = {
-    name: string
-    views?: string[]
-    default?: boolean
-}
-
 const components = [
     {
         group: 'Example',
         items: [
             { name: 'Alert' },
-            { name: 'CaPool' },
             { name: 'CodeEditor' },
             { name: 'Editor' },
             { name: 'Headline' },
@@ -50,6 +43,10 @@ const components = [
         ],
     },
     {
+        group: 'Organism',
+        items: [{ name: 'CaPool' }, { name: 'CaList' }],
+    },
+    {
         group: 'Pages',
         items: [{ name: 'InitializedByDifferentUser' }],
     },
@@ -65,9 +62,11 @@ const components = [
     {
         group: 'Layout',
         items: [
+            { name: 'BottomPanel' },
             { name: 'Content', views: ['default', 'headline-status-tag'] },
             { name: 'ContentMenu' },
             { name: 'Footer' },
+            { name: 'FullPageWizard', views: ['default', 'active-step'] },
             { name: 'Header', views: ['default', 'breadcrumb'] },
             { name: 'Layout' },
             { name: 'LeftPanel', views: ['default', 'active-item', 'new-feature', 'collapsed'] },
@@ -79,7 +78,7 @@ const components = [
         items: [{ name: 'IconLoader' }],
     },
     {
-        group: 'Modal',
+        group: 'Modals',
         items: [{ name: 'AddClientModal' }, { name: 'DeleteModal' }, { name: 'ProvisionDeviceModal' }, { name: 'ShareDeviceModal' }],
     },
     {

@@ -3,7 +3,7 @@ import Button from '../../components/Atomic/Button'
 import { AddClientModal } from '../../components/Atomic/Modal'
 
 export default {
-    title: 'Modal/AddClientModal',
+    title: 'Modals/AddClientModal',
     component: AddClientModal,
     argTypes: {
         layout: 'fullscreen',

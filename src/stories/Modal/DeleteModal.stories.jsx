@@ -3,7 +3,7 @@ import Button from '../../components/Atomic/Button'
 import { DeleteModal } from '../../components/Atomic/Modal'
 
 export default {
-    title: 'Modal/DeleteModal',
+    title: 'Modals/DeleteModal',
     component: DeleteModal,
     argTypes: {
         layout: 'fullscreen',

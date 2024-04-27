@@ -3,7 +3,7 @@ import Button from '../../components/Atomic/Button'
 import { ProvisionDeviceModal } from '../../components/Atomic/Modal'
 
 export default {
-    title: 'Modal/ProvisionDeviceModal',
+    title: 'Modals/ProvisionDeviceModal',
     component: ProvisionDeviceModal,
     argTypes: {
         layout: 'fullscreen',

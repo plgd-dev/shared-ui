@@ -7,7 +7,7 @@ import TimeoutControl from '../../components/Atomic/TimeoutControl'
 import Editor from '../../components/Atomic/Editor'
 
 export default {
-    title: 'Modal/Default',
+    title: 'Modals/Default',
     component: Modal,
     argTypes: {
         layout: 'fullscreen',

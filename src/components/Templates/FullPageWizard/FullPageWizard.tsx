@@ -32,18 +32,22 @@ const FullPageWizard: ComponentType<Props> = (props) => {
                                 <li css={[activeStep >= key && styles.visited]} key={key}>
                                     <div css={styles.icon}>
                                         {activeStep > key ? (
-                                            <IconDone fill={theme.colorPalette.primary} />
+                                            <IconDone fill={theme?.colorPalette?.primary} />
                                         ) : (
-                                            <IconCircle fill={activeStep >= key ? theme.colorPalette.primary : theme.colorPalette.neutral300} />
+                                            <IconCircle fill={activeStep >= key ? theme?.colorPalette?.primary : theme?.colorPalette?.neutral300} />
                                         )}
                                     </div>
                                     <a
-                                        css={[styles.link, activeStep >= key && styles.visited, visitedStep && visitedStep >= key && styles.activeLink]}
+                                        css={[
+                                            styles.link,
+                                            activeStep >= key && styles.visited,
+                                            visitedStep !== undefined && visitedStep >= key && styles.activeLink,
+                                        ]}
                                         href='#'
                                         onClick={(e) => {
                                             e.preventDefault()
 
-                                            if (visitedStep && visitedStep >= key) {
+                                            if (visitedStep !== undefined && visitedStep >= key) {
                                                 isFunction(onStepChange) && onStepChange(key)
                                             }
                                         }}
@@ -64,8 +68,9 @@ const FullPageWizard: ComponentType<Props> = (props) => {
                             e.preventDefault()
                             isFunction(onClose) && onClose()
                         }}
+                        role='button'
                     >
-                        <span>{i18n.close}</span>
+                        <span>{i18n?.close}</span>
                         <IconCloseCircle {...convertSize(32)} />
                     </a>
                     <div css={styles.content}>{children}</div>

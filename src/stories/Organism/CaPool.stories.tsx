@@ -1,11 +1,10 @@
 import React, { useCallback, useState } from 'react'
 import cloneDeep from 'lodash/cloneDeep'
 import { StoryFn } from '@storybook/react'
-
-import CaPool from '../components/Organisms/CaPool'
+import CaPool from '../../components/Organisms/CaPool'
 
 export default {
-    title: 'Example/CaPool',
+    title: 'Organism/CaPool',
     component: CaPool,
     argTypes: {},
 }
