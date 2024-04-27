@@ -257,7 +257,6 @@ exports[`FullPageWizard renders without crashing 1`] = `
               <a
                 class="emotion-7"
                 href="#"
-                role="link"
               >
                 Step 1
               </a>
@@ -292,7 +291,6 @@ exports[`FullPageWizard renders without crashing 1`] = `
               <a
                 class="emotion-11"
                 href="#"
-                role="link"
               >
                 Step 2
               </a>
@@ -327,7 +325,6 @@ exports[`FullPageWizard renders without crashing 1`] = `
               <a
                 class="emotion-11"
                 href="#"
-                role="link"
               >
                 Step 3
               </a>
