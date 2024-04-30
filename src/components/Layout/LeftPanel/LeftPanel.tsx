@@ -1,6 +1,5 @@
 import React, { cloneElement, FC, ReactElement, SyntheticEvent, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { CSSTransition } from 'react-transition-group'
 import { useFloating, shift, offset } from '@floating-ui/react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
@@ -39,7 +38,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                 rel={isExternal ? 'noreferrer' : undefined}
                 target={isExternal ? '_blank' : undefined}
             >
-                <div css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
+                <span css={[styles.itemTitle, isActive && styles.itemTitleActive]} data-icon={item.icon}>
                     {typeof item.icon === 'string' ? <Icon icon={item.icon} /> : cloneElement(item.icon as ReactElement, { css: styles.itemTitleIcon })}
                     <span aria-label={item.title} css={styles.itemTitleText}>
                         {item.title}
@@ -49,8 +48,9 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                             <Arrow height={6} width={10} />
                         </span>
                     )}
-                </div>
+                </span>
             </a>
+
             {item.children && (
                 <LeftPanelSubItems
                     active={active}
@@ -113,25 +113,49 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
         }
     } else {
         return (
-            <CSSTransition appear={true} classNames='item' in={isActive} key={item.id} timeout={0}>
-                <div css={styles.subItems}>
-                    <ul css={[styles.subItemsList]}>
-                        {item.children?.map((subItem, key) => (
-                            <li key={key}>
-                                <a
-                                    css={[styles.subItemLink, subItem.id === active && styles.subItemLinkActive, subItem.disabled && styles.disabled]}
-                                    href={`${item.link}${subItem.link}`}
-                                    onClick={subItem.disabled ? undefined : (e) => handleItemClick({ ...subItem, link: `${item.link}${subItem.link}` }, e)}
-                                >
-                                    <img alt='line' css={styles.line} src={img} />
-                                    {subItem.title}
-                                    {subItem.tag && <span css={styles.tag(subItem.tag.variant)}>{subItem.tag.text}</span>}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </CSSTransition>
+            <AnimatePresence initial={false}>
+                {isActive ? (
+                    <motion.div
+                        animate='open'
+                        css={styles.subItems}
+                        exit='collapsed'
+                        initial='collapsed'
+                        key='content'
+                        transition={{ duration: 0.3 }}
+                        variants={{
+                            open: { opacity: 1, height: 'auto' },
+                            collapsed: { opacity: 0, height: 0 },
+                        }}
+                    >
+                        <ul css={[styles.subItemsList]}>
+                            {item.children?.map((subItem, key) => (
+                                <li key={key}>
+                                    <a
+                                        css={[styles.subItemLink, subItem.id === active && styles.subItemLinkActive, subItem.disabled && styles.disabled]}
+                                        href={`${item.link}${subItem.link}`}
+                                        onClick={
+                                            subItem.disabled
+                                                ? undefined
+                                                : (e) =>
+                                                      handleItemClick(
+                                                          {
+                                                              ...subItem,
+                                                              link: `${item.link}${subItem.link}`,
+                                                          },
+                                                          e
+                                                      )
+                                        }
+                                    >
+                                        <img alt='line' css={styles.line} src={img} />
+                                        {subItem.title}
+                                        {subItem.tag && <span css={styles.tag(subItem.tag.variant)}>{subItem.tag.text}</span>}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                ) : null}
+            </AnimatePresence>
         )
     }
 }

@@ -82,25 +82,6 @@ export const menu = css`
             margin-top: 12px;
         }
     }
-
-    .item-enter {
-    }
-
-    .item-enter-done {
-        max-height: 200px;
-    }
-
-    .item-enter-active {
-        max-height: 200px;
-    }
-
-    .item-exit {
-        max-height: 0;
-    }
-
-    .item-exit-active {
-        max-height: 0;
-    }
 `
 
 export const menuCollapsed = css`
@@ -153,6 +134,7 @@ export const item = (theme: ThemeType) => css`
     transition: all 0.25s;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 
     &:hover {
         color: ${get(theme, `LeftPanel.item.hover.color`)};
@@ -229,9 +211,9 @@ export const arrowCollapsed = css`
 `
 
 export const subItems = css`
-    max-height: 0;
+    //max-height: 0;
     overflow: hidden;
-    transition: all 0.45s;
+    //transition: all 0.45s;
 `
 
 export const subItemsList = css`

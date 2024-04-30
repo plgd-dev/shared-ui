@@ -77,22 +77,6 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   margin-top: 12px;
 }
 
-.emotion-2 .item-enter-done {
-  max-height: 200px;
-}
-
-.emotion-2 .item-enter-active {
-  max-height: 200px;
-}
-
-.emotion-2 .item-exit {
-  max-height: 0;
-}
-
-.emotion-2 .item-exit-active {
-  max-height: 0;
-}
-
 .emotion-3 {
   list-style: none;
   padding: 0;
@@ -131,6 +115,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   color: !important;
   background: #fff;
 }
@@ -186,6 +171,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .emotion-14 {
@@ -237,88 +223,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   transition: all 0.25s;
 }
 
-.emotion-41 {
-  max-height: 0;
-  overflow: hidden;
-  -webkit-transition: all 0.45s;
-  transition: all 0.45s;
-}
-
-.emotion-42 {
-  padding: 10px 0 0 20px;
-  margin: 0;
-  list-style: none;
-}
-
-.emotion-43 {
-  display: block;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 14px;
-  color: #81868c;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  margin: 4px 0 4px 0;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s;
-  padding: 8px 8px 8px 20px;
-  white-space: nowrap;
-}
-
-.emotion-43:hover {
-  color: !important;
-}
-
-.emotion-44 {
-  width: 14px;
-  height: 55px;
-  position: absolute;
-  left: 0;
-  bottom: 50%;
-}
-
-.emotion-45 {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border-radius: 100px;
-  background: #52c5a2;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 18px;
-  color: #ffffff;
-  padding: 0 10px;
-}
-
-.emotion-52 {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border-radius: 100px;
-  background: #2261AE;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 18px;
-  color: #ffffff;
-  padding: 0 10px;
-}
-
-.emotion-103 {
+.emotion-75 {
   border-top: 2px solid;
   margin-top: 12px;
   padding: 0 0 0 8px;
@@ -335,13 +240,13 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   overflow: hidden;
 }
 
-.emotion-104 {
+.emotion-76 {
   position: absolute;
   left: 8px;
   overflow: hidden;
 }
 
-.emotion-105 {
+.emotion-77 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -352,20 +257,20 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   align-items: center;
 }
 
-.emotion-106 {
+.emotion-78 {
   -webkit-flex: 0 0 24px;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
 }
 
-.emotion-107 {
+.emotion-79 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding-left: 12px;
 }
 
-.emotion-108 {
+.emotion-80 {
   font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -440,7 +345,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/dashboard"
                 id="1"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -483,7 +388,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Dashboard
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -494,7 +399,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/devices"
                 id="2"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -517,7 +422,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Devices
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -528,7 +433,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/integrations"
                 id="3"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -555,7 +460,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Integrations
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -566,7 +471,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/remote-clients"
                 id="4"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -603,7 +508,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Remote clients
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -614,7 +519,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/pending-commands"
                 id="5"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -637,7 +542,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Pending commands
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
@@ -661,7 +566,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/device-provisioning"
                 id="10"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -703,91 +608,8 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                       />
                     </svg>
                   </span>
-                </div>
+                </span>
               </a>
-              <div
-                class="emotion-41"
-              >
-                <ul
-                  class="emotion-42"
-                >
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Quickstart
-                      <span
-                        class="emotion-45"
-                      >
-                        New
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Manage enrollments
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Linked hubs
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Certificates
-                      <span
-                        class="emotion-52"
-                      >
-                        Soon!
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Registration records
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               class="menu-list-item emotion-7"
@@ -797,7 +619,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/device-update"
                 id="11"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -839,91 +661,8 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                       />
                     </svg>
                   </span>
-                </div>
+                </span>
               </a>
-              <div
-                class="emotion-41"
-              >
-                <ul
-                  class="emotion-42"
-                >
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Quickstart 2
-                      <span
-                        class="emotion-45"
-                      >
-                        New 2
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Manage enrollments 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Linked hubs 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Certificates 2
-                      <span
-                        class="emotion-52"
-                      >
-                        Soon!
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Registration records 2
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               class="menu-list-item emotion-7"
@@ -933,7 +672,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="device-logs"
                 id="12"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -956,7 +695,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Device logs
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -967,7 +706,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="api-tokens"
                 id="13"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -990,7 +729,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     API tokens
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -1001,7 +740,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/schema-hub"
                 id="14"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1024,7 +763,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Schema hub
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
@@ -1048,7 +787,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/docs"
                 id="20"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1071,7 +810,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Docs
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -1082,7 +821,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                 href="/chart-room"
                 id="21"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1105,23 +844,23 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
                   >
                     Chat room
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
         </li>
       </ul>
       <div
-        class="emotion-103"
+        class="emotion-75"
       >
         <div
-          class="emotion-104"
+          class="emotion-76"
         >
           <div
-            class="emotion-105"
+            class="emotion-77"
           >
             <div
-              class="emotion-106"
+              class="emotion-78"
             >
               <svg
                 fill="none"
@@ -1139,10 +878,10 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
               </svg>
             </div>
             <div
-              class="emotion-107"
+              class="emotion-79"
             >
               <span
-                class="emotion-108"
+                class="emotion-80"
               >
                 Version 2.02
               </span>
@@ -1232,22 +971,6 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   margin-top: 12px;
 }
 
-.emotion-2 .item-enter-done {
-  max-height: 200px;
-}
-
-.emotion-2 .item-enter-active {
-  max-height: 200px;
-}
-
-.emotion-2 .item-exit {
-  max-height: 0;
-}
-
-.emotion-2 .item-exit-active {
-  max-height: 0;
-}
-
 .emotion-3 {
   list-style: none;
   padding: 0;
@@ -1286,6 +1009,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   color: !important;
   background: #fff;
 }
@@ -1341,6 +1065,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .emotion-14 {
@@ -1392,88 +1117,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   transition: all 0.25s;
 }
 
-.emotion-41 {
-  max-height: 0;
-  overflow: hidden;
-  -webkit-transition: all 0.45s;
-  transition: all 0.45s;
-}
-
-.emotion-42 {
-  padding: 10px 0 0 20px;
-  margin: 0;
-  list-style: none;
-}
-
-.emotion-43 {
-  display: block;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 14px;
-  color: #81868c;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  margin: 4px 0 4px 0;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s;
-  padding: 8px 8px 8px 20px;
-  white-space: nowrap;
-}
-
-.emotion-43:hover {
-  color: !important;
-}
-
-.emotion-44 {
-  width: 14px;
-  height: 55px;
-  position: absolute;
-  left: 0;
-  bottom: 50%;
-}
-
-.emotion-45 {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border-radius: 100px;
-  background: #52c5a2;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 18px;
-  color: #ffffff;
-  padding: 0 10px;
-}
-
-.emotion-52 {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border-radius: 100px;
-  background: #2261AE;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 18px;
-  color: #ffffff;
-  padding: 0 10px;
-}
-
-.emotion-103 {
+.emotion-75 {
   border-top: 2px solid;
   margin-top: 12px;
   padding: 0 0 0 8px;
@@ -1490,13 +1134,13 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   overflow: hidden;
 }
 
-.emotion-104 {
+.emotion-76 {
   position: absolute;
   left: 8px;
   overflow: hidden;
 }
 
-.emotion-105 {
+.emotion-77 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1507,20 +1151,20 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   align-items: center;
 }
 
-.emotion-106 {
+.emotion-78 {
   -webkit-flex: 0 0 24px;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
 }
 
-.emotion-107 {
+.emotion-79 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding-left: 12px;
 }
 
-.emotion-108 {
+.emotion-80 {
   font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -1595,7 +1239,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/dashboard"
                 id="1"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -1638,7 +1282,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Dashboard
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -1649,7 +1293,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/devices"
                 id="2"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1672,7 +1316,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Devices
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -1683,7 +1327,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/integrations"
                 id="3"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1710,7 +1354,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Integrations
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -1721,7 +1365,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/remote-clients"
                 id="4"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1758,7 +1402,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Remote clients
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -1769,7 +1413,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/pending-commands"
                 id="5"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1792,7 +1436,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Pending commands
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
@@ -1816,7 +1460,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/device-provisioning"
                 id="10"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1858,91 +1502,8 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                       />
                     </svg>
                   </span>
-                </div>
+                </span>
               </a>
-              <div
-                class="emotion-41"
-              >
-                <ul
-                  class="emotion-42"
-                >
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Quickstart
-                      <span
-                        class="emotion-45"
-                      >
-                        New
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Manage enrollments
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Linked hubs
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Certificates
-                      <span
-                        class="emotion-52"
-                      >
-                        Soon!
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Registration records
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               class="menu-list-item emotion-7"
@@ -1952,7 +1513,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/device-update"
                 id="11"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -1994,91 +1555,8 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                       />
                     </svg>
                   </span>
-                </div>
+                </span>
               </a>
-              <div
-                class="emotion-41"
-              >
-                <ul
-                  class="emotion-42"
-                >
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Quickstart 2
-                      <span
-                        class="emotion-45"
-                      >
-                        New 2
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Manage enrollments 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Linked hubs 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Certificates 2
-                      <span
-                        class="emotion-52"
-                      >
-                        Soon!
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Registration records 2
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               class="menu-list-item emotion-7"
@@ -2088,7 +1566,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="device-logs"
                 id="12"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2111,7 +1589,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Device logs
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -2122,7 +1600,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="api-tokens"
                 id="13"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2145,7 +1623,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     API tokens
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -2156,7 +1634,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/schema-hub"
                 id="14"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2179,7 +1657,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Schema hub
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
@@ -2203,7 +1681,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/docs"
                 id="20"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2226,7 +1704,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Docs
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -2237,7 +1715,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                 href="/chart-room"
                 id="21"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2260,23 +1738,23 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
                   >
                     Chat room
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
         </li>
       </ul>
       <div
-        class="emotion-103"
+        class="emotion-75"
       >
         <div
-          class="emotion-104"
+          class="emotion-76"
         >
           <div
-            class="emotion-105"
+            class="emotion-77"
           >
             <div
-              class="emotion-106"
+              class="emotion-78"
             >
               <svg
                 fill="none"
@@ -2294,10 +1772,10 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
               </svg>
             </div>
             <div
-              class="emotion-107"
+              class="emotion-79"
             >
               <span
-                class="emotion-108"
+                class="emotion-80"
               >
                 Version 2.02
               </span>
@@ -2387,22 +1865,6 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   margin-top: 12px;
 }
 
-.emotion-2 .item-enter-done {
-  max-height: 200px;
-}
-
-.emotion-2 .item-enter-active {
-  max-height: 200px;
-}
-
-.emotion-2 .item-exit {
-  max-height: 0;
-}
-
-.emotion-2 .item-exit-active {
-  max-height: 0;
-}
-
 .emotion-3 {
   list-style: none;
   padding: 0;
@@ -2441,6 +1903,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   color: !important;
   background: #fff;
 }
@@ -2496,6 +1959,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .emotion-14 {
@@ -2547,88 +2011,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   transition: all 0.25s;
 }
 
-.emotion-41 {
-  max-height: 0;
-  overflow: hidden;
-  -webkit-transition: all 0.45s;
-  transition: all 0.45s;
-}
-
-.emotion-42 {
-  padding: 10px 0 0 20px;
-  margin: 0;
-  list-style: none;
-}
-
-.emotion-43 {
-  display: block;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 14px;
-  color: #81868c;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  position: relative;
-  margin: 4px 0 4px 0;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s;
-  padding: 8px 8px 8px 20px;
-  white-space: nowrap;
-}
-
-.emotion-43:hover {
-  color: !important;
-}
-
-.emotion-44 {
-  width: 14px;
-  height: 55px;
-  position: absolute;
-  left: 0;
-  bottom: 50%;
-}
-
-.emotion-45 {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border-radius: 100px;
-  background: #52c5a2;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 18px;
-  color: #ffffff;
-  padding: 0 10px;
-}
-
-.emotion-52 {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  border-radius: 100px;
-  background: #2261AE;
-  font-family: 'Poppins',sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 18px;
-  color: #ffffff;
-  padding: 0 10px;
-}
-
-.emotion-103 {
+.emotion-75 {
   border-top: 2px solid;
   margin-top: 12px;
   padding: 0 0 0 8px;
@@ -2645,13 +2028,13 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   overflow: hidden;
 }
 
-.emotion-104 {
+.emotion-76 {
   position: absolute;
   left: 8px;
   overflow: hidden;
 }
 
-.emotion-105 {
+.emotion-77 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2662,20 +2045,20 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   align-items: center;
 }
 
-.emotion-106 {
+.emotion-78 {
   -webkit-flex: 0 0 24px;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
 }
 
-.emotion-107 {
+.emotion-79 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   padding-left: 12px;
 }
 
-.emotion-108 {
+.emotion-80 {
   font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -2750,7 +2133,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/dashboard"
                 id="1"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -2793,7 +2176,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Dashboard
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -2804,7 +2187,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/devices"
                 id="2"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2827,7 +2210,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Devices
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -2838,7 +2221,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/integrations"
                 id="3"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2865,7 +2248,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Integrations
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -2876,7 +2259,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/remote-clients"
                 id="4"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2913,7 +2296,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Remote clients
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -2924,7 +2307,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/pending-commands"
                 id="5"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -2947,7 +2330,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Pending commands
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
@@ -2971,7 +2354,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/device-provisioning"
                 id="10"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -3013,91 +2396,8 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                       />
                     </svg>
                   </span>
-                </div>
+                </span>
               </a>
-              <div
-                class="emotion-41"
-              >
-                <ul
-                  class="emotion-42"
-                >
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Quickstart
-                      <span
-                        class="emotion-45"
-                      >
-                        New
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Manage enrollments
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Linked hubs
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Certificates
-                      <span
-                        class="emotion-52"
-                      >
-                        Soon!
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-provisioningundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Registration records
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               class="menu-list-item emotion-7"
@@ -3107,7 +2407,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/device-update"
                 id="11"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -3149,91 +2449,8 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                       />
                     </svg>
                   </span>
-                </div>
+                </span>
               </a>
-              <div
-                class="emotion-41"
-              >
-                <ul
-                  class="emotion-42"
-                >
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Quickstart 2
-                      <span
-                        class="emotion-45"
-                      >
-                        New 2
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Manage enrollments 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Linked hubs 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Certificates 2
-                      <span
-                        class="emotion-52"
-                      >
-                        Soon!
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="emotion-43"
-                      href="/device-updateundefined"
-                    >
-                      <img
-                        alt="line"
-                        class="emotion-44"
-                        src="[object Object]"
-                      />
-                      Registration records 2
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </li>
             <li
               class="menu-list-item emotion-7"
@@ -3243,7 +2460,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="device-logs"
                 id="12"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -3266,7 +2483,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Device logs
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -3277,7 +2494,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="api-tokens"
                 id="13"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -3300,7 +2517,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     API tokens
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -3311,7 +2528,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/schema-hub"
                 id="14"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -3334,7 +2551,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Schema hub
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
@@ -3358,7 +2575,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/docs"
                 id="20"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -3381,7 +2598,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Docs
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -3392,7 +2609,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                 href="/chart-room"
                 id="21"
               >
-                <div
+                <span
                   class="emotion-14"
                   data-icon="[object Object]"
                 >
@@ -3415,23 +2632,23 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
                   >
                     Chat room
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
         </li>
       </ul>
       <div
-        class="emotion-103"
+        class="emotion-75"
       >
         <div
-          class="emotion-104"
+          class="emotion-76"
         >
           <div
-            class="emotion-105"
+            class="emotion-77"
           >
             <div
-              class="emotion-106"
+              class="emotion-78"
             >
               <svg
                 fill="none"
@@ -3449,10 +2666,10 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
               </svg>
             </div>
             <div
-              class="emotion-107"
+              class="emotion-79"
             >
               <span
-                class="emotion-108"
+                class="emotion-80"
               >
                 Version 2.02
               </span>
@@ -3555,22 +2772,6 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
   margin-top: 12px;
 }
 
-.emotion-2 .item-enter-done {
-  max-height: 200px;
-}
-
-.emotion-2 .item-enter-active {
-  max-height: 200px;
-}
-
-.emotion-2 .item-exit {
-  max-height: 0;
-}
-
-.emotion-2 .item-exit-active {
-  max-height: 0;
-}
-
 .emotion-3 {
   list-style: none;
   padding: 0;
@@ -3610,6 +2811,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .emotion-9 {
@@ -3662,6 +2864,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
   color: !important;
   background: #fff;
 }
@@ -3850,7 +3053,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/dashboard"
                 id="1"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -3893,7 +3096,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Dashboard
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -3904,7 +3107,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/devices"
                 id="2"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -3927,7 +3130,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Devices
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -3938,7 +3141,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/integrations"
                 id="3"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -3965,7 +3168,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Integrations
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -3976,7 +3179,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/remote-clients"
                 id="4"
               >
-                <div
+                <span
                   class="emotion-24"
                   data-icon="[object Object]"
                 >
@@ -4013,7 +3216,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Remote clients
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -4024,7 +3227,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/pending-commands"
                 id="5"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -4047,7 +3250,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Pending commands
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
@@ -4071,7 +3274,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/device-provisioning"
                 id="10"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -4113,7 +3316,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                       />
                     </svg>
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -4124,7 +3327,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/device-update"
                 id="11"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -4166,7 +3369,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                       />
                     </svg>
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -4177,7 +3380,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="device-logs"
                 id="12"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -4200,7 +3403,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Device logs
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -4211,7 +3414,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="api-tokens"
                 id="13"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -4234,7 +3437,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     API tokens
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -4245,7 +3448,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/schema-hub"
                 id="14"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -4268,7 +3471,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Schema hub
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>
@@ -4292,7 +3495,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/docs"
                 id="20"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -4315,7 +3518,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Docs
                   </span>
-                </div>
+                </span>
               </a>
             </li>
             <li
@@ -4326,7 +3529,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                 href="/chart-room"
                 id="21"
               >
-                <div
+                <span
                   class="emotion-9"
                   data-icon="[object Object]"
                 >
@@ -4349,7 +3552,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
                   >
                     Chat room
                   </span>
-                </div>
+                </span>
               </a>
             </li>
           </ul>

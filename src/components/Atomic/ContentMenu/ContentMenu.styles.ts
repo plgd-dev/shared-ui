@@ -48,25 +48,6 @@ export const menuList = css`
     list-style: none;
     padding: 0;
     margin: 0;
-
-    .item-enter {
-    }
-
-    .item-enter-done {
-        max-height: 200px;
-    }
-
-    .item-enter-active {
-        max-height: 200px;
-    }
-
-    .item-exit {
-        max-height: 0;
-    }
-
-    .item-exit-active {
-        max-height: 0;
-    }
 `
 
 export const itemTitleIcon = css`
@@ -139,9 +120,7 @@ export const activeArrow = css`
 `
 
 export const subItems = css`
-    // max-height: 0;
     overflow: hidden;
-    //transition: all 0.45s;
 `
 
 export const subItemsList = css`

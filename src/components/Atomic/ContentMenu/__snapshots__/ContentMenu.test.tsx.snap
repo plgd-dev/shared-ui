@@ -15,22 +15,6 @@ exports[`<ContentMenu> renders without crashing 1`] = `
   margin: 0;
 }
 
-.emotion-1 .item-enter-done {
-  max-height: 200px;
-}
-
-.emotion-1 .item-enter-active {
-  max-height: 200px;
-}
-
-.emotion-1 .item-exit {
-  max-height: 0;
-}
-
-.emotion-1 .item-exit-active {
-  max-height: 0;
-}
-
 .emotion-2 {
   display: -webkit-box;
   display: -webkit-flex;
