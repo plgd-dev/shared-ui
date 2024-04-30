@@ -8,4 +8,9 @@ export type Props = {
     }
     onClickBack?: () => void
     onClickNext: () => void
+    showRequiredMessage?: boolean
+}
+
+export const defaultProps: Partial<Props> = {
+    showRequiredMessage: true,
 }

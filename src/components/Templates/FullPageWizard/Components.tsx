@@ -6,6 +6,7 @@ import IconQuestion from '../../Atomic/Icon/components/IconQuestion'
 import { convertSize } from '../../Atomic/Icon'
 import ShowAnimate from '../../Atomic/ShowAnimate'
 import IconSettings from '../../Atomic/Icon/components/IconSettings'
+import isFunction from 'lodash/isFunction'
 
 export type DescriptionProps = {
     children: string
@@ -31,11 +32,13 @@ export type GroupHeadlineProps = {
 export type ToggleConfigurationProps = {
     defaultShow?: boolean
     children: React.ReactNode | React.ReactNode[]
+    hideToggleLink?: boolean
     i18n: {
         hide: string
         show: string
     }
     margin?: boolean
+    onShowChange?: (show: boolean) => void
 }
 
 export const Description: FC<DescriptionProps> = (props) => <p css={[styles.description, props.large && styles.descriptionLarge]}>{props.children}</p>
@@ -61,17 +64,25 @@ export const GroupHeadline: FC<GroupHeadlineProps> = (props) => (
 )
 
 export const ToggleConfiguration: FC<ToggleConfigurationProps> = (props) => {
-    const { i18n, children, margin = true } = props
-    const [show, setShow] = useState(false)
+    const { defaultShow, i18n, children, hideToggleLink, margin = true, onShowChange } = props
+    const [show, setShow] = useState(defaultShow ?? false)
 
     return (
         <>
             <ShowAnimate show={show}>
                 <>{children}</>
             </ShowAnimate>
-            <div css={[styles.expander, margin && styles.expanderMargin]} onClick={() => setShow(!show)}>
-                <IconSettings /> {show ? i18n.hide : i18n.show}
-            </div>
+            {hideToggleLink === undefined && (
+                <div
+                    css={[styles.expander, margin && styles.expanderMargin]}
+                    onClick={() => {
+                        setShow(!show)
+                        isFunction(onShowChange) && onShowChange(!show)
+                    }}
+                >
+                    <IconSettings /> {show ? i18n.hide : i18n.show}
+                </div>
+            )}
         </>
     )
 }

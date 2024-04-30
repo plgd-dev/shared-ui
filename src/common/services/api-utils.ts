@@ -70,3 +70,14 @@ export const isYourId = (uuid: string, hubsData: any) => {
 }
 
 export const isOwnerId = (uuid: string, owner: string) => (checkIfValidUUID(uuid) && uuid === owner) || uuidv5(owner, uuidv5.URL) === uuid
+
+export const getOwnerId = (jwtOwnerClaim: string) => {
+    const accessToken = security.getAccessToken()
+
+    if (accessToken) {
+        const parsedData: any = jwtDecode(accessToken)
+        return get(parsedData, jwtOwnerClaim as string, '')
+    }
+
+    return ''
+}

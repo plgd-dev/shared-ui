@@ -60,6 +60,7 @@ export type WellKnownConfigType = {
         defaultDiscoveryTimeout?: string
     }
     id?: string
+    jwtOwnerClaim?: string
 } & BuildInformationType
 
 type useWellKnownConfigurationReturnType = [
