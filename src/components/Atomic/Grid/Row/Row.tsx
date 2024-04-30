@@ -12,6 +12,5 @@ const Row: FC<Props> = (props) => {
 }
 
 Row.displayName = 'Row'
-Row.defaultProps = defaultProps
 
 export default Row

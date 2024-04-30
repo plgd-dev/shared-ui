@@ -236,7 +236,6 @@ export const DevicesListPage: FC<Props> = (props) => {
     )
 }
 
-DevicesListPage.defaultProps = defaultProps
 DevicesListPage.displayName = 'DevicesListPage'
 
 export default DevicesListPage

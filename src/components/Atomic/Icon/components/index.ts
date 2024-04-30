@@ -38,6 +38,7 @@ export { default as IconLogout } from './IconLogout'
 export { default as IconNet } from './IconNet'
 export { default as IconNetwork } from './IconNetwork'
 export { default as IconNotification } from './IconNotification'
+export { default as IconNumbers } from './IconNumbers'
 export { default as IconPendingCommands } from './IconPendingCommands'
 export { default as IconPlus } from './IconPlus'
 export { default as IconQuestion } from './IconQuestion'
@@ -98,6 +99,7 @@ export const Icons = [
     'IconNet',
     'IconNetwork',
     'IconNotification',
+    'IconNumbers',
     'IconPendingCommands',
     'IconPlus',
     'IconQuestion',
@@ -159,6 +161,7 @@ export const IconsRaw = [
     'icon-net',
     'icon-network',
     'icon-notification',
+    'icon-numbers',
     'icon-pending-commands',
     'icon-plus',
     'icon-question',

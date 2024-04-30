@@ -36,6 +36,5 @@ const VersionMark: FC<Props> = (props) => {
 }
 
 VersionMark.displayName = 'VersionMark'
-VersionMark.defaultProps = defaultProps
 
 export default VersionMark

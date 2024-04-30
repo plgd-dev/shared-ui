@@ -92,6 +92,5 @@ const DevicesDPSModal: FC<Props> = (props) => {
 }
 
 DevicesDPSModal.displayName = 'DevicesDPSModal'
-DevicesDPSModal.defaultProps = defaultProps
 
 export default DevicesDPSModal

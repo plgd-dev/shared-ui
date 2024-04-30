@@ -39,6 +39,5 @@ const TableGlobalFilter: FC<Props> = (props) => {
 }
 
 TableGlobalFilter.displayName = 'TableGlobalFilter'
-TableGlobalFilter.defaultProps = defaultProps
 
 export default TableGlobalFilter

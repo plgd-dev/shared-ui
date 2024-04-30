@@ -50,6 +50,5 @@ const DeleteModal: FC<Props> = (props) => {
 }
 
 DeleteModal.displayName = 'DeleteModal'
-DeleteModal.defaultProps = defaultProps
 
 export default DeleteModal

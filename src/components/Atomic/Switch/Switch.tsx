@@ -25,6 +25,5 @@ const Switch = forwardRef<HTMLInputElement, Props>((props, ref) => {
 })
 
 Switch.displayName = 'Switch'
-Switch.defaultProps = defaultProps
 
 export default Switch

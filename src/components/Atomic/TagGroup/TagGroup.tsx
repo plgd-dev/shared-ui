@@ -9,7 +9,7 @@ import Modal from '../Modal'
 import { justifyContent } from './constants'
 
 const TagGroup: FC<Props> = (props) => {
-    const { className, id, i18n, children, justifyContent: justifyContentProp } = props
+    const { className, id, i18n, children, justifyContent: justifyContentProp } = { ...defaultProps, ...props }
     const [show, setShow] = useState(false)
     const [tagsToDisplay, setTagsToDisplay] = useState(0)
     const childrenArray = Children.toArray(children)
@@ -139,6 +139,5 @@ const TagGroup: FC<Props> = (props) => {
 }
 
 TagGroup.displayName = 'TagGroup'
-TagGroup.defaultProps = defaultProps
 
 export default TagGroup

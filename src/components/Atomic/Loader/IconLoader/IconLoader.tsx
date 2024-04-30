@@ -18,6 +18,5 @@ const IconLoader: FC<Props> = (props) => {
 }
 
 IconLoader.displayName = 'IconLoader'
-IconLoader.defaultProps = defaultProps
 
 export default IconLoader

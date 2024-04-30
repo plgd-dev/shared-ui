@@ -12,6 +12,5 @@ const Column: FC<Props> = (props) => {
 }
 
 Column.displayName = 'Column'
-Column.defaultProps = defaultProps
 
 export default Column

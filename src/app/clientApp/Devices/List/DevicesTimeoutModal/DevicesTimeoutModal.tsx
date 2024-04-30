@@ -80,6 +80,5 @@ const DevicesTimeoutModal: FC<Props> = (props) => {
 }
 
 DevicesTimeoutModal.displayName = 'DevicesTimeoutModal'
-DevicesTimeoutModal.defaultProps = defaultProps
 
 export default DevicesTimeoutModal

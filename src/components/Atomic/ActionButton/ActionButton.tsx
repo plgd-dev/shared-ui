@@ -7,7 +7,7 @@ import { offset, shift, useFloating } from '@floating-ui/react'
 import { createPortal } from 'react-dom'
 
 const ActionButton: FC<Props> = (props) => {
-    const { menuProps, items, onToggle, className, id, defaultOpen, loading, dataTestIdDropdown, portalTarget } = props
+    const { menuProps, items, onToggle, className, id, defaultOpen, loading, dataTestIdDropdown, portalTarget } = { ...defaultProps, ...props }
     const [open, setOpen] = useState(defaultOpen)
     const ref = useRef(null)
     const { x, y, refs, strategy } = useFloating({
@@ -104,6 +104,5 @@ const ActionButton: FC<Props> = (props) => {
 }
 
 ActionButton.displayName = 'ActionButton'
-ActionButton.defaultProps = defaultProps
 
 export default ActionButton

@@ -6,7 +6,10 @@ import { defaultProps, Props } from './ConfirmModal.types'
 import ModalFooter from '../Modal/components/ModalFooter'
 
 const ConfirmModal: FC<Props> = (props) => {
-    const { onConfirm, confirmButtonText, cancelButtonText, title, body, loading, show, onClose, data, confirmDisabled, ...rest } = props
+    const { onConfirm, confirmButtonText, cancelButtonText, title, body, loading, show, onClose, data, confirmDisabled, ...rest } = {
+        ...defaultProps,
+        ...props,
+    }
 
     const renderFooter = (
         <ModalFooter
@@ -43,6 +46,5 @@ const ConfirmModal: FC<Props> = (props) => {
 }
 
 ConfirmModal.displayName = 'ConfirmModal'
-ConfirmModal.defaultProps = defaultProps
 
 export default ConfirmModal

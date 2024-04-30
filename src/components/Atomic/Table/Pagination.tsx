@@ -7,7 +7,7 @@ import PaginationItems from './PaginationItems'
 import { messages as t } from './Table.i18n'
 
 const Pagination: FC<Props> = (props) => {
-    const { className, canPreviousPage, canNextPage, pageCount, gotoPage, nextPage, previousPage, pageIndex, pageLength } = props
+    const { className, canPreviousPage, canNextPage, pageCount, gotoPage, nextPage, previousPage, pageIndex, pageLength } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
 
     // If the last item is removed from the list, and we are on the last page (pageLength === 0), update the last page with (pageCount - 1)
@@ -35,6 +35,5 @@ const Pagination: FC<Props> = (props) => {
 }
 
 Pagination.displayName = 'Pagination'
-Pagination.defaultProps = defaultProps
 
 export default Pagination

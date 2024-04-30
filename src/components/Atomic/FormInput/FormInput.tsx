@@ -98,7 +98,16 @@ export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) =>
                         {type === 'text' ? <IconHidePassword {...convertSize(24)} /> : <IconShowPassword {...convertSize(24)} />}
                     </span>
                 )}
-                {defaultType !== 'password' && defaultType !== 'tel' && !copy && icon && <span css={[styles.inputIcon, styles.rightContent]}>{icon}</span>}
+                {defaultType !== 'password' && defaultType !== 'tel' && !copy && icon && (
+                    <span
+                        css={[styles.inputIcon, styles.rightContent]}
+                        onClick={() => {
+                            localInputRef?.current?.focus()
+                        }}
+                    >
+                        {icon}
+                    </span>
+                )}
                 {defaultType !== 'password' && defaultType !== 'tel' && !copy && !icon && <span css={styles.rightContent}>{rightContent}</span>}
             </div>
         )
@@ -113,6 +122,5 @@ const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
 })
 
 FormInput.displayName = 'FormInput'
-FormInput.defaultProps = defaultProps
 
 export default FormInput

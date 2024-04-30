@@ -74,7 +74,6 @@ const Button: FC<Props> = (props) => {
     )
 }
 
-Button.defaultProps = defaultProps
 Button.displayName = 'Button'
 
 export default Button

@@ -61,7 +61,7 @@ export const ToastContainer = (props: ToastContainerProps) => {
 // Single toast component
 const ToastComponent = (props: Props) => {
     const { formatMessage: _ } = useIntl()
-    const { message, title, type } = props
+    const { message, title, type } = { ...defaultProps, ...props }
 
     const toastMessage = translateToastString(message, _)
     const toastTitle = translateToastString(title, _)
@@ -93,7 +93,6 @@ ToastComponent.propTypes = {
 }
 
 ToastComponent.displayName = 'ToastComponent'
-ToastComponent.defaultProps = defaultProps
 
 export default ToastComponent
 

@@ -103,6 +103,5 @@ const TileExpand: FC<Props> = (props) => {
 }
 
 TileExpand.displayName = 'TileExpand'
-TileExpand.defaultProps = defaultProps
 
 export default TileExpand

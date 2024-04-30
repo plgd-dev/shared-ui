@@ -40,6 +40,5 @@ const FirstTimeOnboardingModal: FC<Props> = (props) => {
 }
 
 FirstTimeOnboardingModal.displayName = 'FirstTimeOnboardingModal'
-FirstTimeOnboardingModal.defaultProps = defaultProps
 
 export default FirstTimeOnboardingModal

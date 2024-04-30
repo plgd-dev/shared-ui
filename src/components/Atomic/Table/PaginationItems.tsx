@@ -3,7 +3,7 @@ import BPagination from 'react-bootstrap/Pagination'
 import { Props, defaultProps } from './PaginationItems.types'
 
 const PaginationItems: FC<Props> = (props) => {
-    const { activePage, pageCount, maxButtons, onItemClick } = props
+    const { activePage, pageCount, maxButtons, onItemClick } = { ...defaultProps, ...props }
     const pageButtons = []
 
     let startPage
@@ -53,6 +53,5 @@ const PaginationItems: FC<Props> = (props) => {
 }
 
 PaginationItems.displayName = 'PaginationItems'
-PaginationItems.defaultProps = defaultProps
 
 export default PaginationItems

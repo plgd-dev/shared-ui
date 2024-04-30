@@ -33,5 +33,4 @@ export type Props = {
 
 export const defaultProps = {
     type: dropdownTypes.EMPTY,
-    menuProps: {},
 }

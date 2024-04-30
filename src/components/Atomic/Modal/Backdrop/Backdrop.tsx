@@ -22,6 +22,5 @@ const Backdrop: FC<Props> = (props) => {
 }
 
 Backdrop.displayName = 'Backdrop'
-Backdrop.defaultProps = defaultProps
 
 export default Backdrop

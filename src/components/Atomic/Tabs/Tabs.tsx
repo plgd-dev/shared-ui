@@ -115,6 +115,5 @@ const Tabs: FC<Props> = (props) => {
 }
 
 Tabs.displayName = 'Tabs'
-Tabs.defaultProps = defaultProps
 
 export default Tabs

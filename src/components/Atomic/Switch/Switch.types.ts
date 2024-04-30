@@ -9,6 +9,7 @@ export type Props = {
     label?: string
     labelBefore?: boolean
     loading?: boolean
+    name?: string
     onChange?: (e: any) => void
     size?: SwitcherSizeType
 }

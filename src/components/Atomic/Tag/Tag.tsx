@@ -35,6 +35,5 @@ const Tag = forwardRef<HTMLDivElement, Props>((props, ref) => {
 })
 
 Tag.displayName = 'Tag'
-Tag.defaultProps = defaultProps
 
 export default Tag

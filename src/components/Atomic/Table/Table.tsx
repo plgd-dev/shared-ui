@@ -178,6 +178,5 @@ const Table: FC<Props> = (props) => {
 }
 
 Table.displayName = 'Table'
-Table.defaultProps = defaultProps
 
 export default Table

@@ -7,7 +7,7 @@ import { FC } from 'react'
 const defaultPropGetter = () => ({})
 
 const TreeTable: FC<Props> = (props) => {
-    const { className, columns, data, getRowProps = defaultPropGetter } = props
+    const { className, columns, data, getRowProps = defaultPropGetter } = { ...defaultProps, ...props }
     const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } = useTable(
         {
             columns,
@@ -57,6 +57,5 @@ const TreeTable: FC<Props> = (props) => {
 }
 
 TreeTable.displayName = 'TreeTable'
-TreeTable.defaultProps = defaultProps
 
 export default TreeTable

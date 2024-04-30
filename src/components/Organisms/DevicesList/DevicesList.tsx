@@ -91,6 +91,5 @@ const DevicesList: FC<Props> = (props) => {
 }
 
 DevicesList.displayName = 'DevicesList'
-DevicesList.defaultProps = defaultProps
 
 export default DevicesList

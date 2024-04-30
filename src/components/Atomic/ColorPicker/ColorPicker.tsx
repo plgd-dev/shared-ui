@@ -125,6 +125,5 @@ const ColorPicker: FC<Props> = (props) => {
 }
 
 ColorPicker.displayName = 'ColorPicker'
-ColorPicker.defaultProps = defaultProps
 
 export default ColorPicker

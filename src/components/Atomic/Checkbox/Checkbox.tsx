@@ -27,6 +27,5 @@ const Checkbox: FC<Props> = (props) => {
 }
 
 Checkbox.displayName = 'Checkbox'
-Checkbox.defaultProps = defaultProps
 
 export default Checkbox

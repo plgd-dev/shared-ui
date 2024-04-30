@@ -12,6 +12,5 @@ const StatusTag: FC<Props> = (props) => {
 }
 
 StatusTag.displayName = 'StatusTag'
-StatusTag.defaultProps = defaultProps
 
 export default StatusTag

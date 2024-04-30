@@ -63,6 +63,5 @@ export const Icon = forwardRef<any, Props>((props, ref) => {
 })
 
 Icon.displayName = 'Icon'
-Icon.defaultProps = defaultProps
 
 export default Icon

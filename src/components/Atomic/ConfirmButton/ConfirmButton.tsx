@@ -4,7 +4,10 @@ import Button from '../Button'
 import { defaultProps, Props } from './ConfirmButton.types'
 
 const ConfirmButton: FC<Props> = (props) => {
-    const { onConfirm, children, confirmButtonText, cancelButtonText, title, body, loading, closeOnConfirm, modalProps, ...rest } = props
+    const { onConfirm, children, confirmButtonText, cancelButtonText, title, body, loading, closeOnConfirm, modalProps, ...rest } = {
+        ...defaultProps,
+        ...props,
+    }
     const [show, setShow] = useState(false)
 
     const onConfirmClick = (onClose: () => void) => {
@@ -36,6 +39,5 @@ const ConfirmButton: FC<Props> = (props) => {
 }
 
 ConfirmButton.displayName = 'ConfirmButton'
-ConfirmButton.defaultProps = defaultProps
 
 export default ConfirmButton

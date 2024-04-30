@@ -79,6 +79,5 @@ const Footer: FC<Props> = memo((props) => {
 })
 
 Footer.displayName = 'Footer'
-Footer.defaultProps = defaultProps
 
 export default Footer

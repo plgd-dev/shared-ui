@@ -220,14 +220,15 @@ const Table: FC<Props> = (props) => {
                     <table {...getTableProps()} css={styles.table}>
                         {hideHeader !== true && (
                             <thead>
-                                {headerGroups.map((headerGroup: any) => (
-                                    <tr {...headerGroup.getHeaderGroupProps()}>
+                                {headerGroups.map((headerGroup: any, groupKey: number) => (
+                                    <tr {...headerGroup.getHeaderGroupProps()} key={groupKey}>
                                         {headerGroup.headers.map((column: any, key: number) => (
                                             // Sorting props to control sorting
                                             <th
                                                 {...column.getHeaderProps(column.getSortByToggleProps())}
                                                 className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
                                                 css={styles.headerTh}
+                                                key={key}
                                                 style={{
                                                     ...column.getHeaderProps(column.getSortByToggleProps()).style,
                                                     ...column.style,
@@ -275,8 +276,9 @@ const Table: FC<Props> = (props) => {
                         <tbody {...getTableBodyProps()}>
                             {page.map((row: any, key: number) => {
                                 prepareRow(row)
+                                const rowProps = row.getRowProps(getRowProps!(row))
                                 return (
-                                    <tr {...row.getRowProps(getRowProps!(row))} css={[styles.row, row.isSelected && styles.isSelected]} data-k={key}>
+                                    <tr {...rowProps} css={[styles.row, row.isSelected && styles.isSelected]} data-k={key} key={rowProps.key}>
                                         {row.cells.map((cell: any, cellKey: number) => (
                                             <td
                                                 {...cell.getCellProps([
@@ -288,6 +290,7 @@ const Table: FC<Props> = (props) => {
                                                     getCellProps!(cell),
                                                 ])}
                                                 data-row={row.id}
+                                                key={cell.getCellProps().key}
                                             >
                                                 <Cell
                                                     css={[

@@ -92,6 +92,5 @@ const CodeEditor: FC<Props> = (props) => {
 }
 
 CodeEditor.displayName = 'CodeEditor'
-CodeEditor.defaultProps = defaultProps
 
 export default CodeEditor

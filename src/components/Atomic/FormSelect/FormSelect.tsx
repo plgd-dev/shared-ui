@@ -231,6 +231,5 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
 })
 
 FormSelect.displayName = 'FormSelect'
-FormSelect.defaultProps = defaultProps
 
 export default FormSelect

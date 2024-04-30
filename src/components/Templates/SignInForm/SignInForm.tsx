@@ -68,6 +68,5 @@ const SignInForm: FC<Props> = (props) => {
 }
 
 SignInForm.displayName = 'SignInForm'
-SignInForm.defaultProps = defaultProps
 
 export default SignInForm

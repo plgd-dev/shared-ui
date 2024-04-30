@@ -127,6 +127,5 @@ const ShareDeviceModal: FC<Props> = (props) => {
 }
 
 ShareDeviceModal.displayName = 'ShareDeviceModal'
-ShareDeviceModal.defaultProps = defaultProps
 
 export default ShareDeviceModal

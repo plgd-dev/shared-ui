@@ -220,6 +220,5 @@ const IncompleteOnboardingDataModal: FC<Props> = (props) => {
 }
 
 IncompleteOnboardingDataModal.displayName = 'IncompleteOnboardingDataModal'
-IncompleteOnboardingDataModal.defaultProps = defaultProps
 
 export default IncompleteOnboardingDataModal

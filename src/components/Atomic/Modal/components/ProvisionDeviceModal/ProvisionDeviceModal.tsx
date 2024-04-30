@@ -95,6 +95,5 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
 }
 
 ProvisionDeviceModal.displayName = 'ProvisionDeviceModal'
-ProvisionDeviceModal.defaultProps = defaultProps
 
 export default ProvisionDeviceModal

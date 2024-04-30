@@ -29,7 +29,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
         style,
         width,
         ...rest
-    } = props
+    } = { ...defaultProps, ...props }
 
     const [height, setHeight] = useState(heightProp)
 
@@ -187,6 +187,5 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
 })
 
 Editor.displayName = 'Editor'
-Editor.defaultProps = defaultProps
 
 export default Editor

@@ -18,6 +18,5 @@ const Scrollbars: FC<Props> = (props) => {
 }
 
 Scrollbars.displayName = 'Scrollbars'
-Scrollbars.defaultProps = defaultProps
 
 export default Scrollbars

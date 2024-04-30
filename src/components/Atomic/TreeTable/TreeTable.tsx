@@ -16,7 +16,7 @@ const defaultPropGetter = () => ({})
 const HEADER_HEIGHT = 62
 
 const TreeTable: FC<Props> = (props) => {
-    const { className, columns, data, height, id, getRowProps = defaultPropGetter, defaultSortBy, rowHeight } = props
+    const { className, columns, data, height, id, getRowProps = defaultPropGetter, defaultSortBy, rowHeight } = { ...defaultProps, ...props }
     const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } = useTable(
         {
             columns,
@@ -184,6 +184,5 @@ const TreeTable: FC<Props> = (props) => {
 }
 
 TreeTable.displayName = 'TreeTable'
-TreeTable.defaultProps = defaultProps
 
 export default TreeTable

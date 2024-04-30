@@ -93,6 +93,5 @@ const NotificationCenter: FC<Props> = (props) => {
 }
 
 NotificationCenter.displayName = 'NotificationCenter'
-NotificationCenter.defaultProps = defaultProps
 
 export default NotificationCenter

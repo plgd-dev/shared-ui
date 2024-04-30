@@ -188,6 +188,5 @@ export const Modal: FC<Props> = memo((props) => {
 })
 
 Modal.displayName = 'Modal'
-Modal.defaultProps = defaultProps
 
 export default Modal

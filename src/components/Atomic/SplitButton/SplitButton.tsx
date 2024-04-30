@@ -122,7 +122,6 @@ const SplitButton: FC<Props> = (props) => {
     )
 }
 
-SplitButton.defaultProps = defaultProps
 SplitButton.displayName = 'SplitButton'
 
 export default SplitButton

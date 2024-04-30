@@ -51,6 +51,5 @@ const NotificationMessage: FC<Props> = (props) => {
 }
 
 NotificationMessage.displayName = 'NotificationMessage'
-NotificationMessage.defaultProps = defaultProps
 
 export default NotificationMessage

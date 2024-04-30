@@ -38,6 +38,5 @@ const PageLayout = forwardRef<HTMLDivElement, Props>((props, ref) => {
 })
 
 PageLayout.displayName = 'PageLayout'
-PageLayout.defaultProps = defaultProps
 
 export default PageLayout

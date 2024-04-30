@@ -52,6 +52,5 @@ const Tooltip: FC<Props> = (props) => {
 export { FloatingDelayGroup }
 
 Tooltip.displayName = 'Tooltip'
-Tooltip.defaultProps = defaultProps
 
 export default Tooltip

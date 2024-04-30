@@ -6,6 +6,7 @@ import Button from '../Button/Button'
 import Tooltip from '../Tooltip/Tooltip'
 import { tooltipVariants } from '../Tooltip'
 import { FormContext } from '../../../common/context/FormContext'
+import Switch from '../Switch'
 
 export const FormGroupCore: FC<Props> = (props) => {
     const { children, className, error, errorTooltip, id, inline, fullSize, marginBottom, inlineJustifyContent, renderProps } = { ...defaultProps, ...props }
@@ -15,7 +16,7 @@ export const FormGroupCore: FC<Props> = (props) => {
                 return child
             }
 
-            return cloneElement(child as ReactElement, { id, error: !!error, key, inline })
+            return cloneElement(child as ReactElement, { id, error: child.type === Switch ? undefined : !!error, key, inline })
         }
         return child
     })
@@ -81,6 +82,5 @@ const FormGroup: FC<Props> = (props) => {
 }
 
 FormGroup.displayName = 'FormGroup'
-FormGroup.defaultProps = defaultProps
 
 export default FormGroup

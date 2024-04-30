@@ -21,6 +21,5 @@ const FormTextarea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
 })
 
 FormTextarea.displayName = 'FormTextarea'
-FormTextarea.defaultProps = defaultProps
 
 export default FormTextarea

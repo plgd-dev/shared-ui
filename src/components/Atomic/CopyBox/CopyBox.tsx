@@ -57,6 +57,5 @@ const CopyBox: FC<Props> = (props) => {
 }
 
 CopyBox.displayName = 'CopyBox'
-CopyBox.defaultProps = defaultProps
 
 export default CopyBox

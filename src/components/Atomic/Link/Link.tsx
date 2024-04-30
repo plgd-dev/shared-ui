@@ -28,6 +28,5 @@ const Link: FC<Props> = (props) => {
 }
 
 Link.displayName = 'Link'
-Link.defaultProps = defaultProps
 
 export default Link

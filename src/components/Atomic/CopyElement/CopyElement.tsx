@@ -40,6 +40,5 @@ const CopyElement: FC<Props> = (props) => {
 }
 
 CopyElement.displayName = 'CopyElement'
-CopyElement.defaultProps = defaultProps
 
 export default CopyElement
