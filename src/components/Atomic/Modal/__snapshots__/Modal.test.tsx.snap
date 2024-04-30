@@ -165,7 +165,7 @@ exports[`<Modal> render correctly - snapshot 1`] = `
       <div
         class="emotion-1"
         role="dialog"
-        style="opacity: 1; transform: translateY(0) translateZ(0);"
+        style="opacity: 1; transform: none;"
       >
         <div
           class="emotion-2"

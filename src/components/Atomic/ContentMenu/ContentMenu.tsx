@@ -1,5 +1,5 @@
 import React, { cloneElement, FC, ReactElement, useEffect, useState } from 'react'
-import { CSSTransition } from 'react-transition-group'
+import { AnimatePresence, motion } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
 import * as styles from './ContentMenu.styles'
@@ -74,9 +74,20 @@ const ContentMenu: FC<Props> = (props) => {
                                     </span>
                                 )}
                             </a>
-                            {item.children && isItemActive && (
-                                <CSSTransition appear={true} classNames='item' in={isItemActive} key={item.id} timeout={0}>
-                                    <div css={styles.subItems}>
+                            <AnimatePresence initial={false}>
+                                {item.children && isItemActive && (
+                                    <motion.section
+                                        animate='open'
+                                        css={styles.subItems}
+                                        exit='collapsed'
+                                        initial='collapsed'
+                                        key='content'
+                                        transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
+                                        variants={{
+                                            open: { opacity: 1, height: 'auto' },
+                                            collapsed: { opacity: 0, height: 0 },
+                                        }}
+                                    >
                                         <ul css={styles.subItemsList}>
                                             {item.children?.map((subItem, key) => (
                                                 <li key={key}>
@@ -97,9 +108,9 @@ const ContentMenu: FC<Props> = (props) => {
                                                 </li>
                                             ))}
                                         </ul>
-                                    </div>
-                                </CSSTransition>
-                            )}
+                                    </motion.section>
+                                )}
+                            </AnimatePresence>
                         </li>
                     )
                 })}

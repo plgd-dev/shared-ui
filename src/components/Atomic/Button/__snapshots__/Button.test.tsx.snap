@@ -157,6 +157,24 @@ exports[`<Button> render correctly - loading 1`] = `
   margin-right: 8px;
 }
 
+.emotion-21 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  -webkit-animation: 0.75s linear 0s infinite normal both running animation-0;
+  animation: 0.75s linear 0s infinite normal both running animation-0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
 <div>
     <button
       class="emotion-0"
@@ -332,7 +350,7 @@ exports[`<Button> render correctly - loading 1`] = `
           class="emotion-2"
         >
           <span
-            class="emotion-3"
+            class="emotion-21"
           >
             <svg
               fill="none"
@@ -354,7 +372,7 @@ exports[`<Button> render correctly - loading 1`] = `
           class="emotion-4"
         >
           <span
-            class="emotion-3"
+            class="emotion-21"
           >
             <svg
               fill="none"

@@ -75,12 +75,13 @@ const TreeTable: FC<Props> = (props) => {
                 <table {...getTableProps()} className={className} css={styles.table}>
                     <thead>
                         {headerGroups.map((headerGroup: any) => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
+                            <tr {...headerGroup.getHeaderGroupProps()} key={headerGroup.getHeaderGroupProps().key}>
                                 {headerGroup.headers.map((column: any, key: number) => (
                                     <th
                                         {...column.getHeaderProps(column.getSortByToggleProps())}
                                         className={classNames(column.getHeaderProps(column.getSortByToggleProps()).className, column.className)}
                                         css={tableStyles.headerTh}
+                                        key={column.getHeaderProps(column.getSortByToggleProps()).key}
                                         style={{
                                             ...column.getHeaderProps().style,
                                             ...column.style,
@@ -122,9 +123,10 @@ const TreeTable: FC<Props> = (props) => {
                         {rows.map((row: any, key: number) => {
                             prepareRow(row)
                             const _isLastFromExpanded = isLastFromExpanded(row)
+                            const rowProps = row.getRowProps(getRowProps!(row))
 
                             return (
-                                <tr {...row.getRowProps(getRowProps!(row))} css={[tableStyles.row, styles.row]}>
+                                <tr {...rowProps} css={[tableStyles.row, styles.row]} key={rowProps.key}>
                                     {row.cells.map((cell: any, cellKey: number) => (
                                         <td
                                             {...cell.getCellProps([
@@ -134,6 +136,14 @@ const TreeTable: FC<Props> = (props) => {
                                                 },
                                             ])}
                                             data-row={row.id}
+                                            key={
+                                                cell.getCellProps([
+                                                    {
+                                                        className: cell.column.className,
+                                                        style: cell.column.style,
+                                                    },
+                                                ]).key
+                                            }
                                         >
                                             <Cell
                                                 css={(theme) => [

@@ -139,9 +139,9 @@ export const activeArrow = css`
 `
 
 export const subItems = css`
-    max-height: 0;
+    // max-height: 0;
     overflow: hidden;
-    transition: all 0.45s;
+    //transition: all 0.45s;
 `
 
 export const subItemsList = css`
@@ -155,7 +155,6 @@ export const subItemLink = (theme: ThemeType) => css`
     position: relative;
     padding: 8px 8px 8px 20px;
     white-space: nowrap;
-    margin: 4px 0 4px 0;
     color: ${get(theme, `ContentMenu.subItem.color`)};
 
     &:hover {

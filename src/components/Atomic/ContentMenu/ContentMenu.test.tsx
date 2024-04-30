@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, waitFor } from '@testing-library/react'
 import ContentMenu from './ContentMenu'
 
 describe('<ContentMenu>', () => {
@@ -53,10 +53,14 @@ describe('<ContentMenu>', () => {
         expect(mockHandleSubItemClick).not.toHaveBeenCalled()
     })
 
-    it('filters menu items based on search input', () => {
+    it('filters menu items based on search input', async () => {
+        window.scrollTo = jest.fn()
         const { getByText, getByRole } = render(<ContentMenu {...defaultProps} menuSearch />)
         fireEvent.change(getByRole('search'), { target: { value: 'Item 2' } })
-        expect(getByText('Item 2')).toBeInTheDocument()
-        expect(() => getByText('Item 1')).toThrow()
+
+        await waitFor(() => {
+            expect(getByText('Item 2')).toBeInTheDocument()
+            expect(() => getByText('Item 1')).toThrow()
+        })
     })
 })

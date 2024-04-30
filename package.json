@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "test": "jest -c ./config/jest.config.js",
-    "test:watch": "jest -c ./config/jest.config.js --watchAll",
+    "test:uwatch": "jest -c ./config/jest.config.js --watchAll",
     "build": "npm-run-all prebuild build:legacy build:modern build:node build:stable build:copy-files",
     "build:legacy": "node ./scripts/build legacy",
     "build:modern": "node ./scripts/build modern",

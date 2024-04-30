@@ -235,7 +235,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           tabindex="1"
           type="submit"
         >
-          <div>
+          <div
+            style="transform: none;"
+          >
             <svg
               fill="none"
               height="16"
@@ -268,7 +270,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           tabindex="1"
           type="submit"
         >
-          <div>
+          <div
+            style="transform: none;"
+          >
             <svg
               fill="none"
               height="16"
@@ -301,7 +305,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           tabindex="1"
           type="submit"
         >
-          <div>
+          <div
+            style="transform: none;"
+          >
             <svg
               fill="none"
               height="16"
@@ -334,7 +340,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           tabindex="1"
           type="submit"
         >
-          <div>
+          <div
+            style="transform: none;"
+          >
             <svg
               fill="none"
               height="16"
@@ -383,7 +391,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           tabindex="1"
           type="submit"
         >
-          <div>
+          <div
+            style="transform: none;"
+          >
             <svg
               fill="none"
               height="16"
@@ -432,7 +442,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           tabindex="1"
           type="submit"
         >
-          <div>
+          <div
+            style="transform: none;"
+          >
             <svg
               fill="none"
               height="16"
@@ -482,7 +494,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           tabindex="1"
           type="submit"
         >
-          <div>
+          <div
+            style="transform: none;"
+          >
             <svg
               fill="none"
               height="16"
@@ -532,7 +546,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           tabindex="1"
           type="submit"
         >
-          <div>
+          <div
+            style="transform: none;"
+          >
             <svg
               fill="none"
               height="16"

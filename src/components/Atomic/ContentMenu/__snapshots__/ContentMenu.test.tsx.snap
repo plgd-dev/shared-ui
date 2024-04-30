@@ -111,10 +111,7 @@ exports[`<ContentMenu> renders without crashing 1`] = `
 }
 
 .emotion-5 {
-  max-height: 0;
   overflow: hidden;
-  -webkit-transition: all 0.45s;
-  transition: all 0.45s;
 }
 
 .emotion-6 {
@@ -128,7 +125,6 @@ exports[`<ContentMenu> renders without crashing 1`] = `
   position: relative;
   padding: 8px 8px 8px 20px;
   white-space: nowrap;
-  margin: 4px 0 4px 0;
 }
 
 .emotion-8 {
@@ -203,8 +199,9 @@ exports[`<ContentMenu> renders without crashing 1`] = `
             </svg>
           </span>
         </a>
-        <div
-          class="emotion-5 item-appear item-appear-active"
+        <section
+          class="emotion-5"
+          style="opacity: 1; height: auto;"
         >
           <ul
             class="emotion-6"
@@ -223,7 +220,7 @@ exports[`<ContentMenu> renders without crashing 1`] = `
               </a>
             </li>
           </ul>
-        </div>
+        </section>
       </li>
       <li>
         <a
