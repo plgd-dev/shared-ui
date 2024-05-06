@@ -290,12 +290,19 @@ const Tab2: FC<Props> = (props) => {
                 deviceResourceUpdateListener={deviceResourceUpdateListener}
                 fetchResource={openUpdateModal}
                 i18n={{
+                    advancedView: _(t.advancedView),
                     close: _(t.close),
                     commandTimeout: _(t.commandTimeout),
+                    compactView: _(t.compactView),
+                    content: _(t.content),
                     create: _(t.create),
                     creating: _(t.creating),
                     deviceId: _(t.deviceId),
+                    fullView: _(t.fullView),
                     interfaces: _(t.interfaces),
+                    invalidNumber: '',
+                    maxValue: () => '',
+                    minValue: () => '',
                     notifications: _(t.notifications),
                     off: _(t.off),
                     on: _(t.on),
@@ -306,8 +313,6 @@ const Tab2: FC<Props> = (props) => {
                     types: _(t.types),
                     update: _(t.update),
                     updating: _(t.updating),
-                    fullView: _(t.fullView),
-                    compactView: _(t.compactView),
                 }}
                 isDeviceOnline={isOnline}
                 isNotificationActive={isNotificationActive}

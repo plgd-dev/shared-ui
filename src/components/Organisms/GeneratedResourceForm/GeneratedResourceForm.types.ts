@@ -1,3 +1,5 @@
+import { SharedProps } from './FormGenerator/FormGenerator.types'
+
 export type Property = {
     maximum?: number
     minimum?: number
@@ -14,9 +16,5 @@ export type PropertiesType = { [key: string]: Property }
 export type Props = {
     className?: string
     id?: string
-    i18n: {
-        general: string
-        minLength: (field: string, length: number) => string
-    }
-    properties: PropertiesType
-}
+    setIsEditable?: (isEditable: boolean) => void
+} & SharedProps

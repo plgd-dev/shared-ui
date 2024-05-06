@@ -1,21 +1,20 @@
 import { FC, memo } from 'react'
 import { Props } from './ModalStrippedLine.types'
 import * as styles from './ModalStrippedLine.styles'
+import Row from '../../Grid/Row'
+import Column from '../../Grid/Column'
 
 const ModalStrippedLine: FC<Props> = memo((props) => {
-    const { label, component, componentSize, smallPadding } = props
+    const { label, component, smallPadding } = props
     return (
-        <div css={[styles.strippedLine, smallPadding && styles.smallPadding]}>
-            <div css={styles.label}>{label}</div>
-            <div
-                css={styles.component}
-                style={{
-                    width: componentSize ? `${componentSize}px` : undefined,
-                }}
-            >
-                {component}
-            </div>
-        </div>
+        <Row css={[styles.strippedLine, smallPadding && styles.smallPadding]}>
+            <Column css={styles.label} size={4}>
+                {label}
+            </Column>
+            <Column css={styles.component} size={8}>
+                <div>{component}</div>
+            </Column>
+        </Row>
     )
 })
 

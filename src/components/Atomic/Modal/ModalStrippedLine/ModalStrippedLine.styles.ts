@@ -3,7 +3,6 @@ import { colors } from '../../_utils/colors'
 import { ThemeType, get } from '../../_theme'
 
 export const strippedLine = (theme: ThemeType) => css`
-    display: flex;
     padding: 16px 0;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +10,7 @@ export const strippedLine = (theme: ThemeType) => css`
 `
 
 export const smallPadding = css`
-    padding: 12px 0;
+    padding: 9px 0;
 `
 
 export const label = css`

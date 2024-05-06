@@ -14,8 +14,6 @@ import Row from '../../../Atomic/Grid/Row'
 const CaPoolModalContent: FC<Props> = (props) => {
     const { data, i18n, maxHeight } = props
 
-    console.log(data)
-
     const [activeItem, setActiveItem] = useState('0')
 
     const menu = useMemo(() => (data ? getMenu(data) : []), [data])

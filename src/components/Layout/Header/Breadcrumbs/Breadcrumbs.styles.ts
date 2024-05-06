@@ -25,6 +25,7 @@ export const divider = css`
 `
 
 export const item = css`
+    display: block;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -34,6 +35,7 @@ export const item = css`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 300px;
 `
 
 export const link = (theme: ThemeType) => css`

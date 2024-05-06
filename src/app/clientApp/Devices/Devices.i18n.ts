@@ -701,4 +701,12 @@ export const messages = defineMessages({
         id: 'devices.compactView',
         defaultMessage: 'Compact View',
     },
+    advancedView: {
+        id: 'devices.advancedView',
+        defaultMessage: 'Advanced view',
+    },
+    content: {
+        id: 'devices.content',
+        defaultMessage: 'Content',
+    },
 })

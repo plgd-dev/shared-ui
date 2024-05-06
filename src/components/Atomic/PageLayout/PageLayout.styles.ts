@@ -59,6 +59,10 @@ export const left = css`
 
 export const headline = (theme: ThemeType) => css`
     color: ${get(theme, 'PageLayout.headline.color')};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+    white-space: nowrap;
 `
 
 export const statusTag = css`

@@ -12,7 +12,7 @@ export const modalWrapper = css`
 
 export const modal = (theme: ThemeType, minWidth: number | string, maxWidth: number | string, maxHeight: number | string) => css`
     background: ${get(theme, `Modal.background`)};
-    padding: 24px;
+    padding: 24px 0;
     min-width: ${typeof minWidth === 'string' ? minWidth : `${minWidth}px`};
     max-width: ${typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`};
     max-height: ${typeof maxHeight === 'string' ? maxHeight : `${maxHeight}px`};
@@ -26,7 +26,7 @@ export const header = (theme: ThemeType) => css`
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid ${get(theme, `Modal.header.borderColor`)};
-    padding: 12px 0 32px 0;
+    padding: 12px 24px 32px 24px;
 `
 
 export const headline = (theme: ThemeType, maxWidth?: number) => css`
@@ -72,13 +72,16 @@ export const close = (theme: ThemeType) => css`
 export const content = (theme: ThemeType) => css`
     background: ${get(theme, `Modal.content.background`)};
     flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 24px;
 `
 
 export const contentPadding = css`
     padding: 24px 0 0 0;
 `
 export const footer = (theme: ThemeType) => css`
-    padding: 24px 0 0 0;
+    padding: 24px 24px 0 24px;
     background: ${get(theme, `Modal.footer.background`)};
     display: flex;
     justify-content: flex-end;

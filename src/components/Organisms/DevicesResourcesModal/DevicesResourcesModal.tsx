@@ -11,28 +11,35 @@ import Button from '../../Atomic/Button'
 import Modal, { ModalStrippedLine } from '../../Atomic/Modal'
 import DevicesResourcesModalNotifications from './DevicesResourcesModalNotifications'
 import ModalFooter from '../../Atomic/Modal/components/ModalFooter'
+import Switch from '../../Atomic/Switch'
+import ContentSwitch from '../../Atomic/ContentSwitch'
+import GeneratedResourceForm from '../GeneratedResourceForm'
+import Spacer from '../../Atomic/Spacer'
+import Headline from '../../Atomic/Headline'
+import Loadable from '../../Atomic/Loadable'
 
 const { UPDATE_RESOURCE } = resourceModalTypes
 
 const DevicesResourcesModal: FC<Props> = (props) => {
     const {
+        confirmDisabled,
+        createResource,
         data,
         deviceId,
         deviceName,
-        resourceData,
-        onClose,
-        retrieving,
+        fetchResource,
+        formProperties,
         i18n,
         isDeviceOnline,
         isUnregistered,
         loading,
-        updateResource,
-        createResource,
-        type,
-        ttlControl,
-        confirmDisabled,
-        fetchResource,
+        onClose,
+        resourceData,
+        retrieving,
         show,
+        ttlControl,
+        type,
+        updateResource,
     } = { ...defaultProps, ...props }
     const editor = useRef()
     const [jsonData, setJsonData] = useState<object | string | undefined>(undefined)
@@ -45,6 +52,15 @@ const DevicesResourcesModal: FC<Props> = (props) => {
     const createLabel = !loading ? i18n.create : i18n.creating
     const initialInterfaceValue = { value: '', label: i18n.resourceInterfaces }
     const [selectedInterface, setSelectedInterface] = useState(initialInterfaceValue)
+    const [advancedView, setAdvancedView] = useState<boolean | undefined>(undefined)
+    const [reset, setReset] = useState(0)
+    const [isEditable, setIsEditable] = useState(true)
+    const [formError, setFormError] = useState(false)
+
+    useEffect(() => {
+        setIsEditable(true)
+        setAdvancedView(formProperties === false)
+    }, [formProperties])
 
     const defaultData = useMemo(
         () =>
@@ -64,7 +80,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
     useEffect(() => {
         const dataToDisplay = resourceData?.data?.content
 
-        if (resourceData && editor.current) {
+        if (resourceData) {
             // Set the retrieved JSON object to the editor
             if (typeof dataToDisplay === 'object') {
                 const newJsonData = !isEmpty(dataToDisplay) ? dataToDisplay : defaultData
@@ -80,13 +96,14 @@ const DevicesResourcesModal: FC<Props> = (props) => {
         } else {
             setJsonData(defaultData)
         }
-    }, [defaultData, resourceData, show])
+    }, [defaultData, resourceData, show, advancedView])
 
     const handleRetrieve = () => {
         fetchResource({
             href: data?.href || '',
             currentInterface: selectedInterface.value,
         })
+        setReset((prev) => prev + 1)
     }
 
     const handleSubmit = () => {
@@ -117,6 +134,8 @@ const DevicesResourcesModal: FC<Props> = (props) => {
     const handleModalContentViewChange = useCallback(() => {
         setModalCode((prevState) => !prevState)
     }, [])
+
+    const hasGeneratedForm = useMemo(() => !!formProperties, [formProperties])
 
     const renderBody = () => {
         const interfaces = data?.interfaces?.map?.((ifs) => ({ value: ifs, label: ifs })) || []
@@ -160,10 +179,10 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                                     menuPortalTarget={document.body}
                                     onChange={setSelectedInterface}
                                     options={interfaces}
+                                    size='small'
                                     value={selectedInterface}
                                 />
                             }
-                            componentSize={200}
                             label={i18n.resourceInterfaces}
                             smallPadding={true}
                         />
@@ -172,28 +191,56 @@ const DevicesResourcesModal: FC<Props> = (props) => {
             )
         }
 
+        const href = data?.href || ''
+
         return (
             <>
                 <InnerContent />
 
-                <div className='m-t-20' style={{ height: 'calc(100% - 20px)' }}>
-                    {jsonData && (
-                        <Editor
-                            disabled={disabled}
-                            editorRef={(node: any) => {
-                                editor.current = node
-                            }}
-                            height={modalCode ? '100%' : undefined}
-                            i18n={{
-                                viewText: modalCode ? i18n.compactView : i18n.fullView,
-                            }}
-                            json={jsonData}
-                            onChange={handleOnEditorChange}
-                            onError={handleOnEditorError}
-                            onViewChange={handleModalContentViewChange}
-                        />
-                    )}
-                </div>
+                <Spacer type='pt-4'>
+                    <Headline type='h5'>{i18n.content}</Headline>
+                </Spacer>
+
+                {hasGeneratedForm && (
+                    <Spacer type='py-4'>
+                        <Switch checked={advancedView} label={i18n.advancedView} onChange={() => setAdvancedView(!advancedView)} />
+                    </Spacer>
+                )}
+
+                <Loadable condition={advancedView !== undefined}>
+                    <ContentSwitch activeItem={advancedView ? 0 : 1}>
+                        <Spacer style={{ height: 'calc(100% - 20px)' }} type='pt-5'>
+                            <Editor
+                                disabled={disabled}
+                                editorRef={(node: any) => {
+                                    editor.current = node
+                                }}
+                                height={modalCode ? '100%' : '350px'}
+                                i18n={{
+                                    viewText: modalCode ? i18n.compactView : i18n.fullView,
+                                }}
+                                json={jsonData || {}}
+                                onChange={handleOnEditorChange}
+                                onError={handleOnEditorError}
+                                onViewChange={handleModalContentViewChange}
+                            />
+                        </Spacer>
+                        {formProperties ? (
+                            <GeneratedResourceForm
+                                href={href}
+                                i18n={pick(i18n, ['invalidNumber', 'minValue', 'maxValue'])}
+                                onChange={(values: any) => setJsonData(values)}
+                                properties={{ [href]: formProperties }}
+                                resetFormKey={reset}
+                                setFormError={setFormError}
+                                setIsEditable={setIsEditable}
+                                values={resourceData?.data?.content}
+                            />
+                        ) : (
+                            <div />
+                        )}
+                    </ContentSwitch>
+                </Loadable>
             </>
         )
     }
@@ -214,7 +261,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
 
                         <Button
                             className='modal-button'
-                            disabled={disabled || interfaceJsonError || confirmDisabled}
+                            disabled={disabled || interfaceJsonError || confirmDisabled || !isEditable || formError}
                             loading={loading}
                             onClick={handleSubmit}
                             variant='primary'
@@ -240,11 +287,12 @@ const DevicesResourcesModal: FC<Props> = (props) => {
             closeOnBackdrop={false}
             contentPadding={false}
             fullSize={modalCode}
+            minWidth={720}
             onClose={!disabled ? handleClose : undefined}
             portalTarget={document.getElementById('modal-root')}
             renderBody={renderBody}
             renderFooter={renderFooter}
-            show={show && !!data && !!jsonData}
+            show={show && !!data && jsonData !== undefined && advancedView !== undefined}
             title={data?.href}
         />
     )

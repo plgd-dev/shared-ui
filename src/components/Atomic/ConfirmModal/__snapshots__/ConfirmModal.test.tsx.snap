@@ -42,10 +42,10 @@ exports[`<ConfirmModal> renders without crashing 1`] = `
 }
 
 .emotion-2 {
-  padding: 24px;
+  padding: 24px 0;
   min-width: 600px;
   max-width: 90%;
-  max-height: 90%;
+  max-height: 90vh;
   border-radius: 8px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -71,7 +71,7 @@ exports[`<ConfirmModal> renders without crashing 1`] = `
   -webkit-justify-content: space-between;
   justify-content: space-between;
   border-bottom: 2px solid;
-  padding: 12px 0 32px 0;
+  padding: 12px 24px 32px 24px;
 }
 
 .emotion-4 {
@@ -126,11 +126,14 @@ exports[`<ConfirmModal> renders without crashing 1`] = `
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 24px;
   padding: 24px 0 0 0;
 }
 
 .emotion-7 {
-  padding: 24px 0 0 0;
+  padding: 24px 24px 0 24px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

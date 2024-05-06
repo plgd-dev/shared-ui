@@ -49,7 +49,7 @@ export const defaultProps = {
     closeOnBackdrop: true,
     closeOnEsc: true,
     contentPadding: true,
-    maxHeight: '90%',
+    maxHeight: '90vh',
     maxWidth: '90%',
     minWidth: 600,
 }

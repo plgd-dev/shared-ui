@@ -137,6 +137,13 @@ export const cell = styled.div`
     .link {
         color: ${(props) => get(props.theme, `Table.cell.link.color`)};
     }
+
+    .no-wrap-text {
+        overflow: hidden;
+        max-width: 400px;
+        text-overflow: ellipsis;
+        display: block;
+    }
 `
 
 export const firstRowCell = css`
