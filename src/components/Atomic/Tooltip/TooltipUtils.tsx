@@ -100,7 +100,10 @@ export const TooltipAnchor = forwardRef(function TooltipAnchor(
 })
 
 export const TooltipContent = forwardRef(function TooltipContent(
-    { state, ...props }: { state: TooltipState; portalTarget?: HTMLElement; error: boolean; maxWidth?: number } & React.HTMLProps<HTMLDivElement>,
+    {
+        state,
+        ...props
+    }: { state: TooltipState; portalTarget?: HTMLElement; error: boolean; maxWidth?: number; zIndex?: number } & React.HTMLProps<HTMLDivElement>,
     propRef
 ) {
     const { delay } = useDelayGroupContext()
@@ -151,6 +154,7 @@ export const TooltipContent = forwardRef(function TooltipContent(
                             top: state.y ?? 0,
                             left: state.x ?? 0,
                             maxWidth: maxWidth,
+                            zIndex: props.zIndex,
                             ...rest.style,
                         }}
                         transition={

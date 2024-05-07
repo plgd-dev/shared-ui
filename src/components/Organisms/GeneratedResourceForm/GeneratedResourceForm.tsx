@@ -46,7 +46,9 @@ const GeneratedResourceForm: FC<Props> = (props) => {
                         schemaObject[href] = z.boolean()
                         break
                     case 'object':
-                        buildZodSchema(property.properties, href, depth + 1)
+                        if (property.properties) {
+                            buildZodSchema(property.properties, href, depth + 1)
+                        }
                         break
                 }
             })

@@ -128,8 +128,9 @@ exports[`<Modal> render correctly - snapshot 1`] = `
   flex: 1 1 auto;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0 24px;
-  padding: 24px 0 0 0;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-top: 24px;
 }
 
 .emotion-7 {

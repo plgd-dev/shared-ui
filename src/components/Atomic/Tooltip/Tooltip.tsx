@@ -10,7 +10,7 @@ import { tooltipVariants } from './constants'
 import ConditionalWrapper from '../ConditionalWrapper'
 
 const Tooltip: FC<Props> = (props) => {
-    const { content, children, delay, id: propId, placement, className, initialOpen, maxWidth, portalTarget, variant } = { ...defaultProps, ...props }
+    const { content, children, delay, id: propId, placement, className, initialOpen, maxWidth, portalTarget, variant, zIndex } = { ...defaultProps, ...props }
     const delayGroupContext = useDelayGroupContext()
     const id: string | ReactNode = useMemo(() => propId || content, [propId, content])
 
@@ -39,7 +39,7 @@ const Tooltip: FC<Props> = (props) => {
                     {children}
                 </TooltipAnchor>
                 {!!content && (
-                    <TooltipContent error={variant === tooltipVariants.ERROR} maxWidth={maxWidth} portalTarget={portalTarget} state={state}>
+                    <TooltipContent error={variant === tooltipVariants.ERROR} maxWidth={maxWidth} portalTarget={portalTarget} state={state} zIndex={zIndex}>
                         {content}
                         <div className={classNames('tooltip-arrow', variant === tooltipVariants.ERROR && 'tooltip-arrow-error')} id={`${id}-arrow`} />
                     </TooltipContent>

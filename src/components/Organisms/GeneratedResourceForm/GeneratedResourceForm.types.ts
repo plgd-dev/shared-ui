@@ -9,6 +9,7 @@ export type Property = {
     properties: {
         [key: string]: Property
     }
+    unit?: string
 }
 
 export type PropertiesType = { [key: string]: Property }

@@ -11,6 +11,8 @@ export type Props = {
     inlineJustifyContent?: string
     marginBottom?: boolean
     renderProps?: boolean
+    tooltipPortalTarget?: HTMLElement
+    tooltipZIndex?: number
 }
 
 export const defaultProps = {

@@ -15,6 +15,7 @@ export type Props = {
     placement?: Placement
     portalTarget?: HTMLElement
     variant?: TooltipVariantsType
+    zIndex?: number
 }
 
 export const defaultProps: Partial<Props> = {

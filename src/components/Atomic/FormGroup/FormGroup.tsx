@@ -9,7 +9,20 @@ import { FormContext } from '../../../common/context/FormContext'
 import Switch from '../Switch'
 
 export const FormGroupCore: FC<Props> = (props) => {
-    const { children, className, error, errorTooltip, id, inline, fullSize, marginBottom, inlineJustifyContent, renderProps } = { ...defaultProps, ...props }
+    const {
+        children,
+        className,
+        error,
+        errorTooltip,
+        id,
+        inline,
+        fullSize,
+        marginBottom,
+        inlineJustifyContent,
+        renderProps,
+        tooltipZIndex,
+        tooltipPortalTarget,
+    } = { ...defaultProps, ...props }
     const childrenWithProps = Children.map(children as ReactElement[], (child, key) => {
         if (isValidElement(child)) {
             if (child.type === Button || child.type === 'ul' || child.type === 'div') {
@@ -38,7 +51,15 @@ export const FormGroupCore: FC<Props> = (props) => {
         } else if (errorTooltip) {
             return (
                 <>
-                    <Tooltip content={error} id={`tooltip-group-${id}`} placement='left' variant={tooltipVariants.ERROR}>
+                    <Tooltip
+                        content={error}
+                        id={`tooltip-group-${id}`}
+                        initialOpen={true}
+                        placement='left'
+                        portalTarget={tooltipPortalTarget}
+                        variant={tooltipVariants.ERROR}
+                        zIndex={tooltipZIndex}
+                    >
                         {childrenWithProps[0]}
                     </Tooltip>
                     {childrenWithProps[1]}

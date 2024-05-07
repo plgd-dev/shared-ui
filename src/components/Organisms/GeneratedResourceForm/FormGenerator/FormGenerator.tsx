@@ -16,16 +16,14 @@ import FormGroup from '../../../Atomic/FormGroup'
 import { Props } from './FormGenerator.types'
 import { knownResourceHref } from '../constants'
 
-export const sortProperties = (properties: PropertiesType) => {
-    const sortValues = ['string', 'integer', 'number', 'boolean', 'object']
-    return Object.keys(properties)
-        .map((href: string) => {
-            // @ts-ignore
-            const property = properties[href] as Property
-            return { ...property, href }
-        })
-        .sort((a, b) => sortValues.indexOf(a.type) - sortValues.indexOf(b.type))
-}
+export const sortProperties = (properties: PropertiesType) =>
+    properties
+        ? Object.keys(properties).map((href: string) => {
+              // @ts-ignore
+              const property = properties[href] as Property
+              return { ...property, href }
+          })
+        : []
 
 export const getHref = (parentHref: string, href: string) => `${parentHref !== '' ? parentHref + '/' : parentHref}${href}`
 
@@ -100,22 +98,30 @@ const FormGenerator: FC<Props> = (props) => {
                                 <ModalStrippedLine
                                     smallPadding
                                     component={
-                                        <FormGroup errorTooltip error={get(errors, `${field.name}.message`) as any} id={href} marginBottom={false}>
+                                        <FormGroup
+                                            errorTooltip
+                                            error={get(errors, `${field.name}.message`) as any}
+                                            id={href}
+                                            marginBottom={false}
+                                            tooltipPortalTarget={document.getElementById('toast-root')!}
+                                            tooltipZIndex={1000}
+                                        >
                                             <FormInput
-                                                icon={isNumber ? <IconNumbers /> : undefined}
+                                                icon={isNumber && !property.unit ? <IconNumbers /> : undefined}
                                                 name={field.name}
                                                 onChange={(e) => {
                                                     field.onChange(formatValue(e.target.value))
                                                     handleValueChange(formatValue(e.target.value))
                                                 }}
                                                 readOnly={readOnlyP}
+                                                rightContent={property.unit}
                                                 size='small'
                                                 type={isNumber ? 'number' : 'text'}
                                                 value={isNumber ? formatValue(field.value) : field.value}
                                             />
                                         </FormGroup>
                                     }
-                                    label={property.title}
+                                    label={property.title || property.href}
                                 />
                             )}
                         />
@@ -140,11 +146,11 @@ const FormGenerator: FC<Props> = (props) => {
                             )}
                         />
                     )
-                } else if (property.type === 'object') {
+                } else if (property.type === 'object' && property.properties) {
                     return (
                         <Spacer key={key} type='mb-5 mt-8'>
                             <Spacer type='mb-4'>
-                                <Headline type='h5'>{property.title}</Headline>
+                                <Headline type='h5'>{property.title || property.href}</Headline>
                             </Spacer>
                             <Spacer type={`pl-${5 * depth}`}>{buildProperties(property.properties, href, readOnlyP, depth + 1)}</Spacer>
                         </Spacer>
@@ -155,6 +161,7 @@ const FormGenerator: FC<Props> = (props) => {
             })
 
         if (properties) {
+            console.log(properties)
             setComponents(buildProperties(properties))
         }
     }, [control, errors, getDefaultValue, handleValueChange, properties])

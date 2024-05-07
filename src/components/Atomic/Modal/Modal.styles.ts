@@ -74,11 +74,12 @@ export const content = (theme: ThemeType) => css`
     flex: 1 1 auto;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0 24px;
+    padding-right: 24px;
+    padding-left: 24px;
 `
 
 export const contentPadding = css`
-    padding: 24px 0 0 0;
+    padding-top: 24px;
 `
 export const footer = (theme: ThemeType) => css`
     padding: 24px 24px 0 24px;
