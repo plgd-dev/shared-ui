@@ -3,10 +3,10 @@
 exports[`<Switch> render correctly - snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -45,6 +45,10 @@ exports[`<Switch> render correctly - snapshot 1`] = `
   bottom: 0;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  width: 24px;
+  height: 16px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .emotion-3:before {
@@ -56,6 +60,11 @@ exports[`<Switch> render correctly - snapshot 1`] = `
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.emotion-3:before {
   width: 12px;
   height: 12px;
 }
@@ -92,6 +101,10 @@ exports[`<Switch> render correctly - snapshot 1`] = `
   bottom: 0;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  width: 32px;
+  height: 20px;
+  border-radius: 26.6667px;
+  overflow: hidden;
 }
 
 .emotion-8:before {
@@ -103,6 +116,11 @@ exports[`<Switch> render correctly - snapshot 1`] = `
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+.emotion-8:before {
   width: 16px;
   height: 16px;
 }

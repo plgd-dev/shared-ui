@@ -24,6 +24,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
         onChange,
         onError,
         onResize,
+        onValidation,
         onViewChange,
         schema,
         style,
@@ -89,6 +90,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
             statusBar: false,
             onChangeText,
             onValidationError: onValidationError,
+            onValidate: onValidation,
             schema,
         }
 

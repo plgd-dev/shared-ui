@@ -20,6 +20,7 @@ export type Props = {
     onChange?: (json: any) => void
     onError?: (error: any) => void
     onResize?: (width: number, height: number, callback: () => void) => void
+    onValidation?: (data: any) => void
     onViewChange?: (fullview: boolean) => void
     schema?: [] | object
     style?: CSSProperties

@@ -114,6 +114,8 @@ const DevicesResourcesModal: FC<Props> = (props) => {
         const dataForSend = typeof jsonData === 'string' && jsonData.startsWith('"') && jsonData.endsWith('"') ? jsonData.replace(/"/g, '') : jsonData
 
         if (isUpdateModal) {
+            console.log('!!!')
+            console.log(dataForSend)
             updateResource(params, dataForSend)
         } else {
             createResource(params, dataForSend)

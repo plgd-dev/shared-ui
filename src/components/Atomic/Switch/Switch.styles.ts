@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { ThemeType, get } from '../_theme'
 
 export const switchC = css`
-    display: flex;
+    display: inline-flex;
     align-items: center;
 `
 

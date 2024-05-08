@@ -35,10 +35,10 @@ exports[`<TileToggle> render correctly - snapshot 1`] = `
 }
 
 .emotion-2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -77,6 +77,10 @@ exports[`<TileToggle> render correctly - snapshot 1`] = `
   bottom: 0;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  width: 32px;
+  height: 20px;
+  border-radius: 26.6667px;
+  overflow: hidden;
 }
 
 .emotion-5:before {
@@ -88,6 +92,11 @@ exports[`<TileToggle> render correctly - snapshot 1`] = `
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+.emotion-5:before {
   width: 16px;
   height: 16px;
 }

@@ -17,7 +17,7 @@ const Switch = forwardRef<HTMLInputElement, Props>((props, ref) => {
                     ref={ref}
                     type='checkbox'
                 />
-                <Slider css={[(styles.sliderStyle(size || 'big'), disabled && styles.disabled)]} size={size} />
+                <Slider css={[styles.sliderStyle(size || 'big'), disabled && styles.disabled]} size={size} />
             </div>
             {label && <div css={[styles.label, labelBefore && styles.labelBeforeSwitch]}>{label}</div>}
         </label>
