@@ -1,13 +1,14 @@
 import { css } from '@emotion/react'
 import { fontPrimary, fontSecondary } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
+import { get, ThemeType } from '../../../_theme'
 
-export const getCodeBox = css`
+export const getCodeBox = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: #f4f9fb;
+    background: ${get(theme, `AddClientModal.box.color`)};
     border-radius: 8px;
 `
 

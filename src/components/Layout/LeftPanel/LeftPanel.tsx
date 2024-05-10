@@ -10,6 +10,7 @@ import { Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
 import { COLLAPSE_ANIMATION_TIME } from '../constants'
+import { tagVariants } from './constants'
 
 const isGroupVisible = (group: any) => !group.items.every((i: any) => i.visibility === false)
 
@@ -100,7 +101,9 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                     >
                                         <img alt='line' css={styles.line} src={img} />
                                         {subItem.title}
-                                        {subItem.tag && <span css={styles.tag(subItem.tag.variant)}>{subItem.tag.text}</span>}
+                                        {subItem.tag && (
+                                            <span css={(theme) => styles.tag(subItem?.tag?.variant || tagVariants.INFO, theme)}>{subItem.tag.text}</span>
+                                        )}
                                     </a>
                                 </li>
                             ))}
@@ -148,7 +151,9 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                     >
                                         <img alt='line' css={styles.line} src={img} />
                                         {subItem.title}
-                                        {subItem.tag && <span css={styles.tag(subItem.tag.variant)}>{subItem.tag.text}</span>}
+                                        {subItem.tag && (
+                                            <span css={(theme) => styles.tag(subItem?.tag?.variant || tagVariants.INFO, theme)}>{subItem.tag.text}</span>
+                                        )}
                                     </a>
                                 </li>
                             ))}

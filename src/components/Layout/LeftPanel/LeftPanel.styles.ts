@@ -143,7 +143,7 @@ export const item = (theme: ThemeType) => css`
 
 export const activeItem = (theme: ThemeType) => css`
     color: ${get(theme, 'LeftPanel.item.active.color')} !important;
-    background: #fff;
+    background: ${get(theme, 'LeftPanel.item.active.background')} !important;
 `
 
 export const disabled = (theme: ThemeType) => css`
@@ -233,11 +233,11 @@ export const subItemsFloating = css`
     z-index: 10;
 `
 
-export const subItemsFloatingPadding = css`
-    border: 1px solid #e6e9ed;
+export const subItemsFloatingPadding = (theme: ThemeType) => css`
+    border: 1px solid ${get(theme, 'LeftPanel.subItem.border')};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
-    background: #fff;
+    background: ${get(theme, 'LeftPanel.subItem.background')};
     overflow: hidden;
     padding: 16px 20px;
     box-sizing: border-box;
@@ -250,7 +250,7 @@ export const subItemLink = (theme: ThemeType) => css`
     font-weight: 400;
     font-size: 14px;
     line-height: 14px;
-    color: #81868c;
+    color: ${get(theme, 'LeftPanel.subItem.color')};
     text-decoration: none;
     position: relative;
     margin: 4px 0 4px 0;
@@ -292,7 +292,7 @@ const getColorByVariant = (variant: MenuTagVariantType | string) => {
     }
 }
 
-export const tag = (variant: MenuTagVariantType | string) => css`
+export const tag = (variant: MenuTagVariantType | string, theme: ThemeType) => css`
     position: absolute;
     top: 50%;
     right: 0;
@@ -304,12 +304,12 @@ export const tag = (variant: MenuTagVariantType | string) => css`
     font-weight: 600;
     font-size: 10px;
     line-height: 18px;
-    color: #ffffff;
+    color: ${get(theme, 'LeftPanel.item.tag.color')};
     padding: 0 10px;
 `
 
-export const newFeature = css`
-    background: #ffffff;
+export const newFeature = (theme: ThemeType) => css`
+    background: ${get(theme, `LeftPanel.newFeature.background`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 16px;
     padding: 16px;
@@ -326,14 +326,14 @@ export const header = css`
 
 export const headerLeft = css``
 
-export const headline = css`
+export const headline = (theme: ThemeType) => css`
     font-family: 'Circular Pro', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 140%;
     letter-spacing: -0.5px;
-    color: #0a2965;
+    color: ${get(theme, `LeftPanel.headline.color`)};
     margin-bottom: 4px;
     user-select: none;
 `

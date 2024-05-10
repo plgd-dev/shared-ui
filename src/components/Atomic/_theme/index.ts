@@ -10,6 +10,16 @@ export function get(from: object, key: string, def?: any): any {
     return g === '' ? def : g
 }
 
+export function getTheme(from: object, key: string, def?: any): any {
+    const g = lGet(from, `${key}`, def)
+    return g === '' ? def : g
+}
+
+export function getThemeColor(from: object, key: string, def?: any): any {
+    const g = lGet(from, `colors.${key}`, def)
+    return g === '' ? def : g
+}
+
 export const isValidHex = (color: any) => {
     if (!color || typeof color !== 'string') return false
 

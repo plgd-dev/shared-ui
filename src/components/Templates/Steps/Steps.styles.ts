@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../../Atomic/_utils/colors'
+import { get, ThemeType } from '../../Atomic/_theme'
 
 export const steps = css`
     list-style: none;
@@ -10,19 +11,19 @@ export const steps = css`
     align-items: center;
 `
 
-export const step = css`
+export const step = (theme: ThemeType) => css`
     font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: #d7d8da;
+    color: ${get(theme, `Seps.color`)};
     display: flex;
     align-items: center;
 `
 
-export const stepDone = css`
-    color: #81868c;
+export const stepDone = (theme: ThemeType) => css`
+    color: ${get(theme, `Seps.done.color`)};
 
     .step-label {
         @media (max-width: 767px) {
@@ -52,7 +53,7 @@ export const separator = css`
     padding: 0 12px;
 `
 
-export const separatorLine = css`
+export const separatorLine = (theme: ThemeType) => css`
     position: relative;
     padding: 2px 0 0 0;
     overflow: hidden;
@@ -61,7 +62,7 @@ export const separatorLine = css`
         content: '';
         display: block;
         position: absolute;
-        border-top: 4px dashed #e6e9ed;
+        border-top: 4px dashed ${get(theme, `Seps.separator.color`)};
         top: -2px;
         bottom: -8px;
         left: -8px;

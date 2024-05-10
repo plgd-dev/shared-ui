@@ -11,13 +11,13 @@ const theme = {
             },
             item: {
                 borderColor: colorsSiemens.neutral800,
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 hover: {
                     color: colorsSiemens.primary,
                 },
             },
             icon: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 hover: {
                     color: colorsSiemens.primary,
                 },
@@ -26,11 +26,16 @@ const theme = {
                 },
             },
         },
+        AddClientModal: {
+            box: {
+                background: colorsSiemens.neutral300,
+            },
+        },
         Alert: {
             background: colorsSiemens.neutral800,
             borderColor: colorsSiemens.neutral900,
             close: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 close: {
                     color: colorsSiemens.primary,
                 },
@@ -102,7 +107,7 @@ const theme = {
                 disabled: {
                     background: colorsSiemens.neutral500,
                     borderColor: colorsSiemens.neutral800,
-                    color: colors.neutral000,
+                    color: colorsSiemens.secondary,
                 },
             },
             secondary: {
@@ -112,7 +117,7 @@ const theme = {
                 hover: {
                     background: colorsSiemens.primary,
                     borderColor: colorsSiemens.primary,
-                    color: colors.neutral000,
+                    color: colorsSiemens.secondary,
                 },
                 disabled: {
                     background: '#81868c',
@@ -122,8 +127,8 @@ const theme = {
             },
             tertiary: {
                 background: colorsSiemens.neutral800,
-                borderColor: colors.neutral500,
-                color: colors.neutral500,
+                borderColor: colorsSiemens.neutral500,
+                color: colorsSiemens.neutral500,
                 hover: {
                     background: '#9999a9',
                     borderColor: '#9999a9',
@@ -161,7 +166,7 @@ const theme = {
                 borderColor: colorsSiemens.primary,
             },
             label: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
             error: {
                 red: colorsSiemens.red,
@@ -193,6 +198,9 @@ const theme = {
         },
         Content: {
             background: colorsSiemens.neutral900,
+            headline: {
+                color: colorsSiemens.primaryDarken,
+            },
         },
         ContentMenu: {
             background: colorsSiemens.neutral800,
@@ -251,7 +259,7 @@ const theme = {
             },
         },
         CopyIcon: {
-            color: colors.neutral500,
+            color: colorsSiemens.neutral500,
             hover: {
                 color: colorsSiemens.primary,
             },
@@ -265,17 +273,17 @@ const theme = {
                 background: colorsSiemens.neutral900,
             },
             val: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
             item: {
-                borderColor: colors.neutral500,
+                borderColor: colorsSiemens.neutral500,
             },
             icon: {
                 color: colorsSiemens.neutral000,
                 background: colorsSiemens.red,
             },
             subTitle: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
             emptyDeleteInformation: {
                 background: colors.neutral600,
@@ -290,9 +298,9 @@ const theme = {
                 background: colorsSiemens.neutral900,
             },
             placeholder: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 text: {
-                    color: colors.neutral500,
+                    color: colorsSiemens.neutral500,
                 },
                 highlight: {
                     color: colors.neutral800,
@@ -329,7 +337,7 @@ const theme = {
             },
             fullSizeBtn: {
                 background: colorsSiemens.neutral800,
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 hover: {
                     color: colorsSiemens.primary,
                 },
@@ -364,7 +372,7 @@ const theme = {
                 },
             },
             Icon: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 hover: {
                     color: colorsSiemens.primary,
                 },
@@ -374,7 +382,7 @@ const theme = {
             borderTop: colorsSiemens.neutral800,
             background: colorsSiemens.neutral900,
             recentTasks: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 hover: {
                     color: colorsSiemens.primary,
                 },
@@ -404,23 +412,23 @@ const theme = {
                 borderColor: colorsSiemens.primary,
             },
             icon: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 hover: {
                     color: colorsSiemens.primaryBonus,
                 },
             },
             passwordIcon: {
-                background: colors.neutral000,
+                background: colorsSiemens.secondary,
             },
             placeholder: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
             readonly: {
                 color: colorsSiemens.neutral000,
             },
         },
         FormLabel: {
-            color: colors.neutral500,
+            color: colorsSiemens.neutral500,
             required: {
                 color: colorsSiemens.primary,
             },
@@ -437,7 +445,7 @@ const theme = {
                 },
             },
             disabled: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
             menu: {
                 borderColor: colorsSiemens.neutral800,
@@ -572,6 +580,14 @@ const theme = {
                 background: colorsSiemens.neutral800,
             },
         },
+        InitializedByDifferentUser: {
+            headline: {
+                color: colorsSiemens.primaryDarken,
+                span: {
+                    color: colorsSiemens.primary,
+                },
+            },
+        },
         Layout: {
             background: colorsSiemens.neutral900,
         },
@@ -589,22 +605,35 @@ const theme = {
             groupTitle: {
                 color: 'rgba(255, 255, 255, 0.8)',
             },
+            headline: {
+                color: colorsSiemens.primaryDarken,
+            },
             item: {
                 color: colors.light,
-                hover: {
-                    color: colorsSiemens.neutral000,
-                },
                 active: {
                     color: colorsSiemens.primary,
+                    background: colorsSiemens.secondary,
                 },
                 disabled: {
                     color: colors.neutral600,
                 },
+                hover: {
+                    color: colorsSiemens.neutral000,
+                },
+                tag: {
+                    color: colorsSiemens.secondary,
+                },
+            },
+            newFeature: {
+                background: colorsSiemens.secondary,
             },
             subItem: {
                 active: {
                     color: colorsSiemens.neutral000,
                 },
+                background: colorsSiemens.secondary,
+                border: colorsSiemens.neutral200,
+                color: colorsSiemens.neutral500,
                 hover: {
                     color: colorsSiemens.neutral000,
                 },
@@ -655,7 +684,7 @@ const theme = {
                 borderColor: colorsSiemens.neutral600,
             },
             value: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
         },
         NotFound: {
@@ -676,7 +705,7 @@ const theme = {
                 color: colorsSiemens.primary,
             },
             Bell: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 hover: {
                     color: colorsSiemens.primary,
                 },
@@ -698,6 +727,11 @@ const theme = {
             green: colorsSiemens.green,
             yellow: colorsSiemens.yellow,
             red: colorsSiemens.red,
+        },
+        NotificationMessage: {
+            message: {
+                background: colorsSiemens.secondary,
+            },
         },
         PageLayout: {
             headline: {
@@ -734,7 +768,7 @@ const theme = {
                 color: colorsSiemens.primary,
             },
             value: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
         },
         Scrollbar: {
@@ -800,12 +834,21 @@ const theme = {
                 background: 'rgba(215, 78, 58, 0.16)',
             },
             normal: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
                 background: colorsSiemens.neutral800,
             },
             info: {
                 color: colorsSiemens.info,
                 background: hexToRgbA(colorsSiemens.info, 0.16),
+            },
+        },
+        Steps: {
+            color: colorsSiemens.neutral300,
+            done: {
+                color: colorsSiemens.neutral500,
+            },
+            separator: {
+                border: colorsSiemens.neutral200,
             },
         },
         Switch: {
@@ -925,12 +968,12 @@ const theme = {
             info: {
                 background: colorsSiemens.neutral800,
                 attribute: {
-                    color: colors.neutral500,
+                    color: colorsSiemens.neutral500,
                 },
                 value: {
-                    color: colors.neutral500,
+                    color: colorsSiemens.neutral500,
                     icon: {
-                        color: colors.neutral500,
+                        color: colorsSiemens.neutral500,
                         hover: {
                             color: colorsSiemens.primary,
                         },
@@ -941,7 +984,7 @@ const theme = {
                 color: colorsSiemens.primary,
             },
             time: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
         },
         TileToggle: {
@@ -958,6 +1001,10 @@ const theme = {
             borderColor: colorsSiemens.neutral800,
         },
         Tooltip: {
+            bubble: {
+                background: colorsSiemens.neutral900,
+                color: colorsSiemens.secondary,
+            },
             icon: {
                 color: colorsSiemens.neutral500,
                 hover: {
@@ -966,13 +1013,16 @@ const theme = {
             },
         },
         TreeExpander: {
+            expanded: {
+                color: colorsSiemens.neutral000,
+            },
             hover: {
                 expanderIcon: {
                     color: colorsSiemens.neutral000,
                 },
             },
-            expanded: {
-                color: colorsSiemens.neutral000,
+            icon: {
+                color: colorsSiemens.neutral500,
             },
         },
         TreeTable: {
@@ -1014,7 +1064,7 @@ const theme = {
                 color: colorsSiemens.neutral900,
             },
             name: {
-                color: colors.neutral500,
+                color: colorsSiemens.neutral500,
             },
             floatingMenu: {
                 background: colorsSiemens.neutral800,

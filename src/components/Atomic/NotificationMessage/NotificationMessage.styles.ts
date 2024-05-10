@@ -5,6 +5,7 @@ import { ToastTypesType } from '../Notification/Toast.types'
 import { getColorByType } from '../Notification/Toast.styles'
 import { fontPrimary } from '../_utils/commonStyles'
 import { COLLAPSE_ANIMATION_TIME } from '../../Layout/constants'
+import { get, ThemeType } from '../_theme'
 
 export const message = css`
     position: fixed;
@@ -19,12 +20,12 @@ export const collapsed = css`
     left: ${panelSizes.COLLAPSED}px;
 `
 
-export const messageInner = css`
+export const messageInner = (theme: ThemeType) => css`
     position: relative;
     z-index: 2;
     max-width: 715px;
     margin: 0 auto;
-    background: #fff;
+    background: ${get(theme, `NotificationMessage.message.background`)};
     border: 1px solid ${colors.neutral200};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;

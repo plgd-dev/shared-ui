@@ -12,8 +12,8 @@ export const treeExpander = (theme: ThemeType) => css`
     }
 `
 
-export const expanderIcon = css`
-    color: #81868c;
+export const expanderIcon = (theme: ThemeType) => css`
+    color: ${get(theme, `TreeExpander.icon.color`)};
     transition: all 0.3s;
 `
 

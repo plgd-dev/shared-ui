@@ -31,6 +31,11 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 },
             },
         },
+        AddClientModal: {
+            box: {
+                background: colors.light,
+            },
+        },
         Alert: {
             background: colors.neutral000,
             borderColor: colors.neutral200,
@@ -204,6 +209,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         },
         Content: {
             background: colors.neutral000,
+            headline: {
+                color: colors.primaryDarken,
+            },
         },
         ContentMenu: {
             background: colors.neutral000,
@@ -586,6 +594,14 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 background: colors.neutral000,
             },
         },
+        InitializedByDifferentUser: {
+            headline: {
+                color: colors.primaryDarken,
+                span: {
+                    color: colors.primary,
+                },
+            },
+        },
         Layout: {
             background: colors.neutral000,
         },
@@ -603,22 +619,35 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             groupTitle: {
                 color: hexToRgbA(colors.neutral500, 0.8),
             },
+            headline: {
+                color: colors.primaryDarken,
+            },
             item: {
                 color: colors.neutral500,
-                hover: {
-                    color: colors.neutral800,
-                },
                 active: {
                     color: colors.primaryDarken,
+                    background: colors.neutral000,
                 },
                 disabled: {
                     color: colors.neutral300,
                 },
+                hover: {
+                    color: colors.neutral800,
+                },
+                tag: {
+                    color: colors.neutral000,
+                },
+            },
+            newFeature: {
+                background: colors.neutral000,
             },
             subItem: {
                 active: {
                     color: colors.neutral800,
                 },
+                background: colors.neutral000,
+                border: colors.neutral200,
+                color: colors.neutral500,
                 hover: {
                     color: colors.neutral800,
                 },
@@ -713,6 +742,11 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             green: colors.green,
             yellow: colors.yellow,
             red: colors.red,
+        },
+        NotificationMessage: {
+            message: {
+                background: colors.neutral000,
+            },
         },
         PageLayout: {
             headline: {
@@ -831,6 +865,15 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             normal: {
                 color: colors.neutral500,
                 background: colors.neutral100,
+            },
+        },
+        Steps: {
+            color: colors.neutral300,
+            done: {
+                color: colors.neutral500,
+            },
+            separator: {
+                color: colors.neutral200,
             },
         },
         Switch: {
@@ -991,6 +1034,10 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             borderColor: colors.neutral200,
         },
         Tooltip: {
+            bubble: {
+                background: colors.neutral900,
+                color: colors.neutral000,
+            },
             icon: {
                 color: colors.neutral500,
                 hover: {
@@ -999,13 +1046,16 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
         },
         TreeExpander: {
+            expanded: {
+                color: colors.primary,
+            },
             hover: {
                 expanderIcon: {
                     color: colors.primary,
                 },
             },
-            expanded: {
-                color: colors.primary,
+            icon: {
+                color: colors.neutral500,
             },
         },
         TreeTable: {

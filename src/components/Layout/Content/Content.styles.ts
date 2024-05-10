@@ -31,8 +31,8 @@ export const rightAction = css`
     padding: 0 4px;
 `
 
-export const headline = css`
-    color: #0a2965;
+export const headline = (theme: ThemeType) => css`
+    color: ${get(theme, `Content.headline.color`)};
 `
 
 export const statusTag = css`
