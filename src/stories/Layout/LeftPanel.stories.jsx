@@ -42,7 +42,7 @@ Default.args = {}
 
 const TemplateActive = (args) => (
     <div style={{ display: 'flex', margin: -10 }}>
-        <div style={{ padding: 10 }}>
+        <div style={{ padding: 10, display: 'flex', width: 300 }}>
             <div id='header-icon-collapse-portal-target' style={{ display: 'none' }}></div>
             <LeftPanel
                 {...args}
@@ -55,7 +55,7 @@ const TemplateActive = (args) => (
                 }
             />
         </div>
-        <div style={{ padding: 10 }}>
+        <div style={{ padding: 10, display: 'flex', width: 300 }}>
             <div id='header-icon-collapse-portal-target'></div>
             <LeftPanel
                 {...args}

@@ -25,19 +25,20 @@ const Table: FC<Props> = (props) => {
         defaultSelectedRowIds,
         defaultSortBy,
         enablePagination,
-        height,
-        hideHeader,
-        i18n,
-        id,
         getCellProps,
         getColumnProps,
         getRowProps,
         globalSearch,
+        height,
+        hideHeader,
+        i18n,
+        id,
         onRowsSelect,
         paginationPortalTargetId,
         paginationProps,
         primaryAttribute,
         rowHeight,
+        showFilterButton,
         unselectRowsToken,
     } = { ...defaultProps, ...props }
 
@@ -207,7 +208,7 @@ const Table: FC<Props> = (props) => {
                     }}
                     preGlobalFilteredRows={preGlobalFilteredRows}
                     setGlobalFilter={setGlobalFilter}
-                    showFilterButton={props.showFilterButton}
+                    showFilterButton={showFilterButton}
                 />
             )}
             <div

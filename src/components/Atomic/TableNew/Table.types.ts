@@ -58,4 +58,5 @@ export const defaultProps = {
     getRowProps: () => ({}),
     globalSearch: true,
     rowHeight: DEFAULT_ROW_HEIGHT,
+    showFilterButton: true,
 }

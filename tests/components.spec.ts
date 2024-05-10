@@ -96,8 +96,15 @@ const testMethod = async (page: Page, group: string, name: string, view: string)
 
     await page.waitForSelector('#preview-loader', { state: 'detached', timeout: 90000 })
 
+    // use fullscreen mode for storybook
     await page.click("button[aria-label='Shortcuts']")
     await page.click('a#list-item-F')
+
+    // close Storybook notification on bottom left side
+    const button = await page.$('a[href="/?path=/settings/whats-new"] button')
+    if (button) {
+        await button.click()
+    }
 
     // secure interval for animations
     await page.waitForTimeout(5000)

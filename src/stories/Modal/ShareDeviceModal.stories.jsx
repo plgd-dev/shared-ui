@@ -13,8 +13,8 @@ export default {
 const Template = (args) => {
     const [show, setShow] = useState(true)
     const [shared, setShared] = useState([
-        { name: 'Ondrej Tomcik', email: 'ondrej.tomcik@plgd.dev', image: 'https://placekitten.com/40/40' },
-        { name: 'Martin Maderič', email: 'mmartin.maderic@gmail.com', image: 'https://placekitten.com/40/40' },
+        { name: 'Ondrej Tomcik', email: 'ondrej.tomcik@plgd.dev', image: 'https://picsum.photos/id/338/40/40' },
+        { name: 'Martin Maderič', email: 'mmartin.maderic@gmail.com', image: 'https://picsum.photos/id/349/40/40' },
     ])
 
     return (
