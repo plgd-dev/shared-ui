@@ -54,7 +54,7 @@ const KeycloakTemplate: FC<Props> = (props) => {
                         <h1 css={styles.mainHeadline}>{headline}</h1>
                         <div css={styles.description}>{description}</div>
                         {displayMessage && message !== undefined && (message.type !== 'warning' || !isAppInitiatedAction) && (
-                            <div css={styles.message(message.type)}>
+                            <div css={(theme) => styles.message(message.type, theme)}>
                                 {/* {message.type === 'success' && <span className={clsx(props.kcFeedbackSuccessIcon)}></span>}*/}
                                 {message.type === 'warning' && <Warning height={24} width={24} />}
                                 {/* {message.type === 'error' && <span className={clsx(props.kcFeedbackErrorIcon)}></span>}*/}

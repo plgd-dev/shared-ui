@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../../../Atomic/_utils/colors'
-import { ThemeType, get } from '../../../Atomic/_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../../Atomic/_theme'
+import { fontPrimary } from '../../../Atomic/_utils/commonStyles'
 
 export const breadcrumbs = css`
     margin: 0;
@@ -11,10 +12,10 @@ export const breadcrumbs = css`
     align-items: center;
 `
 
-export const divider = css`
+export const divider = (theme: ThemeType) => css`
     display: inline-block;
     padding: 0 3px;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -24,9 +25,9 @@ export const divider = css`
     top: 1px;
 `
 
-export const item = css`
+export const item = (theme: ThemeType) => css`
     display: block;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -39,13 +40,13 @@ export const item = css`
 `
 
 export const link = (theme: ThemeType) => css`
-    color: ${get(theme, 'Breadcrumb.link.color')};
+    color: ${getThemeColor(theme, 'Breadcrumb.link.color')};
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 
     &:hover {
-        color: ${get(theme, 'Breadcrumb.link.hover.color')};
+        color: ${getThemeColor(theme, 'Breadcrumb.link.hover.color')};
     }
 `

@@ -1,5 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../../Atomic/_utils/colors'
+import { getTheme, ThemeType } from '../../Atomic/_theme'
+import { fontPrimary } from '../../Atomic/_utils/commonStyles'
 
 export const actions = css`
     padding-top: 20px;
@@ -36,7 +38,7 @@ export const formSeparatorLine = css`
     top: 50%;
 `
 
-export const formSeparatorText = css`
+export const formSeparatorText = (theme: ThemeType) => css`
     position: relative;
     z-index: 1;
     background: #fff;
@@ -45,7 +47,7 @@ export const formSeparatorText = css`
     font-size: 14px;
     line-height: 160%;
     color: #757676;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
 `
 
 export const formAltLogins = css`
@@ -58,8 +60,8 @@ export const formAltLogins = css`
     }
 `
 
-export const terms = css`
-    font-family: 'Poppins', sans-serif;
+export const terms = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

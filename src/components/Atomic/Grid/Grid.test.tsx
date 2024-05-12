@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render } from '../../../../test/jest-wrapper'
 import Row from './Row'
 import { Column } from './index'
 

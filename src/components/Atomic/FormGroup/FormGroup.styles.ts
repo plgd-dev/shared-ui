@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 
 export const formGroupMargin = css`
     margin-bottom: 20px;
@@ -17,7 +17,7 @@ export const errorMessage = (theme: ThemeType) => css`
     font-size: 12px;
     line-height: 160%;
     text-align: right;
-    color: ${get(theme, `FormGroup.error.color`)};
+    color: ${getThemeColor(theme, `FormGroup.error.color`)};
     padding-top: 4px;
 `
 

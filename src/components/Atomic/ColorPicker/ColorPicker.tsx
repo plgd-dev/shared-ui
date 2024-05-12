@@ -7,7 +7,7 @@ import isFunction from 'lodash/isFunction'
 
 import { Props, defaultProps } from './ColorPicker.types'
 import * as styles from './ColorPicker.styles'
-import { get } from '../_theme'
+import { getThemeColor } from '../_theme'
 import { rgbToHex, hexToRgbA } from '../_utils/commonStyles'
 import { colors } from '../_utils/colors'
 
@@ -95,7 +95,7 @@ const ColorPicker: FC<Props> = (props) => {
                 styles={{
                     default: {
                         body: {
-                            background: get(theme, `ColorPicker.background`),
+                            background: getThemeColor(theme, `ColorPicker.background`),
                         },
                     },
                 }}

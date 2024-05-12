@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../../../Atomic/_utils/colors'
-import { ThemeType, get } from '../../../Atomic/_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../../Atomic/_theme'
+import { fontPrimary } from '../../../Atomic/_utils/commonStyles'
 
 export const pagination = css`
     padding: 0;
@@ -13,7 +14,7 @@ export const item = (theme: ThemeType) => css`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -26,20 +27,20 @@ export const item = (theme: ThemeType) => css`
     margin: 0 2px;
 
     &:hover {
-        color: ${get(theme, `Pagination.item.hover.color`)};
+        color: ${getThemeColor(theme, `Pagination.item.hover.color`)};
         text-decoration: none !important;
     }
 `
 
 export const active = (theme: ThemeType) => css`
-    color: ${get(theme, `Pagination.item.active.color`)};
+    color: ${getThemeColor(theme, `Pagination.item.active.color`)};
     font-weight: 600;
-    background: ${get(theme, `Pagination.item.active.background`)};
+    background: ${getThemeColor(theme, `Pagination.item.active.background`)};
     border-radius: 4px;
     cursor: default;
 
     &:hover {
-        color: ${get(theme, `Pagination.item.active.hover.color`)};
+        color: ${getThemeColor(theme, `Pagination.item.active.hover.color`)};
         text-decoration: none;
     }
 `

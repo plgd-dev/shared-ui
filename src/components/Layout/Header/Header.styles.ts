@@ -1,16 +1,16 @@
 import { css } from '@emotion/react'
 import { colors } from '../../Atomic/_utils/colors'
-import { ThemeType, get } from '../../Atomic/_theme'
+import { ThemeType, getThemeColor } from '../../Atomic/_theme'
 
 export const header = (theme: ThemeType) => css`
-    background-color: ${get(theme, `Header.background`)};
+    background-color: ${getThemeColor(theme, `Header.background`)};
     height: 85px;
     padding: 20px 40px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid ${get(theme, `Header.borderBottom`)};
+    border-bottom: 1px solid ${getThemeColor(theme, `Header.borderBottom`)};
 `
 
 export const left = css`

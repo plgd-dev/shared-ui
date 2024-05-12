@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 
 export const editor = (theme: ThemeType) => css`
-    border: 1px solid ${get(theme, `CodeEditor.borderColor`)};
+    border: 1px solid ${getThemeColor(theme, `CodeEditor.borderColor`)};
     border-radius: 8px;
     overflow: hidden;
     position: relative;
@@ -14,18 +14,18 @@ export const editor = (theme: ThemeType) => css`
     }
 
     .cm-gutters {
-        background: ${get(theme, `CodeEditor.gutters.background`)};
+        background: ${getThemeColor(theme, `CodeEditor.gutters.background`)};
         border: 0;
     }
 
     .cm-lineNumbers .cm-gutterElement {
-        color: ${get(theme, `CodeEditor.color`)};
+        color: ${getThemeColor(theme, `CodeEditor.color`)};
         text-align: center;
         padding: 0 16px 0 16px;
     }
 
     .cm-gutterElement {
-        color: ${get(theme, `CodeEditor.gutters.color`)}!important;
+        color: ${getThemeColor(theme, `CodeEditor.gutters.color`)}!important;
     }
 
     .cm-content {
@@ -44,7 +44,7 @@ export const wrapper = css`
 
 export const background = (theme: ThemeType) => css`
     .cm-editor {
-        background: ${get(theme, `CodeEditor.background`)};
+        background: ${getThemeColor(theme, `CodeEditor.background`)};
     }
 `
 
@@ -55,7 +55,7 @@ export const placeholder = (theme: ThemeType) => css`
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: ${get(theme, `CodeEditor.background`)};
+    background-color: ${getThemeColor(theme, `CodeEditor.background`)};
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -78,7 +78,7 @@ export const noPlaceholder = css`
 `
 
 export const placeholderText = (theme: ThemeType) => css`
-    color: ${get(theme, `CodeEditor.placeholder.color`)};
+    color: ${getThemeColor(theme, `CodeEditor.placeholder.color`)};
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;

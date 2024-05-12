@@ -29,6 +29,10 @@ exports[`<Switch> render correctly - snapshot 1`] = `
   height: 0;
 }
 
+.emotion-2:checked~.emotion-4 {
+  background: #2261AE;
+}
+
 .emotion-2:checked~.emotion-4:before {
   -webkit-transform: translateX(8px);
   -moz-transform: translateX(8px);
@@ -43,6 +47,7 @@ exports[`<Switch> render correctly - snapshot 1`] = `
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: #D7D8DA;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   width: 24px;
@@ -85,6 +90,10 @@ exports[`<Switch> render correctly - snapshot 1`] = `
   height: 0;
 }
 
+.emotion-7:checked~.emotion-4 {
+  background: #2261AE;
+}
+
 .emotion-7:checked~.emotion-4:before {
   -webkit-transform: translateX(12px);
   -moz-transform: translateX(12px);
@@ -99,6 +108,7 @@ exports[`<Switch> render correctly - snapshot 1`] = `
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: #D7D8DA;
   -webkit-transition: 0.4s;
   transition: 0.4s;
   width: 32px;
@@ -127,6 +137,7 @@ exports[`<Switch> render correctly - snapshot 1`] = `
 
 .emotion-25 {
   font-size: 14px;
+  color: #252626;
   padding-left: 8px;
   cursor: pointer;
   line-height: 18px;

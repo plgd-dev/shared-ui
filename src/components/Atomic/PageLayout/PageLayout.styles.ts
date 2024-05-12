@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 
 export const pageLayout = css`
     height: 100%;
@@ -36,7 +36,7 @@ export const headerBorder = (theme: ThemeType) => css`
         bottom: 0;
         width: calc(100% - 80px);
         height: 1px;
-        background: ${get(theme, 'PageLayout.headline.border.color')};
+        background: ${getThemeColor(theme, 'PageLayout.headline.border.color')};
     }
 `
 
@@ -58,7 +58,7 @@ export const left = css`
 `
 
 export const headline = (theme: ThemeType) => css`
-    color: ${get(theme, 'PageLayout.headline.color')};
+    color: ${getThemeColor(theme, 'PageLayout.headline.color')};
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 400px;

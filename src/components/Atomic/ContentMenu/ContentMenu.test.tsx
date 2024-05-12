@@ -1,4 +1,6 @@
-import { render, fireEvent, waitFor } from '@testing-library/react'
+import { fireEvent, waitFor } from '@testing-library/react'
+
+import { render } from '../../../../test/jest-wrapper'
 import ContentMenu from './ContentMenu'
 
 describe('<ContentMenu>', () => {

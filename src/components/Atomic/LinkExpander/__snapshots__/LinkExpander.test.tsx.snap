@@ -3,7 +3,8 @@
 exports[`<LinkExpander> renders without crashing 1`] = `
 <DocumentFragment>
   .emotion-0 {
-  border-bottom: 2px solid;
+  color: #2261AE;
+  border-bottom: 2px solid #2261AE;
   -webkit-text-decoration: none!important;
   text-decoration: none!important;
   -webkit-transition: all 0.25s;

@@ -1,20 +1,21 @@
 import { css } from '@emotion/react'
 import { colors } from '../../_utils/colors'
-import { ThemeType, get } from '../../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../_theme'
+import { fontPrimary } from '../../_utils/commonStyles'
 
 export const strippedLine = (theme: ThemeType) => css`
     padding: 16px 0;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid ${get(theme, `ModalStrippedLine.strippedLine.borderColor`)};
+    border-bottom: 1px solid ${getThemeColor(theme, `ModalStrippedLine.strippedLine.borderColor`)};
 `
 
 export const smallPadding = css`
     padding: 9px 0;
 `
 
-export const label = css`
-    font-family: 'Poppins', sans-serif;
+export const label = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -23,11 +24,11 @@ export const label = css`
 `
 
 export const component = (theme: ThemeType) => css`
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
     text-align: right;
-    color: ${get(theme, `ModalStrippedLine.value.color`)};
+    color: ${getThemeColor(theme, `ModalStrippedLine.value.color`)};
 `

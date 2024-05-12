@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
-import get from 'lodash/get'
-import { ThemeType, get as getTheme } from '../../Atomic/_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../Atomic/_theme'
+import { fontPrimary, fontSecondary } from '../../Atomic/_utils/commonStyles'
 
 export const description = (theme: ThemeType) => css`
-    font-family: ${get(theme, `Global.fontPrimary`)};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
-    color: ${getTheme(theme, `FullPageWizard.description.color`)};
+    color: ${getThemeColor(theme, `FullPageWizard.description.color`)};
     margin: 0 0 32px 0;
 `
 
@@ -17,14 +17,14 @@ export const descriptionLarge = css`
 `
 
 export const subHeadline = (theme: ThemeType) => css`
-    font-family: ${get(theme, `Global.fontSecondary`)};
-    color: ${getTheme(theme, `FullPageWizard.subHeadline.color`)};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
+    color: ${getThemeColor(theme, `FullPageWizard.subHeadline.color`)};
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: 30px;
     letter-spacing: -0.5px;
-    border-top: 1px solid ${getTheme(theme, `FullPageWizard.subHeadline.borderColor`)};
+    border-top: 1px solid ${getThemeColor(theme, `FullPageWizard.subHeadline.borderColor`)};
     padding-top: 32px;
     margin: 0 0 4px 0;
 `
@@ -34,8 +34,8 @@ export const noBorder = css`
 `
 
 export const headline = (theme: ThemeType) => css`
-    font-family: ${get(theme, `Global.fontSecondary`)};
-    color: ${getTheme(theme, `FullPageWizard.headline.color`)};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
+    color: ${getThemeColor(theme, `FullPageWizard.headline.color`)};
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
@@ -45,8 +45,8 @@ export const headline = (theme: ThemeType) => css`
 `
 
 export const groupHeadline = (theme: ThemeType) => css`
-    font-family: ${get(theme, `Global.fontSecondary`)};
-    color: ${getTheme(theme, `FullPageWizard.groupHeadline.color`)};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
+    color: ${getThemeColor(theme, `FullPageWizard.groupHeadline.color`)};
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -68,12 +68,12 @@ export const expander = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     gap: 4px;
-    color: ${getTheme(theme, `FullPageWizard.expander.color`)};
+    color: ${getThemeColor(theme, `FullPageWizard.expander.color`)};
     cursor: pointer;
     transition: color 0.3s;
 
     &:hover {
-        color: ${getTheme(theme, `FullPageWizard.expander.hover.color`)};
+        color: ${getThemeColor(theme, `FullPageWizard.expander.hover.color`)};
     }
 `
 

@@ -1,33 +1,34 @@
 import { css } from '@emotion/react'
 import { TagTypeType } from './StatusTag.types'
 import { tagVariants } from './constants'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 const getColorByVariant = (theme: ThemeType, variant: TagTypeType) => {
     if (variant === tagVariants.SUCCESS) {
         return css`
-            color: ${get(theme, 'StatusTag.success.color')};
-            background: ${get(theme, 'StatusTag.success.background')};
+            color: ${getThemeColor(theme, 'StatusTag.success.color')};
+            background: ${getThemeColor(theme, 'StatusTag.success.background')};
         `
     } else if (variant === tagVariants.WARNING) {
         return css`
-            color: ${get(theme, 'StatusTag.warning.color')};
-            background: ${get(theme, 'StatusTag.warning.background')};
+            color: ${getThemeColor(theme, 'StatusTag.warning.color')};
+            background: ${getThemeColor(theme, 'StatusTag.warning.background')};
         `
     } else if (variant === tagVariants.ERROR) {
         return css`
-            color: ${get(theme, 'StatusTag.error.color')};
-            background: ${get(theme, 'StatusTag.error.background')};
+            color: ${getThemeColor(theme, 'StatusTag.error.color')};
+            background: ${getThemeColor(theme, 'StatusTag.error.background')};
         `
     } else if (variant === tagVariants.NORMAL) {
         return css`
-            color: ${get(theme, 'StatusTag.normal.color')};
-            background: ${get(theme, 'StatusTag.normal.background')};
+            color: ${getThemeColor(theme, 'StatusTag.normal.color')};
+            background: ${getThemeColor(theme, 'StatusTag.normal.background')};
         `
     } else if (variant === tagVariants.INFO) {
         return css`
-            color: ${get(theme, 'StatusTag.info.color')};
-            background: ${get(theme, 'StatusTag.info.background')};
+            color: ${getThemeColor(theme, 'StatusTag.info.color')};
+            background: ${getThemeColor(theme, 'StatusTag.info.background')};
         `
     }
 }
@@ -40,7 +41,7 @@ export const tag = (theme: ThemeType, variant: TagTypeType) => css`
     gap: 10px;
     border-radius: 44px;
     ${getColorByVariant(theme, variant)};
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;

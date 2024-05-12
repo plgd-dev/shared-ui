@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const versionMark = css`
     display: flex;
@@ -16,8 +17,8 @@ export const right = css`
     padding-left: 12px;
 `
 
-export const versionText = css`
-    font-family: 'Poppins', sans-serif;
+export const versionText = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -27,9 +28,9 @@ export const versionText = css`
 `
 
 export const updateText = (theme: ThemeType) => css`
-    color: ${get(theme, `VersionMark.link.color`)};
+    color: ${getThemeColor(theme, `VersionMark.link.color`)};
     text-decoration: underline;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 300;
     font-size: 12px;

@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../../../Atomic/_utils/colors'
-import { ThemeType, get } from '../../../Atomic/_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../../Atomic/_theme'
+import { fontPrimary } from '../../../Atomic/_utils/commonStyles'
 
 export const widgetReference = css`
     display: flex;
@@ -28,16 +29,16 @@ export const icon = css`
 `
 
 export const name = (theme: ThemeType) => css`
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 160%;
-    color: ${get(theme, `UserWidget.name.color`)};
+    color: ${getThemeColor(theme, `UserWidget.name.color`)};
 `
 
-export const description = css`
-    font-family: 'Poppins', sans-serif;
+export const description = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -59,7 +60,7 @@ export const image = (theme: ThemeType) => css`
     }
 
     .sb-avatar__text {
-        background: ${get(theme, `UserWidget.image.background`)} !important;
+        background: ${getThemeColor(theme, `UserWidget.image.background`)} !important;
     }
 `
 
@@ -68,29 +69,29 @@ export const logoutIcon = (theme: ThemeType) => css`
     align-self: center;
     margin-left: 36px;
 
-    color: ${get(theme, `UserWidget.logout.color`)};
+    color: ${getThemeColor(theme, `UserWidget.logout.color`)};
     cursor: pointer;
     transition: all 0.3s;
 
     &:hover {
-        color: ${get(theme, `UserWidget.logout.hover.color`)};
+        color: ${getThemeColor(theme, `UserWidget.logout.hover.color`)};
     }
 `
 
 export const logoutIconBtn = (theme: ThemeType) => css`
-    color: ${get(theme, `UserWidget.logout.color`)};
+    color: ${getThemeColor(theme, `UserWidget.logout.color`)};
     cursor: pointer;
     transition: all 0.3s;
 
     &:hover {
-        color: ${get(theme, `UserWidget.logout.hover.color`)};
+        color: ${getThemeColor(theme, `UserWidget.logout.hover.color`)};
     }
 `
 
 export const floatingMenu = (theme: ThemeType) => css`
     z-index: 10;
-    background: ${get(theme, `UserWidget.floatingMenu.background`)};
-    border: 1px solid ${get(theme, `UserWidget.floatingMenu.border`)};
+    background: ${getThemeColor(theme, `UserWidget.floatingMenu.background`)};
+    border: 1px solid ${getThemeColor(theme, `UserWidget.floatingMenu.border`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     padding: 10px 20px;
@@ -107,6 +108,6 @@ export const item = (theme: ThemeType) => css`
     cursor: pointer;
 
     &:hover {
-        color: ${get(theme, `UserWidget.floatingMenu.item.hover.color`)};
+        color: ${getThemeColor(theme, `UserWidget.floatingMenu.item.hover.color`)};
     }
 `

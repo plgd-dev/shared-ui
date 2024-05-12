@@ -1,7 +1,8 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { colors } from '../_utils/colors'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const tableComponent = css`
     //height: 100%;
@@ -41,7 +42,7 @@ export const headerTh = css`
 `
 
 export const headerTitle = styled.span`
-    font-family: 'Poppins', sans-serif;
+    font-family: ${(theme) => getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -54,13 +55,13 @@ export const headerTitle = styled.span`
 export const headerItem = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
-    background: ${get(theme, `Table.headerItem.background`)};
+    background: ${getThemeColor(theme, `Table.headerItem.background`)};
     height: 50px;
     padding: 0 8px;
 
     &:hover {
         ${headerTitle} {
-            color: ${get(theme, `Table.headerItem.hover.color`)};
+            color: ${getThemeColor(theme, `Table.headerItem.hover.color`)};
         }
     }
 `
@@ -92,7 +93,7 @@ export const sortArrow = css`
 `
 
 export const sortActive = (theme: ThemeType) => css`
-    color: ${get(theme, `Table.sortActive.color`)};
+    color: ${getThemeColor(theme, `Table.sortActive.color`)};
 `
 
 const getRowHeight = (props: { rowHeight: number }) => css`
@@ -106,7 +107,7 @@ export const cell = styled.div`
     position: relative;
     padding: 0 8px;
     transition: all 0.25s;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${(theme) => getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -123,11 +124,11 @@ export const cell = styled.div`
         right: 0;
         position: absolute;
         transition: all 0.25s;
-        background-color: ${(props) => get(props.theme, `Table.cell.before.background`)};
+        background-color: ${(props) => getThemeColor(props.theme, `Table.cell.before.background`)};
     }
 
     a {
-        color: ${(props) => get(props.theme, `Table.cell.a.color`)};
+        color: ${(props) => getThemeColor(props.theme, `Table.cell.a.color`)};
 
         &:hover {
             text-decoration: none;
@@ -135,7 +136,7 @@ export const cell = styled.div`
     }
 
     .link {
-        color: ${(props) => get(props.theme, `Table.cell.link.color`)};
+        color: ${(props) => getThemeColor(props.theme, `Table.cell.link.color`)};
     }
 
     .no-wrap-text {
@@ -178,10 +179,10 @@ export const lastCell = css`
 export const row = (theme: ThemeType) => css`
     &:hover {
         ${cell} {
-            background-color: ${get(theme, `Table.row.background`)};
+            background-color: ${getThemeColor(theme, `Table.row.background`)};
 
             &:before {
-                background-color: ${get(theme, `Table.row.selected.cell.before.background`)};
+                background-color: ${getThemeColor(theme, `Table.row.selected.cell.before.background`)};
             }
         }
     }
@@ -190,10 +191,10 @@ export const row = (theme: ThemeType) => css`
 // @ts-ignore
 export const isSelected = (theme: ThemeType) => css`
     ${cell} {
-        background-color: ${get(theme, `Table.selected.background`)};
+        background-color: ${getThemeColor(theme, `Table.selected.background`)};
 
         &:before {
-            background-color: ${get(theme, `Table.row.selected.cell.before.background`)};
+            background-color: ${getThemeColor(theme, `Table.row.selected.cell.before.background`)};
         }
     }
 `

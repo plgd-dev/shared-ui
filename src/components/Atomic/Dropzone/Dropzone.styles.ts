@@ -1,10 +1,10 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 
 export const dropzoneContainer = (theme: ThemeType) => css`
     padding: 32px;
-    border: 1px dashed ${get(theme, `Dropzone.container.borderColor`)};
-    background: ${get(theme, `Dropzone.container.background`)};
+    border: 1px dashed ${getThemeColor(theme, `Dropzone.container.borderColor`)};
+    background: ${getThemeColor(theme, `Dropzone.container.background`)};
     border-radius: 8px;
     cursor: pointer;
 `
@@ -17,25 +17,25 @@ export const placeholder = (theme: ThemeType) => css`
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: ${get(theme, `Dropzone.placeholder.color`)};
+    color: ${getThemeColor(theme, `Dropzone.placeholder.color`)};
 `
 
 export const placeholderText = (theme: ThemeType) => css`
-    color: ${get(theme, `Dropzone.placeholder.text.color`)};
+    color: ${getThemeColor(theme, `Dropzone.placeholder.text.color`)};
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
     margin: 12px 0 0 0;
 
     span {
-        color: ${get(theme, `Dropzone.placeholder.highlight.color`)};
+        color: ${getThemeColor(theme, `Dropzone.placeholder.highlight.color`)};
         text-decoration: underline;
         cursor: pointer;
     }
 `
 
 export const placeholderDescription = (theme: ThemeType) => css`
-    color: ${get(theme, `Dropzone.placeholder.description.color`)};
+    color: ${getThemeColor(theme, `Dropzone.placeholder.description.color`)};
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
@@ -68,7 +68,7 @@ export const fileLine = css`
 `
 
 export const fileName = (theme: ThemeType) => css`
-    color: ${get(theme, `Dropzone.file.color`)};
+    color: ${getThemeColor(theme, `Dropzone.file.color`)};
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
@@ -76,11 +76,11 @@ export const fileName = (theme: ThemeType) => css`
 
 export const closeIcon = (theme: ThemeType) => css`
     cursor: pointer;
-    color: ${get(theme, `Dropzone.file.close.color`)};
+    color: ${getThemeColor(theme, `Dropzone.file.close.color`)};
 `
 
 export const fileSize = (theme: ThemeType) => css`
-    color: ${get(theme, `Dropzone.file.size.color`)};
+    color: ${getThemeColor(theme, `Dropzone.file.size.color`)};
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
@@ -88,7 +88,7 @@ export const fileSize = (theme: ThemeType) => css`
 
 export const progressBar = (theme: ThemeType) => css`
     margin-top: 8px;
-    background: ${get(theme, `Dropzone.file.progressBar.background`)};
+    background: ${getThemeColor(theme, `Dropzone.file.progressBar.background`)};
     height: 4px;
     border-radius: 52px;
 `
@@ -98,5 +98,5 @@ export const fileRejections = css`
 `
 
 export const rejectedFile = (theme: ThemeType) => css`
-    color: ${get(theme, `Dropzone.rejectedFile.color`)};
+    color: ${getThemeColor(theme, `Dropzone.rejectedFile.color`)};
 `

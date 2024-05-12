@@ -3,6 +3,7 @@
 exports[`DetailHeadline component renders without crashing 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  color: #0A2965;
   font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 600;

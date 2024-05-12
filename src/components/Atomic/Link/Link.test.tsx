@@ -1,7 +1,9 @@
 import React from 'react'
-import { fireEvent, render } from '@testing-library/react'
-import Link from './Link'
+import { fireEvent } from '@testing-library/react'
 import { forEach } from 'lodash'
+
+import { render } from '../../../../test/jest-wrapper'
+import Link from './Link'
 
 describe('<Headline>', () => {
     it('render correctly - snapshot', () => {

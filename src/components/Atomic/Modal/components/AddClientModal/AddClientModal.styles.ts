@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
 import { fontPrimary, fontSecondary } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
-import { get, ThemeType } from '../../../_theme'
+import { getTheme, getThemeColor, ThemeType } from '../../../_theme'
 
 export const getCodeBox = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: ${get(theme, `AddClientModal.box.color`)};
+    background: ${getThemeColor(theme, `AddClientModal.box.color`)};
     border-radius: 8px;
 `
 
@@ -24,8 +24,8 @@ export const codeInfoHeader = css`
     margin: 0 0 16px 0;
 `
 
-export const title = css`
-    font-family: ${fontSecondary};
+export const title = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -51,8 +51,8 @@ export const line = css`
     }
 `
 
-export const attribute = css`
-    font-family: ${fontPrimary};
+export const attribute = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -62,8 +62,8 @@ export const attribute = css`
     text-align: left;
 `
 
-export const value = css`
-    font-family: ${fontSecondary};
+export const value = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

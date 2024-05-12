@@ -55,13 +55,21 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   white-space: nowrap;
   box-sizing: border-box;
   cursor: pointer;
-  border: 1px solid;
+  background: #2261AE;
+  border: 1px solid #2261AE;
+  color: #FFFFFF;
   padding: 10px 24px;
   font-size: 14px;
   line-height: 16px;
   height: 48px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.emotion-1:hover {
+  background: #1D589F;
+  border-color: #1D589F;
+  color: #FFFFFF;
 }
 
 .emotion-2 {
@@ -87,7 +95,9 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   white-space: nowrap;
   box-sizing: border-box;
   cursor: pointer;
-  border: 1px solid;
+  background: #2261AE;
+  border: 1px solid #2261AE;
+  color: #FFFFFF;
   padding: 10px 24px;
   font-size: 14px;
   line-height: 16px;
@@ -96,6 +106,94 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   border-bottom-left-radius: 0;
   border-left: 0;
   padding: 14px;
+}
+
+.emotion-2:hover {
+  background: #1D589F;
+  border-color: #1D589F;
+  color: #FFFFFF;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #0A2965;
+  color: #0A2965;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.emotion-4:hover {
+  background: #0A2965;
+  border-color: #0A2965;
+  color: #FFFFFF;
+}
+
+.emotion-5 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #0A2965;
+  color: #0A2965;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+  padding: 14px;
+}
+
+.emotion-5:hover {
+  background: #0A2965;
+  border-color: #0A2965;
+  color: #FFFFFF;
 }
 
 .emotion-7 {
@@ -121,8 +219,12 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   white-space: nowrap;
   box-sizing: border-box;
   cursor: pointer;
-  border: 1px solid;
-  border: 1px solid;
+  background: #2261AE;
+  border: 1px solid #2261AE;
+  color: #FFFFFF;
+  background: #D7D8DA;
+  border: 1px solid #D7D8DA;
+  color: #FFFFFF;
   cursor: not-allowed!important;
   padding: 10px 24px;
   font-size: 14px;
@@ -130,6 +232,18 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   height: 48px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.emotion-7:hover {
+  background: #1D589F;
+  border-color: #1D589F;
+  color: #FFFFFF;
+}
+
+.emotion-7:hover {
+  background: #D7D8DA;
+  border-color: #D7D8DA;
+  color: #FFFFFF;
 }
 
 .emotion-8 {
@@ -155,8 +269,12 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   white-space: nowrap;
   box-sizing: border-box;
   cursor: pointer;
-  border: 1px solid;
-  border: 1px solid;
+  background: #2261AE;
+  border: 1px solid #2261AE;
+  color: #FFFFFF;
+  background: #D7D8DA;
+  border: 1px solid #D7D8DA;
+  color: #FFFFFF;
   cursor: not-allowed!important;
   padding: 10px 24px;
   font-size: 14px;
@@ -166,6 +284,120 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   border-bottom-left-radius: 0;
   border-left: 0;
   padding: 14px;
+}
+
+.emotion-8:hover {
+  background: #1D589F;
+  border-color: #1D589F;
+  color: #FFFFFF;
+}
+
+.emotion-8:hover {
+  background: #D7D8DA;
+  border-color: #D7D8DA;
+  color: #FFFFFF;
+}
+
+.emotion-10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #0A2965;
+  color: #0A2965;
+  background: #ffffff;
+  border: 1px solid #D7D8DA;
+  color: #D7D8DA;
+  cursor: not-allowed!important;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.emotion-10:hover {
+  background: #0A2965;
+  border-color: #0A2965;
+  color: #FFFFFF;
+}
+
+.emotion-10:hover {
+  background: #ffffff;
+  border-color: #D7D8DA;
+  color: #D7D8DA;
+}
+
+.emotion-11 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #0A2965;
+  color: #0A2965;
+  background: #ffffff;
+  border: 1px solid #D7D8DA;
+  color: #D7D8DA;
+  cursor: not-allowed!important;
+  padding: 10px 24px;
+  font-size: 14px;
+  line-height: 16px;
+  height: 48px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+  padding: 14px;
+}
+
+.emotion-11:hover {
+  background: #0A2965;
+  border-color: #0A2965;
+  color: #FFFFFF;
+}
+
+.emotion-11:hover {
+  background: #ffffff;
+  border-color: #D7D8DA;
+  color: #D7D8DA;
 }
 
 .emotion-14 {
@@ -259,14 +491,14 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
         class="emotion-0"
       >
         <button
-          class="emotion-1"
+          class="emotion-4"
           tabindex="1"
           type="submit"
         >
           Secondary
         </button>
         <button
-          class="emotion-2"
+          class="emotion-5"
           tabindex="1"
           type="submit"
         >
@@ -329,14 +561,14 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
         class="emotion-0"
       >
         <button
-          class="emotion-7"
+          class="emotion-10"
           tabindex="1"
           type="submit"
         >
           Secondary
         </button>
         <button
-          class="emotion-8"
+          class="emotion-11"
           tabindex="1"
           type="submit"
         >
@@ -415,7 +647,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
         class="emotion-0"
       >
         <button
-          class="emotion-1"
+          class="emotion-4"
           tabindex="1"
           type="submit"
         >
@@ -438,7 +670,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           Secondary
         </button>
         <button
-          class="emotion-2"
+          class="emotion-5"
           tabindex="1"
           type="submit"
         >
@@ -518,7 +750,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
         class="emotion-0"
       >
         <button
-          class="emotion-1"
+          class="emotion-4"
           tabindex="1"
           type="submit"
         >
@@ -542,7 +774,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
           Secondary
         </button>
         <button
-          class="emotion-2"
+          class="emotion-5"
           tabindex="1"
           type="submit"
         >

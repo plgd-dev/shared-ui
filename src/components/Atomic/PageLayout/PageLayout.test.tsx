@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render } from '../../../../test/jest-wrapper'
 import PageLayout from './PageLayout'
 import Footer from '../../Layout/Footer'
 

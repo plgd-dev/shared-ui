@@ -1,11 +1,11 @@
 import { css } from '@emotion/react'
 import { colors } from '../../Atomic/_utils/colors'
 import { fontPrimary } from '../../Atomic/_utils/commonStyles'
-import { ThemeType, get } from '../../Atomic/_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../Atomic/_theme'
 
 export const footer = (theme: ThemeType) => css`
-    border-top: 1px solid ${get(theme, `Footer.borderTop`)};
-    background: ${get(theme, `Footer.background`)};
+    border-top: 1px solid ${getThemeColor(theme, `Footer.borderTop`)};
+    background: ${getThemeColor(theme, `Footer.background`)};
     padding: 0 40px;
     box-sizing: border-box;
     flex-shrink: 0;
@@ -26,17 +26,17 @@ export const footerMainLine = (theme: ThemeType) => css`
     padding: 16px 40px;
     min-height: 64px;
     margin: 0 -40px;
-    background-color: ${get(theme, `Footer.footerMainLine.background`)};
+    background-color: ${getThemeColor(theme, `Footer.footerMainLine.background`)};
 `
 
 export const recentTasks = (theme: ThemeType) => css`
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
     text-align: center;
-    color: ${get(theme, `Footer.recentTasks.color`)};
+    color: ${getThemeColor(theme, `Footer.recentTasks.color`)};
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@ export const recentTasks = (theme: ThemeType) => css`
     transition: all 0.25s;
 
     &:hover {
-        color: ${get(theme, `Footer.recentTasks.hover.color`)};
+        color: ${getThemeColor(theme, `Footer.recentTasks.hover.color`)};
     }
 `
 

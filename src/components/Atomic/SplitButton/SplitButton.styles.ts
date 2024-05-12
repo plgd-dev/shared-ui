@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 
 export const splitButton = css`
     display: flex;
@@ -20,8 +20,8 @@ export const rightButton = css`
 
 export const floatingMenu = (theme: ThemeType) => css`
     z-index: 10;
-    background: ${get(theme, `SplitButton.floatingMenu.background`)};
-    border: 1px solid ${get(theme, `SplitButton.floatingMenu.borderColor`)};
+    background: ${getThemeColor(theme, `SplitButton.floatingMenu.background`)};
+    border: 1px solid ${getThemeColor(theme, `SplitButton.floatingMenu.borderColor`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     padding: 10px 20px;
@@ -38,7 +38,7 @@ export const item = (theme: ThemeType) => css`
     cursor: pointer;
 
     &:hover {
-        color: ${get(theme, `SplitButton.item.hover.color`)};
+        color: ${getThemeColor(theme, `SplitButton.item.hover.color`)};
     }
 `
 

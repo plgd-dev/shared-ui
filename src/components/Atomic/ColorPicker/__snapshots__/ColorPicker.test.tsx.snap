@@ -12,9 +12,10 @@ exports[`<ColorPicker> renders without crashing 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 4px;
+  background: #FFFFFF;
   border-radius: 8px;
   cursor: pointer;
-  border: 1px solid;
+  border: 1px solid #E6E9ED;
   width: 115px;
 }
 
@@ -28,6 +29,7 @@ exports[`<ColorPicker> renders without crashing 1`] = `
   font-size: 12px;
   display: block;
   padding: 0 8px;
+  color: #81868C;
 }
 
 <div>

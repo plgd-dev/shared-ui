@@ -2,7 +2,8 @@ import { css } from '@emotion/react'
 import { SwitcherSizeType } from './Switch.types'
 import { colors } from '../_utils/colors'
 import styled from '@emotion/styled'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const switchC = css`
     display: inline-flex;
@@ -33,7 +34,7 @@ export const slider = styled.span`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: ${(props) => get(props.theme, `Switch.background`)};
+    background-color: ${(props) => getThemeColor(props.theme, `Switch.background`)};
     transition: 0.4s;
 
     &:before {
@@ -56,7 +57,7 @@ export const input = (theme: ThemeType, size: SwitcherSizeType, disabled: boolea
     height: 0;
 
     &:checked ~ ${slider} {
-        background: ${disabled ? get(theme, 'Switch.input.background.disabled') : get(theme, 'Switch.input.background.primary')};
+        background: ${disabled ? getThemeColor(theme, 'Switch.input.background.disabled') : getThemeColor(theme, 'Switch.input.background.primary')};
 
         &:before {
             transform: translateX(${size === 'big' ? '12px' : '8px'});
@@ -81,11 +82,11 @@ export const sliderStyle = (size: SwitcherSizeType) => css`
 
 export const label = (theme: ThemeType) => css`
     font-size: 14px;
-    color: ${get(theme, `Switch.label.color`)};
+    color: ${getThemeColor(theme, `Switch.label.color`)};
     padding-left: 8px;
     cursor: pointer;
     line-height: 18px;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
 `

@@ -7,35 +7,48 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  border: 1px solid;
+  border: 1px solid #D7D8DA;
   border-radius: 8px;
   display: block;
   width: 100%;
   padding: 0 16px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
+  color: #252626;
   box-sizing: border-box;
   height: 44px;
 }
 
 .emotion-0::-webkit-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-0::-moz-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-0:-ms-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-0::placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
+.emotion-0:-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-0::-ms-input-placeholder {
+  color: #81868C;
+}
+
 .emotion-0:focus {
-  border-color: !important;
+  border-color: #2261AE!important;
   outline: none;
 }
 
@@ -59,36 +72,52 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  border: 1px solid;
+  border: 1px solid #D7D8DA;
   border-radius: 8px;
   display: block;
   width: 100%;
   padding: 0 16px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
+  color: #252626;
   box-sizing: border-box;
+  background: #F6F7F9;
+  color: #757676;
+  border-color: #D7D8DA;
   cursor: not-allowed;
   height: 44px;
 }
 
 .emotion-2::-webkit-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-2::-moz-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-2:-ms-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-2::placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
+.emotion-2:-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-2::-ms-input-placeholder {
+  color: #81868C;
+}
+
 .emotion-2:focus {
-  border-color: !important;
+  border-color: #2261AE!important;
   outline: none;
 }
 
@@ -112,32 +141,45 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  border: 1px solid;
+  border: 1px solid #D7D8DA;
   border-radius: 8px;
   display: block;
   width: 100%;
   padding: 0 16px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
+  color: #252626;
   box-sizing: border-box;
-  border-color: !important;
+  border-color: #D74E3A!important;
   height: 44px;
 }
 
 .emotion-3::-webkit-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-3::-moz-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-3:-ms-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-3::placeholder {
+  color: #81868C;
   opacity: 1;
+}
+
+.emotion-3:-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-3::-ms-input-placeholder {
+  color: #81868C;
 }
 
 .emotion-3:focus {
@@ -170,36 +212,49 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  border: 1px solid;
+  border: 1px solid #D7D8DA;
   border-radius: 8px;
   display: block;
   width: 100%;
   padding: 0 16px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
+  color: #252626;
   box-sizing: border-box;
   padding-right: 48px;
   height: 44px;
 }
 
 .emotion-5::-webkit-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-5::-moz-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-5:-ms-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-5::placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
+.emotion-5:-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-5::-ms-input-placeholder {
+  color: #81868C;
+}
+
 .emotion-5:focus {
-  border-color: !important;
+  border-color: #2261AE!important;
   outline: none;
 }
 
@@ -219,6 +274,7 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
 }
 
 .emotion-6 {
+  color: #81868C;
   cursor: pointer;
   -webkit-transition: all 0.25ms;
   transition: all 0.25ms;
@@ -244,6 +300,10 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   z-index: 2;
+}
+
+.emotion-6:hover {
+  color: #007BBF;
 }
 
 .emotion-6 svg {
@@ -252,6 +312,7 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
 }
 
 .emotion-9 {
+  color: #81868C;
   cursor: pointer;
   -webkit-transition: all 0.25ms;
   transition: all 0.25ms;
@@ -277,6 +338,10 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   -webkit-justify-content: center;
   justify-content: center;
   z-index: 2;
+}
+
+.emotion-9:hover {
+  color: #007BBF;
 }
 
 .emotion-9 svg {
@@ -289,7 +354,7 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   left: 12px;
   top: 12px;
   height: 24px;
-  border-right: 1px solid;
+  border-right: 1px solid #D7D8DA;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -305,6 +370,7 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
+  color: #252626;
   padding: 0 10px 0 8px;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -317,36 +383,49 @@ exports[`<FormInput> render correctly - snapshot 1`] = `
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  border: 1px solid;
+  border: 1px solid #D7D8DA;
   border-radius: 8px;
   display: block;
   width: 100%;
   padding: 0 16px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
+  color: #252626;
   box-sizing: border-box;
   padding-left: 100px;
   height: 44px;
 }
 
 .emotion-16::-webkit-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-16::-moz-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-16:-ms-input-placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
 .emotion-16::placeholder {
+  color: #81868C;
   opacity: 1;
 }
 
+.emotion-16:-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-16::-ms-input-placeholder {
+  color: #81868C;
+}
+
 .emotion-16:focus {
-  border-color: !important;
+  border-color: #2261AE!important;
   outline: none;
 }
 

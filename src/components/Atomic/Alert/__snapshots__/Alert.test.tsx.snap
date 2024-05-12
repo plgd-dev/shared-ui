@@ -6,8 +6,9 @@ exports[`<Alert> snapshot 1`] = `
   display: inline-grid;
   padding: 12px 20px;
   border-radius: 8px;
+  background: #FFFFFF;
   box-shadow: 0 30px 40px 0 rgba(28, 52, 99, 0.1);
-  border: 1px solid;
+  border: 1px solid #E6E9ED;
   position: relative;
   overflow: hidden;
   grid: auto/auto auto auto;
@@ -22,18 +23,21 @@ exports[`<Alert> snapshot 1`] = `
   bottom: 0;
   width: 4px;
   height: 100%;
+  background: #0A2965;
 }
 
 .emotion-1 {
   -webkit-flex: 0 0 24px;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
+  color: #0A2965;
   position: relative;
   top: 2px;
 }
 
 .emotion-2 {
   padding-left: 12px;
+  color: #757676;
   line-height: 18px;
   display: -webkit-box;
   display: -webkit-flex;
@@ -51,11 +55,16 @@ exports[`<Alert> snapshot 1`] = `
   flex: 0 0 32px;
   width: 32px;
   padding-left: 12px;
+  color: #81868C;
   cursor: pointer;
   position: relative;
   top: 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+}
+
+.emotion-3:hover {
+  color: #2261AE;
 }
 
 <div

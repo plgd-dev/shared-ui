@@ -10,7 +10,7 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
 .emotion-1 {
   display: block;
   position: relative;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #E6E9ED;
 }
 
 .emotion-2 {
@@ -56,9 +56,11 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  color: #0A2965;
 }
 
 .emotion-2:hover {
+  color: #2261AE;
   background: transparent;
 }
 
@@ -112,6 +114,7 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
 }
 
 .emotion-3:hover {
+  color: #2261AE;
   background: transparent;
 }
 

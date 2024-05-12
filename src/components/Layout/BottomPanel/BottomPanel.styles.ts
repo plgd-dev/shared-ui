@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { COLLAPSE_ANIMATION_TIME } from '../constants'
 import { panelSizes } from '../LeftPanel/constants'
-import { ThemeType, get } from '../../Atomic/_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../Atomic/_theme'
 import { fontPrimary } from '../../Atomic/_utils/commonStyles'
 
 export const selectionPanel = css`
@@ -31,7 +31,7 @@ export const inner = (theme: ThemeType) => css`
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background: ${get(theme, `BottomPanel.background`)};
+    background: ${getThemeColor(theme, `BottomPanel.background`)};
     box-shadow: 0 -30px 20px rgba(28, 52, 99, 0.05);
     transition: all 0.35s;
 `
@@ -42,23 +42,23 @@ export const left = css`
 `
 
 export const label = (theme: ThemeType) => css`
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: ${get(theme, `BottomPanel.value.color`)};
+    color: ${getThemeColor(theme, `BottomPanel.value.color`)};
 `
 
 export const selectionInfo = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    color: ${get(theme, `BottomPanel.value.color`)};
+    color: ${getThemeColor(theme, `BottomPanel.value.color`)};
 `
 
 export const right = css`

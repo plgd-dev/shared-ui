@@ -1,6 +1,7 @@
-import { render, fireEvent } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
 import { forEach } from 'lodash'
 
+import { render } from '../../../../test/jest-wrapper'
 import CopyIcon from './CopyIcon'
 
 describe('CopyIcon', () => {

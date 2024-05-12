@@ -4,7 +4,7 @@ exports[`<ConditionalWrapper> render correctly - snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
   padding: 32px;
-  border: 1px dashed;
+  border: 1px dashed #D7D8DA;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -21,9 +21,11 @@ exports[`<ConditionalWrapper> render correctly - snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  color: #81868C;
 }
 
 .emotion-2 {
+  color: #252626;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
@@ -31,6 +33,7 @@ exports[`<ConditionalWrapper> render correctly - snapshot 1`] = `
 }
 
 .emotion-2 span {
+  color: #252626;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   cursor: pointer;

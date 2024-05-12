@@ -1,5 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
+import { fontPrimary, fontSecondary } from '../_utils/commonStyles'
+import { getTheme, ThemeType } from '../_theme'
 
 export const popup = css`
     position: fixed;
@@ -97,8 +99,8 @@ export const form = css`
     }
 `
 
-export const h1 = css`
-    font-family: 'Circular Pro', sans-serif;
+export const h1 = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
@@ -108,8 +110,8 @@ export const h1 = css`
     margin: 0 0 16px 0;
 `
 
-export const description = css`
-    font-family: 'Poppins', sans-serif;
+export const description = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -161,8 +163,8 @@ export const formRight = css`
     }
 `
 
-export const headlineRight = css`
-    font-family: 'Circular Pro', sans-serif;
+export const headlineRight = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
@@ -187,8 +189,8 @@ export const textRight = css`
     }
 `
 
-export const textRightInner = css`
-    font-family: 'Poppins', sans-serif;
+export const textRightInner = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -235,8 +237,8 @@ export const rightPattern = css`
     }
 `
 
-export const bottom = css`
-    font-family: 'Poppins', sans-serif;
+export const bottom = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;

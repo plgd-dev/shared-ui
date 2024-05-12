@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
 
 export const copyElement = css`
     position: relative;
@@ -12,7 +12,7 @@ export const copy = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: ${get(theme, 'CopyElement.background')};
+    background: ${getThemeColor(theme, 'CopyElement.background')};
     border-radius: 4px;
     padding: 0 8px;
     height: 24px;
@@ -22,14 +22,14 @@ export const copy = (theme: ThemeType) => css`
     transition: all 0.3s;
 
     &:hover {
-        color: ${get(theme, 'CopyElement.hover.color')};
+        color: ${getThemeColor(theme, 'CopyElement.hover.color')};
     }
 `
 
-export const text = css`
+export const text = (theme: ThemeType) => css`
     display: inline-block;
     padding-left: 4px;
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -45,7 +45,7 @@ export const copied = (theme: ThemeType) => css`
     padding: 0 8px;
     height: 24px;
     box-sizing: border-box;
-    color: ${get(theme, 'CopyElement.copied.color')};
+    color: ${getThemeColor(theme, 'CopyElement.copied.color')};
     text-decoration: none;
     transform: translateX(100%);
     position: absolute;
@@ -56,7 +56,7 @@ export const copied = (theme: ThemeType) => css`
 
     &:hover {
         text-decoration: none;
-        color: ${get(theme, 'CopyElement.hover.copied.color')};
+        color: ${getThemeColor(theme, 'CopyElement.hover.copied.color')};
     }
 `
 

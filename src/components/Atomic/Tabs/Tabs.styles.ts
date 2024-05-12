@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
 
 export const container = css`
     overflow-y: hidden;
@@ -18,7 +18,7 @@ export const fullHeight = css`
 export const tabList = (theme: ThemeType) => css`
     display: block;
     position: relative;
-    border-bottom: 1px solid ${get(theme, `Tabs.list.borderColor`)};
+    border-bottom: 1px solid ${getThemeColor(theme, `Tabs.list.borderColor`)};
 `
 
 export const tabListInnerPadding = css`
@@ -43,7 +43,7 @@ export const tabItem = (theme: ThemeType) => css`
     padding: 16px 0;
     text-size-adjust: none;
     text-overflow: ellipsis;
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -57,7 +57,7 @@ export const tabItem = (theme: ThemeType) => css`
     align-items: center;
 
     &:hover {
-        color: ${get(theme, 'Tabs.item.hover.color')};
+        color: ${getThemeColor(theme, 'Tabs.item.hover.color')};
         background: transparent;
     }
 
@@ -67,15 +67,15 @@ export const tabItem = (theme: ThemeType) => css`
 `
 
 export const isActive = (theme: ThemeType) => css`
-    color: ${get(theme, `Tabs.active.color`)};
+    color: ${getThemeColor(theme, `Tabs.active.color`)};
 `
 
 export const isDisabled = (theme: ThemeType) => css`
-    color: ${get(theme, `Tabs.disabled.color`)};
+    color: ${getThemeColor(theme, `Tabs.disabled.color`)};
     cursor: not-allowed !important;
 
     &:hover {
-        color: ${get(theme, `Tabs.disabled.color`)};
+        color: ${getThemeColor(theme, `Tabs.disabled.color`)};
     }
 `
 
@@ -83,7 +83,7 @@ export const slider = (theme: ThemeType) => css`
     height: 3px;
     bottom: 0;
     position: absolute;
-    background: ${get(theme, `Tabs.slider.background`)};
+    background: ${getThemeColor(theme, `Tabs.slider.background`)};
 `
 
 export const page = css`
@@ -101,9 +101,9 @@ export const icon = css`
 `
 
 export const iconSuccess = (theme: ThemeType) => css`
-    color: ${get(theme, `Tabs.icon.success.color`)};
+    color: ${getThemeColor(theme, `Tabs.icon.success.color`)};
 `
 
 export const iconError = (theme: ThemeType) => css`
-    color: ${get(theme, `Tabs.icon.error.color`)};
+    color: ${getThemeColor(theme, `Tabs.icon.error.color`)};
 `

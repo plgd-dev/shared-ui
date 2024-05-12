@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render } from '../../../../test/jest-wrapper'
 import Headline from './Headline'
 
 describe('<Headline>', () => {

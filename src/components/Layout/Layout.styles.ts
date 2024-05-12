@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
 import { panelSizes } from './LeftPanel/constants'
 import { COLLAPSE_ANIMATION_TIME } from './constants'
-import { ThemeType, get } from '../Atomic/_theme'
+import { ThemeType, getThemeColor } from '../Atomic/_theme'
 import { colors } from '../Atomic/_utils/colors'
 
 export const layout = (theme: ThemeType) => css`
     display: flex;
     height: 100%;
     width: 100%;
-    background: ${get(theme, `Layout.background`)};
+    background: ${getThemeColor(theme, `Layout.background`)};
 `
 
 export const previewMode = css`

@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
 import { fontPrimary, fontSecondary } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
-import { ThemeType, get } from '../../../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../../_theme'
 
 export const getCodeBox = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: ${get(theme, `ProvisionDeviceModal.getCodeBox.background`)};
+    background: ${getThemeColor(theme, `ProvisionDeviceModal.getCodeBox.background`)};
     border-radius: 8px;
 `
 
@@ -25,7 +25,7 @@ export const codeInfoHeader = css`
 `
 
 export const title = (theme: ThemeType) => css`
-    font-family: ${fontSecondary};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -33,7 +33,7 @@ export const title = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     letter-spacing: -0.5px;
-    color: ${get(theme, `ProvisionDeviceModal.title.color`)};
+    color: ${getThemeColor(theme, `ProvisionDeviceModal.title.color`)};
     margin: 0;
 `
 
@@ -63,13 +63,13 @@ export const attribute = css`
 `
 
 export const value = (theme: ThemeType) => css`
-    font-family: ${fontSecondary};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
     text-align: right;
-    color: ${get(theme, 'ProvisionDeviceModal.value.color')};
+    color: ${getThemeColor(theme, 'ProvisionDeviceModal.value.color')};
     flex: 1 1 auto;
     display: flex;
     align-items: center;

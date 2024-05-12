@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { HeadlineType } from './Headline.types'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
+import { fontSecondary } from '../_utils/commonStyles'
 
 const getSizes = (type: HeadlineType) => {
     switch (type) {
@@ -63,8 +64,8 @@ const getSizes = (type: HeadlineType) => {
 }
 
 export const headline = (theme: ThemeType, type: HeadlineType) => css`
-    color: ${get(theme, `Headline.color`)};
-    font-family: ${get(theme, `Global.fontSecondary`)};
+    color: ${getThemeColor(theme, `Headline.color`)};
+    font-family: ${getThemeColor(theme, `Global.fontSecondary`, fontSecondary)};
     font-weight: 700;
     font-style: normal;
     ${getSizes(type)};
@@ -80,5 +81,5 @@ export const getProps = (theme: { fontSize?: string; fontStyle?: string; fontWei
 `
 
 export const h6 = (theme: ThemeType) => css`
-    ${getProps(get(theme, `Headline.sizes.h6`))};
+    ${getProps(getThemeColor(theme, `Headline.sizes.h6`))};
 `

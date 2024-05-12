@@ -1,16 +1,16 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 
 export const contentMenu = (theme: ThemeType) => css`
     padding: 16px 12px 12px 12px;
     border-radius: 16px;
-    border: 1px solid ${get(theme, `ContentMenu.borderColor`)};
-    background: ${get(theme, `ContentMenu.background`)};
+    border: 1px solid ${getThemeColor(theme, `ContentMenu.borderColor`)};
+    background: ${getThemeColor(theme, `ContentMenu.background`)};
     box-shadow: 0 1px 2px 0 rgba(228, 229, 231, 0.24);
 `
 
 export const title = (theme: ThemeType) => css`
-    color: ${get(theme, `ContentMenu.title.color`)};
+    color: ${getThemeColor(theme, `ContentMenu.title.color`)};
     margin-bottom: 12px;
     padding: 0 12px;
 `
@@ -26,14 +26,14 @@ export const searchIcon = css`
 `
 
 export const search = (theme: ThemeType) => css`
-    background: ${get(theme, `ContentMenu.search.background`)};
+    background: ${getThemeColor(theme, `ContentMenu.search.background`)};
     border: none;
     padding: 12px 12px 12px 40px;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 22px;
-    color: ${get(theme, `ContentMenu.search.color`)};
+    color: ${getThemeColor(theme, `ContentMenu.search.color`)};
     width: 100%;
     margin-bottom: 12px;
     border-radius: 8px;
@@ -73,32 +73,32 @@ export const item = (theme: ThemeType) => css`
     min-height: 40px;
     box-sizing: border-box;
     border-radius: 8px;
-    color: ${get(theme, `ContentMenu.item.color`)};
+    color: ${getThemeColor(theme, `ContentMenu.item.color`)};
     transition: all 0.25s;
     position: relative;
     overflow: hidden;
 
     &:hover {
         text-decoration: none !important;
-        color: ${get(theme, `ContentMenu.item.hover.color`)};
+        color: ${getThemeColor(theme, `ContentMenu.item.hover.color`)};
 
         .icon {
-            color: ${get(theme, `ContentMenu.item.hover.icon.color`)};
+            color: ${getThemeColor(theme, `ContentMenu.item.hover.icon.color`)};
         }
     }
 `
 
 export const activeItem = (theme: ThemeType) => css`
-    color: ${get(theme, `ContentMenu.item.active.color`)};
-    background: ${get(theme, `ContentMenu.item.active.background`)};
+    color: ${getThemeColor(theme, `ContentMenu.item.active.color`)};
+    background: ${getThemeColor(theme, `ContentMenu.item.active.background`)};
 
     .icon {
-        color: ${get(theme, `ContentMenu.item.active.icon.color`)}!important;
+        color: ${getThemeColor(theme, `ContentMenu.item.active.icon.color`)}!important;
     }
 
     &:hover {
         text-decoration: none !important;
-        color: ${get(theme, `ContentMenu.item.active.hover.color`)};
+        color: ${getThemeColor(theme, `ContentMenu.item.active.hover.color`)};
     }
 `
 
@@ -134,15 +134,15 @@ export const subItemLink = (theme: ThemeType) => css`
     position: relative;
     padding: 8px 8px 8px 20px;
     white-space: nowrap;
-    color: ${get(theme, `ContentMenu.subItem.color`)};
+    color: ${getThemeColor(theme, `ContentMenu.subItem.color`)};
 
     &:hover {
-        color: ${get(theme, `ContentMenu.subItem.hover.color`)};
+        color: ${getThemeColor(theme, `ContentMenu.subItem.hover.color`)};
     }
 `
 
 export const subItemLinkActive = (theme: ThemeType) => css`
-    color: ${get(theme, `ContentMenu.subItem.active.color`)};
+    color: ${getThemeColor(theme, `ContentMenu.subItem.active.color`)};
 `
 
 export const line = css`
@@ -158,9 +158,9 @@ export const icon = css`
 `
 
 export const iconSuccess = (theme: ThemeType) => css`
-    color: ${get(theme, `ContentMenu.item.icon.success.color`)};
+    color: ${getThemeColor(theme, `ContentMenu.item.icon.success.color`)};
 `
 
 export const iconError = (theme: ThemeType) => css`
-    color: ${get(theme, `ContentMenu.item.icon.error.color`)};
+    color: ${getThemeColor(theme, `ContentMenu.item.icon.error.color`)};
 `

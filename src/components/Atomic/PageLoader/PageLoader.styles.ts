@@ -1,5 +1,5 @@
 import { css, keyframes } from '@emotion/react'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 import { panelSizes } from '../../Layout/LeftPanel/constants'
 
 const increase = keyframes`
@@ -51,7 +51,7 @@ export const progress = css`
 
 export const subline = (theme: ThemeType) => css`
     position: absolute;
-    background-color: ${get(theme, `PageLoader.bar.background`)};
+    background-color: ${getThemeColor(theme, `PageLoader.bar.background`)};
     height: 5px;
 `
 

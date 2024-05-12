@@ -15,21 +15,21 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
-  color: !important;
+  color: #252626!important;
 }
 
 .emotion-0 .select__control .select__value-container .select__placeholder input,
 .emotion-0 .select__control .select__value-container .select__input-container input {
-  font-family: 'Poppins',sans-serif!important;
+  font-family: 'Poppins',sans-serif;
   font-style: normal!important;
   font-weight: 400!important;
   font-size: 14px!important;
   line-height: 22px!important;
-  color: !important;
+  color: #252626!important;
 }
 
 .emotion-0 .select__control.select__control--menu-is-open {
-  border: 1px solid;
+  border: 1px solid #007BBF;
 }
 
 .emotion-0 .select__control.select__control--is-focused {
@@ -90,7 +90,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   box-shadow: none;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  border: 1px solid;
+  border: 1px solid #D7D8DA;
 }
 
 .emotion-3:hover {
@@ -103,7 +103,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 
 .emotion-3:hover {
   outline: none;
-  border: 1px solid;
+  border: 1px solid #007BBF;
 }
 
 .emotion-4 {
@@ -133,6 +133,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   margin-left: 2px;
   margin-right: 2px;
   box-sizing: border-box;
+  color: #252626;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -216,6 +217,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 .emotion-10 {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  color: #81868C;
 }
 
 .emotion-16 {
@@ -228,6 +230,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   margin-left: 2px;
   margin-right: 2px;
   box-sizing: border-box;
+  color: #252626;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -238,6 +241,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 .emotion-21 {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  color: #81868C;
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -261,9 +265,10 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   width: auto!important;
   margin-top: 4px;
   margin-bottom: 4px;
-  border: 1px solid;
+  border: 1px solid #E6E9ED;
   box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
   border-radius: 8px;
+  background: #FFFFFF;
   z-index: 1;
 }
 
@@ -293,6 +298,8 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   color: inherit;
   padding: 8px 12px;
   box-sizing: border-box;
+  color: #81868C;
+  background: #FFFFFF;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
@@ -317,6 +324,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 }
 
 .emotion-24:hover {
+  color: #2261AE;
   background: transparent;
 }
 
@@ -338,6 +346,8 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   color: hsl(0, 0%, 100%);
   padding: 8px 12px;
   box-sizing: border-box;
+  color: #81868C;
+  background: #FFFFFF;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
@@ -355,6 +365,8 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   transition: all 0.3s;
   cursor: pointer;
   padding: 8px 16px;
+  color: #252626;
+  background: #FFFFFF;
 }
 
 .emotion-25:active {
@@ -362,6 +374,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
 }
 
 .emotion-25:hover {
+  color: #2261AE;
   background: transparent;
 }
 

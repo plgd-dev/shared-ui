@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../../_utils/colors'
-import { ThemeType, get } from '../../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../_theme'
+import { fontPrimary } from '../../_utils/commonStyles'
 
 export const globalFilter = css`
     padding: 0 0 12px 0;
@@ -25,7 +26,7 @@ export const icon = css`
 export const searchInput = (theme: ThemeType) => css`
     border: 0;
     padding: 0 12px 0 26px;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -33,7 +34,7 @@ export const searchInput = (theme: ThemeType) => css`
     color: ${colors.neutral500};
     width: 100%;
     height: 30px;
-    background: ${get(theme, `TableGlobalFilter.searchInput.background`)};
+    background: ${getThemeColor(theme, `TableGlobalFilter.searchInput.background`)};
 
     &:focus {
         outline: none;

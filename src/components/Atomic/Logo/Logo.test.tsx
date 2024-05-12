@@ -1,4 +1,5 @@
-import { render, fireEvent } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
+import { render } from '../../../../test/jest-wrapper'
 import Logo from './Logo'
 
 describe('Logo', () => {

@@ -4,10 +4,11 @@ import { MenuTagVariantType } from './LeftPanel.types'
 import { panelSizes, tagVariants } from './constants'
 import { colors } from '../../Atomic/_utils/colors'
 import { COLLAPSE_ANIMATION_TIME } from '../constants'
-import { get, ThemeType } from '../../Atomic/_theme'
+import { getTheme, getThemeColor, ThemeType } from '../../Atomic/_theme'
+import { fontPrimary, fontSecondary } from '../../Atomic/_utils/commonStyles'
 
 export const leftPanel = (theme: ThemeType) => css`
-    background: ${get(theme, `LeftPanel.background`)};
+    background: ${getThemeColor(theme, `LeftPanel.background`)};
     display: flex;
     flex-direction: column;
     transition: all ${COLLAPSE_ANIMATION_TIME}ms;
@@ -19,12 +20,12 @@ export const collapsed = css`
 `
 
 export const collapseToggle = (theme: ThemeType) => css`
-    color: ${get(theme, `LeftPanel.collapseToggle.color`)};
+    color: ${getThemeColor(theme, `LeftPanel.collapseToggle.color`)};
     cursor: pointer;
     transition: all 0.3s;
 
     &:hover {
-        color: ${get(theme, `LeftPanel.collapseToggle.hover.color`)};
+        color: ${getThemeColor(theme, `LeftPanel.collapseToggle.hover.color`)};
     }
 `
 
@@ -47,7 +48,7 @@ export const logo = (theme: ThemeType) => css`
         right: 0;
         bottom: 0;
         width: 17px;
-        background: ${get(theme, `LeftPanel.logo.background`)};
+        background: ${getThemeColor(theme, `LeftPanel.logo.background`)};
     }
 
     #main-app-logo {
@@ -110,12 +111,12 @@ export const group = css`
 `
 
 export const groupTitle = (theme: ThemeType) => css`
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: ${get(theme, `LeftPanel.groupTitle.color`)};
+    color: ${getThemeColor(theme, `LeftPanel.groupTitle.color`)};
     margin-bottom: 12px;
 `
 
@@ -130,34 +131,34 @@ export const item = (theme: ThemeType) => css`
     min-height: 40px;
     box-sizing: border-box;
     border-radius: 8px;
-    color: ${get(theme, `LeftPanel.item.color`)};
+    color: ${getThemeColor(theme, `LeftPanel.item.color`)};
     transition: all 0.25s;
     position: relative;
     overflow: hidden;
     cursor: pointer;
 
     &:hover {
-        color: ${get(theme, `LeftPanel.item.hover.color`)};
+        color: ${getThemeColor(theme, `LeftPanel.item.hover.color`)};
     }
 `
 
 export const activeItem = (theme: ThemeType) => css`
-    color: ${get(theme, 'LeftPanel.item.active.color')} !important;
-    background: ${get(theme, 'LeftPanel.item.active.background')} !important;
+    color: ${getThemeColor(theme, 'LeftPanel.item.active.color')} !important;
+    background: ${getThemeColor(theme, 'LeftPanel.item.active.background')};
 `
 
 export const disabled = (theme: ThemeType) => css`
     cursor: not-allowed;
-    color: ${get(theme, 'LeftPanel.item.disabled.color')} !important;
+    color: ${getThemeColor(theme, 'LeftPanel.item.disabled.color')} !important;
 
     &:hover {
         text-decoration: none !important;
-        color: ${get(theme, 'LeftPanel.item.disabled.color')} !important;
+        color: ${getThemeColor(theme, 'LeftPanel.item.disabled.color')} !important;
     }
 `
 
-export const itemTitle = css`
-    font-family: 'Poppins', sans-serif;
+export const itemTitle = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -204,10 +205,8 @@ export const activeArrow = css`
 `
 
 export const arrowCollapsed = css`
-    position: inherit;
-    transform: none;
-    top: unset;
-    margin-left: 5px;
+    right: unset;
+    left: 20px;
 `
 
 export const subItems = css`
@@ -234,10 +233,10 @@ export const subItemsFloating = css`
 `
 
 export const subItemsFloatingPadding = (theme: ThemeType) => css`
-    border: 1px solid ${get(theme, 'LeftPanel.subItem.border')};
+    border: 1px solid ${getThemeColor(theme, 'LeftPanel.subItem.border')};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
-    background: ${get(theme, 'LeftPanel.subItem.background')};
+    background: ${getThemeColor(theme, 'LeftPanel.subItem.background')};
     overflow: hidden;
     padding: 16px 20px;
     box-sizing: border-box;
@@ -245,12 +244,12 @@ export const subItemsFloatingPadding = (theme: ThemeType) => css`
 
 export const subItemLink = (theme: ThemeType) => css`
     display: block;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 14px;
-    color: ${get(theme, 'LeftPanel.subItem.color')};
+    color: ${getThemeColor(theme, 'LeftPanel.subItem.color')};
     text-decoration: none;
     position: relative;
     margin: 4px 0 4px 0;
@@ -259,7 +258,7 @@ export const subItemLink = (theme: ThemeType) => css`
     white-space: nowrap;
 
     &:hover {
-        color: ${get(theme, 'LeftPanel.subItem.hover.color')} !important;
+        color: ${getThemeColor(theme, 'LeftPanel.subItem.hover.color')} !important;
     }
 `
 
@@ -268,7 +267,7 @@ export const subItemLinkLast = css`
 `
 
 export const subItemLinkActive = (theme: ThemeType) => css`
-    color: ${get(theme, 'LeftPanel.subItem.active.color')} !important;
+    color: ${getThemeColor(theme, 'LeftPanel.subItem.active.color')} !important;
 `
 
 export const line = css`
@@ -299,17 +298,17 @@ export const tag = (variant: MenuTagVariantType | string, theme: ThemeType) => c
     transform: translateY(-50%);
     border-radius: 100px;
     ${getColorByVariant(variant)};
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 600;
     font-size: 10px;
     line-height: 18px;
-    color: ${get(theme, 'LeftPanel.item.tag.color')};
+    color: ${getThemeColor(theme, 'LeftPanel.item.tag.color')};
     padding: 0 10px;
 `
 
 export const newFeature = (theme: ThemeType) => css`
-    background: ${get(theme, `LeftPanel.newFeature.background`)};
+    background: ${getThemeColor(theme, `LeftPanel.newFeature.background`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 16px;
     padding: 16px;
@@ -327,19 +326,19 @@ export const header = css`
 export const headerLeft = css``
 
 export const headline = (theme: ThemeType) => css`
-    font-family: 'Circular Pro', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 140%;
     letter-spacing: -0.5px;
-    color: ${get(theme, `LeftPanel.headline.color`)};
+    color: ${getThemeColor(theme, `LeftPanel.headline.color`)};
     margin-bottom: 4px;
     user-select: none;
 `
 
-export const description = css`
-    font-family: 'Poppins', sans-serif;
+export const description = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
@@ -357,12 +356,12 @@ export const iconClose = (theme: ThemeType) => css`
     color: ${colors.neutral500};
 
     &:hover {
-        color: ${get(theme, `LeftPanel.iconClose.color`)};
+        color: ${getThemeColor(theme, `LeftPanel.iconClose.color`)};
     }
 `
 
 export const versionItem = (theme: ThemeType) => css`
-    border-top: 2px solid ${get(theme, `LeftPanel.versionItem.borderColor`)};
+    border-top: 2px solid ${getThemeColor(theme, `LeftPanel.versionItem.borderColor`)};
     margin-top: 12px;
     padding: 0 0 0 8px;
     display: flex;

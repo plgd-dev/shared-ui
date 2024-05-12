@@ -2,7 +2,7 @@ import { css } from '@emotion/react'
 import isEmpty from 'lodash/isEmpty'
 
 import { Property } from './Spacer.types'
-import { get, ThemeType } from '../_theme'
+import { getThemeColor, ThemeType } from '../_theme'
 
 const spacerSizes = {
     0: 0,
@@ -71,7 +71,7 @@ export const spacer = (typeProp: string, theme: ThemeType) => css`
         .filter((v: Property) => !isEmpty(v))
         .map(
             (property: Property) => css`
-                ${property.name}: ${get(theme, 'Spacer.sizes.' + property.size, property.size)}!important;
+                ${property.name}: ${getThemeColor(theme, 'Spacer.sizes.' + property.size, property.size)}!important;
             `
         )}
 `

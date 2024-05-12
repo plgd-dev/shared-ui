@@ -1,27 +1,28 @@
 import { css } from '@emotion/react'
 
 import { FormSelectSizeType } from './FormSelect.types'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const select = (theme: ThemeType, size: FormSelectSizeType, disabled?: boolean) => css`
     .select__control {
         .select__value-container {
             .select__placeholder,
             .select__input-container {
-                font-family: 'Poppins', sans-serif;
+                font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
                 font-style: normal;
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 22px;
-                color: ${get(theme, `FormSelect.input.color`)}!important;
+                color: ${getThemeColor(theme, `FormSelect.input.color`)}!important;
 
                 input {
-                    font-family: 'Poppins', sans-serif !important;
+                    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
                     font-style: normal !important;
                     font-weight: 400 !important;
                     font-size: 14px !important;
                     line-height: 22px !important;
-                    color: ${get(theme, `FormSelect.input.color`)}!important;
+                    color: ${getThemeColor(theme, `FormSelect.input.color`)}!important;
                 }
             }
         }
@@ -29,7 +30,7 @@ export const select = (theme: ThemeType, size: FormSelectSizeType, disabled?: bo
         &.select__control--menu-is-open {
             ${!disabled &&
             css`
-                border: 1px solid ${get(theme, `FormSelect.menu.open.borderColor`)};
+                border: 1px solid ${getThemeColor(theme, `FormSelect.menu.open.borderColor`)};
             `}
         }
 
@@ -53,8 +54,8 @@ export const control = (theme: ThemeType) => css`
     border-radius: 8px;
     box-shadow: none;
     transition: all 0.3s;
-    border: 1px solid ${get(theme, `FormSelect.control.borderColor`)};
-    background: ${get(theme, `FormSelect.control.background`)};
+    border: 1px solid ${getThemeColor(theme, `FormSelect.control.borderColor`)};
+    background: ${getThemeColor(theme, `FormSelect.control.background`)};
 
     &:focus {
         outline: none;
@@ -62,7 +63,7 @@ export const control = (theme: ThemeType) => css`
 
     &:hover {
         outline: none;
-        border: 1px solid ${get(theme, `FormSelect.control.hover.borderColor`)};
+        border: 1px solid ${getThemeColor(theme, `FormSelect.control.hover.borderColor`)};
     }
 `
 
@@ -70,7 +71,7 @@ export const inlineStyle = (theme: ThemeType) => css`
     border-color: transparent;
 
     &:hover {
-        border-color: ${get(theme, `FormSelect.control.borderColor`)};
+        border-color: ${getThemeColor(theme, `FormSelect.control.borderColor`)};
     }
 `
 
@@ -80,17 +81,17 @@ export const small = css`
 `
 
 export const error = (theme: ThemeType) => css`
-    border-color: ${get(theme, `FormSelect.error.color`)} !important;
+    border-color: ${getThemeColor(theme, `FormSelect.error.color`)} !important;
 `
 
 export const menu = (theme: ThemeType, zIndex?: number) => css`
     width: auto !important;
     margin-top: 4px;
     margin-bottom: 4px;
-    border: 1px solid ${get(theme, `FormSelect.menu.borderColor`)};
+    border: 1px solid ${getThemeColor(theme, `FormSelect.menu.borderColor`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
-    background: ${get(theme, `FormSelect.menu.background`)};
+    background: ${getThemeColor(theme, `FormSelect.menu.background`)};
     z-index: ${zIndex};
 `
 
@@ -101,8 +102,8 @@ export const menuList = css`
 
 export const footerComponent = (theme: ThemeType) => css`
     height: 54px;
-    border-top: 1px solid ${get(theme, `FormSelect.menu.borderColor`)};
-    background: ${get(theme, `FormSelect.menu.background`)};
+    border-top: 1px solid ${getThemeColor(theme, `FormSelect.menu.borderColor`)};
+    background: ${getThemeColor(theme, `FormSelect.menu.background`)};
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -111,7 +112,7 @@ export const footerComponent = (theme: ThemeType) => css`
 
 export const footerLink = (theme: ThemeType) => css`
     text-decoration: underline;
-    color: ${get(theme, `FormSelect.menu.footer.link.color`)};
+    color: ${getThemeColor(theme, `FormSelect.menu.footer.link.color`)};
     font-weight: bold;
 
     &:hover {
@@ -120,8 +121,8 @@ export const footerLink = (theme: ThemeType) => css`
 `
 
 export const option = (theme: ThemeType) => css`
-    color: ${get(theme, `FormSelect.option.color`)};
-    background: ${get(theme, `FormSelect.menu.background`)};
+    color: ${getThemeColor(theme, `FormSelect.option.color`)};
+    background: ${getThemeColor(theme, `FormSelect.menu.background`)};
     font-style: normal;
     font-weight: 400;
     line-height: 22px;
@@ -134,7 +135,7 @@ export const option = (theme: ThemeType) => css`
     padding: 8px 16px;
 
     &:hover {
-        color: ${get(theme, `FormSelect.option.hover.color`)};
+        color: ${getThemeColor(theme, `FormSelect.option.hover.color`)};
         background: transparent;
     }
 
@@ -148,8 +149,8 @@ export const optionRight = css`
 `
 
 export const optionSelected = (theme: ThemeType) => css`
-    color: ${get(theme, `FormSelect.optionSelected.color`)};
-    background: ${get(theme, `FormSelect.menu.background`)};
+    color: ${getThemeColor(theme, `FormSelect.optionSelected.color`)};
+    background: ${getThemeColor(theme, `FormSelect.menu.background`)};
 `
 
 export const selectContainer = css`
@@ -173,7 +174,7 @@ export const valueContainerMultiRight = css`
 `
 
 export const value = (theme: ThemeType) => css`
-    color: ${get(theme, `FormSelect.value.color`)};
+    color: ${getThemeColor(theme, `FormSelect.value.color`)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -185,9 +186,9 @@ export const multiValue = (theme: ThemeType) => css`
     font-size: 12px;
     line-height: 18px;
     flex: 0 0 auto;
-    color: ${get(theme, `FormSelect.multi.value.color`)};
-    border: 1px solid ${get(theme, `FormSelect.multi.value.borderColor`)};
-    background: ${get(theme, `FormSelect.multi.value.background`)};
+    color: ${getThemeColor(theme, `FormSelect.multi.value.color`)};
+    border: 1px solid ${getThemeColor(theme, `FormSelect.multi.value.borderColor`)};
+    background: ${getThemeColor(theme, `FormSelect.multi.value.background`)};
     padding: 0;
     cursor: pointer;
 `
@@ -208,13 +209,13 @@ export const multiValueRemove = (theme: ThemeType) => css`
     font-size: 12px;
     line-height: 18px;
     border: 1px solid transparent;
-    background: ${get(theme, `FormSelect.multi.value.background`)};
+    background: ${getThemeColor(theme, `FormSelect.multi.value.background`)};
     transition: all 0.3s;
-    color: ${get(theme, `FormSelect.multi.value.color`)};
+    color: ${getThemeColor(theme, `FormSelect.multi.value.color`)};
 
     &:hover {
-        color: ${get(theme, `FormSelect.multi.value.remove.hover.color`)};
-        background: ${get(theme, `FormSelect.multi.value.remove.hover.background`)};
+        color: ${getThemeColor(theme, `FormSelect.multi.value.remove.hover.color`)};
+        background: ${getThemeColor(theme, `FormSelect.multi.value.remove.hover.background`)};
     }
 `
 
@@ -229,7 +230,7 @@ export const dropdownIndicator = css`
 
 export const indicator = (theme: ThemeType) => css`
     transition: all 0.3s;
-    color: ${get(theme, `FormSelect.indicator.color`)};
+    color: ${getThemeColor(theme, `FormSelect.indicator.color`)};
 `
 
 export const indicatorOpen = css`
@@ -237,7 +238,7 @@ export const indicatorOpen = css`
 `
 
 export const placeholder = (theme: ThemeType) => css`
-    color: ${get(theme, `FormSelect.placeholder.color`)};
+    color: ${getThemeColor(theme, `FormSelect.placeholder.color`)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -249,7 +250,7 @@ export const textRight = css`
 `
 
 export const disabled = (theme: ThemeType) => css`
-    color: ${get(theme, `FormSelect.disabled.color`)};
+    color: ${getThemeColor(theme, `FormSelect.disabled.color`)};
 `
 
 export const input = css`

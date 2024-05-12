@@ -2,7 +2,11 @@
 
 exports[`ValidationMessage Component renders children correctly 1`] = `
 <DocumentFragment>
-  <div
+  .emotion-0 {
+  color: #D74E3A;
+}
+
+<div
     class="emotion-0"
   >
     Test Message

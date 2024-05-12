@@ -1,8 +1,10 @@
 import React from 'react'
-import Button from './Button'
-import { fireEvent, render, waitFor } from '@testing-library/react'
-import { buttonVariants, buttonSizes } from './constants'
 import { forEach } from 'lodash'
+import { fireEvent, waitFor } from '@testing-library/react'
+
+import Button from './Button'
+import { render } from '../../../../test/jest-wrapper'
+import { buttonVariants, buttonSizes } from './constants'
 
 describe('<Button>', () => {
     it('render correctly - snapshot', () => {

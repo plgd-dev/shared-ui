@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render } from '../../../../test/jest-wrapper'
 import FormGroup from './FormGroup'
 import FormLabel from '../FormLabel'
 import FormInput from '../FormInput'

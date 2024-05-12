@@ -19,6 +19,7 @@ exports[`<CaPool> renders without crashing when data is empty 1`] = `
 
 .emotion-1 {
   color: #0A2965;
+  font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
   margin: 0;

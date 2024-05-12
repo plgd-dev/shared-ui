@@ -7,7 +7,7 @@ exports[`<CodeEditor> renders without crashing 1`] = `
 }
 
 .emotion-1 {
-  border: 1px solid;
+  border: 1px solid #E6E9ED;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -21,16 +21,18 @@ exports[`<CodeEditor> renders without crashing 1`] = `
 }
 
 .emotion-1 .cm-gutters {
+  background: #E6E9ED;
   border: 0;
 }
 
 .emotion-1 .cm-lineNumbers .cm-gutterElement {
+  color: #757676;
   text-align: center;
   padding: 0 16px 0 16px;
 }
 
 .emotion-1 .cm-gutterElement {
-  color: !important;
+  color: #757676!important;
 }
 
 .emotion-1 .cm-content {
@@ -42,6 +44,10 @@ exports[`<CodeEditor> renders without crashing 1`] = `
   line-height: 1.6;
 }
 
+.emotion-1 .cm-editor {
+  background: #F4F9FB;
+}
+
 .emotion-2 {
   position: absolute;
   border-radius: 8px;
@@ -49,6 +55,7 @@ exports[`<CodeEditor> renders without crashing 1`] = `
   left: 0;
   bottom: 0;
   right: 0;
+  background-color: #F4F9FB;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -89,6 +96,7 @@ exports[`<CodeEditor> renders without crashing 1`] = `
 }
 
 .emotion-4 {
+  color: #81868C;
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;

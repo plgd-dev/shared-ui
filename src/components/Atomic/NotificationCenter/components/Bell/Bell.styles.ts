@@ -1,19 +1,19 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../../../_theme'
+import { ThemeType, getThemeColor } from '../../../_theme'
 
 export const bell = (theme: ThemeType) => css`
     width: 44px;
     height: 44px;
     border-radius: 50%;
     position: relative;
-    color: ${get(theme, `NotificationCenter.Bell.color`)};
+    color: ${getThemeColor(theme, `NotificationCenter.Bell.color`)};
     transition: all 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
 
     &:hover {
-        color: ${get(theme, `NotificationCenter.Bell.hover.color`)};
+        color: ${getThemeColor(theme, `NotificationCenter.Bell.hover.color`)};
     }
 
     .shake {
@@ -58,8 +58,8 @@ export const hasUnRead = (theme: ThemeType) => css`
         content: '';
         display: block;
         box-sizing: border-box;
-        border: 2px solid ${get(theme, `NotificationCenter.Bell.hasUnRead.borderColor`)};
-        background: ${get(theme, `NotificationCenter.Bell.hasUnRead.background`)};
+        border: 2px solid ${getThemeColor(theme, `NotificationCenter.Bell.hasUnRead.borderColor`)};
+        background: ${getThemeColor(theme, `NotificationCenter.Bell.hasUnRead.background`)};
         border-radius: 50%;
         position: absolute;
         top: 10px;

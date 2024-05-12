@@ -11,9 +11,14 @@ exports[`<NotificationCenter> should render without crashing 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  color: #81868C;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
+}
+
+.emotion-0:hover {
+  color: #2261AE;
 }
 
 .emotion-1 {
@@ -21,6 +26,7 @@ exports[`<NotificationCenter> should render without crashing 1`] = `
   height: 44px;
   border-radius: 50%;
   position: relative;
+  color: #81868C;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   display: -webkit-box;
@@ -35,6 +41,10 @@ exports[`<NotificationCenter> should render without crashing 1`] = `
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+}
+
+.emotion-1:hover {
+  color: #2261AE;
 }
 
 .emotion-1 .shake {

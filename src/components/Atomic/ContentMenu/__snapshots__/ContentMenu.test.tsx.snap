@@ -5,7 +5,8 @@ exports[`<ContentMenu> renders without crashing 1`] = `
   .emotion-0 {
   padding: 16px 12px 12px 12px;
   border-radius: 16px;
-  border: 1px solid;
+  border: 1px solid #E6E9ED;
+  background: #FFFFFF;
   box-shadow: 0 1px 2px 0 rgba(228, 229, 231, 0.24);
 }
 
@@ -30,19 +31,27 @@ exports[`<ContentMenu> renders without crashing 1`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
+  color: #0A2965;
+  background: #F4F9FB;
 }
 
 .emotion-2:hover {
   -webkit-text-decoration: none!important;
   text-decoration: none!important;
+  color: #0A2965;
+}
+
+.emotion-2:hover .icon {
+  color: #007BBF;
 }
 
 .emotion-2 .icon {
-  color: !important;
+  color: #007BBF!important;
 }
 
 .emotion-2:hover {
@@ -109,6 +118,11 @@ exports[`<ContentMenu> renders without crashing 1`] = `
   position: relative;
   padding: 8px 8px 8px 20px;
   white-space: nowrap;
+  color: #81868C;
+}
+
+.emotion-7:hover {
+  color: #191A1A;
 }
 
 .emotion-8 {
@@ -134,6 +148,7 @@ exports[`<ContentMenu> renders without crashing 1`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
@@ -143,6 +158,11 @@ exports[`<ContentMenu> renders without crashing 1`] = `
 .emotion-9:hover {
   -webkit-text-decoration: none!important;
   text-decoration: none!important;
+  color: #0A2965;
+}
+
+.emotion-9:hover .icon {
+  color: #007BBF;
 }
 
 <div

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary, fontSecondary } from '../_utils/commonStyles'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
 
 export const modalWrapper = css`
     display: flex;
@@ -11,7 +11,7 @@ export const modalWrapper = css`
 `
 
 export const modal = (theme: ThemeType, minWidth: number | string, maxWidth: number | string, maxHeight: number | string) => css`
-    background: ${get(theme, `Modal.background`)};
+    background: ${getThemeColor(theme, `Modal.background`)};
     padding: 24px 0;
     min-width: ${typeof minWidth === 'string' ? minWidth : `${minWidth}px`};
     max-width: ${typeof maxWidth === 'string' ? maxWidth : `${maxWidth}px`};
@@ -25,18 +25,18 @@ export const header = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid ${get(theme, `Modal.header.borderColor`)};
+    border-bottom: 2px solid ${getThemeColor(theme, `Modal.header.borderColor`)};
     padding: 12px 24px 32px 24px;
 `
 
 export const headline = (theme: ThemeType, maxWidth?: number) => css`
-    font-family: ${fontSecondary};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 30px;
     letter-spacing: -0.5px;
-    color: ${get(theme, `Modal.header.color`)};
+    color: ${getThemeColor(theme, `Modal.header.color`)};
     max-width: ${maxWidth ? `${maxWidth}px` : '100%'};
 `
 
@@ -44,12 +44,12 @@ export const subTitle = (theme: ThemeType) => css`
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
-    color: ${get(theme, `Modal.header.subtitle.color`)};
+    color: ${getThemeColor(theme, `Modal.header.subtitle.color`)};
     padding-top: 4px;
 `
 
 export const close = (theme: ThemeType) => css`
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -65,12 +65,12 @@ export const close = (theme: ThemeType) => css`
     }
 
     &:hover {
-        color: ${get(theme, `Modal.close.hover.color`)};
+        color: ${getThemeColor(theme, `Modal.close.hover.color`)};
     }
 `
 
 export const content = (theme: ThemeType) => css`
-    background: ${get(theme, `Modal.content.background`)};
+    background: ${getThemeColor(theme, `Modal.content.background`)};
     flex: 1 1 auto;
     overflow-y: auto;
     overflow-x: hidden;
@@ -83,7 +83,7 @@ export const contentPadding = css`
 `
 export const footer = (theme: ThemeType) => css`
     padding: 24px 24px 0 24px;
-    background: ${get(theme, `Modal.footer.background`)};
+    background: ${getThemeColor(theme, `Modal.footer.background`)};
     display: flex;
     justify-content: flex-end;
 

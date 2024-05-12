@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 
 export const editor = (theme: ThemeType) => css`
     position: relative;
@@ -11,26 +11,26 @@ export const editor = (theme: ThemeType) => css`
     }
 
     .jsoneditor {
-        border: 1px solid ${get(theme, `Editor.borderColor`)};
+        border: 1px solid ${getThemeColor(theme, `Editor.borderColor`)};
         border-radius: 8px;
         overflow: hidden;
 
         .ace-jsoneditor {
             .ace_scroller {
-                background: ${get(theme, `Editor.scroller.background`)};
+                background: ${getThemeColor(theme, `Editor.scroller.background`)};
             }
 
             .ace_gutter {
-                background: ${get(theme, `Editor.gutter.background`)};
+                background: ${getThemeColor(theme, `Editor.gutter.background`)};
 
                 .ace_gutter-cell {
-                    color: ${get(theme, `Editor.gutter.color`)};
+                    color: ${getThemeColor(theme, `Editor.gutter.color`)};
                     padding: 0 16px;
                 }
             }
 
             .ace_gutter-active-line {
-                background: ${get(theme, `Editor.gutterActiveLine.background`)};
+                background: ${getThemeColor(theme, `Editor.gutterActiveLine.background`)};
             }
 
             .ace_indent-guide {
@@ -44,25 +44,25 @@ export const editor = (theme: ThemeType) => css`
             .ace_constant,
             .ace_paren,
             .ace_variable {
-                color: ${get(theme, `Editor.variable.color`)};
+                color: ${getThemeColor(theme, `Editor.variable.color`)};
             }
 
             .ace_constant {
                 &.ace_boolean {
-                    color: ${get(theme, `Editor.constant.boolean.color`)};
+                    color: ${getThemeColor(theme, `Editor.constant.boolean.color`)};
                 }
 
                 &.ace_numeric {
-                    color: ${get(theme, `Editor.constant.numeric.color`)};
+                    color: ${getThemeColor(theme, `Editor.constant.numeric.color`)};
                 }
             }
 
             .ace_string {
-                color: ${get(theme, `Editor.constant.string.color`)};
+                color: ${getThemeColor(theme, `Editor.constant.string.color`)};
             }
 
             .ace_selection {
-                background-color: ${get(theme, `Editor.selection.background`)};
+                background-color: ${getThemeColor(theme, `Editor.selection.background`)};
             }
         }
     }
@@ -75,16 +75,16 @@ export const fullSizeBtn = (theme: ThemeType) => css`
     top: 12px;
     right: 12px;
     z-index: 2;
-    background: ${get(theme, `Editor.fullSizeBtn.background`)};
+    background: ${getThemeColor(theme, `Editor.fullSizeBtn.background`)};
     padding: 4px 8px;
     border-radius: 4px;
     cursor: pointer;
-    color: ${get(theme, `Editor.fullSizeBtn.color`)};
+    color: ${getThemeColor(theme, `Editor.fullSizeBtn.color`)};
     transition: all 0.3s;
 
     &:hover {
         text-decoration: none !important;
-        color: ${get(theme, `Editor.fullSizeBtn.hover.color`)};
+        color: ${getThemeColor(theme, `Editor.fullSizeBtn.hover.color`)};
     }
 `
 

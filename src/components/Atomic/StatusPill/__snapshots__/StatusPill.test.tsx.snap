@@ -17,6 +17,7 @@ exports[`<StatusPill> render correctly - snapshot 1`] = `
   width: 4px;
   height: 24px;
   border-radius: 6px;
+  background-color: #52c5a2;
 }
 
 .emotion-2 {
@@ -37,6 +38,7 @@ exports[`<StatusPill> render correctly - snapshot 1`] = `
   width: 4px;
   height: 24px;
   border-radius: 6px;
+  background-color: #D74E3A;
 }
 
 .emotion-12 {

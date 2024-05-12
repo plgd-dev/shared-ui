@@ -1,36 +1,37 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const input = (theme: ThemeType, error?: boolean) => css`
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    border: 1px solid ${get(theme, `FormInput.borderColor`)};
-    background: ${get(theme, `FormInput.background`)};
+    border: 1px solid ${getThemeColor(theme, `FormInput.borderColor`)};
+    background: ${getThemeColor(theme, `FormInput.background`)};
     border-radius: 8px;
     display: block;
     width: 100%;
     padding: 0 16px;
     transition: all 0.25s;
-    color: ${get(theme, `FormInput.color`)};
+    color: ${getThemeColor(theme, `FormInput.color`)};
     box-sizing: border-box;
 
     &::placeholder {
-        color: ${get(theme, `FormInput.placeholder.color`)};
+        color: ${getThemeColor(theme, `FormInput.placeholder.color`)};
         opacity: 1;
     }
 
     &:-ms-input-placeholder {
-        color: ${get(theme, `FormInput.placeholder.color`)};
+        color: ${getThemeColor(theme, `FormInput.placeholder.color`)};
     }
 
     &::-ms-input-placeholder {
-        color: ${get(theme, `FormInput.placeholder.color`)};
+        color: ${getThemeColor(theme, `FormInput.placeholder.color`)};
     }
 
     &:focus {
-        border-color: ${error ? undefined : get(theme, `FormInput.focus.borderColor`)}!important;
+        border-color: ${error ? undefined : getThemeColor(theme, `FormInput.focus.borderColor`)}!important;
         outline: none;
     }
 
@@ -56,7 +57,7 @@ export const inlineStyle = (theme: ThemeType) => css`
     border-color: transparent;
 
     &:hover {
-        border-color: ${get(theme, `FormInput.borderColor`)};
+        border-color: ${getThemeColor(theme, `FormInput.borderColor`)};
     }
 `
 
@@ -99,12 +100,12 @@ export const rightContent = css`
 `
 
 export const inputIcon = (theme: ThemeType) => css`
-    color: ${get(theme, `FormInput.icon.color`)};
+    color: ${getThemeColor(theme, `FormInput.icon.color`)};
     cursor: pointer;
     transition: all 0.25ms;
 
     &:hover {
-        color: ${get(theme, `FormInput.icon.hover.color`)};
+        color: ${getThemeColor(theme, `FormInput.icon.hover.color`)};
     }
 
     svg {
@@ -117,7 +118,7 @@ export const passwordIcon = (theme: ThemeType) => css`
     top: 10px;
     right: 12px;
     padding: 2px 0 2px 4px;
-    background: ${get(theme, `FormInput.passwordIcon.background`)};
+    background: ${getThemeColor(theme, `FormInput.passwordIcon.background`)};
     width: 28px;
     height: 28px;
     box-sizing: border-box;
@@ -128,34 +129,34 @@ export const inputTelData = (theme: ThemeType) => css`
     left: 12px;
     top: 12px;
     height: 24px;
-    border-right: 1px solid ${get(theme, `FormInput.borderColor`)};
+    border-right: 1px solid ${getThemeColor(theme, `FormInput.borderColor`)};
     display: flex;
     align-items: center;
 `
 
 export const telPrefix = (theme: ThemeType) => css`
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    color: ${get(theme, `FormInput.color`)};
+    color: ${getThemeColor(theme, `FormInput.color`)};
     padding: 0 10px 0 8px;
     user-select: none;
 `
 
 export const disabled = (theme: ThemeType) => css`
-    background: ${get(theme, `FormInput.disabled.background`)};
-    color: ${get(theme, `FormInput.disabled.color`)};
-    border-color: ${get(theme, `FormInput.disabled.borderColor`)};
+    background: ${getThemeColor(theme, `FormInput.disabled.background`)};
+    color: ${getThemeColor(theme, `FormInput.disabled.color`)};
+    border-color: ${getThemeColor(theme, `FormInput.disabled.borderColor`)};
     cursor: not-allowed;
 `
 
 export const readOnly = (theme: ThemeType) => css`
-    color: ${get(theme, `FormInput.readonly.color`)};
+    color: ${getThemeColor(theme, `FormInput.readonly.color`)};
 `
 
 export const error = (theme: ThemeType) => css`
-    border-color: ${get(theme, `FormInput.error.red`)}!important;
+    border-color: ${getThemeColor(theme, `FormInput.error.red`)}!important;
 `
 
 export const right = css`

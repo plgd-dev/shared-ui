@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { HeadlineType } from './DetailHeadline.types'
-import { ThemeType, get } from '../../Atomic/_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../Atomic/_theme'
+import { fontPrimary } from '../../Atomic/_utils/commonStyles'
 
 const getSizes = (type: HeadlineType) => {
     switch (type) {
@@ -13,8 +14,8 @@ const getSizes = (type: HeadlineType) => {
 }
 
 export const headline = (theme: ThemeType, type: HeadlineType) => css`
-    color: ${get(theme, `DetailHeadline.color`)};
-    font-family: 'Poppins', sans-serif;
+    color: ${getThemeColor(theme, `DetailHeadline.color`)};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 600;
     ${getSizes(type)};

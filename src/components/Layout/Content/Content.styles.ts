@@ -1,8 +1,8 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../../Atomic/_theme'
+import { ThemeType, getThemeColor } from '../../Atomic/_theme'
 
 export const content = (theme: ThemeType) => css`
-    background: ${get(theme, `Content.background`)};
+    background: ${getThemeColor(theme, `Content.background`)};
     padding: 24px 40px 0 24px;
 `
 
@@ -32,7 +32,7 @@ export const rightAction = css`
 `
 
 export const headline = (theme: ThemeType) => css`
-    color: ${get(theme, `Content.headline.color`)};
+    color: ${getThemeColor(theme, `Content.headline.color`)};
 `
 
 export const statusTag = css`

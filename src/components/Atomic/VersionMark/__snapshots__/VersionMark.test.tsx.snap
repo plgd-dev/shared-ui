@@ -37,6 +37,7 @@ exports[`<VersionMark> render correctly - snapshot 1`] = `
 }
 
 .emotion-8 {
+  color: #2261AE;
   -webkit-text-decoration: underline;
   text-decoration: underline;
   font-family: 'Poppins',sans-serif;

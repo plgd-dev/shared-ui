@@ -42,6 +42,7 @@ exports[`<Modal> render correctly - snapshot 1`] = `
 }
 
 .emotion-2 {
+  background: #FFFFFF;
   padding: 24px 0;
   min-width: 600px;
   max-width: 90%;
@@ -70,11 +71,13 @@ exports[`<Modal> render correctly - snapshot 1`] = `
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  border-bottom: 2px solid;
+  border-bottom: 2px solid #E6E9ED;
   padding: 12px 24px 32px 24px;
 }
 
 .emotion-4 {
+  color: #0A2965;
+  font-family: 'Circular Pro',sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 24px;
@@ -87,6 +90,7 @@ exports[`<Modal> render correctly - snapshot 1`] = `
   font-size: 24px;
   line-height: 30px;
   letter-spacing: -0.5px;
+  color: #0A2965;
   max-width: 100%;
 }
 
@@ -122,7 +126,12 @@ exports[`<Modal> render correctly - snapshot 1`] = `
   margin-right: 10px;
 }
 
+.emotion-5:hover {
+  color: #2261AE;
+}
+
 .emotion-6 {
+  background: #FFFFFF;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -135,6 +144,7 @@ exports[`<Modal> render correctly - snapshot 1`] = `
 
 .emotion-7 {
   padding: 24px 24px 0 24px;
+  background: #FFFFFF;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

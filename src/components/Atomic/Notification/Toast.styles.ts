@@ -3,6 +3,8 @@ import { css as cssRaw } from '@emotion/css'
 import { colors } from '../_utils/colors'
 import { toastTypes } from './constants'
 import { TypeOptions } from 'react-toastify/dist/types'
+import { fontPrimary } from '../_utils/commonStyles'
+import { getTheme, ThemeType } from '../_theme'
 
 export const getColorByType = (type: TypeOptions) => {
     switch (type) {
@@ -73,8 +75,8 @@ export const content = css`
     padding-left: 12px;
 `
 
-export const headline = (type: TypeOptions) => css`
-    font-family: 'Poppins', sans-serif;
+export const headline = (type: TypeOptions, theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -82,8 +84,8 @@ export const headline = (type: TypeOptions) => css`
     color: ${getColorByType(type)};
 `
 
-export const text = css`
-    font-family: 'Poppins', sans-serif;
+export const text = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;

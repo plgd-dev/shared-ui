@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor } from '../_theme'
 
 export const colorPicker = (theme: ThemeType) => css`
     display: inline-flex;
     align-items: center;
     padding: 4px;
-    background: ${get(theme, `ColorPicker.background`)};
+    background: ${getThemeColor(theme, `ColorPicker.background`)};
     border-radius: 8px;
     cursor: pointer;
-    border: 1px solid ${get(theme, `ColorPicker.borderColor`)};
+    border: 1px solid ${getThemeColor(theme, `ColorPicker.borderColor`)};
 `
 
 export const color = css`
@@ -29,12 +29,12 @@ export const label = (theme: ThemeType) => css`
     font-size: 12px;
     display: block;
     padding: 0 8px;
-    color: ${get(theme, `ColorPicker.label.color`)};
+    color: ${getThemeColor(theme, `ColorPicker.label.color`)};
 `
 
 export const floatingMenu = (theme: ThemeType) => css`
     z-index: 10;
-    border: 1px solid ${get(theme, `ColorPicker.floatingMenu.borderColor`)};
+    border: 1px solid ${getThemeColor(theme, `ColorPicker.floatingMenu.borderColor`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     overflow: hidden;

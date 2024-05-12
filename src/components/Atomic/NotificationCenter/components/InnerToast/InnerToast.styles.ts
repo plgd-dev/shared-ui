@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import { fontPrimary, hexToRgbA } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
-import { ThemeType, get } from '../../../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../../_theme'
 
 export const item = css`
     display: flex;
@@ -9,7 +9,7 @@ export const item = css`
 `
 
 export const borderTop = (theme: ThemeType) => css`
-    border-top: 1px solid ${get(theme, `NotificationCenter.InnerToast.borderColor`)};
+    border-top: 1px solid ${getThemeColor(theme, `NotificationCenter.InnerToast.borderColor`)};
 `
 
 export const iconWrapper = css`
@@ -24,7 +24,7 @@ export const unreadMark = (theme: ThemeType) => css`
     left: 0;
     top: 0;
     background: ${colors.red};
-    border: 2px solid ${get(theme, `NotificationCenter.InnerToast.unreadMark.borderColor`)};
+    border: 2px solid ${getThemeColor(theme, `NotificationCenter.InnerToast.unreadMark.borderColor`)};
     border-radius: 50%;
     box-sizing: border-box;
 `
@@ -47,7 +47,7 @@ export const colorInfo = css`
 `
 
 export const colorInfoBg = (theme: ThemeType) => css`
-    background-color: ${hexToRgbA(get(theme, `NotificationCenter.info`), 0.16)};
+    background-color: ${hexToRgbA(getThemeColor(theme, `NotificationCenter.info`), 0.16)};
 `
 
 export const colorSuccess = css`
@@ -55,7 +55,7 @@ export const colorSuccess = css`
 `
 
 export const colorSuccessBg = (theme: ThemeType) => css`
-    background-color: ${hexToRgbA(get(theme, `NotificationCenter.green`), 0.16)};
+    background-color: ${hexToRgbA(getThemeColor(theme, `NotificationCenter.green`), 0.16)};
 `
 
 export const colorWarning = css`
@@ -63,7 +63,7 @@ export const colorWarning = css`
 `
 
 export const colorWarningBg = (theme: ThemeType) => css`
-    background-color: ${hexToRgbA(get(theme, `NotificationCenter.yellow`), 0.16)};
+    background-color: ${hexToRgbA(getThemeColor(theme, `NotificationCenter.yellow`), 0.16)};
 `
 
 export const colorError = css`
@@ -71,21 +71,21 @@ export const colorError = css`
 `
 
 export const colorErrorBg = (theme: ThemeType) => css`
-    background-color: ${hexToRgbA(get(theme, `NotificationCenter.red`), 0.16)};
+    background-color: ${hexToRgbA(getThemeColor(theme, `NotificationCenter.red`), 0.16)};
 `
 
 export const headline = (theme: ThemeType) => css`
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: ${get(theme, `NotificationCenter.InnerToast.headline.color`)};
+    color: ${getThemeColor(theme, `NotificationCenter.InnerToast.headline.color`)};
     margin: 0;
 `
 
-export const description = css`
-    font-family: ${fontPrimary};
+export const description = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

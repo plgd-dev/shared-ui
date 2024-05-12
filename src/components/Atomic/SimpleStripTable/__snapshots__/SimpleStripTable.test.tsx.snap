@@ -21,6 +21,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
+  background: #FFFFFF;
   border-radius: 8px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
@@ -35,6 +36,10 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
 .emotion-0>* {
   padding-right: 0;
   padding-left: 0;
+}
+
+.emotion-0:hover {
+  background: #f6f7f9;
 }
 
 .emotion-1 {
@@ -66,6 +71,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   position: absolute;
   bottom: 0;
   height: 1px;
+  background: #E6E9ED;
 }
 
 .emotion-2:after {
@@ -98,6 +104,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 0 24px;
+  color: #252626;
   text-align: right;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -115,6 +122,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   position: absolute;
   bottom: 0;
   height: 1px;
+  background: #E6E9ED;
 }
 
 .emotion-4:after {
@@ -164,6 +172,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
+  background: #FFFFFF;
   border-radius: 8px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
@@ -178,6 +187,10 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
 .emotion-0>* {
   padding-right: 0;
   padding-left: 0;
+}
+
+.emotion-0:hover {
+  background: #f6f7f9;
 }
 
 .emotion-1 {
@@ -209,6 +222,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   position: absolute;
   bottom: 0;
   height: 1px;
+  background: #E6E9ED;
 }
 
 .emotion-2:after {
@@ -241,6 +255,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 0 24px;
+  color: #252626;
   text-align: right;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -258,6 +273,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   position: absolute;
   bottom: 0;
   height: 1px;
+  background: #E6E9ED;
 }
 
 .emotion-4:after {
@@ -307,6 +323,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
+  background: #FFFFFF;
   border-radius: 8px;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
@@ -321,6 +338,10 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
 .emotion-0>* {
   padding-right: 0;
   padding-left: 0;
+}
+
+.emotion-0:hover {
+  background: #f6f7f9;
 }
 
 .emotion-1 {
@@ -352,6 +373,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   position: absolute;
   bottom: 0;
   height: 1px;
+  background: #E6E9ED;
 }
 
 .emotion-2:after {
@@ -384,6 +406,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   -ms-flex-align: center;
   align-items: center;
   padding: 0 24px;
+  color: #252626;
   text-align: right;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -401,6 +424,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
   position: absolute;
   bottom: 0;
   height: 1px;
+  background: #E6E9ED;
 }
 
 .emotion-4:after {

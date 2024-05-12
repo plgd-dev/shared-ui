@@ -4,7 +4,7 @@ exports[`<TileExpand> renders title and status tag when provided 1`] = `
 <DocumentFragment>
   .emotion-0 {
   border-radius: 8px;
-  border: 1px solid;
+  border: 1px solid #E6E9ED;
   overflow: hidden;
 }
 
@@ -22,6 +22,15 @@ exports[`<TileExpand> renders title and status tag when provided 1`] = `
   -webkit-justify-content: space-between;
   justify-content: space-between;
   cursor: pointer;
+  background: #FFFFFF;
+}
+
+.emotion-1:hover {
+  background: #F6F7F9;
+}
+
+.emotion-1:hover .expander {
+  color: #2261AE;
 }
 
 .emotion-3 {
@@ -31,6 +40,7 @@ exports[`<TileExpand> renders title and status tag when provided 1`] = `
   font-weight: 700;
   line-height: 150%;
   letter-spacing: -0.5px;
+  color: #0A2965;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -52,6 +62,8 @@ exports[`<TileExpand> renders title and status tag when provided 1`] = `
 }
 
 .emotion-6 {
+  color: #191A1A;
+  background: #F6F7F9;
   padding: 6px;
   border-radius: 8px;
   -webkit-transition: all 0.3s;

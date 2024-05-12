@@ -41,7 +41,7 @@ const NotificationMessage: FC<Props> = (props) => {
                 >
                     <div css={styles.messageInner}>
                         <IconInfo {...convertSize(24)} css={styles.icon(type)} />
-                        <span css={styles.type(type)}>{type}</span>
+                        <span css={(theme) => styles.type(type, theme)}>{type}</span>
                         <span css={styles.messageText}>{message}</span>
                     </div>
                 </motion.div>

@@ -1,12 +1,12 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
-import { commonStyles, fontPrimary } from '../_utils/commonStyles'
-import { ThemeType, get } from '../_theme'
+import { fontPrimary, fontSecondary } from '../_utils/commonStyles'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
 
 export const floatingPanel = (theme: ThemeType) => css`
     z-index: 10;
-    background: ${get(theme, `NotificationCenter.floatingPanel.background`)};
-    border: 1px solid ${get(theme, `NotificationCenter.floatingPanel.borderColor`)};
+    background: ${getThemeColor(theme, `NotificationCenter.floatingPanel.background`)};
+    border: 1px solid ${getThemeColor(theme, `NotificationCenter.floatingPanel.borderColor`)};
     box-shadow: 0 30px 40px rgba(28, 52, 99, 0.1);
     border-radius: 8px;
     min-width: 400px;
@@ -20,23 +20,23 @@ export const header = (theme: ThemeType) => css`
     box-sizing: border-box;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid ${get(theme, `NotificationCenter.Headline.borderColor`)};
+    border-bottom: 1px solid ${getThemeColor(theme, `NotificationCenter.Headline.borderColor`)};
 `
 
 export const headline = (theme: ThemeType) => css`
-    font-family: ${commonStyles.fontSecondary};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 140%;
     letter-spacing: -0.5px;
-    color: ${get(theme, `NotificationCenter.Headline.color`)};
+    color: ${getThemeColor(theme, `NotificationCenter.Headline.color`)};
 `
 
 export const clearAll = (theme: ThemeType) => css`
-    font-family: ${commonStyles.fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
-    color: ${get(theme, `NotificationCenter.ClearAll.color`)};
+    color: ${getThemeColor(theme, `NotificationCenter.ClearAll.color`)};
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
@@ -44,7 +44,7 @@ export const clearAll = (theme: ThemeType) => css`
 
     &:hover {
         text-decoration: none !important;
-        color: ${get(theme, `NotificationCenter.ClearAll.color`)};
+        color: ${getThemeColor(theme, `NotificationCenter.ClearAll.color`)};
     }
 `
 
@@ -54,13 +54,13 @@ export const content = css`
     padding: 0 16px;
 `
 
-export const noNotifications = css`
+export const noNotifications = (theme: ThemeType) => css`
     padding: 16px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -69,5 +69,5 @@ export const noNotifications = css`
 `
 
 export const verticalScrollbar = (theme: ThemeType) => css`
-    background: ${get(theme, `Scrollbar.color`)}!important;
+    background: ${getThemeColor(theme, `Scrollbar.color`)}!important;
 `

@@ -1,4 +1,5 @@
-import { render, waitFor } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
+import { render } from '../../../../test/jest-wrapper'
 import Icon, { IconsRaw } from '../Icon'
 
 describe('<Icon>', () => {

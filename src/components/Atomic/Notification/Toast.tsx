@@ -47,7 +47,7 @@ const ToastComponent = (props: any) => {
         <div css={styles.toastInner}>
             {getIcon(type)}
             <div css={styles.content}>
-                <div css={styles.headline(type)}>{message.title}</div>
+                <div css={(theme) => styles.headline(type, theme)}>{message.title}</div>
                 {message.message && <div css={styles.text}>{message.message}</div>}
             </div>
             <a className='close-button' css={styles.closeButton} href='#' onClick={handleClose}>

@@ -1,10 +1,11 @@
 import { css } from '@emotion/react'
-import { get, ThemeType } from '../_theme'
+import { getTheme, getThemeColor, ThemeType } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const link = (theme: ThemeType) => css`
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     text-decoration-line: underline;
-    color: ${get(theme, `Link.normal.color`)};
+    color: ${getThemeColor(theme, `Link.normal.color`)};
     font-weight: 400;
     font-size: 12px;
     line-height: 150%;
@@ -15,8 +16,8 @@ export const link = (theme: ThemeType) => css`
 `
 
 export const big = (theme: ThemeType) => css`
-    color: ${get(theme, `Link.big.color`)};
-    border-bottom: 2px solid ${get(theme, `Link.big.color`)};
+    color: ${getThemeColor(theme, `Link.big.color`)};
+    border-bottom: 2px solid ${getThemeColor(theme, `Link.big.color`)};
     text-decoration: none !important;
     transition: all 0.25s;
     padding-bottom: 2px;

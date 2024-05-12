@@ -1,9 +1,11 @@
 import { css } from '@emotion/react'
+import { fontSecondary } from '../../_utils/commonStyles'
+import { getTheme, ThemeType } from '../../_theme'
 
 export const testimonialItem = css``
 
-export const testimonialText = css`
-    font-family: 'Circular Pro', sans-serif;
+export const testimonialText = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-weight: 700;
     font-size: 24px;
     line-height: 140%;

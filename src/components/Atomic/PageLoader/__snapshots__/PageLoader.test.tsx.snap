@@ -49,6 +49,7 @@ exports[`<PageLoader> render correctly - snapshot 1`] = `
 
 .emotion-3 {
   position: absolute;
+  background-color: #2261AE;
   height: 5px;
   -webkit-animation: animation-0 2s infinite;
   animation: animation-0 2s infinite;
@@ -56,6 +57,7 @@ exports[`<PageLoader> render correctly - snapshot 1`] = `
 
 .emotion-4 {
   position: absolute;
+  background-color: #2261AE;
   height: 5px;
   -webkit-animation: animation-1 2s 0.5s infinite;
   animation: animation-1 2s 0.5s infinite;

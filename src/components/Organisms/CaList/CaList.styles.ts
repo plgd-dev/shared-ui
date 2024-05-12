@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { ThemeType, get } from '../../Atomic/_theme'
+import { ThemeType, getThemeColor } from '../../Atomic/_theme'
 
 export const list = css`
     ul {
@@ -15,11 +15,11 @@ export const row = (theme: ThemeType) => css`
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
-    box-shadow: ${get(theme, `CaList.item.boxShadow`)};
+    box-shadow: ${getThemeColor(theme, `CaList.item.boxShadow`)};
     transition: all 0.3s;
 
     &:hover {
-        background-color: ${get(theme, `Table.row.background`)};
+        background-color: ${getThemeColor(theme, `Table.row.background`)};
     }
 `
 
@@ -28,7 +28,7 @@ export const largePadding = css`
 `
 
 export const name = (theme: ThemeType) => css`
-    color: ${get(theme, `CaList.item.color`)};
+    color: ${getThemeColor(theme, `CaList.item.color`)};
     overflow: hidden;
     text-overflow: ellipsis;
 `

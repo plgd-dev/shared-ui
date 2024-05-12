@@ -1,5 +1,6 @@
 import React from 'react'
-import { render, waitFor } from '@testing-library/react'
+import { waitFor } from '@testing-library/react'
+import { render } from '../../../../test/jest-wrapper'
 import LeftPanel from './LeftPanel'
 import VersionMark from '../../Atomic/VersionMark'
 import {

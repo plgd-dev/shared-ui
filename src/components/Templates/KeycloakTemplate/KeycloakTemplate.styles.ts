@@ -1,5 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../../Atomic/_utils/colors'
+import { getTheme, ThemeType } from '../../Atomic/_theme'
+import { fontPrimary, fontSecondary } from '../../Atomic/_utils/commonStyles'
 
 export const TemplateContainer = css`
     position: relative;
@@ -108,7 +110,7 @@ export const rightMobileLogoLink = css`
     }
 `
 
-export const close = css`
+export const close = (theme: ThemeType) => css`
     position: absolute;
     right: 30px;
     top: 50%;
@@ -118,7 +120,7 @@ export const close = css`
     transition: all 0.25s;
     display: flex;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
 
     @media (max-width: 991px) {
@@ -163,9 +165,9 @@ export const centeredBox = css`
     }
 `
 
-export const mainHeadline = css`
+export const mainHeadline = (theme: ThemeType) => css`
     margin: 0 0 16px 0;
-    font-family: 'Circular Pro', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     color: #191a1a;
     font-weight: 700;
     font-size: 36px;
@@ -173,8 +175,8 @@ export const mainHeadline = css`
     letter-spacing: -0.5px;
 `
 
-export const description = css`
-    font-family: 'Poppins', sans-serif;
+export const description = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     color: #252626;
     font-weight: 400;
@@ -206,12 +208,12 @@ const getColorByType = (type: string) => {
     }
 }
 
-export const message = (type: string) => css`
+export const message = (type: string, theme: ThemeType) => css`
     padding: 10px 16px;
     border-radius: 4px;
     ${getColorByType(type)};
     margin-bottom: 32px;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 12px;

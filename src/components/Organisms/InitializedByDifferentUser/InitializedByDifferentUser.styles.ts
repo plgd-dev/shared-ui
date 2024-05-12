@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../../Atomic/_utils/colors'
-import { get, ThemeType } from '../../Atomic/_theme'
+import { getTheme, getThemeColor, ThemeType } from '../../Atomic/_theme'
+import { fontPrimary, fontSecondary } from '../../Atomic/_utils/commonStyles'
 
 export const cover = css`
     position: fixed;
@@ -88,8 +89,8 @@ export const content = css`
 `
 
 export const headline = (theme: ThemeType) => css`
-    color: ${get(theme, `InitializedByDifferentUser.headline.color`)};
-    font-family: 'Circular Pro', sans-serif;
+    color: ${getThemeColor(theme, `InitializedByDifferentUser.headline.color`)};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 48px;
@@ -98,7 +99,7 @@ export const headline = (theme: ThemeType) => css`
     margin: 0 0 16px 0;
 
     span {
-        color: ${get(theme, `InitializedByDifferentUser.headline.span.color`)};
+        color: ${getThemeColor(theme, `InitializedByDifferentUser.headline.span.color`)};
     }
 
     @media (max-width: 991px) {
@@ -108,8 +109,8 @@ export const headline = (theme: ThemeType) => css`
     }
 `
 
-export const description = css`
-    font-family: 'Poppins', sans-serif;
+export const description = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 16px;

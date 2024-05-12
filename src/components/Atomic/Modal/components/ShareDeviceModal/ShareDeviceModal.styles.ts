@@ -1,12 +1,12 @@
 import { css } from '@emotion/react'
-import { commonStyles, fontPrimary } from '../../../_utils/commonStyles'
+import { fontPrimary, fontSecondary } from '../../../_utils/commonStyles'
 import { colors } from '../../../_utils/colors'
-import { ThemeType, get } from '../../../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../../../_theme'
 
 export const body = css``
 
 export const headline = (theme: ThemeType) => css`
-    font-family: ${commonStyles.fontSecondary};
+    font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -14,7 +14,7 @@ export const headline = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     letter-spacing: -0.5px;
-    color: ${get(theme, `ShareDeviceModal.headline.color`)};
+    color: ${getThemeColor(theme, `ShareDeviceModal.headline.color`)};
     margin: 0 0 16px 0;
 `
 
@@ -25,7 +25,7 @@ export const alreadyShared = css`
 export const sharedItem = (theme: ThemeType) => css`
     display: flex;
     padding: 18px 0;
-    border-bottom: 1px solid ${get(theme, `ShareDeviceModal.sharedItem.color`)};
+    border-bottom: 1px solid ${getThemeColor(theme, `ShareDeviceModal.sharedItem.color`)};
 `
 
 export const left = css`
@@ -51,8 +51,8 @@ export const data = css`
     padding-left: 8px;
 `
 
-export const name = css`
-    font-family: ${fontPrimary};
+export const name = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -62,8 +62,8 @@ export const name = css`
     margin: 0 0 4px 0;
 `
 
-export const email = css`
-    font-family: ${fontPrimary};
+export const email = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
@@ -72,7 +72,7 @@ export const email = css`
 `
 
 export const removeBtn = (theme: ThemeType) => css`
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -89,7 +89,7 @@ export const removeBtn = (theme: ThemeType) => css`
     transition: all 0.25s;
 
     &:hover {
-        color: ${get(theme, `ShareDeviceModal.removeBtn.hover.color`)};
-        border-color: ${get(theme, `ShareDeviceModal.removeBtn.hover.borderColor`)};
+        color: ${getThemeColor(theme, `ShareDeviceModal.removeBtn.hover.color`)};
+        border-color: ${getThemeColor(theme, `ShareDeviceModal.removeBtn.hover.borderColor`)};
     }
 `

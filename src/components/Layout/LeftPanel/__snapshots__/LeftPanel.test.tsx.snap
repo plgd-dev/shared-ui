@@ -3,6 +3,7 @@
 exports[`<LeftPanel> render correctly - snapshot 1`] = `
 <DocumentFragment>
   .emotion-0 {
+  background: #F4F9FB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -44,6 +45,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   right: 0;
   bottom: 0;
   width: 17px;
+  background: #F4F9FB;
 }
 
 .emotion-1 #main-app-logo {
@@ -97,6 +99,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
+  color: rgba(129,134,140,0.8);
   margin-bottom: 12px;
 }
 
@@ -111,13 +114,18 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  color: !important;
-  background: #fff;
+  color: #0A2965!important;
+  background: #FFFFFF;
+}
+
+.emotion-8:hover {
+  color: #252626;
 }
 
 .emotion-9 {
@@ -167,11 +175,16 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+
+.emotion-13:hover {
+  color: #252626;
 }
 
 .emotion-14 {
@@ -224,7 +237,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
 }
 
 .emotion-75 {
-  border-top: 2px solid;
+  border-top: 2px solid #E6E9ED;
   margin-top: 12px;
   padding: 0 0 0 8px;
   display: -webkit-box;
@@ -897,6 +910,7 @@ exports[`<LeftPanel> render correctly - snapshot 1`] = `
 exports[`<LeftPanel> render correctly - snapshot 2`] = `
 <DocumentFragment>
   .emotion-0 {
+  background: #F4F9FB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -938,6 +952,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   right: 0;
   bottom: 0;
   width: 17px;
+  background: #F4F9FB;
 }
 
 .emotion-1 #main-app-logo {
@@ -991,6 +1006,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
+  color: rgba(129,134,140,0.8);
   margin-bottom: 12px;
 }
 
@@ -1005,13 +1021,18 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  color: !important;
-  background: #fff;
+  color: #0A2965!important;
+  background: #FFFFFF;
+}
+
+.emotion-8:hover {
+  color: #252626;
 }
 
 .emotion-9 {
@@ -1061,11 +1082,16 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+
+.emotion-13:hover {
+  color: #252626;
 }
 
 .emotion-14 {
@@ -1118,7 +1144,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
 }
 
 .emotion-75 {
-  border-top: 2px solid;
+  border-top: 2px solid #E6E9ED;
   margin-top: 12px;
   padding: 0 0 0 8px;
   display: -webkit-box;
@@ -1791,6 +1817,7 @@ exports[`<LeftPanel> render correctly - snapshot 2`] = `
 exports[`<LeftPanel> render correctly - snapshot 3`] = `
 <DocumentFragment>
   .emotion-0 {
+  background: #F4F9FB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1832,6 +1859,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   right: 0;
   bottom: 0;
   width: 17px;
+  background: #F4F9FB;
 }
 
 .emotion-1 #main-app-logo {
@@ -1885,6 +1913,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
+  color: rgba(129,134,140,0.8);
   margin-bottom: 12px;
 }
 
@@ -1899,13 +1928,18 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  color: !important;
-  background: #fff;
+  color: #0A2965!important;
+  background: #FFFFFF;
+}
+
+.emotion-8:hover {
+  color: #252626;
 }
 
 .emotion-9 {
@@ -1955,11 +1989,16 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+
+.emotion-13:hover {
+  color: #252626;
 }
 
 .emotion-14 {
@@ -2012,7 +2051,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
 }
 
 .emotion-75 {
-  border-top: 2px solid;
+  border-top: 2px solid #E6E9ED;
   margin-top: 12px;
   padding: 0 0 0 8px;
   display: -webkit-box;
@@ -2685,6 +2724,7 @@ exports[`<LeftPanel> render correctly - snapshot 3`] = `
 exports[`<LeftPanel> render correctly - snapshot 4`] = `
 <DocumentFragment>
   .emotion-0 {
+  background: #F4F9FB;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2734,6 +2774,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
   right: 0;
   bottom: 0;
   width: 17px;
+  background: #F4F9FB;
 }
 
 .emotion-1 #main-app-logo {
@@ -2792,6 +2833,7 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
   font-weight: 400;
   font-size: 12px;
   line-height: 18px;
+  color: rgba(129,134,140,0.8);
   margin-bottom: 12px;
   text-align: center;
 }
@@ -2807,11 +2849,16 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+
+.emotion-8:hover {
+  color: #252626;
 }
 
 .emotion-9 {
@@ -2860,13 +2907,18 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
   min-height: 40px;
   box-sizing: border-box;
   border-radius: 8px;
+  color: #81868C;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  color: !important;
-  background: #fff;
+  color: #0A2965!important;
+  background: #FFFFFF;
+}
+
+.emotion-23:hover {
+  color: #252626;
 }
 
 .emotion-24 {
@@ -2917,17 +2969,12 @@ exports[`<LeftPanel> render correctly - snapshot 4`] = `
   justify-content: center;
   -webkit-transition: all 0.25s;
   transition: all 0.25s;
-  position: inherit;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  transform: none;
-  top: unset;
-  margin-left: 5px;
+  right: unset;
+  left: 20px;
 }
 
 .emotion-75 {
-  border-top: 2px solid;
+  border-top: 2px solid #E6E9ED;
   margin-top: 12px;
   padding: 0 0 0 8px;
   display: -webkit-box;

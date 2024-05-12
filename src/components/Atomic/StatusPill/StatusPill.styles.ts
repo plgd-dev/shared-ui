@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const statusPill = css`
     display: flex;
@@ -14,20 +15,20 @@ export const statusLine = css`
 `
 
 export const online = (theme: ThemeType) => css`
-    background-color: ${get(theme, 'StatusPill.statusLine.green')};
+    background-color: ${getThemeColor(theme, 'StatusPill.statusLine.green')};
 `
 
 export const offline = (theme: ThemeType) => css`
-    background-color: ${get(theme, 'StatusPill.statusLine.red')};
+    background-color: ${getThemeColor(theme, 'StatusPill.statusLine.red')};
 `
 
 export const occupied = (theme: ThemeType) => css`
-    background-color: ${get(theme, 'StatusPill.statusLine.occupied')};
+    background-color: ${getThemeColor(theme, 'StatusPill.statusLine.occupied')};
 `
 
-export const label = css`
+export const label = (theme: ThemeType) => css`
     display: inline-block;
-    font-family: 'Poppins', sans-serif;
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -39,8 +40,8 @@ export const content = css`
     padding-left: 8px;
 `
 
-export const pending = css`
-    font-family: 'Poppins', sans-serif;
+export const pending = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 10px;

@@ -1,23 +1,23 @@
 import { css } from '@emotion/react'
 import { colors } from '../_utils/colors'
 import { fontPrimary } from '../_utils/commonStyles'
-import { ThemeType, get } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
 
 export const table = css``
 
 export const row = (theme: ThemeType) => css`
-    font-family: ${fontPrimary};
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    background: ${get(theme, `SimpleStripTable.row.background`)};
+    background: ${getThemeColor(theme, `SimpleStripTable.row.background`)};
     border-radius: 8px;
     transition: all 0.25s;
     height: 54px;
 
     &:hover {
-        background: ${get(theme, `SimpleStripTable.row.hover.background`)};
+        background: ${getThemeColor(theme, `SimpleStripTable.row.hover.background`)};
     }
 `
 
@@ -26,7 +26,7 @@ export const autoHeight = css`
 `
 
 export const headerRow = (theme: ThemeType) => css`
-    background: ${get(theme, `SimpleStripTable.row.hover.background`)};
+    background: ${getThemeColor(theme, `SimpleStripTable.row.hover.background`)};
 `
 
 export const attribute = css`
@@ -40,7 +40,7 @@ export const value = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     padding: 0 24px;
-    color: ${get(theme, `SimpleStripTable.value.color`)};
+    color: ${getThemeColor(theme, `SimpleStripTable.value.color`)};
     text-align: right;
     justify-content: flex-end;
     height: 54px;
@@ -56,7 +56,7 @@ export const border = (theme: ThemeType) => css`
         position: absolute;
         bottom: 0;
         height: 1px;
-        background: ${get(theme, `SimpleStripTable.border.background`)};
+        background: ${getThemeColor(theme, `SimpleStripTable.border.background`)};
     }
 `
 export const borderLeft = css`
@@ -80,16 +80,16 @@ export const borderRight = css`
 
 export const copy = (theme: ThemeType) => css`
     display: inline-flex;
-    color: ${get(theme, `SimpleStripTable.value.copy.color`)};
+    color: ${getThemeColor(theme, `SimpleStripTable.value.copy.color`)};
     transition: all 0.3s;
     margin-left: 8px;
     cursor: pointer;
 
     &:hover {
-        color: ${get(theme, `SimpleStripTable.value.copy.hover.color`)};
+        color: ${getThemeColor(theme, `SimpleStripTable.value.copy.hover.color`)};
     }
 `
 
 export const required = (theme: ThemeType) => css`
-    color: ${get(theme, `FormLabel.required.color`)};
+    color: ${getThemeColor(theme, `FormLabel.required.color`)};
 `
