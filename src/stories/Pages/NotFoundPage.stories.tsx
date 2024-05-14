@@ -1,20 +1,21 @@
 import React from 'react'
-import InitializedByDifferentUser from '../components/Organisms/InitializedByDifferentUser'
 import { StoryFn } from '@storybook/react'
+import NotFoundPage from '../../components/Templates/NotFoundPage'
 
 export default {
-    title: 'Pages/InitializedByDifferentUser',
-    component: InitializedByDifferentUser,
+    title: 'Pages/NotFoundPage',
+    component: NotFoundPage,
     argTypes: {},
 }
 
 const Template = (args: any) => (
     <div>
-        <InitializedByDifferentUser {...args}>Tag text</InitializedByDifferentUser>
+        <NotFoundPage {...args} message='Page not found message' title='Page not found' />
     </div>
 )
 
 export const Default: StoryFn = Template.bind({})
+
 Default.args = {}
 Default.parameters = {
     layout: 'fullscreen',

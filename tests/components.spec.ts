@@ -48,7 +48,7 @@ const components = [
     },
     {
         group: 'Pages',
-        items: [{ name: 'InitializedByDifferentUser' }],
+        items: [{ name: 'InitializedByDifferentUser' }, { name: 'NotFoundPage' }],
     },
     {
         group: 'Keycloak',
