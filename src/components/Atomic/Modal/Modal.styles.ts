@@ -81,6 +81,7 @@ export const content = (theme: ThemeType) => css`
 export const contentPadding = css`
     padding-top: 24px;
 `
+
 export const footer = (theme: ThemeType) => css`
     padding: 24px 24px 0 24px;
     background: ${getThemeColor(theme, `Modal.footer.background`)};

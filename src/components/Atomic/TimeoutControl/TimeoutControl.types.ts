@@ -25,5 +25,6 @@ export type Props = {
     smallMode?: boolean
     ttlHasError?: boolean
     unitClassName?: string
+    unitMenuPortalTarget?: HTMLElement
     watchUnitChange?: boolean
 } & Pick<InputProps, 'inlineStyle' | 'align' | 'size'>

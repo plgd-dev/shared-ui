@@ -17,6 +17,8 @@ import GeneratedResourceForm from '../GeneratedResourceForm'
 import Spacer from '../../Atomic/Spacer'
 import Headline from '../../Atomic/Headline'
 import Loadable from '../../Atomic/Loadable'
+import * as styles from './DevicesResourcesModal.styles'
+import { knownResourceHref } from '../GeneratedResourceForm/constants'
 
 const { UPDATE_RESOURCE } = resourceModalTypes
 
@@ -179,6 +181,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                                 <FormSelect
                                     disabled={disabled || !isDeviceOnline}
                                     menuPortalTarget={document.body}
+                                    menuZIndex={100}
                                     onChange={setSelectedInterface}
                                     options={interfaces}
                                     size='small'
@@ -199,15 +202,12 @@ const DevicesResourcesModal: FC<Props> = (props) => {
             <>
                 <InnerContent />
 
-                <Spacer type='pt-4'>
-                    <Headline type='h5'>{i18n.content}</Headline>
+                <Spacer css={styles.flexLine} type='py-4'>
+                    <Headline css={styles.contentHeadline} type='h5'>
+                        {i18n.content}
+                    </Headline>
+                    {hasGeneratedForm && <Switch checked={advancedView} label={i18n.advancedView} onChange={() => setAdvancedView(!advancedView)} />}
                 </Spacer>
-
-                {hasGeneratedForm && (
-                    <Spacer type='py-4'>
-                        <Switch checked={advancedView} label={i18n.advancedView} onChange={() => setAdvancedView(!advancedView)} />
-                    </Spacer>
-                )}
 
                 <Loadable condition={advancedView !== undefined}>
                     <ContentSwitch activeItem={advancedView ? 0 : 1}>
@@ -236,7 +236,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                                 resetFormKey={reset}
                                 setFormError={setFormError}
                                 setIsEditable={setIsEditable}
-                                values={resourceData?.data?.content}
+                                values={href === knownResourceHref.WELL_KNOW_WOT ? resourceData?.data?.content : resourceData?.data?.content?.properties}
                             />
                         ) : (
                             <div />

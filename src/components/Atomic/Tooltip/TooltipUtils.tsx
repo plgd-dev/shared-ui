@@ -137,7 +137,7 @@ export const TooltipContent = forwardRef(function TooltipContent(
         arrowElement.current.style[staticSide] = '-4px'
     }
 
-    const { portalTarget, error, maxWidth, ...rest } = props
+    const { portalTarget, error, maxWidth, zIndex, ...rest } = props
 
     return (
         <ConditionalWrapper condition={!!portalTarget} wrapper={(c) => <FloatingPortal root={portalTarget}>{c}</FloatingPortal>}>
@@ -153,8 +153,8 @@ export const TooltipContent = forwardRef(function TooltipContent(
                             position: state.strategy,
                             top: state.y ?? 0,
                             left: state.x ?? 0,
-                            maxWidth: maxWidth,
-                            zIndex: props.zIndex,
+                            maxWidth,
+                            zIndex,
                             ...rest.style,
                         }}
                         transition={

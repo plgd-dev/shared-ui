@@ -5,18 +5,19 @@ import get from 'lodash/get'
 import isObject from 'lodash/isObject'
 import isFunction from 'lodash/isFunction'
 import set from 'lodash/set'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { PropertiesType, Property } from '../GeneratedResourceForm.types'
 import FormInput from '../../../Atomic/FormInput'
 import IconNumbers from '../../../Atomic/Icon/components/IconNumbers'
 import Switch from '../../../Atomic/Switch'
 import Spacer from '../../../Atomic/Spacer'
-import Headline from '../../../Atomic/Headline'
-import { ModalStrippedLine } from '../../../Atomic/Modal'
 import FormGroup from '../../../Atomic/FormGroup'
 import { Props } from './FormGenerator.types'
 import { knownResourceHref } from '../constants'
+import FormGeneratorLine from './components/FormGeneratorLine'
 import Editor from '../../../Atomic/Editor'
+import SubHeadline from './components/SubHeadline'
 
 export const sortProperties = (properties: PropertiesType) =>
     properties
@@ -36,7 +37,7 @@ export const sortProperties = (properties: PropertiesType) =>
               )
         : []
 
-export const getHref = (parentHref: string, href: string) => `${parentHref !== '' ? parentHref + '/' : parentHref}${href}`
+export const getHref = (parentHref: string, href: string) => `${parentHref !== '' && !parentHref.startsWith('/') ? parentHref + '/' : parentHref}${href}`
 
 const FormGenerator: FC<Props> = (props) => {
     const { href: topHref, properties, resetFormKey, schema, values, onChange, setFormError } = props
@@ -46,7 +47,9 @@ const FormGenerator: FC<Props> = (props) => {
     const isSingleValueMode = useMemo(() => !isObject(values), [values])
     const formDefaultValues = useMemo(() => (isSingleValueMode ? values : { [topHref]: values }), [isSingleValueMode, topHref, values])
     const [hasError, setHasError] = useState(false)
+    const [firstRender, setFirstRender] = useState(true)
     const [editorErrors, setEditorErrors] = useState<string[]>([])
+    const [expandedGroups, setExpandedGroups] = useState<string[]>([])
 
     const {
         control,
@@ -59,7 +62,10 @@ const FormGenerator: FC<Props> = (props) => {
     }, [reset, resetFormKey])
 
     const getDefaultValue = useCallback(
-        (href: string) => (isSingleValueMode ? values : get(values, href.replace(topHref, '').substring(1).replace('/', '.'), '')),
+        (href: string) => {
+            const valuesBase = href === knownResourceHref.WELL_KNOW_WOT ? values.properties : values
+            return isSingleValueMode ? values : get(valuesBase, href.replace(topHref, '').substring(1).replace('/', '.'), '')
+        },
         [isSingleValueMode, topHref, values]
     )
 
@@ -104,12 +110,14 @@ const FormGenerator: FC<Props> = (props) => {
     }, [editorErrors, hasError, isValid, setFormError])
 
     useEffect(() => {
+        let firstGroup = true
         const buildProperties: any = (properties: PropertiesType, parentHref = '', readOnly = false, depth = 1) =>
             sortProperties(properties).map((property: Property & { href: string }, k) => {
                 const href = getHref(parentHref, property.href)
                 const key = `${href}-${k}-${depth}-${property.title}`
                 const readOnlyP = property.readOnly || readOnly
                 const defaultValue = getDefaultValue(href)
+                const isLast = k === Object.keys(properties).length - 1
 
                 if (property.href === knownResourceHref.WELL_KNOW_WOT) {
                     return buildProperties(property.properties, href, readOnlyP, depth)
@@ -117,7 +125,7 @@ const FormGenerator: FC<Props> = (props) => {
 
                 if (['string', 'integer', 'number'].includes(property.type)) {
                     const isNumber = ['integer', 'number'].includes(property.type)
-                    const formatValue = (value?: string) => (isNumber && value ? parseInt(value, 10) : value)
+                    const formatValue = (value?: string) => (isNumber && value ? parseFloat(value) : value)
 
                     return (
                         <Controller
@@ -126,8 +134,7 @@ const FormGenerator: FC<Props> = (props) => {
                             key={key}
                             name={href}
                             render={({ field }) => (
-                                <ModalStrippedLine
-                                    smallPadding
+                                <FormGeneratorLine
                                     component={
                                         <FormGroup
                                             errorTooltip
@@ -152,6 +159,7 @@ const FormGenerator: FC<Props> = (props) => {
                                             />
                                         </FormGroup>
                                     }
+                                    isLast={isLast}
                                     label={property.title || property.href}
                                 />
                             )}
@@ -165,8 +173,7 @@ const FormGenerator: FC<Props> = (props) => {
                             key={key}
                             name={href}
                             render={({ field }) => (
-                                <ModalStrippedLine
-                                    smallPadding
+                                <FormGeneratorLine
                                     component={
                                         <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                                             <Switch
@@ -180,6 +187,7 @@ const FormGenerator: FC<Props> = (props) => {
                                             />
                                         </div>
                                     }
+                                    isLast={isLast}
                                     label={property.title || property.href}
                                 />
                             )}
@@ -187,14 +195,51 @@ const FormGenerator: FC<Props> = (props) => {
                     )
                 } else if (property.type === 'object') {
                     if (property.properties) {
+                        const show = expandedGroups.includes(key)
+
+                        if (firstGroup && expandedGroups.length === 0 && firstRender) {
+                            firstGroup = false
+                            setExpandedGroups([...expandedGroups, key])
+                        }
+
                         return (
-                            <Spacer key={key} type='mb-5 mt-8'>
-                                <Spacer type='mb-4'>
-                                    <Headline style={{ textTransform: 'capitalize' }} type='h5'>
-                                        {property.title || property.href}
-                                    </Headline>
-                                </Spacer>
-                                <Spacer type={`pl-${5 * depth}`}>{buildProperties(property.properties, href, readOnlyP, depth + 1)}</Spacer>
+                            <Spacer key={key} type='mb-4 mt-4'>
+                                <FormGeneratorLine
+                                    component={
+                                        <>
+                                            <SubHeadline
+                                                hasLine
+                                                expanded={show}
+                                                headline={property.title || property.href}
+                                                onToggle={() => {
+                                                    if (expandedGroups.includes(key)) {
+                                                        setExpandedGroups(expandedGroups.filter((group) => group !== key))
+                                                    } else {
+                                                        setExpandedGroups([...expandedGroups, key])
+                                                    }
+                                                }}
+                                            />
+                                            <AnimatePresence>
+                                                {show && (
+                                                    <motion.div
+                                                        animate={{ opacity: 1, height: 'auto' }}
+                                                        exit={{
+                                                            opacity: 0,
+                                                            height: 0,
+                                                        }}
+                                                        initial={{ opacity: 0, height: 0 }}
+                                                        transition={{
+                                                            duration: 0.3,
+                                                        }}
+                                                    >
+                                                        {buildProperties(property.properties, href, readOnlyP, depth + 1)}
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </>
+                                    }
+                                    isLast={isLast}
+                                />
                             </Spacer>
                         )
                     } else {
@@ -205,8 +250,7 @@ const FormGenerator: FC<Props> = (props) => {
                                 key={key}
                                 name={href}
                                 render={({ field }) => (
-                                    <ModalStrippedLine
-                                        smallPadding
+                                    <FormGeneratorLine
                                         component={
                                             <Editor
                                                 height='200px'
@@ -233,8 +277,9 @@ const FormGenerator: FC<Props> = (props) => {
 
         if (properties) {
             setComponents(buildProperties(properties))
+            setFirstRender(false)
         }
-    }, [control, errors, getDefaultValue, handleEditorChange, handleValueChange, properties])
+    }, [control, errors, expandedGroups, firstRender, getDefaultValue, handleEditorChange, handleValueChange, properties])
 
     return <>{components}</>
 }

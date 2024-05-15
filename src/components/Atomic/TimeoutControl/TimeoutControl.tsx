@@ -33,6 +33,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
         size,
         smallMode,
         unitClassName,
+        unitMenuPortalTarget,
         watchUnitChange,
     } = props
     const closestUnit = useMemo(() => findClosestUnit(defaultValue), [defaultValue])
@@ -165,6 +166,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
                         defaultValue={units.filter((option) => option.value === unit)}
                         disabled={disabled}
                         inlineStyle={inlineStyle}
+                        menuPortalTarget={unitMenuPortalTarget}
                         name='unit'
                         onChange={(e) => {
                             handleOnUnitChange(e)
