@@ -39,7 +39,7 @@ export const useStreamApi = (url, options = {}) => {
     const [refreshIndex, setRefreshIndex] = useState(0)
     let apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
 
-    const urlBase = url.split('?')[0]?.split('/api/')[1]
+    const urlBase = url.split('/api/')[1]
     const mockKey = urlBase.toUpperCase().replace(/\//g, '_').replace(/-/g, '_')
 
     useEffect(
@@ -51,9 +51,9 @@ export const useStreamApi = (url, options = {}) => {
                         setState({ ...state, loading: true })
                         let data = []
 
-                        if (process.env[`REACT_APP_MOCK_API_${mockKey}`]) {
+                        if (process.env[`REACT_APP_MOCK_API`] || process.env[`REACT_APP_MOCK_API_${mockKey}`]) {
                             const mockUrl = `${process.env.REACT_APP_MOCK_BASE_URL}/api/${urlBase}`
-                            data = await getData(fetchApi, mockUrl, options)
+                            data = await getData(apiMethod, mockUrl, options)
                         } else {
                             data = await getData(apiMethod, url, options)
                         }

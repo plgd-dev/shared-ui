@@ -46,3 +46,16 @@ export const content = css`
     overflow: auto;
     height: 100%;
 `
+
+export const mockApiMode = css`
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    padding: 8px;
+    background: #000;
+    color: #fff;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+`
