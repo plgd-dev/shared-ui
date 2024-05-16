@@ -146,6 +146,7 @@ export const option = (theme: ThemeType) => css`
 
 export const optionRight = css`
     justify-content: flex-end;
+    text-align: right;
 `
 
 export const optionSelected = (theme: ThemeType) => css`

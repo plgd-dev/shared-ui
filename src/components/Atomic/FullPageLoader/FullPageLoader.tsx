@@ -9,7 +9,7 @@ const FullPageLoader: FC<Props> = (props) => {
 
     return (
         <>
-            <PageLoader loading className='auth-loader' />
+            <PageLoader loading noOffset className='auth-loader' />
             <div css={styles.holder}>{`${i18n.loading}...`}</div>
         </>
     )
