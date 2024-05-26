@@ -87,3 +87,15 @@ export const DEVICES_REGISTERED_UNREGISTERED_COUNT_EVENT_KEY = 'devices-register
 
 // Constant used in the DEVICES_REGISTERED_UNREGISTERED_COUNT_EVENT_KEY when reseting the counter
 export const RESET_COUNTER = 'reset-counter'
+
+export const hasMockApi = (url: string) => {
+    const mockKey = url.toUpperCase().replace(/\//g, '_').replace(/-/g, '_')
+
+    return process.env[`REACT_APP_MOCK_BASE_URL`] && (process.env[`REACT_APP_MOCK_API`] || process.env[`REACT_APP_MOCK_API_${mockKey}`])
+}
+
+export const getApiUrl = (url: string) => {
+    const urlBase = url.split('/api/')[1]
+
+    return hasMockApi(url) && urlBase ? `${process.env.REACT_APP_MOCK_BASE_URL}/api/${urlBase}` : url
+}

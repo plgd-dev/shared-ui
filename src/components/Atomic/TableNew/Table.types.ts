@@ -22,6 +22,7 @@ export type Props = {
     className?: string
     columns: TableColumnType[]
     data: TableDataType
+    dataTestId?: string
     defaultPageSize?: number
     defaultSelectedRowIds?: {}
     defaultSortBy?: {

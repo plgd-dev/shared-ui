@@ -2,6 +2,7 @@ import { PropertiesType } from '../GeneratedResourceForm.types'
 import { ZodObject } from 'zod'
 
 export type SharedProps = {
+    dataTestId?: string
     href: string
     i18n: {
         invalidNumber: string

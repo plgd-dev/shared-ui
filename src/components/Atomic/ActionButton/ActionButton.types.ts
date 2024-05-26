@@ -6,6 +6,7 @@ export type ActionButtonTypeType = (typeof dropdownTypes)[keyof typeof dropdownT
 
 export type ActionButtonItemType = {
     component?: ReactNode
+    dataTestId?: string
     hidden?: boolean
     icon?: ReactNode
     id?: string

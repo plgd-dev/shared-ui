@@ -10,6 +10,7 @@ import ConditionalWrapper from '../ConditionalWrapper'
 import { statuses } from './constants'
 import IconCheck from '../Icon/components/IconCheck'
 import IconWarningCircle from '../Icon/components/IconWarningCircle'
+import classNames from 'classnames'
 
 const Tabs: FC<Props> = (props) => {
     const { activeItem, className, onAnimationComplete, onItemChange, fullHeight, innerPadding, isAsync, style, tabs } = { ...defaultProps, ...props }
@@ -64,6 +65,7 @@ const Tabs: FC<Props> = (props) => {
             <div css={[styles.tabList, innerPadding && styles.tabListInnerPadding]} ref={tabListRef}>
                 {tabs.map((tab, i) => (
                     <motion.button
+                        className={classNames(i === value && 'active', tab.disabled && 'disabled')}
                         css={[styles.tabItem, i === value && styles.isActive, tab.disabled && styles.isDisabled]}
                         data-test-id={tab.dataTestId}
                         key={i}

@@ -3,6 +3,7 @@ import { ActionButtonItemType } from '../../Atomic/ActionButton/ActionButton.typ
 export type ItemType = ActionButtonItemType
 
 export type Props = {
+    dataTestId?: string
     disabled?: boolean
     items: ItemType[]
     onToggle?: (state: boolean) => void

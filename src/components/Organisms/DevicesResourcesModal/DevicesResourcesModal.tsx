@@ -27,10 +27,12 @@ const DevicesResourcesModal: FC<Props> = (props) => {
         confirmDisabled,
         createResource,
         data,
+        dataTestId,
         deviceId,
         deviceName,
         fetchResource,
         formProperties,
+        generatedResourcesForm,
         i18n,
         isDeviceOnline,
         isUnregistered,
@@ -61,8 +63,9 @@ const DevicesResourcesModal: FC<Props> = (props) => {
 
     useEffect(() => {
         setIsEditable(true)
-        setAdvancedView(formProperties === false)
-    }, [formProperties])
+
+        setAdvancedView(!generatedResourcesForm || formProperties === false)
+    }, [formProperties, generatedResourcesForm])
 
     const defaultData = useMemo(
         () =>
@@ -116,8 +119,6 @@ const DevicesResourcesModal: FC<Props> = (props) => {
         const dataForSend = typeof jsonData === 'string' && jsonData.startsWith('"') && jsonData.endsWith('"') ? jsonData.replace(/"/g, '') : jsonData
 
         if (isUpdateModal) {
-            console.log('!!!')
-            console.log(dataForSend)
             updateResource(params, dataForSend)
         } else {
             createResource(params, dataForSend)
@@ -210,9 +211,10 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                 </Spacer>
 
                 <Loadable condition={advancedView !== undefined}>
-                    <ContentSwitch activeItem={advancedView ? 0 : 1}>
-                        <Spacer style={{ height: 'calc(100% - 20px)' }} type='pt-5'>
+                    <ContentSwitch activeItem={advancedView ? 0 : 1} style={{ height: '100%', flex: '1 1 auto' }}>
+                        <Spacer style={{ height: '100%' }} type='pt-5'>
                             <Editor
+                                dataTestId={dataTestId?.concat('-editor')}
                                 disabled={disabled}
                                 editorRef={(node: any) => {
                                     editor.current = node
@@ -229,6 +231,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                         </Spacer>
                         {formProperties ? (
                             <GeneratedResourceForm
+                                dataTestId={dataTestId?.concat('-generated-form')}
                                 href={href}
                                 i18n={pick(i18n, ['invalidNumber', 'minValue', 'maxValue'])}
                                 onChange={(values: any) => setJsonData(values)}
@@ -236,7 +239,7 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                                 resetFormKey={reset}
                                 setFormError={setFormError}
                                 setIsEditable={setIsEditable}
-                                values={href === knownResourceHref.WELL_KNOW_WOT ? resourceData?.data?.content : resourceData?.data?.content?.properties}
+                                values={href === knownResourceHref.WELL_KNOW_WOT ? resourceData?.data?.content?.properties : resourceData?.data?.content}
                             />
                         ) : (
                             <div />
@@ -256,13 +259,21 @@ const DevicesResourcesModal: FC<Props> = (props) => {
                 right={
                     <div className='modal-buttons'>
                         {isUpdateModal && (
-                            <Button className='modal-button' disabled={disabled} loading={retrieving} onClick={handleRetrieve} variant='secondary'>
+                            <Button
+                                className='modal-button'
+                                dataTestId={dataTestId?.concat('-retrieve-button')}
+                                disabled={disabled}
+                                loading={retrieving}
+                                onClick={handleRetrieve}
+                                variant='secondary'
+                            >
                                 {!retrieving ? i18n.retrieve : i18n.retrieving}
                             </Button>
                         )}
 
                         <Button
                             className='modal-button'
+                            dataTestId={dataTestId?.concat('-confirm-button')}
                             disabled={disabled || interfaceJsonError || confirmDisabled || !isEditable || formError}
                             loading={loading}
                             onClick={handleSubmit}
@@ -284,10 +295,12 @@ const DevicesResourcesModal: FC<Props> = (props) => {
     return (
         <Modal
             appRoot={document.getElementById('root')}
+            bodyStyle={{ display: 'flex', flexDirection: 'column', height: '100%' }}
             closeButton={!disabled}
             closeButtonText={i18n.close}
             closeOnBackdrop={false}
             contentPadding={false}
+            dataTestId={dataTestId?.concat('-modal')}
             fullSize={modalCode}
             minWidth={720}
             onClose={!disabled ? handleClose : undefined}

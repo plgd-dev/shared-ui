@@ -72,6 +72,7 @@ const ActionButton: FC<Props> = (props) => {
                                 className={`icon-${item.label}`}
                                 css={styles.item}
                                 data-close-dropdown={false}
+                                data-test-id={item.dataTestId}
                                 key={item.id || item.label}
                                 onClick={(e) => {
                                     open && setOpen(false)

@@ -16,7 +16,7 @@ const defaultPropGetter = () => ({})
 const HEADER_HEIGHT = 62
 
 const TreeTable: FC<Props> = (props) => {
-    const { className, columns, data, height, id, getRowProps = defaultPropGetter, defaultSortBy, rowHeight } = { ...defaultProps, ...props }
+    const { className, columns, data, dataTestId, height, id, getRowProps = defaultPropGetter, defaultSortBy, rowHeight } = { ...defaultProps, ...props }
     const { getTableProps, getTableBodyProps, headerGroups, prepareRow, rows } = useTable(
         {
             columns,
@@ -65,7 +65,7 @@ const TreeTable: FC<Props> = (props) => {
     const Cell = tableStyles.cell
 
     return (
-        <div className={className} css={styles.treeComponent} id={id}>
+        <div className={className} css={styles.treeComponent} data-test-id={dataTestId} id={id}>
             <div
                 css={tableStyles.tableWrapper}
                 style={{

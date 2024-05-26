@@ -7,7 +7,7 @@ import { Props, ItemType } from './TableActionButton.types'
 import TableActions from '../../Atomic/TableNew/TableActions'
 
 const TableActionButton: FC<Props> = memo((props) => {
-    const { disabled, items, onToggle } = props
+    const { dataTestId, disabled, items, onToggle } = props
 
     const onChange = (matches: boolean) => {
         // just simulate -> all items are visible
@@ -31,6 +31,7 @@ const TableActionButton: FC<Props> = memo((props) => {
                     id: item.id!,
                     tooltipText: item.label,
                     hidden: item.hidden,
+                    dataTestId: item.dataTestId,
                 }))
                 .filter((item) => !item.hidden) || []
 
@@ -39,6 +40,7 @@ const TableActionButton: FC<Props> = memo((props) => {
 
     return (
         <ActionButton
+            dataTestIdDropdown={dataTestId}
             disabled={disabled}
             items={items}
             menuProps={{

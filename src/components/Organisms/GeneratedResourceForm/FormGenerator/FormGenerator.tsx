@@ -40,7 +40,7 @@ export const sortProperties = (properties: PropertiesType) =>
 export const getHref = (parentHref: string, href: string) => `${parentHref !== '' && !parentHref.startsWith('/') ? parentHref + '/' : parentHref}${href}`
 
 const FormGenerator: FC<Props> = (props) => {
-    const { href: topHref, properties, resetFormKey, schema, values, onChange, setFormError } = props
+    const { dataTestId, href: topHref, properties, resetFormKey, schema, values, onChange, setFormError } = props
 
     const [components, setComponents] = useState<JSX.Element[]>([])
 
@@ -145,6 +145,7 @@ const FormGenerator: FC<Props> = (props) => {
                                             tooltipZIndex={1000}
                                         >
                                             <FormInput
+                                                dataTestId={dataTestId?.concat(`-${href}`)}
                                                 icon={isNumber && !property.unit ? <IconNumbers /> : undefined}
                                                 name={field.name}
                                                 onChange={(e) => {
@@ -279,7 +280,7 @@ const FormGenerator: FC<Props> = (props) => {
             setComponents(buildProperties(properties))
             setFirstRender(false)
         }
-    }, [control, errors, expandedGroups, firstRender, getDefaultValue, handleEditorChange, handleValueChange, properties])
+    }, [control, dataTestId, errors, expandedGroups, firstRender, getDefaultValue, handleEditorChange, handleValueChange, properties])
 
     return <>{components}</>
 }

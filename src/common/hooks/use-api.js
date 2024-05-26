@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { context, trace } from '@opentelemetry/api'
 import get from 'lodash/get'
 
 import { useIsMounted } from './use-is-mounted'
 import { fetchApi, streamApi } from '../services'
+import { getApiUrl } from '../constants'
 
 export const getData = async (method, url, options) => {
     const { telemetrySpan, telemetryWebTracer, ...restOptions } = options
@@ -18,7 +19,7 @@ export const getData = async (method, url, options) => {
                     trace.getSpan(context.active()).addEvent('fetching-single-span-completed')
                     singleSpan.end()
 
-                    return result.data
+                    return result?.data
                 })
         )
     } else {
@@ -37,10 +38,9 @@ export const useStreamApi = (url, options = {}) => {
     })
 
     const [refreshIndex, setRefreshIndex] = useState(0)
-    let apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
+    const apiMethod = get(options, 'streamApi', true) ? streamApi : fetchApi
 
-    const urlBase = url.split('/api/')[1]
-    const mockKey = urlBase.toUpperCase().replace(/\//g, '_').replace(/-/g, '_')
+    const requestUrl = useMemo(() => getApiUrl(url), [url])
 
     useEffect(
         () => {
@@ -49,19 +49,12 @@ export const useStreamApi = (url, options = {}) => {
                     if (requestActive) {
                         // Set loading to true
                         setState({ ...state, loading: true })
-                        let data = []
-
-                        if (process.env[`REACT_APP_MOCK_API`] || process.env[`REACT_APP_MOCK_API_${mockKey}`]) {
-                            const mockUrl = `${process.env.REACT_APP_MOCK_BASE_URL}/api/${urlBase}`
-                            data = await getData(apiMethod, mockUrl, options)
-                        } else {
-                            data = await getData(apiMethod, url, options)
-                        }
+                        const apiResponse = await getData(apiMethod, requestUrl, options)
 
                         if (isMounted.current) {
                             setState({
                                 ...state,
-                                data,
+                                data: apiResponse,
                                 error: null,
                                 loading: false,
                             })

@@ -3,6 +3,7 @@ export type SwitcherSizeType = 'small' | 'big'
 export type Props = {
     checked?: boolean
     className?: string
+    dataTestId?: string
     defaultChecked?: boolean
     disabled?: boolean
     id?: string

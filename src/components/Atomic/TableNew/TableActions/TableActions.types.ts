@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 export type TableActionItemType = {
+    dataTestId?: string
     hidden?: boolean
     icon: ReactNode
     id: string

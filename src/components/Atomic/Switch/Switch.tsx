@@ -3,15 +3,16 @@ import { Props, defaultProps } from './Switch.types'
 import * as styles from './Switch.styles'
 
 const Switch = forwardRef<HTMLInputElement, Props>((props, ref) => {
-    const { id, label, labelBefore, size, defaultChecked, className, disabled, loading, ...rest } = { ...defaultProps, ...props }
+    const { dataTestId, id, label, labelBefore, size, defaultChecked, className, disabled, loading, ...rest } = { ...defaultProps, ...props }
     const Slider = styles.slider as any
 
     return (
-        <label className={className} css={[styles.switchC, labelBefore && styles.labelBefore]}>
+        <label className={className} css={[styles.switchC, labelBefore && styles.labelBefore]} data-test-id={dataTestId?.concat('-label')}>
             <div css={styles.switcher(size || 'big')}>
                 <input
                     {...rest}
                     css={(theme) => [styles.input(theme, size || 'big', disabled || false), loading && styles.loading]}
+                    data-test-id={dataTestId}
                     defaultChecked={defaultChecked}
                     disabled={disabled || loading}
                     ref={ref}

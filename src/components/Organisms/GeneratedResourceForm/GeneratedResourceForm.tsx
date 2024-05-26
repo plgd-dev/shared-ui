@@ -8,7 +8,7 @@ import Loadable from '../../Atomic/Loadable'
 import { knownResourceHref } from './constants'
 
 const GeneratedResourceForm: FC<Props> = (props) => {
-    const { className, id, i18n, properties, ...rest } = props
+    const { className, dataTestId, id, i18n, properties, ...rest } = props
     const schema = useRef(z.object({}))
     const [parsing, setParing] = useState(true)
 
@@ -68,9 +68,9 @@ const GeneratedResourceForm: FC<Props> = (props) => {
     }, [i18n, properties, props])
 
     return (
-        <div className={className} id={id}>
+        <div className={className} data-test-id={dataTestId} id={id}>
             <Loadable condition={!!schema.current && !parsing}>
-                <FormGenerator {...rest} i18n={i18n} properties={properties} schema={schema.current} />
+                <FormGenerator {...rest} dataTestId={dataTestId?.concat('-form')} i18n={i18n} properties={properties} schema={schema.current} />
             </Loadable>
         </div>
     )

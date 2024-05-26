@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { Information, Props, defaultProps } from './TileExpand.types'
@@ -10,13 +10,13 @@ import Column from '../Grid/Column'
 import Tooltip from '../Tooltip'
 import { copyToClipboard } from '../../../common/utils'
 
-const TileExpand: FC<Props> = (props) => {
+const TileExpand = forwardRef<HTMLDivElement, Props>((props, ref) => {
     const { className, defaultOpen, error, hasExpand, i18n, information, statusTag, title, time } = { ...defaultProps, ...props }
 
     const [show, setShow] = useState(defaultOpen ?? false)
 
     return (
-        <div className={className} css={styles.tileExpand}>
+        <div className={className} css={styles.tileExpand} ref={ref}>
             <div css={styles.header} onClick={hasExpand ? () => setShow(!show) : undefined}>
                 <div css={styles.left}>
                     <div css={styles.title}>
@@ -100,7 +100,7 @@ const TileExpand: FC<Props> = (props) => {
             </AnimatePresence>
         </div>
     )
-}
+})
 
 TileExpand.displayName = 'TileExpand'
 

@@ -7,7 +7,7 @@ import { Icon } from '../Icon'
 import { tagVariants } from './constants'
 
 const Tag = forwardRef<HTMLDivElement, Props>((props, ref) => {
-    const { children, className, icon, id, onClick, variant } = { ...defaultProps, ...props }
+    const { children, className, dataTestId, icon, id, onClick, variant } = { ...defaultProps, ...props }
     const getIcon = (icon?: ReactNode) => {
         if (icon) {
             return typeof icon === 'string' ? <Icon css={styles.icon} icon={icon} /> : cloneElement(icon as ReactElement, { css: styles.icon })
@@ -24,6 +24,7 @@ const Tag = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 variant === tagVariants.BLUE && styles.blue(theme),
                 variant === tagVariants.WHITE && styles.white(theme),
             ]}
+            data-test-id={dataTestId}
             id={id}
             onClick={onClick}
             ref={ref}

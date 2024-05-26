@@ -91,5 +91,7 @@ export const streamApi = async (url, options = {}) => {
             if (errorCode === 401) {
                 unauthorizedCallback()
             }
+
+            return { data: null }
         })
 }

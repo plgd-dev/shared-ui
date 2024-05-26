@@ -5,6 +5,7 @@ export type Props = {
         interfaces: string[]
         resourceTypes: string[]
     }
+    dataTestId?: string
     columns: any
     isActiveTab: boolean
     i18n: {

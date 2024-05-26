@@ -95,3 +95,11 @@ export const text = css`
     line-height: 18px;
     margin-left: 4px;
 `
+
+export const testInput = css`
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+`

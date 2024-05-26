@@ -11,9 +11,13 @@ export type Props = {
     autofocus?: boolean
     className?: boolean
     containerRef?: (ref: Ref<any>) => void
+    dataTestId?: string
     disabled?: boolean
     editorRef?: (ref: Ref<any> | null) => void
     height?: string
+    i18n?: {
+        viewText?: string
+    }
     json: string | [] | object
     mode?: EditorModeType
     onBlur?: (value: any) => void
@@ -25,9 +29,6 @@ export type Props = {
     schema?: [] | object
     style?: CSSProperties
     width?: string
-    i18n?: {
-        viewText?: string
-    }
 }
 
 export const defaultProps = {

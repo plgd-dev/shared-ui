@@ -16,6 +16,7 @@ export type PropertiesType = { [key: string]: Property }
 
 export type Props = {
     className?: string
+    dataTestId?: string
     id?: string
     setIsEditable?: (isEditable: boolean) => void
 } & SharedProps

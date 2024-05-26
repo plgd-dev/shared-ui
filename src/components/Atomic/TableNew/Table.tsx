@@ -21,6 +21,7 @@ const Table: FC<Props> = (props) => {
         className,
         columns,
         data,
+        dataTestId,
         defaultPageSize,
         defaultSelectedRowIds,
         defaultSortBy,
@@ -199,9 +200,10 @@ const Table: FC<Props> = (props) => {
     }
 
     return (
-        <div className={className} css={styles.tableComponent} id={id}>
+        <div className={className} css={styles.tableComponent} data-test-id={dataTestId} id={id}>
             {globalSearch && (
                 <TableGlobalFilter
+                    dataTestId={dataTestId?.concat('-filter')}
                     globalFilter={globalFilter}
                     i18n={{
                         search: i18n.search,
@@ -279,7 +281,13 @@ const Table: FC<Props> = (props) => {
                                 prepareRow(row)
                                 const rowProps = row.getRowProps(getRowProps!(row))
                                 return (
-                                    <tr {...rowProps} css={[styles.row, row.isSelected && styles.isSelected]} data-k={key} key={rowProps.key}>
+                                    <tr
+                                        {...rowProps}
+                                        css={[styles.row, row.isSelected && styles.isSelected]}
+                                        data-k={key}
+                                        data-test-id={dataTestId?.concat(`-row-${row.id}`)}
+                                        key={rowProps.key}
+                                    >
                                         {row.cells.map((cell: any, cellKey: number) => (
                                             <td
                                                 {...cell.getCellProps([

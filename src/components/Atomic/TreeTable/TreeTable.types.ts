@@ -5,6 +5,7 @@ export type Props = {
     className?: string
     columns: Column[]
     data: TableDataType
+    dataTestId?: string
     defaultSortBy?: {
         id?: string
         desc?: boolean

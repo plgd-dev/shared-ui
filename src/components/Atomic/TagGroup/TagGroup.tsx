@@ -9,7 +9,7 @@ import Modal from '../Modal'
 import { justifyContent } from './constants'
 
 const TagGroup: FC<Props> = (props) => {
-    const { className, id, i18n, children, justifyContent: justifyContentProp } = { ...defaultProps, ...props }
+    const { className, id, dataTestId, i18n, children, justifyContent: justifyContentProp } = { ...defaultProps, ...props }
     const [show, setShow] = useState(false)
     const [tagsToDisplay, setTagsToDisplay] = useState(0)
     const childrenArray = Children.toArray(children)
@@ -28,7 +28,7 @@ const TagGroup: FC<Props> = (props) => {
                         </div>
                     ))}
                     <div css={styles.tag}>
-                        <Tag onClick={() => setShow(true)} variant={tagVariants.BLUE}>
+                        <Tag dataTestId={dataTestId?.concat('-modal-btn')} onClick={() => setShow(true)} variant={tagVariants.BLUE}>
                             {childrenArray.length - tagsToDisplay} more
                         </Tag>
                     </div>
@@ -104,7 +104,7 @@ const TagGroup: FC<Props> = (props) => {
     }, [calculate])
 
     return (
-        <div className={className} css={styles.parent} id={id} ref={parent}>
+        <div className={className} css={styles.parent} data-test-id={dataTestId} id={id} ref={parent}>
             <div css={styles.test}>
                 <div css={styles.testInner}>
                     {childrenArray.map((tag, key) => (
@@ -120,13 +120,14 @@ const TagGroup: FC<Props> = (props) => {
 
             {tagsToDisplay > 0 && <Inner />}
             {tagsToDisplay === 0 && (
-                <Tag onClick={() => setShow(true)} variant={tagVariants.BLUE}>
+                <Tag dataTestId={dataTestId?.concat('-modal-btn')} onClick={() => setShow(true)} variant={tagVariants.BLUE}>
                     {childrenArray.length} {i18n.more}
                 </Tag>
             )}
 
             <Modal
                 appRoot={document.getElementById('root')}
+                dataTestId={dataTestId?.concat('-modal')}
                 maxWidth={600}
                 onClose={() => setShow(false)}
                 portalTarget={document.getElementById('modal-root')}

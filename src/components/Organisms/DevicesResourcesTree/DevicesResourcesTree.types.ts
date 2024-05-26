@@ -10,5 +10,6 @@ export type Props = {
         interfaces: string[]
         resourceTypes: string[]
     }
+    dataTestId?: string
     deviceStatus?: DevicesResourcesDeviceStatusType
 }

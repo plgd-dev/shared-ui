@@ -2,6 +2,7 @@ import React, { FC, memo, useCallback, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { createPortal } from 'react-dom'
 import isFunction from 'lodash/isFunction'
+import classNames from 'classnames'
 
 import { defaultProps, Props } from './Modal.types'
 import * as styles from './Modal.styles'
@@ -87,6 +88,7 @@ export const Modal: FC<Props> = memo((props) => {
                 {closeButton && (
                     <a
                         css={styles.close}
+                        data-test-id={dataTestId?.concat('-close')}
                         href='#'
                         onClick={(e) => {
                             e.stopPropagation()
@@ -151,7 +153,7 @@ export const Modal: FC<Props> = memo((props) => {
                 <Backdrop onClick={() => isFunction(onClose) && closeOnBackdrop && onClose()} zIndex={zIndex}>
                     <motion.div
                         animate='visible'
-                        className={className}
+                        className={classNames(className, fullSize && 'fullSize')}
                         css={[styles.modalWrapper, fullSize && styles.fullSize]}
                         data-test-id={dataTestId}
                         id={id}

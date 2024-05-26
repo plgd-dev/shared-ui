@@ -14,6 +14,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
         autofocus,
         className,
         containerRef,
+        dataTestId,
         disabled,
         editorRef,
         height: heightProp,
@@ -148,8 +149,8 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
         isFunction(onBlur) && onBlur(jsonEditor?.current?.getText())
     }, [onBlur])
 
-    useImperativeHandle(ref, () => ({
-        setValue: (value) => {
+    const setValue = useCallback(
+        (value) => {
             if (typeof json === 'object') {
                 // @ts-ignore
                 jsonEditor?.current?.set(value)
@@ -158,6 +159,11 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
                 jsonEditor?.current?.setText(value)
             }
         },
+        [json]
+    )
+
+    useImperativeHandle(ref, () => ({
+        setValue,
     }))
 
     return (
@@ -168,6 +174,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
                 resize: !!ResizeObserver,
             })}
             css={styles.editor}
+            data-test-id={dataTestId}
             onBlur={handleBlur}
             ref={(ref) => handleContainerRef(ref)}
             style={{ ...style, width, height }}
@@ -175,6 +182,7 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
             {isFunction(onViewChange) && i18n?.viewText && (
                 <a
                     css={styles.fullSizeBtn}
+                    data-test-id={dataTestId?.concat('-view-button')}
                     href='#'
                     onClick={(e) => {
                         e.preventDefault()
@@ -184,6 +192,8 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
                     <IconShowPassword /> <span css={styles.text}>{i18n?.viewText}</span>
                 </a>
             )}
+
+            <input css={styles.testInput} data-test-id={dataTestId?.concat('-input')} onChange={(e) => setValue(JSON.parse(e.target.value))} type='text' />
         </div>
     )
 })

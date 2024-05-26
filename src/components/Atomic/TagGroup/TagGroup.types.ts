@@ -6,6 +6,7 @@ export type TagGroupJustifyContentType = (typeof justifyContent)[keyof typeof ju
 export type Props = {
     children: ReactNode[] | ReactNode
     className?: string
+    dataTestId?: string
     id?: string
     i18n: {
         more: string

@@ -4,6 +4,7 @@ import isFunction from 'lodash/isFunction'
 import { security } from './security'
 import { clientAppSettings } from './client-app-settings'
 import { hasDifferentOwner } from './api-utils'
+import { getApiUrl } from '../constants'
 
 // Time needed to cancel the request
 const CANCEL_REQUEST_DEADLINE_MS = 30000
@@ -35,6 +36,7 @@ export const fetchApi = async (url, options = {}) => {
 
     const accessToken = useToken ? security.getAccessToken() : null
     const cancelRequestDeadlineTimeout = cancelRequestDeadlineTimeoutDefault || CANCEL_REQUEST_DEADLINE_MS
+    const requestUrl = getApiUrl(url)
 
     if (hasDifferentOwner()) {
         new Error(errorCodes.DIFFERENT_USER)
@@ -70,7 +72,7 @@ export const fetchApi = async (url, options = {}) => {
 
         axios({
             ...oAuthSettings,
-            url,
+            url: requestUrl,
             data: body,
             cancelToken: cancelTokenSource.token,
         })

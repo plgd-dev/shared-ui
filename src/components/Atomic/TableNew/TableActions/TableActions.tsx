@@ -13,7 +13,7 @@ const TableActions: FC<Props> = memo((props) => {
                     {items
                         .filter((item) => !item.hidden)
                         .map((item, key) => (
-                            <div css={styles.actionItem} key={key}>
+                            <div css={styles.actionItem} data-test-id={item.dataTestId} key={key}>
                                 <Tooltip
                                     content={item.tooltipText}
                                     id={item.id}

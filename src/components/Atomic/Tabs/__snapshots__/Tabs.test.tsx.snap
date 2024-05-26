@@ -186,12 +186,12 @@ exports[`<Tabs> render correctly - snapshot 1`] = `
         class="emotion-1"
       >
         <button
-          class="emotion-2"
+          class="active emotion-2"
         >
           Device information
         </button>
         <button
-          class="emotion-3"
+          class=" emotion-3"
         >
           Resources
         </button>

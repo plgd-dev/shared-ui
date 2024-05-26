@@ -41,10 +41,12 @@ export type Props = {
         interfaces?: string[]
         types: string[]
     }
-    deviceName: string
+    dataTestId?: string
     deviceId?: string
+    deviceName: string
     fetchResource: ({ href, currentInterface }: DevicesResourcesModalParamsType) => void | Promise<void>
     formProperties?: Property | false
+    generatedResourcesForm?: boolean
     i18n: {
         advancedView: string
         close: string
@@ -73,10 +75,10 @@ export type Props = {
     onClose: () => void
     resourceData?: DevicesDetailsResourceDataType
     retrieving: boolean
+    show: boolean
     ttlControl?: ReactNode
     type?: DevicesResourcesModalType
     updateResource: ({ href, currentInterface }: DevicesResourcesModalParamsType, jsonData?: any) => void
-    show: boolean
 } & ForwardProps
 
 export const defaultProps = {

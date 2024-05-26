@@ -1,10 +1,11 @@
 export type Props = {
+    dataTestId?: string
     globalFilter: any
-    preGlobalFilteredRows: any
-    setGlobalFilter: any
     i18n: {
         search: string
     }
+    preGlobalFilteredRows: any
+    setGlobalFilter: any
     showFilterButton?: boolean
 }
 
