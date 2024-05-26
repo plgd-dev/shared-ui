@@ -37,7 +37,7 @@ export const sortProperties = (properties: PropertiesType) =>
               )
         : []
 
-export const getHref = (parentHref: string, href: string) => `${parentHref !== '' && !parentHref.startsWith('/') ? parentHref + '/' : parentHref}${href}`
+export const getHref = (parentHref: string, href: string) => `${parentHref !== '' && !parentHref.endsWith('/') ? parentHref + '/' : parentHref}${href}`
 
 const FormGenerator: FC<Props> = (props) => {
     const { dataTestId, href: topHref, properties, resetFormKey, schema, values, onChange, setFormError } = props
