@@ -267,7 +267,7 @@ exports[`<ConfirmModal> renders without crashing 1`] = `
     style="opacity: 1;"
   >
     <div
-      class="emotion-1"
+      class=" emotion-1"
       role="dialog"
       style="opacity: 1; transform: none;"
     >
