@@ -1,5 +1,6 @@
 import { DevicesResourcesModalType } from '../../../../../components/Organisms/DevicesResourcesModal/DevicesResourcesModal.types'
 import { BreadcrumbItem } from '../../../../../components/Layout/Header/Breadcrumbs/Breadcrumbs.types'
+import { Property } from '../../../../../components/Organisms/GeneratedResourceForm/GeneratedResourceForm.types'
 
 export type Props = {
     breadcrumbs?: BreadcrumbItem[]
@@ -15,6 +16,7 @@ export type DevicesDetailsResourceModalData = {
         interfaces?: string[]
         types: string[]
     }
+    formProperties?: Property | false
     resourceData: any
     type?: DevicesResourcesModalType
 }

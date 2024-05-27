@@ -19,6 +19,10 @@ export const devicesApiEndpoints = {
     DEVICES_WS: '/api/v1/ws/devices',
 }
 
+export const knownResourceHref = {
+    WELL_KNOW_WOT: '/.well-known/wot',
+}
+
 export const RESOURCES_DEFAULT_PAGE_SIZE = 5
 
 export const DEVICES_DEFAULT_PAGE_SIZE = 10
@@ -51,6 +55,7 @@ export const knownResourceTypes = {
     X_PLGD_DPS_CONF: 'x.plgd.dps.conf',
     OIC_R_COAP_CLOUD_CONF_RES_URI: 'oic.r.coapcloudconf',
     OIC_R_DOMX: 'oic.r.doxm',
+    WOT_THING: 'wot.thing',
 }
 
 export const shadowSynchronizationStates = {

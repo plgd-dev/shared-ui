@@ -10,13 +10,14 @@ import Notification from '../../../../../../components/Atomic/Notification/Toast
 import { DevicesResourcesModalParamsType } from '../../../../../../components/Organisms/DevicesResourcesModal/DevicesResourcesModal.types'
 import DeleteModal from '../../../../../../components/Atomic/Modal/components/DeleteModal'
 import { isNotificationActive } from '../../../slice'
-import { defaultNewResource, resourceModalTypes } from '../../../constants'
+import { defaultNewResource, resourceModalTypes, knownResourceHref } from '../../../constants'
 import {
     handleCreateResourceErrors,
     handleDeleteResourceErrors,
     handleFetchResourceErrors,
     handleUpdateResourceErrors,
     updateResourceMethod,
+    hasGeneratedResourcesForm,
 } from '../../../utils'
 import { createDevicesResourceApi, deleteDevicesResourceApi, getDevicesResourcesApi } from '../../../rest'
 import { messages as t } from '../../../Devices.i18n'
@@ -26,6 +27,7 @@ import { Props } from './Tab2.types'
 import { DevicesDetailsResourceModalData } from '../DevicesDetailsPage.types'
 import DevicesDPSModal from '../../../DevicesDPSModal'
 import notificationId from '../../../../notificationId'
+import { Property } from '../../../../../../components/Organisms/GeneratedResourceForm/GeneratedResourceForm.types'
 
 const Tab2: FC<Props> = (props) => {
     const {
@@ -59,6 +61,30 @@ const Tab2: FC<Props> = (props) => {
     const [resourceModal, setResourceModal] = useState(false)
 
     const resources = useMemo(() => resourcesData?.resources || [], [resourcesData])
+
+    const generatedResourcesForm = useMemo(() => hasGeneratedResourcesForm(resources), [resources])
+
+    const loadFormData = async () => {
+        try {
+            const { data: resourceData } = await getDevicesResourcesApi({
+                deviceId: id,
+                href: knownResourceHref.WELL_KNOW_WOT,
+                currentInterface: '',
+            })
+
+            return resourceData.data.content
+        } catch (error) {
+            console.error(error)
+            if (error) {
+                Notification.error(
+                    { title: _(t.resourceGetKnowConfErrorTitle), message: _(t.resourceGetKnowConfErrorMessage) },
+                    {
+                        notificationId: notificationId.SU_CA_DEVICE_DETAIL_TAB_2_GET_RESOURCE,
+                    }
+                )
+            }
+        }
+    }
 
     // Open the resource modal when href is present
     useEffect(
@@ -184,6 +210,13 @@ const Tab2: FC<Props> = (props) => {
                 currentInterface,
             })
 
+            let formProperties: Property | false = false
+
+            if (generatedResourcesForm) {
+                const generatedFormResourceData = await loadFormData()
+                formProperties = href === knownResourceHref.WELL_KNOW_WOT ? generatedFormResourceData : generatedFormResourceData?.properties[href]
+            }
+
             omit(resourceData, ['data.content.if', 'data.content.rt'])
 
             if (isMounted.current) {
@@ -200,6 +233,7 @@ const Tab2: FC<Props> = (props) => {
                         interfaces,
                     },
                     resourceData,
+                    formProperties,
                 })
                 setResourceModal(true)
                 navigate(`${detailLinkPrefix || ''}/devices/${id}/resources${href}`, { replace: true })
@@ -289,6 +323,7 @@ const Tab2: FC<Props> = (props) => {
                 deviceName={deviceName}
                 deviceResourceUpdateListener={deviceResourceUpdateListener}
                 fetchResource={openUpdateModal}
+                generatedResourcesForm={generatedResourcesForm}
                 i18n={{
                     advancedView: _(t.advancedView),
                     close: _(t.close),

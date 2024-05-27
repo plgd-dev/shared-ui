@@ -42,6 +42,8 @@ export const canChangeDeviceName = (links: ResourcesType[]) => links.findIndex((
 
 export const canBeOwned = (links: ResourcesType[]) => links.findIndex((link) => link.resourceTypes.includes(knownResourceTypes.OIC_R_DOMX)) !== -1
 
+export const hasGeneratedResourcesForm = (links: ResourcesType[]) => links.findIndex((link) => link.resourceTypes.includes(knownResourceTypes.WOT_THING)) !== -1
+
 export const canSetDPSEndpoint = (resources: ResourcesType[]) => !!getDPSEndpoint(resources)
 
 export const getDPSEndpoint = (resources: ResourcesType[]) => {
