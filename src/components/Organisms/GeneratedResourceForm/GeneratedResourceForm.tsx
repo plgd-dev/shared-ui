@@ -67,8 +67,6 @@ const GeneratedResourceForm: FC<Props> = (props) => {
         }
     }, [i18n, properties, props])
 
-    console.log(props)
-
     return (
         <div className={className} data-test-id={dataTestId} id={id}>
             <Loadable condition={!!schema.current && !parsing}>
