@@ -75,6 +75,7 @@ export type LeftPanelSubItemsType = {
     x: number | null
     y: number | null
     setToggleActive: (active: string | null) => void
+    toggleActive?: string | null
 }
 
 export const defaultProps: Partial<Props> = {

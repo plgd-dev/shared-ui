@@ -46,7 +46,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                         {item.title}
                     </span>
                     {item.children && !isDisabled && (
-                        <span css={[styles.arrow, isActive && styles.activeArrow, collapsed && styles.arrowCollapsed]}>
+                        <span css={[styles.arrow, item.id === toggleActive && styles.activeArrow, collapsed && styles.arrowCollapsed]}>
                             <Arrow height={6} width={10} />
                         </span>
                     )}
@@ -64,6 +64,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                     item={item}
                     setToggleActive={setToggleActive}
                     strategy={strategy}
+                    toggleActive={toggleActive}
                     x={x}
                     y={y}
                 />
@@ -73,7 +74,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 }
 
 const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
-    const { active, animationDone, item, isActive, collapsed, floating, strategy, x, y, handleItemClick, setToggleActive } = props
+    const { active, animationDone, item, isActive, collapsed, floating, strategy, x, y, handleItemClick, setToggleActive, toggleActive } = props
     const innerFloatingRef = useRef(null)
 
     useClickOutside(innerFloatingRef, () => {
@@ -83,7 +84,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
     })
 
     if (collapsed) {
-        if (isActive && animationDone) {
+        if (toggleActive === item.id && animationDone) {
             return (
                 <div
                     css={styles.subItemsFloating}
@@ -105,8 +106,19 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                             subItem.id === active && styles.subItemLinkActive,
                                             (item.children?.length || 0) - 1 === key && styles.subItemLinkLast,
                                         ]}
-                                        href={subItem.link}
-                                        onClick={subItem.disabled ? undefined : (e) => handleItemClick(item, e)}
+                                        href={`${item.link}${subItem.link}`}
+                                        onClick={
+                                            subItem.disabled
+                                                ? undefined
+                                                : (e) =>
+                                                      handleItemClick(
+                                                          {
+                                                              ...subItem,
+                                                              link: `${item.link}${subItem.link}`,
+                                                          },
+                                                          e
+                                                      )
+                                        }
                                     >
                                         <img alt='line' css={styles.line} src={img} />
                                         {subItem.title}
@@ -126,7 +138,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
     } else {
         return (
             <AnimatePresence initial={false}>
-                {isActive ? (
+                {toggleActive === item.id ? (
                     <motion.div
                         animate='open'
                         css={styles.subItems}
@@ -200,19 +212,16 @@ const LeftPanel: FC<Props> = (props) => {
         if (item.disabled) {
             e.preventDefault()
             e.stopPropagation()
-        }
-
-        if (item.children) {
-            e.preventDefault()
-            e.stopPropagation()
-
-            if (!item.disabled) {
-                setToggleActive(toggleActive === item.id ? '-1' : item.id)
-                // setActive(active === item.id ? null : item.id)
-                // isFunction(onItemClick) && onItemClick(item, e)
-            }
         } else {
-            !item.disabled && isFunction(onItemClick) && onItemClick(item, e)
+            if (item.children) {
+                e.preventDefault()
+                e.stopPropagation()
+
+                setToggleActive(toggleActive === item.id ? '-1' : item.id)
+            } else {
+                setToggleActive(null)
+                isFunction(onItemClick) && onItemClick(item, e)
+            }
         }
     }
 
