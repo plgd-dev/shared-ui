@@ -1,6 +1,6 @@
-import React, { cloneElement, FC, ReactElement, SyntheticEvent, useEffect, useState } from 'react'
+import React, { cloneElement, FC, ReactElement, SyntheticEvent, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { useFloating, shift, offset } from '@floating-ui/react-dom'
+import { useFloating, shift, offset } from '@floating-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
@@ -11,11 +11,12 @@ import img from './assets/line.png'
 import { convertSize, Icon, IconCollapse } from '../../Atomic/Icon'
 import { COLLAPSE_ANIMATION_TIME } from '../constants'
 import { tagVariants } from './constants'
+import { useClickOutside } from '../../../common/hooks'
 
 const isGroupVisible = (group: any) => !group.items.every((i: any) => i.visibility === false)
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
-    const { active, animationDone, item, collapsed, handleItemClick } = props
+    const { active, animationDone, item, collapsed, handleItemClick, toggleActive, setToggleActive } = props
     const { x, y, refs, strategy } = useFloating({
         placement: 'bottom-start',
         strategy: 'fixed',
@@ -23,7 +24,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
     })
 
     const isItemActive = (item: MenuItem) => item.id === active || item?.children?.some((subItem) => subItem.id === active)
-    const isActive = isItemActive(item)
+    const isActive = isItemActive(item) || item.id === toggleActive
     const isDisabled = item?.visibility === 'disabled'
     const isExternal = item.link?.startsWith('//') || item.link?.startsWith('http')
 
@@ -61,6 +62,7 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
                     handleItemClick={handleItemClick}
                     isActive={isActive}
                     item={item}
+                    setToggleActive={setToggleActive}
                     strategy={strategy}
                     x={x}
                     y={y}
@@ -71,7 +73,14 @@ const LeftPanelItem = (props: LeftPanelItemType) => {
 }
 
 const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
-    const { active, animationDone, item, isActive, collapsed, floating, strategy, x, y, handleItemClick } = props
+    const { active, animationDone, item, isActive, collapsed, floating, strategy, x, y, handleItemClick, setToggleActive } = props
+    const innerFloatingRef = useRef(null)
+
+    useClickOutside(innerFloatingRef, () => {
+        if (collapsed && isActive && animationDone) {
+            setToggleActive(null)
+        }
+    })
 
     if (collapsed) {
         if (isActive && animationDone) {
@@ -86,7 +95,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                         width: 'max-content',
                     }}
                 >
-                    <div css={styles.subItemsFloatingPadding}>
+                    <div css={styles.subItemsFloatingPadding} ref={innerFloatingRef}>
                         <ul css={[styles.subItemsCollapsedList]}>
                             {item.children?.map((subItem, key) => (
                                 <li key={key}>
@@ -174,6 +183,7 @@ const LeftPanel: FC<Props> = (props) => {
     const [showFeature, setShowFeature] = useState(!!newFeature)
     const [domReady, setDomReady] = useState(false)
     const [animationDone, setAnimationDone] = useState(true)
+    const [toggleActive, setToggleActive] = useState<string | null>(null)
 
     useEffect(() => {
         setDomReady(true)
@@ -196,7 +206,11 @@ const LeftPanel: FC<Props> = (props) => {
             e.preventDefault()
             e.stopPropagation()
 
-            !item.disabled && setActive(active === item.id ? null : item.id)
+            if (!item.disabled) {
+                setToggleActive(toggleActive === item.id ? '-1' : item.id)
+                // setActive(active === item.id ? null : item.id)
+                // isFunction(onItemClick) && onItemClick(item, e)
+            }
         } else {
             !item.disabled && isFunction(onItemClick) && onItemClick(item, e)
         }
@@ -241,6 +255,8 @@ const LeftPanel: FC<Props> = (props) => {
                                                     handleItemClick={handleItemClick}
                                                     item={item}
                                                     key={key}
+                                                    setToggleActive={setToggleActive}
+                                                    toggleActive={toggleActive}
                                                 />
                                             ))}
                                     </ul>

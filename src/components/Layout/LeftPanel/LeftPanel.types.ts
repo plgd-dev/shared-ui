@@ -59,6 +59,8 @@ export type LeftPanelItemType = {
     handleItemClick: (item: MenuItem | SubMenuItem, e: SyntheticEvent) => void
     item: MenuItem
     key: number
+    toggleActive: string | null
+    setToggleActive: (active: string | null) => void
 }
 
 export type LeftPanelSubItemsType = {
@@ -72,6 +74,7 @@ export type LeftPanelSubItemsType = {
     strategy: Strategy
     x: number | null
     y: number | null
+    setToggleActive: (active: string | null) => void
 }
 
 export const defaultProps: Partial<Props> = {
