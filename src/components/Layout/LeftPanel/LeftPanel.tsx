@@ -4,7 +4,7 @@ import { useFloating, shift, offset } from '@floating-ui/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
-import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType, SubMenuItem, defaultProps } from './LeftPanel.types'
+import { Props, MenuItem, LeftPanelSubItemsType, LeftPanelItemType, SubMenuItem, defaultProps, MenuGroup } from './LeftPanel.types'
 import * as styles from './LeftPanel.styles'
 import { Close, Arrow, Feature } from './components'
 import img from './assets/line.png'
@@ -14,6 +14,21 @@ import { tagVariants } from './constants'
 import { useClickOutside } from '../../../common/hooks'
 
 const isGroupVisible = (group: any) => !group.items.every((i: any) => i.visibility === false)
+
+function findActiveItem(menu: MenuGroup[], activeId: string): MenuItem | null {
+    for (const group of menu) {
+        for (const item of group.items || []) {
+            if (item.children) {
+                for (const subitem of item.children) {
+                    if (subitem.id === activeId) {
+                        return item
+                    }
+                }
+            }
+        }
+    }
+    return null
+}
 
 const LeftPanelItem = (props: LeftPanelItemType) => {
     const { active, animationDone, item, collapsed, handleItemClick, toggleActive, setToggleActive } = props
@@ -227,7 +242,14 @@ const LeftPanel: FC<Props> = (props) => {
 
     useEffect(() => {
         props.activeId && setActive(props.activeId)
-    }, [props.activeId])
+        const activeItem = findActiveItem(menu!, props.activeId!)
+
+        if (activeItem && !collapsed) {
+            if (activeItem.children) {
+                setToggleActive(activeItem.id)
+            }
+        }
+    }, [collapsed, menu, props.activeId])
 
     return (
         <div className={className} css={[styles.leftPanel, collapsed && styles.collapsed]} id={id}>
