@@ -234,7 +234,7 @@ const LeftPanel: FC<Props> = (props) => {
 
                 setToggleActive(toggleActive === item.id ? '-1' : item.id)
             } else {
-                setToggleActive(null)
+                collapsed && setToggleActive(null)
                 isFunction(onItemClick) && onItemClick(item, e)
             }
         }
