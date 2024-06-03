@@ -23,7 +23,7 @@ import AppContext from '../../../../../share/AppContext'
 import { messages as app } from '../../../../App/App.i18n'
 import { useDevicesListCache } from '../../../hooks'
 import { getApiErrorMessage } from '../../../../../../common/utils'
-import { getWellKnowConfig } from '../../../../utils'
+import { getWellKnownConfig } from '../../../../utils'
 
 const { OWNED, UNSUPPORTED } = devicesOwnerships
 
@@ -41,7 +41,7 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
         useDevicesList: useDevicesListProp,
     } = { ...defaultProps, ...props }
     const { formatMessage: _ } = useIntl()
-    const wellKnownConfig = getWellKnowConfig()
+    const wellKnownConfig = getWellKnownConfig()
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
     const [selectedDevices, setSelectedDevices] = useState([])
     const [isAllSelected, setIsAllSelected] = useState(false)

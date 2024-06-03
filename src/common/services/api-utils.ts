@@ -5,10 +5,10 @@ import { v5 as uuidv5 } from 'uuid'
 import { clientAppSettings } from './client-app-settings'
 import { security } from './security'
 import { DEVICE_AUTH_MODE } from '../../app/clientApp/constants'
-import { getWellKnowConfig } from '../../app/clientApp/utils'
+import { getWellKnownConfig } from '../../app/clientApp/utils'
 import { checkIfValidUUID } from '../utils'
 
-export const hasDifferentOwner = (wellKnownConfig = getWellKnowConfig(), clientData = clientAppSettings.getClientData(), modeCheck = false) => {
+export const hasDifferentOwner = (wellKnownConfig = getWellKnownConfig(), clientData = clientAppSettings.getClientData(), modeCheck = false) => {
     if (!wellKnownConfig || !wellKnownConfig?.isInitialized || !clientData) {
         return false
     }

@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom'
 import { detect } from 'detect-browser'
 
 import { messages as t } from './MockApp.i18n'
-import { getWellKnowConfig, getClientUrl } from '../utils'
+import { getWellKnownConfig, getClientUrl } from '../utils'
 import { DEVICE_AUTH_CODE_DEVICE_ID, DEVICE_AUTH_CODE_REMOTE_CLIENT_ID, DEVICE_AUTH_CODE_SESSION_KEY } from '../constants'
 import { useClientAppPage } from '../RemoteClients/use-client-app-page'
 import { clientAppSettings, security } from '../../../common/services'
@@ -13,13 +13,13 @@ import { isEdge } from '../../../components/Atomic/_utils/browser'
 
 const MockApp = () => {
     const { formatMessage: _ } = useIntl()
-    const wellKnowConfigHub = getWellKnowConfig()
+    const wellKnowConfigHub = getWellKnownConfig()
     const [searchParams] = useSearchParams()
     const code = searchParams.get('code')
 
     const remoteClientId = localStorage.getItem(DEVICE_AUTH_CODE_REMOTE_CLIENT_ID)
     const deviceId = localStorage.getItem(DEVICE_AUTH_CODE_DEVICE_ID)
-    const hubWellKnownConfig = security.getWellKnowConfig()
+    const hubWellKnownConfig = security.getWellKnownConfig()
     const isEdgeBrowser = isEdge(detect())
 
     const [clientData, error, errorElement] = useClientAppPage({

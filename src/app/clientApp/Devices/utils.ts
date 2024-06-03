@@ -21,7 +21,7 @@ import {
 import { ResourcesType } from './Devices.types'
 import { getDevicesResourcesApi, updateDevicesResourceApi } from './rest'
 import { messages as t } from './Devices.i18n'
-import { getWellKnowConfig } from '../utils'
+import { getWellKnownConfig } from '../utils'
 import notificationId from '../notificationId'
 
 const time = converter.time
@@ -442,7 +442,7 @@ export const getOnboardingEndpoint = (resources: ResourcesType[]) => {
 }
 
 export const hasOnboardingFeature = () => {
-    const wellKnowConfig = getWellKnowConfig()
+    const wellKnowConfig = getWellKnownConfig()
 
     if (!wellKnowConfig.remoteProvisioning) {
         return false

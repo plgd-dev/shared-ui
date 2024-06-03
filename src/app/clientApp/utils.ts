@@ -7,7 +7,7 @@ type SecurityConfig = {
     authority: string
 }
 
-export const getWellKnowConfig = (): WellKnownConfigType => clientAppSettings.getWellKnowConfig() || security.getWellKnowConfig()
+export const getWellKnownConfig = (): WellKnownConfigType => clientAppSettings.getWellKnownConfig() || security.getWellKnownConfig()
 
 export const getHttpGatewayAddress = () => {
     const getConfig = () => security.getGeneralConfig() as SecurityConfig
