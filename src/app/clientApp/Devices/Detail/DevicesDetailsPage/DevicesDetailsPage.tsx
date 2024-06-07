@@ -28,7 +28,7 @@ import FirstTimeOnboardingModal from '../FirstTimeOnboardingModal/FirstTimeOnboa
 import Tab1 from './Tabs/Tab1'
 import Tab2 from './Tabs/Tab2'
 import { Props } from './DevicesDetailsPage.types'
-import { getWellKnowConfig } from '../../../utils'
+import { getWellKnownConfig } from '../../../utils'
 import notificationId from '../../../notificationId'
 import AppContext from '../../../../share/AppContext'
 
@@ -78,7 +78,7 @@ const DevicesDetailsPage: FC<Props> = (props) => {
         deviceId: id,
     })
 
-    const wellKnownConfig = getWellKnowConfig()
+    const wellKnownConfig = getWellKnownConfig()
     const parseOnboardingData = useCallback(() => getOnboardingDataFromConfig(wellKnownConfig), [wellKnownConfig])
     const handleOpenEditDeviceNameModal = useCallback(() => setShowEditNameModal(true), [])
 

@@ -41,7 +41,7 @@ const Tab2: FC<Props> = (props) => {
     const isMounted = useIsMounted()
     const { isHub, updateRemoteClient, updateAppWellKnownConfig, reFetchConfig } = useContext(AppContext)
     const dispatch = useDispatch()
-    const wellKnownConfig = security.getWellKnowConfig()
+    const wellKnownConfig = security.getWellKnownConfig()
     const appStore = useSelector((state: any) => state.app)
 
     const optionsBool = useMemo(

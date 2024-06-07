@@ -3,6 +3,7 @@ import { security } from './security'
 import { clientAppSettings } from './client-app-settings'
 import { errorCodes } from './fetch-api'
 import { hasDifferentOwner } from './api-utils'
+import isFunction from 'lodash/isFunction'
 
 export const streamApi = async (url, options = {}) => {
     const defaultOptions = {
@@ -89,7 +90,8 @@ export const streamApi = async (url, options = {}) => {
         .catch((error) => {
             console.error(error)
             if (errorCode === 401) {
-                unauthorizedCallback()
+                isFunction(unauthorizedCallback) && unauthorizedCallback()
+                return new Error(errorCodes.UNAUTHORIZED)
             }
 
             return { data: null }

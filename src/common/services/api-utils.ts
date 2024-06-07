@@ -6,12 +6,12 @@ import chunk from 'lodash/chunk'
 import { clientAppSettings } from './client-app-settings'
 import { security } from './security'
 import { DEVICE_AUTH_MODE } from '../../app/clientApp/constants'
-import { getWellKnowConfig } from '../../app/clientApp/utils'
+import { getWellKnownConfig } from '../../app/clientApp/utils'
 import { checkIfValidUUID } from '../utils'
 import { withTelemetry } from './opentelemetry'
 import { fetchApi } from './fetch-api'
 
-export const hasDifferentOwner = (wellKnownConfig = getWellKnowConfig(), clientData = clientAppSettings.getClientData(), modeCheck = false) => {
+export const hasDifferentOwner = (wellKnownConfig = getWellKnownConfig(), clientData = clientAppSettings.getClientData(), modeCheck = false) => {
     if (!wellKnownConfig || !wellKnownConfig?.isInitialized || !clientData) {
         return false
     }

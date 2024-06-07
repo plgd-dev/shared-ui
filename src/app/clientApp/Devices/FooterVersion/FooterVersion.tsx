@@ -14,7 +14,7 @@ const FooterVersion: FC<Props> = (props) => {
     const { formatMessage: _ } = useIntl()
 
     const appStore = useSelector((state: any) => state.app)
-    const wellKnownConfig = security.getWellKnowConfig()
+    const wellKnownConfig = security.getWellKnownConfig()
 
     const versionMarkData = useMemo(
         () =>
