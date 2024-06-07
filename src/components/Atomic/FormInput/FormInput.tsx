@@ -33,6 +33,7 @@ export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) =>
         value,
         ...rest
     } = { ...defaultProps, ...props }
+
     const [type, setType] = useState(defaultType)
     const isEdgeBrowser = isEdge(detect())
     const localInputRef = useRef<HTMLInputElement>(null)
@@ -118,7 +119,8 @@ export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) =>
 
 const FormInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const { commonInputProps, compactFormComponentsView } = useContext(FormContext)
-    return <FormInputCore {...props} ref={ref} {...(compactFormComponentsView ? commonInputProps : {})} />
+    const { compactFormComponentsView: compactFormComponentsViewProp, ...rest } = props
+    return <FormInputCore {...rest} ref={ref} {...(compactFormComponentsView && compactFormComponentsViewProp !== false ? commonInputProps : {})} />
 })
 
 FormInput.displayName = 'FormInput'

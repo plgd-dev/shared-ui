@@ -1,7 +1,7 @@
 import { ReactElement, ReactNode } from 'react'
 
 export type Row = {
-    attribute: string
+    attribute: ReactNode
     autoHeight?: boolean
     copyValue?: string | boolean
     dataTestId?: string
@@ -18,6 +18,7 @@ export type Props = {
         copy: string
     }
     id?: string
+    lastRowBorder?: boolean
     leftColSize?: number
     rightColSize?: number
     rows: Row[]
@@ -26,4 +27,5 @@ export type Props = {
 export const defaultProps: Partial<Props> = {
     leftColSize: 8,
     rightColSize: 4,
+    lastRowBorder: true,
 }

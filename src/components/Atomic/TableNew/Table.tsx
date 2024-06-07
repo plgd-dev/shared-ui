@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { ChangeEvent, FC, useEffect, useMemo, useState } from 'react'
+import React, { ChangeEvent, FC, useEffect, useMemo, useState } from 'react'
 import { Props, defaultProps } from './Table.types'
 import * as styles from './Table.styles'
 import { usePagination, useRowSelect, useSortBy, useTable, useGlobalFilter } from 'react-table'
@@ -14,6 +14,7 @@ import isEmpty from 'lodash/isEmpty'
 import TableGlobalFilter from './TableGlobalFilter'
 import { GLOBAL_FILTER_HEIGHT, HEADER_HEIGHT } from './constants'
 import ConditionalWrapper from '../ConditionalWrapper'
+import IconLoader from '../Loader/IconLoader'
 
 const Table: FC<Props> = (props) => {
     const {
@@ -34,6 +35,7 @@ const Table: FC<Props> = (props) => {
         hideHeader,
         i18n,
         id,
+        loading,
         onRowsSelect,
         paginationPortalTargetId,
         paginationProps,
@@ -329,7 +331,8 @@ const Table: FC<Props> = (props) => {
                             {/*        })}*/}
                         </tbody>
                     </table>
-                    {i18n.placeholder && data.length === 0 && <div css={styles.placeholder}>{i18n.placeholder}</div>}
+                    {i18n.placeholder && data.length === 0 && !loading && <div css={styles.placeholder}>{i18n.placeholder}</div>}
+                    {loading && data.length === 0 && <IconLoader center className='loader-icon' size={20} type='secondary' />}
                 </ConditionalWrapper>
             </div>
             {enablePagination && renderPagination()}

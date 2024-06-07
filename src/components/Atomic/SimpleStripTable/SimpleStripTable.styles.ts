@@ -59,6 +59,13 @@ export const border = (theme: ThemeType) => css`
         background: ${getThemeColor(theme, `SimpleStripTable.border.background`)};
     }
 `
+
+export const noLastRowBorder = (theme: ThemeType) => css`
+    &:after {
+        background: transparent;
+    }
+`
+
 export const borderLeft = css`
     position: relative;
 

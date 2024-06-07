@@ -156,6 +156,7 @@ export const close = (theme: ThemeType) => css`
 
 export const content = css`
     max-width: 600px;
+    width: 100%;
     margin: auto;
 `
 

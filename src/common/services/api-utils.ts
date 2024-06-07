@@ -1,12 +1,15 @@
 import jwtDecode from 'jwt-decode'
 import get from 'lodash/get'
 import { v5 as uuidv5 } from 'uuid'
+import chunk from 'lodash/chunk'
 
 import { clientAppSettings } from './client-app-settings'
 import { security } from './security'
 import { DEVICE_AUTH_MODE } from '../../app/clientApp/constants'
 import { getWellKnowConfig } from '../../app/clientApp/utils'
 import { checkIfValidUUID } from '../utils'
+import { withTelemetry } from './opentelemetry'
+import { fetchApi } from './fetch-api'
 
 export const hasDifferentOwner = (wellKnownConfig = getWellKnowConfig(), clientData = clientAppSettings.getClientData(), modeCheck = false) => {
     if (!wellKnownConfig || !wellKnownConfig?.isInitialized || !clientData) {
@@ -80,4 +83,22 @@ export const getOwnerId = (jwtOwnerClaim: string) => {
     }
 
     return ''
+}
+
+export const deleteByChunks = (url: string, ids: string[], cancelRequestDeadlineTimeout: string, telemetrySpan: string, chunkSize = 50) => {
+    // We split the fetch into multiple chunks due to the URL being too long for the browser to handle
+    const chunks = chunk(ids, chunkSize)
+    return Promise.all(
+        chunks.map((ids) => {
+            const idsString = ids.map((id) => `idFilter=${id}`).join('&')
+            return withTelemetry(
+                () =>
+                    fetchApi(`${url}?${idsString}`, {
+                        method: 'DELETE',
+                        cancelRequestDeadlineTimeout,
+                    }),
+                telemetrySpan
+            )
+        })
+    )
 }

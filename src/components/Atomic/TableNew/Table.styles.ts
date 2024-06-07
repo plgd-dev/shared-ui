@@ -199,4 +199,10 @@ export const isSelected = (theme: ThemeType) => css`
     }
 `
 
-export const placeholder = css``
+export const placeholder = (theme: ThemeType) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    color: ${getThemeColor(theme, `Table.placeholder.color`)};
+`

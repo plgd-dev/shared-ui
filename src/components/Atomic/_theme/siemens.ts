@@ -196,6 +196,39 @@ const theme = {
                 borderColor: colorsSiemens.neutral800,
             },
         },
+        ConditionFilter: {
+            border: colorsSiemens.neutral600,
+            header: {
+                background: colorsSiemens.neutral900,
+                hover: {
+                    background: colorsSiemens.neutral800,
+                    expander: {
+                        color: colorsSiemens.primary,
+                    },
+                },
+            },
+            expander: {
+                color: colors.neutral900,
+                background: colorsSiemens.neutral600,
+            },
+            inputBox: {
+                background: colorsSiemens.neutral900,
+            },
+            list: {
+                icon: {
+                    color: colorsSiemens.neutral500,
+                    hover: {
+                        color: colorsSiemens.primary,
+                    },
+                },
+                item: {
+                    color: colorsSiemens.neutral500,
+                },
+            },
+            title: {
+                color: colorsSiemens.primary,
+            },
+        },
         Content: {
             background: colorsSiemens.neutral900,
             headline: {
@@ -771,6 +804,33 @@ const theme = {
                 color: colorsSiemens.neutral500,
             },
         },
+        ResourceToggleCreator: {
+            border: colorsSiemens.neutral600,
+            header: {
+                background: colorsSiemens.neutral900,
+                hover: {
+                    background: colorsSiemens.neutral800,
+                    expander: {
+                        color: colorsSiemens.primary,
+                    },
+                },
+            },
+            expander: {
+                color: colors.neutral500,
+                background: colorsSiemens.neutral600,
+                hover: {
+                    color: colorsSiemens.primary,
+                },
+            },
+            rightSpacer: {
+                separator: {
+                    color: colorsSiemens.neutral300,
+                },
+            },
+            title: {
+                color: colorsSiemens.primary,
+            },
+        },
         Scrollbar: {
             color: colorsSiemens.primary,
         },
@@ -870,9 +930,6 @@ const theme = {
                     color: colorsSiemens.primary,
                 },
             },
-            sortActive: {
-                color: colorsSiemens.primary,
-            },
             cell: {
                 before: {
                     background: colorsSiemens.neutral800,
@@ -883,6 +940,9 @@ const theme = {
                 a: {
                     color: colorsSiemens.neutral000,
                 },
+            },
+            placeholder: {
+                color: colorsSiemens.neutral500,
             },
             row: {
                 background: '#26233c',
@@ -896,6 +956,9 @@ const theme = {
             },
             selected: {
                 background: '#26233c',
+            },
+            sortActive: {
+                color: colorsSiemens.primary,
             },
         },
         TableActions: {

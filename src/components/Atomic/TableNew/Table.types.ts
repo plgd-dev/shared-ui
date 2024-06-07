@@ -37,6 +37,7 @@ export type Props = {
         placeholder?: string
     }
     id?: string
+    loading?: boolean
     getCellProps?: (data: any) => void
     getColumnProps?: (data?: any) => void
     getRowProps?: (data?: any) => void

@@ -11,6 +11,7 @@ export type Props = {
     autoComplete?: string
     autoFocus?: boolean
     className?: string
+    compactFormComponentsView?: boolean
     copy?: boolean
     dataTestId?: string
     defaultValue?: string | number

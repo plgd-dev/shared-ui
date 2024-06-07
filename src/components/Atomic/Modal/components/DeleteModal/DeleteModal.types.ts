@@ -1,7 +1,7 @@
 import { defaultProps as ModalDefaultProps, Props as ModalProps } from '../../Modal.types'
 import { ReactNode } from 'react'
 
-type DeleteInformationType = {
+export type DeleteInformationType = {
     label: string
     value: ReactNode
 }

@@ -1,4 +1,4 @@
-import { ChangeEvent, ClipboardEvent } from 'react'
+import { ChangeEvent, ClipboardEvent, CSSProperties } from 'react'
 
 export type Props = {
     autoComplete?: string
@@ -20,6 +20,7 @@ export type Props = {
     readOnly?: boolean
     tabIndex?: number
     value?: string | number
+    style?: CSSProperties
 }
 
 export const defaultProps = {

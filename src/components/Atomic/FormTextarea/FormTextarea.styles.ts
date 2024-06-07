@@ -1,8 +1,10 @@
 import { css } from '@emotion/react'
 
-import { ThemeType, getThemeColor } from '../_theme'
+import { ThemeType, getThemeColor, getTheme } from '../_theme'
+import { fontPrimary } from '../_utils/commonStyles'
 
 export const textarea = (theme: ThemeType) => css`
+    font-family: ${getTheme(theme, `Global.fontPrimary`, fontPrimary)};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -15,6 +17,7 @@ export const textarea = (theme: ThemeType) => css`
     color: ${getThemeColor(theme, `FormTextarea.color`)};
     box-sizing: border-box;
     min-height: 120px;
+    line-height: 1.5;
 
     &::placeholder {
         color: ${getThemeColor(theme, `FormTextarea.placeholder.color`)};

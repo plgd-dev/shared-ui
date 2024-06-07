@@ -16,6 +16,7 @@ import Select, {
     GroupBase,
     MultiValueGenericProps,
 } from 'react-select'
+import CreatableSelect from 'react-select/creatable'
 import { mergeRefs } from 'react-merge-refs'
 
 import { Props, defaultProps, OptionType } from './FormSelect.types'
@@ -23,12 +24,14 @@ import * as styles from './FormSelect.styles'
 import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectAligns, selectSizes } from './constants'
 import IconCloseX from '../Icon/components/IconCloseX'
+import { Theme } from '@emotion/react'
 
 const FormSelect = forwardRef<any, Props>((props, ref) => {
     const {
         align,
         autoWidth,
         className,
+        creatable,
         defaultValue,
         error,
         disabled,
@@ -193,41 +196,45 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         <components.Input {...props} css={align === selectAligns.RIGHT && !autoWidth ? styles.input : undefined} />
     )
 
-    return (
-        <Select
-            {...rest}
-            className={className}
-            classNamePrefix='select'
-            closeMenuOnScroll={true}
-            components={{
-                DropdownIndicator,
-                Menu,
-                MenuList,
-                Option,
-                SelectContainer,
-                SingleValue,
-                MultiValue,
-                ValueContainer,
-                Placeholder,
-                Control,
-                Input,
-                MultiValueLabel,
-                MultiValueRemove,
-            }}
-            css={[(theme) => styles.select(theme, size!, disabled)]}
-            defaultValue={defaultValue}
-            isDisabled={disabled}
-            isMulti={isMulti}
-            isSearchable={isSearchable}
-            menuIsOpen={menuIsOpen}
-            name={name}
-            onChange={onChange}
-            options={options}
-            ref={mergeRefs([ref, localRef]) as any}
-            styles={stylesOverride}
-            value={value}
-        />
-    )
+    const properties = {
+        ...rest,
+        className,
+        classNamePrefix: 'select',
+        closeMenuOnScroll: true,
+        components: {
+            DropdownIndicator,
+            Menu,
+            MenuList,
+            Option,
+            SelectContainer,
+            SingleValue,
+            MultiValue,
+            ValueContainer,
+            Placeholder,
+            Control,
+            Input,
+            MultiValueLabel,
+            MultiValueRemove,
+        },
+        css: [(theme: Theme) => styles.select(theme, size!, disabled)],
+        defaultValue,
+        isDisabled: disabled,
+        isMulti,
+        isSearchable,
+        menuIsOpen,
+        name,
+        onChange,
+        options,
+        refs: mergeRefs([ref, localRef]) as any,
+        styles: stylesOverride,
+        value,
+    }
+
+    if (creatable) {
+        return <CreatableSelect {...properties} />
+    }
+
+    return <Select {...properties} />
 })
 
 FormSelect.displayName = 'FormSelect'

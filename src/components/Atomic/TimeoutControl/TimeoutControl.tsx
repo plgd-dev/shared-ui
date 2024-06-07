@@ -18,6 +18,7 @@ const { INFINITE, NS } = commandTimeoutUnits
 export const TimeoutControlCore: FC<Props> = (props) => {
     const {
         align,
+        compactFormComponentsView,
         defaultValue,
         defaultTtlValue,
         error,
@@ -33,6 +34,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
         size,
         smallMode,
         unitClassName,
+        unitMenuZIndex,
         unitMenuPortalTarget,
         watchUnitChange,
     } = props
@@ -137,6 +139,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
                     {i18n.duration ? <FormLabel required={required} text={i18n.duration} /> : undefined}
                     <FormInput
                         align={align}
+                        compactFormComponentsView={compactFormComponentsView}
                         css={[styles.input, smallMode && styles.inputSmall]}
                         disabled={disabled || isDefault}
                         inlineStyle={inlineStyle}
@@ -167,6 +170,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
                         disabled={disabled}
                         inlineStyle={inlineStyle}
                         menuPortalTarget={unitMenuPortalTarget}
+                        menuZIndex={unitMenuZIndex}
                         name='unit'
                         onChange={(e) => {
                             handleOnUnitChange(e)
@@ -188,7 +192,7 @@ const TimeoutControl: FC<Omit<Props, 'i18n'> & { i18n?: i18nType }> = (props) =>
     return (
         <TimeoutControlCore
             {...props}
-            {...(compactFormComponentsView
+            {...(compactFormComponentsView && props.compactFormComponentsView !== false
                 ? commonTimeoutControlProps
                 : {
                       i18n: {

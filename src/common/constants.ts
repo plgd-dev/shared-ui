@@ -95,7 +95,7 @@ export const hasMockApi = (url: string) => {
 }
 
 export const getApiUrl = (url: string) => {
-    const urlBase = url.split('/api/')[1]
+    const parsedUrl = new URL(url)
 
-    return hasMockApi(url) && urlBase ? `${process.env.REACT_APP_MOCK_BASE_URL}/api/${urlBase}` : url
+    return hasMockApi(parsedUrl.pathname) && parsedUrl.origin ? `${process.env.REACT_APP_MOCK_BASE_URL}${parsedUrl.pathname}` : url
 }

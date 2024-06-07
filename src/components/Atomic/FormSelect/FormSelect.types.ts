@@ -19,6 +19,7 @@ export type Props = {
     align?: FormSelectAlignType
     autoWidth?: boolean
     className?: string
+    creatable?: boolean
     defaultValue?: any
     disabled?: boolean
     error?: boolean
@@ -30,6 +31,7 @@ export type Props = {
     menuPortalTarget?: HTMLElement | null
     menuZIndex?: number
     name?: string
+    placeholder?: string
     onChange?: (v: any) => void
     onBlur?: (v: any) => void
     options: OptionType[]
@@ -41,4 +43,5 @@ export const defaultProps: Partial<Props> = {
     align: selectAligns.LEFT,
     isMulti: false,
     size: selectSizes.NORMAL,
+    placeholder: 'Select...',
 }

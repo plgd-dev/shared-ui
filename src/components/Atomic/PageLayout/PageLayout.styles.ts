@@ -61,7 +61,7 @@ export const headline = (theme: ThemeType) => css`
     color: ${getThemeColor(theme, 'PageLayout.headline.color')};
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 400px;
+    max-width: 450px;
     white-space: nowrap;
 `
 

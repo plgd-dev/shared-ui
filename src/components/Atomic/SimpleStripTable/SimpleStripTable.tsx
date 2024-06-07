@@ -9,7 +9,7 @@ import ConditionalWrapper from '../ConditionalWrapper'
 import CopyIcon from '../CopyIcon'
 
 const SimpleStripTable: FC<Props> = (props) => {
-    const { className, headerLeft, headerRight, id, i18n, leftColSize, rightColSize, rows } = { ...defaultProps, ...props }
+    const { className, headerLeft, headerRight, id, i18n, lastRowBorder, leftColSize, rightColSize, rows } = { ...defaultProps, ...props }
 
     return (
         <ConditionalWrapper
@@ -35,7 +35,13 @@ const SimpleStripTable: FC<Props> = (props) => {
                     <Row css={[styles.row, r.autoHeight && styles.autoHeight]} gutters={false} key={r.key || key}>
                         <Column size={leftColSize as ColumnSizeType}>
                             <div
-                                css={[styles.attribute, styles.border, styles.borderLeft, r.autoHeight && styles.autoHeight]}
+                                css={[
+                                    styles.attribute,
+                                    styles.border,
+                                    styles.borderLeft,
+                                    r.autoHeight && styles.autoHeight,
+                                    lastRowBorder === false && key === rows.length - 1 && styles.noLastRowBorder,
+                                ]}
                                 data-test-id={r.dataTestId?.concat('-attribute')}
                             >
                                 {r.attribute}
@@ -44,7 +50,13 @@ const SimpleStripTable: FC<Props> = (props) => {
                         </Column>
                         <Column size={rightColSize as ColumnSizeType}>
                             <div
-                                css={[styles.value, styles.border, styles.borderRight, r.autoHeight && styles.autoHeight]}
+                                css={[
+                                    styles.value,
+                                    styles.border,
+                                    styles.borderRight,
+                                    r.autoHeight && styles.autoHeight,
+                                    lastRowBorder === false && key === rows.length - 1 && styles.noLastRowBorder,
+                                ]}
                                 data-test-id={r.dataTestId?.concat('-value')}
                             >
                                 {r.value}

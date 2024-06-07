@@ -207,6 +207,39 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 borderColor: colors.neutral200,
             },
         },
+        ConditionFilter: {
+            border: colors.neutral200,
+            header: {
+                background: colors.neutral000,
+                hover: {
+                    background: colors.neutral100,
+                    expander: {
+                        color: colors.primary,
+                    },
+                },
+            },
+            expander: {
+                color: colors.neutral900,
+                background: colors.neutral100,
+            },
+            inputBox: {
+                background: colors.light,
+            },
+            list: {
+                icon: {
+                    color: colors.neutral500,
+                    hover: {
+                        color: colors.primary,
+                    },
+                },
+                item: {
+                    color: colors.neutral800,
+                },
+            },
+            title: {
+                color: colors.primaryDarken,
+            },
+        },
         Content: {
             background: colors.neutral000,
             headline: {
@@ -796,6 +829,33 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 color: colors.neutral800,
             },
         },
+        ResourceToggleCreator: {
+            border: colors.neutral200,
+            header: {
+                background: colors.neutral000,
+                hover: {
+                    background: colors.neutral100,
+                    expander: {
+                        color: colors.primary,
+                    },
+                },
+            },
+            expander: {
+                color: colors.neutral500,
+                background: colors.neutral100,
+                hover: {
+                    color: colors.primary,
+                },
+            },
+            rightSpacer: {
+                separator: {
+                    color: colors.neutral200,
+                },
+            },
+            title: {
+                color: colors.primaryDarken,
+            },
+        },
         Scrollbar: {
             color: colors.neutral500,
         },
@@ -895,9 +955,6 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                     color: colors.neutral800,
                 },
             },
-            sortActive: {
-                color: colors.primaryBonus,
-            },
             cell: {
                 before: {
                     background: colors.neutral200,
@@ -908,6 +965,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 a: {
                     color: colors.neutral800,
                 },
+            },
+            placeholder: {
+                color: colors.neutral500,
             },
             row: {
                 background: colors.neutral100,
@@ -921,6 +981,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
             selected: {
                 background: colors.neutral100,
+            },
+            sortActive: {
+                color: colors.primaryBonus,
             },
         },
         TableActions: {

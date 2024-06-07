@@ -1,5 +1,6 @@
-import { Props as InputProps } from '../FormInput/FormInput.types'
 import { CSSProperties } from 'react'
+
+import { Props as InputProps } from '../FormInput/FormInput.types'
 
 export type i18nType = {
     default: string
@@ -9,6 +10,7 @@ export type i18nType = {
 }
 
 export type Props = {
+    compactFormComponentsView?: boolean
     defaultTtlValue: number
     defaultValue: number
     disabled?: boolean
@@ -25,6 +27,7 @@ export type Props = {
     smallMode?: boolean
     ttlHasError?: boolean
     unitClassName?: string
+    unitMenuZIndex?: number
     unitMenuPortalTarget?: HTMLElement
     watchUnitChange?: boolean
 } & Pick<InputProps, 'inlineStyle' | 'align' | 'size'>
