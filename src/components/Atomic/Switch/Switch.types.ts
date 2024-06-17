@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 export type SwitcherSizeType = 'small' | 'big'
 
 export type Props = {
@@ -13,6 +15,7 @@ export type Props = {
     name?: string
     onChange?: (e: any) => void
     size?: SwitcherSizeType
+    style?: CSSProperties
 }
 
 export const defaultProps: Partial<Props> = {

@@ -10,7 +10,7 @@ import IconDone from './assets/IconDone'
 import IconCloseCircle from '../../Atomic/Icon/components/IconCloseCircle'
 import { convertSize } from '../../Atomic/Icon'
 import { ComponentType, Props } from './FullPageWizard.types'
-import { Description, SubHeadline, Headline, GroupHeadline, ToggleConfiguration } from './Components'
+import { Description, SubHeadline, Headline, GroupHeadline, ToggleConfiguration, Separator } from './Components'
 import { useDocumentTitle } from '../../../common/hooks'
 
 const FullPageWizard: ComponentType<Props> = (props) => {
@@ -86,5 +86,6 @@ FullPageWizard.SubHeadline = SubHeadline
 FullPageWizard.Headline = Headline
 FullPageWizard.GroupHeadline = GroupHeadline
 FullPageWizard.ToggleConfiguration = ToggleConfiguration
+FullPageWizard.Separator = Separator
 
 export default FullPageWizard

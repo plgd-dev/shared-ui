@@ -9,6 +9,7 @@ import { copyToClipboard } from '../../../common/utils'
 import { inputAligns, inputSizes } from './constants'
 import { isEdge } from '../_utils/browser'
 import { FormContext } from '../../../common/context/FormContext'
+import isFunction from 'lodash/isFunction'
 
 export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const {
@@ -24,6 +25,7 @@ export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) =>
         inlineStyle,
         inputWrapperStyle,
         inputRef,
+        onFocus,
         rightContent,
         size,
         readOnly,
@@ -59,15 +61,14 @@ export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) =>
             data-inline={inline?.toString()}
             data-test-id={dataTestId}
             disabled={disabled || false}
-            onFocus={
-                align === inputAligns.RIGHT
-                    ? () => {
-                          setTimeout(() => {
-                              localInputRef.current?.select()
-                          }, 100)
-                      }
-                    : undefined
-            }
+            onFocus={(e) => {
+                if (align === inputAligns.RIGHT) {
+                    setTimeout(() => {
+                        localInputRef.current?.select()
+                    }, 100)
+                }
+                isFunction(onFocus) && onFocus(e)
+            }}
             pattern={telPattern}
             readOnly={readOnly}
             ref={mergeRefs([ref, localInputRef, inputRef]) as any}

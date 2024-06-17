@@ -18,25 +18,31 @@ import Select, {
 } from 'react-select'
 import CreatableSelect from 'react-select/creatable'
 import { mergeRefs } from 'react-merge-refs'
+import { Theme } from '@emotion/react'
 
 import { Props, defaultProps, OptionType } from './FormSelect.types'
 import * as styles from './FormSelect.styles'
 import { convertSize, IconTableArrowDown } from '../Icon'
 import { selectAligns, selectSizes } from './constants'
 import IconCloseX from '../Icon/components/IconCloseX'
-import { Theme } from '@emotion/react'
+import Checkbox from '../Checkbox'
+import Spacer from '../Spacer'
+import Show from '../Show'
 
 const FormSelect = forwardRef<any, Props>((props, ref) => {
     const {
         align,
         autoWidth,
         className,
+        checkboxOptions,
         creatable,
         defaultValue,
         error,
         disabled,
         inlineStyle,
-        footerLinks,
+        footerLinksLeft,
+        footerLinksRight,
+        i18n,
         isMulti,
         isSearchable,
         options,
@@ -74,18 +80,35 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
 
     const ValueContainer = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
         props: ValueContainerProps<Option, IsMulti, Group>
-    ) => (
-        <components.ValueContainer
-            {...props}
-            css={[
-                styles.valueContainer,
-                props.isMulti && styles.valueContainerMulti,
-                align === selectAligns.RIGHT && props.isMulti && styles.valueContainerMultiRight,
-            ]}
-        >
-            {props.children}
-        </components.ValueContainer>
-    )
+    ) => {
+        let [values, input] = props.children as any
+        const { itemSelected, itemsSelected } = i18n || {}
+
+        if (Array.isArray(values)) {
+            const plural = values.length === 1 ? '' : 's'
+            values = `${values.length} ${plural ? itemsSelected : itemSelected}`
+        }
+
+        return (
+            <components.ValueContainer
+                {...props}
+                css={[
+                    styles.valueContainer,
+                    checkboxOptions && styles.valueContainerCheckbox,
+                    props.isMulti && styles.valueContainerMulti,
+                    align === selectAligns.RIGHT && props.isMulti && styles.valueContainerMultiRight,
+                ]}
+            >
+                <Show>
+                    <Show.When isTrue={!!checkboxOptions}>
+                        {input}
+                        <span style={{ flex: '1 1 auto', textAlign: 'right' }}>{values}</span>
+                    </Show.When>
+                    <Show.Else>{props.children}</Show.Else>
+                </Show>
+            </components.ValueContainer>
+        )
+    }
 
     const SelectContainer = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
         props: ContainerProps<Option, IsMulti, Group>
@@ -147,36 +170,64 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     const Menu = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: MenuProps<Option, IsMulti, Group>) => (
         <components.Menu {...props} css={(theme) => styles.menu(theme, menuZIndex || 1)}>
             {props.children}
-            {!!footerLinks && (
+            {(!!footerLinksLeft || !!footerLinksRight) && (
                 <div css={styles.footerComponent}>
-                    {footerLinks.map((link, key) => (
-                        <a
-                            css={styles.footerLink}
-                            href='#'
-                            key={key}
-                            onClick={(e) => {
-                                e.preventDefault()
-                                props.clearValue()
-                                localRef.current.blur()
-                                link.onClick()
-                            }}
-                        >
-                            {link.title}
-                        </a>
-                    ))}
+                    {footerLinksLeft && (
+                        <div css={styles.footerLinks}>
+                            {footerLinksLeft.map((link, key) => (
+                                <a
+                                    css={[styles.footerLink, link.variant && styles.footerLinkPrimary]}
+                                    href='#'
+                                    key={key}
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        props.clearValue()
+                                        localRef.current.blur()
+                                        link.onClick(props.getValue())
+                                    }}
+                                >
+                                    {link.title}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                    {footerLinksRight && (
+                        <div css={styles.footerLinks}>
+                            {footerLinksRight.map((link, key) => (
+                                <a
+                                    css={styles.footerLink}
+                                    href='#'
+                                    key={key}
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        props.clearValue()
+                                        localRef.current.blur()
+                                        link.onClick(props.getValue())
+                                    }}
+                                >
+                                    {link.title}
+                                </a>
+                            ))}
+                        </div>
+                    )}
                 </div>
             )}
         </components.Menu>
     )
 
     const MenuList = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: MenuListProps<Option, IsMulti, Group>) => (
-        <components.MenuList {...props} css={styles.menuList} maxHeight={footerLinks ? props.maxHeight - 54 : props.maxHeight}>
+        <components.MenuList {...props} css={styles.menuList} maxHeight={footerLinksLeft || footerLinksRight ? props.maxHeight - 54 : props.maxHeight}>
             {props.children}
         </components.MenuList>
     )
 
     const Option = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: OptionProps<Option, IsMulti, Group>) => (
         <components.Option {...props} css={[styles.option, props.isSelected && styles.optionSelected, align === selectAligns.RIGHT && styles.optionRight]}>
+            {checkboxOptions && (
+                <Spacer type='pr-2'>
+                    <Checkbox checked={props.isSelected} name='' onChange={() => {}} />
+                </Spacer>
+            )}
             {props.children}
         </components.Option>
     )
@@ -200,24 +251,26 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         ...rest,
         className,
         classNamePrefix: 'select',
-        closeMenuOnScroll: true,
+        closeMenuOnScroll: !checkboxOptions,
+        closeMenuOnSelect: !checkboxOptions,
         components: {
             DropdownIndicator,
             Menu,
             MenuList,
             Option,
-            SelectContainer,
+            SelectContainer: checkboxOptions ? components.SelectContainer : SelectContainer,
             SingleValue,
             MultiValue,
             ValueContainer,
             Placeholder,
-            Control,
+            Control: checkboxOptions ? components.Control : Control,
             Input,
             MultiValueLabel,
             MultiValueRemove,
         },
         css: [(theme: Theme) => styles.select(theme, size!, disabled)],
         defaultValue,
+        hideSelectedOptions: !checkboxOptions,
         isDisabled: disabled,
         isMulti,
         isSearchable,
@@ -225,7 +278,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         name,
         onChange,
         options,
-        refs: mergeRefs([ref, localRef]) as any,
+        ref: mergeRefs([ref, localRef]) as any,
         styles: stylesOverride,
         value,
     }

@@ -6,9 +6,10 @@ import Headline from '../Headline'
 import PageLoader from '../PageLoader'
 import ConditionalWrapper from '../ConditionalWrapper'
 import { useDocumentTitle } from '../../../common/hooks'
+import Spacer from '../Spacer'
 
 const PageLayout = forwardRef<HTMLDivElement, Props>((props, ref) => {
-    const { children, dataTestId, headlineStatusTag, title, header, headerBorder, footer, loading, collapsed, xPadding } = {
+    const { children, dataTestId, headlineCustomContent, headlineStatusTag, title, header, headerBorder, footer, loading, collapsed, xPadding } = {
         ...defaultProps,
         ...props,
     }
@@ -25,6 +26,7 @@ const PageLayout = forwardRef<HTMLDivElement, Props>((props, ref) => {
                             {title}
                         </Headline>
                         {headlineStatusTag && <div css={styles.statusTag}>{headlineStatusTag}</div>}
+                        {headlineCustomContent && <Spacer type='pl-4'>{headlineCustomContent}</Spacer>}
                     </div>
                     <div css={styles.rightActions}>{header}</div>
                 </div>

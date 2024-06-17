@@ -9,7 +9,7 @@ import ConditionalWrapper from '../ConditionalWrapper'
 import CopyIcon from '../CopyIcon'
 
 const SimpleStripTable: FC<Props> = (props) => {
-    const { className, headerLeft, headerRight, id, i18n, lastRowBorder, leftColSize, rightColSize, rows } = { ...defaultProps, ...props }
+    const { className, headerLeft, headerRight, id, i18n, noSidePadding, lastRowBorder, leftColSize, rightColSize, rows } = { ...defaultProps, ...props }
 
     return (
         <ConditionalWrapper
@@ -32,7 +32,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                     </Row>
                 )}
                 {rows.map((r, key) => (
-                    <Row css={[styles.row, r.autoHeight && styles.autoHeight]} gutters={false} key={r.key || key}>
+                    <Row css={[styles.row, r.autoHeight && styles.autoHeight, noSidePadding && styles.noRowPadding]} gutters={false} key={r.key || key}>
                         <Column size={leftColSize as ColumnSizeType}>
                             <div
                                 css={[
@@ -41,6 +41,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                     styles.borderLeft,
                                     r.autoHeight && styles.autoHeight,
                                     lastRowBorder === false && key === rows.length - 1 && styles.noLastRowBorder,
+                                    noSidePadding && styles.noLeftPadding,
                                 ]}
                                 data-test-id={r.dataTestId?.concat('-attribute')}
                             >
@@ -56,6 +57,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                     styles.borderRight,
                                     r.autoHeight && styles.autoHeight,
                                     lastRowBorder === false && key === rows.length - 1 && styles.noLastRowBorder,
+                                    noSidePadding && styles.noRightPadding,
                                 ]}
                                 data-test-id={r.dataTestId?.concat('-value')}
                             >

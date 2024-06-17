@@ -1,7 +1,7 @@
 import { FC, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { Props, AlertSeverityType } from './Alert.types'
+import { Props, AlertSeverityType, defaultProps } from './Alert.types'
 import { severities } from '../VersionMark/constants'
 import { convertSize, IconSuccess, IconWarning, IconError } from '../Icon'
 import IconInfo from '../Icon/components/IconInfo'
@@ -9,7 +9,7 @@ import * as styles from './Alert.styles'
 import IconClose from '../Icon/components/IconClose'
 
 const Alert: FC<Props> = (props) => {
-    const { children, className, dataTestId, noSeverityBg, severity } = props
+    const { closeable, children, className, dataTestId, noSeverityBg, severity } = { ...defaultProps, ...props }
     const [visible, setVisible] = useState(true)
 
     const getIcon = (severity?: AlertSeverityType) => {
@@ -71,7 +71,7 @@ const Alert: FC<Props> = (props) => {
                         {getIcon(severity)}
                     </span>
                     <span css={styles.label}>{children}</span>
-                    <IconClose {...convertSize(20)} css={styles.iconClose} onClick={() => setVisible(false)} />
+                    {closeable && <IconClose {...convertSize(20)} css={styles.iconClose} onClick={() => setVisible(false)} />}
                 </motion.div>
             )}
         </AnimatePresence>

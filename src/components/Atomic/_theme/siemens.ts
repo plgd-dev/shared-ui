@@ -485,7 +485,10 @@ const theme = {
                 background: colorsSiemens.neutral900,
                 footer: {
                     link: {
-                        color: colorsSiemens.primary,
+                        color: colorsSiemens.neutral500,
+                        primary: {
+                            color: colorsSiemens.primary,
+                        },
                     },
                 },
                 open: {

@@ -33,6 +33,10 @@ export const noBorder = css`
     border-top: none;
 `
 
+export const separator = (theme: ThemeType) => css`
+    border-top: 1px solid ${getThemeColor(theme, `FullPageWizard.subHeadline.borderColor`)};
+`
+
 export const headline = (theme: ThemeType) => css`
     font-family: ${getTheme(theme, `Global.fontSecondary`, fontSecondary)};
     color: ${getThemeColor(theme, `FullPageWizard.headline.color`)};

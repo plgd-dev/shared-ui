@@ -332,56 +332,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   background: transparent;
 }
 
-.emotion-25 {
-  cursor: default;
-  display: block;
-  font-size: inherit;
-  width: 100%;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background-color: #2684FF;
-  color: hsl(0, 0%, 100%);
-  padding: 8px 12px;
-  box-sizing: border-box;
-  color: #81868C;
-  background: #FFFFFF;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
-  font-size: 14px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: transparent;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  cursor: pointer;
-  padding: 8px 16px;
-  color: #252626;
-  background: #FFFFFF;
-}
-
-.emotion-25:active {
-  background-color: #2684FF;
-}
-
-.emotion-25:hover {
-  color: #2261AE;
-  background: transparent;
-}
-
-.emotion-25:active {
-  background: transparent;
-}
-
 <div>
     <div
       class="emotion-0"
@@ -499,7 +449,7 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
             data-value=""
           >
             <input
-              aria-activedescendant="react-select-3-option-1"
+              aria-activedescendant=""
               aria-autocomplete="list"
               aria-controls="react-select-3-listbox"
               aria-expanded="true"
@@ -565,16 +515,6 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
             tabindex="-1"
           >
             Chocolate
-          </div>
-          <div
-            aria-disabled="false"
-            aria-selected="true"
-            class="select__option select__option--is-focused select__option--is-selected emotion-25"
-            id="react-select-3-option-1"
-            role="option"
-            tabindex="-1"
-          >
-            Strawberry
           </div>
           <div
             aria-disabled="false"

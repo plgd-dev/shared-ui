@@ -41,6 +41,8 @@ export type ToggleConfigurationProps = {
     onShowChange?: (show: boolean) => void
 }
 
+export type SeparatorProps = { style?: React.CSSProperties }
+
 export const Description: FC<DescriptionProps> = (props) => <p css={[styles.description, props.large && styles.descriptionLarge]}>{props.children}</p>
 
 export const SubHeadline: FC<SubHeadlineProps> = (props) => <h2 css={[styles.subHeadline, props.noBorder && styles.noBorder]}>{props.children}</h2>
@@ -62,6 +64,8 @@ export const GroupHeadline: FC<GroupHeadlineProps> = (props) => (
         <h3 css={[styles.groupHeadline, !props.tooltipText && styles.groupHeadlineMargin]}>{props.children}</h3>
     </ConditionalWrapper>
 )
+
+export const Separator: FC<SeparatorProps> = (props) => <div css={styles.separator} style={props.style} />
 
 export const ToggleConfiguration: FC<ToggleConfigurationProps> = (props) => {
     const { defaultShow, i18n, children, hideToggleLink, margin = true, onShowChange } = props

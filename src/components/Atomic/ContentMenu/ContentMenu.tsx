@@ -58,7 +58,6 @@ const ContentMenu: FC<Props> = (props) => {
                                 href='#'
                                 onClick={(e) => {
                                     e.preventDefault()
-                                    e.stopPropagation()
                                     handleItemClick(item, e)
                                 }}
                             >
@@ -96,7 +95,6 @@ const ContentMenu: FC<Props> = (props) => {
                                                         href='#'
                                                         onClick={(e) => {
                                                             e.preventDefault()
-                                                            e.stopPropagation()
                                                             handleSubItemClick &&
                                                                 isFunction(handleSubItemClick(subItem, item, e)) &&
                                                                 handleSubItemClick(subItem, item, e)

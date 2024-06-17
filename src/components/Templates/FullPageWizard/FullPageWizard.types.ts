@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import { DescriptionProps, HeadlineProps, SubHeadlineProps, GroupHeadlineProps, ToggleConfigurationProps } from './Components'
+import { DescriptionProps, HeadlineProps, SubHeadlineProps, GroupHeadlineProps, ToggleConfigurationProps, SeparatorProps } from './Components'
 
 export interface ComponentType<P> extends FC<P> {
     Description: FC<DescriptionProps>
@@ -7,6 +7,7 @@ export interface ComponentType<P> extends FC<P> {
     SubHeadline: FC<SubHeadlineProps>
     GroupHeadline: FC<GroupHeadlineProps>
     ToggleConfiguration: FC<ToggleConfigurationProps>
+    Separator: FC<SeparatorProps>
 }
 
 export type Props = {

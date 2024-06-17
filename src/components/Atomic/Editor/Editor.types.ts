@@ -18,7 +18,7 @@ export type Props = {
     i18n?: {
         viewText?: string
     }
-    json: string | [] | object
+    json: string | [] | object | number | boolean
     mode?: EditorModeType
     onBlur?: (value: any) => void
     onChange?: (json: any) => void

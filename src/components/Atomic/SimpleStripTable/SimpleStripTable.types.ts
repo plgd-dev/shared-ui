@@ -18,6 +18,7 @@ export type Props = {
         copy: string
     }
     id?: string
+    noSidePadding?: boolean
     lastRowBorder?: boolean
     leftColSize?: number
     rightColSize?: number

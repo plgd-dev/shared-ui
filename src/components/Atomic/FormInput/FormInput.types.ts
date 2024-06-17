@@ -26,6 +26,7 @@ export type Props = {
     name?: string
     onBlur?: (e: any) => void
     onChange?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    onFocus?: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
     onKeyPress?: (e: any) => void
     placeholder?: string
     readOnly?: boolean

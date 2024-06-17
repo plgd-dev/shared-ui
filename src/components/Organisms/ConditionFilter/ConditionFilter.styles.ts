@@ -87,6 +87,11 @@ export const list = css`
 
 export const listItem = (theme: ThemeType) => css`
     color: ${getThemeColor(theme, 'ConditionFilter.list.item.color')};
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
 `
 
 export const listIcon = (theme: ThemeType) => css`

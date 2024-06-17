@@ -21,7 +21,10 @@ type UseFormOptionsType = {
 export function useForm<TFieldValues extends FieldValues = FieldValues>(options: UseFormOptionsType) {
     const { defaultFormData, errorKey, schema } = options
 
-    const { setFormDirty, setFormError, updateData } = useContext(FormContext)
+    const { setFormErrorKey, setFormDirtyKey, updateData } = useContext(FormContext)
+
+    const [fomError, setFormError] = useState<any>({})
+    const [formDirty, setFormDirty] = useState<any>({})
 
     const useFormData = useFormLib<TFieldValues>({
         mode: 'all',
@@ -33,14 +36,29 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
     const data = useFormData.watch()
 
     useEffect(() => {
-        isFunction(setFormError) && setFormError((prevState: any) => ({ ...prevState, [errorKey]: Object.keys(useFormData.formState.errors).length > 0 }))
-    }, [useFormData.formState.errors, setFormError, errorKey])
+        const error = Object.keys(useFormData.formState.errors).length > 0
+
+        if (fomError[errorKey] !== error) {
+            setFormError((prevState: any) => ({ ...prevState, [errorKey]: error }))
+            isFunction(setFormErrorKey) && setFormErrorKey(errorKey, error)
+        }
+    }, [useFormData.formState, errorKey, fomError, setFormErrorKey])
 
     useEffect(() => {
-        isFunction(setFormDirty) && setFormDirty((prevState: any) => ({ ...prevState, [errorKey]: useFormData.formState.isDirty }))
-    }, [useFormData.formState.dirtyFields, setFormDirty, errorKey, useFormData.formState.isDirty])
+        const dirty = useFormData.formState.isDirty && Object.keys(useFormData.formState.dirtyFields).length > 0
 
-    const updateField = useCallback((field: string, fieldValue: any) => updateData(set(cloneDeep(data), field, fieldValue)), [data, updateData])
+        if (formDirty[errorKey] !== dirty) {
+            setFormDirty((prevState: any) => ({ ...prevState, [errorKey]: dirty }))
+            isFunction(setFormDirtyKey) && setFormDirtyKey(errorKey, dirty)
+        }
+    }, [useFormData.formState, errorKey, setFormDirtyKey, formDirty])
+
+    const updateField = useCallback(
+        (field: string, fieldValue: any) => {
+            updateData(set(cloneDeep(data), field, fieldValue))
+        },
+        [data, updateData]
+    )
 
     return { ...useFormData, updateField }
 }
@@ -74,6 +92,7 @@ export function useFormData(options: any) {
 
     useEffect(() => {
         const dirty = isDirty || isDirtyData
+        // console.log(data)
 
         if (dirtyState !== dirty) {
             setDirtyState(dirty)
@@ -85,12 +104,19 @@ export function useFormData(options: any) {
         message: i18n.promptDefaultMessage,
     })
 
+    const updateFormError = useCallback((errorKey: string, value: any) => setFormError((prevState: any) => ({ ...prevState, [errorKey]: value })), [])
+    const updateFormDirty = useCallback((errorKey: string, value: any) => {
+        setFormDirty((prevState: any) => ({ ...prevState, [errorKey]: value }))
+    }, [])
+
     const context = useMemo(
         () => ({
             ...getFormContextDefault(i18n.default),
             updateData: (newFormData: any) => setFormData(newFormData),
-            setFormDirty,
+            setFormDirty: () => {},
+            setFormDirtyKey: updateFormDirty,
             setFormError: () => {},
+            setFormErrorKey: updateFormError,
             compactFormComponentsView: true,
         }),
         // eslint-disable-next-line react-hooks/exhaustive-deps

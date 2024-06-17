@@ -20,6 +20,7 @@ export const FormGroupCore: FC<Props> = (props) => {
         marginBottom,
         inlineJustifyContent,
         renderProps,
+        style,
         tooltipZIndex,
         tooltipPortalTarget,
     } = { ...defaultProps, ...props }
@@ -91,7 +92,7 @@ export const FormGroupCore: FC<Props> = (props) => {
     }
 
     return (
-        <div className={className} css={[marginBottom && !inline && styles.formGroupMargin, fullSize && styles.inlineItemFullSize]}>
+        <div className={className} css={[marginBottom && !inline && styles.formGroupMargin, fullSize && styles.inlineItemFullSize]} style={style}>
             {getInputs()}
         </div>
     )

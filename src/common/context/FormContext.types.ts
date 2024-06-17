@@ -6,7 +6,9 @@ import { Props as FormGroupProps } from '../../components/Atomic/FormGroup/FormG
 export type FormContextType = {
     updateData: (newData: any) => void
     setFormError?: Dispatch<SetStateAction<any>>
+    setFormErrorKey?: (errorKey: string, value: any) => void
     setFormDirty?: Dispatch<SetStateAction<any>>
+    setFormDirtyKey?: (errorKey: string, value: any) => void
     compactFormComponentsView: boolean
     commonFormGroupProps: Pick<FormGroupProps, 'errorTooltip' | 'fullSize' | 'marginBottom'>
     commonInputProps: Pick<InputProps, 'inlineStyle' | 'align' | 'size'>

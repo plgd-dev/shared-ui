@@ -68,6 +68,6 @@ export const rightSpacer = (theme: ThemeType) => css`
 `
 
 export const content = (theme: ThemeType) => css`
-    padding: 24px;
+    padding: 16px 24px;
     border-top: 1px solid ${getThemeColor(theme, 'ResourceToggleCreator.border')};
 `

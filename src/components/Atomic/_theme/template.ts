@@ -504,7 +504,10 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 background: colors.neutral000,
                 footer: {
                     link: {
-                        color: colors.primary,
+                        color: colors.neutral500,
+                        primary: {
+                            color: colors.primary,
+                        },
                     },
                 },
                 open: {

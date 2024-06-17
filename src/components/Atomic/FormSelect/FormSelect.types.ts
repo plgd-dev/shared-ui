@@ -18,23 +18,31 @@ export interface GroupedOption {
 export type Props = {
     align?: FormSelectAlignType
     autoWidth?: boolean
+    checkboxOptions?: boolean
     className?: string
     creatable?: boolean
     defaultValue?: any
     disabled?: boolean
     error?: boolean
-    footerLinks?: [{ onClick: () => void; title: string }]
+    footerLinksLeft?: { onClick: (values: any) => void; title: string; variant?: string }[]
+    footerLinksRight?: { onClick: (values: any) => void; title: string; variant?: string }[]
+    i18n?: {
+        itemSelected: string
+        itemsSelected: string
+    }
     inlineStyle?: boolean
+    isClearable?: boolean
     isMulti?: boolean
     isSearchable?: boolean
     menuIsOpen?: boolean
     menuPortalTarget?: HTMLElement | null
     menuZIndex?: number
     name?: string
-    placeholder?: string
-    onChange?: (v: any) => void
     onBlur?: (v: any) => void
+    onChange?: (v: any) => void
+    onCreateOption?: (v: string | number) => void
     options: OptionType[]
+    placeholder?: string
     size?: FormSelectSizeType
     value?: OptionType | OptionType[]
 }

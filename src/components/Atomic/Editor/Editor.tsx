@@ -47,9 +47,24 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
         container.current = node
     }
 
-    const onChangeText = (json: any) => {
+    const onChangeText = (value: any) => {
+        const FALSY_VALUES = ['', 'null', 'false', 'undefined']
+        const TRUE_VALUES = ['true']
+
+        let returnValue = value
+
+        if (!value || FALSY_VALUES.includes(value)) {
+            returnValue = false
+        } else if (!value || TRUE_VALUES.includes(value)) {
+            returnValue = true
+        } else if (!isNaN(Number(value))) {
+            returnValue = Number(value)
+        } else if (value === 'null') {
+            returnValue = null
+        }
+
         if (onChange) {
-            onChange(json)
+            onChange(returnValue)
         }
     }
 

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 
 export type Props = {
     children: ReactNode | ReactNode[]
@@ -11,6 +11,7 @@ export type Props = {
     inlineJustifyContent?: string
     marginBottom?: boolean
     renderProps?: boolean
+    style?: CSSProperties
     tooltipPortalTarget?: HTMLElement
     tooltipZIndex?: number
 }

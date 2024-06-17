@@ -7,6 +7,7 @@ export type Props = {
     footer?: ReactNode
     header?: any
     headerBorder?: boolean
+    headlineCustomContent?: ReactNode
     headlineStatusTag?: ReactNode
     loading?: any
     title?: string

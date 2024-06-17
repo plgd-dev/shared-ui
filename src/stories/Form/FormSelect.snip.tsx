@@ -7,6 +7,7 @@ export default (args?: any) => {
         { value: 'strawberry', label: 'Strawberry' },
         { value: 'vanilla', label: 'Vanilla' },
     ]
+
     return (
         <div style={{ width: 400 }}>
             <FormSelect {...args} name='form-select-1' options={options} />
@@ -37,12 +38,29 @@ export default (args?: any) => {
                 ]}
             />
             <br />
+            <br />
             <FormSelect
                 {...args}
                 autoWidth
                 align={selectAligns.RIGHT}
                 defaultValue={{ value: 's', label: 's' }}
                 name='form-select-4'
+                options={[
+                    { value: 'ms', label: 'ms' },
+                    { value: 's', label: 's' },
+                    { value: 'min', label: 'min' },
+                    { value: 'h', label: 'h' },
+                ]}
+            />
+            <br />
+            <br />
+            <FormSelect
+                {...args}
+                checkboxOptions
+                creatable
+                isMulti
+                defaultValue={{ value: 's', label: 's' }}
+                name='form-select-5'
                 options={[
                     { value: 'ms', label: 'ms' },
                     { value: 's', label: 's' },

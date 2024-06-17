@@ -21,6 +21,14 @@ export const row = (theme: ThemeType) => css`
     }
 `
 
+export const noRowPadding = css`
+    border-radius: 0;
+
+    &:hover {
+        background: transparent;
+    }
+`
+
 export const autoHeight = css`
     height: 100%;
 `
@@ -99,4 +107,24 @@ export const copy = (theme: ThemeType) => css`
 
 export const required = (theme: ThemeType) => css`
     color: ${getThemeColor(theme, `FormLabel.required.color`)};
+`
+
+export const noLeftPadding = css`
+    padding-left: 0;
+
+    &:after {
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+`
+
+export const noRightPadding = css`
+    padding-right: 0;
+
+    &:after {
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
 `

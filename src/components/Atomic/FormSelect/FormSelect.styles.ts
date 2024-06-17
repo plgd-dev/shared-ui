@@ -106,13 +106,22 @@ export const footerComponent = (theme: ThemeType) => css`
     background: ${getThemeColor(theme, `FormSelect.menu.background`)};
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 0 16px;
 `
 
+export const footerLinks = css`
+    display: flex;
+    gap: 16px;
+`
+
 export const footerLink = (theme: ThemeType) => css`
-    text-decoration: underline;
     color: ${getThemeColor(theme, `FormSelect.menu.footer.link.color`)};
+`
+
+export const footerLinkPrimary = (theme: ThemeType) => css`
+    text-decoration: underline;
+    color: ${getThemeColor(theme, `FormSelect.menu.footer.link.primary.color`)};
     font-weight: bold;
 
     &:hover {
@@ -168,6 +177,10 @@ export const valueContainer = css`
 
 export const valueContainerMulti = css`
     flex-wrap: nowrap;
+`
+
+export const valueContainerCheckbox = css`
+    display: flex;
 `
 
 export const valueContainerMultiRight = css`
