@@ -91,6 +91,7 @@ export const deleteByChunks = (
     cancelRequestDeadlineTimeout: string,
     telemetrySpan: string,
     filterName = 'idFilter',
+    customFilter = '',
     chunkSize = 50
 ) => {
     // We split the fetch into multiple chunks due to the URL being too long for the browser to handle
@@ -100,7 +101,7 @@ export const deleteByChunks = (
             const idsString = ids.map((id) => `${filterName}=${id}`).join('&')
             return withTelemetry(
                 () =>
-                    fetchApi(`${url}?${idsString}`, {
+                    fetchApi(`${url}?${idsString}${customFilter}`, {
                         method: 'DELETE',
                         cancelRequestDeadlineTimeout,
                     }),
