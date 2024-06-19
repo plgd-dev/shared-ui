@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode } from 'react'
+import { Props as ColumnProps } from '../Grid/Column/Column.types'
 
 export type Row = {
     attribute: ReactNode
@@ -21,7 +22,9 @@ export type Props = {
     noSidePadding?: boolean
     lastRowBorder?: boolean
     leftColSize?: number
+    leftColProps?: ColumnProps
     rightColSize?: number
+    rightColProps?: ColumnProps
     rows: Row[]
 }
 

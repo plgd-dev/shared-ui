@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useRef, useState } from 'react'
+import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import isEmpty from 'lodash/isEmpty'
 import isFunction from 'lodash/isFunction'
@@ -21,9 +21,10 @@ import Editor from '../../Atomic/Editor'
 import Spacer from '../../Atomic/Spacer'
 import IconEdit from '../../Atomic/Icon/components/IconEdit'
 import TimeoutControl from '../../Atomic/TimeoutControl'
+import IconArrowDetail from '../../Atomic/Icon/components/IconArrowDetail'
 
 const ResourceToggleCreator: FC<Props> = (props) => {
-    const { className, dataTestId, defaultOpen, i18n, id, resourceData, onUpdate } = props
+    const { className, dataTestId, defaultOpen, i18n, readOnly, id, resourceData, onUpdate, responsive } = props
 
     const [show, setShow] = useState(defaultOpen ?? false)
     const [touched, setTouched] = useState(false)
@@ -37,33 +38,77 @@ const ResourceToggleCreator: FC<Props> = (props) => {
     const editor = useRef()
 
     const hasContent = useMemo(() => {
-        if (typeof resourceData.content.data === 'object') {
-            return !isEmpty(resourceData.content.data)
+        if (typeof resourceData.content === 'object') {
+            return !isEmpty(resourceData.content)
         } else {
-            return resourceData.content.data !== undefined
+            return resourceData.content !== undefined
         }
-    }, [resourceData?.content.data])
+    }, [resourceData.content])
+
+    const hasUpdateContent = useMemo(() => !!resourceData.resourceUpdated && !!resourceData.resourceUpdated.content, [resourceData.resourceUpdated])
+
+    const setContentByType = useCallback((content: ResourceContentType) => {
+        if (typeof content === 'object') {
+            setJsonData(content)
+            // @ts-ignore
+            editor?.current?.current?.set(content)
+        } else {
+            const dataString = content.toString()
+            // @ts-ignore
+            editor?.current?.current?.setText(dataString)
+            setJsonData(dataString)
+        }
+    }, [])
 
     useEffect(() => {
         if (hasContent) {
-            if (typeof resourceData.content.data === 'object') {
-                setJsonData(resourceData.content.data)
-                // @ts-ignore
-                editor?.current?.current?.set(resourceData.content.data)
-            } else {
-                const dataString = resourceData.content.data.toString()
-                // @ts-ignore
-                editor?.current?.current?.setText(dataString)
-                setJsonData(dataString)
-            }
+            setContentByType(resourceData.content)
+        } else if (resourceData.resourceUpdated) {
+            setContentByType(resourceData.resourceUpdated.content)
         } else {
             setJsonData('')
         }
-    }, [resourceData.content.data, hasContent, resourceData.content])
+    }, [resourceData.content, hasContent, resourceData.resourceUpdated, setContentByType])
 
     useEffect(() => {
         setTouched(false)
     }, [show])
+
+    const getButtonIcon = useCallback((hasContent: boolean, hasUpdateContent: boolean) => {
+        if (hasContent) {
+            return <IconEdit />
+        } else if (hasUpdateContent) {
+            return <IconArrowDetail />
+        } else {
+            return <IconPlus />
+        }
+    }, [])
+
+    const getButtonText = useCallback(
+        (hasContent: boolean, hasUpdateContent: boolean) => {
+            if (hasContent) {
+                return i18n.edit
+            } else if (hasUpdateContent) {
+                return i18n.view
+            } else {
+                return i18n.add
+            }
+        },
+        [i18n.add, i18n.edit, i18n.view]
+    )
+
+    const getModalTitle = useCallback(
+        (hasContent: boolean, hasUpdateContent: boolean) => {
+            if (hasContent) {
+                return i18n.editContent
+            } else if (hasUpdateContent) {
+                return i18n.viewContent
+            } else {
+                return i18n.addContent
+            }
+        },
+        [i18n.addContent, i18n.editContent, i18n.viewContent]
+    )
 
     const rows: Row[] = [
         {
@@ -81,7 +126,8 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                     <FormInput
                         align={inputAligns.RIGHT}
                         compactFormComponentsView={true}
-                        onChange={(e) => onUpdate({ ...resourceData, href: e.target.value })}
+                        disabled={readOnly}
+                        onChange={(e) => (isFunction(onUpdate) ? onUpdate({ ...resourceData, href: e.target.value }) : () => {})}
                         onFocus={() => setTouched(true)}
                         placeholder={i18n.href}
                         size={inputSizes.SMALL}
@@ -94,21 +140,21 @@ const ResourceToggleCreator: FC<Props> = (props) => {
             attribute: i18n.content,
             value: (
                 <Button
-                    icon={hasContent ? <IconEdit /> : <IconPlus />}
+                    icon={getButtonIcon(hasContent, hasUpdateContent)}
                     onClick={(e) => {
                         e.preventDefault()
                         setShowModal(true)
                     }}
                     size={buttonSizes.SMALL}
-                    variant={hasContent ? 'secondary' : 'primary'}
+                    variant={hasContent || hasUpdateContent ? 'secondary' : 'primary'}
                 >
-                    {hasContent ? i18n.edit : i18n.add}
+                    {getButtonText(hasContent, hasUpdateContent)}
                 </Button>
             ),
         },
     ]
 
-    if (hasContent) {
+    if (hasContent || hasUpdateContent) {
         rows.push({
             attribute: i18n.timeToLive,
             value: (
@@ -116,6 +162,7 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                     compactFormComponentsView={false}
                     defaultTtlValue={ttl}
                     defaultValue={ttl}
+                    disabled={readOnly}
                     i18n={pick(i18n, 'default', 'duration', 'placeholder', 'unit')}
                     onChange={setTtl}
                     onTtlHasError={setTtlHasError}
@@ -177,7 +224,27 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                         }}
                     >
                         <div css={styles.content}>
-                            <SimpleStripTable noSidePadding lastRowBorder={false} leftColSize={4} rightColSize={8} rows={rows} />
+                            <SimpleStripTable
+                                noSidePadding
+                                lastRowBorder={false}
+                                leftColProps={
+                                    responsive === false
+                                        ? undefined
+                                        : {
+                                              xxl: 6,
+                                          }
+                                }
+                                leftColSize={4}
+                                rightColProps={
+                                    responsive === false
+                                        ? undefined
+                                        : {
+                                              xxl: 6,
+                                          }
+                                }
+                                rightColSize={8}
+                                rows={rows}
+                            />
                         </div>
                     </motion.div>
                 )}
@@ -217,34 +284,34 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                     </Spacer>
                 }
                 renderFooter={
-                    <ModalFooter
-                        right={
-                            <div className='modal-buttons'>
-                                <Button
-                                    className='modal-button'
-                                    dataTestId={dataTestId?.concat('-confirm-button')}
-                                    disabled={disabled || interfaceJsonError}
-                                    onClick={(e) => {
-                                        setShowModal(false)
-                                        onUpdate({
-                                            ...resourceData,
-                                            content: {
-                                                ...resourceData.content,
-                                                data: jsonData === undefined ? {} : jsonData,
-                                                contentType: typeof jsonData,
-                                            },
-                                        })
-                                    }}
-                                    variant='primary'
-                                >
-                                    {i18n.update}
-                                </Button>
-                            </div>
-                        }
-                    />
+                    readOnly ? undefined : (
+                        <ModalFooter
+                            right={
+                                <div className='modal-buttons'>
+                                    <Button
+                                        className='modal-button'
+                                        dataTestId={dataTestId?.concat('-confirm-button')}
+                                        disabled={disabled || interfaceJsonError}
+                                        onClick={(e) => {
+                                            setShowModal(false)
+                                            if (isFunction(onUpdate)) {
+                                                onUpdate({
+                                                    ...resourceData,
+                                                    content: jsonData,
+                                                })
+                                            }
+                                        }}
+                                        variant='primary'
+                                    >
+                                        {i18n.update}
+                                    </Button>
+                                </div>
+                            }
+                        />
+                    )
                 }
                 show={showModal}
-                title={i18n.addContent}
+                title={getModalTitle(hasContent, hasUpdateContent)}
                 zIndex={30}
             />
         </div>

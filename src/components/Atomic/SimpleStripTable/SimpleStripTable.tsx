@@ -9,7 +9,10 @@ import ConditionalWrapper from '../ConditionalWrapper'
 import CopyIcon from '../CopyIcon'
 
 const SimpleStripTable: FC<Props> = (props) => {
-    const { className, headerLeft, headerRight, id, i18n, noSidePadding, lastRowBorder, leftColSize, rightColSize, rows } = { ...defaultProps, ...props }
+    const { className, headerLeft, headerRight, id, i18n, noSidePadding, lastRowBorder, leftColSize, leftColProps, rightColProps, rightColSize, rows } = {
+        ...defaultProps,
+        ...props,
+    }
 
     return (
         <ConditionalWrapper
@@ -23,17 +26,17 @@ const SimpleStripTable: FC<Props> = (props) => {
             <>
                 {(headerLeft || headerRight) && (
                     <Row css={[styles.row, styles.headerRow]} gutters={false}>
-                        <Column size={leftColSize as ColumnSizeType}>
+                        <Column size={leftColSize as ColumnSizeType} {...leftColProps}>
                             <div css={[styles.attribute]}>{headerLeft}</div>
                         </Column>
-                        <Column size={rightColSize as ColumnSizeType}>
+                        <Column size={rightColSize as ColumnSizeType} {...rightColProps}>
                             <div css={[styles.value]}>{headerRight}</div>
                         </Column>
                     </Row>
                 )}
                 {rows.map((r, key) => (
                     <Row css={[styles.row, r.autoHeight && styles.autoHeight, noSidePadding && styles.noRowPadding]} gutters={false} key={r.key || key}>
-                        <Column size={leftColSize as ColumnSizeType}>
+                        <Column size={leftColSize as ColumnSizeType} {...leftColProps}>
                             <div
                                 css={[
                                     styles.attribute,
@@ -49,7 +52,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                 {r.required && <span css={styles.required}> *</span>}
                             </div>
                         </Column>
-                        <Column size={rightColSize as ColumnSizeType}>
+                        <Column size={rightColSize as ColumnSizeType} {...rightColProps}>
                             <div
                                 css={[
                                     styles.value,

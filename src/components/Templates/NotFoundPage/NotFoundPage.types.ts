@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 
 export type Props = {
-    title?: ReactNode
+    layout?: boolean
     message?: ReactNode
+    title?: ReactNode
 }

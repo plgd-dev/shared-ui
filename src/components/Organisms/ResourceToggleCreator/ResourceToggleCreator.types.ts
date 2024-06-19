@@ -3,10 +3,9 @@ export type ResourceContentType = object | string | number | boolean
 export type ResourceType = {
     href: string
     timeToLive: string
-    content: {
-        data: ResourceContentType
-        contentType: string
-        coapContentFormat: number
+    content: ResourceContentType
+    resourceUpdated?: {
+        content: ResourceContentType
     }
 }
 
@@ -23,6 +22,7 @@ export type Props = {
         default: string
         duration: string
         edit: string
+        editContent: string
         fullView: string
         href: string
         name: string
@@ -31,11 +31,13 @@ export type Props = {
         timeToLive: string
         unit: string
         update: string
+        view: string
+        viewContent: string
     }
     id?: string
     onDeleted?: () => void
-    onUpdate: (data: ResourceType) => void
+    onUpdate?: (data: ResourceType) => void
+    readOnly?: boolean
     resourceData: ResourceType
-    title: string
-    updateField: (field: string, value: any) => void
+    responsive?: boolean
 }

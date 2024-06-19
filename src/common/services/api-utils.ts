@@ -85,12 +85,19 @@ export const getOwnerId = (jwtOwnerClaim: string) => {
     return ''
 }
 
-export const deleteByChunks = (url: string, ids: string[], cancelRequestDeadlineTimeout: string, telemetrySpan: string, chunkSize = 50) => {
+export const deleteByChunks = (
+    url: string,
+    ids: string[],
+    cancelRequestDeadlineTimeout: string,
+    telemetrySpan: string,
+    filterName = 'idFilter',
+    chunkSize = 50
+) => {
     // We split the fetch into multiple chunks due to the URL being too long for the browser to handle
     const chunks = chunk(ids, chunkSize)
     return Promise.all(
         chunks.map((ids) => {
-            const idsString = ids.map((id) => `idFilter=${id}`).join('&')
+            const idsString = ids.map((id) => `${filterName}=${id}`).join('&')
             return withTelemetry(
                 () =>
                     fetchApi(`${url}?${idsString}`, {

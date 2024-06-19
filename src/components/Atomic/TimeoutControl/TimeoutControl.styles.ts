@@ -3,6 +3,7 @@ import { css } from '@emotion/react'
 export const timeoutControl = css`
     display: flex;
     align-items: flex-start;
+    width: 100%;
 `
 
 export const left = css`

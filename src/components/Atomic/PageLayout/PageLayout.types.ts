@@ -10,6 +10,7 @@ export type Props = {
     headlineCustomContent?: ReactNode
     headlineStatusTag?: ReactNode
     loading?: any
+    notFound?: boolean
     title?: string
     xPadding?: boolean
 }
