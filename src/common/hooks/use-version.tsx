@@ -45,5 +45,5 @@ export function useVersion(options: OptionsType) {
         </FormGroup>
     )
 
-    return { Selector, data }
+    return { Selector, data, setSearchParams }
 }
