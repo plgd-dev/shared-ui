@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export type ResourceContentType = object | string | number | boolean
 
 export type ResourceType = {
@@ -5,8 +7,14 @@ export type ResourceType = {
     timeToLive: string
     content: ResourceContentType
     resourceUpdated?: {
+        auditContext: {
+            correlationId: string
+            owner: string
+        }
         content: ResourceContentType
+        status: string
     }
+    status?: string
 }
 
 export type Props = {
@@ -40,4 +48,5 @@ export type Props = {
     readOnly?: boolean
     resourceData: ResourceType
     responsive?: boolean
+    statusTag?: ReactNode
 }

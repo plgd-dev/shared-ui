@@ -196,7 +196,7 @@ const Table: FC<Props> = (props) => {
             const num = page.length < pageSize ? page.length : pageSize
 
             return {
-                height: num * rowHeight - HEADER_HEIGHT,
+                height: num * rowHeight + HEADER_HEIGHT,
             }
         }
     }

@@ -10,6 +10,7 @@ export const getData = async (method, url, options) => {
     const { telemetrySpan, telemetryWebTracer, ...restOptions } = options
 
     if (telemetryWebTracer && telemetrySpan) {
+        console.log('TU')
         const singleSpan = telemetryWebTracer.startSpan(telemetrySpan)
 
         return context.with(
@@ -72,7 +73,7 @@ export const useStreamApi = (url, options = {}) => {
                 }
             })()
         },
-        [url, refreshIndex] // eslint-disable-line
+        [url, refreshIndex, requestActive] // eslint-disable-line
     )
 
     return {

@@ -24,7 +24,7 @@ import TimeoutControl from '../../Atomic/TimeoutControl'
 import IconArrowDetail from '../../Atomic/Icon/components/IconArrowDetail'
 
 const ResourceToggleCreator: FC<Props> = (props) => {
-    const { className, dataTestId, defaultOpen, i18n, readOnly, id, resourceData, onUpdate, responsive } = props
+    const { className, dataTestId, defaultOpen, i18n, readOnly, id, resourceData, onUpdate, responsive, statusTag } = props
 
     const [show, setShow] = useState(defaultOpen ?? false)
     const [touched, setTouched] = useState(false)
@@ -180,7 +180,10 @@ const ResourceToggleCreator: FC<Props> = (props) => {
     return (
         <div className={className} css={styles.creator} data-test-id={dataTestId} id={id}>
             <div css={styles.header} onClick={() => setShow(!show)}>
-                <div css={styles.title}>{resourceData.href || ''}</div>
+                <div css={styles.title}>
+                    {resourceData.href || ''}
+                    {statusTag && <Spacer type='ml-2'>{statusTag}</Spacer>}
+                </div>
                 <div css={styles.right}>
                     {isFunction(props.onDeleted) && (
                         <>
