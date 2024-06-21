@@ -2,6 +2,9 @@ import { ReactNode } from 'react'
 
 export type ResourceContentType = object | string | number | boolean
 
+export type ResourceStatusType = 'PENDING' | 'TIMEOUT' | 'DONE'
+export type ResourceUpdateStatusType = 'OK' | 'ERROR'
+
 export type ResourceType = {
     href: string
     timeToLive: string
@@ -12,9 +15,9 @@ export type ResourceType = {
             owner: string
         }
         content: ResourceContentType
-        status: string
+        status: ResourceUpdateStatusType
     }
-    status?: string
+    status?: ResourceStatusType
 }
 
 export type Props = {
