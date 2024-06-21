@@ -90,6 +90,10 @@ exports[`<PageLayout> render correctly - snapshot 1`] = `
   padding-left: 40px;
   padding-right: 40px;
   height: 100%;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow: auto;
 }
 
 .emotion-7 {
