@@ -49,6 +49,15 @@ export const contentPadding = css`
     height: 100%;
 `
 
+export const contentFlex = css`
+    flex: 1 1 auto;
+    overflow: auto;
+`
+
+export const tableLayout = css`
+    overflow: hidden;
+`
+
 export const left = css`
     display: flex;
     align-items: center;

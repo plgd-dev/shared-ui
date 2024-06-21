@@ -9,7 +9,21 @@ import { useDocumentTitle } from '../../../common/hooks'
 import Spacer from '../Spacer'
 
 const PageLayout = forwardRef<HTMLDivElement, Props>((props, ref) => {
-    const { children, dataTestId, headlineCustomContent, headlineStatusTag, title, header, headerBorder, footer, loading, notFound, collapsed, xPadding } = {
+    const {
+        children,
+        dataTestId,
+        headlineCustomContent,
+        headlineStatusTag,
+        title,
+        header,
+        headerBorder,
+        footer,
+        loading,
+        notFound,
+        collapsed,
+        xPadding,
+        tableLayout,
+    } = {
         ...defaultProps,
         ...props,
     }
@@ -32,7 +46,10 @@ const PageLayout = forwardRef<HTMLDivElement, Props>((props, ref) => {
                         <div css={styles.rightActions}>{header}</div>
                     </div>
                 )}
-                <ConditionalWrapper condition={xPadding === true} wrapper={(c) => <div css={[styles.padding, styles.contentPadding]}>{c}</div>}>
+                <ConditionalWrapper
+                    condition={xPadding === true}
+                    wrapper={(c) => <div css={[styles.padding, styles.contentPadding, styles.contentFlex, tableLayout && styles.tableLayout]}>{c}</div>}
+                >
                     {children}
                 </ConditionalWrapper>
             </div>

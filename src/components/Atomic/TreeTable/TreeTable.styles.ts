@@ -3,7 +3,7 @@ import { colors } from '../_utils/colors'
 import { ThemeType, getThemeColor } from '../_theme'
 
 export const treeComponent = css`
-    height: calc(100% - 32px); // switch view button
+    height: calc(100% - 38px); // switch view button
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;

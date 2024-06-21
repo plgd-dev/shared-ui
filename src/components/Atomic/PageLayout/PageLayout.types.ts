@@ -11,6 +11,7 @@ export type Props = {
     headlineStatusTag?: ReactNode
     loading?: any
     notFound?: boolean
+    tableLayout?: boolean
     title?: string
     xPadding?: boolean
 }
