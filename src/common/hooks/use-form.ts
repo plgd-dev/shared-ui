@@ -6,10 +6,9 @@ import cloneDeep from 'lodash/cloneDeep'
 import set from 'lodash/set'
 import { zodResolver } from '@hookform/resolvers/zod'
 import isEqual from 'lodash/isEqual'
-import { useRecoilState } from 'recoil'
+import { RecoilState, useRecoilState } from 'recoil'
 
 import { FormContext, getFormContextDefault } from '../context/FormContext'
-import { dirtyFormState } from '../../../../../src/store/recoil.store'
 import { useBeforeUnload } from './useBeforeUnload'
 
 type UseFormOptionsType = {
@@ -63,10 +62,20 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
     return { ...useFormData, updateField }
 }
 
-export function useFormData(options: any) {
-    const { defaultFormState, data, i18n } = options
+type UseFormDataOptionsType<DataType> = {
+    defaultFormState: any
+    data: DataType
+    i18n: {
+        default: string
+        promptDefaultMessage: string
+    }
+    dirtyFormState: RecoilState<boolean>
+}
 
-    const [formData, setFormData] = useState<any>(null)
+export function useFormData<DataType>(options: UseFormDataOptionsType<DataType>) {
+    const { defaultFormState, data, i18n, dirtyFormState } = options
+
+    const [formData, setFormData] = useState<DataType | null>(null)
     const [formDirty, setFormDirty] = useState(defaultFormState)
     const [formError, setFormError] = useState(defaultFormState)
     const [resetIndex, setResetIndex] = useState(0)
