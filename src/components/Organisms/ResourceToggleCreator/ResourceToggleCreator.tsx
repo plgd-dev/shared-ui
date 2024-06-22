@@ -64,7 +64,7 @@ const ResourceToggleCreator: FC<Props> = (props) => {
         if (hasContent) {
             setContentByType(resourceData.content)
         } else if (resourceData.resourceUpdated) {
-            setContentByType(resourceData.resourceUpdated.content)
+            setContentByType(resourceData.resourceUpdated?.content || '')
         } else {
             setJsonData('')
         }

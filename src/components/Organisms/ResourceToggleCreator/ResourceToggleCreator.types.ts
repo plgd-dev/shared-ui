@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 export type ResourceContentType = object | string | number | boolean
 
 export type ResourceStatusType = 'PENDING' | 'TIMEOUT' | 'DONE'
-export type ResourceUpdateStatusType = 'OK' | 'ERROR'
+export type ResourceUpdateStatusType = 'OK' | 'ERROR' | 'CANCELED'
 
 export type ResourceType = {
     href: string
