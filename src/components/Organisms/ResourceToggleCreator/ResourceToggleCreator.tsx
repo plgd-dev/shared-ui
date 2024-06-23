@@ -45,7 +45,10 @@ const ResourceToggleCreator: FC<Props> = (props) => {
         }
     }, [resourceData.content])
 
-    const hasUpdateContent = useMemo(() => !!resourceData.resourceUpdated && !!resourceData.resourceUpdated.content, [resourceData.resourceUpdated])
+    const hasUpdateContent = useMemo(
+        () => !!resourceData.resourceUpdated && (!!resourceData.resourceUpdated.content || resourceData.resourceUpdated.status === 'CANCELED'),
+        [resourceData.resourceUpdated]
+    )
 
     const setContentByType = useCallback((content: ResourceContentType) => {
         if (typeof content === 'object') {
@@ -140,6 +143,7 @@ const ResourceToggleCreator: FC<Props> = (props) => {
             attribute: i18n.content,
             value: (
                 <Button
+                    disabled={resourceData.resourceUpdated?.status === 'CANCELED'}
                     icon={getButtonIcon(hasContent, hasUpdateContent)}
                     onClick={(e) => {
                         e.preventDefault()
