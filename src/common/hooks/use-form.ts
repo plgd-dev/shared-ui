@@ -59,7 +59,7 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
         [data, updateData]
     )
 
-    return { ...useFormData, updateField }
+    return { ...useFormData, updateField, setFormError }
 }
 
 type UseFormDataOptionsType<DataType> = {
