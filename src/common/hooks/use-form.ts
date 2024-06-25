@@ -10,6 +10,8 @@ import { RecoilState, useRecoilState } from 'recoil'
 
 import { FormContext, getFormContextDefault } from '../context/FormContext'
 import { useBeforeUnload } from './useBeforeUnload'
+import usePersistentState from './usePersistentState'
+import isEmpty from 'lodash/isEmpty'
 
 type UseFormOptionsType = {
     defaultFormData: any
@@ -63,45 +65,48 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
 }
 
 type UseFormDataOptionsType<DataType> = {
+    data?: DataType
+    defaultData?: Partial<DataType>
     defaultFormState: any
-    data: DataType
+    dirtyFormState: RecoilState<boolean>
     i18n: {
         default: string
         promptDefaultMessage: string
     }
-    dirtyFormState: RecoilState<boolean>
+    localStorageKey?: string
 }
 
 export function useFormData<DataType>(options: UseFormDataOptionsType<DataType>) {
-    const { defaultFormState, data, i18n, dirtyFormState } = options
+    const { defaultFormState, data, defaultData, i18n, dirtyFormState, localStorageKey } = options
 
-    const [formData, setFormData] = useState<DataType | null>(null)
+    const [formData, setFormData, rehydrated] = usePersistentState<Partial<DataType>>(localStorageKey || '', defaultData || {})
+
     const [formDirty, setFormDirty] = useState(defaultFormState)
     const [formError, setFormError] = useState(defaultFormState)
     const [resetIndex, setResetIndex] = useState(0)
 
-    const isDirtyData = useMemo(() => !!data && !!formData && !isEqual(data, formData), [data, formData])
+    const isDirtyData = useMemo(() => !!defaultData && !!formData && !isEqual(defaultData, formData), [defaultData, formData])
     const isDirty = useMemo(() => Object.values(formDirty).some((i) => i), [formDirty])
     const hasError = useMemo(() => Object.values(formError).some((i) => i), [formError])
 
     const [dirtyState, setDirtyState] = useRecoilState(dirtyFormState)
 
     const handleReset = useCallback(() => {
-        setFormData(data)
+        setFormData(defaultData || {})
         setFormDirty(defaultFormState)
         setFormError(defaultFormState)
         setResetIndex((prev) => prev + 1)
-    }, [data, defaultFormState])
+    }, [defaultData, defaultFormState, setFormData])
 
     useEffect(() => {
-        if (data) {
+        if (data && !isEmpty(data) && rehydrated) {
             setFormData(data)
         }
-    }, [data])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data, rehydrated])
 
     useEffect(() => {
         const dirty = isDirty || isDirtyData
-        // console.log(data)
 
         if (dirtyState !== dirty) {
             setDirtyState(dirty)
@@ -113,7 +118,9 @@ export function useFormData<DataType>(options: UseFormDataOptionsType<DataType>)
         message: i18n.promptDefaultMessage,
     })
 
-    const updateFormError = useCallback((errorKey: string, value: any) => setFormError((prevState: any) => ({ ...prevState, [errorKey]: value })), [])
+    const updateFormError = useCallback((errorKey: string, value: any) => {
+        setFormError((prevState: any) => ({ ...prevState, [errorKey]: value }))
+    }, [])
     const updateFormDirty = useCallback((errorKey: string, value: any) => {
         setFormDirty((prevState: any) => ({ ...prevState, [errorKey]: value }))
     }, [])
@@ -144,5 +151,6 @@ export function useFormData<DataType>(options: UseFormDataOptionsType<DataType>)
         dirty: isDirty || isDirtyData,
         context,
         hasError,
+        rehydrated,
     }
 }

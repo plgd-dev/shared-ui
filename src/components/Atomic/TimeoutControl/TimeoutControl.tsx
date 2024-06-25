@@ -3,7 +3,7 @@ import isFunction from 'lodash/isFunction'
 import startCase from 'lodash/startCase'
 import debounce from 'lodash/debounce'
 
-import { i18nType, Props } from './TimeoutControl.types'
+import { defaultProps, i18nType, Props } from './TimeoutControl.types'
 import * as styles from './TimeoutControl.styles'
 import FormGroup from '../FormGroup'
 import FormLabel from '../FormLabel'
@@ -21,6 +21,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
         compactFormComponentsView,
         defaultValue,
         defaultTtlValue,
+        disableDefaultValue,
         error,
         errorTooltip,
         onChange,
@@ -37,7 +38,10 @@ export const TimeoutControlCore: FC<Props> = (props) => {
         unitMenuZIndex,
         unitMenuPortalTarget,
         watchUnitChange,
-    } = props
+    } = {
+        ...defaultProps,
+        ...props,
+    }
     const closestUnit = useMemo(() => findClosestUnit(defaultValue), [defaultValue])
     const closestDefaultTtl = useMemo(() => {
         const unit = findClosestUnit(defaultTtlValue)
@@ -47,7 +51,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
         }
     }, [defaultTtlValue])
 
-    const [isDefault, setIsDefault] = useState(false)
+    const [isDefault, setIsDefault] = useState(defaultValue === 0)
     const [unit, setUnit] = useState(defaultValue === 0 ? INFINITE : closestUnit)
     const [inputValue, setInputValue] = useState<number | string>(convertAndNormalizeValueFromTo(defaultValue, NS, closestUnit))
 
@@ -141,7 +145,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
                         align={align}
                         compactFormComponentsView={compactFormComponentsView}
                         css={[styles.input, smallMode && styles.inputSmall]}
-                        disabled={disabled || isDefault}
+                        disabled={disabled || (isDefault && disableDefaultValue)}
                         inlineStyle={inlineStyle}
                         onBlur={
                             watchUnitChange
@@ -154,7 +158,7 @@ export const TimeoutControlCore: FC<Props> = (props) => {
                         onChange={handleOnValueChange}
                         placeholder={i18n.placeholder}
                         size={size || inputSizes.NORMAL}
-                        value={!isDefault ? inputValue : `${closestDefaultTtl.value}${closestDefaultTtl.unit}`}
+                        value={isDefault && !!disableDefaultValue ? `${closestDefaultTtl.value}${closestDefaultTtl.unit}` : inputValue}
                     />
                 </FormGroup>
             </div>

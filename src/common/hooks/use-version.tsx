@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 import FormGroup from '../../components/Atomic/FormGroup'
@@ -16,15 +16,23 @@ export function useVersion(options: OptionsType) {
     const { i18n, versionData, refresh } = options
 
     const [searchParams, setSearchParams] = useSearchParams()
-    const version = searchParams.get('version')
+    const [version, setVersion] = useState('')
+    const versionParam = searchParams.get('version')
 
     const versions = useMemo(
         () => versionData?.map((version: { version: string }) => ({ value: version.version, label: `v${version.version}` })),
         [versionData]
     )
 
+    useEffect(() => {
+        if (versionParam) {
+            setVersion(versionParam)
+        }
+    }, [versionParam])
+
     const data = useMemo(() => {
-        const v = version || versionData?.length - 1
+        const v = version || versionData ? versionData?.length - 1 : 0
+        setVersion(v.toString())
         return versionData && versionData?.length > 0 ? versionData[v] : []
     }, [versionData, version])
 

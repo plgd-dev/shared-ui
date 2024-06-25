@@ -22,9 +22,10 @@ import Spacer from '../../Atomic/Spacer'
 import IconEdit from '../../Atomic/Icon/components/IconEdit'
 import TimeoutControl from '../../Atomic/TimeoutControl'
 import IconArrowDetail from '../../Atomic/Icon/components/IconArrowDetail'
+import Tooltip from '../../Atomic/Tooltip'
 
 const ResourceToggleCreator: FC<Props> = (props) => {
-    const { className, dataTestId, defaultOpen, i18n, readOnly, id, resourceData, onUpdate, responsive, statusTag } = props
+    const { className, dataTestId, defaultOpen, i18n, readOnly, id, resourceData, onCancelPending, onUpdate, responsive, statusTag } = props
 
     const [show, setShow] = useState(defaultOpen ?? false)
     const [touched, setTouched] = useState(false)
@@ -189,6 +190,23 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                     {statusTag && <Spacer type='ml-2'>{statusTag}</Spacer>}
                 </div>
                 <div css={styles.right}>
+                    {isFunction(onCancelPending) && (
+                        <>
+                            <div
+                                css={styles.icon}
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    e.stopPropagation()
+                                    isFunction(onCancelPending) && onCancelPending(resourceData)
+                                }}
+                            >
+                                <Tooltip content={i18n.cancel}>
+                                    <IconTrash {...convertSize(20)} />
+                                </Tooltip>
+                            </div>
+                            <div css={styles.rightSpacer}></div>
+                        </>
+                    )}
                     {isFunction(props.onDeleted) && (
                         <>
                             <div

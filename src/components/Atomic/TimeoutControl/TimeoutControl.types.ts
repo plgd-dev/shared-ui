@@ -13,6 +13,7 @@ export type Props = {
     compactFormComponentsView?: boolean
     defaultTtlValue: number
     defaultValue: number
+    disableDefaultValue?: boolean
     disabled?: boolean
     error?: string
     errorTooltip?: boolean
@@ -27,7 +28,11 @@ export type Props = {
     smallMode?: boolean
     ttlHasError?: boolean
     unitClassName?: string
-    unitMenuZIndex?: number
     unitMenuPortalTarget?: HTMLElement
+    unitMenuZIndex?: number
     watchUnitChange?: boolean
 } & Pick<InputProps, 'inlineStyle' | 'align' | 'size'>
+
+export const defaultProps: Partial<Props> = {
+    disableDefaultValue: true,
+}

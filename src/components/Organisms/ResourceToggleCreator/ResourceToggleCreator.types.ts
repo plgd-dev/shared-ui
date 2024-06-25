@@ -6,9 +6,9 @@ export type ResourceStatusType = 'PENDING' | 'TIMEOUT' | 'DONE'
 export type ResourceUpdateStatusType = 'OK' | 'ERROR' | 'CANCELED'
 
 export type ResourceType = {
-    href: string
-    timeToLive: string
     content: ResourceContentType
+    correlationId?: string
+    href: string
     resourceUpdated?: {
         auditContext: {
             correlationId: string
@@ -16,8 +16,13 @@ export type ResourceType = {
         }
         content: ResourceContentType
         status: ResourceUpdateStatusType
+        resourceId: {
+            deviceId: string
+            href: string
+        }
     }
     status?: ResourceStatusType
+    timeToLive: string
 }
 
 export type Props = {
@@ -27,6 +32,7 @@ export type Props = {
     i18n: {
         add: string
         addContent: string
+        cancel?: string
         close: string
         compactView: string
         content: string
@@ -46,6 +52,7 @@ export type Props = {
         viewContent: string
     }
     id?: string
+    onCancelPending?: (resource: ResourceType) => void
     onDeleted?: () => void
     onUpdate?: (data: ResourceType) => void
     readOnly?: boolean

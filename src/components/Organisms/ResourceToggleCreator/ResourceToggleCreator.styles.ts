@@ -72,3 +72,13 @@ export const content = (theme: ThemeType) => css`
     padding: 16px 24px;
     border-top: 1px solid ${getThemeColor(theme, 'ResourceToggleCreator.border')};
 `
+
+export const headerPendingIcon = (theme: ThemeType) => css`
+    display: flex;
+    margin-left: 12px;
+    color: ${getThemeColor(theme, 'ResourceToggleCreator.expander.color')};
+
+    &:hover {
+        color: ${getThemeColor(theme, 'ResourceToggleCreator.expander.hover.color')};
+    }
+`
