@@ -80,7 +80,7 @@ const DevicesList: FC<Props> = (props) => {
                         }}
                         iframeMode={!isHub}
                         leftPanelCollapsed={collapsed}
-                        selectionInfo={`${selectedCount} device${selectedCount > 1 ? 's' : ''} `}
+                        selectionInfo={selectedCount === 1 ? i18n.device(selectedCount) : i18n.devices(selectedCount)}
                         show={selectedCount > 0}
                     />,
                     document.querySelector('#modal-root') as Element

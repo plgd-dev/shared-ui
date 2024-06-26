@@ -82,3 +82,8 @@ export const label = (theme: ThemeType) => css`
 export const error = (theme: ThemeType) => css`
     border-color: ${getThemeColor(theme, `Checkbox.error.red`)};
 `
+
+export const disabled = (theme: ThemeType) => css`
+    border-color: ${getThemeColor(theme, `Checkbox.disabled.background`)};
+    background: ${getThemeColor(theme, `Checkbox.disabled.background`)} !important;
+`

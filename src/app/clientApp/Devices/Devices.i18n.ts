@@ -717,4 +717,12 @@ export const messages = defineMessages({
         id: 'devices.resourceGetKnowConfErrorMessage',
         defaultMessage: 'Unable to load resource `/.well-known/wot`',
     },
+    deviceNumber: {
+        id: 'devices.deviceNumber',
+        defaultMessage: '{count} device',
+    },
+    devicesNumber: {
+        id: 'devices.devicesNumber',
+        defaultMessage: '{count} devices',
+    },
 })

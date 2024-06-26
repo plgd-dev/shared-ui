@@ -162,6 +162,9 @@ const theme = {
         Checkbox: {
             borderColor: colorsSiemens.neutral500,
             background: colorsSiemens.primary,
+            disabled: {
+                background: colorsSiemens.disabled,
+            },
             input: {
                 borderColor: colorsSiemens.primary,
             },

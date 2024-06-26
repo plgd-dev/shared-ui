@@ -15,6 +15,7 @@ import TableGlobalFilter from './TableGlobalFilter'
 import { GLOBAL_FILTER_HEIGHT, HEADER_HEIGHT } from './constants'
 import ConditionalWrapper from '../ConditionalWrapper'
 import IconLoader from '../Loader/IconLoader'
+import get from 'lodash/get'
 
 const Table: FC<Props> = (props) => {
     const {
@@ -130,8 +131,16 @@ const Table: FC<Props> = (props) => {
                             )
                         },
                         Cell: ({ row }: any) => {
-                            const { indeterminate, ...rest } = row.getToggleRowSelectedProps()
-                            return <Checkbox {...rest} name={`row-${row.id}`} topOffset={false} />
+                            const { indeterminate, checked, ...rest } = row.getToggleRowSelectedProps()
+                            return (
+                                <Checkbox
+                                    {...rest}
+                                    checked={get(row, 'original.selectionCheckboxDisabled', false) ? false : checked}
+                                    disabled={get(row, 'original.selectionCheckboxDisabled', false)}
+                                    name={`row-${row.id}`}
+                                    topOffset={false}
+                                />
+                            )
                         },
                         style: { width: '60px' },
                     },
@@ -151,7 +160,9 @@ const Table: FC<Props> = (props) => {
             if (primaryAttribute) {
                 onRowsSelect(
                     isAllRowsSelected,
-                    selectedFlatRows.map((d: any) => d.original[primaryAttribute])
+                    selectedFlatRows
+                        .filter((d: any) => get(d, 'original.selectionCheckboxDisabled', false) === false)
+                        .map((d: any) => (d.hasOwnProperty('original') ? get(d.original, primaryAttribute, null) : d[primaryAttribute]))
                 )
             } else {
                 onRowsSelect(isAllRowsSelected, selectedRowIds)
@@ -300,7 +311,7 @@ const Table: FC<Props> = (props) => {
                                 return (
                                     <tr
                                         {...rowProps}
-                                        css={[styles.row, row.isSelected && styles.isSelected]}
+                                        css={[styles.row, row.isSelected && !get(row, 'original.selectionCheckboxDisabled', false) && styles.isSelected]}
                                         data-k={key}
                                         data-test-id={dataTestId?.concat(`-row-${row.id}`)}
                                         key={rowProps.key}

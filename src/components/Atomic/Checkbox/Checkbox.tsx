@@ -3,7 +3,7 @@ import { defaultProps, Props } from './Checkbox.types'
 import * as styles from './Chceckbox.styles'
 
 const Checkbox: FC<Props> = (props) => {
-    const { id, className, inputRef, label, checked, disabled, error, indeterminate, topOffset, ...rest } = { ...defaultProps, ...props }
+    const { id, className, inputRef, label, checked, error, indeterminate, topOffset, ...rest } = { ...defaultProps, ...props }
     const Check = styles.check
     const ref = useRef<HTMLInputElement>(null)
     useImperativeHandle(inputRef, () => ref.current!, [ref])
@@ -20,7 +20,7 @@ const Checkbox: FC<Props> = (props) => {
     return (
         <label className={className} css={styles.checkbox} id={id}>
             <input {...rest} checked={checked} css={styles.input} ref={ref} />
-            <Check css={[error && styles.error, topOffset === false && styles.noTopOffset]} />
+            <Check css={[error && styles.error, topOffset === false && styles.noTopOffset, rest.disabled && styles.disabled]} />
             {label && <div css={styles.label}>{label}</div>}
         </label>
     )

@@ -10,6 +10,8 @@ export type Props = {
         delete: string
         search: string
         select: string
+        device: (count: number) => string
+        devices: (count: number) => string
     }
     isActiveTab?: boolean
     isAllSelected: boolean

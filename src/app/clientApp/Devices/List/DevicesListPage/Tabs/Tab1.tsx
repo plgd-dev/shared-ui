@@ -276,6 +276,8 @@ const Tab1 = forwardRef<Tab1RefType, Props>((props, ref) => {
                     delete: _(t.delete),
                     search: _(t.search),
                     select: _(t.select),
+                    device: (count) => _(t.deviceNumber, { count }),
+                    devices: (count) => _(t.devicesNumber, { count }),
                 }}
                 isActiveTab={isActiveTab}
                 isAllSelected={isAllSelected}

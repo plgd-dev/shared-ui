@@ -173,6 +173,9 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
         Checkbox: {
             borderColor: colors.neutral300,
             background: colors.primary,
+            disabled: {
+                background: colors.disabled,
+            },
             input: {
                 borderColor: colors.primary,
             },
