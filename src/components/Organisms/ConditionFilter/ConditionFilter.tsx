@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import isFunction from 'lodash/isFunction'
 
 import { Props } from './ConditionFilter.types'
 import * as styles from './ConditionFilter.styles'
@@ -9,7 +10,6 @@ import Spacer from '../../Atomic/Spacer'
 import Headline from '../../Atomic/Headline'
 import SimpleStripTable from '../../Atomic/SimpleStripTable'
 import IconTrash from '../../Atomic/Icon/components/IconTrash'
-import isFunction from 'lodash/isFunction'
 
 const ConditionFilter: FC<Props> = (props) => {
     const { className, children, dataTestId, defaultOpen, listName, listOfItems, onItemDelete, status, title } = props

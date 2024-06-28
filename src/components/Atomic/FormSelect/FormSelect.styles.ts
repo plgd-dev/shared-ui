@@ -4,8 +4,29 @@ import { FormSelectSizeType } from './FormSelect.types'
 import { ThemeType, getThemeColor, getTheme } from '../_theme'
 import { fontPrimary } from '../_utils/commonStyles'
 
+export const control = (theme: ThemeType) => css`
+    height: 44px;
+    min-height: 44px;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: all 0.3s;
+    border: 1px solid ${getThemeColor(theme, `FormSelect.control.borderColor`)};
+    background: ${getThemeColor(theme, `FormSelect.control.background`)};
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        outline: none;
+        border: 1px solid ${getThemeColor(theme, `FormSelect.control.hover.borderColor`)};
+    }
+`
+
 export const select = (theme: ThemeType, size: FormSelectSizeType, disabled?: boolean) => css`
     .select__control {
+        ${control(theme)};
+
         .select__value-container {
             .select__placeholder,
             .select__input-container {
@@ -48,25 +69,6 @@ export const select = (theme: ThemeType, size: FormSelectSizeType, disabled?: bo
     }
 `
 
-export const control = (theme: ThemeType) => css`
-    height: 44px;
-    min-height: 44px;
-    border-radius: 8px;
-    box-shadow: none;
-    transition: all 0.3s;
-    border: 1px solid ${getThemeColor(theme, `FormSelect.control.borderColor`)};
-    background: ${getThemeColor(theme, `FormSelect.control.background`)};
-
-    &:focus {
-        outline: none;
-    }
-
-    &:hover {
-        outline: none;
-        border: 1px solid ${getThemeColor(theme, `FormSelect.control.hover.borderColor`)};
-    }
-`
-
 export const inlineStyle = (theme: ThemeType) => css`
     border-color: transparent;
 
@@ -76,8 +78,8 @@ export const inlineStyle = (theme: ThemeType) => css`
 `
 
 export const small = css`
-    height: 36px;
-    min-height: 36px;
+    height: 36px !important;
+    min-height: 36px !important;
 `
 
 export const error = (theme: ThemeType) => css`
