@@ -8,6 +8,25 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
   width: 100%;
 }
 
+.emotion-0 .select__control {
+  height: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+  box-shadow: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #D7D8DA;
+}
+
+.emotion-0 .select__control:focus {
+  outline: none;
+}
+
+.emotion-0 .select__control:hover {
+  outline: none;
+  border: 1px solid #007BBF;
+}
+
 .emotion-0 .select__control .select__value-container .select__placeholder,
 .emotion-0 .select__control .select__value-container .select__input-container {
   font-family: 'Poppins',sans-serif;
