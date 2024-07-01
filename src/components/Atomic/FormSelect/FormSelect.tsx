@@ -36,6 +36,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
         className,
         checkboxOptions,
         creatable,
+        dataTestId,
         defaultValue,
         error,
         disabled,
@@ -113,7 +114,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     const SelectContainer = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(
         props: ContainerProps<Option, IsMulti, Group>
     ) => (
-        <components.SelectContainer {...props} css={[autoWidth ? styles.selectAutoWidthContainer : styles.selectContainer]}>
+        <components.SelectContainer {...props} css={[autoWidth ? styles.selectAutoWidthContainer : styles.selectContainer]} data-test-id={dataTestId}>
             {props.children}
         </components.SelectContainer>
     )

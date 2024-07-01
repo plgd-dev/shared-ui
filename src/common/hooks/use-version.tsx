@@ -7,13 +7,14 @@ import FormSelect from '../../components/Atomic/FormSelect'
 import { OptionType } from '../../components/Atomic/FormSelect/FormSelect.types'
 
 type OptionsType = {
+    dataTestId?: string
     i18n: { version: string; selectVersion: string }
     refresh: () => void
     versionData: any
 }
 
 export function useVersion(options: OptionsType) {
-    const { i18n, versionData, refresh } = options
+    const { dataTestId, i18n, versionData, refresh } = options
 
     const [searchParams, setSearchParams] = useSearchParams()
     const [version, setVersion] = useState('')
@@ -37,9 +38,10 @@ export function useVersion(options: OptionsType) {
     }, [versionData, version])
 
     const Selector = () => (
-        <FormGroup inline id='version' marginBottom={false}>
+        <FormGroup inline dataTestId={dataTestId} id='version' marginBottom={false}>
             <FormLabel text={i18n.version} />
             <FormSelect
+                dataTestId={dataTestId?.concat('-select')}
                 onChange={(options: OptionType) => {
                     const v = options.value
                     setSearchParams({ version: v as string })

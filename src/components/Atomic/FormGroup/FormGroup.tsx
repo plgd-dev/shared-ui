@@ -12,6 +12,7 @@ export const FormGroupCore: FC<Props> = (props) => {
     const {
         children,
         className,
+        dataTestId,
         error,
         errorTooltip,
         id,
@@ -92,7 +93,12 @@ export const FormGroupCore: FC<Props> = (props) => {
     }
 
     return (
-        <div className={className} css={[marginBottom && !inline && styles.formGroupMargin, fullSize && styles.inlineItemFullSize]} style={style}>
+        <div
+            className={className}
+            css={[marginBottom && !inline && styles.formGroupMargin, fullSize && styles.inlineItemFullSize]}
+            data-test-id={dataTestId}
+            style={style}
+        >
             {getInputs()}
         </div>
     )

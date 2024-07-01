@@ -21,6 +21,7 @@ export type Props = {
     checkboxOptions?: boolean
     className?: string
     creatable?: boolean
+    dataTestId?: string
     defaultValue?: any
     disabled?: boolean
     error?: boolean

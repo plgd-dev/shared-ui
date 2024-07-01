@@ -121,6 +121,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                             subItem.id === active && styles.subItemLinkActive,
                                             (item.children?.length || 0) - 1 === key && styles.subItemLinkLast,
                                         ]}
+                                        data-test-id={subItem.dataTestId}
                                         href={`${item.link}${subItem.link}`}
                                         onClick={
                                             subItem.disabled
@@ -171,6 +172,7 @@ const LeftPanelSubItems = (props: LeftPanelSubItemsType) => {
                                 <li key={key}>
                                     <a
                                         css={[styles.subItemLink, subItem.id === active && styles.subItemLinkActive, subItem.disabled && styles.disabled]}
+                                        data-test-id={subItem.dataTestId}
                                         href={`${item.link}${subItem.link}`}
                                         onClick={
                                             subItem.disabled
