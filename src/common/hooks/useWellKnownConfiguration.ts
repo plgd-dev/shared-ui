@@ -42,11 +42,11 @@ export type RemoteProvisioningDataType = {
 export type m2mOauthClientType = {
     audience: string
     authority: string
+    clientAssertionType: string
     clientId: string
-    grantTypes: string[]
+    grantType: string
     providerName: string
     scopes: string[]
-    useJwtPrivateKey: string
 }
 
 export type WellKnownConfigType = {
