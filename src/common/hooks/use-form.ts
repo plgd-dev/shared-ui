@@ -7,11 +7,11 @@ import set from 'lodash/set'
 import { zodResolver } from '@hookform/resolvers/zod'
 import isEqual from 'lodash/isEqual'
 import { RecoilState, useRecoilState } from 'recoil'
+import isEmpty from 'lodash/isEmpty'
 
 import { FormContext, getFormContextDefault } from '../context/FormContext'
 import { useBeforeUnload } from './useBeforeUnload'
 import usePersistentState from './usePersistentState'
-import isEmpty from 'lodash/isEmpty'
 
 type UseFormOptionsType = {
     defaultFormData: any
@@ -35,6 +35,10 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
     })
 
     const data = useFormData.watch()
+
+    useEffect(() => {
+        useFormData.reset(defaultFormData)
+    }, [defaultFormData, useFormData])
 
     useEffect(() => {
         const error = Object.keys(useFormData.formState.errors).length > 0

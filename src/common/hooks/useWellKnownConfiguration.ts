@@ -39,11 +39,17 @@ export type RemoteProvisioningDataType = {
     }
 }
 
+export type m2mOauthClientType = {
+    audience: string
+    authority: string
+    clientId: string
+    grantTypes: string[]
+    providerName: string
+    scopes: string[]
+    useJwtPrivateKey: string
+}
+
 export type WellKnownConfigType = {
-    deviceAuthenticationMode: string
-    isInitialized: boolean
-    remoteProvisioning?: RemoteProvisioningDataType
-    owner?: string
     buildInfo: {
         buildDate: string
         commitDate: string
@@ -51,6 +57,13 @@ export type WellKnownConfigType = {
         releaseUrl: string
         version: string
     }
+    deviceAuthenticationMode: string
+    id?: string
+    isInitialized: boolean
+    jwtOwnerClaim?: string
+    m2mOauthClient?: m2mOauthClientType
+    owner?: string
+    remoteProvisioning?: RemoteProvisioningDataType
     ui: {
         visibility: {
             mainSidebar: {
@@ -59,8 +72,6 @@ export type WellKnownConfigType = {
         }
         defaultDiscoveryTimeout?: string
     }
-    id?: string
-    jwtOwnerClaim?: string
 } & BuildInformationType
 
 type useWellKnownConfigurationReturnType = [

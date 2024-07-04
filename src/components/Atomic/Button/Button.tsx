@@ -5,6 +5,7 @@ import * as styles from './Button.styles'
 import IconLoader from '../Loader/IconLoader'
 
 const { ICON_LEFT, ICON_RIGHT } = iconPositions
+
 const Button: FC<Props> = (props) => {
     const { onClick, variant, icon, iconPosition, loading, loadingText, className, children, disabled, htmlType, size, fullWidth, dataTestId, ...rest } = {
         ...defaultProps,
@@ -29,11 +30,12 @@ const Button: FC<Props> = (props) => {
 
     const getButtonContent = () => {
         if (typeof loading === 'boolean' && loadingText) {
+            const c = children?.toString().trim() || ''
             return (
                 <span css={styles.loadingWrapper}>
                     <span css={styles.sizeMeasure}>
                         <IconLoader css={styles.icon(ICON_LEFT)} size={20} type={variant === buttonVariants.FILTER ? undefined : variant} />
-                        {loadingText}
+                        {loadingText.length > c.length ? loadingText : c}
                     </span>
                     <span css={styles.loadingText}>
                         {renderIcon(ICON_LEFT)}

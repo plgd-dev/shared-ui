@@ -5,3 +5,9 @@ export type StreamApiReturnType<T> = {
     error: string | null
     refresh: () => void
 }
+
+export type FetchApiReturnType<T> = {
+    data: T | null
+    status: number
+    statusText: string
+}
