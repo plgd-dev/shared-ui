@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty'
 import isFunction from 'lodash/isFunction'
 import { pick } from 'lodash'
 
-import { Props, ResourceContentType } from './ResourceToggleCreator.types'
+import { Props, ResourceContentType, ResourceStatusType } from './ResourceToggleCreator.types'
 import IconArrowDownNoPadding from '../../Atomic/Icon/components/IconArrowDownNoPadding'
 import IconTrash from '../../Atomic/Icon/components/IconTrash'
 import { convertSize } from '../../Atomic/Icon'
@@ -78,10 +78,10 @@ const ResourceToggleCreator: FC<Props> = (props) => {
         setTouched(false)
     }, [show])
 
-    const getButtonIcon = useCallback((hasContent: boolean, hasUpdateContent: boolean) => {
+    const getButtonIcon = useCallback((hasContent: boolean, hasUpdateContent: boolean, status?: ResourceStatusType) => {
         if (hasContent) {
             return <IconEdit />
-        } else if (hasUpdateContent) {
+        } else if (hasUpdateContent || status === 'PENDING') {
             return <IconArrowDetail />
         } else {
             return <IconPlus />
@@ -89,10 +89,10 @@ const ResourceToggleCreator: FC<Props> = (props) => {
     }, [])
 
     const getButtonText = useCallback(
-        (hasContent: boolean, hasUpdateContent: boolean) => {
+        (hasContent: boolean, hasUpdateContent: boolean, status?: ResourceStatusType) => {
             if (hasContent) {
                 return i18n.edit
-            } else if (hasUpdateContent) {
+            } else if (hasUpdateContent || status === 'PENDING') {
                 return i18n.view
             } else {
                 return i18n.add
@@ -144,8 +144,8 @@ const ResourceToggleCreator: FC<Props> = (props) => {
             attribute: i18n.content,
             value: (
                 <Button
-                    disabled={resourceData.resourceUpdated?.status === 'CANCELED'}
-                    icon={getButtonIcon(hasContent, hasUpdateContent)}
+                    disabled={resourceData.resourceUpdated?.status === 'CANCELED' || resourceData.status === 'PENDING'}
+                    icon={getButtonIcon(hasContent, hasUpdateContent, resourceData.status)}
                     onClick={(e) => {
                         e.preventDefault()
                         setShowModal(true)
