@@ -326,7 +326,7 @@ exports[`<Button> render correctly - loading 1`] = `
               />
             </svg>
           </span>
-          loadingText primary
+          Loading button primary
         </span>
         <span
           class="emotion-4"
@@ -380,7 +380,7 @@ exports[`<Button> render correctly - loading 1`] = `
               />
             </svg>
           </span>
-          loadingText secondary
+          Loading button secondary
         </span>
         <span
           class="emotion-4"
@@ -434,7 +434,7 @@ exports[`<Button> render correctly - loading 1`] = `
               />
             </svg>
           </span>
-          loadingText tertiary
+          Loading button tertiary
         </span>
         <span
           class="emotion-4"
@@ -488,7 +488,7 @@ exports[`<Button> render correctly - loading 1`] = `
               />
             </svg>
           </span>
-          loadingText filter
+          Loading button filter
         </span>
         <span
           class="emotion-4"
