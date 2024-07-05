@@ -6,20 +6,18 @@ export const parent = css`
 `
 
 export const tagGroup = css`
-    margin: -2px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
+    gap: 4px;
 `
 
 export const justifyEnd = css`
     justify-content: end;
 `
 
-export const tag = css`
-    margin: 2px;
-`
+export const tag = css``
 
 export const test = css`
     position: absolute;

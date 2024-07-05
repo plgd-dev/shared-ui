@@ -41,6 +41,7 @@ const Template = (args) => {
                             </div>
                         ),
                     },
+                    { attribute: 'Status', value: <div>ee</div> },
                     { attribute: 'Status', value: '3 pending commands' },
                 ]}
             />

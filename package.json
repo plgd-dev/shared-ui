@@ -11,7 +11,7 @@
     "plgd"
   ],
   "scripts": {
-    ":pretest": "npm-run-all test :lint",
+    ":pretest": "npm-run-all test lint",
     "test": "jest -c ./config/jest.config.js",
     "test:watch": "jest -c ./config/jest.config.js --watchAll",
     "build": "npm-run-all prebuild build:legacy build:modern build:node build:stable build:copy-files",
@@ -32,7 +32,7 @@
     ":generate:theme": "npm-run-all :generate:theme:build :generate:theme:clean",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:storybook": "npx playwright test",
+    "test:storybook": "npx playwright test --update-snapshots",
     "test:storybook:ui": "npx playwright test --ui",
     "test:storybook:debug": "npx playwright test --debug",
     "test:storybook:report": "npx playwright show-report"

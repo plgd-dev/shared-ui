@@ -44,7 +44,7 @@ const components = [
     },
     {
         group: 'Organism',
-        items: [{ name: 'CaPool' }, { name: 'CaList' }],
+        items: [{ name: 'CaList' }, { name: 'CaPool' }, { name: 'CaPoolModal' }, { name: 'ConditionFilter' }, { name: 'ResourceToggleCreator' }],
     },
     {
         group: 'Pages',
@@ -87,7 +87,7 @@ const components = [
     },
     {
         group: 'Table',
-        items: [{ name: 'SimpleStripTable' }, { name: 'Table' }, { name: 'TreeTable' }],
+        items: [{ name: 'Table' }, { name: 'TreeTable' }],
     },
 ]
 
@@ -120,7 +120,7 @@ components.forEach((group) => {
 
             views.forEach((view) => {
                 test(`${component.name} | ${view}`, async ({ page }) => {
-                    await testMethod(page, group.group, component.name, view)
+                    await testMethod(page, group.group.toLowerCase(), component.name, view)
                 })
             })
         })

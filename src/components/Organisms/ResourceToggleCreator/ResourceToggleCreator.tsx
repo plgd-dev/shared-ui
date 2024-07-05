@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty'
 import isFunction from 'lodash/isFunction'
 import { pick } from 'lodash'
 
-import { Props, ResourceContentType, ResourceStatusType } from './ResourceToggleCreator.types'
+import { Props, ResourceContentType, ResourceStatusType, ResourceType } from './ResourceToggleCreator.types'
 import IconArrowDownNoPadding from '../../Atomic/Icon/components/IconArrowDownNoPadding'
 import IconTrash from '../../Atomic/Icon/components/IconTrash'
 import { convertSize } from '../../Atomic/Icon'
@@ -23,6 +23,37 @@ import IconEdit from '../../Atomic/Icon/components/IconEdit'
 import TimeoutControl from '../../Atomic/TimeoutControl'
 import IconArrowDetail from '../../Atomic/Icon/components/IconArrowDetail'
 import Tooltip from '../../Atomic/Tooltip'
+import StatusTag from '../../Atomic/StatusTag'
+import { tagVariants as statusTagVariants } from '../../Atomic/StatusTag/constants'
+
+export const getResourceStatus = (resource: ResourceType) => {
+    if (resource.status && ['PENDING', 'TIMEOUT'].includes(resource.status)) {
+        return resource.status
+    }
+
+    return resource.resourceUpdated?.status
+}
+
+export const getResourceStatusTag = (resource: ResourceType) => {
+    switch (resource.status) {
+        case 'PENDING':
+            return <StatusTag variant={statusTagVariants.WARNING}>{resource.status}</StatusTag>
+        case 'TIMEOUT':
+            return <StatusTag variant={statusTagVariants.ERROR}>{resource.status}</StatusTag>
+        case 'DONE':
+        default:
+            switch (resource.resourceUpdated?.status) {
+                case 'OK':
+                    return <StatusTag variant={statusTagVariants.SUCCESS}>{resource.resourceUpdated?.status}</StatusTag>
+                case 'CANCELED':
+                    return <StatusTag variant={statusTagVariants.WARNING}>{resource.resourceUpdated?.status}</StatusTag>
+                case 'ERROR':
+                default: {
+                    return <StatusTag variant={statusTagVariants.ERROR}>{resource.resourceUpdated?.status}</StatusTag>
+                }
+            }
+    }
+}
 
 const ResourceToggleCreator: FC<Props> = (props) => {
     const { className, dataTestId, defaultOpen, i18n, readOnly, id, resourceData, onCancelPending, onUpdate, responsive, statusTag } = props
@@ -79,10 +110,10 @@ const ResourceToggleCreator: FC<Props> = (props) => {
     }, [show])
 
     const getButtonIcon = useCallback((hasContent: boolean, hasUpdateContent: boolean, status?: ResourceStatusType) => {
-        if (hasContent) {
-            return <IconEdit />
-        } else if (hasUpdateContent || status === 'PENDING') {
+        if (hasUpdateContent || status) {
             return <IconArrowDetail />
+        } else if (hasContent) {
+            return <IconEdit />
         } else {
             return <IconPlus />
         }
@@ -90,10 +121,10 @@ const ResourceToggleCreator: FC<Props> = (props) => {
 
     const getButtonText = useCallback(
         (hasContent: boolean, hasUpdateContent: boolean, status?: ResourceStatusType) => {
-            if (hasContent) {
-                return i18n.edit
-            } else if (hasUpdateContent || status === 'PENDING') {
+            if (hasUpdateContent || status) {
                 return i18n.view
+            } else if (hasContent) {
+                return i18n.edit
             } else {
                 return i18n.add
             }
@@ -291,7 +322,7 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                     <Spacer style={{ flex: '1 1 auto' }} type='pt-6'>
                         <Editor
                             dataTestId={dataTestId?.concat('-editor')}
-                            disabled={disabled}
+                            disabled={disabled || readOnly}
                             editorRef={(node: any) => {
                                 editor.current = node
                             }}

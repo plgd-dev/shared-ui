@@ -21,10 +21,6 @@ exports[`TagGroup Component renders children when there is enough space 1`] = `
   display: flex;
 }
 
-.emotion-3 {
-  margin: 2px;
-}
-
 .emotion-4 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
