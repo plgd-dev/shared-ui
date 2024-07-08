@@ -71,10 +71,11 @@ const ResourceToggleCreator: FC<Props> = (props) => {
 
     const AnimateElement = ({ children }: { children: ReactNode }) =>
         isTest ? (
-            <div>{children}</div>
+            <div data-test-id={dataTestId?.concat('-content')}>{children}</div>
         ) : (
             <motion.div
                 animate={{ opacity: 1, height: 'auto' }}
+                data-test-id={dataTestId?.concat('-content')}
                 exit={{
                     opacity: 0,
                     height: 0,
@@ -234,14 +235,19 @@ const ResourceToggleCreator: FC<Props> = (props) => {
         <div className={className} css={styles.creator} data-test-id={dataTestId} id={id}>
             <div css={styles.header} onClick={() => setShow(!show)}>
                 <div css={styles.title}>
-                    {resourceData.href || ''}
-                    {statusTag && <Spacer type='ml-2'>{statusTag}</Spacer>}
+                    <span data-test-id={dataTestId?.concat('-title')}>{resourceData.href || ''}</span>
+                    {statusTag && (
+                        <Spacer dataTestId={dataTestId?.concat('-status-tag')} type='ml-2'>
+                            {statusTag}
+                        </Spacer>
+                    )}
                 </div>
                 <div css={styles.right}>
                     {isFunction(onCancelPending) && (
                         <>
                             <div
                                 css={styles.icon}
+                                data-test-id={dataTestId?.concat('-action-cancel-pending')}
                                 onClick={(e) => {
                                     e.preventDefault()
                                     e.stopPropagation()
@@ -259,6 +265,7 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                         <>
                             <div
                                 css={styles.icon}
+                                data-test-id={dataTestId?.concat('-action-delete')}
                                 onClick={(e) => {
                                     e.preventDefault()
                                     isFunction(props.onDeleted) && props.onDeleted()
@@ -275,6 +282,7 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                         }}
                         className='expander'
                         css={styles.icon}
+                        data-test-id={dataTestId?.concat('-action-expand')}
                         transition={{
                             duration: 0.3,
                         }}

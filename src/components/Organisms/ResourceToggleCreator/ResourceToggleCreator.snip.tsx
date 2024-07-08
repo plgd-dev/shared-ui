@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { ResourceType } from './ResourceToggleCreator.types'
 import ResourceToggleCreator, { getResourceStatus, getResourceStatusTag } from './ResourceToggleCreator'
 
-const i18n = {
+export const i18n = {
     add: 'add',
     addContent: 'addContent',
     editContent: 'editContent',
@@ -118,7 +118,18 @@ const resources: ResourceType[] = [
     },
 ]
 
-const ResourceToggleCreatorSnip: FC<any> = () => {
+type Props = {
+    limit?: number
+    customProps?: any
+}
+
+const defaultProps = {
+    limit: 5,
+}
+
+const ResourceToggleCreatorSnip: FC<Props> = (props) => {
+    const { limit, customProps } = { ...defaultProps, ...props }
+
     return (
         <div
             style={{
@@ -128,11 +139,13 @@ const ResourceToggleCreatorSnip: FC<any> = () => {
                 gap: '20px',
             }}
         >
-            {resources.map((resource, key) => (
+            {resources.slice(0, limit).map((resource, key) => (
                 <ResourceToggleCreator
+                    {...customProps}
                     defaultOpen
                     isTest
                     readOnly
+                    dataTestId={`resource-toggle-creator-${key}`}
                     i18n={i18n}
                     key={resource.href}
                     onCancelPending={getResourceStatus(resource) === 'PENDING' ? (resource) => console.log(resource) : undefined}

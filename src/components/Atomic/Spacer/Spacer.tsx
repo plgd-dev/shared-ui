@@ -4,7 +4,7 @@ import { Props } from './Spacer.types'
 import * as styles from './Spacer.styles'
 
 const Spacer = forwardRef<HTMLDivElement, Props>((props, ref) => {
-    const { children, className, id, style, type } = props
+    const { children, className, dataTestId, id, style, type } = props
     const typeRegex = /^(([mp][tblrxy]?-[0-10]|m[tblrxy]?-(auto))\s?)+$/
 
     if (typeRegex.test(type)) {
@@ -12,7 +12,7 @@ const Spacer = forwardRef<HTMLDivElement, Props>((props, ref) => {
     }
 
     return (
-        <div className={className} css={(theme) => styles.spacer(props.type, theme)} id={id} ref={ref} style={style}>
+        <div className={className} css={(theme) => styles.spacer(props.type, theme)} data-test-id={dataTestId} id={id} ref={ref} style={style}>
             {children}
         </div>
     )
