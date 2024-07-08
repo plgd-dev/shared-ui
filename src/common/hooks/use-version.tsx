@@ -17,7 +17,7 @@ export function useVersion(options: OptionsType) {
     const { dataTestId, i18n, versionData, refresh } = options
 
     const [searchParams, setSearchParams] = useSearchParams()
-    const [version, setVersion] = useState('')
+    const [version, setVersion] = useState<string | undefined>(undefined)
     const versionParam = searchParams.get('version')
 
     const versions = useMemo(
@@ -28,13 +28,21 @@ export function useVersion(options: OptionsType) {
     useEffect(() => {
         if (versionParam) {
             setVersion(versionParam)
+        } else {
+            setVersion('0')
         }
     }, [versionParam])
 
     const data = useMemo(() => {
-        const v = version || versionData ? versionData?.length - 1 : 0
-        setVersion(v.toString())
-        return versionData && versionData?.length > 0 ? versionData[v] : []
+        if (version) {
+            const data = versionData || [0]
+            const v = version || (data ? data?.length - 1 : 0)
+
+            setVersion(v.toString())
+            return versionData && versionData?.length > 0 ? versionData[v] : []
+        }
+
+        return []
     }, [versionData, version])
 
     const Selector = () => (
