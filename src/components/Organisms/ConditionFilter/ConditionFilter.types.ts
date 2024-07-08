@@ -6,6 +6,7 @@ export type Props = {
     dataTestId?: string
     defaultOpen?: boolean
     id?: string
+    isTest?: boolean
     listName?: string
     listOfItems?: string[]
     onItemDelete?: (item: number) => void

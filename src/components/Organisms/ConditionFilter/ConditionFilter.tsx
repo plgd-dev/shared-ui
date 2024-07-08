@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, ReactNode, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
@@ -12,13 +12,32 @@ import SimpleStripTable from '../../Atomic/SimpleStripTable'
 import IconTrash from '../../Atomic/Icon/components/IconTrash'
 
 const ConditionFilter: FC<Props> = (props) => {
-    const { className, children, dataTestId, defaultOpen, listName, listOfItems, onItemDelete, status, title } = props
+    const { className, children, dataTestId, defaultOpen, isTest, listName, listOfItems, onItemDelete, status, title } = props
 
     const [show, setShow] = useState(defaultOpen ?? false)
 
+    const AnimatedElement = ({ children }: { children: ReactNode }) =>
+        isTest ? (
+            <div>{children}</div>
+        ) : (
+            <motion.div
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{
+                    opacity: 0,
+                    height: 0,
+                }}
+                initial={{ opacity: 0, height: 0 }}
+                transition={{
+                    duration: 0.3,
+                }}
+            >
+                {children}
+            </motion.div>
+        )
+
     return (
         <div className={className} css={styles.filter} data-test-id={dataTestId}>
-            <div css={styles.header} onClick={() => setShow(!show)}>
+            <div css={styles.header} data-test-id={dataTestId?.concat('-header')} onClick={() => setShow(!show)}>
                 <div css={styles.left}>
                     <div css={styles.title}>{title}</div>
                     {status}
@@ -40,18 +59,8 @@ const ConditionFilter: FC<Props> = (props) => {
             </div>
             <AnimatePresence>
                 {show && (
-                    <motion.div
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{
-                            opacity: 0,
-                            height: 0,
-                        }}
-                        initial={{ opacity: 0, height: 0 }}
-                        transition={{
-                            duration: 0.3,
-                        }}
-                    >
-                        <div css={styles.content}>
+                    <AnimatedElement>
+                        <div css={styles.content} data-test-id={dataTestId?.concat('-content')}>
                             <div css={styles.inputBox}>{children}</div>
 
                             {listOfItems && listOfItems.length > 0 && listName && isFunction(onItemDelete) && (
@@ -72,7 +81,7 @@ const ConditionFilter: FC<Props> = (props) => {
                                 </Spacer>
                             )}
                         </div>
-                    </motion.div>
+                    </AnimatedElement>
                 )}
             </AnimatePresence>
         </div>

@@ -141,7 +141,6 @@ const ResourceToggleCreatorSnip: FC<Props> = (props) => {
         >
             {resources.slice(0, limit).map((resource, key) => (
                 <ResourceToggleCreator
-                    {...customProps}
                     defaultOpen
                     isTest
                     readOnly
@@ -151,6 +150,7 @@ const ResourceToggleCreatorSnip: FC<Props> = (props) => {
                     onCancelPending={getResourceStatus(resource) === 'PENDING' ? (resource) => console.log(resource) : undefined}
                     resourceData={resource}
                     statusTag={getResourceStatusTag(resource)}
+                    {...customProps}
                 />
             ))}
         </div>

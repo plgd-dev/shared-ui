@@ -18,12 +18,19 @@ describe('<ResourceToggleCreator>', () => {
 
     it('header', async () => {
         const cancelCallback = jest.fn()
-        const { getByTestId } = render(<ResourceToggleCreatorSnip customProps={{ onCancelPending: cancelCallback }} limit={1} />)
+        const { getByTestId, container } = render(<ResourceToggleCreatorSnip customProps={{ onCancelPending: cancelCallback }} limit={1} />)
 
         expect(getByTestId('resource-toggle-creator-0-title')).toBeInTheDocument()
         expect(getByTestId('resource-toggle-creator-0-status-tag')).toBeInTheDocument()
         expect(getByTestId('resource-toggle-creator-0-action-expand')).toBeInTheDocument()
-        // expect(getByTestId('resource-toggle-creator-0-action-cancel-pending')).toBeInTheDocument()
+        expect(getByTestId('resource-toggle-creator-0-action-cancel-pending')).toBeInTheDocument()
+
+        const buttons = container.querySelectorAll('[data-test-id="resource-toggle-creator-0-action-cancel-pending"]')
+        forEach(buttons, (button) => {
+            fireEvent.click(button)
+        })
+
+        expect(cancelCallback).toHaveBeenCalledTimes(1)
     })
 
     it('expand', async () => {
