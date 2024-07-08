@@ -1,0 +1,2417 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  border-radius: 8px;
+  border: 1px solid #E6E9ED;
+  overflow: hidden;
+}
+
+.emotion-1 {
+  padding: 16px 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  cursor: pointer;
+  background: #FFFFFF;
+}
+
+.emotion-1:hover {
+  background: #F6F7F9;
+}
+
+.emotion-1:hover .expander {
+  color: #2261AE;
+}
+
+.emotion-2 {
+  font: 'Circular Pro',sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: -0.5px;
+  color: #0A2965;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.emotion-3 {
+  margin-left: 8px!important;
+}
+
+.emotion-4 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 1px 10px;
+  gap: 10px;
+  border-radius: 44px;
+  color: #52c5a2;
+  background: rgba(82,197,162,0.16);
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: lowercase;
+}
+
+.emotion-5 {
+  -webkit-flex: 0 0 90px;
+  -ms-flex: 0 0 90px;
+  flex: 0 0 90px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+
+.emotion-6 {
+  color: #81868C;
+  background: #F6F7F9;
+  padding: 6px;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 32px;
+  height: 32px;
+}
+
+.emotion-6:hover {
+  color: #2261AE;
+}
+
+.emotion-7 {
+  padding: 16px 24px;
+  border-top: 1px solid #E6E9ED;
+}
+
+.emotion-8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -16px;
+  margin-right: -16px;
+  box-sizing: border-box;
+  margin-right: 0;
+  margin-left: 0;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  height: 54px;
+  border-radius: 0;
+}
+
+.emotion-8>* {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.emotion-8>* {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.emotion-8:hover {
+  background: #f6f7f9;
+}
+
+.emotion-8:hover {
+  background: transparent;
+}
+
+.emotion-9 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 33.33333333333333%;
+}
+
+@media (min-width: 1400px) {
+  .emotion-9 {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
+.emotion-10 {
+  padding: 16px 24px;
+  color: #81868C;
+  height: 54px;
+  box-sizing: border-box;
+  position: relative;
+  position: relative;
+  padding-left: 0;
+}
+
+.emotion-10:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #E6E9ED;
+}
+
+.emotion-10:after {
+  left: 7px;
+  right: 0;
+  width: calc(100% - 7px);
+}
+
+.emotion-10:after {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.emotion-11 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 66.66666666666666%;
+}
+
+@media (min-width: 1400px) {
+  .emotion-11 {
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+
+.emotion-12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 24px;
+  color: #252626;
+  text-align: right;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  height: 54px;
+  box-sizing: border-box;
+  position: relative;
+  position: relative;
+  padding-right: 0;
+}
+
+.emotion-12:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #E6E9ED;
+}
+
+.emotion-12:after {
+  left: 0;
+  right: 7px;
+  width: calc(100% - 7px);
+}
+
+.emotion-12:after {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.emotion-14 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #D7D8DA;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  background: #F6F7F9;
+  color: #757676;
+  border-color: #D7D8DA;
+  cursor: not-allowed;
+  height: 36px;
+  text-align: right;
+  cursor: text;
+}
+
+.emotion-14::-webkit-input-placeholder {
+  color: #81868C;
+  opacity: 1;
+}
+
+.emotion-14::-moz-placeholder {
+  color: #81868C;
+  opacity: 1;
+}
+
+.emotion-14:-ms-input-placeholder {
+  color: #81868C;
+  opacity: 1;
+}
+
+.emotion-14::placeholder {
+  color: #81868C;
+  opacity: 1;
+}
+
+.emotion-14:-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-14::-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-14:focus {
+  border-color: #2261AE!important;
+  outline: none;
+}
+
+.emotion-14::-ms-reveal,
+.emotion-14::-ms-clear {
+  display: none;
+}
+
+.emotion-14::-webkit-outer-spin-button,
+.emotion-14::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.emotion-14[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.emotion-20 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #0A2965;
+  color: #0A2965;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.emotion-20:hover {
+  background: #0A2965;
+  border-color: #0A2965;
+  color: #FFFFFF;
+}
+
+.emotion-21 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.emotion-24 {
+  padding: 16px 24px;
+  color: #81868C;
+  height: 54px;
+  box-sizing: border-box;
+  position: relative;
+  position: relative;
+  padding-left: 0;
+}
+
+.emotion-24:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #E6E9ED;
+}
+
+.emotion-24:after {
+  left: 7px;
+  right: 0;
+  width: calc(100% - 7px);
+}
+
+.emotion-24:after {
+  background: transparent;
+}
+
+.emotion-24:after {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.emotion-26 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 24px;
+  color: #252626;
+  text-align: right;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+  height: 54px;
+  box-sizing: border-box;
+  position: relative;
+  position: relative;
+  padding-right: 0;
+}
+
+.emotion-26:after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background: #E6E9ED;
+}
+
+.emotion-26:after {
+  left: 0;
+  right: 7px;
+  width: calc(100% - 7px);
+}
+
+.emotion-26:after {
+  background: transparent;
+}
+
+.emotion-26:after {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.emotion-27 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.emotion-28 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.emotion-30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+
+.emotion-31 {
+  font-family: 'Poppins',sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #81868C;
+  cursor: pointer;
+  margin-bottom: 0;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.emotion-32 {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  border: 1px solid #D7D8DA;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  padding: 0 16px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  color: #252626;
+  box-sizing: border-box;
+  background: #F6F7F9;
+  color: #757676;
+  border-color: #D7D8DA;
+  cursor: not-allowed;
+  height: 36px;
+}
+
+.emotion-32::-webkit-input-placeholder {
+  color: #81868C;
+  opacity: 1;
+}
+
+.emotion-32::-moz-placeholder {
+  color: #81868C;
+  opacity: 1;
+}
+
+.emotion-32:-ms-input-placeholder {
+  color: #81868C;
+  opacity: 1;
+}
+
+.emotion-32::placeholder {
+  color: #81868C;
+  opacity: 1;
+}
+
+.emotion-32:-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-32::-ms-input-placeholder {
+  color: #81868C;
+}
+
+.emotion-32:focus {
+  border-color: #2261AE!important;
+  outline: none;
+}
+
+.emotion-32::-ms-reveal,
+.emotion-32::-ms-clear {
+  display: none;
+}
+
+.emotion-32::-webkit-outer-spin-button,
+.emotion-32::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.emotion-32[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.emotion-33 {
+  padding-left: 16px;
+  max-width: 150px;
+}
+
+.emotion-37 {
+  pointer-events: none;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.emotion-37 .select__control {
+  height: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+  box-shadow: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #D7D8DA;
+}
+
+.emotion-37 .select__control:focus {
+  outline: none;
+}
+
+.emotion-37 .select__control:hover {
+  outline: none;
+  border: 1px solid #007BBF;
+}
+
+.emotion-37 .select__control .select__value-container .select__placeholder,
+.emotion-37 .select__control .select__value-container .select__input-container {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #252626!important;
+}
+
+.emotion-37 .select__control .select__value-container .select__placeholder input,
+.emotion-37 .select__control .select__value-container .select__input-container input {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal!important;
+  font-weight: 400!important;
+  font-size: 14px!important;
+  line-height: 22px!important;
+  color: #252626!important;
+}
+
+.emotion-37 .select__control.select__control--is-focused {
+  box-shadow: none;
+}
+
+.emotion-37 .select__indicator-separator {
+  display: none;
+}
+
+.emotion-37 .select__input-container {
+  margin: 0;
+}
+
+.emotion-38 {
+  z-index: 9999;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.emotion-40 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  min-height: 38px;
+  outline: 0!important;
+  position: relative;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  background-color: hsl(0, 0%, 95%);
+  border-color: hsl(0, 0%, 90%);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  height: 44px;
+  min-height: 44px;
+  border-radius: 8px;
+  box-shadow: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: 1px solid #D7D8DA;
+  height: 36px!important;
+  min-height: 36px!important;
+}
+
+.emotion-40:hover {
+  border-color: hsl(0, 0%, 70%);
+}
+
+.emotion-40:focus {
+  outline: none;
+}
+
+.emotion-40:hover {
+  outline: none;
+  border: 1px solid #007BBF;
+}
+
+.emotion-41 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: grid;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  overflow: hidden;
+  padding: 2px 8px;
+  box-sizing: border-box;
+  padding: 0 0 0 15px;
+}
+
+.emotion-42 {
+  grid-area: 1/1/2/3;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: hsl(0, 0%, 60%);
+  margin-left: 2px;
+  margin-right: 2px;
+  box-sizing: border-box;
+  color: #252626;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: left;
+  color: #81868C;
+}
+
+.emotion-43 {
+  visibility: hidden;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: inline-grid;
+  grid-area: 1/1/2/3;
+  grid-template-columns: 0 min-content;
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  color: hsl(0, 0%, 20%);
+  box-sizing: border-box;
+}
+
+.emotion-43:after {
+  content: attr(data-value) " ";
+  visibility: hidden;
+  white-space: pre;
+  grid-area: 1/2;
+  font: inherit;
+  min-width: 2px;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+}
+
+.emotion-44 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.emotion-45 {
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+  width: 1px;
+  background-color: hsl(0, 0%, 90%);
+  margin-bottom: 8px;
+  margin-top: 8px;
+  box-sizing: border-box;
+}
+
+.emotion-46 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: color 150ms;
+  transition: color 150ms;
+  color: hsl(0, 0%, 80%);
+  padding: 8px;
+  box-sizing: border-box;
+  padding: 4px 16px 4px 4px;
+}
+
+.emotion-46:hover {
+  color: hsl(0, 0%, 60%);
+}
+
+.emotion-47 {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #81868C;
+}
+
+.emotion-52 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 1px 10px;
+  gap: 10px;
+  border-radius: 44px;
+  color: #FEBF40;
+  background: rgba(254,191,64,0.24);
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: lowercase;
+}
+
+.emotion-68 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #ffffff;
+  border: 1px solid #0A2965;
+  color: #0A2965;
+  background: #ffffff;
+  border: 1px solid #D7D8DA;
+  color: #D7D8DA;
+  cursor: not-allowed!important;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.emotion-68:hover {
+  background: #0A2965;
+  border-color: #0A2965;
+  color: #FFFFFF;
+}
+
+.emotion-68:hover {
+  background: #ffffff;
+  border-color: #D7D8DA;
+  color: #D7D8DA;
+}
+
+.emotion-100 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 1px 10px;
+  gap: 10px;
+  border-radius: 44px;
+  color: #D74E3A;
+  background: rgba(215,78,58,0.16);
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: lowercase;
+}
+
+.emotion-199 {
+  width: 1px;
+  height: 20px;
+  background: #E6E9ED;
+  margin: 0 12px;
+}
+
+<div
+    style="margin: 50px; display: flex; flex-direction: column; gap: 20px;"
+  >
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          resource-01
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-4"
+            >
+              OK
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="expander emotion-6"
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.59 6.912a.833.833 0 1 0-1.18 1.179l5 5a.833.833 0 0 0 1.18 0l5-5a.833.833 0 0 0-1.18-1.179L10 11.322z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="emotion-7"
+        >
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                href
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <div
+                  class="emotion-13"
+                  style="width: 100%;"
+                >
+                  <div
+                    id="tooltip-group-name"
+                  >
+                    <input
+                      aria-describedby=":rh:"
+                      class="emotion-14"
+                      disabled=""
+                      id="name"
+                      name=""
+                      placeholder="href"
+                      tabindex="1"
+                      type="text"
+                      value="resource-01"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                content
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <button
+                  class="emotion-20"
+                  tabindex="1"
+                  type="submit"
+                >
+                  <span
+                    class="emotion-21"
+                  >
+                    <svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 20 20"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.91 14.412a.833.833 0 0 0 1.18 1.179l5-5a.833.833 0 0 0 0-1.179l-5-5a.833.833 0 0 0-1.18 1.179L11.323 10z"
+                        fill="currentcolor"
+                      />
+                    </svg>
+                  </span>
+                  view
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-24"
+              >
+                timeToLive
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-26"
+              >
+                <div
+                  class="emotion-27"
+                >
+                  <div
+                    class="emotion-28"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Command Timeout"
+                        >
+                          duration
+                        </label>
+                        <input
+                          class="emotion-32"
+                          data-inline="true"
+                          disabled=""
+                          id="Command Timeout"
+                          name=""
+                          placeholder="placeholder"
+                          tabindex="1"
+                          type="text"
+                          value="0ms"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="emotion-33"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Unit"
+                        >
+                          Unit
+                        </label>
+                        <div
+                          class="select--is-disabled emotion-37"
+                          id="Unit"
+                        >
+                          <span
+                            class="emotion-38"
+                            id="react-select-7-live-region"
+                          />
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="emotion-38"
+                            role="log"
+                          />
+                          <div
+                            aria-disabled="true"
+                            class="select__control select__control--is-disabled emotion-40"
+                          >
+                            <div
+                              class="select__value-container select__value-container--has-value emotion-41"
+                            >
+                              <div
+                                class="select__single-value select__single-value--is-disabled emotion-42"
+                              >
+                                default
+                              </div>
+                              <div
+                                class="select__input-container emotion-43"
+                                data-value=""
+                              >
+                                <input
+                                  aria-activedescendant=""
+                                  aria-autocomplete="list"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  autocorrect="off"
+                                  class="select__input"
+                                  disabled=""
+                                  id="react-select-7-input"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                  tabindex="0"
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="select__indicators emotion-44"
+                            >
+                              <span
+                                class="select__indicator-separator emotion-45"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class="select__indicator select__dropdown-indicator emotion-46"
+                              >
+                                <div
+                                  class="emotion-47"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="10"
+                                    viewBox="0 0 6 4"
+                                    width="10"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                      fill="currentcolor"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          resource-02
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-52"
+            >
+              CANCELED
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="expander emotion-6"
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.59 6.912a.833.833 0 1 0-1.18 1.179l5 5a.833.833 0 0 0 1.18 0l5-5a.833.833 0 0 0-1.18-1.179L10 11.322z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="emotion-7"
+        >
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                href
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <div
+                  class="emotion-13"
+                  style="width: 100%;"
+                >
+                  <div
+                    id="tooltip-group-name"
+                  >
+                    <input
+                      aria-describedby=":rj:"
+                      class="emotion-14"
+                      disabled=""
+                      id="name"
+                      name=""
+                      placeholder="href"
+                      tabindex="1"
+                      type="text"
+                      value="resource-02"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                content
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <button
+                  class="emotion-68"
+                  tabindex="1"
+                  type="submit"
+                >
+                  <span
+                    class="emotion-21"
+                  >
+                    <svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 20 20"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.91 14.412a.833.833 0 0 0 1.18 1.179l5-5a.833.833 0 0 0 0-1.179l-5-5a.833.833 0 0 0-1.18 1.179L11.323 10z"
+                        fill="currentcolor"
+                      />
+                    </svg>
+                  </span>
+                  view
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-24"
+              >
+                timeToLive
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-26"
+              >
+                <div
+                  class="emotion-27"
+                >
+                  <div
+                    class="emotion-28"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Command Timeout"
+                        >
+                          duration
+                        </label>
+                        <input
+                          class="emotion-32"
+                          data-inline="true"
+                          disabled=""
+                          id="Command Timeout"
+                          name=""
+                          placeholder="placeholder"
+                          tabindex="1"
+                          type="text"
+                          value="0ms"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="emotion-33"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Unit"
+                        >
+                          Unit
+                        </label>
+                        <div
+                          class="select--is-disabled emotion-37"
+                          id="Unit"
+                        >
+                          <span
+                            class="emotion-38"
+                            id="react-select-8-live-region"
+                          />
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="emotion-38"
+                            role="log"
+                          />
+                          <div
+                            aria-disabled="true"
+                            class="select__control select__control--is-disabled emotion-40"
+                          >
+                            <div
+                              class="select__value-container select__value-container--has-value emotion-41"
+                            >
+                              <div
+                                class="select__single-value select__single-value--is-disabled emotion-42"
+                              >
+                                default
+                              </div>
+                              <div
+                                class="select__input-container emotion-43"
+                                data-value=""
+                              >
+                                <input
+                                  aria-activedescendant=""
+                                  aria-autocomplete="list"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  autocorrect="off"
+                                  class="select__input"
+                                  disabled=""
+                                  id="react-select-8-input"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                  tabindex="0"
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="select__indicators emotion-44"
+                            >
+                              <span
+                                class="select__indicator-separator emotion-45"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class="select__indicator select__dropdown-indicator emotion-46"
+                              >
+                                <div
+                                  class="emotion-47"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="10"
+                                    viewBox="0 0 6 4"
+                                    width="10"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                      fill="currentcolor"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          resource-03
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-100"
+            >
+              ERROR
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="expander emotion-6"
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.59 6.912a.833.833 0 1 0-1.18 1.179l5 5a.833.833 0 0 0 1.18 0l5-5a.833.833 0 0 0-1.18-1.179L10 11.322z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="emotion-7"
+        >
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                href
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <div
+                  class="emotion-13"
+                  style="width: 100%;"
+                >
+                  <div
+                    id="tooltip-group-name"
+                  >
+                    <input
+                      aria-describedby=":rl:"
+                      class="emotion-14"
+                      disabled=""
+                      id="name"
+                      name=""
+                      placeholder="href"
+                      tabindex="1"
+                      type="text"
+                      value="resource-03"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                content
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <button
+                  class="emotion-20"
+                  tabindex="1"
+                  type="submit"
+                >
+                  <span
+                    class="emotion-21"
+                  >
+                    <svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 20 20"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.91 14.412a.833.833 0 0 0 1.18 1.179l5-5a.833.833 0 0 0 0-1.179l-5-5a.833.833 0 0 0-1.18 1.179L11.323 10z"
+                        fill="currentcolor"
+                      />
+                    </svg>
+                  </span>
+                  view
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-24"
+              >
+                timeToLive
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-26"
+              >
+                <div
+                  class="emotion-27"
+                >
+                  <div
+                    class="emotion-28"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Command Timeout"
+                        >
+                          duration
+                        </label>
+                        <input
+                          class="emotion-32"
+                          data-inline="true"
+                          disabled=""
+                          id="Command Timeout"
+                          name=""
+                          placeholder="placeholder"
+                          tabindex="1"
+                          type="text"
+                          value="0ms"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="emotion-33"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Unit"
+                        >
+                          Unit
+                        </label>
+                        <div
+                          class="select--is-disabled emotion-37"
+                          id="Unit"
+                        >
+                          <span
+                            class="emotion-38"
+                            id="react-select-9-live-region"
+                          />
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="emotion-38"
+                            role="log"
+                          />
+                          <div
+                            aria-disabled="true"
+                            class="select__control select__control--is-disabled emotion-40"
+                          >
+                            <div
+                              class="select__value-container select__value-container--has-value emotion-41"
+                            >
+                              <div
+                                class="select__single-value select__single-value--is-disabled emotion-42"
+                              >
+                                default
+                              </div>
+                              <div
+                                class="select__input-container emotion-43"
+                                data-value=""
+                              >
+                                <input
+                                  aria-activedescendant=""
+                                  aria-autocomplete="list"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  autocorrect="off"
+                                  class="select__input"
+                                  disabled=""
+                                  id="react-select-9-input"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                  tabindex="0"
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="select__indicators emotion-44"
+                            >
+                              <span
+                                class="select__indicator-separator emotion-45"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class="select__indicator select__dropdown-indicator emotion-46"
+                              >
+                                <div
+                                  class="emotion-47"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="10"
+                                    viewBox="0 0 6 4"
+                                    width="10"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                      fill="currentcolor"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          resource-04
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-100"
+            >
+              TIMEOUT
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="expander emotion-6"
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.59 6.912a.833.833 0 1 0-1.18 1.179l5 5a.833.833 0 0 0 1.18 0l5-5a.833.833 0 0 0-1.18-1.179L10 11.322z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="emotion-7"
+        >
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                href
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <div
+                  class="emotion-13"
+                  style="width: 100%;"
+                >
+                  <div
+                    id="tooltip-group-name"
+                  >
+                    <input
+                      aria-describedby=":rn:"
+                      class="emotion-14"
+                      disabled=""
+                      id="name"
+                      name=""
+                      placeholder="href"
+                      tabindex="1"
+                      type="text"
+                      value="resource-04"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                content
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <button
+                  class="emotion-20"
+                  tabindex="1"
+                  type="submit"
+                >
+                  <span
+                    class="emotion-21"
+                  >
+                    <svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 20 20"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.91 14.412a.833.833 0 0 0 1.18 1.179l5-5a.833.833 0 0 0 0-1.179l-5-5a.833.833 0 0 0-1.18 1.179L11.323 10z"
+                        fill="currentcolor"
+                      />
+                    </svg>
+                  </span>
+                  view
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-24"
+              >
+                timeToLive
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-26"
+              >
+                <div
+                  class="emotion-27"
+                >
+                  <div
+                    class="emotion-28"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Command Timeout"
+                        >
+                          duration
+                        </label>
+                        <input
+                          class="emotion-32"
+                          data-inline="true"
+                          disabled=""
+                          id="Command Timeout"
+                          name=""
+                          placeholder="placeholder"
+                          tabindex="1"
+                          type="text"
+                          value="0ms"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="emotion-33"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Unit"
+                        >
+                          Unit
+                        </label>
+                        <div
+                          class="select--is-disabled emotion-37"
+                          id="Unit"
+                        >
+                          <span
+                            class="emotion-38"
+                            id="react-select-10-live-region"
+                          />
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="emotion-38"
+                            role="log"
+                          />
+                          <div
+                            aria-disabled="true"
+                            class="select__control select__control--is-disabled emotion-40"
+                          >
+                            <div
+                              class="select__value-container select__value-container--has-value emotion-41"
+                            >
+                              <div
+                                class="select__single-value select__single-value--is-disabled emotion-42"
+                              >
+                                default
+                              </div>
+                              <div
+                                class="select__input-container emotion-43"
+                                data-value=""
+                              >
+                                <input
+                                  aria-activedescendant=""
+                                  aria-autocomplete="list"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  autocorrect="off"
+                                  class="select__input"
+                                  disabled=""
+                                  id="react-select-10-input"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                  tabindex="0"
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="select__indicators emotion-44"
+                            >
+                              <span
+                                class="select__indicator-separator emotion-45"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class="select__indicator select__dropdown-indicator emotion-46"
+                              >
+                                <div
+                                  class="emotion-47"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="10"
+                                    viewBox="0 0 6 4"
+                                    width="10"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                      fill="currentcolor"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="emotion-0"
+    >
+      <div
+        class="emotion-1"
+      >
+        <div
+          class="emotion-2"
+        >
+          resource-05
+          <div
+            class="emotion-3"
+          >
+            <div
+              class="emotion-52"
+            >
+              PENDING
+            </div>
+          </div>
+        </div>
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m7.192 2.243-.228.465H3.93c-.56 0-1.012.466-1.012 1.042s.452 1.042 1.012 1.042h12.143c.56 0 1.011-.466 1.011-1.042s-.452-1.042-1.011-1.042h-3.036l-.228-.465a1 1 0 0 0-.904-.576H8.096c-.382 0-.733.221-.904.576m8.88 3.59H3.928l.67 11.035c.05.824.715 1.465 1.515 1.465h7.772c.8 0 1.465-.641 1.515-1.464z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+          <div
+            class="emotion-199"
+          />
+          <div
+            class="expander emotion-6"
+            style="transform: none;"
+          >
+            <svg
+              fill="none"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.59 6.912a.833.833 0 1 0-1.18 1.179l5 5a.833.833 0 0 0 1.18 0l5-5a.833.833 0 0 0-1.18-1.179L10 11.322z"
+                fill="currentcolor"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="emotion-7"
+        >
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                href
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <div
+                  class="emotion-13"
+                  style="width: 100%;"
+                >
+                  <div
+                    id="tooltip-group-name"
+                  >
+                    <input
+                      aria-describedby=":rp:"
+                      class="emotion-14"
+                      disabled=""
+                      id="name"
+                      name=""
+                      placeholder="href"
+                      tabindex="1"
+                      type="text"
+                      value="resource-05"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-10"
+              >
+                content
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-12"
+              >
+                <button
+                  class="emotion-68"
+                  tabindex="1"
+                  type="submit"
+                >
+                  <span
+                    class="emotion-21"
+                  >
+                    <svg
+                      fill="none"
+                      height="16"
+                      viewBox="0 0 20 20"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.91 14.412a.833.833 0 0 0 1.18 1.179l5-5a.833.833 0 0 0 0-1.179l-5-5a.833.833 0 0 0-1.18 1.179L11.323 10z"
+                        fill="currentcolor"
+                      />
+                    </svg>
+                  </span>
+                  view
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="emotion-8"
+          >
+            <div
+              class="emotion-9"
+            >
+              <div
+                class="emotion-24"
+              >
+                timeToLive
+              </div>
+            </div>
+            <div
+              class="emotion-11"
+            >
+              <div
+                class="emotion-26"
+              >
+                <div
+                  class="emotion-27"
+                >
+                  <div
+                    class="emotion-28"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Command Timeout"
+                        >
+                          duration
+                        </label>
+                        <input
+                          class="emotion-32"
+                          data-inline="true"
+                          disabled=""
+                          id="Command Timeout"
+                          name=""
+                          placeholder="placeholder"
+                          tabindex="1"
+                          type="text"
+                          value="0ms"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="emotion-33"
+                  >
+                    <div
+                      class="emotion-13"
+                    >
+                      <div
+                        class="emotion-30"
+                      >
+                        <label
+                          class="emotion-31"
+                          for="Unit"
+                        >
+                          Unit
+                        </label>
+                        <div
+                          class="select--is-disabled emotion-37"
+                          id="Unit"
+                        >
+                          <span
+                            class="emotion-38"
+                            id="react-select-11-live-region"
+                          />
+                          <span
+                            aria-atomic="false"
+                            aria-live="polite"
+                            aria-relevant="additions text"
+                            class="emotion-38"
+                            role="log"
+                          />
+                          <div
+                            aria-disabled="true"
+                            class="select__control select__control--is-disabled emotion-40"
+                          >
+                            <div
+                              class="select__value-container select__value-container--has-value emotion-41"
+                            >
+                              <div
+                                class="select__single-value select__single-value--is-disabled emotion-42"
+                              >
+                                default
+                              </div>
+                              <div
+                                class="select__input-container emotion-43"
+                                data-value=""
+                              >
+                                <input
+                                  aria-activedescendant=""
+                                  aria-autocomplete="list"
+                                  aria-expanded="false"
+                                  aria-haspopup="true"
+                                  autocapitalize="none"
+                                  autocomplete="off"
+                                  autocorrect="off"
+                                  class="select__input"
+                                  disabled=""
+                                  id="react-select-11-input"
+                                  role="combobox"
+                                  spellcheck="false"
+                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                  tabindex="0"
+                                  type="text"
+                                  value=""
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="select__indicators emotion-44"
+                            >
+                              <span
+                                class="select__indicator-separator emotion-45"
+                              />
+                              <div
+                                aria-hidden="true"
+                                class="select__indicator select__dropdown-indicator emotion-46"
+                              >
+                                <div
+                                  class="emotion-47"
+                                >
+                                  <svg
+                                    fill="none"
+                                    height="10"
+                                    viewBox="0 0 6 4"
+                                    width="10"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                      fill="currentcolor"
+                                    />
+                                  </svg>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { FC, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import isEmpty from 'lodash/isEmpty'
 import isFunction from 'lodash/isFunction'
@@ -56,7 +56,7 @@ export const getResourceStatusTag = (resource: ResourceType) => {
 }
 
 const ResourceToggleCreator: FC<Props> = (props) => {
-    const { className, dataTestId, defaultOpen, i18n, readOnly, id, resourceData, onCancelPending, onUpdate, responsive, statusTag } = props
+    const { className, dataTestId, defaultOpen, i18n, readOnly, id, isTest, resourceData, onCancelPending, onUpdate, responsive, statusTag } = props
 
     const [show, setShow] = useState(defaultOpen ?? false)
     const [touched, setTouched] = useState(false)
@@ -68,6 +68,25 @@ const ResourceToggleCreator: FC<Props> = (props) => {
     const [ttlHasError, setTtlHasError] = useState(false)
 
     const editor = useRef()
+
+    const AnimateElement = ({ children }: { children: ReactNode }) =>
+        isTest ? (
+            <div>{children}</div>
+        ) : (
+            <motion.div
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{
+                    opacity: 0,
+                    height: 0,
+                }}
+                initial={{ opacity: 0, height: 0 }}
+                transition={{
+                    duration: 0.3,
+                }}
+            >
+                {children}
+            </motion.div>
+        )
 
     const hasContent = useMemo(() => {
         if (typeof resourceData.content === 'object') {
@@ -211,8 +230,6 @@ const ResourceToggleCreator: FC<Props> = (props) => {
         })
     }
 
-    const disabled = false
-
     return (
         <div className={className} css={styles.creator} data-test-id={dataTestId} id={id}>
             <div css={styles.header} onClick={() => setShow(!show)}>
@@ -268,17 +285,7 @@ const ResourceToggleCreator: FC<Props> = (props) => {
             </div>
             <AnimatePresence>
                 {show && (
-                    <motion.div
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{
-                            opacity: 0,
-                            height: 0,
-                        }}
-                        initial={{ opacity: 0, height: 0 }}
-                        transition={{
-                            duration: 0.3,
-                        }}
-                    >
+                    <AnimateElement>
                         <div css={styles.content}>
                             <SimpleStripTable
                                 noSidePadding
@@ -302,27 +309,27 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                                 rows={rows}
                             />
                         </div>
-                    </motion.div>
+                    </AnimateElement>
                 )}
             </AnimatePresence>
 
             <Modal
                 appRoot={document.getElementById('root')}
                 bodyStyle={{ display: 'flex', flexDirection: 'column', height: '100%' }}
-                closeButton={!disabled}
+                closeButton={true}
                 closeButtonText={i18n.close}
                 closeOnBackdrop={false}
                 contentPadding={false}
                 dataTestId={dataTestId?.concat('-modal')}
                 fullSize={modalCode}
                 minWidth={720}
-                onClose={!disabled ? () => setShowModal(false) : undefined}
+                onClose={() => setShowModal(false)}
                 portalTarget={document.getElementById('modal-root')}
                 renderBody={
                     <Spacer style={{ flex: '1 1 auto' }} type='pt-6'>
                         <Editor
                             dataTestId={dataTestId?.concat('-editor')}
-                            disabled={disabled || readOnly}
+                            disabled={readOnly}
                             editorRef={(node: any) => {
                                 editor.current = node
                             }}
@@ -347,7 +354,7 @@ const ResourceToggleCreator: FC<Props> = (props) => {
                                     <Button
                                         className='modal-button'
                                         dataTestId={dataTestId?.concat('-confirm-button')}
-                                        disabled={disabled || interfaceJsonError}
+                                        disabled={interfaceJsonError}
                                         onClick={(e) => {
                                             setShowModal(false)
                                             if (isFunction(onUpdate)) {

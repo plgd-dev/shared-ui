@@ -52,6 +52,7 @@ export type Props = {
         viewContent: string
     }
     id?: string
+    isTest?: boolean
     onCancelPending?: (resource: ResourceType) => void
     onDeleted?: () => void
     onUpdate?: (data: ResourceType) => void
