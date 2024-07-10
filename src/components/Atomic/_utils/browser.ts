@@ -2,3 +2,5 @@ import { BotInfo, BrowserInfo, NodeInfo, ReactNativeInfo, SearchBotDeviceInfo } 
 
 export const isEdge = (browser: BrowserInfo | SearchBotDeviceInfo | BotInfo | NodeInfo | ReactNativeInfo | null) =>
     browser && ['edge', 'edge-chromium'].includes(browser.name)
+
+export const isSafari = (browser: BrowserInfo | SearchBotDeviceInfo | BotInfo | NodeInfo | ReactNativeInfo | null) => browser && browser.name === 'safari'
