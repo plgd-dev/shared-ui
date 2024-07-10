@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { Props, Inputs, defaultProps, DeviceInformationLineType } from './ProvisionDeviceModal.types'
@@ -14,7 +14,7 @@ import { IconCopy } from '../../../Icon'
 import { checkIfValidUUID, copyToClipboard } from '../../../../../common/utils'
 
 const ProvisionDeviceModal: FC<Props> = (props) => {
-    const { defaultDeviceId, deviceAuthCode, deviceAuthLoading, getDeviceAuthCode, deviceInformation, footerActions, i18n, ...rest } = {
+    const { defaultDeviceId, deviceAuthCode, deviceAuthLoading, getDeviceAuthCode, deviceInformation, footerActions, i18n, resetIndex, ...rest } = {
         ...defaultProps,
         ...props,
     }
@@ -22,14 +22,22 @@ const ProvisionDeviceModal: FC<Props> = (props) => {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<Inputs>({
         mode: 'all',
         values: {
             deviceId: defaultDeviceId || '',
         },
     })
+
     const inputRef = useRef(null)
     const onSubmit: SubmitHandler<Inputs> = (data) => getDeviceAuthCode(data.deviceId)
+
+    useEffect(() => {
+        if (resetIndex) {
+            reset()
+        }
+    }, [reset, resetIndex])
 
     const DeviceInformationLine = (data: DeviceInformationLineType) => (
         <div css={styles.line}>

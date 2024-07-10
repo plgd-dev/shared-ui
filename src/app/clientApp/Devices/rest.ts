@@ -167,6 +167,7 @@ export const getDeviceAuthCode = (deviceId: string, remoteClientId?: string) =>
                 'thePopUp',
                 ''
             )
+
             const pollTimer = window.setInterval(function () {
                 if (win && win.closed) {
                     window.clearInterval(pollTimer)

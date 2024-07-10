@@ -22,6 +22,7 @@ export type Props = ModalProps & {
         getTheCode: string
         invalidUuidFormat: string
     }
+    resetIndex?: number
 }
 
 export type Inputs = {
