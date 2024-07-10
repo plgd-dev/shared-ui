@@ -34,7 +34,7 @@ export function useAppTheme(options: UseAppThemeType) {
                         })
 
                         // if (appStore.configuration?.theme === '' || appStore.configuration?.theme !== themeData.defaultTheme) {
-                        if (appStore.configuration?.theme === '') {
+                        if (appStore.configuration?.theme === '' || !themeNames.includes(appStore.configuration?.theme)) {
                             dispatch(setTheme(themeData.defaultTheme))
                         }
 
