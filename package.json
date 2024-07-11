@@ -32,7 +32,7 @@
     ":generate:theme": "npm-run-all :generate:theme:build :generate:theme:clean",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test:storybook": "npx playwright test --update-snapshots",
+    "test:storybook": "npx playwright test",
     "test:storybook:ui": "npx playwright test --ui",
     "test:storybook:debug": "npx playwright test --debug",
     "test:storybook:report": "npx playwright show-report"
