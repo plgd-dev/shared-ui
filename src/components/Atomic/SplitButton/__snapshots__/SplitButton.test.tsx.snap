@@ -527,6 +527,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
       >
         <button
           class="emotion-7"
+          disabled=""
           tabindex="1"
           type="submit"
         >
@@ -534,6 +535,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
         </button>
         <button
           class="emotion-8"
+          disabled=""
           tabindex="1"
           type="submit"
         >
@@ -562,6 +564,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
       >
         <button
           class="emotion-10"
+          disabled=""
           tabindex="1"
           type="submit"
         >
@@ -569,6 +572,7 @@ exports[`<SimpleStripTable> render correctly - snapshot 1`] = `
         </button>
         <button
           class="emotion-11"
+          disabled=""
           tabindex="1"
           type="submit"
         >
