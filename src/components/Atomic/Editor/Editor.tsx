@@ -208,7 +208,15 @@ const Editor = forwardRef<EditorRefType, Props>((props, ref) => {
                 </a>
             )}
 
-            <input css={styles.testInput} data-test-id={dataTestId?.concat('-input')} onChange={(e) => setValue(JSON.parse(e.target.value))} type='text' />
+            <input
+                css={styles.testInput}
+                data-test-id={dataTestId?.concat('-input')}
+                onChange={(e) => {
+                    setValue(JSON.parse(e.target.value))
+                    onChangeText(e.target.value)
+                }}
+                type='text'
+            />
         </div>
     )
 })

@@ -68,6 +68,7 @@ const Button: FC<Props> = (props) => {
                 fullWidth && styles.fullWidth,
             ]}
             data-test-id={dataTestId}
+            disabled={disabled}
             onClick={disabled ? (e) => e.preventDefault() : handleOnClick}
             type={htmlType}
         >
