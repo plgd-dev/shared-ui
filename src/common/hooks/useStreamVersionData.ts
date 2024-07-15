@@ -4,10 +4,13 @@ import chunk from 'lodash/chunk'
 import { withTelemetry } from '../services/opentelemetry'
 import { streamApi } from '../services'
 import { StreamApiReturnType } from '../types/API.types'
+import { getApiUrl } from '../constants'
+
+type IdsType = { id: string; version: string } | string
 
 type Options = {
     chunkSize?: number
-    ids: { id: string; version: string }[]
+    ids: IdsType[]
     requestActive?: boolean
     telemetrySpan: string
     unauthorizedCallback?: () => void
@@ -20,8 +23,9 @@ const defaultOptions: Partial<Options> = {
 }
 
 export const useStreamVersionData = <T>(options: Options): StreamApiReturnType<T> => {
-    const { url, ids, requestActive, chunkSize, unauthorizedCallback, telemetrySpan } = { ...defaultOptions, ...options }
+    const { url, ids, requestActive: requestActiveProps, chunkSize, unauthorizedCallback, telemetrySpan } = { ...defaultOptions, ...options }
     const chunks = useMemo(() => chunk(ids, chunkSize), [ids, chunkSize])
+    const requestActive = requestActiveProps && ids.length > 0
 
     const [state, setState] = useState<{
         error: any
@@ -44,10 +48,11 @@ export const useStreamVersionData = <T>(options: Options): StreamApiReturnType<T
 
                 Promise.all(
                     chunks.map((ids) => {
-                        const versionFilter = ids.map((id) => `httpIdFilter=${id.id}/${id.version}`).join('&')
+                        const getFilter = (id: IdsType) => (typeof id === 'string' ? `httpIdFilter=${id}` : `httpIdFilter=${id.id}/${id.version}`)
+                        const versionFilter = ids.map((id) => getFilter(id)).join('&')
                         return withTelemetry(
                             () =>
-                                streamApi(`${url}?${versionFilter}`, {
+                                streamApi(getApiUrl(`${url}?${versionFilter}`), {
                                     method: 'GET',
                                     unauthorizedCallback,
                                 }),

@@ -533,7 +533,9 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
             role="option"
             tabindex="-1"
           >
-            Chocolate
+            <span>
+              Chocolate
+            </span>
           </div>
           <div
             aria-disabled="false"
@@ -543,7 +545,9 @@ exports[`<FormSelect> render correctly - snapshot 1`] = `
             role="option"
             tabindex="-1"
           >
-            Vanilla
+            <span>
+              Vanilla
+            </span>
           </div>
         </div>
       </div>

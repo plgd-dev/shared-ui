@@ -36,14 +36,14 @@ export function useVersion(options: OptionsType) {
     const data = useMemo(() => {
         if (version) {
             const data = versionData || [0]
-            const v = version || (data ? data?.length - 1 : 0)
+            const v = versionParam ? version : data ? data?.length - 1 : 0
 
             setVersion(v.toString())
             return versionData && versionData?.length > 0 ? versionData[v] : []
         }
 
         return []
-    }, [versionData, version])
+    }, [version, versionData, versionParam])
 
     const Selector = () => (
         <FormGroup inline dataTestId={dataTestId} id='version' marginBottom={false}>

@@ -178,6 +178,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
                             {footerLinksLeft.map((link, key) => (
                                 <a
                                     css={[styles.footerLink, link.variant && styles.footerLinkPrimary]}
+                                    data-test-id={link.dataTestId}
                                     href='#'
                                     key={key}
                                     onClick={(e) => {
@@ -197,6 +198,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
                             {footerLinksRight.map((link, key) => (
                                 <a
                                     css={styles.footerLink}
+                                    data-test-id={link.dataTestId}
                                     href='#'
                                     key={key}
                                     onClick={(e) => {
@@ -225,11 +227,11 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     const Option = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: OptionProps<Option, IsMulti, Group>) => (
         <components.Option {...props} css={[styles.option, props.isSelected && styles.optionSelected, align === selectAligns.RIGHT && styles.optionRight]}>
             {checkboxOptions && (
-                <Spacer type='pr-2'>
+                <Spacer dataTestId={dataTestId?.concat(`-${props?.data?.value?.toString() || ''}`)} type='pr-2'>
                     <Checkbox checked={props.isSelected} name='' onChange={() => {}} />
                 </Spacer>
             )}
-            {props.children}
+            <span data-test-id={checkboxOptions ? undefined : dataTestId?.concat(`-${props?.data?.value?.toString() || ''}`)}>{props.children}</span>
         </components.Option>
     )
 
@@ -245,7 +247,7 @@ const FormSelect = forwardRef<any, Props>((props, ref) => {
     )
 
     const Input = <Option extends OptionType, IsMulti extends boolean, Group extends GroupBase<Option>>(props: InputProps<Option, IsMulti, Group>) => (
-        <components.Input {...props} css={align === selectAligns.RIGHT && !autoWidth ? styles.input : undefined} />
+        <components.Input {...props} css={align === selectAligns.RIGHT && !autoWidth ? styles.input : undefined} data-test-id={dataTestId?.concat('-input')} />
     )
 
     const properties = {

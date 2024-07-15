@@ -15,6 +15,13 @@ export interface GroupedOption {
     readonly options: OptionType[]
 }
 
+type LinkType = {
+    dataTestId?: string
+    onClick: (values: any) => void
+    title: string
+    variant?: string
+}
+
 export type Props = {
     align?: FormSelectAlignType
     autoWidth?: boolean
@@ -25,8 +32,8 @@ export type Props = {
     defaultValue?: any
     disabled?: boolean
     error?: boolean
-    footerLinksLeft?: { onClick: (values: any) => void; title: string; variant?: string }[]
-    footerLinksRight?: { onClick: (values: any) => void; title: string; variant?: string }[]
+    footerLinksLeft?: LinkType[]
+    footerLinksRight?: LinkType[]
     i18n?: {
         itemSelected: string
         itemsSelected: string

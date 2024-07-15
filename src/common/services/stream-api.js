@@ -1,9 +1,9 @@
+import isFunction from 'lodash/isFunction'
 import { parseStreamedData } from '../utils'
 import { security } from './security'
 import { clientAppSettings } from './client-app-settings'
 import { errorCodes } from './fetch-api'
 import { hasDifferentOwner } from './api-utils'
-import isFunction from 'lodash/isFunction'
 
 export const streamApi = async (url, options = {}) => {
     const defaultOptions = {
