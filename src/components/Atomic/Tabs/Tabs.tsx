@@ -1,6 +1,7 @@
 import React, { FC, Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import isFunction from 'lodash/isFunction'
 import { motion } from 'framer-motion'
+import classNames from 'classnames'
 
 import { defaultProps, Props } from './Tabs.types'
 import * as styles from './Tabs.styles'
@@ -10,7 +11,7 @@ import ConditionalWrapper from '../ConditionalWrapper'
 import { statuses } from './constants'
 import IconCheck from '../Icon/components/IconCheck'
 import IconWarningCircle from '../Icon/components/IconWarningCircle'
-import classNames from 'classnames'
+import MotionElement from '../MotionElement'
 
 const Tabs: FC<Props> = (props) => {
     const { activeItem, className, onAnimationComplete, onItemChange, fullHeight, innerPadding, isAsync, style, tabs } = { ...defaultProps, ...props }
@@ -79,7 +80,7 @@ const Tabs: FC<Props> = (props) => {
                     </motion.button>
                 ))}
                 {slider.hasValue && (
-                    <motion.div
+                    <MotionElement
                         layout
                         css={styles.slider}
                         initial={false}

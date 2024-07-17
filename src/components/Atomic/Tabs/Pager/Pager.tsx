@@ -1,17 +1,20 @@
 import React, { FC } from 'react'
-import { motion } from 'framer-motion'
 
 import { Props } from './Pager.types'
 import * as styles from './Pager.styles'
+import MotionElement from '../../MotionElement'
 
 const Pager: FC<Props> = (props) => {
     const { children, fullHeight, onAnimationComplete, value } = props
 
     return (
         <div css={[styles.container, fullHeight && styles.fullHeight]}>
-            <motion.div
+            <MotionElement
                 animate={{ x: value * -100 + '%' }}
                 css={styles.animatedContainer}
+                divStyle={{
+                    transform: `translateX(${value * -100}%) translateZ(0px)`,
+                }}
                 initial={false}
                 onAnimationComplete={onAnimationComplete}
                 transition={{
@@ -25,7 +28,7 @@ const Pager: FC<Props> = (props) => {
                         {child}
                     </div>
                 ))}
-            </motion.div>
+            </MotionElement>
         </div>
     )
 }
