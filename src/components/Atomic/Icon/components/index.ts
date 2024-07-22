@@ -6,6 +6,7 @@ export { default as IconArrowLeft } from './IconArrowLeft'
 export { default as IconArrowRight } from './IconArrowRight'
 export { default as IconArrowTriangleFullUp } from './IconArrowTriangleFullUp'
 export { default as IconBell } from './IconBell'
+export { default as IconCalendar } from './IconCalendar'
 export { default as IconCertificate } from './IconCertificate'
 export { default as IconChat } from './IconChat'
 export { default as IconCheck } from './IconCheck'
@@ -67,6 +68,7 @@ export const Icons = [
     'IconArrowRight',
     'IconArrowTriangleFullUp',
     'IconBell',
+    'IconCalendar',
     'IconCertificate',
     'IconChat',
     'IconCheck',
@@ -129,6 +131,7 @@ export const IconsRaw = [
     'icon-arrow-right',
     'icon-arrow-triangle-full-up',
     'icon-bell',
+    'icon-calendar',
     'icon-certificate',
     'icon-chat',
     'icon-check',
