@@ -10,7 +10,7 @@ import IconCalendar from '../Icon/components/IconCalendar'
 import * as styles from './DatePicker.styles'
 
 const DatePicker: FC<Props> = (props) => {
-    const { className, dataTestId, defaultValue, id, locale, onChange, value } = props
+    const { className, compactFormComponentsView, dataTestId, defaultValue, id, locale, onChange, value } = props
     const [startDate, setStartDate] = useState<Date | null>(defaultValue ?? new Date())
 
     useEffect(() => {
@@ -20,7 +20,14 @@ const DatePicker: FC<Props> = (props) => {
     }, [value])
 
     const ExampleCustomInput = forwardRef(({ value, onClick }: any, ref) => (
-        <FormInput icon={<IconCalendar onClick={onClick} />} inputRef={ref} onChange={() => {}} onClick={onClick} value={value} />
+        <FormInput
+            compactFormComponentsView={compactFormComponentsView}
+            icon={<IconCalendar onClick={onClick} />}
+            inputRef={ref}
+            onChange={() => {}}
+            onClick={onClick}
+            value={value}
+        />
     ))
 
     return (

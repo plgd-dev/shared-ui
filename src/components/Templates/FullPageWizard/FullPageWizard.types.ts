@@ -12,6 +12,7 @@ export interface ComponentType<P> extends FC<P> {
 
 export type Props = {
     activeStep: number
+    dataTestId?: string
     children?: ReactNode
     i18n?: {
         close: string

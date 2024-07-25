@@ -1,4 +1,6 @@
 import { forwardRef } from 'react'
+import omit from 'lodash/omit'
+
 import { Props, defaultProps } from './FormTextarea.types'
 import * as styles from './FormTextarea.styles'
 
@@ -7,7 +9,7 @@ const FormTextarea = forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
 
     return (
         <textarea
-            {...rest}
+            {...omit(rest, 'compactFormComponentsView')}
             aria-invalid={error || ariaInvalid ? true : undefined}
             autoComplete={autoComplete}
             css={[styles.textarea, disabled && styles.disabled, readOnly && styles.readOnly, error && styles.error]}

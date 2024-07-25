@@ -2,6 +2,7 @@ import { CSSProperties, ReactElement, ReactNode } from 'react'
 
 export type Props = {
     className?: string
+    dataTestId?: string
     id?: string
     gutters?: boolean
     children: ReactNode | ReactElement

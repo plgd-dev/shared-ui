@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
 
-import { Props, defaultProps } from './SimpleStripTable.types'
+import { Props, defaultProps, Row as RowType } from './SimpleStripTable.types'
 import * as styles from './SimpleStripTable.styles'
 import Row from '../Grid/Row'
 import Column from '../Grid/Column'
@@ -9,23 +9,50 @@ import ConditionalWrapper from '../ConditionalWrapper'
 import CopyIcon from '../CopyIcon'
 
 const SimpleStripTable: FC<Props> = (props) => {
-    const { className, headerLeft, headerRight, id, i18n, noSidePadding, lastRowBorder, leftColSize, leftColProps, rightColProps, rightColSize, rows } = {
+    const {
+        className,
+        dataTestId,
+        headerLeft,
+        headerRight,
+        id,
+        i18n,
+        noSidePadding,
+        lastRowBorder,
+        leftColSize,
+        leftColProps,
+        rightColProps,
+        rightColSize,
+        rows,
+    } = {
         ...defaultProps,
         ...props,
     }
 
+    const getDataTestId = useCallback(
+        (r: RowType, suffix: string, rowId: number) => {
+            if (r.hasOwnProperty('dataTestId')) {
+                return r.dataTestId?.concat(suffix)
+            } else if (dataTestId) {
+                return dataTestId.concat(`-row-${rowId}-${suffix}`)
+            }
+
+            return undefined
+        },
+        [dataTestId]
+    )
+
     return (
         <ConditionalWrapper
-            condition={!!id || !!className}
+            condition={!!id || !!className || !!dataTestId}
             wrapper={(c) => (
-                <div className={className} id={id}>
+                <div className={className} data-test-id={dataTestId} id={id}>
                     {c}
                 </div>
             )}
         >
             <>
                 {(headerLeft || headerRight) && (
-                    <Row css={[styles.row, styles.headerRow]} gutters={false}>
+                    <Row css={[styles.row, styles.headerRow]} dataTestId={dataTestId?.concat('-header')} gutters={false}>
                         <Column size={leftColSize as ColumnSizeType} {...leftColProps}>
                             <div css={[styles.attribute]}>{headerLeft}</div>
                         </Column>
@@ -35,7 +62,12 @@ const SimpleStripTable: FC<Props> = (props) => {
                     </Row>
                 )}
                 {rows.map((r, key) => (
-                    <Row css={[styles.row, r.autoHeight && styles.autoHeight, noSidePadding && styles.noRowPadding]} gutters={false} key={r.key || key}>
+                    <Row
+                        css={[styles.row, r.autoHeight && styles.autoHeight, noSidePadding && styles.noRowPadding]}
+                        dataTestId={dataTestId?.concat(`-row-${key}`)}
+                        gutters={false}
+                        key={r.key || key}
+                    >
                         <Column size={leftColSize as ColumnSizeType} {...leftColProps}>
                             <div
                                 css={[
@@ -46,7 +78,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                     lastRowBorder === false && key === rows.length - 1 && styles.noLastRowBorder,
                                     noSidePadding && styles.noLeftPadding,
                                 ]}
-                                data-test-id={r.dataTestId?.concat('-attribute')}
+                                data-test-id={getDataTestId(r, 'attribute', key)}
                             >
                                 {r.attribute}
                                 {r.required && <span css={styles.required}> *</span>}
@@ -62,7 +94,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                     lastRowBorder === false && key === rows.length - 1 && styles.noLastRowBorder,
                                     noSidePadding && styles.noRightPadding,
                                 ]}
-                                data-test-id={r.dataTestId?.concat('-value')}
+                                data-test-id={getDataTestId(r, 'value', key)}
                             >
                                 {r.value}
                                 {r.copyValue && (

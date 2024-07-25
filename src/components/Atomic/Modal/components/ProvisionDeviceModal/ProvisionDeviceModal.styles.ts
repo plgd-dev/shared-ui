@@ -37,27 +37,27 @@ export const title = (theme: ThemeType) => css`
     margin: 0;
 `
 
-export const line = css`
+export const line = (theme: ThemeType) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     flex: 1 1 auto;
     height: 54px;
-    border-bottom: 1px solid ${colors.neutral200};
+    border-bottom: 1px solid ${getTheme(theme, `colorPalette.neutral200`, colors.neutral200)};
 
     &:last-child {
         border-bottom: 0;
     }
 `
 
-export const attribute = css`
+export const attribute = (theme: ThemeType) => css`
     font-family: ${fontPrimary};
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    color: ${colors.neutral500};
+    color: ${getTheme(theme, `colorPalette.neutral500`, colors.neutral500)};
     flex: 0 0 170px;
     text-align: left;
 `
@@ -76,9 +76,9 @@ export const value = (theme: ThemeType) => css`
     justify-content: flex-end;
 `
 
-export const icon = css`
+export const icon = (theme: ThemeType) => css`
     margin-left: 8px;
-    color: ${colors.neutral500};
+    color: ${getTheme(theme, `colorPalette.neutral500`, colors.neutral500)};
     flex: 0 0 16px;
     cursor: pointer;
 `

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useState } from 'react'
+import React, { FC, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import isFunction from 'lodash/isFunction'
 
@@ -10,30 +10,12 @@ import Spacer from '../../Atomic/Spacer'
 import Headline from '../../Atomic/Headline'
 import SimpleStripTable from '../../Atomic/SimpleStripTable'
 import IconTrash from '../../Atomic/Icon/components/IconTrash'
+import MotionElement from '../../Atomic/MotionElement'
 
 const ConditionFilter: FC<Props> = (props) => {
     const { className, children, dataTestId, defaultOpen, isTest, listName, listOfItems, onItemDelete, status, title } = props
 
     const [show, setShow] = useState(defaultOpen ?? false)
-
-    const AnimatedElement = ({ children }: { children: ReactNode }) =>
-        isTest ? (
-            <div>{children}</div>
-        ) : (
-            <motion.div
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{
-                    opacity: 0,
-                    height: 0,
-                }}
-                initial={{ opacity: 0, height: 0 }}
-                transition={{
-                    duration: 0.3,
-                }}
-            >
-                {children}
-            </motion.div>
-        )
 
     return (
         <div className={className} css={styles.filter} data-test-id={dataTestId}>
@@ -59,7 +41,18 @@ const ConditionFilter: FC<Props> = (props) => {
             </div>
             <AnimatePresence>
                 {show && (
-                    <AnimatedElement>
+                    <MotionElement
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{
+                            opacity: 0,
+                            height: 0,
+                        }}
+                        initial={{ opacity: 0, height: 0 }}
+                        noAnimations={isTest}
+                        transition={{
+                            duration: 0.3,
+                        }}
+                    >
                         <div css={styles.content} data-test-id={dataTestId?.concat('-content')}>
                             <div css={styles.inputBox}>{children}</div>
 
@@ -70,18 +63,25 @@ const ConditionFilter: FC<Props> = (props) => {
                                     </Spacer>
 
                                     <SimpleStripTable
+                                        dataTestId={dataTestId?.concat('-content-table')}
                                         lastRowBorder={false}
                                         leftColSize={10}
                                         rightColSize={2}
                                         rows={listOfItems.map((item, key) => ({
                                             attribute: <span css={styles.listItem}>{item}</span>,
-                                            value: <IconTrash css={styles.listIcon} onClick={isFunction(onItemDelete) ? () => onItemDelete(key) : undefined} />,
+                                            value: (
+                                                <IconTrash
+                                                    css={styles.listIcon}
+                                                    data-test-id={dataTestId?.concat(`-content-table-row-${key}-remove`)}
+                                                    onClick={isFunction(onItemDelete) ? () => onItemDelete(key) : undefined}
+                                                />
+                                            ),
                                         }))}
                                     />
                                 </Spacer>
                             )}
                         </div>
-                    </AnimatedElement>
+                    </MotionElement>
                 )}
             </AnimatePresence>
         </div>

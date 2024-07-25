@@ -1,4 +1,5 @@
 export type Props = {
+    dataTestId?: string
     disableNext?: boolean
     i18n: {
         back: string

@@ -11,6 +11,7 @@ import Switch from '../Switch'
 export const FormGroupCore: FC<Props> = (props) => {
     const {
         children,
+        compactFormComponentsView,
         className,
         dataTestId,
         error,
@@ -31,7 +32,7 @@ export const FormGroupCore: FC<Props> = (props) => {
                 return child
             }
 
-            return cloneElement(child as ReactElement, { id, error: child.type === Switch ? undefined : !!error, key, inline })
+            return cloneElement(child as ReactElement, { id, error: child.type === Switch ? undefined : !!error, key, inline, compactFormComponentsView })
         }
         return child
     })
@@ -106,7 +107,7 @@ export const FormGroupCore: FC<Props> = (props) => {
 
 const FormGroup: FC<Props> = (props) => {
     const { commonFormGroupProps, compactFormComponentsView } = useContext(FormContext)
-    return <FormGroupCore {...props} {...(compactFormComponentsView ? commonFormGroupProps : {})} />
+    return <FormGroupCore {...props} {...(compactFormComponentsView && props.compactFormComponentsView !== false ? commonFormGroupProps : {})} />
 }
 
 FormGroup.displayName = 'FormGroup'

@@ -3,6 +3,7 @@ import { CSSProperties, ReactNode } from 'react'
 export type Props = {
     children: ReactNode | ReactNode[]
     className?: string
+    compactFormComponentsView?: boolean
     dataTestId?: string
     error?: string | boolean
     errorTooltip?: boolean

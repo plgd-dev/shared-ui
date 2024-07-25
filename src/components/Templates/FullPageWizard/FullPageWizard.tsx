@@ -14,14 +14,14 @@ import { Description, SubHeadline, Headline, GroupHeadline, ToggleConfiguration,
 import { useDocumentTitle } from '../../../common/hooks'
 
 const FullPageWizard: ComponentType<Props> = (props) => {
-    const { children, title, i18n, steps, activeStep, onStepChange, onClose, visitedStep } = props
+    const { children, dataTestId, title, i18n, steps, activeStep, onStepChange, onClose, visitedStep } = props
 
     const theme: ThemeType = useTheme()
 
     useDocumentTitle(title)
 
     return (
-        <div css={styles.wizard}>
+        <div css={styles.wizard} data-test-id={dataTestId}>
             <div css={styles.row}>
                 <div css={styles.leftCol}>
                     <div css={styles.leftInner}>
@@ -63,6 +63,7 @@ const FullPageWizard: ComponentType<Props> = (props) => {
                 <div css={styles.rightInner}>
                     <a
                         css={styles.close}
+                        data-test-id={dataTestId?.concat('-close')}
                         href='#'
                         onClick={(e) => {
                             e.preventDefault()

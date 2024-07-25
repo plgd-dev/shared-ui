@@ -1,5 +1,6 @@
 export type Props = {
     className?: string
+    compactFormComponentsView?: boolean
     dataTestId?: string
     defaultValue?: Date | null
     id?: string

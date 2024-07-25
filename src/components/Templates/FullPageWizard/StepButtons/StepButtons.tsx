@@ -9,7 +9,7 @@ import Button from '../../../Atomic/Button'
 import Tooltip from '../../../Atomic/Tooltip'
 
 const StepButtons: FC<Props> = (props) => {
-    const { disableNext, i18n, onClickBack, onClickNext, showRequiredMessage } = { ...defaultProps, ...props }
+    const { disableNext, dataTestId, i18n, onClickBack, onClickNext, showRequiredMessage } = { ...defaultProps, ...props }
     const requiredMessageSplit = i18n.requiredMessage.split('(*)')
 
     return (
@@ -24,6 +24,7 @@ const StepButtons: FC<Props> = (props) => {
             <Spacer css={commonStyles.buttons} type='mt-4'>
                 {isFunction(onClickBack) && (
                     <Button
+                        dataTestId={dataTestId?.concat('-back')}
                         onClick={(e) => {
                             e.preventDefault()
                             isFunction(onClickBack) && onClickBack()
@@ -38,6 +39,7 @@ const StepButtons: FC<Props> = (props) => {
                     <div style={{ width: '100%' }}>
                         <Button
                             fullWidth
+                            dataTestId={dataTestId?.concat('-continue')}
                             disabled={disableNext}
                             onClick={(e) => {
                                 e.preventDefault()

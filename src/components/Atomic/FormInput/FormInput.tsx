@@ -1,6 +1,7 @@
 import { forwardRef, useContext, useRef, useState } from 'react'
 import { detect } from 'detect-browser'
 import { mergeRefs } from 'react-merge-refs'
+import isFunction from 'lodash/isFunction'
 
 import { Props, defaultProps } from './FormInput.types'
 import * as styles from './FormInput.styles'
@@ -9,7 +10,6 @@ import { copyToClipboard } from '../../../common/utils'
 import { inputAligns, inputSizes } from './constants'
 import { isEdge } from '../_utils/browser'
 import { FormContext } from '../../../common/context/FormContext'
-import isFunction from 'lodash/isFunction'
 
 export const FormInputCore = forwardRef<HTMLInputElement, Props>((props, ref) => {
     const {

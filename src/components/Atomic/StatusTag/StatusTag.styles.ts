@@ -48,6 +48,10 @@ export const tag = (theme: ThemeType, variant: TagTypeType) => css`
     line-height: 18px;
 `
 
+export const mediumSize = css`
+    padding: 6px 10px;
+`
+
 export const lowercase = css`
     text-transform: lowercase;
 `

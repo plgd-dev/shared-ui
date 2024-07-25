@@ -13,6 +13,7 @@ export type Row = {
 
 export type Props = {
     className?: string
+    dataTestId?: string
     headerLeft?: string
     headerRight?: string
     i18n?: {
