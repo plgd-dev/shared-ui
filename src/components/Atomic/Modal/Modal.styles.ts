@@ -21,6 +21,7 @@ export const modal = (theme: ThemeType, minWidth: number | string, maxWidth: num
     flex-direction: column;
     transition: all 0.3s;
 `
+
 export const header = (theme: ThemeType) => css`
     display: flex;
     align-items: center;

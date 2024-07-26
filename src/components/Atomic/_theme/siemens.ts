@@ -300,6 +300,41 @@ const theme = {
                 color: colorsSiemens.primary,
             },
         },
+        DatePicker: {
+            background: colorsSiemens.neutral900,
+            borderColor: colorsSiemens.neutral900,
+            day: {
+                color: colorsSiemens.neutral500,
+                disabled: {
+                    color: colorsSiemens.neutral700,
+                },
+                hover: {
+                    background: colorsSiemens.primary,
+                    color: colorsSiemens.neutral900,
+                },
+                selected: {
+                    background: colorsSiemens.primary,
+                    color: colorsSiemens.secondary,
+                },
+                today: {
+                    color: colorsSiemens.primary,
+                },
+            },
+            header: {
+                arrow: {
+                    color: colorsSiemens.neutral500,
+                    hover: {
+                        color: colorsSiemens.primary,
+                    },
+                },
+                day: {
+                    color: colorsSiemens.neutral500,
+                },
+                title: {
+                    color: colorsSiemens.neutral500,
+                },
+            },
+        },
         DeleteModal: {
             red: colorsSiemens.red,
             title: {
@@ -505,7 +540,7 @@ const theme = {
                 color: colorsSiemens.neutral000,
             },
             indicator: {
-                color: colorsSiemens.neutral000,
+                color: colorsSiemens.neutral500,
             },
             placeholder: {
                 color: colorsSiemens.neutral000,
@@ -952,10 +987,17 @@ const theme = {
             },
             row: {
                 background: '#26233c',
+                hover: {
+                    cell: {
+                        before: {
+                            background: colors.neutral800,
+                        },
+                    },
+                },
                 selected: {
                     cell: {
                         before: {
-                            background: colors.neutral600,
+                            background: colors.neutral800,
                         },
                     },
                 },

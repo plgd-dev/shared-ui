@@ -89,10 +89,10 @@ const DatePicker: FC<Props> = (props) => {
                     setStartDate(date)
                     isFunction(onChange) && onChange(date)
                 }}
-                open={open}
+                open={bottomButtons ? open : undefined}
                 renderCustomHeader={(headerRenderPros) => <Header {...headerRenderPros} />}
                 selected={startDate}
-                shouldCloseOnSelect={false}
+                shouldCloseOnSelect={!bottomButtons}
                 showPopperArrow={false}
                 wrapperClassName='react-date-picker'
             >

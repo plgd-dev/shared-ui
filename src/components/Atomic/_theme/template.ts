@@ -312,6 +312,7 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
         },
         DatePicker: {
+            background: colors.secondary,
             borderColor: colors.neutral200,
             day: {
                 color: colors.neutral800,
@@ -1011,6 +1012,13 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
             },
             row: {
                 background: colors.neutral100,
+                hover: {
+                    cell: {
+                        before: {
+                            background: colors.neutral200,
+                        },
+                    },
+                },
                 selected: {
                     cell: {
                         before: {

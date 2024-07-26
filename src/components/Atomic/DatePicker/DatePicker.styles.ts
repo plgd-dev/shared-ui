@@ -19,6 +19,7 @@ export const datePicker = (theme: ThemeType) => css`
         border-radius: 8px;
         padding: 20px;
         box-shadow: 0 30px 40px 0 rgba(28, 52, 99, 0.1);
+        background: ${getThemeColor(theme, `DatePicker.background`)};
     }
 
     .react-datepicker__header {

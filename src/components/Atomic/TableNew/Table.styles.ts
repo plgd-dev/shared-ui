@@ -182,7 +182,7 @@ export const row = (theme: ThemeType) => css`
             background-color: ${getThemeColor(theme, `Table.row.background`)};
 
             &:before {
-                background-color: ${getThemeColor(theme, `Table.row.selected.cell.before.background`)};
+                background-color: ${getThemeColor(theme, `Table.row.hover.cell.before.background`)};
             }
         }
     }

@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useImperativeHandle, useRef } from 'react'
 import { defaultProps, Props } from './Checkbox.types'
 import * as styles from './Chceckbox.styles'
+import omit from 'lodash/omit'
 
 const Checkbox: FC<Props> = (props) => {
     const { id, className, inputRef, label, checked, error, indeterminate, topOffset, ...rest } = { ...defaultProps, ...props }
@@ -19,7 +20,7 @@ const Checkbox: FC<Props> = (props) => {
 
     return (
         <label className={className} css={styles.checkbox} id={id}>
-            <input {...rest} checked={checked} css={styles.input} ref={ref} />
+            <input {...omit(rest, 'compactFormComponentsView')} checked={checked} css={styles.input} ref={ref} />
             <Check css={[error && styles.error, topOffset === false && styles.noTopOffset, rest.disabled && styles.disabled]} />
             {label && <div css={styles.label}>{label}</div>}
         </label>
