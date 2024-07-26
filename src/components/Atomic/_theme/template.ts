@@ -311,6 +311,40 @@ export const getThemeTemplate = (colors: any, logoProps: LogoType) => ({
                 color: colors.primary,
             },
         },
+        DatePicker: {
+            borderColor: colors.neutral200,
+            day: {
+                color: colors.neutral800,
+                disabled: {
+                    color: colors.neutral500,
+                },
+                hover: {
+                    background: colors.light,
+                    color: colors.primary,
+                },
+                selected: {
+                    background: colors.primary,
+                    color: colors.secondary,
+                },
+                today: {
+                    color: colors.primary,
+                },
+            },
+            header: {
+                arrow: {
+                    color: colors.neutral500,
+                    hover: {
+                        color: colors.primary,
+                    },
+                },
+                day: {
+                    color: colors.neutral500,
+                },
+                title: {
+                    color: colors.neutral800,
+                },
+            },
+        },
         DeleteModal: {
             red: colors.red,
             body: {
