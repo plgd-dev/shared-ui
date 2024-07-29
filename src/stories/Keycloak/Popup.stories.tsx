@@ -7,7 +7,7 @@ import Button from '../../components/Atomic/Button'
 import { StoryFn } from '@storybook/react'
 
 export default {
-    title: 'Keycloakify/Popup',
+    title: 'Keycloak/Popup',
     component: Popup,
     argTypes: {},
 }

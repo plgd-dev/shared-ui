@@ -6,6 +6,7 @@ import { withThemeByClassName } from '@storybook/addon-themes'
 import plgd from '../src/components/Atomic/_theme/plgd'
 import siemens from "../src/components/Atomic/_theme/siemens";
 import App from "../src/components/Atomic/App/App";
+import ErrorBoundary from "../src/components/Atomic/ErrorBoundary";
 
 const preview: Preview = {
     parameters: {
@@ -25,9 +26,11 @@ const withTheme = (StoryFn: any, context: any) => {
 
     return (
         <ThemeProvider theme={getThemeByKey(context.globals.theme)}>
-            <App>
-                <StoryFn/>
-            </App>
+            <ErrorBoundary>
+                <App>
+                    <StoryFn/>
+                </App>
+            </ErrorBoundary>
             <div id="modal-root"></div>
             <div id="modal-floating"></div>
         </ThemeProvider>

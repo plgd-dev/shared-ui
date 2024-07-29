@@ -33,8 +33,9 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test:storybook": "npx playwright test",
-    "test:storybook:ui": "npx playwright test --ui",
+    "test:storybook:ui": "npx playwright test --ui --update-snapshots",
     "test:storybook:debug": "npx playwright test --debug",
+    "test:storybook:updateSnapshots": "npx playwright test --update-snapshots",
     "test:storybook:report": "npx playwright show-report"
   },
   "dependencies": {

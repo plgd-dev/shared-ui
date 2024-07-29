@@ -1,4 +1,5 @@
 import React from 'react'
+import { StoryFn } from '@storybook/react'
 import KeycloakTemplate from '../../components/Templates/KeycloakTemplate'
 import '../global.css'
 import Swiper from '../../components/Atomic/Swiper'
@@ -16,10 +17,9 @@ import Button from '../../components/Atomic/Button'
 import FormLabel from '../../components/Atomic/FormLabel'
 import FormInput from '../../components/Atomic/FormInput'
 import SignInForm from '../../components/Templates/SignInForm'
-import { StoryFn } from '@storybook/react'
 
 export default {
-    title: 'Keycloakify/KeycloakTemplate',
+    title: 'Keycloak/KeycloakTemplate',
     component: KeycloakTemplate,
     argTypes: {},
 }

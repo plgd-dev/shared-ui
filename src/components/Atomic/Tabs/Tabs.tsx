@@ -1,9 +1,9 @@
-import React, { FC, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import React, { FC, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import isFunction from 'lodash/isFunction'
 import { motion } from 'framer-motion'
 import classNames from 'classnames'
 
-import { defaultProps, Props } from './Tabs.types'
+import { defaultProps, Props, TabItemType } from './Tabs.types'
 import * as styles from './Tabs.styles'
 import { useMeasure } from '../../../common/hooks/use-measure'
 import Pager from './Pager'
@@ -13,13 +13,32 @@ import IconCheck from '../Icon/components/IconCheck'
 import IconWarningCircle from '../Icon/components/IconWarningCircle'
 import MotionElement from '../MotionElement'
 
+export const TabItem = (props: TabItemType) => <>{props.content}</>
+
 const Tabs: FC<Props> = (props) => {
-    const { activeItem, className, onAnimationComplete, onItemChange, fullHeight, innerPadding, isAsync, style, tabs } = { ...defaultProps, ...props }
+    const { activeItem, className, onAnimationComplete, onItemChange, fullHeight, innerPadding, isAsync, style, tabs: tabsProp } = { ...defaultProps, ...props }
     const [value, setValue] = useState(activeItem)
     const childRefs = useRef(new Map())
     const tabListRef = useRef<HTMLDivElement | null>(null)
     const [slider, setSlider] = useState({ left: 0, right: 0, hasValue: false })
     const { bounds, ref } = useMeasure()
+
+    const tabs = useMemo(() => {
+        if (tabsProp && tabsProp.length > 0) {
+            return tabsProp
+        }
+
+        if (props.children) {
+            const items = React.Children.map(props.children, (child, i) => {
+                const tab = child as React.ReactElement
+                return tab.props as TabItemType
+            })?.filter((tab) => tab)
+
+            return items || []
+        }
+
+        return []
+    }, [tabsProp, props.children])
 
     const handleTabChange = (i: number) => {
         setValue(i)

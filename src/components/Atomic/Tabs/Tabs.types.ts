@@ -3,7 +3,7 @@ import { statuses } from './constants'
 
 export type StatusType = (typeof statuses)[keyof typeof statuses]
 
-export type TabItem = {
+export type TabItemType = {
     content: ReactNode
     dataTestId?: string
     disabled?: boolean
@@ -14,7 +14,7 @@ export type TabItem = {
 }
 
 export type Props = {
-    activeItem?: number
+    activeItem: number
     className?: string
     fullHeight?: boolean
     innerPadding?: boolean
@@ -22,9 +22,10 @@ export type Props = {
     onAnimationComplete?: () => void
     onItemChange?: (activeItem: number) => void
     style?: CSSProperties
-    tabs: TabItem[]
+    tabs?: TabItemType[]
+    children?: ReactNode[]
 }
 
-export const defaultProps = {
+export const defaultProps: Partial<Props> = {
     activeItem: 0,
 }

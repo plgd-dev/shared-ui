@@ -10,7 +10,7 @@ import '../global.css'
 import { StoryFn } from '@storybook/react'
 
 export default {
-    title: 'Keycloakify/SignInForm',
+    title: 'Keycloak/SignInForm',
     component: SignInForm,
     argTypes: {},
 }

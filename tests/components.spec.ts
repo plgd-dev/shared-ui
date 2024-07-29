@@ -28,7 +28,7 @@ const components = [
         group: 'Form',
         items: [
             { name: 'ActionButton', views: ['variants'] },
-            { name: 'Button' },
+            { name: 'Button', views: ['variants', 'disabled', 'icon', 'loading'] },
             { name: 'Checkbox' },
             { name: 'ColorPicker' },
             { name: 'ConfirmButton' },
@@ -39,7 +39,7 @@ const components = [
             { name: 'FormSelect' },
             { name: 'FormTextarea' },
             { name: 'Radio' },
-            { name: 'SplitButton' },
+            { name: 'SplitButton', views: ['variants', 'disabled', 'icon', 'loading'] },
             { name: 'Switch' },
             { name: 'TimeoutControl' },
         ],
