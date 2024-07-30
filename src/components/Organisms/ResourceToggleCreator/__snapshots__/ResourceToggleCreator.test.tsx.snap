@@ -610,13 +610,16 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
 }
 
 .emotion-37 {
-  pointer-events: none;
-  position: relative;
-  box-sizing: border-box;
   width: 100%;
 }
 
-.emotion-37 .select__control {
+.emotion-38 {
+  pointer-events: none;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.emotion-38 .select__control {
   height: 44px;
   min-height: 44px;
   border-radius: 8px;
@@ -626,17 +629,17 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   border: 1px solid #D7D8DA;
 }
 
-.emotion-37 .select__control:focus {
+.emotion-38 .select__control:focus {
   outline: none;
 }
 
-.emotion-37 .select__control:hover {
+.emotion-38 .select__control:hover {
   outline: none;
   border: 1px solid #007BBF;
 }
 
-.emotion-37 .select__control .select__value-container .select__placeholder,
-.emotion-37 .select__control .select__value-container .select__input-container {
+.emotion-38 .select__control .select__value-container .select__placeholder,
+.emotion-38 .select__control .select__value-container .select__input-container {
   font-family: 'Poppins',sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -645,8 +648,8 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   color: #252626!important;
 }
 
-.emotion-37 .select__control .select__value-container .select__placeholder input,
-.emotion-37 .select__control .select__value-container .select__input-container input {
+.emotion-38 .select__control .select__value-container .select__placeholder input,
+.emotion-38 .select__control .select__value-container .select__input-container input {
   font-family: 'Poppins',sans-serif;
   font-style: normal!important;
   font-weight: 400!important;
@@ -655,19 +658,19 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   color: #252626!important;
 }
 
-.emotion-37 .select__control.select__control--is-focused {
+.emotion-38 .select__control.select__control--is-focused {
   box-shadow: none;
 }
 
-.emotion-37 .select__indicator-separator {
+.emotion-38 .select__indicator-separator {
   display: none;
 }
 
-.emotion-37 .select__input-container {
+.emotion-38 .select__input-container {
   margin: 0;
 }
 
-.emotion-38 {
+.emotion-39 {
   z-index: 9999;
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -679,7 +682,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   white-space: nowrap;
 }
 
-.emotion-40 {
+.emotion-41 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -718,20 +721,20 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   min-height: 36px!important;
 }
 
-.emotion-40:hover {
+.emotion-41:hover {
   border-color: hsl(0, 0%, 70%);
 }
 
-.emotion-40:focus {
+.emotion-41:focus {
   outline: none;
 }
 
-.emotion-40:hover {
+.emotion-41:hover {
   outline: none;
   border: 1px solid #007BBF;
 }
 
-.emotion-41 {
+.emotion-42 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -752,7 +755,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   padding: 0 0 0 15px;
 }
 
-.emotion-42 {
+.emotion-43 {
   grid-area: 1/1/2/3;
   max-width: 100%;
   overflow: hidden;
@@ -771,7 +774,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   color: #81868C;
 }
 
-.emotion-43 {
+.emotion-44 {
   visibility: hidden;
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
@@ -786,7 +789,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.emotion-43:after {
+.emotion-44:after {
   content: attr(data-value) " ";
   visibility: hidden;
   white-space: pre;
@@ -799,7 +802,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   padding: 0;
 }
 
-.emotion-44 {
+.emotion-45 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -817,7 +820,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.emotion-45 {
+.emotion-46 {
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   align-self: stretch;
@@ -828,7 +831,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.emotion-46 {
+.emotion-47 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -841,17 +844,17 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   padding: 4px 16px 4px 4px;
 }
 
-.emotion-46:hover {
+.emotion-47:hover {
   color: hsl(0, 0%, 60%);
 }
 
-.emotion-47 {
+.emotion-48 {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   color: #81868C;
 }
 
-.emotion-52 {
+.emotion-53 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -876,7 +879,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   text-transform: lowercase;
 }
 
-.emotion-68 {
+.emotion-69 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -911,19 +914,19 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   line-height: 20px;
 }
 
-.emotion-68:hover {
+.emotion-69:hover {
   background: #0A2965;
   border-color: #0A2965;
   color: #FFFFFF;
 }
 
-.emotion-68:hover {
+.emotion-69:hover {
   background: #ffffff;
   border-color: #D7D8DA;
   color: #D7D8DA;
 }
 
-.emotion-100 {
+.emotion-102 {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -948,7 +951,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
   text-transform: lowercase;
 }
 
-.emotion-199 {
+.emotion-203 {
   width: 1px;
   height: 20px;
   background: #E6E9ED;
@@ -1164,81 +1167,85 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
                           Unit
                         </label>
                         <div
-                          class="select--is-disabled emotion-37"
-                          id="Unit"
+                          class="emotion-37"
                         >
-                          <span
-                            class="emotion-38"
-                            id="react-select-7-live-region"
-                          />
-                          <span
-                            aria-atomic="false"
-                            aria-live="polite"
-                            aria-relevant="additions text"
-                            class="emotion-38"
-                            role="log"
-                          />
                           <div
-                            aria-disabled="true"
-                            class="select__control select__control--is-disabled emotion-40"
+                            class="select--is-disabled emotion-38"
+                            id="Unit"
                           >
+                            <span
+                              class="emotion-39"
+                              id="react-select-7-live-region"
+                            />
+                            <span
+                              aria-atomic="false"
+                              aria-live="polite"
+                              aria-relevant="additions text"
+                              class="emotion-39"
+                              role="log"
+                            />
                             <div
-                              class="select__value-container select__value-container--has-value emotion-41"
+                              aria-disabled="true"
+                              class="select__control select__control--is-disabled emotion-41"
                             >
                               <div
-                                class="select__single-value select__single-value--is-disabled emotion-42"
-                              >
-                                default
-                              </div>
-                              <div
-                                class="select__input-container emotion-43"
-                                data-value=""
-                              >
-                                <input
-                                  aria-activedescendant=""
-                                  aria-autocomplete="list"
-                                  aria-expanded="false"
-                                  aria-haspopup="true"
-                                  autocapitalize="none"
-                                  autocomplete="off"
-                                  autocorrect="off"
-                                  class="select__input"
-                                  disabled=""
-                                  id="react-select-7-input"
-                                  role="combobox"
-                                  spellcheck="false"
-                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                                  tabindex="0"
-                                  type="text"
-                                  value=""
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="select__indicators emotion-44"
-                            >
-                              <span
-                                class="select__indicator-separator emotion-45"
-                              />
-                              <div
-                                aria-hidden="true"
-                                class="select__indicator select__dropdown-indicator emotion-46"
+                                class="select__value-container select__value-container--has-value emotion-42"
                               >
                                 <div
-                                  class="emotion-47"
+                                  class="select__single-value select__single-value--is-disabled emotion-43"
                                 >
-                                  <svg
-                                    fill="none"
-                                    height="10"
-                                    viewBox="0 0 6 4"
-                                    width="10"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  default
+                                </div>
+                                <div
+                                  class="select__input-container emotion-44"
+                                  data-value=""
+                                >
+                                  <input
+                                    aria-activedescendant=""
+                                    aria-autocomplete="list"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    class="select__input"
+                                    disabled=""
+                                    id="react-select-7-input"
+                                    role="combobox"
+                                    spellcheck="false"
+                                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="select__indicators emotion-45"
+                              >
+                                <span
+                                  class="select__indicator-separator emotion-46"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  class="select__indicator select__dropdown-indicator emotion-47"
+                                >
+                                  <div
+                                    class="emotion-48"
                                   >
-                                    <path
-                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
-                                      fill="currentcolor"
-                                    />
-                                  </svg>
+                                    <svg
+                                      fill="none"
+                                      height="10"
+                                      viewBox="0 0 6 4"
+                                      width="10"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                        fill="currentcolor"
+                                      />
+                                    </svg>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1274,7 +1281,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
             data-test-id="resource-toggle-creator-1-status-tag"
           >
             <div
-              class="emotion-52"
+              class="emotion-53"
             >
               CANCELED
             </div>
@@ -1369,7 +1376,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
                 class="emotion-12"
               >
                 <button
-                  class="emotion-68"
+                  class="emotion-69"
                   disabled=""
                   tabindex="1"
                   type="submit"
@@ -1461,81 +1468,85 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
                           Unit
                         </label>
                         <div
-                          class="select--is-disabled emotion-37"
-                          id="Unit"
+                          class="emotion-37"
                         >
-                          <span
-                            class="emotion-38"
-                            id="react-select-8-live-region"
-                          />
-                          <span
-                            aria-atomic="false"
-                            aria-live="polite"
-                            aria-relevant="additions text"
-                            class="emotion-38"
-                            role="log"
-                          />
                           <div
-                            aria-disabled="true"
-                            class="select__control select__control--is-disabled emotion-40"
+                            class="select--is-disabled emotion-38"
+                            id="Unit"
                           >
+                            <span
+                              class="emotion-39"
+                              id="react-select-8-live-region"
+                            />
+                            <span
+                              aria-atomic="false"
+                              aria-live="polite"
+                              aria-relevant="additions text"
+                              class="emotion-39"
+                              role="log"
+                            />
                             <div
-                              class="select__value-container select__value-container--has-value emotion-41"
+                              aria-disabled="true"
+                              class="select__control select__control--is-disabled emotion-41"
                             >
                               <div
-                                class="select__single-value select__single-value--is-disabled emotion-42"
-                              >
-                                default
-                              </div>
-                              <div
-                                class="select__input-container emotion-43"
-                                data-value=""
-                              >
-                                <input
-                                  aria-activedescendant=""
-                                  aria-autocomplete="list"
-                                  aria-expanded="false"
-                                  aria-haspopup="true"
-                                  autocapitalize="none"
-                                  autocomplete="off"
-                                  autocorrect="off"
-                                  class="select__input"
-                                  disabled=""
-                                  id="react-select-8-input"
-                                  role="combobox"
-                                  spellcheck="false"
-                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                                  tabindex="0"
-                                  type="text"
-                                  value=""
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="select__indicators emotion-44"
-                            >
-                              <span
-                                class="select__indicator-separator emotion-45"
-                              />
-                              <div
-                                aria-hidden="true"
-                                class="select__indicator select__dropdown-indicator emotion-46"
+                                class="select__value-container select__value-container--has-value emotion-42"
                               >
                                 <div
-                                  class="emotion-47"
+                                  class="select__single-value select__single-value--is-disabled emotion-43"
                                 >
-                                  <svg
-                                    fill="none"
-                                    height="10"
-                                    viewBox="0 0 6 4"
-                                    width="10"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  default
+                                </div>
+                                <div
+                                  class="select__input-container emotion-44"
+                                  data-value=""
+                                >
+                                  <input
+                                    aria-activedescendant=""
+                                    aria-autocomplete="list"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    class="select__input"
+                                    disabled=""
+                                    id="react-select-8-input"
+                                    role="combobox"
+                                    spellcheck="false"
+                                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="select__indicators emotion-45"
+                              >
+                                <span
+                                  class="select__indicator-separator emotion-46"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  class="select__indicator select__dropdown-indicator emotion-47"
+                                >
+                                  <div
+                                    class="emotion-48"
                                   >
-                                    <path
-                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
-                                      fill="currentcolor"
-                                    />
-                                  </svg>
+                                    <svg
+                                      fill="none"
+                                      height="10"
+                                      viewBox="0 0 6 4"
+                                      width="10"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                        fill="currentcolor"
+                                      />
+                                    </svg>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1571,7 +1582,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
             data-test-id="resource-toggle-creator-2-status-tag"
           >
             <div
-              class="emotion-100"
+              class="emotion-102"
             >
               ERROR
             </div>
@@ -1757,81 +1768,85 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
                           Unit
                         </label>
                         <div
-                          class="select--is-disabled emotion-37"
-                          id="Unit"
+                          class="emotion-37"
                         >
-                          <span
-                            class="emotion-38"
-                            id="react-select-9-live-region"
-                          />
-                          <span
-                            aria-atomic="false"
-                            aria-live="polite"
-                            aria-relevant="additions text"
-                            class="emotion-38"
-                            role="log"
-                          />
                           <div
-                            aria-disabled="true"
-                            class="select__control select__control--is-disabled emotion-40"
+                            class="select--is-disabled emotion-38"
+                            id="Unit"
                           >
+                            <span
+                              class="emotion-39"
+                              id="react-select-9-live-region"
+                            />
+                            <span
+                              aria-atomic="false"
+                              aria-live="polite"
+                              aria-relevant="additions text"
+                              class="emotion-39"
+                              role="log"
+                            />
                             <div
-                              class="select__value-container select__value-container--has-value emotion-41"
+                              aria-disabled="true"
+                              class="select__control select__control--is-disabled emotion-41"
                             >
                               <div
-                                class="select__single-value select__single-value--is-disabled emotion-42"
-                              >
-                                default
-                              </div>
-                              <div
-                                class="select__input-container emotion-43"
-                                data-value=""
-                              >
-                                <input
-                                  aria-activedescendant=""
-                                  aria-autocomplete="list"
-                                  aria-expanded="false"
-                                  aria-haspopup="true"
-                                  autocapitalize="none"
-                                  autocomplete="off"
-                                  autocorrect="off"
-                                  class="select__input"
-                                  disabled=""
-                                  id="react-select-9-input"
-                                  role="combobox"
-                                  spellcheck="false"
-                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                                  tabindex="0"
-                                  type="text"
-                                  value=""
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="select__indicators emotion-44"
-                            >
-                              <span
-                                class="select__indicator-separator emotion-45"
-                              />
-                              <div
-                                aria-hidden="true"
-                                class="select__indicator select__dropdown-indicator emotion-46"
+                                class="select__value-container select__value-container--has-value emotion-42"
                               >
                                 <div
-                                  class="emotion-47"
+                                  class="select__single-value select__single-value--is-disabled emotion-43"
                                 >
-                                  <svg
-                                    fill="none"
-                                    height="10"
-                                    viewBox="0 0 6 4"
-                                    width="10"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  default
+                                </div>
+                                <div
+                                  class="select__input-container emotion-44"
+                                  data-value=""
+                                >
+                                  <input
+                                    aria-activedescendant=""
+                                    aria-autocomplete="list"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    class="select__input"
+                                    disabled=""
+                                    id="react-select-9-input"
+                                    role="combobox"
+                                    spellcheck="false"
+                                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="select__indicators emotion-45"
+                              >
+                                <span
+                                  class="select__indicator-separator emotion-46"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  class="select__indicator select__dropdown-indicator emotion-47"
+                                >
+                                  <div
+                                    class="emotion-48"
                                   >
-                                    <path
-                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
-                                      fill="currentcolor"
-                                    />
-                                  </svg>
+                                    <svg
+                                      fill="none"
+                                      height="10"
+                                      viewBox="0 0 6 4"
+                                      width="10"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                        fill="currentcolor"
+                                      />
+                                    </svg>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -1867,7 +1882,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
             data-test-id="resource-toggle-creator-3-status-tag"
           >
             <div
-              class="emotion-100"
+              class="emotion-102"
             >
               TIMEOUT
             </div>
@@ -2053,81 +2068,85 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
                           Unit
                         </label>
                         <div
-                          class="select--is-disabled emotion-37"
-                          id="Unit"
+                          class="emotion-37"
                         >
-                          <span
-                            class="emotion-38"
-                            id="react-select-10-live-region"
-                          />
-                          <span
-                            aria-atomic="false"
-                            aria-live="polite"
-                            aria-relevant="additions text"
-                            class="emotion-38"
-                            role="log"
-                          />
                           <div
-                            aria-disabled="true"
-                            class="select__control select__control--is-disabled emotion-40"
+                            class="select--is-disabled emotion-38"
+                            id="Unit"
                           >
+                            <span
+                              class="emotion-39"
+                              id="react-select-10-live-region"
+                            />
+                            <span
+                              aria-atomic="false"
+                              aria-live="polite"
+                              aria-relevant="additions text"
+                              class="emotion-39"
+                              role="log"
+                            />
                             <div
-                              class="select__value-container select__value-container--has-value emotion-41"
+                              aria-disabled="true"
+                              class="select__control select__control--is-disabled emotion-41"
                             >
                               <div
-                                class="select__single-value select__single-value--is-disabled emotion-42"
-                              >
-                                default
-                              </div>
-                              <div
-                                class="select__input-container emotion-43"
-                                data-value=""
-                              >
-                                <input
-                                  aria-activedescendant=""
-                                  aria-autocomplete="list"
-                                  aria-expanded="false"
-                                  aria-haspopup="true"
-                                  autocapitalize="none"
-                                  autocomplete="off"
-                                  autocorrect="off"
-                                  class="select__input"
-                                  disabled=""
-                                  id="react-select-10-input"
-                                  role="combobox"
-                                  spellcheck="false"
-                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                                  tabindex="0"
-                                  type="text"
-                                  value=""
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="select__indicators emotion-44"
-                            >
-                              <span
-                                class="select__indicator-separator emotion-45"
-                              />
-                              <div
-                                aria-hidden="true"
-                                class="select__indicator select__dropdown-indicator emotion-46"
+                                class="select__value-container select__value-container--has-value emotion-42"
                               >
                                 <div
-                                  class="emotion-47"
+                                  class="select__single-value select__single-value--is-disabled emotion-43"
                                 >
-                                  <svg
-                                    fill="none"
-                                    height="10"
-                                    viewBox="0 0 6 4"
-                                    width="10"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  default
+                                </div>
+                                <div
+                                  class="select__input-container emotion-44"
+                                  data-value=""
+                                >
+                                  <input
+                                    aria-activedescendant=""
+                                    aria-autocomplete="list"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    class="select__input"
+                                    disabled=""
+                                    id="react-select-10-input"
+                                    role="combobox"
+                                    spellcheck="false"
+                                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="select__indicators emotion-45"
+                              >
+                                <span
+                                  class="select__indicator-separator emotion-46"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  class="select__indicator select__dropdown-indicator emotion-47"
+                                >
+                                  <div
+                                    class="emotion-48"
                                   >
-                                    <path
-                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
-                                      fill="currentcolor"
-                                    />
-                                  </svg>
+                                    <svg
+                                      fill="none"
+                                      height="10"
+                                      viewBox="0 0 6 4"
+                                      width="10"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                        fill="currentcolor"
+                                      />
+                                    </svg>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -2163,7 +2182,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
             data-test-id="resource-toggle-creator-4-status-tag"
           >
             <div
-              class="emotion-52"
+              class="emotion-53"
             >
               PENDING
             </div>
@@ -2190,7 +2209,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
             </svg>
           </div>
           <div
-            class="emotion-199"
+            class="emotion-203"
           />
           <div
             class="expander emotion-6"
@@ -2278,7 +2297,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
                 class="emotion-12"
               >
                 <button
-                  class="emotion-68"
+                  class="emotion-69"
                   disabled=""
                   tabindex="1"
                   type="submit"
@@ -2370,81 +2389,85 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
                           Unit
                         </label>
                         <div
-                          class="select--is-disabled emotion-37"
-                          id="Unit"
+                          class="emotion-37"
                         >
-                          <span
-                            class="emotion-38"
-                            id="react-select-11-live-region"
-                          />
-                          <span
-                            aria-atomic="false"
-                            aria-live="polite"
-                            aria-relevant="additions text"
-                            class="emotion-38"
-                            role="log"
-                          />
                           <div
-                            aria-disabled="true"
-                            class="select__control select__control--is-disabled emotion-40"
+                            class="select--is-disabled emotion-38"
+                            id="Unit"
                           >
+                            <span
+                              class="emotion-39"
+                              id="react-select-11-live-region"
+                            />
+                            <span
+                              aria-atomic="false"
+                              aria-live="polite"
+                              aria-relevant="additions text"
+                              class="emotion-39"
+                              role="log"
+                            />
                             <div
-                              class="select__value-container select__value-container--has-value emotion-41"
+                              aria-disabled="true"
+                              class="select__control select__control--is-disabled emotion-41"
                             >
                               <div
-                                class="select__single-value select__single-value--is-disabled emotion-42"
-                              >
-                                default
-                              </div>
-                              <div
-                                class="select__input-container emotion-43"
-                                data-value=""
-                              >
-                                <input
-                                  aria-activedescendant=""
-                                  aria-autocomplete="list"
-                                  aria-expanded="false"
-                                  aria-haspopup="true"
-                                  autocapitalize="none"
-                                  autocomplete="off"
-                                  autocorrect="off"
-                                  class="select__input"
-                                  disabled=""
-                                  id="react-select-11-input"
-                                  role="combobox"
-                                  spellcheck="false"
-                                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
-                                  tabindex="0"
-                                  type="text"
-                                  value=""
-                                />
-                              </div>
-                            </div>
-                            <div
-                              class="select__indicators emotion-44"
-                            >
-                              <span
-                                class="select__indicator-separator emotion-45"
-                              />
-                              <div
-                                aria-hidden="true"
-                                class="select__indicator select__dropdown-indicator emotion-46"
+                                class="select__value-container select__value-container--has-value emotion-42"
                               >
                                 <div
-                                  class="emotion-47"
+                                  class="select__single-value select__single-value--is-disabled emotion-43"
                                 >
-                                  <svg
-                                    fill="none"
-                                    height="10"
-                                    viewBox="0 0 6 4"
-                                    width="10"
-                                    xmlns="http://www.w3.org/2000/svg"
+                                  default
+                                </div>
+                                <div
+                                  class="select__input-container emotion-44"
+                                  data-value=""
+                                >
+                                  <input
+                                    aria-activedescendant=""
+                                    aria-autocomplete="list"
+                                    aria-expanded="false"
+                                    aria-haspopup="true"
+                                    autocapitalize="none"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    class="select__input"
+                                    disabled=""
+                                    id="react-select-11-input"
+                                    role="combobox"
+                                    spellcheck="false"
+                                    style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                                    tabindex="0"
+                                    type="text"
+                                    value=""
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                class="select__indicators emotion-45"
+                              >
+                                <span
+                                  class="select__indicator-separator emotion-46"
+                                />
+                                <div
+                                  aria-hidden="true"
+                                  class="select__indicator select__dropdown-indicator emotion-47"
+                                >
+                                  <div
+                                    class="emotion-48"
                                   >
-                                    <path
-                                      d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
-                                      fill="currentcolor"
-                                    />
-                                  </svg>
+                                    <svg
+                                      fill="none"
+                                      height="10"
+                                      viewBox="0 0 6 4"
+                                      width="10"
+                                      xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                      <path
+                                        d="m2.576 3.805-2.4-2.666a.72.72 0 0 1-.13-.727C.14.162.358 0 .601 0H5.4c.242 0 .461.162.555.412a.72.72 0 0 1-.13.727l-2.4 2.666a.56.56 0 0 1-.848 0"
+                                        fill="currentcolor"
+                                      />
+                                    </svg>
+                                  </div>
                                 </div>
                               </div>
                             </div>
