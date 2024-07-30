@@ -5,7 +5,7 @@ import { Props } from './BottomPanel.types'
 import * as styles from './BottomPanel.styles'
 
 const BottomPanel: FC<Props> = (props) => {
-    const { actionPrimary, actionSecondary, attribute, value, iframeMode, leftPanelCollapsed, show } = props
+    const { actionPrimary, actionSecondary, attribute, dataTestId, value, iframeMode, leftPanelCollapsed, show } = props
     return (
         <AnimatePresence>
             {show && (
@@ -17,6 +17,7 @@ const BottomPanel: FC<Props> = (props) => {
                         iframeMode === true && styles.iframeMode,
                         iframeMode === 'absolute' && styles.absolute,
                     ]}
+                    data-test-id={dataTestId}
                     exit={{
                         opacity: 0,
                         y: 150,
