@@ -11,6 +11,25 @@ import { convertSize, IconCloseCircle } from '../Icon'
 import Button from '../Button'
 import Backdrop from './Backdrop'
 
+const dropIn = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        y: '0',
+        opacity: 1,
+        transition: {
+            duration: 0.1,
+            type: 'spring',
+            damping: 25,
+            stiffness: 500,
+        },
+    },
+    exit: {
+        opacity: 0,
+    },
+}
+
 export const Modal: FC<Props> = memo((props) => {
     const {
         appRoot,
@@ -126,25 +145,6 @@ export const Modal: FC<Props> = memo((props) => {
         }
 
         return null
-    }
-
-    const dropIn = {
-        hidden: {
-            opacity: 0,
-        },
-        visible: {
-            y: '0',
-            opacity: 1,
-            transition: {
-                duration: 0.1,
-                type: 'spring',
-                damping: 25,
-                stiffness: 500,
-            },
-        },
-        exit: {
-            opacity: 0,
-        },
     }
 
     const ModalBase = (
