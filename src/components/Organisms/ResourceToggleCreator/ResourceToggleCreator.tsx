@@ -129,27 +129,29 @@ const ResourceToggleCreator: FC<Props> = (props) => {
         setTouched(false)
     }, [show])
 
-    const getButtonIcon = useCallback((hasContent: boolean, hasUpdateContent: boolean, status?: ResourceStatusType) => {
-        if (hasUpdateContent || status) {
-            return <IconArrowDetail />
-        } else if (hasContent) {
-            return <IconEdit />
-        } else {
-            return <IconPlus />
-        }
-    }, [])
-
-    const getButtonText = useCallback(
+    const getButtonData = useCallback(
         (hasContent: boolean, hasUpdateContent: boolean, status?: ResourceStatusType) => {
             if (hasUpdateContent || status) {
-                return i18n.view
+                return {
+                    children: i18n.view,
+                    icon: <IconArrowDetail />,
+                    dataTestId: dataTestId?.concat('-view-button'),
+                }
             } else if (hasContent) {
-                return i18n.edit
+                return {
+                    children: i18n.edit,
+                    icon: <IconEdit />,
+                    dataTestId: dataTestId?.concat('-edit-button'),
+                }
             } else {
-                return i18n.add
+                return {
+                    children: i18n.add,
+                    icon: <IconPlus />,
+                    dataTestId: dataTestId?.concat('-add-button'),
+                }
             }
         },
-        [i18n.add, i18n.edit, i18n.view]
+        [dataTestId, i18n.add, i18n.edit, i18n.view]
     )
 
     const getModalTitle = useCallback(
@@ -195,17 +197,15 @@ const ResourceToggleCreator: FC<Props> = (props) => {
             attribute: i18n.content,
             value: (
                 <Button
+                    {...getButtonData(hasContent, hasUpdateContent, resourceData.status)}
                     disabled={resourceData.resourceUpdated?.status === 'CANCELED' || resourceData.status === 'PENDING'}
-                    icon={getButtonIcon(hasContent, hasUpdateContent, resourceData.status)}
                     onClick={(e) => {
                         e.preventDefault()
                         setShowModal(true)
                     }}
                     size={buttonSizes.SMALL}
                     variant={hasContent || hasUpdateContent ? 'secondary' : 'primary'}
-                >
-                    {getButtonText(hasContent, hasUpdateContent)}
-                </Button>
+                />
             ),
         },
     ]
