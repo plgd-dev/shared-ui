@@ -1077,6 +1077,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
               >
                 <button
                   class="emotion-20"
+                  data-test-id="resource-toggle-creator-0-view-button"
                   tabindex="1"
                   type="submit"
                 >
@@ -1377,6 +1378,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
               >
                 <button
                   class="emotion-69"
+                  data-test-id="resource-toggle-creator-1-view-button"
                   disabled=""
                   tabindex="1"
                   type="submit"
@@ -1678,6 +1680,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
               >
                 <button
                   class="emotion-20"
+                  data-test-id="resource-toggle-creator-2-view-button"
                   tabindex="1"
                   type="submit"
                 >
@@ -1978,6 +1981,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
               >
                 <button
                   class="emotion-20"
+                  data-test-id="resource-toggle-creator-3-view-button"
                   tabindex="1"
                   type="submit"
                 >
@@ -2298,6 +2302,7 @@ exports[`<ResourceToggleCreator> render correctly - snapshot 1`] = `
               >
                 <button
                   class="emotion-69"
+                  data-test-id="resource-toggle-creator-4-view-button"
                   disabled=""
                   tabindex="1"
                   type="submit"
