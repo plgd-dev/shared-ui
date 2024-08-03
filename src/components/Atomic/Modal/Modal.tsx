@@ -68,10 +68,14 @@ export const Modal: FC<Props> = memo((props) => {
         if (appRoot && show) {
             // @ts-ignore
             appRoot.style.filter = `blur(${show ? 6 : 0}px)`
+            // @ts-ignore
+            appRoot.style.overflow = `hidden`
 
             return () => {
                 // @ts-ignore
                 appRoot.style.filter = `none`
+                // @ts-ignore
+                appRoot.style.overflow = 'unset'
             }
         }
     }, [show, appRoot])
