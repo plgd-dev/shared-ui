@@ -85,7 +85,6 @@ const Table: FC<Props> = (props) => {
         toggleAllRowsSelected,
         isAllRowsSelected,
         toggleAllPageRowsSelected,
-        preGlobalFilteredRows,
         setGlobalFilter,
         state: { pageIndex, pageSize, selectedRowIds, globalFilter },
     } = useTable(
@@ -236,7 +235,6 @@ const Table: FC<Props> = (props) => {
                     i18n={{
                         search: i18n.search,
                     }}
-                    preGlobalFilteredRows={preGlobalFilteredRows}
                     setGlobalFilter={setGlobalFilter}
                     showFilterButton={showFilterButton}
                 />

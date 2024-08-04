@@ -4,7 +4,6 @@ export type Props = {
     i18n: {
         search: string
     }
-    preGlobalFilteredRows: any
     setGlobalFilter: any
     showFilterButton?: boolean
 }
