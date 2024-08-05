@@ -14,7 +14,7 @@ const TableGlobalFilter: FC<Props> = (props) => {
     }, 200)
 
     return (
-        <div css={styles.globalFilter}>
+        <div css={styles.globalFilter} data-test-id={dataTestId}>
             <div css={styles.left}>
                 <IconSearch css={styles.icon} />
                 <input
@@ -30,7 +30,7 @@ const TableGlobalFilter: FC<Props> = (props) => {
             </div>
             {showFilterButton && (
                 <div>
-                    <Button onClick={() => onChange(value)} size='small' variant='filter'>
+                    <Button data-test-id={dataTestId?.concat('-button')} onClick={() => onChange(value)} size='small' variant='filter'>
                         {i18n.search}
                     </Button>
                 </div>

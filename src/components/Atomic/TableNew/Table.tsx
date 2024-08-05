@@ -1,21 +1,22 @@
 // @ts-nocheck
 import React, { ChangeEvent, FC, useEffect, useMemo, useState, useRef, useCallback } from 'react'
-import { Props, defaultProps } from './Table.types'
-import * as styles from './Table.styles'
-import { usePagination, useRowSelect, useSortBy, useTable, useGlobalFilter } from 'react-table'
-import { compareIgnoreCase } from './Utils'
-import classNames from 'classnames'
-import { IconTableArrowDown, IconTableArrowUp, convertSize } from '../Icon'
-import Checkbox from '../Checkbox'
 import { createPortal } from 'react-dom'
-import Pagination from '../../Layout/Footer/Pagination/Pagination'
+import { usePagination, useRowSelect, useSortBy, useTable, useGlobalFilter } from 'react-table'
+import get from 'lodash/get'
 import isEqual from 'lodash/isEqual'
 import isEmpty from 'lodash/isEmpty'
+import classNames from 'classnames'
+
+import { Props, defaultProps } from './Table.types'
+import * as styles from './Table.styles'
+import { compareIgnoreCase } from './Utils'
+import { IconTableArrowDown, IconTableArrowUp, convertSize } from '../Icon'
+import Checkbox from '../Checkbox'
+import Pagination from '../../Layout/Footer/Pagination/Pagination'
 import TableGlobalFilter from './TableGlobalFilter'
 import { GLOBAL_FILTER_HEIGHT, HEADER_HEIGHT } from './constants'
 import ConditionalWrapper from '../ConditionalWrapper'
 import IconLoader from '../Loader/IconLoader'
-import get from 'lodash/get'
 
 const Table: FC<Props> = (props) => {
     const {
