@@ -4,7 +4,7 @@ exports[`Logo renders without crashing 1`] = `
 <DocumentFragment>
   <img
     alt=""
-    class="emotion-0"
+    class="css-0"
     height="50px"
     id="main-app-logo"
     src="logo.png"
