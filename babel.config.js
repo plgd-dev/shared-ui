@@ -1,5 +1,3 @@
-
-
 module.exports = function(api) {
   api.cache(true)
   api.assertVersion("^7.19.3")
