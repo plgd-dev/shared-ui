@@ -52,7 +52,7 @@ jobs:
         run: npx playwright test --update-snapshots --reporter html
 
       - name: Test
-        run: npx playwright test --ignore-snapshots
+        run: npx playwright test
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
