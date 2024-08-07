@@ -31,7 +31,7 @@ export function useForm<TFieldValues extends FieldValues = FieldValues>(options:
         mode: 'all',
         reValidateMode: 'onSubmit',
         defaultValues: defaultFormData,
-        resolver: schema ? zodResolver(schema) : undefined,
+        resolver: (schema ? zodResolver(schema) : undefined) as any,
     })
 
     const data = useFormData.watch()
