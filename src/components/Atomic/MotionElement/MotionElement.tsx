@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { motion } from 'framer-motion'
 
 const MotionElement: FC<any> = (props) => {
-    const noAnimations = process.env.REACT_APP_NO_ANIMATIONS === 'true'
+    const noAnimations = process.env.REACT_APP_NO_ANIMATIONS === 'true' || process.env.REACT_APP_MOCK_API === 'true'
     const { divStyle, children, noAnimations: noAnimationsProp, ...rest } = props
 
     return noAnimations || noAnimationsProp ? (
