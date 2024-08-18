@@ -31,7 +31,7 @@ const SimpleStripTable: FC<Props> = (props) => {
     const getDataTestId = useCallback(
         (r: RowType, suffix: string, rowId: number) => {
             if (r.hasOwnProperty('dataTestId')) {
-                return r.dataTestId?.concat(suffix)
+                return r.dataTestId?.concat(`-${suffix}`)
             } else if (dataTestId) {
                 return dataTestId.concat(`-row-${rowId}-${suffix}`)
             }
@@ -78,7 +78,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                     lastRowBorder === false && key === rows.length - 1 && styles.noLastRowBorder,
                                     noSidePadding && styles.noLeftPadding,
                                 ]}
-                                data-test-id={getDataTestId(r, '-attribute', key)}
+                                data-test-id={getDataTestId(r, 'attribute', key)}
                             >
                                 {r.attribute}
                                 {r.required && <span css={styles.required}> *</span>}
@@ -94,7 +94,7 @@ const SimpleStripTable: FC<Props> = (props) => {
                                     lastRowBorder === false && key === rows.length - 1 && styles.noLastRowBorder,
                                     noSidePadding && styles.noRightPadding,
                                 ]}
-                                data-test-id={getDataTestId(r, '-value', key)}
+                                data-test-id={getDataTestId(r, 'value', key)}
                             >
                                 {r.value}
                                 {r.copyValue && (
