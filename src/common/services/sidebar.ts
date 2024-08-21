@@ -11,6 +11,7 @@ export const updateSidebarVisibility = (wellKnown: any) => ({
             ...wellKnown.ui.visibility.mainSidebar,
             apiTokens: checkVisibility(wellKnown.ui.visibility.mainSidebar.apiTokens, wellKnown.m2mOauthClient),
             deviceProvisioning: checkVisibility(wellKnown.ui.visibility.mainSidebar.deviceProvisioning, wellKnown.ui.deviceProvisioningService),
+            snippetService: checkVisibility(wellKnown.ui.visibility.mainSidebar.snippetService, wellKnown.ui.snippetService),
         },
     },
 })
